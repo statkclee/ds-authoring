@@ -3,47 +3,40 @@
   <head>
     <meta charset="utf-8">
     <meta name="generator" content="pandoc">
-    <title>Software Carpentry: xwMOOC 딥러닝과 H_2 O</title>
-    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.css" />
-    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap-theme.css" />
-    <link rel="stylesheet" type="text/css" href="css/swc.css" />
-    <link rel="alternate" type="application/rss+xml" title="Software Carpentry Blog" href="http://software-carpentry.org/feed.xml"/>
-    <meta charset="UTF-8" />
-    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-      <script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    
-    
-    <!--
-    <div id="google_translate_element"></div><script type="text/javascript">
-    function googleTranslateElementInit() {
-      new google.translate.TranslateElement({pageLanguage: 'ko', includedLanguages: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
-    }
-    </script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <title>Software Carpentry: 데이터 과학을 위한 저작도구</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap-theme.css" />
+    <link rel="stylesheet" type="text/css" href="css/swc.css" />
+    <link rel="alternate" type="application/rss+xml" title="Software Carpentry Blog" href="http://software-carpentry.org/feed.xml"/>
+    <meta charset="UTF-8" />
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    
+    
+    <!--
+    <div id="google_translate_element"></div><script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({pageLanguage: 'ko', includedLanguages: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+    }
+    </script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     -->
   </head>
   <body class="lesson">
     <div class="container card">
-      <div class="banner">
-        <a href="http://software-carpentry.org" title="Software Carpentry">
-          <img alt="Software Carpentry banner" src="img/software-carpentry-banner.png" />
-        </a>
+      <div class="banner">
+        <a href="http://software-carpentry.org" title="Software Carpentry">
+          <img alt="Software Carpentry banner" src="img/software-carpentry-banner.png" />
+        </a>
       </div>
       <article>
       <div class="row">
         <div class="col-md-10 col-md-offset-1">
-                    <h1 class="title">xwMOOC 딥러닝과 <span class="math inline">\(H_2 O\)</span></h1>
-          <p>왜 지금 딥러닝이 각광받고 있는 이유가 뭘까? <a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a> 이 질문에 <a href="http://www.andrewng.org/">앤드류 응</a> 박사는 마치 로켓이 강력한 엔진과 더불어 어마어마한 연료를 갖추었기 때문이라고 설명한다. 강력한 엔진이 어떤 데이터도 학습할 수 있는 유연하고 파괴력있는 표현력이 강한 신경망이고, 어마어마한 연료가 빅데이터로 회자되는 풍부한 데이터다. 이를 계산할 수 있는 병렬컴퓨팅 기술이 합쳐져 인공지능 AI 혁명을 모두 지켜보고 있다.</p>
-<p><img src="fig/ear-of-dl.png" width="37%" /></p>
-<p>딥러닝을 뒷받침하고 있는 세가지 중요한 기술요소에는 <strong>빅데이터</strong>, <strong>깊은 신경망 모형</strong>, <strong>병렬 컴퓨팅</strong> 이 내포되어 있으며 이것중 하나도 빠지게 되면 오늘과 같은 변화와 혁신을 기대하기는 쉽지 않았을 것이다.</p>
-<p><img src="fig/three-pillars.png" width="57%" /></p>
-<p>특히, 데이터 폭증과 병렬컴퓨팅을 통해 강력한 연산 능력을 갖추게 되었지만, 이를 효과적으로 활용할 모형이 마땅치 않았으나 깊은 신경망을 모형을 통해 그동안 홀대 받았던 신경망 모형이 가장 인기있는 모형으로 자리잡게 되었다.</p>
-<p>전통 학습 모형은 작은 데이터에서 학습효과가 좋지만, 데이터가 많아져도 이를 반영한 성능은 나오지 않는다. 신경망 모형은 데이터 증가에 맞추어 표현력을 따라서 높이면 성능도 높일 수 있다. 하지만, 그에 따른 어마어마한 컴퓨팅 자원이 소요된다. 최근 클라우드와 더불어 고성능 컴퓨팅 HPC에 GPU를 도입해서 정말 상상도 못한 컴퓨팅 자원을 감당할만한 비용으로 이용가능한 세상이 되었다.</p>
-<p><img src="fig/dl-hpc-evolution.png" width="57%" /></p>
-<aside class="callout panel panel-info">
+                    <h1 class="title">데이터 과학을 위한 저작도구</h1>
+          <aside class="callout panel panel-info">
 <div class="panel-heading">
 <h3 id="ai-is-a-superpower"><span class="glyphicon glyphicon-pushpin"></span>AI is a Superpower</h3>
 </div>
@@ -52,46 +45,32 @@
 <p>금수저, 은수저 슈퍼파워를 받은 사람과 기계학습을 통달한 흑수저들간의 무한경쟁이 드뎌 시작되었다. 물론, 금수저를 입에 물고 기계학습을 통달한 사람이 가장 유리한 출발을 시작한 것도 사실이다.</p>
 </div>
 </aside>
-<h2 id="학습목차-jeff-dean-spark-2016-andrew-ng-spark-2016">학습목차 <a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a> <a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a></h2>
+<h2 id="학습목차">학습목차</h2>
 <ol style="list-style-type: decimal">
-<li><a href="why-dl.html">딥러닝이 주목받는 이유</a></li>
-<li>클라우드 API 활용 딥러닝 구현
+<li>환경설정</li>
+<li><a href="http://statkclee.github.io/modern-scientific-authoring/index-kr.html">현대적인 과학논문 저작</a>
 <ul>
-<li><a href="r-short-url.html">R 구글 url 축약-googleAuthR</a></li>
-<li><a href="r-ga.html">R 구글 애널리틱스(GA)-RGA</a></li>
-<li><strong>이미지</strong>
-<ul>
-<li><strong>구글</strong>
-<ul>
-<li><a href="r-google-vision-rooglevision.html">R 구글 클라우드 비젼 API-RoogleVision</a></li>
-<li><a href="r-google-vision-api.html">R 구글 클라우드 비젼 API</a></li>
-<li><a href="gc-vision.html">구글 클라우드 비젼 - 파이썬</a><br />
-</li>
+<li><a href="http://statkclee.github.io/modern-scientific-authoring/01-mess-kr.html">심각한 현재 상황</a></li>
+<li><a href="http://statkclee.github.io/modern-scientific-authoring/02-markdown-kr.html">마크다운 기초</a></li>
+<li><a href="http://statkclee.github.io/modern-scientific-authoring/03-advanced-kr.html">고급 마크다운</a></li>
 </ul></li>
-<li><strong>마이크로소프트</strong>
+<li><a href="latex.html">문서 프로그래밍 - 한글 LaTeX</a>
 <ul>
-<li><a href="ms-oxford-emotion.html">옥스포드 - 감정 API</a></li>
-<li><a href="ms-cognitive-text-sentiment.html">인지서비스(Cognitive Service) - 텍스트 감성분석</a></li>
-</ul></li>
-</ul></li>
-<li><strong>음성</strong>
-<ul>
-<li><a href="speech-api.html">음성 API</a></li>
-</ul></li>
-</ul></li>
-<li>자체 구축한 하드웨어 혹은 도커환경에 오픈소스 텐서플로우 적용</li>
-<li>기존 모형 아키텍쳐를 사용하고 데이터를 바꿔 재훈련 혹은 모수 조정</li>
-<li>완전 새로운 문제에 자체 기계학습 모형 개발</li>
-<li><a href="h20-arch.html"><span class="math inline">\(H_2 O\)</span> 기계학습</a>
-<ul>
-<li><a href="h2o-hello-world.html"><span class="math inline">\(H_2 O\)</span> 헬로 월드</a></li>
-<li><a href="h2o-ensemble-higgs.html"><span class="math inline">\(H_2 O\)</span> 앙상블 모형</a></li>
-<li><a href="h2o-gbm-titanic.html"><span class="math inline">\(H_2 O\)</span> GBM 모형 세부조정</a></li>
-<li><a href="h2o-deep-learning-landingclub.html"><span class="math inline">\(H_2 O\)</span> vs 딥러닝 랜딩클럽 대출 데이터</a></li>
-<li><a href="r-nnet.html">전통 R 신경망</a></li>
+<li><a href="latex-intro.html">한글 LaTeX 소개</a></li>
+<li><a href="latex-virtual.html">한글 LaTeX 설치환경 가상화</a></li>
+<li><a href="latex-utils.html">한글 LaTeX 편집기</a></li>
+<li><a href="latex-sphinx.html">파이썬 스핑크스</a></li>
 </ul></li>
 </ol>
-<h3 id="xwmooc-오픈-교재">xwMOOC 오픈 교재</h3>
+<section class="getready panel panel-warning">
+<div class="panel-heading">
+<h3 id="원문-출처-및-저작-라이선스"><span class="glyphicon glyphicon-check"></span>원문 출처 및 저작 라이선스</h3>
+</div>
+<div class="panel-body">
+<p>이 번역의 원작 “<a href="http://swcarpentry.github.io/modern-scientific-authoring/">Modern Scientific Authoring</a>”은 과학 컴퓨팅을 위한 소프트웨어 교육을 추진하는 <a href="http://software-carpentry.org/">소프트웨어 카펜트리</a> 재단에서 개발하여 공개한 교재에 영감을 받아 준비 되었다. 이 교재는 크리에이티브 커먼스(Creative Commons)의 저작자표시(BY, Attribution), 동일조건변경허락(SA, Share-Alike) 라이선스(https://creativecommons.org/licenses/by-sa/2.0/kr/](https://creativecommons.org/licenses/by-sa/2.0/kr/)를 준용합니다.</p>
+</div>
+</section>
+<h3 id="xwmooc-오픈-교재"><a href="https://statkclee.github.io/xwMOOC/">xwMOOC 오픈 교재</a></h3>
 <ul>
 <li><a href="http://unplugged.xwmooc.org">컴퓨터 과학 언플러그드</a><br />
 </li>
@@ -128,37 +107,29 @@
 <li><a href="http://sympy.xwmooc.org/">기호 수학(Symbolic Math)</a></li>
 <li><a href="http://politics.xwmooc.org/">선거와 투표</a></li>
 </ul>
-<div class="footnotes">
-<hr />
-<ol>
-<li id="fn1"><p><a href="https://www.youtube.com/watch?v=4eJhcxfYR4I">AI-The New Electricity</a><a href="#fnref1">↩</a></p></li>
-<li id="fn2"><p><a href="https://www.youtube.com/watch?v=XYwIDn00PAo">Large Scale Deep Learning with TensorFlow</a><a href="#fnref2">↩</a></p></li>
-<li id="fn3"><p><a href="https://www.youtube.com/watch?v=4eJhcxfYR4I">AI-The New Electricity</a><a href="#fnref3">↩</a></p></li>
-</ol>
-</div>
         </div>
       </div>
       </article>
-      <div class="footer">
-        <a class="label swc-blue-bg" href="http://software-carpentry.org">Software Carpentry</a>
-        <a class="label swc-blue-bg" href="https://github.com/swcarpentry/lesson-template">Source</a>
-        <a class="label swc-blue-bg" href="mailto:admin@software-carpentry.org">Contact</a>
-        <a class="label swc-blue-bg" href="LICENSE.html">License</a>
+      <div class="footer">
+        <a class="label swc-blue-bg" href="http://software-carpentry.org">Software Carpentry</a>
+        <a class="label swc-blue-bg" href="https://github.com/swcarpentry/lesson-template">Source</a>
+        <a class="label swc-blue-bg" href="mailto:admin@software-carpentry.org">Contact</a>
+        <a class="label swc-blue-bg" href="LICENSE.html">License</a>
       </div>
     </div>
-    <!-- Javascript placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script src="css/bootstrap/bootstrap-js/bootstrap.js"></script>
-    <script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-    
-      ga('create', 'UA-37305346-2', 'auto');
-      ga('send', 'pageview');
-    
+    <!-- Javascript placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="css/bootstrap/bootstrap-js/bootstrap.js"></script>
+    <script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    
+      ga('create', 'UA-37305346-2', 'auto');
+      ga('send', 'pageview');
+    
     </script>
   </body>
 </html>
