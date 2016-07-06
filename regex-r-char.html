@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="generator" content="pandoc">
-    <title>Software Carpentry: 데이터 과학을 위한 저작도구</title>
+    <title>Software Carpentry: 데이터 과학</title>
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.css" />
@@ -35,7 +35,7 @@
       <article>
       <div class="row">
         <div class="col-md-10 col-md-offset-1">
-                    <a href="index.html"><h1 class="title">데이터 과학을 위한 저작도구</h1></a>
+                    <a href="index.html"><h1 class="title">데이터 과학</h1></a>
           <h2 class="subtitle">R 정규표현식과 문자데이터</h2>
           <p><a href="regex-r.html">R 정규표현식</a>에서 정규표현식을 이해했으니, 이를 활용하여 텍스트 데이터를 R에서 처리해본다.</p>
 <h3 id="부---r-기초-문자열-처리-regex-intro-regex-r">1부 - R 기초 문자열 처리 <a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a> <a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a></h3>
@@ -388,7 +388,7 @@ pal &lt;-<span class="st"> </span><span class="kw">wes_palette</span>(<span clas
 word_counts %&gt;%
 <span class="st">    </span><span class="kw">top_n</span>(<span class="dv">50</span>) %&gt;%
 <span class="st">    </span><span class="kw">with</span>(<span class="kw">wordcloud</span>(word, count, <span class="dt">ordered.colors =</span> <span class="ot">TRUE</span>, <span class="dt">color =</span> pal, <span class="dt">use.r.layout =</span> <span class="ot">TRUE</span>))</code></pre></div>
-<p><img src="fig/unnamed-chunk-27-1.png" title="plot of chunk unnamed-chunk-27" alt="plot of chunk unnamed-chunk-27" style="display: block; margin: auto;" /></p>
+<p><img src="fig/regex-wordcloud-01-1.png" title="plot of chunk regex-wordcloud-01" alt="plot of chunk regex-wordcloud-01" style="display: block; margin: auto;" /></p>
 <p>방송사별로 쪼개서 트윗에 대한 단어 구름을 만들어 보자.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">news_clean_tweets &lt;-<span class="st"> </span>news_tweets
 news_clean_tweets$text &lt;-<span class="st"> </span>clean_tweets
@@ -412,7 +412,7 @@ for (i in <span class="dv">1</span>:<span class="dv">4</span>){
         <span class="kw">text</span>(<span class="dv">0</span>, <span class="fl">0.9</span>, words_df$user_name[i], <span class="dt">cex =</span> <span class="fl">1.5</span>, <span class="dt">adj =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">0</span>))
     
 }</code></pre></div>
-<p><img src="fig/unnamed-chunk-28-1.png" title="plot of chunk unnamed-chunk-28" alt="plot of chunk unnamed-chunk-28" style="display: block; margin: auto;" /></p>
+<p><img src="fig/regex-wordcloud-02-1.png" title="plot of chunk regex-wordcloud-02" alt="plot of chunk regex-wordcloud-02" style="display: block; margin: auto;" /></p>
 <h3 id="추가-학습교재">추가 학습교재</h3>
 <ul>
 <li><code>stringr</code> <a href="https://cran.r-project.org/web/packages/stringr/vignettes/stringr.html">소품문</a></li>

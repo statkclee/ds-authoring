@@ -1,6 +1,6 @@
 ---
 layout: page
-title: 데이터 과학을 위한 저작도구
+title: 데이터 과학
 subtitle: R 정규표현식
 output:
   html_document: 
@@ -9,6 +9,8 @@ output:
     latex_engine: xelatex
 mainfont: NanumGothic
 ---
+
+
 
 
 ### 학습 데이터 준비 [^regex-intro] [^regex-r] 
@@ -49,7 +51,8 @@ head(files)
 
 
 ~~~{.output}
-[1] "_includes" "_layouts"  "_site"     "AUTHORS"   "code"      "css"      
+[1] "_includes"       "_layouts"        "AUTHORS"         "code"           
+[5] "CONDUCT.md"      "CONTRIBUTING.md"
 
 ~~~
 
@@ -57,33 +60,19 @@ head(files)
 
 ~~~{.r}
 gDat <- read.delim("gapminderDataFiveYear.txt")
-~~~
-
-
-
-~~~{.output}
-Warning in file(file, "rt"): 파일 'gapminderDataFiveYear.txt'를 여는데 실패
-했습니다: No such file or directory
-
-~~~
-
-
-
-~~~{.output}
-Error in file(file, "rt"): 커넥션을 열 수 없습니다
-
-~~~
-
-
-
-~~~{.r}
 str(gDat)
 ~~~
 
 
 
 ~~~{.output}
-Error in str(gDat): 객체 'gDat'를 찾을 수 없습니다
+'data.frame':	1704 obs. of  6 variables:
+ $ country  : Factor w/ 142 levels "Afghanistan",..: 1 1 1 1 1 1 1 1 1 1 ...
+ $ year     : int  1952 1957 1962 1967 1972 1977 1982 1987 1992 1997 ...
+ $ pop      : num  8425333 9240934 10267083 11537966 13079460 ...
+ $ continent: Factor w/ 5 levels "Africa","Americas",..: 3 3 3 3 3 3 3 3 3 3 ...
+ $ lifeExp  : num  28.8 30.3 32 34 36.1 ...
+ $ gdpPercap: num  779 821 853 836 740 ...
 
 ~~~
 
@@ -102,8 +91,7 @@ grep("dplyr", files, value = TRUE)
 
 
 ~~~{.output}
-[1] "data-handling-dplyr.html" "data-handling-dplyr.md"  
-[3] "data-handling-dplyr.Rmd" 
+character(0)
 
 ~~~
 
@@ -116,7 +104,7 @@ grep("dplyr", files, value = FALSE)
 
 
 ~~~{.output}
-[1] 11 12 13
+integer(0)
 
 ~~~
 
@@ -129,20 +117,14 @@ grepl("dplyr", files)
 
 
 ~~~{.output}
-  [1] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE
- [12]  TRUE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
- [23] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
- [34] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
- [45] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
- [56] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
- [67] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
- [78] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
- [89] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-[100] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-[111] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-[122] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-[133] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-[144] FALSE FALSE FALSE FALSE
+ [1] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+[12] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+[23] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+[34] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+[45] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+[56] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+[67] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+[78] FALSE FALSE FALSE
 
 ~~~
 
@@ -186,7 +168,7 @@ grep('\'', levels(gDat$country), value = TRUE)
 
 
 ~~~{.output}
-Error in levels(gDat$country): 객체 'gDat'를 찾을 수 없습니다
+[1] "Cote d'Ivoire"
 
 ~~~
 
@@ -338,7 +320,7 @@ grep("ac{2,3}b", strings, value = TRUE)
 
 
 ~~~{.output}
-Error in levels(gDat$country): 객체 'gDat'를 찾을 수 없습니다
+[1] "Greece"
 
 ~~~
 
@@ -419,7 +401,7 @@ grep("\\bab", strings, value = TRUE)
 > 
 > 
 > ~~~{.output}
-> [1] "requirements.txt"
+> [1] "gapminderDataFiveYear.txt" "requirements.txt"         
 > 
 > ~~~
 
@@ -433,68 +415,107 @@ grep("\\bab", strings, value = TRUE)
   * `|`: "or" 또는 연산자. `|` 어느쪽이든 패턴을 매칭.  
   * `(...)`: 정규표현식에 있는 그룹연산자. 정규표현식으로 매칭된 부분을 나중에 불러올 수 있어서 추후 변경을 하거나 새로운 문자열을 만들어 내는데 사용할 수 있다. 각 그룹을 `\\N` 을 사용해서 참조할 수 있다. N은  `(...)` 에서 나온 번호에 해당되는 N 이다. 이것을 **역참조(backreference)**라고 부른다.
 
+
 ~~~{.r}
 (strings <- c("^ab", "ab", "abc", "abd", "abe", "ab 12"))
 ~~~
 
+
+
 ~~~{.output}
-[1] "^ab"   "ab"    "abc"   "abd"   "abe"   "ab 12"  
+[1] "^ab"   "ab"    "abc"   "abd"   "abe"   "ab 12"
+
 ~~~
+
+
 
 ~~~{.r}
 grep("ab.", strings, value = TRUE)
 ~~~
 
+
+
 ~~~{.output}
 [1] "abc"   "abd"   "abe"   "ab 12"
+
 ~~~
+
+
 
 ~~~{.r}
 grep("ab[c-e]", strings, value = TRUE)
 ~~~
 
+
+
 ~~~{.output}
 [1] "abc" "abd" "abe"
+
 ~~~
+
+
 
 ~~~{.r}
 grep("ab[^c]", strings, value = TRUE)
 ~~~
 
+
+
 ~~~{.output}
 [1] "abd"   "abe"   "ab 12"
+
 ~~~
+
+
 
 ~~~{.r}
 grep("^ab", strings, value = TRUE)
 ~~~
 
+
+
 ~~~{.output}
 [1] "ab"    "abc"   "abd"   "abe"   "ab 12"
+
 ~~~
+
+
 
 ~~~{.r}
 grep("\\^ab", strings, value = TRUE)
 ~~~
 
+
+
 ~~~{.output}
 [1] "^ab"
+
 ~~~
+
+
 
 ~~~{.r}
 grep("abc|abd", strings, value = TRUE)
 ~~~
 
+
+
 ~~~{.output}
 [1] "abc" "abd"
+
 ~~~
+
+
 
 ~~~{.r}
 gsub("(ab) 12", "\\1 34", strings)
 ~~~
 
+
+
 ~~~{.output}
 [1] "^ab"   "ab"    "abc"   "abd"   "abe"   "ab 34"
+
 ~~~
 
 > 도전과제 {.challenges}
@@ -503,14 +524,8 @@ gsub("(ab) 12", "\\1 34", strings)
 > 
 > 
 > ~~~{.output}
-> Error in levels(gDat$country): 객체 'gDat'를 찾을 수 없습니다
-> 
-> ~~~
-> 
-> 
-> 
-> ~~~{.output}
-> Error in grep("LAND", countries, value = TRUE): 객체 'countries'를 찾을 수 없습니다
+> [1] "FinLAND"     "IceLAND"     "IreLAND"     "SwaziLAND"   "SwitzerLAND"
+> [6] "ThaiLAND"   
 > 
 > ~~~
 
@@ -639,7 +654,7 @@ grep(pattern, strings, value = TRUE, ignore.case = TRUE)
 > 
 > 
 > ~~~{.output}
-> Error in levels(gDat$continent): 객체 'gDat'를 찾을 수 없습니다
+> [1] "Europe"  "Oceania"
 > 
 > ~~~
 
@@ -736,15 +751,10 @@ pattern <- "^block\\d{3}_.*dplyr-(.*)\\.rmd$"
 ~~~{.output}
      [,1] [,2]
 attr(,"na.action")
-  [1]   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17
- [18]  18  19  20  21  22  23  24  25  26  27  28  29  30  31  32  33  34
- [35]  35  36  37  38  39  40  41  42  43  44  45  46  47  48  49  50  51
- [52]  52  53  54  55  56  57  58  59  60  61  62  63  64  65  66  67  68
- [69]  69  70  71  72  73  74  75  76  77  78  79  80  81  82  83  84  85
- [86]  86  87  88  89  90  91  92  93  94  95  96  97  98  99 100 101 102
-[103] 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119
-[120] 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136
-[137] 137 138 139 140 141 142 143 144 145 146 147
+ [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23
+[24] 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46
+[47] 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69
+[70] 70 71 72 73 74 75 76 77 78 79 80
 attr(,"class")
 [1] "omit"
 
@@ -823,7 +833,7 @@ character(0)
 >
 > **힌트** : 파일명이 `peer-review`로 시작된다.
 > 
-
+> 
 
 ### 정규표현식과 쉘 글롭(glob)
 

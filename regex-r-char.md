@@ -1,6 +1,6 @@
 ---
 layout: page
-title: 데이터 과학을 위한 저작도구
+title: 데이터 과학
 subtitle: R 정규표현식과 문자데이터
 output:
   html_document: 
@@ -667,7 +667,7 @@ word_counts %>%
     with(wordcloud(word, count, ordered.colors = TRUE, color = pal, use.r.layout = TRUE))
 ~~~
 
-<img src="fig/unnamed-chunk-27-1.png" title="plot of chunk unnamed-chunk-27" alt="plot of chunk unnamed-chunk-27" style="display: block; margin: auto;" />
+<img src="fig/regex-wordcloud-01-1.png" title="plot of chunk regex-wordcloud-01" alt="plot of chunk regex-wordcloud-01" style="display: block; margin: auto;" />
 
 방송사별로 쪼개서 트윗에 대한 단어 구름을 만들어 보자.
 
@@ -697,7 +697,7 @@ for (i in 1:4){
 }
 ~~~
 
-<img src="fig/unnamed-chunk-28-1.png" title="plot of chunk unnamed-chunk-28" alt="plot of chunk unnamed-chunk-28" style="display: block; margin: auto;" />
+<img src="fig/regex-wordcloud-02-1.png" title="plot of chunk regex-wordcloud-02" alt="plot of chunk regex-wordcloud-02" style="display: block; margin: auto;" />
 
 ### 추가 학습교재
 
