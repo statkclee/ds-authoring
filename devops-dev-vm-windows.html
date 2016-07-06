@@ -42,6 +42,7 @@
 <ul>
 <li>윈도우 정적 웹콘텐츠 개발 툴체인(Tool Chain)을 이해한다.</li>
 <li>윈도우 정적 웹콘테츠 개발 가상컴퓨터 환경을 구축한다.</li>
+<li>소프트웨어 카펜트리 마크다운 콘텐츠를 HTML로 컴파일 한다.</li>
 </ul>
 </blockquote>
 <h2 id="윈도우-정적-웹콘텐츠-제작-툴체인tool-chain">윈도우 정적 웹콘텐츠 제작 툴체인(Tool Chain)</h2>
@@ -53,7 +54,7 @@
 |           |           |          |           |           |           | kramdown      | 
 +-----------+           +----------+           +-----------+           +---------------+ 
                                                     ^
-Document Converter                                  |
+ 문서 변환기                                        |
 +-----------+                                       |
 |           |                                       |
 | Pandoc    |----------------------------------------
@@ -65,20 +66,20 @@ Document Converter                                  |
 </div>
 <div class="panel-body">
 <ul>
-<li>RVM(Ruby Version Manager) : 루비 버젼 관리자</li>
-<li>팬독(Pandoc) : 마크다운 문서 변환 소프트웨어</li>
-<li>루비(Ruby) : 마츠모토 유키히로가 개발한 동적 객체 지향 스크립트 프로그래밍 언어.</li>
-<li>제킬(Jekyll) : GitHub 공동 창업자 Tom Preston-Werner이 루비로 작성한 단순하며, 블로그-인식, 정적사이트 생성 프로그램.</li>
-<li>therubyracer : 루비 언어내에서 V8 자바스크립트 인터프리터를 내장. NodeJS 대신 경량화된 자바스크립트 인터프리터로 사용.</li>
-<li>pandocfilters : pandoc 필터를 작성하는 파이썬 모듈. pandoc 필터는 파이프로 JSON을 받아 변환하여 출력한다.</li>
-<li>kramdown : 루비로 작성된 마크다운 변환기</li>
+<li><strong>RVM(Ruby Version Manager)</strong> : 루비 버젼 관리자</li>
+<li><strong>팬독(Pandoc)</strong> : 마크다운 문서 변환 소프트웨어</li>
+<li><strong>루비(Ruby)</strong> : 마츠모토 유키히로가 개발한 동적 객체 지향 스크립트 프로그래밍 언어.</li>
+<li><strong>제킬(Jekyll)</strong> : GitHub 공동 창업자 Tom Preston-Werner이 루비로 작성한 단순하며, 블로그-인식, 정적사이트 생성 프로그램.</li>
+<li><strong>therubyracer</strong> : 루비 언어내에서 V8 자바스크립트 인터프리터를 내장. NodeJS 대신 경량화된 자바스크립트 인터프리터로 사용.</li>
+<li><strong>pandocfilters</strong> : pandoc 필터를 작성하는 파이썬 모듈. pandoc 필터는 파이프로 JSON을 받아 변환하여 출력한다.</li>
+<li><strong>kramdown</strong> : 루비로 작성된 마크다운 변환기</li>
 </ul>
 </div>
 </aside>
 <ul>
-<li><a href="http://pandoc.org/installing.html">팬독(pandoc)</a></li>
-<li><a href="http://rubyinstaller.org/downloads/">루비 설치하기</a></li>
-<li><a href="https://jekyllrb.com/docs/windows/">제킬(Jekyll) 설치하기</a>
+<li><a href="http://pandoc.org/installing.html">팬독(pandoc) 설치</a></li>
+<li><a href="http://rubyinstaller.org/downloads/">루비 설치</a></li>
+<li><a href="https://jekyllrb.com/docs/windows/">제킬(Jekyll) 설치</a>
 <ul>
 <li><a href="https://chocolatey.org/install">Chocolatey</a> 설치</li>
 <li>Chocolatey 경유 루비 설치 : <code>choco install ruby -y</code></li>
@@ -93,6 +94,8 @@ Document Converter                                  |
 </ul></li>
 <li>두번째 방법
 <ul>
+<li>Git Bash Windows 대신 <code>msysGit 전체 버젼</code> 1.9X 버젼을 사용한다.<br />
+</li>
 <li>msysGit 전체 버젼을 설치 : <a href="https://github.com/msysgit/msysgit/releases">net installer</a></li>
 </ul></li>
 </ul></li>
@@ -107,9 +110,22 @@ Document Converter                                  |
 </ul></li>
 <li><code>easy_install-2.7 pip</code> 명령어로 <code>pip</code>를 설치한다.</li>
 <li><code>python -m pip install --upgrade pip</code> 명령어로 <code>pip</code> 최신 버젼으로 올린다.</li>
-<li><code>pip install pandocfilters</code> 명령어로 <code>pandocfilters</code> 를 마지막으로 설치한다.</li>
+<li><code>pip install pandocfilters</code> 명령어로 <code>pandocfilters</code>를 마지막으로 설치한다.</li>
 </ul></li>
 </ul>
+<pre class="shell"><code>$ git clone -b gh-pages https://github.com/statkclee/ds-authoring.git
+$ cd ds-authoring
+$ make preview</code></pre>
+<pre class="output"><code>pandoc -s -t html \
+    --smart \
+    --mathjax \
+    --template=_layouts/page \
+    --filter=tools/filters/blockquote2div.py \
+    --filter=tools/filters/id4glossary.py \
+    -Vheader=&quot;$(cat _includes/header.html)&quot; -Vbanner=&quot;$(cat _includes/banner.htm
+l)&quot; -Vfooter=&quot;$(cat _includes/footer.html)&quot; -Vjavascript=&quot;$(cat _includes/javasc
+ript.html)&quot; \
+    -o index.html index.md</code></pre>
 <div class="footnotes">
 <hr />
 <ol>
