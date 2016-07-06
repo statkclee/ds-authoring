@@ -39,7 +39,6 @@ Package Manager         Language               Webpage Reuse           Plugins (
 > * **[Chocolatey](https://chocolatey.org/)** : 윈도우즈 팩키지 관리자
 > * **루비(Ruby)** : 마츠모토 유키히로가 개발한 동적 객체 지향 스크립트 프로그래밍 언어.
 > * **제킬(Jekyll)** : GitHub 공동 창업자 Tom Preston-Werner이 루비로 작성한 단순하며, 블로그-인식, 정적사이트 생성 프로그램.
-> * **therubyracer** : 루비 언어내에서 V8 자바스크립트 인터프리터를 내장. NodeJS 대신 경량화된 자바스크립트 인터프리터로 사용.
 > * **pandocfilters** : pandoc 필터를 작성하는 파이썬 모듈. pandoc 필터는 파이프로 JSON을 받아 변환하여 출력한다.
 > * **kramdown** : 루비로 작성된 마크다운 변환기
 
@@ -56,14 +55,13 @@ Package Manager         Language               Webpage Reuse           Plugins (
 이전 msysGit [net installer](https://github.com/msysgit/msysgit/releases) 버전 전체를 설치하는 방법이 있다.
 
 * [팬독(pandoc) 설치](http://pandoc.org/installing.html)
-* [루비 설치](http://rubyinstaller.org/downloads/)
 * [제킬(Jekyll) 설치](https://jekyllrb.com/docs/windows/)
     * [Chocolatey](https://chocolatey.org/install) 설치
-    * Chocolatey 경유 루비 설치 : `choco install ruby -y`
-    * 제킬 설치 : `gem install jekyll`
-* Git Bash Make
+    * Chocolatey 경유 [루비](http://rubyinstaller.org/downloads/) 설치 : `choco install ruby -y`
+    * [제킬(Jekyll)](https://jekyllrb.com/) 설치 : `gem install jekyll`
+* [Git Bash](https://git-for-windows.github.io/) Make
     * 첫번째 방법 
-        * make 다운로드 : https://github.com/msysgit/msysgit/blob/master/bin/make.exe?raw=true 
+        * make 다운로드 : [https://github.com/msysgit/msysgit/blob/master/bin/make.exe?raw=true](https://github.com/msysgit/msysgit/blob/master/bin/make.exe?raw=true)
         * Git bash 설치된 `bin` 디렉토리 복사해서 저장
     * 두번째 방법
         * Git Bash Windows 대신 `msysGit 전체 버젼` 1.9X 버젼을 사용한다.    
