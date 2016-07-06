@@ -5,9 +5,9 @@ subtitle: 데브옵스(DevOps, 개발운영)
 minutes: 10
 ---
 
-> ## 학습 목표
+> ## 학습 목표 {.objectives}
 >
-> *   GitHub SSH 접속한다.
+> * GitHub SSH 접속한다.
 
 
 ## GitHub SSH 연결 설정

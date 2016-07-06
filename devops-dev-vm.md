@@ -2,14 +2,13 @@
 layout: page
 title: 데이터 과학을 위한 저작도구
 subtitle: 정적 웹콘텐츠 개발 가상서버 구축
-minutes: 10
 ---
-> ## 학습 목표
+
+> ## 학습 목표 {.objectives}
 >
 > *  정적 웹콘텐츠 개발 툴체인(Tool Chain)을 이해한다. 
 > *  정적 웹콘테츠 개발 가상컴퓨터 환경을 구축한다.
 > *  우분투 경로명 환경설정을 이해한다.
-
 
 ## 정적 웹콘텐츠 제작 툴체인(Tool Chain)
 
@@ -32,16 +31,18 @@ Document Converter                                  |
 +-----------+          
 ~~~
 
-- RVM(Ruby Version Manager) : 루비 버젼 관리자 
-- 팬독(Pandoc) : 마크다운 문서 변환 소프트웨어
-- 루비(Ruby) : 마츠모토 유키히로가 개발한 동적 객체 지향 스크립트 프로그래밍 언어.
-- 제킬(Jekyll) : GitHub 공동 창업자 Tom Preston-Werner이 루비로 작성한 단순하며, 블로그-인식, 정적사이트 생성 프로그램.
-- therubyracer : 루비 언어내에서 V8 자바스크립트 인터프리터를 내장. NodeJS 대신 경량화된 자바스크립트 인터프리터로 사용.
-- pandocfilters : pandoc 필터를 작성하는 파이썬 모듈. pandoc 필터는 파이프로 JSON을 받아 변환하여 출력한다.
-- kramdown : 루비로 작성된 마크다운 변환기
+> ### 설치가 필요한 소프트웨어 {.callout}
+> 
+> * RVM(Ruby Version Manager) : 루비 버젼 관리자 
+> * 팬독(Pandoc) : 마크다운 문서 변환 소프트웨어
+> * 루비(Ruby) : 마츠모토 유키히로가 개발한 동적 객체 지향 스크립트 프로그래밍 언어.
+> * 제킬(Jekyll) : GitHub 공동 창업자 Tom Preston-Werner이 루비로 작성한 단순하며, 블로그-인식, 정적사이트 생성 프로그램.
+> * therubyracer : 루비 언어내에서 V8 자바스크립트 인터프리터를 내장. NodeJS 대신 경량화된 자바스크립트 인터프리터로 사용.
+> * pandocfilters : pandoc 필터를 작성하는 파이썬 모듈. pandoc 필터는 파이프로 JSON을 받아 변환하여 출력한다.
+> * kramdown : 루비로 작성된 마크다운 변환기
 
+<img src="fig/dev-vm-software-stack.png" alt="정적 웹콘텐츠 개발 툴체인" width="70%" />
 
-![정적 웹콘텐츠 개발 툴체인](fig/dev-vm-software-stack.png)
 
 ### 1. 팬독(Pandoc) 설치
 
@@ -208,9 +209,10 @@ s/javascript.html)" \
 
 제킬을 이용하여 서비스로 사용할 정적 웹콘텐츠를 `/var/www/html/`에 생성하자.
 
-~~~ {.input}
-root@std-ubuntu:~/lesson-example# jekyll build -d /var/www/html/
+~~~ {.shell}
+root@std-ubuntu:~/lesson-example # jekyll build -d /var/www/html/
 ~~~
+
 
 ~~~ {.output}
 Configuration file: none
@@ -219,9 +221,9 @@ Configuration file: none
       Generating...
                     done.
  Auto-regeneration: disabled. Use --watch to enable.
- ~~~
+~~~
 
-![정적 웹콘텐츠 개발 스택 테스트 웹페이지](fig/dev-vm-test-page.png)
+<img src="fig/dev-vm-test-page.png" alt="정적 웹콘텐츠 개발 스택 테스트 웹페이지" width="70%" />
 
 
 ## 5. 우분투 경로명 환경 설정
