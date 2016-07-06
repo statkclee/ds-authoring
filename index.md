@@ -29,7 +29,8 @@ title: 데이터 과학을 위한 저작도구
     * [한글 LaTeX 편집기](latex-utils.html)
     * [파이썬 스핑크스](latex-sphinx.html)
 1. [파이썬 빌드 doit](doit-index.html)
-    * [doit 시작하기](doit_basics.html)
+    * [doit 설치하기](doit-install.html)
+    * [doit 시작하기](doit-basics.html)
     * [부작업(Sub-tasks)](doit-sub_tasks.html)
     * [분석결과가 최신상태인지 점검하기](doit-uptodate.html)
 

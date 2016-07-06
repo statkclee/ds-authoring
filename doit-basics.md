@@ -14,12 +14,12 @@ subtitle: 파이썬 빌드 doit - "doit"으로 작업 자동화
 고급 사용법에 관심있는 사람을 위한 매우 훌륭한 [문서(documentation)](http://pydoit.org/contents.html)도
 준비되어 있다.
 
-### 학습목표:
-
-- 의존성(dependency)와 대상(target) 간 차이를 설명한다.
-- 순서를 결정해서, doit이 일련의 작업을 실행하게 한다.
-- doit 작업 정의단계에서 자동변수(automatic variable)가 반복을 줄이는 방법을 설명한다.
-- 간단한 doit 작업 환경설정 파일을 작성한다.
+> ### 학습목표 {.objectives}
+> 
+> - 의존성(dependency)와 대상(target) 간 차이를 설명한다.
+> - 순서를 결정해서, doit이 일련의 작업을 실행하게 한다.
+> - doit 작업 정의단계에서 자동변수(automatic variable)가 반복을 줄이는 방법을 설명한다.
+> - 간단한 doit 작업 환경설정 파일을 작성한다.
 
 ## 기초 doit 파일
 

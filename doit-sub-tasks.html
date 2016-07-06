@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="generator" content="pandoc">
+    <title>Software Carpentry: 데이터 과학을 위한 저작도구</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap-theme.css" />
+    <link rel="stylesheet" type="text/css" href="css/swc.css" />
+    <link rel="alternate" type="application/rss+xml" title="Software Carpentry Blog" href="http://software-carpentry.org/feed.xml"/>
+    <meta charset="UTF-8" />
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    
+    
+    <!--
+    <div id="google_translate_element"></div><script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({pageLanguage: 'ko', includedLanguages: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+    }
+    </script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    -->
+  </head>
+  <body class="lesson">
+    <div class="container card">
+      <div class="banner">
+        <a href="http://software-carpentry.org" title="Software Carpentry">
+          <img alt="Software Carpentry banner" src="img/software-carpentry-banner.png" />
+        </a>
+      </div>
+      <article>
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+                    <a href="index.html"><h1 class="title">데이터 과학을 위한 저작도구</h1></a>
+          <h2 class="subtitle">파이썬 빌드 doit - 부작업을 사용해서 비슷한 유형 작업 정의하기</h2>
+          <h2 id="부작업을-사용해서-비슷한-유형-작업-정의하기">부작업을 사용해서 비슷한 유형 작업 정의하기</h2>
+<section class="objectives panel panel-warning">
+<div class="panel-heading">
+<h2 id="학습목표"><span class="glyphicon glyphicon-certificate"></span>학습목표</h2>
+</div>
+<div class="panel-body">
+<ul>
+<li>부과업(sub-task) 그룹 생성하는 방법을 설명한다.</li>
+<li>부과업 정의에 어떤 추가 환경설정이 필요한지 설명한다.</li>
+<li>현재 작업을 개조해서 부과업 생성기로 변환한다.</li>
+</ul>
+</div>
+</section>
+<p>지난번 학습에서 생성한 <code>doit</code> 파일을 다른 관점으로 살펴보자.</p>
+<pre class="input"><code>    %load_ext doitmagic
+
+    # automatic_variables.py
+    
+    def task_reformat_temperature_data():
+        &quot;&quot;&quot;Reformats the raw temperature data file for easier analysis&quot;&quot;&quot;
+        
+        return {
+            &#39;actions&#39;: [&#39;python reformat_weather_data.py %(dependencies)s &gt; %(targets)s&#39;],
+            &#39;file_dep&#39;: [&#39;UK_Tmean_data.txt&#39;],
+            &#39;targets&#39;: [&#39;UK_Tmean_data.reformatted.txt&#39;],
+        }
+    
+    def task_reformat_sunshine_data():
+        &quot;&quot;&quot;Reformats the raw sunshine data file for easier analysis&quot;&quot;&quot;
+        
+        return {
+            &#39;actions&#39;: [&#39;python reformat_weather_data.py %(dependencies)s &gt; %(targets)s&#39;],
+            &#39;file_dep&#39;: [&#39;UK_Sunshine_data.txt&#39;],
+            &#39;targets&#39;: [&#39;UK_Sunshine_data.reformatted.txt&#39;],
+        }
+
+    -- reformat_temperature_data
+    -- reformat_sunshine_data</code></pre>
+<p>두작업은 모두 동일한 동작을 공유하지만, 의존성과 대상만 다르다는 차이점을 알아차렸다.</p>
+<p>매우 유사한 수많은 작업을 실행할 때, <code>부과업(sub-tasks)</code>이라는 <code>doit</code> 기능을 사용할 수 있다.</p>
+<pre class="{.input|"><code>    # sub_tasks.py
+    
+    data_sets = [&#39;Tmean&#39;, &#39;Sunshine&#39;]
+    
+    def task_reformat_data():
+        &quot;&quot;&quot;Reformats all raw files for easier analysis&quot;&quot;&quot;
+    
+        for data_type in data_sets:
+            yield {
+                &#39;actions&#39;: [&#39;python reformat_weather_data.py %(dependencies)s &gt; %(targets)s&#39;],
+                &#39;file_dep&#39;: [&#39;UK_{}_data.txt&#39;.format(data_type)],
+                &#39;targets&#39;: [&#39;UK_{}_data.reformatted.txt&#39;.format(data_type)],
+                &#39;name&#39;: &#39;UK_{}_data.txt&#39;.format(data_type),
+            }
+        
+
+    -- reformat_data:UK_Sunshine_data.txt
+    .  reformat_data:UK_Tmean_data.txt</code></pre>
+<p>상기 예제에서, 작업을 정의하는 함수는 작업하나도 반환하지 않는다. 대신에, 파이썬 생성기 객체를 반환한다. 파이썬 생성기 객체는 많은 부과업을 반환한다. 파이썬 생성기(generator)를 들어봤는가?</p>
+<p>만약 그렇지 않다면, 다음에 작은 데모시연이 있다.</p>
+<pre class="input"><code>    def not_a_generator():
+        for i in range(5):
+            return i
+        
+    not_a_generator()</code></pre>
+<pre class="outpu"><code>    0</code></pre>
+<pre class="input"><code>    def is_a_generator():
+        for i in range(5):
+            yield i
+            
+    is_a_generator()</code></pre>
+<pre class="output"><code>
+    &lt;generator object is_a_generator at 0x3052780&gt;</code></pre>
+<pre class="input"><code>    def is_a_generator():
+        for i in range(5):
+            yield i
+            
+    g = is_a_generator()
+    
+    for x in g:
+        print x</code></pre>
+<pre class="output"><code>    0
+    1
+    2
+    3
+    4</code></pre>
+<p>이번 학습에서 생성기에 관해서 매우 자세하게 다루지를 않을 것이다. 하지만, 기억해야되는 핵심적인 사항은 함수는 <code>return</code>을 사용해서 단일 출력결과를 반환한다. 반면에 생성기는 <code>yield</code>를 사용해서 순차적으로 출력 시퀀스를 반환한다. <code>doit</code>이 작업 딕셔너리를 산출하는 생성기를 발견하면, 일련의 부과업을 생성한다.</p>
+<p>다시 파일 출력결과를 살펴보자. 신규 생성기로 생성된 모든 작업은 동일한 명칭으로 시작한다: <code>reformat_data</code>, 이 명칭은 생성기 이름에서부터 가져왔다. 이 다음에 <code>basename</code>로 불리는데, 콜론다음에 부과업 명칭이 따라온다. 작업 딕셔너리 <code>name</code> 키를 설정해서 명시적으로 각 부과업 명칭을 부여한 것에 주목한다.</p>
+<p>만약 부과업 명칭을 설정하지 않는다면 무슨 일이 발생할까?</p>
+<pre class="input"><code>    # sub_tasks_no_name.py
+    
+    data_sets = [&#39;Tmean&#39;, &#39;Sunshine&#39;]
+    
+    def task_reformat_data():
+        &quot;&quot;&quot;Reformats all raw files for easier analysis&quot;&quot;&quot;
+    
+        for data_type in data_sets:
+            yield {
+                &#39;actions&#39;: [&#39;python reformat_weather_data.py %(dependencies)s &gt; %(targets)s&#39;],
+                &#39;file_dep&#39;: [&#39;UK_{}_data.txt&#39;.format(data_type)],
+                &#39;targets&#39;: [&#39;UK_{}_data.reformatted.txt&#39;.format(data_type)],
+            }</code></pre>
+<pre class="error"><code>    ERROR: Task &#39;reformat_data&#39; must contain field &#39;name&#39; or &#39;basename&#39;. {&#39;file_dep&#39;: [&#39;UK_Tmean_data.txt&#39;], &#39;targets&#39;: [&#39;UK_Tmean_data.reformatted.txt&#39;], &#39;actions&#39;: [&#39;python reformat_weather_data.py %(dependencies)s &gt; %(targets)s&#39;]}</code></pre>
+<p>작업 명칭을 정의해야만 한다고 <code>Doit</code>이 알려준다. 이유는 작업이 직접적으로 다른 작업에 의존할 수 있기 때문이다. 그래서 각 작업은 유일한 명칭을 가져야만하고, 그럼으로써 의존성으로 참조될 수 있다.</p>
+<p>이제 다시 형식이 바뀐 데이터를 살펴보자.</p>
+<pre class="input"><code>    !tail UK_Tmean_data.reformatted.txt</code></pre>
+<pre class="output"><code>    2012-03-01,6.4
+    2012-04-01,8.3
+    2012-05-01,11.3
+    2012-06-01,13.7
+    2012-07-01,15.7
+    2012-08-01,15.7
+    2012-09-01,13.3
+    2012-10-01,10.5
+    2012-11-01,7.0
+    2012-12-01,5.3</code></pre>
+<p>파일에서 마지막 데이터 관측점이 2012년 12월에서 나왔다. 그래서 아마도 다시 원데이터를 다운로드해야한다. 이러한 유형의 작업이 많이 하기보다는 아마도 결국 그만두어야되는 작업이다. 그래서 <code>doit</code>이 처리하도록 한다:</p>
+<pre class="input"><code>    # download_temp_data.py
+    
+    import datetime
+    from doit.tools import timeout 
+    
+    data_sets = [&#39;Tmean&#39;, &#39;Sunshine&#39;]
+    
+    def task_get_temp_data():
+        &quot;&quot;&quot;Downloads the raw temperature data from the Met Office&quot;&quot;&quot;
+    
+        return {
+            &#39;actions&#39;: [&#39;wget -O %(targets)s http://www.metoffice.gov.uk/climate/uk/datasets/Tmean/ranked/UK.txt&#39;],
+            &#39;targets&#39;: [&#39;UK_Tmean_data.txt&#39;],
+        }
+    
+    def task_reformat_data():
+        &quot;&quot;&quot;Reformats all raw files for easier analysis&quot;&quot;&quot;
+    
+        for data_type in data_sets:
+            yield {
+                &#39;actions&#39;: [&#39;python reformat_weather_data.py %(dependencies)s &gt; %(targets)s&#39;],
+                &#39;file_dep&#39;: [&#39;UK_{}_data.txt&#39;.format(data_type)],
+                &#39;targets&#39;: [&#39;UK_{}_data.reformatted.txt&#39;.format(data_type)],
+                &#39;name&#39;: &#39;UK_{}_data.txt&#39;.format(data_type),
+            }</code></pre>
+<pre class="output"><code>    .  get_temp_data
+    -- reformat_data:UK_Sunshine_data.txt
+    .  reformat_data:UK_Tmean_data.txt
+
+    --2014-04-05 12:08:16--  http://www.metoffice.gov.uk/climate/uk/datasets/Tmean/ranked/UK.txt
+    Resolving www.metoffice.gov.uk (www.metoffice.gov.uk)... 23.63.99.234, 23.63.99.216
+    Connecting to www.metoffice.gov.uk (www.metoffice.gov.uk)|23.63.99.234|:80... connected.
+    HTTP request sent, awaiting response... 200 OK
+    Length: 25576 (25K) [text/plain]
+    Saving to: ‘UK_Tmean_data.txt’
+    
+         0K .......... .......... ....                            100% 2.15M=0.01s
+    
+    2014-04-05 12:08:16 (2.15 MB/s) - ‘UK_Tmean_data.txt’ saved [25576/25576]</code></pre>
+<p>영국 기상청 웹사이트에서 기온 데이터 최신 버젼을 다운로드하는 새로운 작업을 추가해서, <code>doit</code>이 지시작업을 따라서 파일을 다운로드한다. 그리고나서 데이터 형식을 바꾸는 작업으로 진행된다. 일조시간 데이터는 변경된 것이 없어서, 형식이 다시 바뀌지 않는다. 하지만, 평균 기온 파일 새버젼이 나와서, <code>doit</code>이 자동으로 <code>UK_Tmean_data.reformatted.txt</code> 파일을 다시 생성했다.</p>
+<pre class="input"><code>    !tail UK_Tmean_data.reformatted.txt</code></pre>
+<pre class="output"><code>    2013-03-01,5.1
+    2013-04-01,7.0
+    2013-05-01,10.0
+    2013-06-01,12.8
+    2013-07-01,14.5
+    2013-08-01,14.4
+    2013-09-01,12.4
+    2013-10-01,9.2
+    2013-11-01,5.7
+    2013-12-01,3.9</code></pre>
+<p>이제 데이터에 2013년부터 모든 정보가 담겨졌다.</p>
+<h3 id="도전과제">도전과제:</h3>
+<p>기온과 일조시간 데이터 모두를 다운로드하는데 부과업을 사용해서 <code>download_temp_data.py</code> 파일을 편집하라.</p>
+        </div>
+      </div>
+      </article>
+      <div class="footer">
+        <a class="label swc-blue-bg" href="http://software-carpentry.org">Software Carpentry</a>
+        <a class="label swc-blue-bg" href="https://github.com/swcarpentry/lesson-template">Source</a>
+        <a class="label swc-blue-bg" href="mailto:admin@software-carpentry.org">Contact</a>
+        <a class="label swc-blue-bg" href="LICENSE.html">License</a>
+      </div>
+    </div>
+    <!-- Javascript placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="css/bootstrap/bootstrap-js/bootstrap.js"></script>
+    <script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    
+      ga('create', 'UA-37305346-2', 'auto');
+      ga('send', 'pageview');
+    
+    </script>
+  </body>
+</html>

@@ -17,11 +17,11 @@ subtitle: doit을 이용한 분석 파이프라인 자동화
 가장 대중적인 빌드 도구는 `Make`다. `Make`와 `doit` 비교는 [Make와 doit 비교](doit-make-vs-doit.html)을 참조 바란다. 
 
 
-### 학습목차
-
-1. [doit 설치](doit-practice.html)
-1. [doit 시작하기](doit-basics.html)
-1. [부작업(Sub-tasks)](doit-sub-tasks.html)
-1. [분석결과가 최신상태인지 점검하기](doit-uptodate.html)
+> ### 학습목차 {.objectives}
+> 
+> 1. [doit 설치](doit-install.html)
+> 1. [doit 시작하기](doit-basics.html)
+> 1. [부작업(Sub-tasks)](doit-sub-tasks.html)
+> 1. [분석결과가 최신상태인지 점검하기](doit-uptodate.html)
 
 

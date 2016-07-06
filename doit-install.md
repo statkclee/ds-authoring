@@ -1,12 +1,13 @@
 ---
 layout: page
 title: 데이터 과학을 위한 저작도구
-subtitle: 파이썬 doit 실습
+subtitle: 파이썬 doit 설치
 minutes: 10
 ---
-> ## 학습 목표
+
+> ## 학습 목표 {.objectives}
 >
-> *   파이썬 doit을 설치한다.
+> *   파이썬 `doit` 을 설치한다.
 
 
 ## 파이썬 아나콘다 통한 `doit` 설치
