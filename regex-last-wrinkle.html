@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="generator" content="pandoc">
+    <title>Software Carpentry: 데이터 과학을 위한 저작도구</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap-theme.css" />
+    <link rel="stylesheet" type="text/css" href="css/swc.css" />
+    <link rel="alternate" type="application/rss+xml" title="Software Carpentry Blog" href="http://software-carpentry.org/feed.xml"/>
+    <meta charset="UTF-8" />
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    
+    
+    <!--
+    <div id="google_translate_element"></div><script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({pageLanguage: 'ko', includedLanguages: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+    }
+    </script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    -->
+  </head>
+  <body class="lesson">
+    <div class="container card">
+      <div class="banner">
+        <a href="http://software-carpentry.org" title="Software Carpentry">
+          <img alt="Software Carpentry banner" src="img/software-carpentry-banner.png" />
+        </a>
+      </div>
+      <article>
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+                    <a href="index.html"><h1 class="title">데이터 과학을 위한 저작도구</h1></a>
+          <h2 class="subtitle">참고문헌 사례</h2>
+          <h3 id="마지막-마무리">마지막 마무리</h3>
+<p>Notebook 파일에서 데이터를 추출하는데 사용한 함수를 마지막으로 한번 더 살펴보자.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> get_date(record):
+    <span class="co">&#39;&#39;&#39;Return (Y, M, D) as strings, or None.&#39;&#39;&#39;</span>
+
+    <span class="co"># 2010-01-01</span>
+    m <span class="op">=</span> re.search(<span class="st">&#39;([0-9]</span><span class="sc">{4}</span><span class="st">)-([0-9]</span><span class="sc">{2}</span><span class="st">)-([0-9]</span><span class="sc">{2}</span><span class="st">)&#39;</span>,
+                  record)
+    <span class="cf">if</span> m:
+        <span class="cf">return</span> m.group(<span class="dv">1</span>), m.group(<span class="dv">2</span>), m.group(<span class="dv">3</span>)
+
+    <span class="co"># Jan 1, 2010 (comma optional, day may be 1 or 2 digits)</span>
+    m <span class="op">=</span> re.search(<span class="st">&#39;/([A-Z][a-z]+) ([0-9]{1,2}),? ([0-9]</span><span class="sc">{4}</span><span class="st">)/&#39;</span>,
+                  record)
+    <span class="cf">if</span> m:
+        <span class="cf">return</span> m.group(<span class="dv">3</span>), m.group(<span class="dv">1</span>), m.group(<span class="dv">2</span>)
+
+    <span class="cf">return</span> <span class="va">None</span></code></pre></div>
+<p>패턴을 더 선언적으로 만듦으로써 함수에 신규 패턴 추가를 더 쉽게 만들 수 있다. 사용할 기법은 정규표현식을 반환할 그룹집단 ID와 결합하는 것이다:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> get_fields(record):
+    <span class="co">&#39;&#39;&#39;Return (Y, M, D, site, reading) or None.&#39;&#39;&#39;</span>
+
+    patterns <span class="op">=</span> [
+      [<span class="st">&#39;(.+)</span><span class="ch">\t</span><span class="st">([0-9]</span><span class="sc">{4}</span><span class="st">)-([0-9]</span><span class="sc">{2}</span><span class="st">)-([0-9]</span><span class="sc">{2}</span><span class="st">)</span><span class="ch">\t</span><span class="st">(.+)&#39;</span>,      <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">5</span>],
+      [<span class="st">&#39;(.+)/([A-Z][a-z]+) ([0-9]{1,2}),? ([0-9]</span><span class="sc">{4}</span><span class="st">)/(.+)&#39;</span>, <span class="dv">4</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">5</span>]
+    ]
+    <span class="cf">for</span> pattern, year, month, day, site, reading <span class="op">in</span> patterns:
+        m <span class="op">=</span> re.search(pattern, record)
+        <span class="cf">if</span> m:
+           <span class="cf">return</span> m.group(year), m.group(month), m.group(day),
+                  m.group(site), m.group(reading)
+
+    <span class="cf">return</span> <span class="va">None</span></code></pre></div>
+<p>리스트 <code>patterns</code> 에 각 항목은 두 부분을 갖추고 있다: 정규표현식과 패턴이 매칭되면 년, 월, 일, 장소명, 측정값을 담게되는 그룹집단 인덱스. 루프는 <code>patterns</code>에 정규표현식을 하나씩 돌린다. 패턴이 매칭되게 되면, 인덱스에 맞춰 순서를 바꿔서 매칭된 그룹집단을 반환한다. 그래서 데이터가 항상 동일한 순서로 뽑아내게 된다. Notebook #3에 나온 형식을 처리하는데, 한줄을 표에 추가만 한다:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">[<span class="st">&#39;([A-Z][a-z]+) ([0-9]{1,2}) ([0-9]</span><span class="sc">{4}</span><span class="st">) </span><span class="ch">\\</span><span class="st">((.+)</span><span class="ch">\\</span><span class="st">) (.+)&#39;</span>, <span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">5</span>]</code></pre></div>
+<p>표를 사용하는 것이 지금까지 사용해온 “매칭, 추출, 반환(match, extract, return)” 스타일에 대해서 그다지 향상이 있어 보이지는 않는다. 하지만, 표-기반 접근법이 한가지 장점은 있다: 독자에게 모든 패턴이 동일한 방식으로 처리된다는 신호를 전달한다. “매칭, 추출, 반환” 함수 브랜치를 프로그래머가 변경하기는 너무서 약간 다른 방식으로 처리하는 가능성은 항상 열려있다. 이런 점이 독자가 어떤 일이 벌어지고 있는지 이해하기 어렵고, 동일하게 다음 작업을 하는 다음번 프로그래머가 코드를 디버그하거나 확장하기 어렵게 만든다. 코드가 더 명시적일수록, 독자가 이해할 것이 정말 하나만 있다는 확신을 더 갖게 된다.</p>
+<h3 id="더-많은-도구">더 많은 도구</h3>
+<p>정규표현식에 대한 탐험을 마무리하는데, 중간정도 복잡한 문제를 작업하면서 정규표현식 라이브러리 도구를 몇개더 소개한다. 출발점은 LaTeX으로 작성된 논문 수천개 아카이브 저장소다. LaTeX은 텍스트-기반 문서 서식 프로그램이다. LaTeX 문서는 라벨을 사용해서 공유 참고문헌에 등재된 서지항목을 참조한다. 얼마나 많은 인용이 함께 되고 있는지 파악하는 것이 작업내용이다. 즉, 얼마나 자주 논문 X가 논문 Y와 동일 논문에 인용되는가? 이 질문에 답하는데, 각 논문에서 인용 라벨 집합을 추출할 필요가 있다.</p>
+<p>입력 데이터를 좀더 자세히 살펴보자:</p>
+<pre class="output"><code>Granger&#39;s work on graphs \cite{dd-gr2007,gr2009},
+particularly ones obeying Snape&#39;s Inequality
+\cite{ snape87 } (but see \cite{quirrell89}),
+has opened up new lines of research.  However,
+studies at Unseen University \cite{stibbons2002,
+stibbons2008} highlight several dangers.</code></pre>
+<p>LaTeX에서 인용을 괄호 내부에 상호참조 라벨, <code>\cite{…}</code> 형식으로 작성한다. 독립 인용은 라벨을 두개 혹은 그이상은 콤마로 구분해서 포함시킨다. 라벨 혹은 줄바꿈 전후에 공백이 있을 수 있다. 이런 경우 인용은 두줄로 쪼개지고, 줄마다 다수 인용이 위치할 수 있다.</p>
+<p>첫번째 아이디어는 그룹집단을 사용해서 ‘cite’ 단어 다음에 오는 괄호 내부 모든 것을 잡아내는 것이다:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">m <span class="op">=</span> re.search(<span class="st">&#39;cite{(.+)}&#39;</span>, <span class="st">&#39;a </span><span class="ch">\\</span><span class="st">cite</span><span class="sc">{X}</span><span class="st"> b&#39;</span>)
+<span class="bu">print</span> m.groups()</code></pre></div>
+<pre class="output"><code>(&#39;X&#39;,)</code></pre>
+<p>간단한 경우에 동작하는 것처럼 보이지만, 한줄에 인용이 다수 존재하면 어떨까?</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">m <span class="op">=</span> re.search(<span class="st">&#39;cite{(.+)}&#39;</span>, <span class="st">&#39;a </span><span class="ch">\\</span><span class="st">cite</span><span class="sc">{X}</span><span class="st"> b </span><span class="ch">\\</span><span class="st">cite</span><span class="sc">{Y}</span><span class="st"> c&#39;</span>)
+<span class="bu">print</span> m.groups()</code></pre></div>
+<pre class="output"><code>(&#39;X} b \\cite{Y&#39;,)</code></pre>
+<p>인용 <em>사이</em> 텍스트를 잡아내는 것처럼 보인다. 이유는 정규표현식 매칭이 <a href="https://ko.wikipedia.org/wiki/탐욕_알고리즘">탐욕적(greedy)</a>이기 때문이다: 정규표현식은 가능한 많은 텍스트를 매칭하고 <code>.+</code> 내부 ‘.’ 은 첫번째 여는 괄호부터 마지막 괄호까지 모든 텍스트를 매칭하는데, 사이에 오는 인용과 괄호도 포함된다.</p>
+<p>문제에 대한 진단이 해결책도 제시해준다: 정규표현식이 마무리 괄호를 <em>제외한</em> 모든 것을 매칭하게 하자. 이를 작성하는 것은 쉽다: 꺾쇠괄호 내부집합에 첫번째 문자가 곡절악센트 <code>\^</code> 이면, 집합을 부정한다. 즉, 집합에 있는 문자를 <em>제외한</em> 모든 것을 매칭한다. 따라서, 표현식 <code>[^}]</code> 은 마무리 괄호를 제외한 모든 문자를 매칭한다. 작성한 코드를 실행해보자:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">m <span class="op">=</span> re.search(<span class="st">&#39;cite{([^}]+)}&#39;</span>, <span class="st">&#39;a </span><span class="ch">\\</span><span class="st">cite</span><span class="sc">{X}</span><span class="st"> b&#39;</span>)
+<span class="bu">print</span> m.groups()</code></pre></div>
+<pre class="output"><code>(&#39;X,)</code></pre>
+<p>작성한 패턴은 독립 인용에 대해 동작한다: 작업한 것은 ’.’을 부정집합으로 바꾼 것이 전부다. 한줄에 인용 다수 있으면 어떨까?</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">m <span class="op">=</span> re.search(<span class="st">&#39;cite{([^}]+)}&#39;</span>, <span class="st">&#39;a </span><span class="ch">\\</span><span class="st">cite</span><span class="sc">{X}</span><span class="st"> b </span><span class="ch">\\</span><span class="st">cite</span><span class="sc">{Y}</span><span class="st"> c&#39;</span>)
+<span class="bu">print</span> m.groups()</code></pre></div>
+<pre class="output"><code>(&#39;X,)</code></pre>
+<p>원치 않는 텍스트를 잡아내지는 않는다. 하지만, 첫번째 인용만 잡아내고 있다. 첫번째 뿐만 아니라 매칭되는 모든 것을 추출할 필요가 있다.</p>
+<p>정규표현식 라이브러리에는 정확하게 이런 작업을 수행하는 함수가 있다: <code>re.search</code> 대신에 <code>re.findall</code> 함수를 사용하면, 패턴을 매칭하는 모든 문자열 목록을 반환한다. 기억할 점은 작성하고 있는 프로그램이 무엇이든 간에, 누군가 이전에 아마도 동일한 문제에 봉착했을 것이고, 아마도 도움을 줄 수 있는 라이브러리가 있을 것이다. 어떤 문헌이 있는지 아는 것이 과학자에게 중요하듯이, 라이브러리에 어떤 것이 있는지 아는 것이 프로그래머에게도 중요하다. 좋지 못한 소식은, 일반적으로 문서 혹은 라이브러리에서 그런 것을 찾아내는 것이 쉽지는 않다. 만약 어떤 검색어로 검색할지 충분히 문제에 관해 알지 못하다면 그렇다.</p>
+<p><code>findall</code> 함수로 시도해 보자:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="bu">print</span> re.findall(<span class="st">&#39;cite{([^}]+)}&#39;</span>, <span class="st">&#39;a </span><span class="ch">\\</span><span class="st">cite</span><span class="sc">{X}</span><span class="st"> b </span><span class="ch">\\</span><span class="st">cite</span><span class="sc">{Y}</span><span class="st"> c&#39;</span>)</code></pre></div>
+<pre class="output"><code>[&#39;X&#39;, &#39;Y&#39;]</code></pre>
+<p>올바른 출력결과를 산출하는 것으로 보인다 - 문자 7개 변경치고는 나쁘지 않다. 인용에 공백이 있다면 어떨까?</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="bu">print</span> re.search(<span class="st">&#39;cite{([^}]+)}&#39;</span>, <span class="st">&#39;a </span><span class="ch">\\</span><span class="st">cite{ X} b </span><span class="ch">\\</span><span class="st">cite{Y } c&#39;</span>).groups()</code></pre></div>
+<pre><code>[&#39; X&#39;, &#39;Y &#39;]</code></pre>
+<p>좋은 소식은 프로그램이 정상적으로 동작한다는데 있다. 나쁜 소식은 공백도 <code>findall</code> 함수에 의해 함께 저장된다는 점이다. 이점은 분명히 원하는 바는 아니다. <code>string.strip</code> 함수를 사용한 후에 깔끔하게 정리할 수도 있지만, 대신에 패턴을 변경시켜 보자:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="bu">print</span> re.findall(<span class="st">&#39;cite{</span><span class="ch">\\</span><span class="st">s*([^}]+)</span><span class="ch">\\</span><span class="st">s*}&#39;</span>, <span class="st">&#39;a </span><span class="ch">\\</span><span class="st">cite{ X} b </span><span class="ch">\\</span><span class="st">cite{Y } c&#39;</span>)</code></pre></div>
+<pre class="output"><code>[&#39;X&#39;, &#39;Y &#39;]</code></pre>
+<p>기억을 상기하면, <code>'\s'</code> 은 화이트스페이스 문자 집합에 대한 축약이다. 따라서, <code>'\s*'</code> 을 사용하게되면, 여는 괄호 다음에 혹은 닫는 괄호 앞에 바로 위치하는 공백을 0회 혹은 그이상 매칭한다. (그리고, 파이썬 문자열에 역슬래쉬로 <code>'\\s'</code> 작성해야만 된다). 하지만, ‘Y’ 다음에 공백은 여전히 매칭된 텍스트에 반환되어 나오고 있다.</p>
+<p>다시 한번, 문제는 정규표현식이 탐욕적이라는 점에 있다: ‘Y’ 다음에 공백은 닫는 괄호가 아니라서, 부정된 문자집합에 매칭되어, 반환되는 문자열에 포함된다. 꼬리쪽 공백을 매칭하기로 되어있던 <code>'\s'</code> 이 문자 0개에 대해 매칭되게 된다. 원하는 바는 아니지만, 적법하다.</p>
+<p><code>'\b'</code>을 사용해서 단어에서 단어가 아닌 문자로 넘어가는 것을 정리하는 매칭을 만들자:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="bu">print</span> re.findall(<span class="st">&#39;cite{</span><span class="ch">\\</span><span class="st">s*</span><span class="ch">\\</span><span class="st">b([^}]+)</span><span class="ch">\\</span><span class="st">b</span><span class="ch">\\</span><span class="st">s*}&#39;</span>, <span class="st">&#39;a </span><span class="ch">\\</span><span class="st">cite{ X} b </span><span class="ch">\\</span><span class="st">cite{Y } c&#39;</span>)</code></pre></div>
+<pre class="output"><code>[&#39;X&#39;, &#39;Y&#39;]</code></pre>
+<p>잘 동작한다! 마지막 예제를 검사하자: 파워포이트에 여전히 ‘X’ 앞에 공백이 있다. 첫번째 원하지 않는 공백 앞에 그리고 마지막에 <code>'\b'</code> 을 변경사항으로 넣는다. 괄호 라벨 주변 괄호도 단어가 아닌 문자라서, 임의 여는 혹은 꼬리에 붙는 공백이 없을 때도 패턴이 매칭된다.</p>
+<p>마지막 장애물은 단일 괄호짝 내부에 있는 라벨 다수를 처리하는 것이다. 지금까지 만든 패턴은 라벨이 두개 혹은 그 이상 되는 경우 확장되지 않는다. 단지 콤마 다음에 공백을 처리할 뿐이다. 하지만, 라벨 모두를 단일 텍스트 덩어리로 반환은 한다.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="bu">print</span> re.findall(<span class="st">&#39;cite{</span><span class="ch">\\</span><span class="st">s*</span><span class="ch">\\</span><span class="st">b([^}]+)</span><span class="ch">\\</span><span class="st">b</span><span class="ch">\\</span><span class="st">s*}&#39;</span>, <span class="st">&#39;</span><span class="ch">\\</span><span class="st">cite{X,Y} &#39;</span>)</code></pre></div>
+<pre class="output"><code>[&#39;X,Y&#39;]</code></pre>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="bu">print</span> re.findall(<span class="st">&#39;cite{</span><span class="ch">\\</span><span class="st">s*</span><span class="ch">\\</span><span class="st">b([^}]+)</span><span class="ch">\\</span><span class="st">b</span><span class="ch">\\</span><span class="st">s*}&#39;</span>, <span class="st">&#39;</span><span class="ch">\\</span><span class="st">cite{X, Y, Z} &#39;</span>)</code></pre></div>
+<pre class="output"><code>[&#39;X, Y, Z&#39;]</code></pre>
+<p>실제로 콤마에서 모든 것을 끊게 되는 패턴을 작성할 수도 있지만, 정규표현식 라이브러리의 매우 고급 기능을 필요로 한다. 대신에, 라벨 다수를 구분하는데 또다른 기본 함수(<code>re.split</code>)를 사용한다. <code>re.split</code> 함수는 <code>string.split</code> 함수와 동일한 작업을 수행한다. 하지만, 사촌과 달리 패턴이 매칭하는 모든 것을 구분한다.</p>
+<p>동작방법을 시연하는 최선의 방법은 최초 생성하려했던 함수에 작성하는 것이다. 테스트 데이터를 포함하는 뼈대에서 시작해보자. 뼈대는 함수로 아무 작업도 수행하지 않고(하지만 실패하지도 않음), 함수를 호출하는 코드가 몇줄 있고 결과를 화면에 출력한다:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> get_citations(text):
+    <span class="co">&#39;&#39;&#39;Return the set of all citation tags found in a block of text.&#39;&#39;&#39;</span>
+    <span class="cf">return</span> <span class="bu">set</span>() <span class="co"># to be done</span>
+
+<span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">&#39;__main__&#39;</span>:
+    test <span class="op">=</span> <span class="st">&#39;&#39;&#39;\</span>
+<span class="st">Granger&#39;s work on graphs \cite{dd-gr2007,gr2009},</span>
+<span class="st">particularly ones obeying Snape&#39;s Inequality</span>
+<span class="st">\cite{ snape87 } (but see \cite</span><span class="sc">{quirrell89}</span><span class="st">),</span>
+<span class="st">has opened up new lines of research.  However,</span>
+<span class="st">studies at Unseen University \cite{stibbons2002,</span>
+<span class="st">stibbons2008} highlight several dangers.&#39;&#39;&#39;</span>
+
+    <span class="bu">print</span> get_citations(test)</code></pre></div>
+<pre class="output"><code>set([])</code></pre>
+<p>이제 함수를 작성해보자. 가독성 증진을 위해서, 상단에 패턴을 두고 기억이 잘되는 명칭을 부여한다. 함수 내부에, 첫번째 패턴과 매칭되는 인용 모두를 뽑아내고 나서, 선택옵션 공백을 갖는 콤마를 갖는 앞뒤 모든 결과 각각을 쪼갠다. 결과 모두를 집합으로 우겨넣어 결과를 반환한다. 매칭되는 것이 전혀 발견되지 않으면, 집합은 공집합이 된다.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">p_cite <span class="op">=</span> <span class="st">&#39;cite{</span><span class="ch">\\</span><span class="st">s*</span><span class="ch">\\</span><span class="st">b([^}]+)</span><span class="ch">\\</span><span class="st">b</span><span class="ch">\\</span><span class="st">s*}&#39;</span>
+p_split <span class="op">=</span> <span class="st">&#39;</span><span class="ch">\\</span><span class="st">s*,</span><span class="ch">\\</span><span class="st">s*&#39;</span>
+
+<span class="kw">def</span> get_citations(text):
+    <span class="co">&#39;&#39;&#39;Return the set of all citation tags found in a block of text.&#39;&#39;&#39;</span>
+
+    result <span class="op">=</span> <span class="bu">set</span>()
+    match <span class="op">=</span> re.findall(p_cite, text)
+    <span class="cf">if</span> match:
+        <span class="cf">for</span> citation <span class="op">in</span> match:
+            cites <span class="op">=</span> re.split(p_split, citation)
+            <span class="cf">for</span> c <span class="op">in</span> cites:
+                result.add(c)
+
+    <span class="cf">return</span> result</code></pre></div>
+<p>함수를 좀더 효율적으로 만드는데 정규표현식 라이브러리에서 몇가지 기법을 사용할 수도 있다. 정규표현식을 유한상태기계로 바꿔서 반복적으로 사용하는 대신에, 정규표현식을 컴파일하고 나서 결과로 도출된 객체를 저장한다:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">p_cite <span class="op">=</span> re.<span class="bu">compile</span>(<span class="st">&#39;cite{</span><span class="ch">\\</span><span class="st">s*</span><span class="ch">\\</span><span class="st">b([^}]+)</span><span class="ch">\\</span><span class="st">b</span><span class="ch">\\</span><span class="st">s*}&#39;</span>)
+p_split <span class="op">=</span> re.<span class="bu">compile</span>(<span class="st">&#39;</span><span class="ch">\\</span><span class="st">s*,</span><span class="ch">\\</span><span class="st">s*&#39;</span>)
+
+<span class="kw">def</span> get_citations(text):
+    <span class="co">&#39;&#39;&#39;Return the set of all citation tags found in a block of text.&#39;&#39;&#39;</span>
+
+    result <span class="op">=</span> <span class="bu">set</span>()
+    match <span class="op">=</span> p_cite.findall(text)
+    <span class="cf">if</span> match:
+        <span class="cf">for</span> citations <span class="op">in</span> match:
+            label_list <span class="op">=</span> p_split.split(citations)
+            <span class="cf">for</span> label <span class="op">in</span> label_list:
+                result.add(label)
+
+    <span class="cf">return</span> result</code></pre></div>
+<p>상기 객체는 <code>search</code> , <code>findall</code> 같이 라이브러리에서 사용되고 있는 동일한 함수명과 같은 메쏘드를 갖는다. 하지만 동일한 패턴을 반복해서 사용한다면, 컴파일 한번 하고 컴파일된 객체를 재사용하는 것이 훨씬 더 빠르다.</p>
+<p>잠시 살펴봤듯이, 변경에 필요한 것은 매우 적다: 텍스트 형식으로 표현식을 저장하는 대신에, 컴파일하고 나서, 정규표현식 라이브러리에서 최상단 함수를 호출하는 대신에, 저장된 객체에 속한 메쏘드를 호출한다. 실행결과는 10 여줄 코드로 추출된, 모든 인용집합이다.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> re <span class="im">import</span>
+
+CITE <span class="op">=</span> <span class="st">&#39;cite{</span><span class="ch">\\</span><span class="st">s*</span><span class="ch">\\</span><span class="st">b([^}]+)</span><span class="ch">\\</span><span class="st">b</span><span class="ch">\\</span><span class="st">s*}&#39;</span>
+SPLIT <span class="op">=</span> <span class="st">&#39;</span><span class="ch">\\</span><span class="st">s*,</span><span class="ch">\\</span><span class="st">s*&#39;</span>
+
+<span class="kw">def</span> get_citations(text):
+  <span class="co">&#39;&#39;&#39;Return the set of all citation tags found in a block of text.&#39;&#39;&#39;</span>
+  result <span class="op">=</span> <span class="bu">set</span>()
+  match <span class="op">=</span> CITE.findall(text)
+  <span class="cf">if</span> match: <span class="cf">if</span>
+    <span class="cf">for</span> citations <span class="op">in</span> <span class="cf">for</span> match:
+      label_list <span class="op">=</span> SPLIT.split(citations)
+    <span class="cf">for</span> label <span class="op">in</span> <span class="cf">for</span> label_list:
+      result.add(label)
+  <span class="cf">return</span> result
+
+<span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">&#39;__main__&#39;</span>:
+    test <span class="op">=</span> <span class="st">&#39;&#39;&#39;\</span>
+<span class="st">Granger&#39;s work on graphs \cite{dd-gr2007,gr2009},</span>
+<span class="st">particularly ones obeying Snape&#39;s Inequality</span>
+<span class="st">\cite{ snape87 } (but see \cite</span><span class="sc">{quirrell89}</span><span class="st">),</span>
+<span class="st">has opened up new lines of research.  However,</span>
+<span class="st">studies at Unseen University \cite{stibbons2002,</span>
+<span class="st">stibbons2008} highlight several dangers.&#39;&#39;&#39;</span>
+
+    <span class="bu">print</span> get_citations(test)</code></pre></div>
+<pre class="output"><code>set([&#39;gr2009&#39;, &#39;stibbons2002&#39;, &#39;dd-gr2007&#39;, &#39;stibbons2008&#39;,
+     &#39;snape87&#39;, &#39;quirrell89&#39;])</code></pre>
+<p>마지막으로, 정규표현식을 컴파일하게 되면, 주석을 추가하는데 <em>상세 모드(verbose mode)</em>를 사용함으로써 더 이해하기 쉽게 만들 수 있다. 상세모드는 정규표현식의 주석과 화이트스페이스를 무시하도록 파이썬에 전달한다. 이를 통해 다음과 같은 패턴을 작성하게 된다:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">p_cite <span class="op">=</span> <span class="st">&#39;&#39;&#39;</span>
+<span class="st">    cite{          # start with literal &#39;cite{&#39;</span>
+<span class="st">    </span><span class="ch">\\</span><span class="st">s*           # then some optional spaces</span>
+<span class="st">    </span><span class="ch">\\</span><span class="st">b            # up to a start-of-word boundary</span>
+<span class="st">    ([^}]+)        # then anything that isn&#39;t a closing &#39;}&#39;</span>
+<span class="st">    </span><span class="ch">\\</span><span class="st">b            # then an end-of-word boundary</span>
+<span class="st">    </span><span class="ch">\\</span><span class="st">s*           # and some more optional spaces</span>
+<span class="st">    }              # and the closing &#39;}&#39;</span>
+<span class="st">&#39;&#39;&#39;</span>
+matcher <span class="op">=</span> re.<span class="bu">compile</span>(p_cite, re.VERBOSE)</code></pre></div>
+<p>위와 같이 패턴을 문서화하게 되면 정규표현식 패턴을 고치기 쉽고, 확장하기 쉽게 만들게 된다.</p>
+        </div>
+      </div>
+      </article>
+      <div class="footer">
+        <a class="label swc-blue-bg" href="http://software-carpentry.org">Software Carpentry</a>
+        <a class="label swc-blue-bg" href="https://github.com/swcarpentry/lesson-template">Source</a>
+        <a class="label swc-blue-bg" href="mailto:admin@software-carpentry.org">Contact</a>
+        <a class="label swc-blue-bg" href="LICENSE.html">License</a>
+      </div>
+    </div>
+    <!-- Javascript placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="css/bootstrap/bootstrap-js/bootstrap.js"></script>
+    <script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    
+      ga('create', 'UA-37305346-2', 'auto');
+      ga('send', 'pageview');
+    
+    </script>
+  </body>
+</html>
