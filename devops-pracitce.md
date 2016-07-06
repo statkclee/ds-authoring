@@ -1,13 +1,13 @@
 ---
 layout: page
-title: R 파이썬 클라우드
+title: 데이터 과학을 위한 저작도구
 subtitle: 데브옵스(DevOps, 개발운영) 컴퓨터 과학 언플러그드 
-minutes: 10
 ---
-> ## 학습 목표
+
+> ## 학습 목표 {.objectives}
 >
-> *   개발, 배포, 운영 서비스 개발 주기를 이해한다.
-> *   컴퓨터 과학 언플러그드를 정적 웹서비스로 제품화한다. 
+> * 개발, 배포, 운영 서비스 개발 주기를 이해한다.
+> * 컴퓨터 과학 언플러그드를 정적 웹서비스로 제품화한다. 
 
 
 ### 1. 개발운영(DevOps) 툴체인 다시 보기
@@ -17,7 +17,7 @@ minutes: 10
 이를 위해서 다양한 기술과 툴체인이 필요하다. 전반적인 개발운영 툴체인이 구축되고 나면,
 개발과정이 수작업 없이 매우 간결하고, 정확하며 빠르게 진행된다.
 
-![정적웹(Jekyll) 서비스 개발운영 툴체인 흐름](fig/github-webhooks-jenkins-ci.png)
+<img src="fig/dev-github-webhooks-jenkins-ci.png" alt="정적웹(Jekyll) 서비스 개발운영 툴체인 흐름" width="70%" />
 
 1. 개발 및 저작환경 : 마크다운을 개발언어로 제킬을 플랫폼으로 사용한다.
     - [제킬 테마](http://jekyllthemes.org/)에서 다양한 종류의 제킬 테마를 설치하여 이용할 수 있다.
@@ -153,7 +153,7 @@ Finished: SUCCESS
 
 이제 빌드 후 조치도 완료했다. 젠킨스를 통해서 빌드가 완료되면 제킬을 통해 생성한 산출물을 웹서비스 제공위치로 이동하면 모든 작업이 완료된다. 처음 로컬 호스트 컴퓨터에서 작업을 하고 `git push` 명령을 전송하면 자동으로 모든 작업이 완료되고, 결과값이 모바일폰으로 전송도 된다. 
 
-![정적웹서비스가 지속적인 통합작업을 통한 실제 배포 예제](fig/github-webhooks-jenkins-ci-demo.png)
+<img src="fig/dev-github-webhooks-jenkins.png" alt="정적웹서비스가 지속적인 통합작업을 통한 실제 배포 예제" width="70%" />
 
 
 ### 2. 컴퓨터과학 언플러그드 사례
@@ -164,7 +164,7 @@ Finished: SUCCESS
 
 컴퓨터과학 언플러그드 서비스를 제공하는 과정은 마이크로소프트 워드나 아래아 한글 프로그램을 이용하여 단순히 컴퓨터과학 언플러그드 콘텐츠를 책 형태로 제공하는 것에서 벗어나 누구나 컴퓨터과학 언플러그드 콘텐츠 제작에 참여할 수 있고, 누구나 제작한 콘텐츠를 디바이스 종류에 관계없이 최상의 콘텐츠를 볼 수 있도록 공정한 활용이 가능하게 하는 것을 목표로 아키텍처를 잡았다. 
 
-![컴퓨터과학 언플러그드 서비스 제공 아키텍처](fig/dev-csunplugged-architecture.png) 
+<img src="fig/dev-csunplugged-architecture.png" alt="컴퓨터과학 언플러그드 서비스 제공 아키텍처" width="70%" />
 
 - Git/GitHub : 버젼관리 및 공유와 협업
 - 개발서버와 젠킨스 : 지속적인 통합과 서비스 배포 자동화
@@ -178,20 +178,21 @@ Finished: SUCCESS
 
 컴퓨터과학 언플러그드 서비스 제공자는 도메인 네임 시스템에 호스트/컴퓨터와 도메인을 연결하여 사용자가 IP주소를 기억할 필요없이 도메인 네임만 기억해서 바로 서비스를 제공받을 수 있게 한다.
 
-도메인 네임 [csunplugged.xwmooc.net](http://csunplugged.xwmooc.net)을 생성한 운영 가상 웹서버 IP주소(`119.XXX.XXX.XXX`)와 연결한다. 
+도메인 네임 [csunplugged.xwmooc.org](http://csunplugged.xwmooc.org)을 생성한 운영 가상 웹서버 IP주소(`119.XXX.XXX.XXX`)와 연결한다. 
 
-![도메인 네임과 호스트/컴퓨터 연결 설정](fig/dev-csunplugged-dns.png)
+<img src="fig/dev-csunplugged-dns.png" alt="도메인 네임과 호스트/컴퓨터 연결 설정" width="70%" />
 
 
 ##### 2.2.2. 운영서버 준비
 
 컴퓨터과학 언플러그드 웹서비스를 제공하기 위해서 기본적으로 [아파치](http://httpd.apache.org/), [nginx](http://nginx.org/en/) 같은 웹서비스 제공 소프트웨어를 설치해야 한다. 일반적으로 [LAMP](https://ko.wikipedia.org/wiki/LAMP)가 웹서비스를 제공하기 위한 하나의 팩키지로 되어 있어 베어메탈 하드웨어 위에 리눅스, 웹서버, 데이터베이스, 프로그래밍 언어를 각기 `sudo apt-get install apache2 mysql-server php5 php5-mysql` 설치하기도 하고, WIMP, LAMP, WAMP 등 개발-운영 환경에 맞춰 선택하기도 한다.
 
-![LAMP 개괄, 출처: 위키피디아](fig/dev-csunplugged-lamp.png)
+<img src="fig/dev-csunplugged-lamp.png" alt="LAMP 개괄, 출처: 위키피디아" width="70%" />
+
 
 **도메인 네임과 운영 웹서버 연결 테스트**  
 
-도메인 네임과 운영 웹서버 연결 테스트는 사용자 입장에서 웹브라우져를 열고 IP 주소를 입력한다. 도메인 네임 [csunplugged.xwmooc.net](http://csunplugged.xwmooc.net)과 웹서버 IP주소(`119.XXX.XXX.XXX`)를 주소창에 입력하면 동일한 화면이 출력되어야 한다. 
+도메인 네임과 운영 웹서버 연결 테스트는 사용자 입장에서 웹브라우져를 열고 IP 주소를 입력한다. 도메인 네임 [csunplugged.xwmooc.org](http://csunplugged.xwmooc.org)과 웹서버 IP주소(`119.XXX.XXX.XXX`)를 주소창에 입력하면 동일한 화면이 출력되어야 한다. 
 
 > #### 아파치 웹서버 구동 명령 {.callout}
 >
@@ -227,7 +228,7 @@ $ git push origin gh-pages
 
 집에 있는 PC 컴퓨터에서 작업을 시작하기 전에 *GitHub* 클라우드 저장소의 작업내용을 `git pull origin gh-pages` 명령어로 가져온다. 다음 동일하게 노트북 컴퓨터에서 작업하듯이 결과를 *GitHub*에 올린다. 
 
-![Git/GitHub 기반 버젼관리 및 공유와 협업](fig/dev-csunplugged-git-github.png)
+<img src="fig/dev-csunplugged-git-github.png" alt="Git/GitHub 기반 버젼관리 및 공유와 협업" width="70%" />
 
 
 ##### 2.2.4. 구글 애널리틱스(Google Analytics) 설정
