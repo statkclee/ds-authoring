@@ -13,8 +13,7 @@ title: 데이터 과학을 위한 저작도구
 
 ## 학습목차 
 
-1.  [개발운영(DevOps)](devops-intro.html)
-    * [개발서버 아키텍처](devops-dev-vm-arch.html)
+1.  [데이터 과학 개발운영 아키텍처](devops-dev-vm-arch.html)
     * [정적 웹서비스 개발 툴체인](devops-dev-vm.html) 
         * [윈도우 정적 웹서비스 개발 툴체인](devops-dev-vm-windows.html) 
     * [객체 저장소 FTP 배포(Deployment)](devops-ftp-object-storage.html)
