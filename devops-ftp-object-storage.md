@@ -2,24 +2,24 @@
 layout: page
 title: 데이터 과학을 위한 저작도구
 subtitle: 객체 저장소 FTP 배포(Deployment)
-minutes: 10
 ---
-> ## 학습 목표
+
+> ## 학습 목표 {.objectives}
 >
-> *   객체 저장소를 데이터센터에 생성한다.
-> *   객체 저장소 FTP를 통해 데이터를 업로드한다.
-> *   객체 저장소를 가상컴퓨터와 연결한다.
+> * 객체 저장소를 데이터센터에 생성한다.
+> * 객체 저장소 FTP를 통해 데이터를 업로드한다.
+> * 객체 저장소를 가상컴퓨터와 연결한다.
 
 
 ## xwMOOC 서비스 배포
 
-더이상 단일 서비스로 컴퓨터 교육을 만족시킬 수가 없기 때문에 [xwMOOC](http://www.xwmooc.net)에서 다양한 컴퓨터 교육 서비스를 개발했다. 
+더이상 단일 서비스로 컴퓨터 교육을 만족시킬 수가 없기 때문에 [xwMOOC](http://statkclee.github.io/xwMOOC)에서 다양한 컴퓨터 교육 서비스를 개발했다. 
 서비스 종류가 많아지고 복잡해짐에 따라 서비스를 종합적으로 관리할 필요성이 증가하여 다음과 같은 
 [FTP(파일전송프로토콜)](http://ko.wikipedia.org/wiki/%ED%8C%8C%EC%9D%BC_%EC%A0%84%EC%86%A1_%ED%94%84%EB%A1%9C%ED%86%A0%EC%BD%9C)와 [클라우드 퓨즈(Cloud Fuse)](http://en.wikipedia.org/wiki/Filesystem_in_Userspace)를 이용한 클라우드 서비스 모형을 기획하게 되었다. [xwMOOC](http://www.xwmooc.net) 사용자가 도메인네임서버를 통해서 홍콩데이터센터 가상컴퓨터에 접속하게 되면 객체저장소(Object Storage)에 저장된 컴퓨터 교육 콘텐츠를 서비스를 제공하는 방식으로 되어 있고, 클라우드/소프트웨어 카펜트리/라즈베리파이/컴퓨터과학 언플러그드/러플/파이썬 콘텐츠는 정기적으로 [파일질라(Filezilla)](https://filezilla-project.org/)를 통해 FTP를 통해 갱신된다.
 
-![xwMOOC 객체 저장소 FTP 배포 모형](fig/ftp-object-storage-xwMOOC.png)
+<img src="fig/ftp-object-storage-xwMOOC.png" alt="xwMOOC 객체 저장소 FTP 배포 모형" width="70%" />
 
-> ## {.prereq}
+> ## 작업흐름 {.prereq}
 > 
 > 1. 객체 저장소(Object Storage) 생성  
 > 2. FTP를 통한 컴퓨터 교육 콘텐츠 전송  
@@ -29,7 +29,8 @@ minutes: 10
 
 고객 포털(Customer Portal) 화면에서 `Storage` --> `Object Storage`를 클릭하고 객체저장소(Object Storage)가 위치할 데이터 센터를 지정한다. 예를 들어 `Tokyo 2`를 선택했다면, 다음에 `Order Object Storage`를 클릭해서 객체저장소 주문 내역(`Confirm Order`)을 확정한다.
 
-![객체 저장소 주문 생성](fig/ftp-object-storage-order.png)
+
+<img src="fig/ftp-object-storage-order.png" alt="객체 저장소 주문 생성" width="70%" />
 
 
 ## 2. FTP를 통한 컴퓨터 교육 콘텐츠 전송  
@@ -40,8 +41,7 @@ minutes: 10
 
 ### 2.1. 파일질라(Filezilla) 통한 FTP 전송 
 
-![객체 저장소에 파일질라 통한 FTP 전송](fig/ftp-object-storage-filezilla.png)
-
+<img src="fig/ftp-object-storage-filezilla.png" alt="객체 저장소에 파일질라 통한 FTP 전송" width="70%" />
 
 ### 2.2. 홍콩 데이터센터 객체 저장소 
 
@@ -55,7 +55,7 @@ minutes: 10
 - `scloud` : 소프트레이어 클라우드 컴퓨팅 -- 백만원 창업 도전
 - `swcarpentry` : 소프트웨어 카펜트리 -- 과학 컴퓨팅을 위한 기본 소프트웨어 기술
 
-![홍콩 데이터센터 객체저장소 현황](ftp-object-storage-hongkong.png)
+<img src="fig/ftp-object-storage-hongkong.png" alt="홍콩 데이터센터 객체저장소 현황" width="70%" />
 
 > ## 오픈스택 {.callout}
 >
