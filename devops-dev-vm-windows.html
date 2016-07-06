@@ -37,21 +37,25 @@
         <div class="col-md-10 col-md-offset-1">
                     <a href="index.html"><h1 class="title">데이터 과학을 위한 저작도구</h1></a>
           <h2 class="subtitle">윈도우 정적 웹콘텐츠 개발 가상서버 구축</h2>
-          <blockquote>
-<h2 id="학습-목표">학습 목표</h2>
+          <section class="objectives panel panel-warning">
+<div class="panel-heading">
+<h2 id="학습-목표"><span class="glyphicon glyphicon-certificate"></span>학습 목표</h2>
+</div>
+<div class="panel-body">
 <ul>
 <li>윈도우 정적 웹콘텐츠 개발 툴체인(Tool Chain)을 이해한다.</li>
 <li>윈도우 정적 웹콘테츠 개발 가상컴퓨터 환경을 구축한다.</li>
 <li>소프트웨어 카펜트리 마크다운 콘텐츠를 HTML로 컴파일 한다.</li>
 </ul>
-</blockquote>
-<h2 id="윈도우-정적-웹콘텐츠-제작-툴체인tool-chain">윈도우 정적 웹콘텐츠 제작 툴체인(Tool Chain)</h2>
+</div>
+</section>
+<h3 id="윈도우-정적-웹콘텐츠-제작-툴체인tool-chain">윈도우 정적 웹콘텐츠 제작 툴체인(Tool Chain)</h3>
 <p>정적 웹콘텐츠를 <strong><code>제킬(Jekyll)</code></strong> 기반으로 구축하기 위해서 <code>제킬(Jekyll)</code>과 관련된 소프트웨어도 함께 버젼을 맞추어서 설치해야 된다. 특히, <a href="http://software-carpentry.org/">소프트웨어 카펜트리</a>에서 정적 웹콘텐츠 저작을 위한 좋은 툴을 개발하여 활발히 사용되고 있다. <a href="http://software-carpentry.org/">소프트웨어 카펜트리</a> 저작 도구는 <code>pandoc</code>, <code>jekyll</code>에 기반하고 있고 근본에는 루비언어 기반으로 글로벌 협업도구 <strong>GitHub</strong> 인프라가 깔려있다.</p>
 <pre class="output"><code>Package Manager         Language               Webpage Reuse           Plugins (SWCarepntry)
 +-----------+           +----------+           +-----------+           +---------------+ 
-|           |           |          |           |           |           | therubyracer  |
-| RVM       |----------&gt;| Ruby     |----------&gt;| Jekyll    |&lt;---------&gt;| pandocfilters |
-|           |           |          |           |           |           | kramdown      | 
+|           |           |          |           |           |           |               |
+|Chocolatey |----------&gt;| Ruby     |----------&gt;| Jekyll    |&lt;---------&gt;| pandocfilters |
+|           |           |          |           |           |           |               | 
 +-----------+           +----------+           +-----------+           +---------------+ 
                                                     ^
  문서 변환기                                        |
@@ -66,8 +70,8 @@
 </div>
 <div class="panel-body">
 <ul>
-<li><strong>RVM(Ruby Version Manager)</strong> : 루비 버젼 관리자</li>
 <li><strong>팬독(Pandoc)</strong> : 마크다운 문서 변환 소프트웨어</li>
+<li><strong><a href="https://chocolatey.org/">Chocolatey</a></strong> : 윈도우즈 팩키지 관리자</li>
 <li><strong>루비(Ruby)</strong> : 마츠모토 유키히로가 개발한 동적 객체 지향 스크립트 프로그래밍 언어.</li>
 <li><strong>제킬(Jekyll)</strong> : GitHub 공동 창업자 Tom Preston-Werner이 루비로 작성한 단순하며, 블로그-인식, 정적사이트 생성 프로그램.</li>
 <li><strong>therubyracer</strong> : 루비 언어내에서 V8 자바스크립트 인터프리터를 내장. NodeJS 대신 경량화된 자바스크립트 인터프리터로 사용.</li>
@@ -76,6 +80,10 @@
 </ul>
 </div>
 </aside>
+<h3 id="윈도우-툴체인-구축-절차">윈도우 툴체인 구축 절차</h3>
+<p><a href="http://pandoc.org/">팬독(pandoc)</a>과 <a href="https://www.ruby-lang.org/">루비</a> 중 어떤 것을 먼지 설치할 것은 중요하지 않다. <a href="https://jekyllrb.com/">제킬(Jekyll)</a>이 루비에 의존성을 갖고, HTML, PDF 등 문서 생성에 <a href="http://pandoc.org/">팬독(pandoc)</a>이 필요하기 때문에 독립적으로 각각 설치한다.</p>
+<p>특히, 윈도우에서 제킬을 바로 설치하기 까다롭기 때문에 <a href="https://chocolatey.org/">Chocolatey</a>를 통해 제킬을 설치한다.</p>
+<p>소프트웨어 카펜트리 교재 작성 템플릿을 사용하기 위해서 <code>Make</code>를 사용해야 하는데, 리눅스 계열은 자체 내장되어 있어 별도 설치가 필요없지만, 윈도우에서는 Git Bash를 사용해야 하는데, <code>Make</code> 가 포함되지 않아서 make를 다운로드 받아 Git Bash가 설치된 <code>bin</code> 폴더에 복사해 넣는 방법과 이전 msysGit <a href="https://github.com/msysgit/msysgit/releases">net installer</a> 버전 전체를 설치하는 방법이 있다.</p>
 <ul>
 <li><a href="http://pandoc.org/installing.html">팬독(pandoc) 설치</a></li>
 <li><a href="http://rubyinstaller.org/downloads/">루비 설치</a></li>
@@ -113,8 +121,11 @@
 <li><code>pip install pandocfilters</code> 명령어로 <code>pandocfilters</code>를 마지막으로 설치한다.</li>
 </ul></li>
 </ul>
+<h3 id="소프트웨어-카펜트리-예제">소프트웨어 카펜트리 예제</h3>
+<p>소프트웨어 카펜트리를 교재 템플릿을 사용하는 Git 웹페이지를 하나 골라 복제한다. 그리고 나서 <code>make preview</code> 명령어를 실행할 경우, 모든 설정이 잘 된 경우 <code>index.html</code> 파일이 자동으로 생성되게 된다.</p>
 <pre class="shell"><code>$ git clone -b gh-pages https://github.com/statkclee/ds-authoring.git
 $ cd ds-authoring
+$ touch index.md
 $ make preview</code></pre>
 <pre class="output"><code>pandoc -s -t html \
     --smart \
