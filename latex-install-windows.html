@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="generator" content="pandoc">
+    <title>Software Carpentry: xwMOOC 오픈 컴퓨터</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap-theme.css" />
+    <link rel="stylesheet" type="text/css" href="css/swc.css" />
+    <link rel="alternate" type="application/rss+xml" title="Software Carpentry Blog" href="http://software-carpentry.org/feed.xml"/>
+    <meta charset="UTF-8" />
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    
+    
+    <!--
+    <div id="google_translate_element"></div><script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({pageLanguage: 'ko', includedLanguages: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+    }
+    </script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    -->
+  </head>
+  <body class="lesson">
+    <div class="container card">
+      <div class="banner">
+        <a href="http://software-carpentry.org" title="Software Carpentry">
+          <img alt="Software Carpentry banner" src="img/software-carpentry-banner.png" />
+        </a>
+      </div>
+      <article>
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+                    <a href="index.html"><h1 class="title">xwMOOC 오픈 컴퓨터</h1></a>
+          <h2 class="subtitle">한글 <span class="math inline">\(LaTeX\)</span> 윈도우 설치</h2>
+          <section class="objectives panel panel-warning">
+<div class="panel-heading">
+<h3 id="학습-목표"><span class="glyphicon glyphicon-certificate"></span>학습 목표</h3>
+</div>
+<div class="panel-body">
+<ul>
+<li>윈도우 환경에 <span class="math inline">\(LaTeX\)</span>을 설치한다.</li>
+</ul>
+</div>
+</section>
+<h3 id="윈도우-7-환경-latex-설치">1. 윈도우 7 환경 <span class="math inline">\(LaTeX\)</span> 설치</h3>
+<p>윈도우 환경에서 <span class="math inline">\(LaTeX\)</span> 을 설치하는 것이 경우에 따라서는 꼬일 수가 있다. <a href="http://wiki.ktug.org/wiki/wiki.php/설치하기Windows/tlinstall">KTUG Wiki</a>를 참조하여 설치한다.</p>
+<aside class="callout panel panel-info">
+<div class="panel-heading">
+<h3 id="사전-준비"><span class="glyphicon glyphicon-pushpin"></span>사전 준비</h3>
+</div>
+<div class="panel-body">
+<ul>
+<li>MikTeX 혹은 TeXLive 이전 버젼이 설치된 경우 프로그램 추가/삭제에서 지운다.</li>
+<li>윈도우즈 사용자 이름을 영문과 숫자로만 한정한다.</li>
+</ul>
+</div>
+</aside>
+<h4 id="texlive-2015-설치">TeXLive 2015 설치</h4>
+<ol style="list-style-type: decimal">
+<li><a href="http://ftp.ktug.org/tex-archive/systems/texlive/tlnet/install-tl.zip" class="uri">http://ftp.ktug.org/tex-archive/systems/texlive/tlnet/install-tl.zip</a> 사이트에서 다운로드 한다.</li>
+<li>다운로드한 압축파일을 풀고 예를 들어 <code>install-tl-20160711</code>와 같은 폴더로 들어간다.</li>
+<li><code>install-tl-advanced.bat</code> 파일을 실행한다.
+<ul>
+<li><strong>GUI</strong> 가 뜨지 않는 경우: 시스템 변수 <code>Path</code>에 <code>C:\Windows\system32;</code> 를 추가</li>
+<li><code>Directory Setup</code>에 <code>TEXDIR</code>이 <code>c:\texlive\2015</code> → <code>c:\usr\texlive\2015</code>으로 수정한다. 만약, 디렉토리 수정이 되지 않는 경우 원인이 <code>c:\usr</code> 디렉토리가 존재하지 않기 때문에 발생된다. 따라서 <code>usr</code> 폴더를 <code>c:\</code> 루트 디렉토리 밑에 생성시킨다.</li>
+<li><code>Selected scheme</code> 이 <code>scheme-full</code>로 되어 있는지 확인한다.</li>
+</ul></li>
+<li><strong>Install TeXLive</strong> 버튼을 누르고 한참 기다린다.
+<ul>
+<li><code>scheme-full</code>을 선택했기 때문에 시간이 조금 더 걸리지만, 장기적으로 정신건강에는 최고로 좋다.</li>
+</ul></li>
+</ol>
+<p><img src="fig/latex-install-windows.png" width="57%" alt="윈도우즈 LaTeX 설치" /></p>
+<p>윈도우 쉘을 열고 <code>pdflatex --version</code> 명령어를 쳐서 다음과 같이 출력되면 정상이다.</p>
+<pre class="shell"><code>$ pdflatex --version</code></pre>
+<pre class="output"><code>pdfTeX 3.14159265-2.6-1.40.17 (TeX Live 2016/W32TeX)
+kpathsea version 6.2.2
+Copyright 2016 Han The Thanh (pdfTeX) et al.
+There is NO warranty.  Redistribution of this software is
+covered by the terms of both the pdfTeX copyright and
+the Lesser GNU General Public License.
+For more information about these matters, see the file
+named COPYING and the pdfTeX source.
+Primary author of pdfTeX: Han The Thanh (pdfTeX) et al.
+Compiled with libpng 1.6.21; using libpng 1.6.21
+Compiled with zlib 1.2.8; using zlib 1.2.8
+Compiled with xpdf version 3.04</code></pre>
+        </div>
+      </div>
+      </article>
+      <div class="footer">
+        <a class="label swc-blue-bg" href="http://software-carpentry.org">Software Carpentry</a>
+        <a class="label swc-blue-bg" href="https://github.com/swcarpentry/lesson-template">Source</a>
+        <a class="label swc-blue-bg" href="mailto:admin@software-carpentry.org">Contact</a>
+        <a class="label swc-blue-bg" href="LICENSE.html">License</a>
+      </div>
+    </div>
+    <!-- Javascript placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="css/bootstrap/bootstrap-js/bootstrap.js"></script>
+    <script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    
+      ga('create', 'UA-37305346-2', 'auto');
+      ga('send', 'pageview');
+    
+    </script>
+  </body>
+</html>

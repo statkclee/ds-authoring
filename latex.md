@@ -162,7 +162,7 @@ sudo service xrdp restart # sudo /etc/init.d/xrdp start 명령어도 가능.
 1. 클라이언트 윈도우 시작메뉴에서 실행(Run)을 클릭하고 `mstsc`를 실행한다.
 1. 컴퓨터에 클라우드 가상 컴퓨터 IP주소, 사용자 이름에 `xwmooc`를 넣고 **`연결(N)`**한다.
 
-<img src="fig/latex-iot-mstsc.png" width="70%" alt="원격 데스크톱 연결화면" />
+<img src="fig/latex-iot-mstsc.png" width="50%" alt="원격 데스크톱 연결화면" />
 
 > ### XRDP 로그인 시 검정화면 {.callout}
 >
