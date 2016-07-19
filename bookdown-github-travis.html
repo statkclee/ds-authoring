@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="generator" content="pandoc">
+    <title>Software Carpentry: 데이터 과학을 위한 저작도구</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap-theme.css" />
+    <link rel="stylesheet" type="text/css" href="css/swc.css" />
+    <link rel="alternate" type="application/rss+xml" title="Software Carpentry Blog" href="http://software-carpentry.org/feed.xml"/>
+    <meta charset="UTF-8" />
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    
+    
+    <!--
+    <div id="google_translate_element"></div><script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({pageLanguage: 'ko', includedLanguages: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+    }
+    </script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    -->
+  </head>
+  <body class="lesson">
+    <div class="container card">
+      <div class="banner">
+        <a href="http://software-carpentry.org" title="Software Carpentry">
+          <img alt="Software Carpentry banner" src="img/software-carpentry-banner.png" />
+        </a>
+      </div>
+      <article>
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+                    <a href="index.html"><h1 class="title">데이터 과학을 위한 저작도구</h1></a>
+          <h2 class="subtitle">출판 자동화(DevOps)</h2>
+          <h3 id="트래비스travis-연결-devops-github-travis">1. 트래비스(Travis) 연결 <a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a></h3>
+<ol style="list-style-type: decimal">
+<li><a href="https://github.com/settings/tokens">GitHub PAT(Personal Access Tokens)</a>를 생성한다. <code>Generate New Token</code>을 생성한다.
+<ul>
+<li>외부에 공개되는 만큼 최소 보안 원칙을 지켜 가능하면 최소한의 권한으로 한다. 즉, <a href="https://en.wikipedia.org/wiki/Principle_of_least_privilege">최소권한 원칙</a> <a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a>, <a href="https://developer.github.com/v3/oauth/#scopes">GitHub Developer API OAuth</a>를 확인한다.</li>
+<li>권장하는 것은 어떤 권한도 부여하지 않는 것이다.</li>
+</ul></li>
+<li>생성한 키를 복사한다.</li>
+<li>트래비스(Travis) 저장소로 접근해 들어간다.
+<ul>
+<li>사전에 <a href="http://github.com">GitHub</a>과 <a href="https://travis-ci.org/">트래비스(Travis)</a>를 연동한다.</li>
+<li><a href="http://github.com">GitHub</a>과 <a href="https://travis-ci.org/">트래비스</a> 연동된 경우 트래비스 저장소에 해당사용자의 모든 <a href="http://github.com">GitHub</a> 저장소가 표시된다.</li>
+</ul></li>
+<li><a href="https://github.com/settings/tokens">GitHub PAT(Personal Access Tokens)</a>에서 생성한 토큰을 <code>GITHUB_PAT</code> 환경변수(Environment Variable)에 추가한다.</li>
+</ol>
+<p><img src="fig/devops-travis-pat-github.png" alt="트래비스 GitHub PAT 환경변수 설정" width="50%"></p>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p><a href="http://www.r-bloggers.com/using-travis-make-sure-you-use-a-github-pat/">Using Travis? Make sure you use a Github PAT</a><a href="#fnref1">↩</a></p></li>
+<li id="fn2"><p><a href="https://help.github.com/articles/creating-an-access-token-for-command-line-use/">Creating an access token for command-line use</a><a href="#fnref2">↩</a></p></li>
+</ol>
+</div>
+        </div>
+      </div>
+      </article>
+      <div class="footer">
+        <a class="label swc-blue-bg" href="http://software-carpentry.org">Software Carpentry</a>
+        <a class="label swc-blue-bg" href="https://github.com/swcarpentry/lesson-template">Source</a>
+        <a class="label swc-blue-bg" href="mailto:admin@software-carpentry.org">Contact</a>
+        <a class="label swc-blue-bg" href="LICENSE.html">License</a>
+      </div>
+    </div>
+    <!-- Javascript placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="css/bootstrap/bootstrap-js/bootstrap.js"></script>
+    <script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    
+      ga('create', 'UA-37305346-2', 'auto');
+      ga('send', 'pageview');
+    
+    </script>
+  </body>
+</html>

@@ -30,6 +30,7 @@ title: 데이터 과학을 위한 저작도구
     * [마크다운 기초](http://statkclee.github.io/modern-scientific-authoring/02-markdown-kr.html)
     * [고급 마크다운](http://statkclee.github.io/modern-scientific-authoring/03-advanced-kr.html)
 1. [북다운(bookdown)](bookdown-intro.html)
+    * [출판 자동화(DevOps)](bookdown-github-travis.html)
 1. [문서 프로그래밍 - 한글 LaTeX 사전준비](latex.html)
     * [한글 LaTeX 소개](latex-intro.html)
     * [한글 LaTeX 윈도우 설치](latex-install-windows.html)
