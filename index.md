@@ -47,7 +47,10 @@ title: 데이터 과학을 위한 저작도구
     * [doit 시작하기](doit-basics.html)
     * [부작업(Sub-tasks)](doit-sub_tasks.html)
     * [분석결과가 최신상태인지 점검하기](doit-uptodate.html)
-
+1. [데이터야 놀자 발표자료(2016)](slides/ds_authoring_toolchain.html)
+    * [데이터야 놀자 페이스북](https://www.facebook.com/dataconference.io/)
+    * 일시: 2016. 10. 14. (금), 10:00 ~
+    * 장소: [마루 180, 서울 강남구 역삼로 180](http://dmaps.kr/owgj)
 
 <!-- 1.  [개발운영(DevOps)](03-devops.html)
     - [파이썬 빌드 doit](03-doit-index.html)

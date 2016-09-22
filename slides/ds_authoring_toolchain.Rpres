@@ -65,3 +65,66 @@ font-family: 'jejugothic'
     - 서지관리 소프트웨어 상당수와 호환된다.
     - 많은 저널에서 받아주는 형식이다. (하지만, 학문 분야마다 상당한 다양성이 존재한다.)
 - 단점 
+
+한국인이기 때문에 알아야 되는 것
+=======================================================
+
+![사람과 기호 그리고 컴퓨터](../fig/auth-unicode-utf-8.png)
+
+참고자료: [R 유니코드, 인코딩](https://statkclee.github.io/ds-authoring/regex-encoding.html)
+
+텍스트 데이터 처리 시작 : 인코딩 
+=======================================================
+<br/>
+![`readr` 인고팅 확인](../fig/auth-encoding-readr.png)
+
+전통적 작업 흐름 
+=======================================================
+<br/>
+![저작물을 생산, 유통, 고객 소비까지 이르는 공급망](../fig/latex-writing-supply-chain.png)
+
+- 저작자와 독자 사이에 다수 중간단계 존재
+    - 편집 및 디자인
+    - 출판
+    - 배송
+    - 서점 : 전통 책방, 온라인 서점, 전자책 등
+- 각 단계별 인력, 소프트웨어, 기계장비 등 필요
+
+데이터 과학 저작 작업흐름 
+=======================================================
+<br/>
+![저작자와 고객을 중간과정 자동화를 통한 저작물 직접 유통](../fig/latex-writing_is_coding.png)
+
+
+저작 흐름 비교 
+=======================================================
+<br/>
+![저작자와 고객을 중간과정 자동화를 통한 저작물 직접 유통](../fig/latex-writing_is_coding.png)
+***
+<br/><br/><br/>
+![저작물을 생산, 유통, 고객 소비까지 이르는 공급망](../fig/latex-writing-supply-chain.png)
+
+
+도구가 자동화하는 저작 업무
+=======================================================
+<br/>
+![도구가 자동화하는 저작 업무](../fig/latex-how-it-works.png)
+
+파이썬 스핑크스(Python Sphinx)
+=======================================================
+<br/>
+![파이썬 스핑크스 저작 흐름](../fig/latex-sphinx.png)
+
+- [Welcome to Reeborg's world!](http://reeborg.ca/index_en.html)
+- [리보그 한국어 버젼](http://reeborg.ca/docs/ko/index.html)
+- [프로그래밍과 문제해결: 파이썬, 리보그, 러플](http://reeborg.xwmooc.org/)
+
+사례: DataCamp
+=======================================================
+
+<iframe src="https://player.vimeo.com/video/153250442?title=0&byline=0&portrait=0" width="640" height="375" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+[DataCamp 콘텐츠 제작](https://www.datacamp.com/teach/documentation)
+<p><a href="https://vimeo.com/153250442">DataCamp 콘텐츠 개발 동영상</a>, <a href="https://vimeo.com">Vimeo</a>.</p>
+
+
