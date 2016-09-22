@@ -9,3 +9,5 @@ CONDUCT.html
 _site
 .DS_Store
 fig/Thumbs.db
+play_with_data_conference.Rproj
+.Rproj.user
