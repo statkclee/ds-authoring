@@ -1,10 +1,40 @@
+<style>
+.reveal h1, .reveal h2, .reveal h3 {
+  word-wrap: normal;
+  -moz-hyphens: none;
+}
+.small-code pre code {
+  font-size: 1em;
+}
+.midcenter {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+}
+.footer {
+    color: black; background: #E8E8E8;
+    position: fixed; top: 90%;
+    text-align:center; width:100%;
+}
+.pinky .reveal .state-background {
+  background: #FF69B4;
+} 
+.pinky .reveal h1,
+.pinky .reveal h2,
+.pinky .reveal p {
+  color: black;
+}
+</style>
+
 데이터과학을 위한 저작도구
 ========================================================
-author: 이광춘
-date: 2016. 10. 
 autosize: true
 font-import: http://fonts.googleapis.com/css?family=jejugothic
 font-family: 'jejugothic'
+
+
+<div class="footer" style="margin-top:-50px;background-color:transparent;"><SPAN STYLE="font-size:120%;font-weight:bold;"><a href="http://www.webzen.com/">웹젠 데이터 과학자</a><br>2016년 10월</SPAN></div>
+
 
 
 관련 정보
@@ -28,8 +58,7 @@ font-family: 'jejugothic'
 세가지 다른 언어 패러다임
 ========================================================
 
-![세가지 다른 언어](../img/data-conference-three-languages.png)
-
+<img src="../img/data-conference-three-languages.png" alt="세가지" width="120%"/>
 
 
 현재 상황 요약
@@ -127,4 +156,8 @@ font-family: 'jejugothic'
 [DataCamp 콘텐츠 제작](https://www.datacamp.com/teach/documentation)
 <p><a href="https://vimeo.com/153250442">DataCamp 콘텐츠 개발 동영상</a>, <a href="https://vimeo.com">Vimeo</a>.</p>
 
+참고자료
+========================================================
 
+* [Top Five CSS Customizations for R Presentations, Andy Lyons, September, 2014](http://rstudio-pubs-static.s3.amazonaws.com/27777_55697c3a476640caa0ad2099fe914ae5.html#/)
+* [Geospatial Data Processing and Analysis in R, Andy Lyons, Stanford University](https://github.com/ajlyons/rspatialdata/blob/master/Spatial-data-in-R.Rpres)
