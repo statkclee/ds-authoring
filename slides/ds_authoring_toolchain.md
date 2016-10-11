@@ -148,13 +148,71 @@ font-family: 'jejugothic'
 - [리보그 한국어 버젼](http://reeborg.ca/docs/ko/index.html)
 - [프로그래밍과 문제해결: 파이썬, 리보그, 러플](http://reeborg.xwmooc.org/)
 
-사례: DataCamp
+북다운(Bookdown)
+=======================================================
+<br/>
+## 설치방법
+
+1. <https://github.com/rstudio/bookdown-demo> GitHub에서 포크를 뜨고, git clone 하여 로컬 컴퓨터에 저장한다.
+2. RStudio 사전출시 버젼을 다운로드 해서 설치한다.
+3. 클론한 bookdown-demo 저장소에서 bookdown-demo.Rproj 파일을 클릭해서 연다.
+4. bookdown 팩키지를 설치한다. `devtools::install_github("rstudio/bookdown")`
+5. index.Rmd R 마크다운 파일을 열고, RStudio build 탭에 Build Book을 클릭한다.
+
+<br/>
+## [공개 기초 통계학(OpenIntro Statistics)](https://statkclee.github.io/openIntro-statistics-bookdown/)
+
+모두를 위한 파이썬
+=======================================================
+<br/>
+
+<img src="../fig/chuck_and_victor.jpg" alt="세브란스 교수님과 함께" width="77%" />
+
+[모두를 위한 파이썬(Programming for Everybody)](https://statkclee.github.io/pythonlearn-kr/)
+
+
+R 노트북(Notebook)
+=======================================================
+<br/>
+## 설치방법
+
+1. [일별 최신 RStudio 다운로드](https://www.rstudio.org/download/daily/desktop/)
+2. 최신 Rmarkdown 팩키지 설치: devtools::install_github("rstudio/rmarkdown")
+3. RStudio 환경설정: Tools & Global Options > Rmarkdown > R Notebook
+4. File > New File > R Notebook
+5.YAML 헤더에 output: html_notebook 설정 확인.
+
+참고: [R Notebooks from RStudio](http://rmarkdown.rstudio.com/r_notebooks.html)
+
+사례: 데이터캠프(DataCamp)
 =======================================================
 
 <iframe src="https://player.vimeo.com/video/153250442?title=0&byline=0&portrait=0" width="640" height="375" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
 [DataCamp 콘텐츠 제작](https://www.datacamp.com/teach/documentation)
 <p><a href="https://vimeo.com/153250442">DataCamp 콘텐츠 개발 동영상</a>, <a href="https://vimeo.com">Vimeo</a>.</p>
+
+## [한국어 R 입문](https://www.datacamp.com/courses/1709)
+
+본 발표자료 작성
+=======================================================
+<br/>
+## R Presentations
+<br/>
+[Authoring R Presentations](https://support.rstudio.com/hc/en-us/articles/200486468-Authoring-R-Presentations)
+
+
+그리고, 데이터 카펜트리
+=======================================================
+<br/>
+
+## A Data Carpentry Workshop
+<br/>
+### 장소: 서강대학교
+### 일시: Nov 06-07, 2016, 9:30 am - 5:30 pm
+### 강사: Kari Jordan, 이광춘
+<br/>
+<https://statkclee.github.io/2016-11-06-sogang/>
 
 참고자료
 ========================================================
