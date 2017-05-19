@@ -10,9 +10,7 @@ mainfont: NanumGothic
 ---
 
 
-```{r, include=FALSE}
-source("tools/chunk-options.R") 
-```
+
 
 ## 일반적인 보고서 작성 작업흐름
 
@@ -69,7 +67,8 @@ RStudio 통합개발도구를 바탕으로 운영체제 쉘로 내려가지 않�
 - 1월1일부터 5월18일까지 일별로 돌리게 되면 오류가 생겨는 경우 이를 무시하고 계속 보고서 생성시키도록 `try`, `silent=TRUE`를 지정하여 넘김.
 
 
-``` {r report-make, eval=FALSE}
+
+~~~{.r}
 library(stringr)
 library(lubridate)
 
@@ -94,7 +93,7 @@ for(i in reporting_date) {
         ),
     silent = TRUE)
 }
-```
+~~~
 
 ### 매개변수를 넘겨받는 보고서 Rmarkdown 파일
 
@@ -104,7 +103,8 @@ for(i in reporting_date) {
 이를 통해 일자별로 생성되는 데이터를 자동으로 분석하여 보고서를 자동생성시키게 된다.
 
 
-``` {r report-make-rmarkdown, eval=FALSE}
+
+~~~{.r}
 ---
 title: 보고서 예제
 date: '`r strftime(Sys.time(), format = "%B %d, %Y")`'
@@ -134,4 +134,4 @@ getwd()
 dataset <- read.csv(paste0("../data/cars_2017", params$dmonth, params$dday, ".rds"))
 glimpse(dataset)
 #```
-```
+~~~
