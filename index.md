@@ -52,12 +52,18 @@ title: 데이터 과학을 위한 저작도구
     * [부작업(Sub-tasks)](doit-sub_tasks.html)
     * [분석결과가 최신상태인지 점검하기](doit-uptodate.html)
 1. **발표자료와 기고문**
+    1. [통계의 창 - 21세기 통계학을 배우는 방법](window-of-statistics.html)
+    1. [머신러닝 레볼루션 - 머신러닝의 이해와 비즈니스 기회](http://statkclee.github.io/mlrv/): xwMOOC와 함께하는 한국인 - 기계와의 경쟁을 준비하며
+    1. [빅데이터는 위기이자 기회, 게임산업도 예외는 아니다.](digital-times-2017.html)
     1. [데이터야 놀자 발표자료(2016)](slides/ds_authoring_toolchain.html)
         * [데이터야 놀자 페이스북](https://www.facebook.com/dataconference.io/)
         * 일시: 2016. 10. 14. (금), 10:00 ~
         * 장소: [마루 180, 서울 강남구 역삼로 180](http://dmaps.kr/owgj)    
-    1. [통계의 창 - 21세기 통계학을 배우는 방법](window-of-statistics.html)
-    1. [빅데이터는 위기이자 기회, 게임산업도 예외는 아니다.](digital-times-2017.html)
+    1. **이제 글쓰기는 코딩이다. 강서양천신문 (’15년 9월)** 
+        * [컴퓨터 사고력과 소프트웨어 교육](ct-korea.html)
+        * [글을 쓰는 것은 소프트웨어 개발이다!](ct-writing.html)
+
+
  
 <!-- 1.  [개발운영(DevOps)](03-devops.html)
     - [파이썬 빌드 doit](03-doit-index.html)
