@@ -3,16 +3,15 @@ layout: page
 title: 데이터 과학을 위한 저작도구
 subtitle: 보고서 자동화
 output:
-  html_notebook: 
+  html_document:
     toc: yes
-    keep_md: yes
 mainfont: NanumGothic
 ---
 
 
 
 
-## 일반적인 보고서 작성 작업흐름
+## 1.일반적인 보고서 작성 작업흐름
 
 일반적인 보고서 작성을 위한 작업흐름과 필요한 요소는 다음과 같다.
 데이터 기반 보고서를 작성할 때 데이터와 데이터를 처리하는데 필요한 R/SAS/SPSS/파이썬 스크립트, 마크다운으로 작성한 문서가 포함된다.
@@ -27,7 +26,7 @@ GUI가 아닌 CLI 방식으로 데이터를 분석한 후에 이를 `.R` 파일�
 <img src="fig/report-single-automation.png" alt="일별 통계보고서 자동화" width="57%" />
 
 
-## 일별보고서를 넘어 다수 보고서 자동 생성
+## 2. 일별보고서를 넘어 다수 보고서 자동 생성
 
 하루일과는 아침에 일어나서 밥을 먹고, 학교나 회사에 출근하고, 점심먹고, 오후에 놀거나 추가 작업을 하고, 퇴근을 하고 저녁을 먹고, 쉬고 잠을 자는 과정이 일반적인 일상이다.
 이런 과정이 매일 매일 반복된다. 마찬가지로 보고서도 이런 일상적인 과정을 담아내야 한다.
@@ -39,7 +38,7 @@ GUI가 아닌 CLI 방식으로 데이터를 분석한 후에 이를 `.R` 파일�
 <img src="fig/report-many-automation.png" alt="주간/월간 통계보고서 자동화" width="57%" />
 
 
-## 보고서 생성 자동화 (R)
+## 3. 보고서 생성 자동화 (R)
 
 보고서 생성 자동화 프로세스를 구현하는 방법은 다양하다. 
 RStudio 통합개발도구를 바탕으로 운영체제 쉘로 내려가지 않고 R 스크립트 내에서 작업하는 업무 구현사례는 다음과 같다.
@@ -54,7 +53,7 @@ RStudio 통합개발도구를 바탕으로 운영체제 쉘로 내려가지 않�
 
 <img src="fig/report-automation-before-after.png" alt="주간/월간 통계보고서 자동화 구현사례" width="77%" />
 
-### 보고서 Make 파일 
+### 3.1. 보고서 Make 파일 
 
 일자별로 보고서를 생성시키기 위해서 보고서에 일자를 `.Rmd` 파일에 넘겨야 한다.
 우선 일자 정보를 보고서에 전달할 수 있는 형태로 만들기 위해서 다음과정을 거친다.
@@ -95,7 +94,7 @@ for(i in reporting_date) {
 }
 ~~~
 
-### 매개변수를 넘겨받는 보고서 Rmarkdown 파일
+### 3.2. 매개변수를 넘겨받는 보고서 Rmarkdown 파일
 
 
 `make_report.r` 파일에서 정의된 매개변수(parameter)를 받는 `.Rmd` 파일은 다음과 같은 모양이 된다.
@@ -126,7 +125,7 @@ library(tidyverse)
 options(scipen = 999, stringsAsFactors = FALSE)
 #```
 
-## 보고서 시작합니다.
+### 3.3. 보고서 시작합니다.
 
 #```{r, sample-report}
 print(paste(params$directory, params$file, sep = '/'))
@@ -135,3 +134,60 @@ dataset <- read.csv(paste0("../data/cars_2017", params$dmonth, params$dday, ".rd
 glimpse(dataset)
 #```
 ~~~
+
+## 4. 예측모형 보고서
+
+R 스크립트로 데이터 분석과정을 프로그래밍하게 되면, 이를 다양한 R 팩키지와 조합하여 
+예측모형을 담은 보고서도 손쉽게 작성할 수 있다.
+
+
+<img src="fig/predictive_model_automation.png" alt="예측모형 보고서 자동화" width ="97%" />
+
+- 데이터
+    - 원본작업데이터: 로그파일, 엑셀파일, RDBMS 등
+    - R 바이너리 파일: 아스키 형태 데이터(.csv 등)로 저장할 경우 메타 정보가 증발하여 R 작업흐름에 태워서 사용할 경우 `.rds`와 같은 R 바이너리 파일이 유용하다.
+    - 보고서 HTML 파일: 최종 산출물 보고서
+- R 스크립트
+    - 원본 데이터를 정제하는 R 스크립트
+    - 보고서 혹은 예측모형을 산출하는 R 스크립트
+
+
+### 4.1. 원본데이터 정제
+
+윈도우 터미널을 열고 `RScript` 명령어를 실행한다.
+
+- R 정제 파일: `cleansing_code.R`
+- 데이터 디렉토리: `../data`
+- 채팅 로그 파일: `abc.txt`
+- 처리결과 저장 디렉토리: `../data_processed`
+- 처리결과 파일명: `abc_clean.rds`
+
+
+~~~{.r}
+C:\xwMOOC_project\code> RScript cleansing_code.R "../data" "abc.txt" "../data_processed"
+
+[1] "../data_processed\\abc_clean.rds"
+~~~
+
+### 4.2. 보고서 생성
+
+정제된 데이터(`.rds`)를 통계분석하여 예측모형이 포함된 보고서를 생성한다.
+
+- R make 파일: `make_report.R`
+- 보고서 Rmd 파일: `report_automation.Rmd` 은 ``make_report.R` 파일 내 지정됨
+- 정제된 데이터 디렉토리: `data_processed`
+- 정제된 데이터 파일: `abc_clean.rds`
+
+
+~~~{.r}
+C:\xwMOOC_project\report>RScript make_report.R "data_processed" "abc_clean.rds"
+
+processing file: report_automation.Rmd
+output file: report_automation.knit.md
+
+Output created: report_abc_clean_file.html
+~~~
+
+
+
+
