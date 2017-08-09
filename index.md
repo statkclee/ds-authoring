@@ -55,7 +55,8 @@ title: 데이터 과학을 위한 저작도구
     * [데이터야 놀자 페이스북](https://www.facebook.com/dataconference.io/)
     * 일시: 2016. 10. 14. (금), 10:00 ~
     * 장소: [마루 180, 서울 강남구 역삼로 180](http://dmaps.kr/owgj)
-
+1. [빅데이터는 위기이자 기회, 게임산업도 예외는 아니다.](digital-times-2017.html)
+ 
 <!-- 1.  [개발운영(DevOps)](03-devops.html)
     - [파이썬 빌드 doit](03-doit-index.html)
     - [개발서버 아키텍처](03-dev-vm-arch.html)
