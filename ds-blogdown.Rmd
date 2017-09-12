@@ -1,0 +1,121 @@
+---
+layout: page
+title: 데이터 과학을 위한 저작도구
+subtitle: 블로그 - blogdown
+output:
+  html_document:
+    toc: yes
+mainfont: NanumGothic
+---
+
+
+```{r, include=FALSE}
+source("tools/chunk-options.R") 
+```
+
+
+## 1. `blogdown` 팩키지 {#blogdown}
+
+[blogdown](https://github.com/rstudio/blogdown) 팩키지는 블로그 작성은 [R 마크다운](http://rmarkdown.rstudio.com/)에 기반하고 있고,
+[휴고(Hugo)](https://gohugo.io/)라는 정적 웹사이트 생성 도구를 활용하여 데이터 과학 블로그 작성과 배포 공유를 수월하게 하는 목표로 개발되었다.
+개발기간이 오래되지 않았지만, 다수 R 블로거가 기존 제킬(jekyll), 워드프레스를 버리고 블로그다운(blogdown)으로 갈아타고 있다.
+
+- [blogdown 문서 - Creating Websites with R Markdown](https://bookdown.org/yihui/blogdown/)
+- [GitHub - blogdown](https://github.com/rstudio/blogdown)
+
+<img src="fig/blogdown-overview.png" alt="blogdown 개요" width="77%" />
+
+## 2. 블로그 생성 {#build-blog}
+
+RStudio를 개발환경을 사용하는 것을 가정하면, R마크다운으로 블로그 콘텐츠를 작성하게 되고, 
+휴고를 활용하여 정적 웹사이트를 생성하게 된다. 정적 웹사이트는 단순히 생각하면 HTML과 CSS 파일 조합이다.
+
+### 1.1. `blogdown` 설치 {#install-blogdown}
+
+블로그다운을 `devtools::install_github("rstudio/blogdown")` 명령어를 통해 실행한다. 
+특히, 블로드다운은 R 마크다운으로 작성한 콘텐츠를 정적웹사이트 콘텐츠로 변환시키는데 휴고를 활용하기 때문에 
+`blogdown::install_hugo()` 혹은 `blogdown::install_hugo(force = TRUE)` 명령어를 통해 휴고도 설치한다.
+
+``` {r blogdown-install, eval=FALSE}
+if (!requireNamespace("devtools")) install.packages("devtools")
+devtools::install_github("rstudio/blogdown")
+
+blogdown::install_hugo(force = TRUE)
+```
+
+<img src="fig/blogdown-helloworld.png" alt="블로그다운 헬로월드" width="97%" />
+
+### 1.2. 블로그 헬로월드 {#blogdown-hello-world}
+
+RStudio를 R 통합개발도구로 사용하는 것을 가정하면 블로그 헬로월드를 생성하는 절차는 다음과 같다.
+
+1. `File` &rarr; `New Project` ... 신규 프로젝트를 하나 생성한다.
+1. `Ctrl + Shift + N` 키보드 단축키를 실행하여 R 스크립트 작성콘솔을 활성화기킨다.
+1. `blogdown::new_site()`를 실행시킨다.
+
+`blogdown::new_site()` 명령어를 실행시키게 되면 기본 블로그가 즉석에서 생성된다.
+이제 남은 작업은 `2015-07-23-r-rmarkdown.Rmd` 예제 R마크다운 파일예제처럼 
+블로그를 R마크다운 파일에 작성하면 된다. 
+
+``` {r blogdown-hello-world, eval=FALSE}
+blogdown::new_site()
+```
+
+> ### 블로그다운 프로젝트 디렉토리 구조
+> 
+> ``` {r blogdown-directory-structure, eval=FALSE}
+> ㄴ archetypes/
+> ㄴ content/
+> ㄴ data/
+> ㄴ layouts/
+> ㄴ public/
+>   |
+>   ├── .git/
+>   ├── .nojekyll
+>   ├── index.html
+>   ├── about/
+>   └── ...
+> ㄴ static/
+> ㄴ themes/
+> ......Rproj.user
+> .....test.Rproj
+> .....config.toml
+> .....index.Rmd
+> ```
+
+R마크다운으로 블로그를 작성하게 되면 휴고가 정적웹콘텐츠를 생성시켜 `public` 디렉토리에 저장시킨다.
+`blogdown::serve_site()` 명령어가 향후 지속적으로 활용할 명령어로 R마크다운 콘텐츠를 
+`public` 디렉토리에 정정웹콘텐츠로 변환시켜 저장시키는 작업을 수행한다.
+
+<img src="fig/static-website-vs-dynamic-website.png" alt="동적, 정적 웹사이트" width="97%" />
+
+## 2. 정적 웹사이트와 동적 웹사이트 비교[^static-dynamic-comparison] {#static-web-vs-dynamic-web} 
+
+[^static-dynamic-comparison]: [Website, https://www.javatpoint.com](https://www.javatpoint.com/website-static-vs-dynamic)
+
+정적인 문서들로만 이루어져 있기 때문에 아파치나 nginx 같은 어떤 웹서버에도 동작이 가능하고, 
+별도 데이터베이스나 콘텐츠관리시스템(CMS)가 필요없어, SQL 인젝션 같은 공격도 걱정할 필요가 없어 구축이 쉽고 속도가 빠른 것이 장점이다. 
+
+[^hugo-vs-jekyll]: [snowdeer Code Holic, 정적 웹페이지 vs 동적 웹페이지](http://snowdeer.github.io/blog/2016/03/21/static-dynamic-webpage/)
+
+|                    정적 웹사이트                          |                       동적 웹사이트                               |
+|-----------------------------------------------------------|-------------------------------------------------------------------|
+| 매번 웹페이지가 로딩되면 사전에 구축한 웹페이지가 열린다. | 콘텐츠가 신속히 생성되고 정기적으로 변경된다.                     |
+| HTML/CSS 조합으로 웹사이트가 생성된다.                    | `PHP,SERVLET, JSP, ASP.NET`등 서버사이드 언어가 사용된다.         |
+| 모든 클라이언트 요청에 동일한 응답이 전달된다.            | 클라이언트 요청별로 다른 HTML/CSS 조합이 전달된다.                |
+| 콘텐츠 제작 시점 혹은 갱신 시점에만 콘텐츠가 변경된다.    | "서버사이드" 코드를 통해 페이지가 로딩될 때 콘텐츠가 생성된다.    |
+| 별도 데이터베이스나 콘텐츠관리시스템(CMS)가 필요없다.     | 동적 콘텐츠를 위해 데이터베이스나 콘텐츠관리시스템(CMS)가 필요함. |
+
+블로그를 정적웹사이트로 개발하고자 했다면 현존하는 두가지 정적 웹사이트 생성도구가 인기를 얻고 있다.
+하나는 [제킬(Jekyll)](https://jekyllrb.com/)이고, 다른 하나는 [휴고](https://gohugo.io/)다. 
+제킬과 휴고의 차이점과 장단점에 대한 간략한 개요는 다음을 참고한다. [^hugo-vs-jekyll]
+
+|          제킬(Jekyll)         |           휴고(Hugo)              |
+|-------------------------------|-----------------------------------|
+| 루비(Ruby) 언어               |           고(Go) 언어             |
+| 설치 과정이 복잡.	            | 설치과정 단순, 실행 파일 하나만 필요 |
+| 휴고대비 컴파일 속도가 느림.  | 웹페이지 하나당 1 밀리초로 빠름   |
+| 사용자 수가 아주 많음         | R 사용자가 증가하고 있음          |
+| 많은 Plugin & 테마 지원       | 인기를 얻으면서 증가하고 있는 추세|
+
+

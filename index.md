@@ -35,6 +35,7 @@ title: 데이터 과학을 위한 저작도구
     * [R 노트북(Notebook)](ds-notebook.html)
     * [R 발표자료(Presentation)](ds-presn.html)
     * [보고서 자동화](ds-report-automation.html)
+    * [블로그 - blogdown](ds-blogdown.html)
 1. [문서 프로그래밍 - 한글 LaTeX 사전준비](latex.html)
     * [한글 LaTeX 소개](latex-intro.html)
     * [한글 LaTeX 윈도우 설치](latex-install-windows.html)
@@ -52,7 +53,7 @@ title: 데이터 과학을 위한 저작도구
     * [부작업(Sub-tasks)](doit-sub_tasks.html)
     * [분석결과가 최신상태인지 점검하기](doit-uptodate.html)
 1. **발표자료와 기고문**
-    1. [빅데이터는 위기이자 기회, 게임산업도 예외는 아니다.](digital-times-2017.html)
+    1. [빅데이터는 위기이자 기회, 게임산업도 예외는 아니다.](digital-times-2017.html) [디지털타임즈,게임산업 숨은 특수 빅데이터, 2017-08-28](http://www.dt.co.kr/contents.html?article_no=2017082902101531043002)
     1. [데이터야 놀자 발표자료(2016)](slides/ds_authoring_toolchain.html)
         * [데이터야 놀자 페이스북](https://www.facebook.com/dataconference.io/)
         * 일시: 2016. 10. 14. (금), 10:00 ~
