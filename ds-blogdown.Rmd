@@ -23,7 +23,7 @@ source("tools/chunk-options.R")
 - [blogdown 문서 - Creating Websites with R Markdown](https://bookdown.org/yihui/blogdown/)
 - [GitHub - blogdown](https://github.com/rstudio/blogdown)
 
-<img src="fig/blogdown-overview.png" alt="blogdown 개요" width="77%" />
+<img src="fig/blogdown-overview.png" alt="blogdown 개요" width="57%" />
 
 ## 2. 블로그 생성 {#build-blog}
 
@@ -117,5 +117,61 @@ R마크다운으로 블로그를 작성하게 되면 휴고가 정적웹콘텐�
 | 휴고대비 컴파일 속도가 느림.  | 웹페이지 하나당 1 밀리초로 빠름   |
 | 사용자 수가 아주 많음         | R 사용자가 증가하고 있음          |
 | 많은 Plugin & 테마 지원       | 인기를 얻으면서 증가하고 있는 추세|
+
+
+## 3. 정적 웹콘텐츠 블로그 배포 [^blogdown-github] {#blog-deployment} 
+
+[^blogdown-github]: [Making a Website Using Blogdown, Hugo, and GitHub pages.](https://proquestionasker.github.io/blog/Making_Site/)
+
+`blogdown::serve_site()` 명령어를 통해서 `public\` 디렉토리에 블로그 콘텐츠가 작성되었다면 다음 단계로 이를 
+웹서버를 통해 배포하는 과정이 남게된다. 결국 블로그를 게시하는 것은 불특정 다수가 혹은 블로그를 보고자 하는 
+특정 사용자에게 제공하기 위함이기 때문에 크게 두가지 방법을 생각할 수 있다.
+
+- 자체 구축 웹서버 - IDC 혹은 AWS 클라우드에 웹서버를 두고 블로그 정적 콘텐츠 배포.
+- PaaS 플랫폼: [GitHub](https://github.com/) 혹은 [Netlify](https://www.netlify.com/) 와 같은 정적 웹콘텐츠를 호스팅하는 서비스를 활용하여 배포.
+
+두가지 방법 모두 장단점이 있으니 상황에 맞춰 활용하면 좋다.
+
+<img src="fig/blogdown-deployment.png" alt="정적 웹콘텐츠 배포" width="97%" />
+
+### 3.1. PaaS 플랫폼 형태 - GitHub, Netlify
+
+[Netlify](https://www.netlify.com/)에 대해서 `blogdown` 저자는 좋은 인상을 갖고 있는 듯 하다. 
+정적 웹사이트로 구축된 블로그 콘텐츠를 [Netlify](https://www.netlify.com/)에 설치하는 방법에 대해 나름 정성을 들여서 
+자세히 설명하고 있고, 직접 배포하는 것도 생각보다 어렵지 않다. 과거 Travice CI를 통한 경험을 상기해보면 좋을 듯 하다.
+물론 전제 조건은 [GitHub](https://github.com/) 저장소에 블로그 콘텐츠를 저장시켜 활용해야 된다는 점이다.
+
+<img src="fig/blogdown-netlify-deploy.png" alt="Netlify 블로그 배포" width="97%" />
+
+[GitHub](https://github.com/)도 유사한 방법이지만, 다소 복잡하다. 
+자세한 사항은 [Making a Website Using Blogdown, Hugo, and GitHub pages.](https://proquestionasker.github.io/blog/Making_Site/)를 참조한다.
+
+### 3.2. IDC 혹은 AWS 클라우드 배포 {#aws-blogdown-deployment}
+
+자체 운영하는 IDC나 AWS 클라우드나 정적 웹사이트 블로그 콘텐츠를 배포하는 입장에서는 큰 차이는 없다.
+휴고를 통해 생성된 정적 웹콘텐츠가 `public/` 디렉토리에 모여있기 때문에,
+이를 `scp` 명령어를 통해 AWS EC2 인스턴스로 전달한다.
+웹서버 `/var/www/html` 디렉토리에 콘텐츠를 밀어 넣으면 된다. `-i aws-key.pem`은 EC2 인스턴스에 인증을 하기 위한 것이고,
+`-r .` 매개변수는 디렉토리를 포함하여 `public/` 디렉토리에 있는 모든 콘텐츠를 모두 포함시켜 복사해 올리라는 의미가 된다.
+
+``` {r scp-www, eval=FALSE}
+$ scp -i aws-key.pem -r . ubuntu@ec2-xx-xxx-xxx-xxx.ap-northeast-2.compute.amazonaws.com:/var/www/html
+
+.gitkeep                                      100%    0     0.0KB/s   00:00
+index.html                                    100% 3249     3.2KB/s   00:00
+index.xml                                     100%   12KB  11.6KB/s   00:00
+fonts.css                                     100%  733     0.7KB/s   00:00
+main.css                                      100% 4307     4.2KB/s   00:00
+...
+...
+...
+```
+
+
+
+
+
+
+
 
 
