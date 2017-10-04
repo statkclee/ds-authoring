@@ -54,10 +54,10 @@ title: 데이터 과학을 위한 저작도구
     * [분석결과가 최신상태인지 점검하기](doit-uptodate.html)
 1. **발표자료와 기고문**
     1. [데이터야 놀자](https://datayanolja.github.io/)
-        1. [데이터야 놀자 발표자료(2017)](slides/ds_authoring_toolchain.html)
+        1. [데이터야 놀자 발표자료(2017)](slides/ds_data_product.html)
             * 일시: 2017. 10. 13. (금), 10:00 ~
             * 장소: 한빛미디어 홍대 신사옥, (03785) 서울 서대문구 연희로2길 62
-        1. [데이터야 놀자 발표자료(2016)](slides/ds_authoring_toolchain.html)
+        1. [데이터야 놀자 발표자료(2016)](slides/2016/ds_authoring_toolchain.html)
             * 일시: 2016. 10. 14. (금), 10:00 ~
             * 장소: [마루 180, 서울 강남구 역삼로 180](http://dmaps.kr/owgj)    
     1. [빅데이터는 위기이자 기회, 게임산업도 예외는 아니다.](digital-times-2017.html) [디지털타임즈,게임산업 숨은 특수 빅데이터, 2017-08-28](http://www.dt.co.kr/contents.html?article_no=2017082902101531043002)
