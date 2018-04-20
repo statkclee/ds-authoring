@@ -29,6 +29,7 @@ title: 데이터 과학을 위한 저작도구
     * [심각한 현재 상황](http://statkclee.github.io/modern-scientific-authoring/01-mess-kr.html)
     * [마크다운 기초](http://statkclee.github.io/modern-scientific-authoring/02-markdown-kr.html)
     * [고급 마크다운](http://statkclee.github.io/modern-scientific-authoring/03-advanced-kr.html)
+    * [R 마크다운 실무](rmarkdown-in-production.html)
 1. R
     * [북다운(bookdown)](bookdown-intro.html)
         * [출판 자동화(DevOps)](bookdown-github-travis.html)
