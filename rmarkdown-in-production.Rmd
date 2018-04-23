@@ -20,9 +20,9 @@ knitr::opts_chunk$set(echo = TRUE, warning=FALSE, message=FALSE)
 
 
 실무에서 많이 사용되는 R 마크다운 구문이 잘 정리된 블로그가 있어 [현대적인 과학논문 저작](http://statkclee.github.io/modern-scientific-authoring/index-kr.html)의 
-내용에 더하여 R을 주로 사용하는 사용자에게 유용할 것으로 사료되어 블로그의 내용을 중심으로 내용을 정리하였고 몇가지 유용한 사례도 추가하였다. 
+내용에 더하여 R을 주로 사용하는 사용자에게 유용할 것으로 사료되어 블로그의 내용을 중심으로 내용을 정리하였고 몇가지 유용한 사례도 추가하였다. 특히, [Pimp my RMD: a few tips for R Markdown by Yan Holtz - 11 April 2018](https://holtzy.github.io/Pimp-my-rmd/) 내용이 많이 포함되어 있다. PIMP는 "**P**ut **I**n **M**y **P**ocket"으로 추청된다.
 
-# 문서 형식(format) {#rmd}
+# 문서 형식(format) [^put-in-my-pocket-rmd] {#rmd}
 
 [^put-in-my-pocket-rmd]: [Pimp my RMD: a few tips for R Markdown, by Yan Holtz - 11 April 2018](https://holtzy.github.io/Pimp-my-rmd/)
 
