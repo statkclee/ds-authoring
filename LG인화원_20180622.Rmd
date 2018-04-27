@@ -36,21 +36,23 @@ background-size: cover
 가치도 크지만 그에 따른 어려움도 가중된다.
 
 .footnote[
-  [xwMOOC - `tidyverse` 데이터 과학 기본체계](https://statkclee.github.io/data-science/ds-tidyverse.html)
+  [xwMOOC - tidyverse 데이터 과학 기본체계](https://statkclee.github.io/data-science/ds-tidyverse.html)
 ]
-
-
-
---- 
-# 데이터 과학 투여비용
-
-![데이터과학 노력](fig/ds-data-science-workflow-coding.png)
-
 
 ---
 class: inverse, middle, center
 
 # 데이터 과학
+
+---
+## 데이터 과학 투여비용
+
+<img src="fig/ds-data-science-workflow-coding.png" alt="" width="70%" />
+
+.footnote[
+  [PLOTCON 2016: Jenny Bryan, Behind every great plot there's a great deal of wrangling](https://www.youtube.com/watch?v=4MfUCX_KpdE)
+]
+
 
 
 
