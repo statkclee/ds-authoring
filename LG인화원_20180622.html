@@ -23,8 +23,7 @@ class: center, middle, inverse, title-slide
 
 
 background-image: url("fig/ds-gartner.png")
-background-size: cover
-
+background-size: 800px
 
 ---
 # 가트너 데이터 과학
@@ -45,17 +44,221 @@ background-size: cover
 ]
 
 ---
+### 제멜바이스
+
+.center[
+ &lt;img src="fig/Semmelweis.jpg" alt="Ignaz Semmelweis, (1818.7.1 ~ 1865.8.13)" width="40%" /&gt;
+]
+
+.footnote[
+  [기초 통계: 손씻기 그리고 통계 - 제멜바이스](https://statkclee.github.io/statistics/stat-hand-washing.html)
+]
+
+---
+## 마스터 알고리즘
+
+.center[
+  &lt;img src="fig/programming_machine_learning_comparison.png" alt="마스터 알고리즘" width="60%" /&gt;
+]
+
+.footnote[
+- [궁극의 주인이 될 알고리즘(Master Algorithm)](https://statkclee.github.io/ai-lab/master-algorithm.html)
+]
+
+---
+class: inverse, middle, center
+
+# 6 `\(\Huge{\sigma}\)`
+
+---
+## 6 `\(\large{\sigma}\)`
+
+- 통계적 사고(Statistical Thinking) 패러다임
+  - 모든 것은 프로세스 (Everything is a process)
+  - 모든 프로세스는 내재적 변동성이 존재. (All processes have inherent variability)
+  - 데이터를 사용해서 변동성을 이해하고, 프로세스를 개선하는 의사결정을 내림. (Data are used to understand variation and to drive decisions to improve the processes.)
+
+- 수학적 관점
+`$$g(y_{\text{고객 만족, 수익성}})=f(x_{1}^*, x_{2}, x_{3}^*, \cdots, x_{k})$$`
+  - `\(x_{\cdot}\)` : 표준, 공학 프로세스, 제품혁신, 시장요인 등
+  - `\(x_{\cdot}^*\)` : 핵심요인(Vital Few)
+
+---
+## 방법으로 6 `\(\large{\sigma}\)` 이해
+
+.center[
+  &lt;img src="fig/six-sigma-method.png" alt="6시그마 방법" width="100%" /&gt;
+]
+
+---
+## DMAIC
+
+.center[
+  &lt;img src="fig/dmaic.png" alt="DMAIC" width="70%" /&gt;
+]
+
+---
+## 통계모형
+
+`$$\Huge{Y = X\beta + \epsilon}$$`
+
+- **Define**: `\(Y\)`, `\(X\)` 정의
+
+- **Measure**: 데이터 수집을 통한 측정
+
+- **Analyse**: 분석을 통한 방정식 최적 `\(\beta\)` 찾기
+
+- **Improve**: 최적 설계를 통한 `\(X\)` 찾기
+
+- **Monitor**: 최적수준 `\(Y\)` 유지관리
+
+---
+## DMAIC &amp;rarr; 통계도구상자
+
+.center[
+  &lt;img src="fig/dmaic-stat-toolbox.png" alt="DMAIC와 통계도구상자" width="100%" /&gt;
+]
+
+---
+## 미니탭과 수정구슬
+
+.pull-left[
+### 미니탭(Minitab)
+  &lt;img src="fig/simulation-crystalball.png" alt="Crystal ball" width="100%" /&gt;
+]
+
+.pull-right[
+### 수정구슬(Crystal Ball)
+  &lt;img src="fig/experiemnt-minitab.png" alt="Minitab" width="100%" /&gt;
+]
+
+
+---
 class: inverse, middle, center
 
 # 데이터 과학
 
----
-## 데이터 과학 투여비용
 
-&lt;img src="fig/ds-data-science-workflow-coding.png" alt="" width="70%" /&gt;
+---
+## 보고서 vs. 알고리즘
+
+.center[
+  &lt;img src="fig/stat-modeling-workflow.png" alt="데이터 과학과 통계모형" width="120%" /&gt;
+]
+
+.footnote[
+  [기초 통계 -통계 모형(Statistical models)](https://statkclee.github.io/statistics/stat-modeling.html)
+]
+
+---
+## 데이터 크기
+
+.center[
+  &lt;img src="fig/spark-ds-hardware-data.png" alt="" width="100%" /&gt;
+]
+
+.footnote[
+  [데이터 과학: 빅데이터 - tidyverse 스파크](https://statkclee.github.io/data-science/ds-tidyverse-spark.html)
+]
+
+---
+## 베이지안 A/B 검정
+
+.center[
+  &lt;img src="fig/ab-testing-campaigns.png" alt="베이지안 A/B 검정" width="100%" /&gt;
+]
+
+.footnote[
+  [기초 통계 - 베이지안 A/B 검정](https://statkclee.github.io/statistics/bayesian-ab-testing-in-practice.html)
+]
+
+---
+### 데이터 과학 투여비용
+
+.center[
+  &lt;img src="fig/ds-data-science-workflow-coding.png" alt="" width="70%" /&gt;
+]
+
 
 .footnote[
   [PLOTCON 2016: Jenny Bryan, Behind every great plot there's a great deal of wrangling](https://www.youtube.com/watch?v=4MfUCX_KpdE)
+]
+
+---
+
+background-image: url("fig/r-history.png")
+background-size: 1024px
+
+.footnote[
+  [데이터 과학과 R 언어](https://statkclee.github.io/data-science/ds-r-lang.html)
+]
+
+---
+## 빅데이터
+
+.center[
+  &lt;img src="fig/multicore-cluster.png" alt="컴퓨팅 패러다임" width="100%" /&gt;
+]
+
+.footnote[
+  [고성능 컴퓨팅(HPC) - 고성능 컴퓨팅 기초](https://statkclee.github.io/hpc/hpc-basic.html)
+]
+
+---
+## 보고서
+
+.center[
+  &lt;img src="img/data-conference-three-languages.png" alt="글쓰기 패러다임" width="100%" /&gt;
+]
+
+.footnote[
+- [데이터과학을 위한 저작도구](https://statkclee.github.io/ds-authoring/slides/2016/ds_authoring_toolchain.html#/)
+    - [데이터 과학을 위한 저작도구 - 심각한 현재 상황](http://statkclee.github.io/modern-scientific-authoring/01-mess-kr.html)
+    - [데이터 과학을 위한 저작도구 - R 유니코드, 인코딩](https://statkclee.github.io/ds-authoring/regex-encoding.html)
+]
+
+---
+## 보고서 자동생성
+
+.center[
+  &lt;img src="fig/report-single-automation.png" alt="보고서 생성 자동화" width="60%" /&gt;
+]
+
+.footnote[
+- [데이터 과학을 위한 저작도구 -보고서 자동화](https://statkclee.github.io/ds-authoring/ds-report-automation.html)
+- [xwMOOC 데이터 제품 -전자우편 보고서 발송 자동화](https://statkclee.github.io/data-product/cron-automation.html)
+]
+
+---
+class: inverse, middle, center
+
+# 그리고...
+
+---
+## 엑셀에서 탈출하자
+
+.pull-left[
+  &lt;img src="fig/ds-xls-data-format-logic.png" alt="엑셀" width="100%" /&gt;
+]
+.pull-right[
+  &lt;img src="fig/train-to-data.jpg" alt="분석행" width="100%" /&gt;
+]
+
+.footnote[
+- [데이터 과학 -탈옥(jailbreakr) – 엑셀에서 탈출… 자유](https://statkclee.github.io/data-science/ds-xls.html)
+- [데이터 과학 - 위기의 스프레드쉬트](https://statkclee.github.io/data-science/ds-why-not-excel.html)
+]
+
+---
+## 디지털 경제와 열린 적들
+
+.center[
+  &lt;img src="fig/stat-mmorpg.png" alt="작업장" width="80%" /&gt;
+]
+
+.footnote[
+- [기초 통계 - 작업장 탐지](https://statkclee.github.io/statistics/stat-gold-farming-detection.html)
+- [기초 통계 -디지털 경제와 작업장(Gold Farming)](https://statkclee.github.io/statistics/stat-gold-farming.html)
 ]
     </textarea>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
