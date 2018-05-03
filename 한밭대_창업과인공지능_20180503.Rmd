@@ -318,7 +318,21 @@ class: middle, center
 - [긍부정: http://moya.ai/sentiment](http://moya.ai/sentiment)
 ]
 
+---
+## [얼굴 분석 - Face Analysis](https://itunes.apple.com/kr/app/%EC%96%BC%EA%B5%B4-%EB%B6%84%EC%84%9D-face-analysis/id1290130969?mt=8)
 
 
+.pull-left[
+  <img src="fig/face-analysis-app.png" alt="얼굴분석" width="70%" />
+]
 
+.pull-right[
+  - **클라우드 APIs**
+    - [나이(Age): MS Face API](http://statkclee.github.io/deep-learning/ms-oxford-age.html)
+        - [정보과학교육연합회-R을 이용한 인공지능 튜토리얼](http://statkclee.github.io/deep-learning/ms-oxford-kcode-tutorial.html)
+        
+    - [감정분석: MS Emotion API](http://statkclee.github.io/deep-learning/ms-oxford-video.html)
+    
+    - [Azure Computer Vision API: Generate image captions with the Computer Vision API](http://blog.revolutionanalytics.com/2018/03/computer-vision-api.html)
+]
 
