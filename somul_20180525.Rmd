@@ -2,7 +2,7 @@
 title: "글쓰기는 코딩"
 subtitle: "글쓰기를 ~~잘~~하기 위해서 알아야 되는 코딩"
 author: "데이터 과학자 이광춘"
-date: "2018/05/25"
+date: "2018/05/26"
 output:
   xaringan::moon_reader:
     css: xwmooc.css
