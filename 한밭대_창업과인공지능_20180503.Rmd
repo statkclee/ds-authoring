@@ -336,3 +336,6 @@ class: middle, center
     - [Azure Computer Vision API: Generate image captions with the Computer Vision API](http://blog.revolutionanalytics.com/2018/03/computer-vision-api.html)
 ]
 
+.footnote[
+  창업은 중요합니다.
+]
