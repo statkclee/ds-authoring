@@ -1,0 +1,301 @@
+---
+title: "인공지능 제품개발"
+subtitle: "⚔<br/>데이터과학, 기계학습,딥러닝"
+author: "데이터 과학자 이광춘"
+date: "2018/05/29"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
+
+
+class: inverse, middle, center
+
+# 패러다임 전환
+
+---
+## 기계와 경쟁을 준비하는 한국인
+
+.center[
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/PcXLYOMnhd0" frameborder="0" allow="autoplay;     encrypted-media" allowfullscreen></iframe>
+]
+
+---
+## 자동차 클러스터 사례
+
+.center[
+  <img src="fig/ai-digital-cluster.png" width="87%" />
+]
+
+---
+## 가치(Value) 원천
+
+.center[
+  <img src="fig/ai-lab-korea-science.png" width="77%" />
+]
+
+세계은행(World Bank)과 한국개발연구원(KDI)은 약 2년여 기간의 공동연구를 통해 1960-2005 년간 한국 경제발전 과정에 관한 보고서를 출간했다. 경제성장이 지속되기 위해서는 생산성 증가가 대단히 중요하고, 1960년 이후 한국경제의 성공은 광의의 지식축적에 기인한 것으로 1960-2005년 사이 한국의 실질 1인당GDP의 75%가 광의의 지식축적에 기인한 것으로 분석했다.
+
+
+---
+## 사고체계의 진화
+
+.center[
+  <img src="fig/ai-lab-ct-4th-paradigm.png" width="50%" />
+]
+
+- 수학적 사고(Mathematical Thinking)
+
+- 통계적 사고(Experimental Thinking) 
+
+- 컴퓨팅 사고(Computational Thinking)
+
+.footnote[
+    [Wing, Jeannette M. "Computational thinking." Communications of the ACM 49.3 (2006): 33-35.](https://www.cs.cmu.edu/~15110-s13/Wing06-ct.pdf)
+]
+
+
+---
+## 4번째 패러다임
+
+.center[
+  <img src="fig/ai-lab-4th-paradigm.png" width="100%" />
+]
+
+
+---
+class: inverse, middle, center
+
+# 시장의 변화
+
+
+---
+## 수직적 시장 &rarr; 인공지능 시장
+
+.center[
+  <img src="fig/slide-4th-industry-revolution-roadmap.png" width="100%" />
+]
+- 수직적(Vertical) 시장 &rarr; 플랫폼(Platform) 시장 &rarr; 인공지능(AI) 마켓으로
+
+---
+## 한국 기업(?) vs. AI기반 기업
+
+.center[
+  <img src="fig/stat-data-science.png" width="100%" />
+]
+
+---
+## 산업역군(?)
+
+.center[
+  <iframe width="400" height="270" src="https://www.youtube.com/embed/t346si4gy_M" frameborder="0" allowfullscreen></iframe>
+
+  <img src="fig/ai-basic-skills.png" width="37%" />
+]
+
+.footnote[
+  [MATT RICHTEL, "Reading, Writing, Arithmetic, and Lately, Coding"", The New York Time,  MAY 10, 2014](http://www.nytimes.com/2014/05/11/us/reading-writing-arithmetic-and-lately-coding.html)
+]
+
+
+---
+class: inverse, middle, center
+
+# 인공지능 = 데이터 + 슈퍼컴퓨터
+
+---
+## 인공지능과 데이터
+
+.center[
+  <img src="fig/maum.png" alt="AI 플랫폼 서비스" alt="100%" />
+]
+
+---
+## 왜 슈퍼컴퓨터를 알아야 하나?
+
+.center[
+  <img src="fig/CPU-Scaling.jpg" width="50%">
+]
+
+.footnote[
+   [xwMOOC 고성능 R 아키텍처](http://statkclee.github.io/parallel-r/r-perf-arch.html)
+]
+
+
+---
+## 고성능 컴퓨팅 기초
+
+- 병렬 컴퓨팅 
+    - 동시 실행과 병렬 실행
+    - 동기실행과 비동기 실행
+    - 분산 메모리과 공유 메모리
+    - 프로세스 vs. 쓰레드
+- 실무에 병렬처리 적용 방법
+    - 비동기 프로그래밍
+    - 공유 메모리 프로그래밍
+    - 분산 메모리 프로그래밍
+    - 연쇄 작업(serial farming)
+
+.footnote[
+   [고성능 컴퓨팅(HPC) - 고성능 컴퓨팅 기초](http://statkclee.github.io/hpc/hpc-basic.html)
+]
+
+---
+## 딥러닝(Deep Learning)
+
+.center[
+  <img src="fig/three-pillars.png" width="90%">
+]
+
+.footnote[
+   [xwMOOC 딥러닝과 $H_2 O$](http://statkclee.github.io/deep-learning/)
+]
+
+
+---
+## 프로그래밍과 기계학습 차이
+
+.center[
+  <img src="fig/programming_machine_learning_comparison.png" width="80%">
+]
+
+.footnote[
+   [궁극의 주인이 될 알고리즘(Master Algorithm)](https://statkclee.github.io/ai-lab/master-algorithm.html)
+]
+
+
+
+---
+class: inverse, middle, center
+
+# 인공지능 제품 
+### 한국형 스타트업 인공지능 제품 개발
+
+---
+## 계급을 나누는 기준 - 데이터
+
+.center[
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/7Xs3auqcX7k" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+]
+
+---  
+
+“고대에는 ’땅’이 가장 중요했고 땅이 소수에게 집중되자 인간은 귀족과 평민으로 구분됐으며, 근대에는 ’기계’가 중요해지면서 기계가 소수에게 집중되자 인간은 자본가와 노동자 계급으로 구분됐다”. 이제는 데이터가 또 한번 인류를 구분하는 기준이 될 것이다. 향후 데이터가 소수에게 집중되면 단순 계급에 그치는 게 아니라 **데이터**를 가진 종과 그렇지 못한 종으로 분류될 것이이다. - 유발 하라리(Yuval Noah Harari)
+
+---
+class: middle, center
+
+[xwMOOC R Meetup](https://github.com/KaggleBreak/xwmooc_Rmeetup)
+
+.footnote[
+- [키워드 추출: http://sgcslab.com:4500/](http://sgcslab.com:4500/)
+- [문장요약: http://sgcslab.com:3000/](http://sgcslab.com:3000/)
+- [카테고리 분류: http://52.78.25.65:7777/](http://52.78.25.65:7777/)
+- [긍부정: http://moya.ai/sentiment](http://moya.ai/sentiment)
+]
+
+
+---
+## [얼굴 분석 - Face Analysis](https://itunes.apple.com/kr/app/%EC%96%BC%EA%B5%B4-%EB%B6%84%EC%84%9D-face-analysis/id1290130969?mt=8)
+
+
+.pull-left[
+  <img src="fig/face-analysis-app.png" alt="얼굴분석" width="65%" />
+]
+
+.pull-right[
+  - **클라우드 APIs**
+    - [나이(Age): MS Face API](http://statkclee.github.io/deep-learning/ms-oxford-age.html)
+        - [정보과학교육연합회-R을 이용한 인공지능 튜토리얼](http://statkclee.github.io/deep-learning/ms-oxford-kcode-tutorial.html)
+        
+    - [감정분석: MS Emotion API](http://statkclee.github.io/deep-learning/ms-oxford-video.html)
+    
+    - [국회의원 사진 - Computer Vision API](http://statkclee.github.io/deep-learning/ms-azure-computer-vision.html)
+]
+
+.footnote[
+  [Azure Computer Vision API: Generate image captions with the Computer Vision API](http://blog.revolutionanalytics.com/2018/03/computer-vision-api.html)
+]
+
+---
+## 소프트웨어/데이터 진화
+
+.center[
+  <img src="fig/software-evolution.png" width="90%">
+]
+
+.footnote[
+   [xwMOOC 고성능 컴퓨팅(HPC) - 컴파일, 설치, 호출](https://statkclee.github.io/hpc/compile-install-call.html)
+]
+
+---
+## 클라우드 API 호출
+
+<br>
+<br>
+<br>
+
+.center[
+  <img src="fig/compile-source-call.png" alt="패러다임" width="100%" />
+]
+
+.footnote[
+  [고성능 컴퓨팅(HPC) 컴파일, 설치, 호출](http://statkclee.github.io/hpc/compile-install-call.html)
+]
+
+---
+## 데이터 저널리즘
+
+.pull-left[
+### [데이터 저널리즘](https://statkclee.github.io/data-product/data-journalism-working-pop.html)
+
+<img src="fig/data-journalism-population.png" alt="생산가능 인구" width="100%" />
+
+.footnote[
+    - [데이터 과학을 위한 저작도구](https://statkclee.github.io/ds-authoring/)
+    - [언론에 비친 한국자산관리공사 - Shiny App](https://dl-dashboard.shinyapps.io/kamco/)
+  ]
+]
+
+.pull-right[
+### [동영상 감정 분석](https://statkclee.github.io/deep-learning/ms-oxford-video.html)
+
+<img src="fig/ms-cognitive-video.png" alt="슬픔은 어디에" width="100%" />
+
+.footnote[
+  [KBS, 인공지능으로 분석한 대통령의 마음 슬픔은 어디에(2016.12.07)](http://news.kbs.co.kr/news/view.do?ncd=3390429)
+  ]
+]
+
+
+
+---
+class: middle, center
+
+# [데이터를 제품으로](https://statkclee.github.io/ds-authoring/slides/ds_data_product.html#/)
+
+### [South Korea Nuclear Power Plant(원자력 발전소)](https://dl-dashboard.shinyapps.io/npp_server/)
+
+---
+class: middle, center
+
+# [이미지 분류 - 케라스(딥러닝)](https://statkclee.github.io/data-product/shiny-image-classification.html)
+
+---
+## 국회의원 인물정보
+
+- **데이터 API**
+    - [네이버 인물정보](https://statkclee.github.io/ingest-data/naver-people-info.html)
+    - [슈퍼영웅(Super Heores) API ](https://statkclee.github.io/data-product/dp-superhero.html)
+
+- **클라우드 API**
+    - [국회의원 사진 - Computer Vision API](https://statkclee.github.io/deep-learning/ms-azure-computer-vision.html)
+
