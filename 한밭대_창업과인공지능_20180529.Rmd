@@ -297,5 +297,5 @@ class: middle, center
     - [슈퍼영웅(Super Heores) API ](https://statkclee.github.io/data-product/dp-superhero.html)
 
 - **클라우드 API**
-    - [국회의원 사진 - Computer Vision API](https://statkclee.github.io/deep-learning/ms-azure-computer-vision.html)
+    - [국회의원 사진 - MS 애저 Computer Vision API](https://statkclee.github.io/deep-learning/ms-azure-computer-vision.html) 
 
