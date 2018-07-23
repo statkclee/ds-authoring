@@ -33,7 +33,7 @@ RStudio를 개발환경을 사용하는 것을 가정하면, R마크다운으로
 ### 1.1. `blogdown` 설치 {#install-blogdown}
 
 블로그다운을 `devtools::install_github("rstudio/blogdown")` 명령어를 통해 실행한다. 
-특히, 블로드다운은 R 마크다운으로 작성한 콘텐츠를 정적웹사이트 콘텐츠로 변환시키는데 휴고를 활용하기 때문에 
+특히, 블로그다운은 R 마크다운으로 작성한 콘텐츠를 정적웹사이트 콘텐츠로 변환시키는데 휴고를 활용하기 때문에 
 `blogdown::install_hugo()` 혹은 `blogdown::install_hugo(force = TRUE)` 명령어를 통해 휴고도 설치한다.
 
 ``` {r blogdown-install, eval=FALSE}
@@ -50,7 +50,7 @@ blogdown::install_hugo(force = TRUE)
 RStudio를 R 통합개발도구로 사용하는 것을 가정하면 블로그 헬로월드를 생성하는 절차는 다음과 같다.
 
 1. `File` &rarr; `New Project` ... 신규 프로젝트를 하나 생성한다.
-1. `Ctrl + Shift + N` 키보드 단축키를 실행하여 R 스크립트 작성콘솔을 활성화기킨다.
+1. `Ctrl + Shift + N` 키보드 단축키를 실행하여 R 스크립트 작성콘솔을 활성화시킨다.
 1. `blogdown::new_site()`를 실행시킨다.
 
 `blogdown::new_site()` 명령어를 실행시키게 되면 기본 블로그가 즉석에서 생성된다.
@@ -166,12 +166,3 @@ main.css                                      100% 4307     4.2KB/s   00:00
 ...
 ...
 ```
-
-
-
-
-
-
-
-
-
