@@ -168,7 +168,6 @@ xwmooc@vnc:~$
 * RStudio 서버
 * Shiny 서버
 
-
 ## 5. 개발운영 툴체인 구축
 
 데브옵스(DevOps, 개발(Development)과 운영(Operations)의 합성어)는 과거 개발과 운영이 분리되어 발생하는 
@@ -242,14 +241,14 @@ OpenJDK 64-Bit Server VM (build 24.79-b02, mixed mode)
 root@dev:~# wget -q -O - https://jenkins-ci.org/debian/jenkins-ci.org.key | sudo apt-key add -
 root@dev:~# sh -c 'echo deb http://pkg.jenkins-ci.org/debian binary/ > /etc/apt/sources.list.d/jenkins.list'
 root@dev:~# apt-get update
-root@dev:~#  apt-get install jenkins
+root@dev:~# apt-get install jenkins
 ~~~
 
 젠키스 설치가 완료되면 기본적으로 데몬(Daemon)으로 뜨게 되어서, `http://161.202.103.101:8080/`와 같이 웹부라우져에 `8080` 포트에 IP 주소를 입력하면 된다. 
 
 <img src="fig/dev-jenkins-install.png" alt="젠킨스 설치완료 화면" width="70%" />
 
-가장 먼저해야 되는 할일은 젠키스를 임의 사용자가 사용하지 못하도록 사용자 권한관리를 한다. 젠킨스 첫 화면에서 보면 좌측에 `Jenkins 관리` 메뉴가 있다. 이를 클릭하면, 중간에 `Configure Global Security`가 보인다.
+가장 먼저해야 되는 할일은 젠킨스를 임의 사용자가 사용하지 못하도록 사용자 권한관리를 한다. 젠킨스 첫 화면에서 보면 좌측에 `Jenkins 관리` 메뉴가 있다. 이를 클릭하면, 중간에 `Configure Global Security`가 보인다.
 
 `Enable Security`를 체크하고 *Security Realm*아래 `Jenkins' own user database` 아래 `사용자의 가입 허용`을 체크한다. *Authorization*에서는 `Matrix-based security`를 클릭하고 `Anonymous`에 *View*에 읽기권한 `Read`만 클릭하고 저장한다.
 
@@ -261,8 +260,8 @@ root@dev:~#  apt-get install jenkins
 >
 > Git/GitHub 같은 버젼관리 시스템에서 커밋으로 변경사항을 발생했을 경우
 > 인지하는 방법이 두가지가 있다: 폴링(Polling), 푸쉬(Push). 
-> 폴링은 주지적으로 변경사항이 있는지 Git/GitHub 버젼관리 시스템에 문의한다.
-> 반면에 푸쉬는 변경사항이 있을데 Git/GitHub 변경관리 시스템이 그냥 알려준다.
+> 폴링은 주기적으로 변경사항이 있는지 Git/GitHub 버젼관리 시스템에 문의한다.
+> 반면에 푸쉬는 변경사항이 있을때 Git/GitHub 변경관리 시스템이 그냥 알려준다.
 
 
 ### 5.4. 젠킨스(Jenkins) 깃허브(GitHub) 플러그인 설치
@@ -276,7 +275,7 @@ root@dev:~#  apt-get install jenkins
 ### 5.5. 젠킨스(Jenkins) 깃허브(GitHub) 툴체인 통한 지속적인 통합
 
 지속적인 통합(Continous Integraion, CI)를 위해서 먼저 젠킨스가 주체가 되어서 하는 방법은 젠킨스 시작화면에서 `http://161.202.103.101:8080/`
-좌측에 `Jenkins 관리` --> `시스템 설정` --> **GitHub Web Hook** 에서 *Let Jenkins auto-manage hook URLs*을 클리하여 설정한다.
+좌측에 `Jenkins 관리` --> `시스템 설정` --> **GitHub Web Hook** 에서 *Let Jenkins auto-manage hook URLs*을 클릭하여 설정한다.
 다른 한가지는 **GitHub** 중심으로 진행하는 것으로 *Manually manage hook URLs*을 클릭하고 저장한다.
 
 깃허브 화면으로 돌아와서 저장소를 선택하고 들어가면 우측에 **Settings** 메뉴가 있어 클릭하고 들어가면, 좌측편에 `Webhooks & Services`가 나온다. 클릭하고 들어가면 `Services`에서 `Add Service`를 클릭하면 하위선택항목이 많은 `Jenkins (GitHub plugin)`을 선택한다. 그리고 나서 
