@@ -47,6 +47,7 @@ nchar(test_str)
 ```{r}
 substr(test_str, 1, 7)
 ```
+
 1번에서 7번째까지 문자열 요소를 `SCIENCE`로 바꾼다.
 
 ```{r}
@@ -111,7 +112,7 @@ strsplit(x, split = ",") %>% lapply(function(x) x[2])
 
 #### `news_tweets` 데이터 불러 읽어들이기
 
-4 개 방송사(CBC, CNN, Al Jazeera, Reuters)에서 나온 지난주 트위터 데이터를 불러 읽어들인다.
+4개 방송사(CBC, CNN, Al Jazeera, Reuters)에서 나온 지난주 트위터 데이터를 불러 읽어들인다.
 `twitteR` 팩키지를 사용해서 트위터 트윗을 수집했는데, `twitteR`은 트위터 REST API 인터페이스다.
 
 ```{r}
@@ -270,7 +271,7 @@ tweet_words <- str_extract_all(clean_tweets, "[A-Za-z]+")
 head(tweet_words)
 ```
 
-오키도키! 상위 15 개 단어를 뽑아내자.
+오키도키! 상위 15개 단어를 뽑아내자.
 
 ```{r}
 word_counts <- unlist(tweet_words) %>% table %>% data.frame

@@ -61,7 +61,7 @@ source("tools/chunk-options.R")
 [카카오 택시](http://www.kakao.com/services/49) 등을 통해 우리의 일상을 바꿔가고 있다. 
 호텔 산업도 호텔을 하나도 갖고 있지 않은 [에어비앤비(AirBnB)](http://www.youtube.com/watch?v=SaOFuW011G8)가 유수한 전통 호텔 산업을 위협하고 있으며, 
 **[로봇과 일자리 경쟁](https://www.youtube.com/watch?v=7c_XO3Ouzts)**도 치열해지고 있으며, 
-[미국 직업의 절반 이상이 컴퓨터의 위협](http://www.futuretech.ox.ac.uk/news-release-oxford-martin-school-study-shows-nearly-half-us-jobs-could-be-risk-computerisation)을 
+[미국 직업의 절반 이상이 컴퓨터의 위협](https://www.information-age.com/why-nearly-half-of-all-jobs-are-at-high-risk-of-computerisation-123457368/)을 
 받고 있다는 연구보고도 있다.
 
 지금 초중등 과정을 다니는 학생뿐만 아니라 대학/대학원생도 누구나 컴퓨팅 사고력과 함께 통계적 사고를 함양해야 하고, 

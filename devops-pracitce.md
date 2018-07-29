@@ -26,7 +26,7 @@ subtitle: 데브옵스(DevOps, 개발운영) 컴퓨터 과학 언플러그드
     - `git push`를 보낼 경우 작업을 깃허브에서 처리하도록 저장소를 하나 생성한다.
 3. 깃허브와 젠킨스를 웹훅을 통해서 연결한다.
     - 깃허브를 중심으로 푸쉬 기반으로 설계하여 구현한다.
-4. 젠키스가 클라우드 지정한 가상 컴퓨터에 자동 배포한다.
+4. 젠킨스가 클라우드 지정한 가상 컴퓨터에 자동 배포한다.
 
 
 #### 1.1. 개발 및 저작환경 
@@ -64,18 +64,18 @@ $ git push origin gh-pages
 #### 1.3. 깃허브와 젠킨스를 웹훅을 통해서 연결
 
 깃허브 해당 프로젝트 저장소로 이동해서, 우측에 **Settings** --> **Webhooks & Services**를 클릭한다.
-**Services**에서 **Add service**를 클릭하고, 젠키스 서버에서 설치한 플러그인 **Jenkins (GitHub plugin)**을 선택한다.
+**Services**에서 **Add service**를 클릭하고, 젠킨스 서버에서 설치한 플러그인 **Jenkins (GitHub plugin)**을 선택한다.
 비밀번호 인증을 마치고 나면 **Jenkins hook url**이 나타나고 젠킨스 서버가 설치된 웹호스트를 
 `http://161.202.103.101:8080/github-webhook/`와 같이 지정하고 **Add service**로 저장한다.
 
-#### 1.4. 젠키스가 클라우드 지정한 가상 컴퓨터에 자동 배포한다.
+#### 1.4. 젠킨스가 클라우드 지정한 가상 컴퓨터에 자동 배포한다.
 
 젠킨스 첫화면에서 `새로운 Item`을 클릭하고 `Item 이름`에 `uno-dbyll` 이름으로 `새로운 Item`을 등록한다. 그리고 나서 `Freestyle project`를 클릭하고 `OK`를 클릭한다. 그리고 나서 차례로 관련 정보를 입력한다.
 
 - GitHub project : https://github.com/statkclee/uno-dbyll
 - 소스 코드 관리 : `Git` 클릭, Repositories --> Repository URL : https://github.com/statkclee/uno-dbyll.git Credentials에는 Add를 클릭해서 GitHub 사용자이름과 비밀번호를 입력한다.
 - Branches to build : Branch Specifier (blank for 'any') `*/gh-pages`로 브랜치를 설정한다.
-- Additional Behaviors : Add를 크릭하고 `Advanced sub-module behaviours`를 선택한다.
+- Additional Behaviors : Add를 클릭하고 `Advanced sub-module behaviours`를 선택한다.
 - 빌드 유발 : `Build when a change is pushed to GitHub` 체크한다.
 - Build : `Add build step` --> `Execute Shell` 을 클릭하고 실행 쉘 스크립트를 작성한다.
 
@@ -128,7 +128,7 @@ make: Nothing to be done for `preview'.
 + whoami
 jenkins
 + jekyll build --destination /var/www/html
-[33mConfiguration file: none[0m
+[33mConfiguration file: none[0m
             Source: /var/lib/jenkins/workspace/rpy-cloudlayer
        Destination: /var/www/html
       Generating... 

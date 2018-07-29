@@ -327,6 +327,7 @@ pattern <- "^block\\d{3}_.*dplyr.*rmd$"
 pattern <- "^block\\d{3}_.*dplyr-(.*)\\.rmd$"
 (na.omit(str_match(files, pattern)))
 ```
+
 두번째 결과 데이터프레임 칼럼에 필요로 하는 학습주제 정보가 담겨있다.
 
 ### 고급 문자열 함수
