@@ -4,33 +4,33 @@
     <meta charset="utf-8">
     <meta name="generator" content="pandoc">
     <title>Software Carpentry: 데이터 과학</title>
-    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.css" />
-    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap-theme.css" />
-    <link rel="stylesheet" type="text/css" href="css/swc.css" />
-    <link rel="alternate" type="application/rss+xml" title="Software Carpentry Blog" href="http://software-carpentry.org/feed.xml"/>
-    <meta charset="UTF-8" />
-    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-      <script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    
-    
-    <!--
-    <div id="google_translate_element"></div><script type="text/javascript">
-    function googleTranslateElementInit() {
-      new google.translate.TranslateElement({pageLanguage: 'ko', includedLanguages: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
-    }
-    </script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap-theme.css" />
+    <link rel="stylesheet" type="text/css" href="css/swc.css" />
+    <link rel="alternate" type="application/rss+xml" title="Software Carpentry Blog" href="http://software-carpentry.org/feed.xml"/>
+    <meta charset="UTF-8" />
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    
+    
+    <!--
+    <div id="google_translate_element"></div><script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({pageLanguage: 'ko', includedLanguages: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+    }
+    </script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     -->
   </head>
   <body class="lesson">
     <div class="container card">
-      <div class="banner">
-        <a href="http://software-carpentry.org" title="Software Carpentry">
-          <img alt="Software Carpentry banner" src="img/software-carpentry-banner.png" />
-        </a>
+      <div class="banner">
+        <a href="http://software-carpentry.org" title="Software Carpentry">
+          <img alt="Software Carpentry banner" src="img/software-carpentry-banner.png" />
+        </a>
       </div>
       <article>
       <div class="row">
@@ -107,15 +107,15 @@ test_str</code></pre></div>
 <li><p>특수문자를 탈출시키거나 문자클래스를 사용하는 경우, 문자 앞에 <strong>이중</strong> 확장기호를 사용한다. 예를 들어, <strong>* 대신에 </strong>\w**.</p></li>
 </ol>
 <h4 id="news_tweets-데이터-불러-읽어들이기"><code>news_tweets</code> 데이터 불러 읽어들이기</h4>
-<p>4 개 방송사(CBC, CNN, Al Jazeera, Reuters)에서 나온 지난주 트위터 데이터를 불러 읽어들인다. <code>twitteR</code> 팩키지를 사용해서 트위터 트윗을 수집했는데, <code>twitteR</code>은 트위터 REST API 인터페이스다.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">news_tweets &lt;-<span class="st"> </span><span class="kw">read.delim</span>(<span class="st">&quot;https://www.dropbox.com/s/cbgcpkizun51wbk/news_tweets.txt?dl=1&quot;</span>, <span class="dt">header =</span> <span class="ot">TRUE</span>, <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>, <span class="dt">sep =</span> <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>, <span class="dt">quote =</span> <span class="st">&quot;&quot;</span>, <span class="dt">allowEscapes =</span> <span class="ot">TRUE</span>)
-<span class="kw">glimpse</span>(news_tweets)</code></pre></div>
-<pre class="output"><code>Observations: 858
-Variables: 4
-$ user_name (chr) &quot;CBC&quot;, &quot;CBC&quot;, &quot;CBC&quot;, &quot;CBC&quot;, &quot;CBC&quot;, &quot;CBC&quot;, &quot;CBC&quot;, &quot;CB...
-$ created   (chr) &quot;2015-10-28 14:54:49&quot;, &quot;2015-10-28 14:54:48&quot;, &quot;2015-...
-$ retweets  (int) 30, 8, 10, 51, 10, 15, 17, 10, 24, 6, 16, 23, 13, 17...
-$ text      (chr) &quot;Officer who flipped student in desk to be let go, r...
+<p>4개 방송사(CBC, CNN, Al Jazeera, Reuters)에서 나온 지난주 트위터 데이터를 불러 읽어들인다. <code>twitteR</code> 팩키지를 사용해서 트위터 트윗을 수집했는데, <code>twitteR</code>은 트위터 REST API 인터페이스다.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">news_tweets &lt;-<span class="st"> </span><span class="kw">read.delim</span>(<span class="st">&quot;https://www.dropbox.com/s/cbgcpkizun51wbk/news_tweets.txt?dl=1&quot;</span>, <span class="dt">header =</span> <span class="ot">TRUE</span>, <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>, <span class="dt">sep =</span> <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>, <span class="dt">quote =</span> <span class="st">&quot;&quot;</span>, <span class="dt">allowEscapes =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<pre class="error"><code>Warning in file(file, &quot;rt&quot;): cannot open URL &#39;https://www.dropbox.com/s/dl/
+cbgcpkizun51wbk/news_tweets.txt&#39;: HTTP status was &#39;404 Not Found&#39;
+</code></pre>
+<pre class="error"><code>Error in file(file, &quot;rt&quot;): cannot open the connection to &#39;https://www.dropbox.com/s/cbgcpkizun51wbk/news_tweets.txt?dl=1&#39;
+</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">glimpse</span>(news_tweets)</code></pre></div>
+<pre class="error"><code>Error in glimpse(news_tweets): 객체 &#39;news_tweets&#39;를 찾을 수 없습니다
 </code></pre>
 <ul>
 <li><code>user_name</code> = 트위터 사용자명(축약)</li>
@@ -132,40 +132,21 @@ hastag_pattern &lt;-<span class="st"> &quot;#</span><span class="ch">\\</span><s
 hastag_pattern &lt;-<span class="st"> &quot;#[[:alnum:]]+&quot;</span>
 
 <span class="kw">grep</span>(hastag_pattern, news_tweets$text)</code></pre></div>
-<pre class="output"><code>  [1]   5   7   9  11 175 206 260 269 274 276 277 279 282 287 292 305 308
- [18] 309 310 311 321 327 333 338 340 343 348 349 351 358 360 362 364 366
- [35] 367 369 371 386 387 388 397 404 405 407 408 411 422 425 434 435 437
- [52] 439 440 441 442 453 455 457 459 460 464 467 469 471 487 500 502 503
- [69] 505 507 508 510 512 513 514 515 516 517 518 520 521 522 523 530 531
- [86] 532 535 536 537 540 541 542 543 544 545 546 548 549 550 551 552 553
-[103] 554 555 556 558 559 560 561 562 563 564 567 568 569 574 575 577 578
-[120] 579 580 581 582 583 584 585 586 588 589 591 592 593 594 596 597 598
-[137] 599 600 601 602 603 604 605 606 607 608 611 612 613 615 619 620 621
-[154] 622 623 625 634 639 640 641 642 644 646 647 648 649 650 656 657 658
-[171] 659 660 662 663 664 679 680 691 692 693 724 725 738 770 784 795 817
-[188] 818 819 826 829 830 831 832
+<pre class="error"><code>Error in grep(hastag_pattern, news_tweets$text): 객체 &#39;news_tweets&#39;를 찾을 수 없습니다
 </code></pre>
 <p><code>value=TRUE</code>를 설정하면 인덱스에 딸린 벡터 <em>실제값</em>을 반환한다.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">grep</span>(hastag_pattern, news_tweets$text, <span class="dt">value =</span> <span class="ot">TRUE</span>) %&gt;%<span class="st"> </span><span class="kw">head</span>(<span class="dt">n =</span> <span class="dv">5</span>)</code></pre></div>
-<pre class="output"><code>[1] &quot;Alberta will try to spend its way out of a slump, but it also needs oil to recover https://t.co/x2h24rKI39 #abbudget https://t.co/ANkckdlb7m&quot;
-[2] &quot;Volkswagen posted 1st quarterly loss in 15 years, as costs from emissions scandal mount https://t.co/Z9WEkQ96km #VW https://t.co/VaDVd5Mw2D&quot; 
-[3] &quot;#Tesla&#39;s new Autopilot software means self-driving cars are already on Canadian roads https://t.co/3ksvzhVvEX https://t.co/WsM8s3T73R&quot;       
-[4] &quot;Canada Post&#39;s door-to-door delivery debate reignites as Liberals set to take office https://t.co/3pXZ1BHtCe #cdnpoli https://t.co/aM4UvkVzRe&quot;
-[5] &quot;On @CBCMorningShow: Teal Pumpkin Project helps B.C. kids with food allergies feel &#39;safe&#39; on #Halloween https://t.co/vzVtMSinIh&quot;              
+<pre class="error"><code>Error in grep(hastag_pattern, news_tweets$text, value = TRUE): 객체 &#39;news_tweets&#39;를 찾을 수 없습니다
 </code></pre>
 <p><code>invert = TRUE</code>를 설정해서, 해쉬태그가 없는 검색결과로 반전할 수 있다:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">grep</span>(hastag_pattern, news_tweets$text, <span class="dt">value =</span> <span class="ot">TRUE</span>, <span class="dt">invert =</span> <span class="ot">TRUE</span>) %&gt;%<span class="st"> </span><span class="kw">head</span>(<span class="dt">n =</span> <span class="dv">5</span>)</code></pre></div>
-<pre class="output"><code>[1] &quot;Officer who flipped student in desk to be let go, report says https://t.co/yRcQG35zXn https://t.co/LgXCbaDtjk&quot;                         
-[2] &quot;Apple Pay coming to Canada this year with American Express partnership https://t.co/Whc2g3lLzP https://t.co/xru2gnWdrg&quot;                
-[3] &quot;Renovation nation: Canadians may spend record $53 billion fixing their homes this year https://t.co/lNGZtIuuih https://t.co/KrCQ1rh8go&quot;
-[4] &quot;Cosmetic ear cropping banned by B.C. veterinarians https://t.co/wlsXmOmBFC https://t.co/E9hFezNJZe&quot;                                    
-[5] &quot;&#39;I wouldn&#39;t mind to go back to school&#39;: No teacher, no students and a vicious cycle https://t.co/I62zrvwTlZ https://t.co/BlKtD9uGQx&quot;   
+<pre class="error"><code>Error in grep(hastag_pattern, news_tweets$text, value = TRUE, invert = TRUE): 객체 &#39;news_tweets&#39;를 찾을 수 없습니다
 </code></pre>
 <h4 id="grepl---논리-패턴-매칭"><code>grepl</code> - 논리 패턴 매칭</h4>
 <p><code>grepl</code> (grep logical)은 <code>grep</code>과 유사하지만, 벡터 모든 요소에 대한 <code>TRUE</code> 혹은 <code>FALSE</code> 값을 반환한다.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">hastag_pattern &lt;-<span class="st"> &quot;#[[:alnum:]]+&quot;</span>
 <span class="kw">grepl</span>(hastag_pattern, news_tweets$text) %&gt;%<span class="st"> </span><span class="kw">head</span>(<span class="dt">n =</span> <span class="dv">10</span>)</code></pre></div>
-<pre class="output"><code> [1] FALSE FALSE FALSE FALSE  TRUE FALSE  TRUE FALSE  TRUE FALSE
+<pre class="error"><code>Error in grepl(hastag_pattern, news_tweets$text): 객체 &#39;news_tweets&#39;를 찾을 수 없습니다
 </code></pre>
 <p><code>dplyr</code> 팩키지 <code>filter</code>로 <code>grepl</code>을 사용해서 정규표현식으로 행을 필터링한다. url을 포함한 트윗을 필터링해서 뽑아낸다:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># url regex</span>
@@ -173,24 +154,12 @@ url_pattern &lt;-<span class="st"> &quot;http[s]?://[^ ]+&quot;</span>
 
 <span class="co"># filter news tweets using grepl</span>
 hashtag_tweets &lt;-<span class="st"> </span>news_tweets %&gt;%
-<span class="st">    </span><span class="kw">filter</span>(<span class="kw">grepl</span>(url_pattern, news_tweets$text))
-
-<span class="co"># print the first 6 rows of the resulting data frame</span>
+<span class="st">    </span><span class="kw">filter</span>(<span class="kw">grepl</span>(url_pattern, news_tweets$text))</code></pre></div>
+<pre class="error"><code>Error in eval(lhs, parent, parent): 객체 &#39;news_tweets&#39;를 찾을 수 없습니다
+</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># print the first 6 rows of the resulting data frame</span>
 <span class="kw">head</span>(hashtag_tweets)</code></pre></div>
-<pre class="output"><code>  user_name             created retweets
-1       CBC 2015-10-28 14:54:49       30
-2       CBC 2015-10-28 14:54:48        8
-3       CBC 2015-10-28 14:40:10       10
-4       CBC 2015-10-28 14:40:08       51
-5       CBC 2015-10-28 14:30:29       10
-6       CBC 2015-10-28 14:25:18       15
-                                                                                                                                          text
-1                                Officer who flipped student in desk to be let go, report says https://t.co/yRcQG35zXn https://t.co/LgXCbaDtjk
-2                       Apple Pay coming to Canada this year with American Express partnership https://t.co/Whc2g3lLzP https://t.co/xru2gnWdrg
-3       Renovation nation: Canadians may spend record $53 billion fixing their homes this year https://t.co/lNGZtIuuih https://t.co/KrCQ1rh8go
-4                                           Cosmetic ear cropping banned by B.C. veterinarians https://t.co/wlsXmOmBFC https://t.co/E9hFezNJZe
-5 Alberta will try to spend its way out of a slump, but it also needs oil to recover https://t.co/x2h24rKI39 #abbudget https://t.co/ANkckdlb7m
-6          &#39;I wouldn&#39;t mind to go back to school&#39;: No teacher, no students and a vicious cycle https://t.co/I62zrvwTlZ https://t.co/BlKtD9uGQx
+<pre class="error"><code>Error in head(hashtag_tweets): 객체 &#39;hashtag_tweets&#39;를 찾을 수 없습니다
 </code></pre>
 <h4 id="gsub---찾기와-바꾸기"><code>gsub</code> - 찾기와 바꾸기</h4>
 <p>정규표현식으로 매칭하고, 매칭된 것을 미리 지정한 문자열로 바꾼다.</p>
@@ -198,52 +167,37 @@ hashtag_tweets &lt;-<span class="st"> </span>news_tweets %&gt;%
 <p><code>gsub</code> 함수의 일반적인 용도는 텍스트 정제다. 예를 들어, 트윗에서 모든 url을 제거하자:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># reminder of what a tweet looks like</span>
 news_tweets$text[<span class="dv">20</span>]</code></pre></div>
-<pre class="output"><code>[1] &quot;Door-to-door mail delivery: Charge for it, scrap it or subsidize it?  https://t.co/4LYaSgFkd5 https://t.co/7EaA7jXWQW&quot;
+<pre class="error"><code>Error in eval(expr, envir, enclos): 객체 &#39;news_tweets&#39;를 찾을 수 없습니다
 </code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># the url regex</span>
 url_pattern &lt;-<span class="st"> &quot;http[s]?://[[:alnum:].</span><span class="ch">\\</span><span class="st">/]+&quot;</span>
 
 <span class="co"># replace all matches to the above regex with nothing &quot;&quot;</span>
-clean_tweets &lt;-<span class="st"> </span><span class="kw">gsub</span>(<span class="dt">pattern =</span> url_pattern, <span class="dt">replacement =</span> <span class="st">&quot;&quot;</span>, news_tweets$text)
-clean_tweets[<span class="dv">20</span>]</code></pre></div>
-<pre class="output"><code>[1] &quot;Door-to-door mail delivery: Charge for it, scrap it or subsidize it?   &quot;
+clean_tweets &lt;-<span class="st"> </span><span class="kw">gsub</span>(<span class="dt">pattern =</span> url_pattern, <span class="dt">replacement =</span> <span class="st">&quot;&quot;</span>, news_tweets$text)</code></pre></div>
+<pre class="error"><code>Error in gsub(pattern = url_pattern, replacement = &quot;&quot;, news_tweets$text): 객체 &#39;news_tweets&#39;를 찾을 수 없습니다
+</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">clean_tweets[<span class="dv">20</span>]</code></pre></div>
+<pre class="error"><code>Error in eval(expr, envir, enclos): 객체 &#39;clean_tweets&#39;를 찾을 수 없습니다
 </code></pre>
 <p><code>gsub</code> 함수를 사용해서 부가되거나 끝에 딸려오는 공백문자를 제거한다:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># 공백 2개 혹은 끝에 딸려오는 공백 제거 정규표현식</span>
 trailing_space &lt;-<span class="st"> &quot;[ ]{2,}|[ ]+$&quot;</span>
-clean_tweets &lt;-<span class="st"> </span><span class="kw">gsub</span>(<span class="dt">pattern =</span> trailing_space, <span class="dt">replacement =</span> <span class="st">&quot;&quot;</span>, clean_tweets)
-
-<span class="co"># a clean tweet!</span>
+clean_tweets &lt;-<span class="st"> </span><span class="kw">gsub</span>(<span class="dt">pattern =</span> trailing_space, <span class="dt">replacement =</span> <span class="st">&quot;&quot;</span>, clean_tweets)</code></pre></div>
+<pre class="error"><code>Error in gsub(pattern = trailing_space, replacement = &quot;&quot;, clean_tweets): 객체 &#39;clean_tweets&#39;를 찾을 수 없습니다
+</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># a clean tweet!</span>
 clean_tweets[<span class="dv">20</span>]</code></pre></div>
-<pre class="output"><code>[1] &quot;Door-to-door mail delivery: Charge for it, scrap it or subsidize it?&quot;
+<pre class="error"><code>Error in eval(expr, envir, enclos): 객체 &#39;clean_tweets&#39;를 찾을 수 없습니다
 </code></pre>
 <p>마지막으로, <code>polit</code>로 시작되는 모든 문자를 <code>ballons</code>으로 바꾸기 한다:</p>
 <p>먼저 <code>polit</code>으로 시작되는 관심 패턴을 포함하는 트윗을 뽑아낸다:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">poli_pattern &lt;-<span class="st"> &quot;[Pp]olit[[:alnum:]]+&quot;</span>
 poli_pattern %&gt;%<span class="st"> </span><span class="kw">grep</span>(clean_tweets, <span class="dt">value =</span> <span class="ot">TRUE</span>)</code></pre></div>
-<pre class="output"><code> [1] &quot;Website that archives politicians&#39; deleted tweets may return&quot;                                                                    
- [2] &quot;Tom Mulcair says niqab position was a defining moment of his political career&quot;                                                   
- [3] &quot;Tom Mulcair says niqab position was a defining moment of his political career&quot;                                                   
- [4] &quot;Anaylsis: Triple deleted emails shed light on troubling political culture&quot;                                                       
- [5] &quot;.@HillaryClinton to @StephenAtHome: I would let the big banks fail http://via @CNNPolitics&quot;                                      
- [6] &quot;Celebrities and politicians wish @HillaryClinton a \&quot;Happy Birthday\&quot;&quot;                                                           
- [7] &quot;.@HillaryClinton&#39;s campaign is not yet carbon neutral, despite pledgevia @CNNPolitics&quot;                                           
- [8] &quot;WATCH ONLINE: How leftist politics is challenging conventional news coverage@AJListeningPost&quot;                                    
- [9] &quot;Meet @HenshawKate, Nollywood star turned politician on #AJMyNigeria#Nigeria&quot;                                                     
-[10] &quot;\&quot;We should get to a point where politicians fear voters, rather than the other way round.\&quot; @MmusiMaimane at #DMNandosGathering&quot;
+<pre class="error"><code>Error in grep(., clean_tweets, value = TRUE): 객체 &#39;clean_tweets&#39;를 찾을 수 없습니다
 </code></pre>
 <p>이제 이를 조합해서 <code>polit</code>로 시작되는 모든 문자를 <code>ballons</code>으로 바꾼다:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">poli_pattern %&gt;%<span class="st"> </span><span class="kw">gsub</span>(<span class="dt">replacement =</span> <span class="st">&quot;balloons&quot;</span>, clean_tweets) %&gt;%<span class="st"> </span><span class="kw">grep</span>(<span class="st">&quot;balloons&quot;</span>, ., <span class="dt">value =</span> <span class="ot">TRUE</span>) </code></pre></div>
-<pre class="output"><code> [1] &quot;Website that archives balloons&#39; deleted tweets may return&quot;                                                                    
- [2] &quot;Tom Mulcair says niqab position was a defining moment of his balloons career&quot;                                                 
- [3] &quot;Tom Mulcair says niqab position was a defining moment of his balloons career&quot;                                                 
- [4] &quot;Anaylsis: Triple deleted emails shed light on troubling balloons culture&quot;                                                     
- [5] &quot;.@HillaryClinton to @StephenAtHome: I would let the big banks fail http://via @CNNballoons&quot;                                   
- [6] &quot;Celebrities and balloons wish @HillaryClinton a \&quot;Happy Birthday\&quot;&quot;                                                           
- [7] &quot;.@HillaryClinton&#39;s campaign is not yet carbon neutral, despite pledgevia @CNNballoons&quot;                                        
- [8] &quot;WATCH ONLINE: How leftist balloons is challenging conventional news coverage@AJListeningPost&quot;                                 
- [9] &quot;Meet @HenshawKate, Nollywood star turned balloons on #AJMyNigeria#Nigeria&quot;                                                    
-[10] &quot;\&quot;We should get to a point where balloons fear voters, rather than the other way round.\&quot; @MmusiMaimane at #DMNandosGathering&quot;
+<pre class="error"><code>Error in gsub(., replacement = &quot;balloons&quot;, clean_tweets): 객체 &#39;clean_tweets&#39;를 찾을 수 없습니다
 </code></pre>
 <h3 id="부---stringr-팩키지">3부 - <code>stringr</code> 팩키지</h3>
 <p>R에 다른 모든 것처럼, Hadley Wickham이 문자열처리도 효과적이고 효율적으로 다루고자 많은 기여를 했다. 문자열에 대한 기여결과가 <code>stringr</code> 팩키지로 구현되었다. 기존에 존재하던 많은 함수를 더 멋진 구문으로 구현했다. 문자열 처리 팩키지를 <code>dplyr</code>과 함께 사용해서 트윗데이터에 대한 기본적인 어휘분석을 수행한다!</p>
@@ -260,144 +214,83 @@ poli_pattern %&gt;%<span class="st"> </span><span class="kw">grep</span>(clean_t
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">stuff_to_remove &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;http[s]?://[[:alnum:].</span><span class="ch">\\</span><span class="st">/]+&quot;</span>, <span class="st">&quot;@[</span><span class="ch">\\</span><span class="st">w]*&quot;</span>, <span class="st">&quot;#[</span><span class="ch">\\</span><span class="st">w]*&quot;</span>, <span class="st">&quot;&lt;.*&gt;&quot;</span>, <span class="st">&quot;&#39;s&quot;</span>)
 stuff_to_remove &lt;-<span class="st">  </span><span class="kw">paste</span>(stuff_to_remove, <span class="dt">sep =</span> <span class="st">&quot;|&quot;</span>, <span class="dt">collapse=</span><span class="st">&quot;|&quot;</span>)</code></pre></div>
 <p>(<code>gsub</code> 같은) <code>str_replace_all</code> 함수를 사용해서 트윗 텍스트를 정제한다.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">clean_tweets &lt;-<span class="st"> </span><span class="kw">str_replace_all</span>(news_tweets$text, stuff_to_remove, <span class="st">&quot;&quot;</span>)
-clean_tweets[<span class="dv">20</span>:<span class="dv">25</span>]</code></pre></div>
-<pre class="output"><code>[1] &quot;Door-to-door mail delivery: Charge for it, scrap it or subsidize it?   &quot;
-[2] &quot;Alberta budget: Can the province spend its way to prosperity?  &quot;        
-[3] &quot;Did 3rd-party groups sway voters during federal election?  &quot;            
-[4] &quot;Ready or not, self-driving cars are cruising on Canadian roads  &quot;       
-[5] &quot;How submarine cables became the latest Russia-U.S. issue  &quot;             
-[6] &quot;Top 10 Trending Halloween Costumes  &quot;                                   
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">clean_tweets &lt;-<span class="st"> </span><span class="kw">str_replace_all</span>(news_tweets$text, stuff_to_remove, <span class="st">&quot;&quot;</span>)</code></pre></div>
+<pre class="error"><code>Error in stri_replace_all_regex(string, pattern, fix_replacement(replacement), : 객체 &#39;news_tweets&#39;를 찾을 수 없습니다
+</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">clean_tweets[<span class="dv">20</span>:<span class="dv">25</span>]</code></pre></div>
+<pre class="error"><code>Error in eval(expr, envir, enclos): 객체 &#39;clean_tweets&#39;를 찾을 수 없습니다
 </code></pre>
 <p>잘 동작되지만, 꼬리부분에 공백문자가 눈에 띈다! 다행히도, <code>stringr</code> 팩키지에는 이런 작업을 위한 전용함수가 존재한다. <code>str_trim</code> 함수는 앞쪽과 뒤쪽 공백문자를 제거한다:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">clean_tweets &lt;-<span class="st"> </span><span class="kw">str_trim</span>(clean_tweets)
-clean_tweets[<span class="dv">20</span>:<span class="dv">25</span>]</code></pre></div>
-<pre class="output"><code>[1] &quot;Door-to-door mail delivery: Charge for it, scrap it or subsidize it?&quot;
-[2] &quot;Alberta budget: Can the province spend its way to prosperity?&quot;       
-[3] &quot;Did 3rd-party groups sway voters during federal election?&quot;           
-[4] &quot;Ready or not, self-driving cars are cruising on Canadian roads&quot;      
-[5] &quot;How submarine cables became the latest Russia-U.S. issue&quot;            
-[6] &quot;Top 10 Trending Halloween Costumes&quot;                                  
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">clean_tweets &lt;-<span class="st"> </span><span class="kw">str_trim</span>(clean_tweets)</code></pre></div>
+<pre class="error"><code>Error in stri_trim_both(string): 객체 &#39;clean_tweets&#39;를 찾을 수 없습니다
+</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">clean_tweets[<span class="dv">20</span>:<span class="dv">25</span>]</code></pre></div>
+<pre class="error"><code>Error in eval(expr, envir, enclos): 객체 &#39;clean_tweets&#39;를 찾을 수 없습니다
 </code></pre>
 <p>다음으로, <code>str_extract_all</code> 함수를 사용해서 전체 데이터셋에서 모든 단어를 추출한다. (<code>grep(...value=TRUE)</code>처럼)</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">tweet_words &lt;-<span class="st"> </span><span class="kw">str_extract_all</span>(clean_tweets, <span class="st">&quot;[A-Za-z]+&quot;</span>)
-<span class="kw">head</span>(tweet_words)</code></pre></div>
-<pre class="output"><code>[[1]]
- [1] &quot;Officer&quot; &quot;who&quot;     &quot;flipped&quot; &quot;student&quot; &quot;in&quot;      &quot;desk&quot;    &quot;to&quot;     
- [8] &quot;be&quot;      &quot;let&quot;     &quot;go&quot;      &quot;report&quot;  &quot;says&quot;   
-
-[[2]]
- [1] &quot;Apple&quot;       &quot;Pay&quot;         &quot;coming&quot;      &quot;to&quot;          &quot;Canada&quot;     
- [6] &quot;this&quot;        &quot;year&quot;        &quot;with&quot;        &quot;American&quot;    &quot;Express&quot;    
-[11] &quot;partnership&quot;
-
-[[3]]
- [1] &quot;Renovation&quot; &quot;nation&quot;     &quot;Canadians&quot;  &quot;may&quot;        &quot;spend&quot;     
- [6] &quot;record&quot;     &quot;billion&quot;    &quot;fixing&quot;     &quot;their&quot;      &quot;homes&quot;     
-[11] &quot;this&quot;       &quot;year&quot;      
-
-[[4]]
-[1] &quot;Cosmetic&quot;      &quot;ear&quot;           &quot;cropping&quot;      &quot;banned&quot;       
-[5] &quot;by&quot;            &quot;B&quot;             &quot;C&quot;             &quot;veterinarians&quot;
-
-[[5]]
- [1] &quot;Alberta&quot; &quot;will&quot;    &quot;try&quot;     &quot;to&quot;      &quot;spend&quot;   &quot;its&quot;     &quot;way&quot;    
- [8] &quot;out&quot;     &quot;of&quot;      &quot;a&quot;       &quot;slump&quot;   &quot;but&quot;     &quot;it&quot;      &quot;also&quot;   
-[15] &quot;needs&quot;   &quot;oil&quot;     &quot;to&quot;      &quot;recover&quot;
-
-[[6]]
- [1] &quot;I&quot;        &quot;wouldn&quot;   &quot;t&quot;        &quot;mind&quot;     &quot;to&quot;       &quot;go&quot;      
- [7] &quot;back&quot;     &quot;to&quot;       &quot;school&quot;   &quot;No&quot;       &quot;teacher&quot;  &quot;no&quot;      
-[13] &quot;students&quot; &quot;and&quot;      &quot;a&quot;        &quot;vicious&quot;  &quot;cycle&quot;   
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">tweet_words &lt;-<span class="st"> </span><span class="kw">str_extract_all</span>(clean_tweets, <span class="st">&quot;[A-Za-z]+&quot;</span>)</code></pre></div>
+<pre class="error"><code>Error in stri_extract_all_regex(string, pattern, simplify = simplify, : 객체 &#39;clean_tweets&#39;를 찾을 수 없습니다
 </code></pre>
-<p>오키도키! 상위 15 개 단어를 뽑아내자.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">word_counts &lt;-<span class="st"> </span><span class="kw">unlist</span>(tweet_words) %&gt;%<span class="st"> </span>table %&gt;%<span class="st"> </span>data.frame
-<span class="kw">names</span>(word_counts) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;word&quot;</span>, <span class="st">&quot;count&quot;</span>)
-word_counts %&gt;%
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(tweet_words)</code></pre></div>
+<pre class="error"><code>Error in head(tweet_words): 객체 &#39;tweet_words&#39;를 찾을 수 없습니다
+</code></pre>
+<p>오키도키! 상위 15개 단어를 뽑아내자.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">word_counts &lt;-<span class="st"> </span><span class="kw">unlist</span>(tweet_words) %&gt;%<span class="st"> </span>table %&gt;%<span class="st"> </span>data.frame</code></pre></div>
+<pre class="error"><code>Error in unlist(tweet_words): 객체 &#39;tweet_words&#39;를 찾을 수 없습니다
+</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">names</span>(word_counts) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;word&quot;</span>, <span class="st">&quot;count&quot;</span>)</code></pre></div>
+<pre class="error"><code>Error in names(word_counts) &lt;- c(&quot;word&quot;, &quot;count&quot;): 객체 &#39;word_counts&#39;를 찾을 수 없습니다
+</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">word_counts %&gt;%
 <span class="st">    </span><span class="kw">arrange</span>(count) %&gt;%
 <span class="st">    </span><span class="kw">top_n</span>(<span class="dv">15</span>) </code></pre></div>
-<pre class="output"><code>Selecting by count
-</code></pre>
-<pre class="output"><code>    word count
-1  after    45
-2     as    45
-3      U    45
-4   from    48
-5      S    48
-6     is    52
-7   says    54
-8   with    54
-9     at    71
-10   and    74
-11     a   105
-12   for   115
-13    on   124
-14   the   161
-15    of   165
-16    in   221
-17    to   303
+<pre class="error"><code>Error in eval(lhs, parent, parent): 객체 &#39;word_counts&#39;를 찾을 수 없습니다
 </code></pre>
 <p>흠… 정규표현식으로 사용해서 대문자로 시작되는 문자로 적어도 길이가 4자 이상되는 문자만 잡아내자.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">tweet_words &lt;-<span class="st"> </span><span class="kw">str_extract_all</span>(clean_tweets, <span class="st">&quot;[A-Z][a-z]{4,}&quot;</span>)
-
-word_counts &lt;-<span class="st"> </span><span class="kw">unlist</span>(tweet_words) %&gt;%<span class="st"> </span>table %&gt;%<span class="st"> </span>data.frame
-<span class="kw">names</span>(word_counts) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;word&quot;</span>, <span class="st">&quot;count&quot;</span>)
-word_counts %&gt;%
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">tweet_words &lt;-<span class="st"> </span><span class="kw">str_extract_all</span>(clean_tweets, <span class="st">&quot;[A-Z][a-z]{4,}&quot;</span>)</code></pre></div>
+<pre class="error"><code>Error in stri_extract_all_regex(string, pattern, simplify = simplify, : 객체 &#39;clean_tweets&#39;를 찾을 수 없습니다
+</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">word_counts &lt;-<span class="st"> </span><span class="kw">unlist</span>(tweet_words) %&gt;%<span class="st"> </span>table %&gt;%<span class="st"> </span>data.frame</code></pre></div>
+<pre class="error"><code>Error in unlist(tweet_words): 객체 &#39;tweet_words&#39;를 찾을 수 없습니다
+</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">names</span>(word_counts) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;word&quot;</span>, <span class="st">&quot;count&quot;</span>)</code></pre></div>
+<pre class="error"><code>Error in names(word_counts) &lt;- c(&quot;word&quot;, &quot;count&quot;): 객체 &#39;word_counts&#39;를 찾을 수 없습니다
+</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">word_counts %&gt;%
 <span class="st">    </span><span class="kw">top_n</span>(<span class="dv">25</span>)%&gt;%
 <span class="st">    </span><span class="kw">arrange</span>(<span class="kw">desc</span>(count))</code></pre></div>
-<pre class="output"><code>          word count
-1        China    31
-2       Canada    23
-3        Watch    22
-4        South    21
-5        Syria    19
-6     Canadian    18
-7    Hurricane    16
-8    Exclusive    15
-9        House    14
-10     Trudeau    14
-11 Afghanistan    12
-12     Jazeera    12
-13      Syrian    12
-14    Carolina    11
-15      Justin    11
-16      Mexico    11
-17    Patricia    11
-18       Apple    10
-19    Oklahoma    10
-20      Former     9
-21       Saudi     9
-22       Baher     8
-23     Clinton     8
-24     Mohamed     8
-25      Russia     8
-26     Russian     8
-27       State     8
-28       Texas     8
-29     Toronto     8
-30       World     8
+<pre class="error"><code>Error in eval(lhs, parent, parent): 객체 &#39;word_counts&#39;를 찾을 수 없습니다
 </code></pre>
 <p>거의 작업을 잘 마무리한 것으로 보인다. 재미로 단어 구름(word cloud)을 만들어보자.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#install.packages(&quot;wordcloud&quot;)</span>
 <span class="co">#install.packages(&quot;wesanderson&quot;)</span>
-<span class="kw">library</span>(<span class="st">&quot;wordcloud&quot;</span>)
-<span class="kw">library</span>(<span class="st">&quot;wesanderson&quot;</span>)
-
-pal &lt;-<span class="st"> </span><span class="kw">wes_palette</span>(<span class="dt">name =</span> <span class="st">&quot;Zissou&quot;</span>, <span class="dv">51</span>, <span class="dt">type =</span><span class="st">&quot;continuous&quot;</span>) %&gt;%<span class="st"> </span><span class="kw">as.character</span>()
-
-word_counts %&gt;%
+<span class="kw">library</span>(<span class="st">&quot;wordcloud&quot;</span>)</code></pre></div>
+<pre class="error"><code>Error in library(&quot;wordcloud&quot;): there is no package called &#39;wordcloud&#39;
+</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;wesanderson&quot;</span>)</code></pre></div>
+<pre class="error"><code>Error in library(&quot;wesanderson&quot;): there is no package called &#39;wesanderson&#39;
+</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pal &lt;-<span class="st"> </span><span class="kw">wes_palette</span>(<span class="dt">name =</span> <span class="st">&quot;Zissou&quot;</span>, <span class="dv">51</span>, <span class="dt">type =</span><span class="st">&quot;continuous&quot;</span>) %&gt;%<span class="st"> </span><span class="kw">as.character</span>()</code></pre></div>
+<pre class="error"><code>Error in wes_palette(name = &quot;Zissou&quot;, 51, type = &quot;continuous&quot;): 함수 &quot;wes_palette&quot;를 찾을 수 없습니다
+</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">word_counts %&gt;%
 <span class="st">    </span><span class="kw">top_n</span>(<span class="dv">50</span>) %&gt;%
 <span class="st">    </span><span class="kw">with</span>(<span class="kw">wordcloud</span>(word, count, <span class="dt">ordered.colors =</span> <span class="ot">TRUE</span>, <span class="dt">color =</span> pal, <span class="dt">use.r.layout =</span> <span class="ot">TRUE</span>))</code></pre></div>
-<p><img src="fig/regex-wordcloud-01-1.png" title="plot of chunk regex-wordcloud-01" alt="plot of chunk regex-wordcloud-01" style="display: block; margin: auto;" /></p>
+<pre class="error"><code>Error in eval(lhs, parent, parent): 객체 &#39;word_counts&#39;를 찾을 수 없습니다
+</code></pre>
 <p>방송사별로 쪼개서 트윗에 대한 단어 구름을 만들어 보자.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">news_clean_tweets &lt;-<span class="st"> </span>news_tweets
-news_clean_tweets$text &lt;-<span class="st"> </span>clean_tweets
-
-words_df &lt;-<span class="st"> </span>news_clean_tweets %&gt;%
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">news_clean_tweets &lt;-<span class="st"> </span>news_tweets</code></pre></div>
+<pre class="error"><code>Error in eval(expr, envir, enclos): 객체 &#39;news_tweets&#39;를 찾을 수 없습니다
+</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">news_clean_tweets$text &lt;-<span class="st"> </span>clean_tweets</code></pre></div>
+<pre class="error"><code>Error in eval(expr, envir, enclos): 객체 &#39;clean_tweets&#39;를 찾을 수 없습니다
+</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">words_df &lt;-<span class="st"> </span>news_clean_tweets %&gt;%
 <span class="st">    </span><span class="kw">group_by</span>(user_name) %&gt;%
-<span class="st">    </span><span class="kw">do</span>(<span class="dt">words =</span> <span class="kw">str_extract_all</span>(.$text, <span class="st">&quot;[A-Z][a-z]{4,}&quot;</span>))
-
-<span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))
+<span class="st">    </span><span class="kw">do</span>(<span class="dt">words =</span> <span class="kw">str_extract_all</span>(.$text, <span class="st">&quot;[A-Z][a-z]{4,}&quot;</span>))</code></pre></div>
+<pre class="error"><code>Error in eval(lhs, parent, parent): 객체 &#39;news_clean_tweets&#39;를 찾을 수 없습니다
+</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))
 
 for (i in <span class="dv">1</span>:<span class="dv">4</span>){
     
@@ -412,7 +305,8 @@ for (i in <span class="dv">1</span>:<span class="dv">4</span>){
         <span class="kw">text</span>(<span class="dv">0</span>, <span class="fl">0.9</span>, words_df$user_name[i], <span class="dt">cex =</span> <span class="fl">1.5</span>, <span class="dt">adj =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">0</span>))
     
 }</code></pre></div>
-<p><img src="fig/regex-wordcloud-02-1.png" title="plot of chunk regex-wordcloud-02" alt="plot of chunk regex-wordcloud-02" style="display: block; margin: auto;" /></p>
+<pre class="error"><code>Error in unlist(words_df[i, 2]): 객체 &#39;words_df&#39;를 찾을 수 없습니다
+</code></pre>
 <h3 id="추가-학습교재">추가 학습교재</h3>
 <ul>
 <li><code>stringr</code> <a href="https://cran.r-project.org/web/packages/stringr/vignettes/stringr.html">소품문</a></li>
@@ -429,26 +323,26 @@ for (i in <span class="dv">1</span>:<span class="dv">4</span>){
         </div>
       </div>
       </article>
-      <div class="footer">
-        <a class="label swc-blue-bg" href="http://software-carpentry.org">Software Carpentry</a>
-        <a class="label swc-blue-bg" href="https://github.com/swcarpentry/lesson-template">Source</a>
-        <a class="label swc-blue-bg" href="mailto:admin@software-carpentry.org">Contact</a>
-        <a class="label swc-blue-bg" href="LICENSE.html">License</a>
+      <div class="footer">
+        <a class="label swc-blue-bg" href="http://software-carpentry.org">Software Carpentry</a>
+        <a class="label swc-blue-bg" href="https://github.com/swcarpentry/lesson-template">Source</a>
+        <a class="label swc-blue-bg" href="mailto:admin@software-carpentry.org">Contact</a>
+        <a class="label swc-blue-bg" href="LICENSE.html">License</a>
       </div>
     </div>
-    <!-- Javascript placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script src="css/bootstrap/bootstrap-js/bootstrap.js"></script>
-    <script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-    
-      ga('create', 'UA-37305346-2', 'auto');
-      ga('send', 'pageview');
-    
+    <!-- Javascript placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="css/bootstrap/bootstrap-js/bootstrap.js"></script>
+    <script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    
+      ga('create', 'UA-37305346-2', 'auto');
+      ga('send', 'pageview');
+    
     </script>
   </body>
 </html>

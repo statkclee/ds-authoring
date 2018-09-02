@@ -222,10 +222,10 @@ OpenJDK 64-Bit Server VM (build 24.79-b02, mixed mode)</code></pre>
 <pre class="input"><code>root@dev:~# wget -q -O - https://jenkins-ci.org/debian/jenkins-ci.org.key | sudo apt-key add -
 root@dev:~# sh -c &#39;echo deb http://pkg.jenkins-ci.org/debian binary/ &gt; /etc/apt/sources.list.d/jenkins.list&#39;
 root@dev:~# apt-get update
-root@dev:~#  apt-get install jenkins</code></pre>
+root@dev:~# apt-get install jenkins</code></pre>
 <p>젠키스 설치가 완료되면 기본적으로 데몬(Daemon)으로 뜨게 되어서, <code>http://161.202.103.101:8080/</code>와 같이 웹부라우져에 <code>8080</code> 포트에 IP 주소를 입력하면 된다.</p>
 <p><img src="fig/dev-jenkins-install.png" alt="젠킨스 설치완료 화면" width="70%" /></p>
-<p>가장 먼저해야 되는 할일은 젠키스를 임의 사용자가 사용하지 못하도록 사용자 권한관리를 한다. 젠킨스 첫 화면에서 보면 좌측에 <code>Jenkins 관리</code> 메뉴가 있다. 이를 클릭하면, 중간에 <code>Configure Global Security</code>가 보인다.</p>
+<p>가장 먼저해야 되는 할일은 젠킨스를 임의 사용자가 사용하지 못하도록 사용자 권한관리를 한다. 젠킨스 첫 화면에서 보면 좌측에 <code>Jenkins 관리</code> 메뉴가 있다. 이를 클릭하면, 중간에 <code>Configure Global Security</code>가 보인다.</p>
 <p><code>Enable Security</code>를 체크하고 <em>Security Realm</em>아래 <code>Jenkins' own user database</code> 아래 <code>사용자의 가입 허용</code>을 체크한다. <em>Authorization</em>에서는 <code>Matrix-based security</code>를 클릭하고 <code>Anonymous</code>에 <em>View</em>에 읽기권한 <code>Read</code>만 클릭하고 저장한다.</p>
 <p>사용자 권한 설정이 완료되면, 최초 사용자를 등록해야 한다. <strong>Sign up</strong>에 계정명, 암호, 암호확인, 이름, 이메일주소를 등록하면 <code>Administrator</code> 권한을 갖는 사용자가 생성되고 작업을 진행하게 된다. 젠킨스 설치의 자세한 사항과 원문은 다음 <a href="https://www.rosehosting.com/blog/install-jenkins-on-an-ubuntu-14-04-vps/">웹사이트</a>를 참고한다.</p>
 <p><img src="fig/dev-jenkins-ubuntu.png" alt="클라우드 가상 컴퓨터 우분투에 젠킨스 설치" width="70%" /></p>
@@ -234,7 +234,7 @@ root@dev:~#  apt-get install jenkins</code></pre>
 <h2 id="폴링polling과-푸쉬push"><span class="glyphicon glyphicon-pushpin"></span>폴링(Polling)과 푸쉬(Push)</h2>
 </div>
 <div class="panel-body">
-<p>Git/GitHub 같은 버젼관리 시스템에서 커밋으로 변경사항을 발생했을 경우 인지하는 방법이 두가지가 있다: 폴링(Polling), 푸쉬(Push). 폴링은 주지적으로 변경사항이 있는지 Git/GitHub 버젼관리 시스템에 문의한다. 반면에 푸쉬는 변경사항이 있을데 Git/GitHub 변경관리 시스템이 그냥 알려준다.</p>
+<p>Git/GitHub 같은 버젼관리 시스템에서 커밋으로 변경사항을 발생했을 경우 인지하는 방법이 두가지가 있다: 폴링(Polling), 푸쉬(Push). 폴링은 주기적으로 변경사항이 있는지 Git/GitHub 버젼관리 시스템에 문의한다. 반면에 푸쉬는 변경사항이 있을때 Git/GitHub 변경관리 시스템이 그냥 알려준다.</p>
 </div>
 </aside>
 <h3 id="젠킨스jenkins-깃허브github-플러그인-설치">5.4. 젠킨스(Jenkins) 깃허브(GitHub) 플러그인 설치</h3>
@@ -242,7 +242,7 @@ root@dev:~#  apt-get install jenkins</code></pre>
 <p>젠킨스 깃허브 플러그인 설치는 먼저 관리자 권한이 있는 사용자로 로그인 한다음 좌측메뉴에서 <code>Jenkins 관리</code> -&gt; <code>플러그인 관리</code>에서 <em>설치가능(Available)</em> 탭을 클릭하고 <code>필터:</code> 검색창에 <code>Git</code>를 입력하면 다양한 <code>Git</code> 관련 플러그인이 나타난다. <strong>GitHub Plugin</strong>을 클릭하고, <code>지금 다운로드하고 재시작 후 설치하기</code>를 클릭해서 플러그인 설치를 완료한다.</p>
 <p>폴링과 푸쉬 방법 모두 변경사항을 인지하고 자동으로 빌드 및 배포실행한다는 측면에서 동일하나 폴링은 Git/GitHub 버젼관리 시스템에 변경사항이 필요없지만, 젠킨스나 Git/GitHub에 많은 부하를 줄 수 있고, 폴링 주기에 따라 변경사항 반영이 부족할 수 있다. 푸쉬방식은 전송하는 Git/GitHub와 받는쪽 젠킨스 모두 일정 작업이 필요하다. 하지만, 폴링에 비해서 변경사항이 발생되면 최소의 부하로 즉시 반영할 수 있는 장점이 있다.</p>
 <h3 id="젠킨스jenkins-깃허브github-툴체인-통한-지속적인-통합">5.5. 젠킨스(Jenkins) 깃허브(GitHub) 툴체인 통한 지속적인 통합</h3>
-<p>지속적인 통합(Continous Integraion, CI)를 위해서 먼저 젠킨스가 주체가 되어서 하는 방법은 젠킨스 시작화면에서 <code>http://161.202.103.101:8080/</code> 좌측에 <code>Jenkins 관리</code> –&gt; <code>시스템 설정</code> –&gt; <strong>GitHub Web Hook</strong> 에서 <em>Let Jenkins auto-manage hook URLs</em>을 클리하여 설정한다. 다른 한가지는 <strong>GitHub</strong> 중심으로 진행하는 것으로 <em>Manually manage hook URLs</em>을 클릭하고 저장한다.</p>
+<p>지속적인 통합(Continous Integraion, CI)를 위해서 먼저 젠킨스가 주체가 되어서 하는 방법은 젠킨스 시작화면에서 <code>http://161.202.103.101:8080/</code> 좌측에 <code>Jenkins 관리</code> –&gt; <code>시스템 설정</code> –&gt; <strong>GitHub Web Hook</strong> 에서 <em>Let Jenkins auto-manage hook URLs</em>을 클릭하여 설정한다. 다른 한가지는 <strong>GitHub</strong> 중심으로 진행하는 것으로 <em>Manually manage hook URLs</em>을 클릭하고 저장한다.</p>
 <p>깃허브 화면으로 돌아와서 저장소를 선택하고 들어가면 우측에 <strong>Settings</strong> 메뉴가 있어 클릭하고 들어가면, 좌측편에 <code>Webhooks &amp; Services</code>가 나온다. 클릭하고 들어가면 <code>Services</code>에서 <code>Add Service</code>를 클릭하면 하위선택항목이 많은 <code>Jenkins (GitHub plugin)</code>을 선택한다. 그리고 나서 <code>Jenkins hook url</code>에 <code>http://161.202.103.101:8080/github-webhook/</code> 설정해서 완료한다. 상단의 <code>Test service</code>를 클릭해서 <code>Okay, the test payload is on its way.</code>가 나오면 설정이 정상적으로 완료된 것이다.</p>
 <p>젠킨스 <code>rpy-cloudlayer</code>에 <code>새로운 Item</code>을 등록한다. 먼저 <code>새로운 Item</code>을 등록하면 <code>Item 이름</code>을 입력한다. 그리고 나서 <code>Freestyle project</code>를 클릭하고 <code>OK</code>를 클릭한다. 그리고 나서 차례로 관련 정보를 입력한다.</p>
 <ul>

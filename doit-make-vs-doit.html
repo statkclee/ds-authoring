@@ -40,7 +40,7 @@
           <h2 id="make가-아닌-doit을-학습하는-이유.">Make가 아닌 doit을 학습하는 이유.</h2>
 <p>소프트웨어 카펜트리에 서로 다른 두가지 빌드 도구를 가지고 수업을 진행한다: Make 와 doit. 자료 분석 파이프라인(Data Analysis Pipeline)을 자동화할 때, 어느 것을 선택해야 할까? 여기에서 각 도구의 장점과 단점을 전반적으로 다뤄보려고 한다.</p>
 <h3 id="대중성-popularity">1. 대중성 (Popularity)</h3>
-<p><code>Make</code>는 현재 사용되고 있는 가장 대중적인 빌드 도구(build tool)다. 아마도 이것이 가장 큰 장점이다. <code>Makefiles</code> 작성하는 방법을 배우면 누군가 작성한 파이프라인을 재사용할 수 있는 도움이 받게된다. 컴파일된 언어로 작성된 소스코드를 가지고 소프트웨어를 설치하려면 이것은 매우 큰 혜택이다. 만약 <code>./configure; make; make install</code> 조합을 타이핑해서 무언가 설치한다면, 부지불식 중에 <code>Makefiles</code>를 이미 사용하고 있는 것이다. 다른 한편으로 <code>Doit</code>은 훨씬더 적은 사용자 기반이 있다. 만약 <code>doit</code>을 배운다면, 유사 사례를 찾는데 훨씬 더 어려움이 있고, 더 적은 사람이 Stack Overflow 같은 사이트나 포럼에서 도움이 된다.</p>
+<p><code>Make</code>는 현재 사용되고 있는 가장 대중적인 빌드 도구(build tool)다. 아마도 이것이 가장 큰 장점이다. <code>Makefiles</code> 작성하는 방법을 배우면 누군가 작성한 파이프라인을 재사용할 수 있는 도움을 받게된다. 컴파일된 언어로 작성된 소스코드를 가지고 소프트웨어를 설치하려면 이것은 매우 큰 혜택이다. 만약 <code>./configure; make; make install</code> 조합을 타이핑해서 무언가 설치한다면, 부지불식 중에 <code>Makefiles</code>를 이미 사용하고 있는 것이다. 다른 한편으로 <code>Doit</code>은 훨씬더 적은 사용자 기반이 있다. 만약 <code>doit</code>을 배운다면, 유사 사례를 찾는데 훨씬 더 어려움이 있고, 더 적은 사람이 Stack Overflow 같은 사이트나 포럼에서 도움이 된다.</p>
 <h3 id="가용성availability">2. 가용성(Availability)</h3>
 <p><code>Make</code>는 기본 디폴트로 대부분 유닉스 컴퓨터(즉, 리눅스와 맥)에서 사용가능하다. 반대로 <code>Doit</code>은 사용하는 어떤 컴퓨터에도 선탑재되어 있지 않을 가능성이 높다. 만약 루트 권한이 있다면, <code>Doit</code>을 설치하는 것은 매우 쉽다. 하지만, 루트 권한이 없다면 파이썬 패키징관련 문제로 고생할 수도 있다. 또다른 한편으로 만약 윈도우 사용자라면, <code>doit</code> 혹은 <code>Make</code> 어느 것도 기본 디폴트로 설치되어 있지 않아서, <code>doit</code>이 매우 설치하기 쉬운 것이 당연할지도 모른다.</p>
 <h3 id="가독성-readability">3. 가독성 (Readability)</h3>

@@ -65,7 +65,7 @@
 <ul>
 <li>깃허브를 중심으로 푸쉬 기반으로 설계하여 구현한다.</li>
 </ul></li>
-<li>젠키스가 클라우드 지정한 가상 컴퓨터에 자동 배포한다.</li>
+<li>젠킨스가 클라우드 지정한 가상 컴퓨터에 자동 배포한다.</li>
 </ol>
 <h4 id="개발-및-저작환경">1.1. 개발 및 저작환경</h4>
 <p>선택한 <a href="https://github.com/talk2ankan/uno-dbyll">uno-dbyll</a> 제킬 테마를 포크(Fork)하여 깃허브 개인 저장소로 가져온다. <code>git clone -b gh-pages</code> 명령어를 통해서 <code>gh-pages</code> 브랜치만 로컬로 복사해서 가져온다. <a href="https://github.com/talk2ankan/uno-dbyll">uno-dbyll</a>를 다운로드 받은 디렉토리에서 <code>_posts</code>에 마크다운으로 <code>2011-11-03-hello-world.md</code> 파일을 저작 생성한다. 그리고 <code>jekyll serve</code> 명령을 통해서 로컬 <code>_site</code>에 서비스할 웹페이지를 생성한다. 혹은 <code>http://127.0.0.1:4000/</code> 웹브라우져 로컬 호스트에서 생성한 웹페이지를 확인한다.</p>
@@ -82,14 +82,14 @@ $ jekyll serve</code></pre>
 $ git commit -m &quot;initial commit with Hello World&quot;
 $ git push origin gh-pages</code></pre>
 <h4 id="깃허브와-젠킨스를-웹훅을-통해서-연결">1.3. 깃허브와 젠킨스를 웹훅을 통해서 연결</h4>
-<p>깃허브 해당 프로젝트 저장소로 이동해서, 우측에 <strong>Settings</strong> –&gt; <strong>Webhooks &amp; Services</strong>를 클릭한다. <strong>Services</strong>에서 <strong>Add service</strong>를 클릭하고, 젠키스 서버에서 설치한 플러그인 <strong>Jenkins (GitHub plugin)</strong>을 선택한다. 비밀번호 인증을 마치고 나면 <strong>Jenkins hook url</strong>이 나타나고 젠킨스 서버가 설치된 웹호스트를 <code>http://161.202.103.101:8080/github-webhook/</code>와 같이 지정하고 <strong>Add service</strong>로 저장한다.</p>
-<h4 id="젠키스가-클라우드-지정한-가상-컴퓨터에-자동-배포한다.">1.4. 젠키스가 클라우드 지정한 가상 컴퓨터에 자동 배포한다.</h4>
+<p>깃허브 해당 프로젝트 저장소로 이동해서, 우측에 <strong>Settings</strong> –&gt; <strong>Webhooks &amp; Services</strong>를 클릭한다. <strong>Services</strong>에서 <strong>Add service</strong>를 클릭하고, 젠킨스 서버에서 설치한 플러그인 <strong>Jenkins (GitHub plugin)</strong>을 선택한다. 비밀번호 인증을 마치고 나면 <strong>Jenkins hook url</strong>이 나타나고 젠킨스 서버가 설치된 웹호스트를 <code>http://161.202.103.101:8080/github-webhook/</code>와 같이 지정하고 <strong>Add service</strong>로 저장한다.</p>
+<h4 id="젠킨스가-클라우드-지정한-가상-컴퓨터에-자동-배포한다.">1.4. 젠킨스가 클라우드 지정한 가상 컴퓨터에 자동 배포한다.</h4>
 <p>젠킨스 첫화면에서 <code>새로운 Item</code>을 클릭하고 <code>Item 이름</code>에 <code>uno-dbyll</code> 이름으로 <code>새로운 Item</code>을 등록한다. 그리고 나서 <code>Freestyle project</code>를 클릭하고 <code>OK</code>를 클릭한다. 그리고 나서 차례로 관련 정보를 입력한다.</p>
 <ul>
 <li>GitHub project : https://github.com/statkclee/uno-dbyll</li>
 <li>소스 코드 관리 : <code>Git</code> 클릭, Repositories –&gt; Repository URL : https://github.com/statkclee/uno-dbyll.git Credentials에는 Add를 클릭해서 GitHub 사용자이름과 비밀번호를 입력한다.</li>
 <li>Branches to build : Branch Specifier (blank for ‘any’) <code>*/gh-pages</code>로 브랜치를 설정한다.</li>
-<li>Additional Behaviors : Add를 크릭하고 <code>Advanced sub-module behaviours</code>를 선택한다.</li>
+<li>Additional Behaviors : Add를 클릭하고 <code>Advanced sub-module behaviours</code>를 선택한다.</li>
 <li>빌드 유발 : <code>Build when a change is pushed to GitHub</code> 체크한다.</li>
 <li>Build : <code>Add build step</code> –&gt; <code>Execute Shell</code> 을 클릭하고 실행 쉘 스크립트를 작성한다.</li>
 </ul>
@@ -132,7 +132,7 @@ make: Nothing to be done for `preview&#39;.
 + whoami
 jenkins
 + jekyll build --destination /var/www/html
-[33mConfiguration file: none[0m
+[33mConfiguration file: none[0m
             Source: /var/lib/jenkins/workspace/rpy-cloudlayer
        Destination: /var/www/html
       Generating... 
