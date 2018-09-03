@@ -56,6 +56,8 @@ background-size: 800px
 
 - [Tidyverse Korea](https://www.facebook.com/groups/1404219106509417/)
 
+- [PRESSer](https://www.facebook.com/groups/1473988286034801/)
+
 
 ---
 # R Meetup (Offline)
@@ -69,10 +71,31 @@ background-size: 800px
 ]
 
 ---
+# [PRESSer](https://www.facebook.com/groups/1473988286034801/)
+
+<style>
+div.blue { background-color:#e6f0ff; border-radius: 5px; padding: 10px;}
+</style>
+<div class = "blue">
+
+<p>
+<strong>PRESSer</strong> is a closed group on Facebook in Korea established in July 2018. This group was established for promoting relationship among members who have interested in data science and data analysis. We don't have any concern for the tools they use. Actually, PRESSer means people who use PRESS when they do data projects, and PRESS is the abbreviation of Python, R, Excel, SAS, and SPSS.
+</p>
+
+<p>
+The main purpose of this group is to become intimate before starting things such as a data analysis competition, a foundation of a new start-up etc. We've met a monthly gathering so far.
+</p>
+
+</div>
+
+
+---
 # Anything to be added
 
 - (ex) Korea R Leader : [Choonghyun Ryu](https://github.com/choonghyunryu)
 
 
 - Korea R Leader: 정우준
+
+
 
