@@ -54,8 +54,9 @@ title: 데이터 과학을 위한 저작도구
     * [부작업(Sub-tasks)](doit-sub_tasks.html)
     * [분석결과가 최신상태인지 점검하기](doit-uptodate.html)
 1. **발표자료와 기고문**
+    1. [Tidyverse와 기계학습(2018-10-07)](machine_learning_tidyverse_20181007.html): [데이터뽀개기 2018: Hello Kaggler!](http://kagglebreak.com/databreak2018), 마이크로소프트 광화문 오피스
+        - [Tidyverse와 함께 하는 A/B 테스팅(2018-10-07)](ab_testing_tidyverse_20181007.html)
     1. [LG인화원(2018-06-22)](LG인화원_20180622.html)
-    1. [Tidyverse와 함께 하는 A/B 테스팅(2018-10-07)](ab_testing_tidyverse_20181007.html): 데이터뽀개기 2018: Hello Kaggler!, 마이크로소프트 광화문 오피스
     1. [Korea-Japan R Meetup Exchange Meeting (2018-09-03)](korea-japan-r-meetup.html)
     1. [소프트웨어에 물들다(왕곡초등학교, 2018-05-26)](somul_20180525.html) -  글쓰기를 잘하기 위해서 알아야 되는 코딩
     1. **대전 한밭대학교 창업과 인공지능**
