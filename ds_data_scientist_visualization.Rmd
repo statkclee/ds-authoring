@@ -491,7 +491,6 @@ subplot(sp_gg, box, violin, shareY = TRUE, titleX = TRUE, titleY = TRUE) %>%
 
 ```{r interactive-graph-plotly-code, eval=FALSE}
 # 9. plotly 데이터 분석 -----
-
 d <- highlight_key(mtcars)
 sp_g <- ggplot(d, aes(x = mpg, y = disp)) +
     geom_point()
@@ -503,11 +502,9 @@ violin <- plot_ly(d, y = ~disp, color = I("black")) %>% add_trace(type = "violin
 
 subplot(sp_gg, box, violin, shareY = TRUE, titleX = TRUE, titleY = TRUE) %>%
     subplot(hist, widths = c(.75, .25), titleX = TRUE, titleY = TRUE) %>%
-    layout(
-        barmode = "overlay", 
+    layout(barmode = "overlay", 
         title = "Click and drag scatterplot",
-        showlegend = FALSE
-    ) %>%
+        showlegend = FALSE) %>%
     highlight("plotly_selected")
 ```
 
