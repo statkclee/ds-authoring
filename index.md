@@ -57,19 +57,16 @@ title: 데이터 과학을 위한 저작도구
     1. [Tidyverse와 기계학습(2018-10-07)](machine_learning_tidyverse_20181007.html): [데이터뽀개기 2018: Hello Kaggler!](http://kagglebreak.com/databreak2018), 마이크로소프트 광화문 오피스
         - [Tidyverse와 함께 하는 A/B 테스팅(2018-10-07)](ab_testing_tidyverse_20181007.html)
     1. [LG인화원(2018-06-22)](LG인화원_20180622.html)
-    1. [Korea-Japan R Meetup Exchange Meeting (2018-09-03)](korea-japan-r-meetup.html)
-    1. [소프트웨어에 물들다(왕곡초등학교, 2018-05-26)](somul_20180525.html) -  글쓰기를 잘하기 위해서 알아야 되는 코딩
     1. **대전 한밭대학교 창업과 인공지능**
         - [한밭대학교(2018-10-04)](한밭대_창업과인공지능_20181004.html) - 스타트업을 위한 기계학습... 인공지능 제품과 서비스 제조법
         - [한밭대학교(2018-05-29)](한밭대_창업과인공지능_20180529.html) - 인공지능 제품개발    
         - [한밭대학교(2018-05-03)](한밭대_창업과인공지능_20180503.html) - 창업과 인공지능
     1. [데이터야 놀자](https://datayanolja.github.io/)
-        1. [데이터야 놀자 발표자료(2017)](slides/ds_data_product.html)
-            * 일시: 2017. 10. 13. (금), 10:00 ~
-            * 장소: 한빛미디어 홍대 신사옥, (03785) 서울 서대문구 연희로2길 62
-        1. [데이터야 놀자 발표자료(2016)](slides/2016/ds_authoring_toolchain.html)
-            * 일시: 2016. 10. 14. (금), 10:00 ~
-            * 장소: [마루 180, 서울 강남구 역삼로 180](http://dmaps.kr/owgj)    
+        1. ["데이터 과학자의 시각화"(2018)](ds_data_scientist_visualization.html): 2018-10-19/20 (금/토), 마이크로소프트 광화문 오피스
+        1. ["싱싱한 재료를 제품으로, 데이터를 데이터 제품으로"(2017)](slides/ds_data_product.html): 2017-10-13(금), 한빛미디어 홍대 신사옥
+        1. ["데이터과학을 위한 저작도구"(2016)](slides/2016/ds_authoring_toolchain.html): 2016-10-14(금), [마루 180, 서울 강남구 역삼로 180](http://dmaps.kr/owgj)    
+    1. [Korea-Japan R Meetup Exchange Meeting (2018-09-03)](korea-japan-r-meetup.html)
+    1. [소프트웨어에 물들다(왕곡초등학교, 2018-05-26)](somul_20180525.html) -  글쓰기를 잘하기 위해서 알아야 되는 코딩
     1. [빅데이터는 위기이자 기회, 게임산업도 예외는 아니다.](digital-times-2017.html) [디지털타임즈,게임산업 숨은 특수 빅데이터, 2017-08-28](http://www.dt.co.kr/contents.html?article_no=2017082902101531043002)
     1. [통계의 창 - 21세기 통계학을 배우는 방법](window-of-statistics.html)
     1. [머신러닝 레볼루션 - 머신러닝의 이해와 비즈니스 기회](http://statkclee.github.io/mlrv/): xwMOOC와 함께하는 한국인 - 기계와의 경쟁을 준비하며
