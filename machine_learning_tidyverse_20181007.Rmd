@@ -216,6 +216,18 @@ class: inverse, middle, center
 
 # `Tidyverse` 기계학습 
 
+
+---
+### many models
+
+.center[
+ <img src="fig/nested-dataframe-with-many-models.png" alt="many models" width="97%" />
+]
+
+.footnote[
+ [R 병렬 프로그래밍 - R 함수형 프로그래밍](https://statkclee.github.io/parallel-r/ds-fp-purrr.html)
+]
+
 ---
 ### 회귀모형 적합: 맛보기  (코드)
 
@@ -223,14 +235,17 @@ class: inverse, middle, center
 library(broom); library(Metrics)
 
 # 회귀모형 적합
-model_cv_df <- cv_df %>% mutate(lm_model  = map(train,  ~lm(life_expectancy ~ ., data=.x)))
+model_cv_df <- cv_df %>% 
+  mutate(lm_model  = map(train,  ~lm(life_expectancy ~ ., data=.x)))
 
 # 회귀모형 성능 평가
 model_cv_df <- model_cv_df %>% 
     mutate(valid_actual = map(validate, ~.x$life_expectancy), 
            valid_pred   = map2(lm_model, validate, ~predict(.x, .y))) %>% 
-    mutate(valid_mae    = map2_dbl(valid_actual, valid_pred, ~mae(actual = .x, predicted = .y)),
-           valid_rmse    = map2_dbl(valid_actual, valid_pred, ~rmse(actual = .x, predicted = .y)))
+    mutate(valid_mae    = map2_dbl(valid_actual, valid_pred, 
+                                   ~mae(actual = .x, predicted = .y)),
+           valid_rmse    = map2_dbl(valid_actual, valid_pred, 
+                                    ~rmse(actual = .x, predicted = .y)))
 
 model_cv_df$valid_mae
 # model_cv_df$valid_rmse
@@ -311,26 +326,29 @@ model_cv_df <- model_cv_df %>%
            valid_rf_mae    = map2_dbl(valid_actual, valid_rf_pred,  ~mae(actual = .x, predicted = .y)),
            valid_svm_mae   = map2_dbl(valid_actual, valid_svm_pred, ~mae(actual = .x, predicted = .y)))
 
+model_cv_df
 ```
 
 
 ---
-##### 예측모형 아키텍처 성능 비교 (코드)
+### 예측모형 아키텍처 성능 비교 (코드)
 
 
 ```{r gapminder-pm-architecture-comp-code, echo=TRUE, eval=FALSE}
 model_df <- data.frame(LM = model_cv_df$valid_lm_mae,
-        RF = model_cv_df$valid_rf_mae,  SVM = model_cv_df$valid_svm_mae)
+                       RF = model_cv_df$valid_rf_mae,  
+                       SVM = model_cv_df$valid_svm_mae)
 
 model_df %>% gather(model, MAE) %>% 
-    ggplot(aes(x=model, y=MAE, color=model)) + geom_point(size=3) +
+    ggplot(aes(x=model, y=MAE, color=model)) + 
+       geom_point(size=3) +
        labs(x="예측모형", y="MAE (Mean Absolute Error)", 
             color="예측모형",
             title="GAPMINDER 데이터 - 기대수명 예측모형")
 ```
 
 ---
-##### 예측모형 아키텍처 성능 비교
+### 예측모형 아키텍처 성능 비교
 
 
 ```{r gapminder-pm-architecture-comp}
@@ -345,18 +363,23 @@ model_df %>% gather(model, MAE) %>%
 
 
 ---
-##### 예측모형 튜닝 (코드)
+### 예측모형 튜닝 (코드)
 
 ```{r gapminder-pm-tuning-code, echo=TRUE, eval=FALSE}
 # Random Forest 모형적합
-model_cv_df <- model_cv_df %>% crossing(mtry = c(2,ceiling(sqrt(ncol(gapminder_lc_df)-2)),5), num.trees = c(500, 1000))  %>% 
-    mutate(rf_tune_model  = pmap(list(train, mtry, num.trees),  ~ranger(life_expectancy ~ ., data=.x, mtry=.y)))
+model_cv_df <- model_cv_df %>% 
+  crossing(mtry = c(2,ceiling(sqrt(ncol(gapminder_lc_df)-2)),5), 
+          num.trees = c(500, 1000))  %>% 
+  mutate(rf_tune_model  = pmap(list(train, mtry, num.trees),  
+                               ~ranger(life_expectancy ~ ., data=.x, mtry=.y)))
 
 # RandomForest 성능평가
 model_cv_df <- model_cv_df %>% 
     mutate(valid_actual = map(validate, ~.x$life_expectancy), 
-           valid_rf_tune_pred   = map2(rf_tune_model, validate, ~predict(.x, .y)$predictions)) %>% 
-    mutate(valid_rf_tune_mae    = map2_dbl(valid_actual, valid_rf_tune_pred,  ~mae(actual = .x, predicted = .y)))
+           valid_rf_tune_pred   = map2(rf_tune_model, validate, 
+                                       ~predict(.x, .y)$predictions)) %>% 
+    mutate(valid_rf_tune_mae    = map2_dbl(valid_actual, valid_rf_tune_pred,  
+                                           ~mae(actual = .x, predicted = .y)))
 
 model_cv_df %>% 
     group_by(mtry, num.trees) %>% 
@@ -364,7 +387,7 @@ model_cv_df %>%
 ```
 
 ---
-##### 예측모형 튜닝
+### 예측모형 튜닝
 
 ```{r gapminder-pm-tuning}
 # Random Forest 모형적합
@@ -389,7 +412,7 @@ model_cv_df %>%
 
 
 ---
-##### 예측 성능: 시험데이터 (코드)
+### 예측 성능: 시험데이터 (코드)
 
 ```{r gapminder-pm-testing-code, echo=TRUE, eval=FALSE}
 gapminder_pm <- ranger(life_expectancy ~ ., data = train_df,
@@ -404,7 +427,7 @@ test_df %>%
 
 
 ---
-##### 예측 성능: 시험데이터
+### 예측 성능: 시험데이터
 
 ```{r gapminder-pm-testing}
 gapminder_pm <- ranger(life_expectancy ~ ., data = train_df,
@@ -443,3 +466,27 @@ class: middle, center
 .footnote[
   <https://www.facebook.com/groups/tidyverse/>
 ]
+
+
+---
+class: inverse, middle, center
+
+# 혹시... 시간이 남으면...
+
+
+---
+### 직사각형 모형데이터를 넘어
+
+
+- 지리정보: [xwMOOC 모형 - 나무모형과 지리정보 만남 - 택시](https://statkclee.github.io/model/model_geospatial_taxi.html)
+
+- 자연어: [xwMOOC 자연어 처리 - 텍스트 SMS 스팸분류 - Random Forest](https://statkclee.github.io/text/nlp-spam-machine-learning.html)
+
+- 이미지: [xwMOOC 딥러닝 - R 케라스(keras), 패션 MNIST](https://statkclee.github.io/deep-learning/r-keras-fashion-mnist.html)
+
+- 추천: [스파크 + MovieLens 데이터](https://statkclee.github.io/parallel-r/recommendation-sparklyr.html)
+
+- 소리
+
+- ...
+
