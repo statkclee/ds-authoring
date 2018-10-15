@@ -489,4 +489,3 @@ class: inverse, middle, center
 - 소리
 
 - ...
-
