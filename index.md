@@ -56,7 +56,7 @@ title: 데이터 과학을 위한 저작도구
 1. **발표자료와 기고문**
     1. [데이터야 놀자](https://datayanolja.github.io/)
         1. ["데이터 과학자의 시각화"(2018)](ds_data_scientist_visualization.html): 2018-10-19/20 (금/토), 마이크로소프트 광화문 오피스
-            - ["소프트웨어 카펜트리 (시즌2)"(2018)](ds_software_carpentry_2018.html): 2018-10-19/20 (금/토), 마이크로소프트 광화문 오피스
+            - ["소프트웨어 카펜트리 (시즌2)"](ds_software_carpentry_2018.html): 2018-10-19/20 (금/토), 마이크로소프트 광화문 오피스
         1. ["싱싱한 재료를 제품으로, 데이터를 데이터 제품으로"(2017)](slides/ds_data_product.html): 2017-10-13(금), 한빛미디어 홍대 신사옥
         1. ["데이터과학을 위한 저작도구"(2016)](slides/2016/ds_authoring_toolchain.html): 2016-10-14(금), [마루 180, 서울 강남구 역삼로 180](http://dmaps.kr/owgj)    
     1. [Tidyverse와 기계학습(2018-10-07)](machine_learning_tidyverse_20181007.html): [데이터뽀개기 2018: Hello Kaggler!](http://kagglebreak.com/databreak2018), 마이크로소프트 광화문 오피스
