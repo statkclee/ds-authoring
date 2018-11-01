@@ -135,9 +135,8 @@ if (가격 상관계수 > 0.9999 &
 ```
 ]
 
-.center[
-    <img src="fig/explainable-ai-whity.jpg" alt="제임스 화이티 벌저" width="25%" />
-    조언은 부질없는 것이다... "어떤 사람들은 나에게 범죄에 관한 조언을 구하는데 내가 확실히 말할 수 있는 것은 **범죄로 돈을 벌려면 로스쿨에 가라**는 것"
+.right[
+    <img src="fig/explainable-ai-whity.jpg" alt="제임스 화이티 벌저" width="40%" />
 ]
 
 .footnote[
@@ -185,6 +184,104 @@ if (가격 상관계수 > 0.9999 &
 - [개인정보보호 종합포털(GDPR): https://www.privacy.go.kr/](https://www.privacy.go.kr/gdpr)
 - [Bryce Goodman, Seth Flaxman (2016), "European Union regulations on algorithmic decision-making and a right to explanation"](https://arxiv.org/abs/1606.08813)
 ]
+
+
+---
+class: inverse, middle, center
+
+# 늑대 허스키(husky) 분류
+
+
+---
+### 늑대와 허스키(에스키모 개) 분류 사례
+
+.center[
+  <img src="fig/explainable-ai-wolf-husky.png" alt="늑대와 허스키 분류" width="50%">
+]
+
+
+.footnote[
+Marco Tulio Ribeiro, Sameer Singh, Carlos Guestrin(2016), "Why Should I Trust You?": Explaining the Predictions of Any Classifier", [arXiv:1602.04938](https://arxiv.org/abs/1602.04938)
+]
+
+
+---
+### 실제로 분류한 것은? 
+
+.center[
+  <img src="fig/explainable-ai-wolf-husky-lime.png" alt="늑대와 허스키 실제 분류" width="100%">
+]
+
+.footnote[
+[Kasia Kulma (PhD, Data Scientist, Aviva, 2017), "Interpretable Machine Learning Using LIME Framework", $H_2 O$.ai](https://www.youtube.com/watch?v=CY3t11vuuOM&t=1956s)
+]
+
+
+---
+class: inverse, middle, center
+
+# 설명가능한 기계학습
+
+
+---
+### 기계학습 모형 작업흐름도
+
+.center[
+  <img src="fig/dalex-caret.png" alt="DALEX + caet 예측모형" width="100%" />
+]
+
+- 예측모형 아키텍처: GLM, Random Forest, SVM, xgBoost, ...
+- 예측모형 설명: 기계학습 알고리즘 측면, 사업측면
+- 양산 배포측면: DBMS 배치, Restful API
+- 예측모형 평가: A/B 검정
+
+---
+### 설명가능한 기계학습 3가지 측면
+
+.center[
+  <img src="fig/model-explain.png" alt="예측모형 설명" width="85%" />
+]
+
+
+- **믿음(Trust)**: 기계가 예측한 것을 사람이 어떻게 신뢰할 수 있는가?
+    - 다양한 예측모형을 비교하고 기계예측을 설명할 수 있음.
+- **예측(Predict)**: 기계 예측 행동을 어떻게 이해하고 예측할 수 있는가?
+    - 기계예측모형을 바탕으로 예측모형의 행동과 평가를 수행할 수 있음.
+- **개선(Improve)**: 잠재적 기계예측 실수를 어떻게 개선할 수 있는가?
+    - 설명가능한 비기계학습 전문가 vs. 설명 못하는 기계학습 전문가.
+
+---
+### 설명가능한 기계학습 알고리즘
+
+.center[
+  <img src="fig/biz-non-biz-explain-model.png" alt="예측모형 설명 방법" width="85%" />
+]
+
+---
+### 설명가능한 기계학습: LIME (동작원리)
+
+.center[
+  <img src="fig/explainable-ai-lime.png" alt="예측모형 설명 방법" width="100%" />
+]
+
+---
+### 설명가능한 기계학습 알고리즘: LIME
+  
+.center[
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/hUnRCxnydCc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+]  
+
+.footnote[
+  [Marco Tulio RibeiroSameer SinghCarlos Guestrin (August 12, 2016), "Introduction to Local Interpretable Model-Agnostic Explanations (LIME)
+A technique to explain the predictions of any machine learning classifier."](https://www.oreilly.com/learning/introduction-to-local-interpretable-model-agnostic-explanations-lime)
+]
+
+
+---
+class: inverse, middle, center
+
+# 로지스틱 회귀모형
+
 
 
 
