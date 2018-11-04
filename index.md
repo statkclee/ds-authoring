@@ -54,7 +54,7 @@ title: 데이터 과학을 위한 저작도구
     * [부작업(Sub-tasks)](doit-sub_tasks.html)
     * [분석결과가 최신상태인지 점검하기](doit-uptodate.html)
 1. **발표자료와 기고문**
-    1. [기계의 역습: 설명가능한 기계학습](ds_explainable_machine_learning_2018.html)
+    1. [기계의 역습: 설명가능한 기계학습](ds_explainable_machine_learning_2018.html): [slideshare](https://www.slideshare.net/statkclee/cloudera-sessions-2018-datayanolja)
         - [클라우데라 서울 컨퍼런스, 2018년 11월 8일, 인터컨티넨탈 서울 코엑스](https://clouderasessionsseoul.com/)
     1. [데이터야 놀자](https://datayanolja.github.io/)
         1. ["데이터 과학자의 시각화"(2018)](ds_data_scientist_visualization.html): 2018-10-19/20 (금/토), 마이크로소프트 광화문 오피스
