@@ -54,6 +54,9 @@ title: 데이터 과학을 위한 저작도구
     * [부작업(Sub-tasks)](doit-sub_tasks.html)
     * [분석결과가 최신상태인지 점검하기](doit-uptodate.html)
 1. **발표자료와 기고문**
+    1. [빅데이터를 넘은 데이터 과학 Tidyverse로 향하다](ds_maso_tidyverse.html) 
+        - [마이크로소프트웨어](https://www.imaso.co.kr/) 2019년 1월 395호 "데이터 사이언스와 데이터 엔지니어링"
+        - 마이크로소프트웨어는 1983년 11월에 창간한 소프트웨어 전문 잡지로, 2017년부터 3개월에 1회씩 1가지 주제를 선정해 발행 중.
     1. [기계의 역습: 설명가능한 기계학습](ds_explainable_machine_learning_2018.html): [slideshare](https://www.slideshare.net/statkclee/cloudera-sessions-2018-datayanolja)
         - [클라우데라 서울 컨퍼런스, 2018년 11월 8일, 인터컨티넨탈 서울 코엑스](https://clouderasessionsseoul.com/)
     1. [데이터야 놀자](https://datayanolja.github.io/)

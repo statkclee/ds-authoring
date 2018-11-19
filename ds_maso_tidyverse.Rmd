@@ -1,0 +1,382 @@
+---
+title: "빅데이터를 넘은 데이터 과학 Tidyverse로 향하다"
+subtitle: "[마이크로소프트웨어](https://www.imaso.co.kr/) 2019년 1월 395호 '데이터 사이언스와 데이터 엔지니어링'"
+author: "이광춘 <br/> (<a href='https://software-carpentry.org/'> 소프트웨어 카펜트리 대표강사</a>)"
+date: "`r Sys.Date()`"
+output:
+  html_document: 
+    toc: yes
+    toc_float: true
+    highlight: tango
+    code_folding: show
+    number_section: true
+    self_contained: true
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+
+knitr::opts_chunk$set(echo = FALSE, warning=FALSE, message=FALSE,
+                    comment="", digits = 3, tidy = FALSE, prompt = FALSE, fig.align = 'center')
+
+
+```
+
+
+# 데이터 과학 (Data Science) [^xwMOOC-data-science] {#data-science}
+
+[^xwMOOC-data-science]: [데이터 과학 - 데이터 과학과 R 언어](https://statkclee.github.io/data-science/ds-r-lang.html)
+
+**데이터 과학(data science)** [^wiki-data-science] 이란, 
+데이터 마이닝(Data Mining)과 유사하게 정형, 비정형 형태를 포함한 다양한 데이터로부터 지식과 인사이트를 추출하는데 과학적 방법론, 프로세스, 알고리즘, 시스템을 동원하는 융합분야다. 
+데이터 과학은 데이터를 통해 실제 현상을 이해하고 분석하는데 통계학, 데이터 분석, 기계학습과 연관된 방법론을 통합하는 개념으로 정의되기도 한다.
+
+데이터의 구체적인 내용이 아닌 서로 다른 성질의 내용이나 형식의 데이터에 공통으로 존재하는 성질, 또는 그것들을 다루기 위한 기술의 개발에 착안점을 둔다는 특징을 가진다.
+
+튜링상을 수상한 짐그레이(Jim Gray) 박사는 데이터 과학은 과학의 네번째 패러다임으로 정의하고 과학(경험, 이론, 계산, 그리고 이제 데이터)에 관한 모든 것이 바뀌고 있는데 이유는 
+정보기술과 데이터 범람(data deluge) 때문이라고 주장했다.
+
+[^wiki-data-science]: [Wikipedia, "Data Science"](https://en.wikipedia.org/wiki/Data_science)
+
+<img src="fig/data-science-overview.png" alt="데이터 과학 개요" width="70%" />
+
+자연법칙은 변수(Variable), 관측점(Observation), 값(Value)으로 구성된다. 
+변수는 측정한 정량 혹은 정성적 특성이 되고, 
+값은 측정한 시점에 변수의 상태이며, 관측점은 유사한 조건하에 측정한 여러 변수값 집합이 된다. 
+자연법칙은 동일한 관측점 값에 적용되어 동작하는 변수를 다룬다. 
+따라서, 자연법칙은 데이터 **패턴(pattern)**으로 나타나게 된다.
+
+변수, 관측점, 값으로 구성된 데이터를 가지고는 있지만, 현실 세계를 움직이는 자연법칙을 모르는 경우, 패턴을 찾아서 자연법칙을 모사할 수 있고, 
+현실 세계에 대한 자연법칙을 찾았다면 데이터를 통해서 확증하는 것도 가능한 것도 사실이다. 
+
+데이터 과학은 전혀 새로운 것도 아니고, 새로 창조된 것도 아니다. 
+데이터에서 법칙과 규칙을 찾게 되면 과정이 고난하고 어렵고 금전적인 투자도 있어야하고 경험도 많이 필요하지만 
+일단, 법칙과 규칙을 찾게 되면 그 가치는 상상을 초월하게 된다.
+
+## 통계학 [^statistics] {#data-science-education-definition}
+
+[^statistics]: [김충락 부산대 통계학과 교수 한국통계학회장, "통계를 ‘권력의 시녀’로 만들려는 유혹"](https://news.joins.com/article/22939324)
+
+데이터 과학을 지탱하는 튼튼한 기둥중의 하나는 통계학이다.
+통계학은 영어로 ‘Statistics’인데 이는 국가(State)를 통치하는 데 필요한 학문이라는 어원을 갖고 있고, 통계학은 크게 세 단계로 정의된다.
+
+1. 자료를 수집 (sampling), 
+1. 자료를 분석 (analysis), 
+1. 이를 바탕으로 일반화된 결론을 끌어냄(generalization)
+
+“자료 그 자체에 충실하라(Let the data speak for  themselves)”는 말이 있다.
+과학적 성과의 입증이나 정부의 정책을 뒷받침하는 과정에서 자료나 통계가 조금이라도 왜곡되거나 조작되면 안 된다. 
+이를 흔히 우리는 **통계의 중립성**과 **독립성**이라 부른다. 
+
+
+## 데이터 과학 프로세스 {#data-science-process}
+
+[CRISP-DM(Cross-industry standard process for data mining)](https://en.wikipedia.org/wiki/Cross-industry_standard_process_for_data_mining)은 
+데이터에서 유용한 무언가를 찾아내기 위해서 많은 시도가 있기에 베스트 프랙티스(Best Practcice)를 모아 정리한 과거 유명한 
+데이터 마이닝 모형이었다. [^crisp-dm-kor] 지금에 와서 인기를 얻고 있는 기계학습(Machine Learning)이나 인공지능(AI) 제품과 서비스 
+개발 과정과 별반 차이점은 없어 보인다.
+
+[^crisp-dm-kor]: [데이터 마이닝 방법론/프로세스 CRISP-DM](http://itlab.tistory.com/122)
+
+- Business Understanding: 비즈니스 문제 인식 및 해결을 위한 데이터 마이닝 프로세스 명료화
+- Data understanding: 데이터 탐색 및 이해
+- Data prepation: 데이터를 통한 문제 인식 및 해결
+- Modelding: 데이터 마이닝 기법 적용
+- Evaluation: 비즈니스 상황에 따른 데이터 마이닝 결과의 해설
+- Deployment: 데이터 마이닝 결과의 전개 및 유지
+
+<img src="fig/data-science-process-as-is-to-be.png" alt="데이터 과학 프로세스 비교" width="50%" />
+
+최근 인기를 얻고 있는 기계학습(Machine Learning)이나 인공지능(AI)과는 별개로 몇년 전부터 
+RStudio의 최고 데이터과학자 위캠 박사가 `tidyverse`을 통해 데이터과학을 새롭게 정의하는 시도가 있었고 많은 호응을 얻고 있다.
+`tidyverse`를 살펴보기 전에 데이터 과학에서 파이썬과 함께 중요한 언어인 R에 대한 이해가 선행되어야 한다.
+
+> **데이터와 사투(Data Wrangling)**
+>
+> 데이터 먼징(Data Munging) 혹은 데이터 랭글링(Data Wrangling)은 원자료(raw data)를 또다른 형태로 수작업으로 
+> 전환하거나 매핑하는 과정으로 데이터 원천(Data Source)에서 원래 최초 형태로 자료를 추출, 
+> 알고리즘(예로, 정렬)을 사용해서 원자료를 "먼징(munging)"하거나 사전 정의된 자료구조로 데이터를 파싱(parsing)한다. 
+> 마지막으로 저장이나 미래 사용을 위해 작업완료한 콘텐츠를 데이터 싱크(data sink)에 놓아두는 과정.
+> 
+> **데이터 랭글링(Data Wrangling)**
+>     - 데이터 조작(Data Manipulation) : `dplyr`
+>     - 데이터 깔끔화(Data Tidying) : `tidyr`
+>     - 데이터 시각화(Data Visualization) : `ggplot`
+>     - 모형(Modelling) : `broom`
+>     - 데이터 프로그래밍(Data Programming) : `purrr`
+
+
+# R 역사 [^r-history] {#rhistory}
+
+[^r-history]: [Revolutions (2017), An Updated History of R](http://blog.revolutionanalytics.com/2017/10/updated-history-of-r.html)
+
+[Revolutions](http://blog.revolutionanalytics.com/2017/10/updated-history-of-r.html)에서 정리한 최근 R 역사는 
+1992년 처음 뉴질랜드 오클랜드에서 Robert Gentleman, Ross Ihaka 교수가 개발을 시작한 후에 
+GPL 라이선스를 장착하여 소스코드를 공개한 후에 R 코어 그룹이 만들어지고, 팩키지 배포 CRAN이 순차적으로 공개되고 나서,
+[R 웹사이트](https://www.r-project.org/)가 만들어지고, 처음으로 2000년에 R 1.0.0 으로 배포되고 R 저널, UseR! 컨퍼런스, 
+R 재단, R 컨소시엄이 전세계 수많은 재능있고 열정있는 수많은 사람에 의해서 만들어졌습니다. 
+그리고 한국에서도 [R Meetup](https://tidyverse-korea.github.io/r-meetup-x-presser/)을 2017년부터 시작해서 총 10회를 마쳤고,
+PRESSer X R Meetup 시즌 2를 2018년 11월부터 진행하고 있다.
+R 역사 연대기 표에 한국인의 기여는 미미하지만, 최근들어 데이터 과학 대중화에 힘입어 많은 한국인이 R 언어를 접하게 되면서
+사용자가 폭발적으로 늘어나고 있다.
+
+
+``` {r rhistory, fig.width=12}
+
+# 0. 환경설정 --------------
+library(timelineS) # devtools::install_github("daheelee/timelineS")
+library(tidyverse)
+library(lubridate)
+library(googleVis)
+
+Sys.setenv(TZ='Asia/Seoul')
+
+rhistory_df <- tribble(
+    ~event, ~event_date, ~event_eng,
+    "R 개발시작", "1992-07-01", "R development begins as a research project in Auckland, NZ by Robert Gentleman and Ross Ihaka",
+    "R 배포", "1993-07-01", "First binary versions of R published at Statlib",
+    "GPL 소스코드 \n 배포", "1995-07-01", "R first distributed as open-source software, under GPL2 license",
+    "R 그룹 생성", "1997-07-01", "R core group formed",
+    "CRAN 시작", "1997-07-01", "CRAN founded (by Kurt Jornik and Fritz Leisch)",
+    "R 웹사이트", "1999-07-01", "The R website, r-project.org, founded",
+    "R 개발자 \n 모임", "1999-07-01", "First in-person meeting of R Core team, at inaugural Directions in Statistical Computing conference, Vienna",
+    "R 1.0.0 배포", "2000-02-29", "R 1.0.0 released (February 29)",
+    "John Chambers \n ACM 수상", "2000-07-01", "John Chambers, recipient of the 1998 ACM Software Systems Award for the S language, joins R Core",
+    "R 소식지 창단", "2001-07-01", "R News founded (later to become the R Journal)",
+    "R 재단 창설", "2003-07-01", "R Foundation founded",
+    "UseR! 컨퍼런스 시작", "2004-07-01", "First UseR! conference (in Vienna)",
+    "R 2.0.0 배포", "2004-07-01", "R 2.0.0 released",
+    "첫 R 저널 배포", "2009-07-01", "First edition of the R Journal",
+    "R 3.0.0 배포", "2013-07-01", "R 3.0.0 released",
+    "R 컨소시엄 창설", "2015-07-01", "R Consortium founded, with R Foundation participation",
+    "신규 R 로고 채택", "2016-07-01", "New R logo adopted",
+    "한국 R Meetup", "2017-08-23", "한국 R Meetup 시작",
+    "한국 R Meetup 시즌2", "2018-11-22", "한국 R Meetup 시즌2"
+)
+
+# 1. R 역사 연대기 표 --------------
+
+DT::datatable(rhistory_df)
+
+# 2. R 역사 연대기 시각화 --------------
+
+rhistory_df <- rhistory_df %>% 
+    mutate(event_date = ymd(event_date))
+
+timelineS(rhistory_df, main = "R 연대기", buffer.days = 3600,
+          label.direction = "up", label.length = c(0.2,0.8,0.4,1.2), label.position = 3,
+          labels = rhistory_df[[1]])
+```
+
+> **통계팩키지 SAS/SPSS/Stata 주요 구성요소 비교** [^r4sas-spss]
+> 
+> R은 현존하는 가장 강력한 통계 컴퓨팅 언어로, 그래픽과 자료분석을 위해 언어 + 팩키지 + 환경이 하나로 묶여있다.
+> 특히, 컴퓨터 주기억장치 한계가 존재하지만, 오픈 소스로 모든 코드가 공개되어 있어 자유로이 이용이 가능하다. R은 John Chambers가 주축이 되어 벨연구소에서 
+> 개발된 유닉스와 역사를 함께하는 S을 Ross Ihaka 와 Robert Gentleman이 1996년 구현하여 대중에게 공개하였다. 
+> 
+> [^r4sas-spss]: [Muenchen, Robert A. R for SAS and SPSS users. Springer Science & Business Media, 2011.](http://www.springer.com/us/book/9780387094182)
+> 
+> 자료분석을 위해 대중에게 널리 알려진 통계팩키지에는 SAS, SPSS, Stata, Minitab 등 상업용으로 많이 판매되고 있다. 
+> 어떤 통계팩키지도 다음과 같은 공통된 5가지 구성요소를 포함하고 있다.
+> 
+> * 데이터 입력과 조작 언어
+> * 통계와 그래픽 명령어
+> * 출력물 관리 시스템
+> * 매크로 언어
+> * 행렬 언어(SAS IML/SPSS Matrix/Stata Mata) 
+> 
+> 이와 비교하여 R은 5가지 구성요소가 **언어 + 팩키지 + 환경** 으로 구성된다는 점에서 차이가 크다.
+
+## 왜 R 언어인가? [^r-rank] [^r-r4stats] {#why-r}
+
+[^r-rank]: [Interactive-The Top Programming Languages](https://spectrum.ieee.org/at-work/innovation/the-2018-top-programming-languages)
+
+[^r-r4stats]: [The Popularity of Data Analysis Software](http://r4stats.com/articles/popularity/)
+
+[Rexer Analytics](http://www.rexeranalytics.com/)가 2015년 응답자 1,220명을 대상으로 실시한 결과 R이 데이터 분석 소프트웨어 분야에서 압도적인 1위 위치를 점유하고 있음을 확인할 수 있다.
+또한, 최근 IEEE The 2018 Top Programming Languages 조사에서 다른 범용 언어와는 달리 데이터 과학에 특화된 언어로 R이 7위를 달리고 있는 점이 달라진 위상을 반영하고 있다.
+
+
+<div class = "row">
+  <div class = "col-md-6">
+
+<img src="fig/rexersurveyalltools2015.png" alt="Rexer Analytics 설문조사 2015 (응답자 1,220)" width="100%">
+
+  </div>
+  <div class = "col-md-6">
+
+<img src="fig/ieee-language-ranking.png" alt="IEEE 조사" width="100%">
+
+  </div>
+</div>
+
+
+데이터 과학을 제외하고 R이 1등을 하는 분야는 없지만, 
+2017년 10월 기준 [스택오버플로우-What are the Most Disliked Programming Languages?](https://stackoverflow.blog/2017/10/31/disliked-programming-languages/) 블로그를 
+참조하면 가장 싫어하지 않는 언어 1위에 등극했습니다.
+
+<img src="fig/languages-r-dislike.png" alt="가장 혐오하지 않는 언더" width="100%" />
+
+## 두 언어 문제 [^Ousterhout-dichotomy] [^solving-two-language-problem] {#two-language-problem}
+
+[^Ousterhout-dichotomy]: [Ousterhout dichotomy](https://en.wikipedia.org/wiki/Ousterhout%27s_dichotomy)
+
+[^solving-two-language-problem]: [ODSC East 2016 - Stefan Karpinski - "Solving the Two Language Problem"](https://www.youtube.com/watch?v=B9moDuSYzGo)
+
+과거 데이터 과학자는 선형대수, 통계&시각화, 속도, 통합작업과 관련하여 다양한 언어와 도구를 익혀야 했지만,
+2010년 중반을 넘어서는 R과 파이썬을 함께 사용하는 것으로 중지가 모아지고 있다.
+
+
+| 시스템 언어  | Ousterhout 이분법  | 스크립트 언어  |
+|-------------|-------------|-------------|
+|   정적       |     --      |     동적     |
+|   컴파일      |     --      |    인터프리터 |
+| 사용자정의 자료형|     --      |  표준 자료형 |
+|   빠른 속도   |     --      |   늦은 속도   |
+|   어려움       |     --      |   쉬움     |
+
+데이터 과학에 R과 파이썬으로 중지가 모아지는 이유는 여럿있지만, 우선 데이터 과학도 다른 분야와 마찬가지로 두 언어 문제가 존재한다.
+개발자를 위한 편리함을 위해 R, 파이썬, Matlab 등 스크립팅 언어를 사용하고, C/C++, 포트란 시스템 언어가 속도와 성능이 필요한 부분에 사용된다.
+시스템 언어와 스크립트 언어의 두가지 문제점을 해결하고, 
+두가지 다른 언어의 장점을 취하고 이를 보완하려는 노력은 계속되고 있으며 R에서 팩키지 개발에서 R 스크립트로 모든 기능을 선행하여 구현하고 
+[Rcpp](https://cran.r-project.org/web/packages/Rcpp/index.html) 팩키지를 사용하여 C/C++로 후행하여 속도와 성능이 필요한 부분에 재개발하는 경우도 있다.
+
+<img src="fig/data-scientist-languages.png" alt="데이터 과학자 언어" width="100%">
+
+
+
+# 데이터 과학의 불편한 진실 [^data-science-fun-fact] {#data-science-fact}
+
+[^data-science-fun-fact]: [Kamil Bartocha (lastminute.com), "The Inconvenient Truth About Data Science"](https://www.kdnuggets.com/2015/05/data-science-inconvenient-truth.html)
+
+[KDnuggets](https://www.kdnuggets.com/) 웹사이트에 올라오 데이터과학에 관한 불편한 진실을 김재광 교수님께서 번역하여 페이스북에 공유해 주셨습니다. 
+가슴이 아프지만, 실무를 해보신 분은 누구나 공감하실 듯 싶습니다. 
+하지만, 채용과정에서는 딥러닝, 인공지능, 기계학습에 대한 내용에 상당부분 할애하는 경우가 다반사입니다. 
+그런 이유인지 몰라도 신입직원에 대한 조기 퇴사율이 높은 이유를 설명하는데 도움이 될 듯 싶습니다.
+
+1. Data is never clean.(데이터는 절대 깨끗하지 않다)
+1. You will spend most of your time cleaning and preparing data.(당신은 분석의 대부분의 시간을 전처리 단계에서 보내게 될 것이다)
+1. 95% of tasks do not require deep learning (95% 일은 Deep Learning을 필요로 하지 않는다)
+1. In 90% of cases generalized linear regression will do the trick. (실제 분석의 90%는 GLM으로 해결된다 )
+1. Big Data is just a tool (빅 데이터는 단지 도구일 뿐이다)
+1. You should embrace the Bayesian approach (당신은 베이지안 접근을 포용해야 한다)
+1. No one cares how you did it. (사용자 입장에서는 네가 어떤 방법을 사용했는가는 중요하지 않다.) 
+1. Academia and business are two different worlds. (학계와 산업계는 서로 다른 세계이다)
+1. Presentation is key - be a master of Power Point (프리젠테이션이 핵심이다: PowerPoint 의 마스터가 되라)
+1. All models are false, but some are useful. (모든 모델은 틀렸다, 하지만 몇몇은 유용하다)
+1. There is no fully automated Data Science. You need to get your hands dirty (완전 자동화된 데이터 과학같은 것은 없다. 인간이 개입되어야 할 부분이 있다)
+
+# 데이터 과학업무 세분화 [^airbnb-data-science] {#data-science-specialization}
+
+[^airbnb-data-science]: [Elena Grewal(July 25, 2018), "One Data Science Job Doesn’t Fit All"](https://www.linkedin.com/pulse/one-data-science-job-doesnt-fit-all-elena-grewal/)
+
+데이터 과학(Data Science)는 2012년을 변곡점으로 해서 급격하게 관심도가 높아지고 있다. [Google Trends](https://trends.google.com/trends/explore?date=all&geo=US&q=data%20science)
+초창기 데이터 과학자가 데이터에 대한 수집, 분석, 모형개발, 추론, 제품/서비스 개발 및 운영을 모두 했다면 최근 2~3년 동안 업무의 분화가 가속화되어 일어나고 있다.
+
+<img src="fig/data-science-airbnb.png" alt="데이터 과학 에어비앤비" width="100%" />
+
+**분석(Analytics) 데이터 과학자**는 좋은 질문을 던질 수 있고, 탐색적 데이터 분석을 통해서 명확히 하는 재주가 있고, 대쉬보드와 시각화를 통해 데이터 분석을 자동화하고,
+추천 결과물로 비즈니스를 변화시킨다. **알고리즘(algorithm) 데이터 과학자**는 기계학습에 특기가 있는 사람에 적합하고 제품/서비스, 프로세스에 
+데이터를 녹여내서 비즈니스 가치를 창출한다. **추론(inference) 데이터 과학자**는 통계를 사용해서 의사결정을 향상시키고, 업무의 영향도를 측정하는데 주로 통계학자, 
+경제학자, 사화과학자에 적합하다.
+
+
+
+# R의 파이썬 대비 우수성 [^linkedin-r-python] {#data-science-education-r}
+
+[^linkedin-r-python]: [Alfonso R. Reyes, Chief Data Scientist at AEM Enersol (September 11, 2018), "For what things R programming language is better than Python?", LinkedIn](https://www.linkedin.com/pulse/what-things-r-programming-language-better-than-python-reyes/)
+
+저자는 10년이상 파이썬 응용프로그램을 작성했지만, 지금은 R을 사용하고 있다.
+R을 사용하진 2년이 지난 시점에서 파이썬 보다 R의 우수성에 대해서 10가지로 요약하고 있다.
+
+간략히 요약하면, R은 데이터 과학과 기계학습 프로젝트에 이례적인 도구라고 볼 수 있다.
+R로 개발할 때 생산성은 훨씬 더 크게 느껴진다. 하지만, R을 익숙하게 다루는데는 시간이 다소 소요되기 때문에
+시간에 대한 투자도 당근 고려되어야 한다. 특히, 파이썬이 근접할 수 없는 분야는 
+프로토타입을 개발할 때 재현성을 비롯한 상당한 매력과 장점이 있다. 파이썬은 다용도 언어로 데이터 과학 선택지로서 
+입지를 다져가고 있다.
+
+1. R은 과학, 통계학, 수학, 공학에 집중한다. 따라서 과학과 공학에 R로 접근하는 것이 엄청 필요하다.
+1. 지원에 대해서는 세계적이다. 어디를 가나 StackOverflow, 포럼, 트위터, 링크트인, 팟캐스트 등을 쉽게 접할 수 있고,
+R 커뮤니티 자체가 매우 이타적이라 모두 기꺼이 도움을 주고 받고 해서 R 실력이 더 향상되도록 한다.
+1. 재현성(reproducibility)이 황우석 사태 이후 큰 주목을 받고 있다. 재현성을 구현하는데 팩키지가 이미 다수 개발되어 있고 진화를 거듭하고 있다.
+작업한 결과물은 팀뿐만 아니라, 외부에서도 재현되어야 하는데, 데이터 과학의 궁극의 목적으로 재현성을 최극단까지 도달할 수 있도록 R 커뮤니티가 노력을 경주하고 있다.
+1. 로마시절에 라틴어가 만인의 언어이고, 현재 영어가 전세계 공용어이듯이, R마크다운은 R에서 공용 의사소통언어로 자리 잡았다.
+R마크다운으로 보고서, 슬라이드, 학위논문, 논문, 책을 집필할 수 있다. R마크다운을 쥬피터 노트북과 비교하면 생산성이 1000:1 정도 될 것이다.
+하지만, 반대로 R을 학습하는데 상당한 시간을 투여해야 되는 것도 사실이다.
+1. 정말 빠른 배포. RStudio 회사 직원이 어떻게 하는지 모르겠지만, 어쨌든 제품을 단 1,2년만에 뚝딱 만들어 냈다.
+Shiny를 말하고 싶은데, 파이썬으로 몇주 몇달 걸리는 것과 비교하여 단지, 몇분, 몇시간이면 뚝딱 웹앱을 배포할 수 있다.
+다른 말로, 파이썬으로 개발한 것은 실무적으로 공유하기 힘들다(non-shareable). 
+1. 가장 단순하면서도 최상의 통합개발환경(IDE)가 발명되었다. RStudio는 매우 단순하지만, 동시에 개발에 확장이 가능한 개발환경을 제공하고 있다.
+처음에 믿을 수가 없겠지만, 작은 창 4개를 가지고 어마어마한 작업을 수행할 수 있다. 단순하지만 더 단순할 수 없도록 만들었다.
+1. 팩키지 품질관리. CRAN(the Comprehensive R Archive Network)에 팩키지를 올리려면 상당한 품질 기준을 만족해야 된다.
+문서가 없는 팩키지는 승인되지 않는데, 이런 점이 현재 R을 만들었다. 현시점 기준 13,000개가 넘는 팩키지가 있는데 갯수가 중요한 것이 아니라,
+R을 강하고 확장가능하게 만든 것은 문서의 품질이라고 본다.
+1. 확장성(extendable). 팩키지 품질관리로 통해서 품질 좋은 팩키지가 만들어져서 이후 만들어지는 팩키지는 이런 토대위에 제작되어 더 좋은 팩키지로 거듭남.
+누가 가장 혜택을 볼 수 있을까? 바로 사용자.
+1. 고품질 그래프. `matplotlib`에 관해 무엇을 언급하든, Base 그래프, 그래프 문법 ggplot2 그래프에는 근접하지 못한다.
+Alfonso R. Reyes는 matplotlib을 오랜동안 사용했지만, 비표준 그래프는 뭐든지 맨땅에서부터 작성해야 했다. 
+반대로 R은 ggplot2를 비롯한 방대한 기능을 아직도 모두 소진해본적은 없는듯 싶다.
+물론, 그래프에 대해 지켜야할 몇가지 기본 규칙이 부수적으로 따라온다: 다중 y축을 사용하지 말고, 원그래프는 피하고, 
+3D 그래프를 과사용하지 말고, 특별한 이유가 없다면 맨 처음부터 그래프 작성을 시작한다.
+1. 함수(function) 중심. 파이썬과 R을 기본적으로 다르게 만드는 것 중 하나다.
+클래스는 파아썬에서 남용에 가깝게 사용되곤 한다. 때로는 특별한 이유도 없다.
+클래스와 객체형 프로그래밍을 배우려고 한다면, 파이썬을 추천한다. 세상에서 가장 배우기 쉬운 것 중 하나다.
+이런 관점에 반대하여 R 세상은 다르다; 함수가 R세상에서는 첫째 시민(first class citizen)이다. 
+다른 언어와 달리 R에서 클래스는 함수 아래서 동작한다. S3와 S4는 자바와 파이썬 클래스와는 근본적으로 다르게 동작한다; 가장 가까운 친적이 R6가 될 듯 싶다.
+
+
+## 구글 추세로 본 데이터 과학 한미 비교 {#data-science-google-trends}
+
+구글 추세로 본 미국과 한국의 데이터 과학 현주소를 살펴보자.
+먼저, 구글 추세 데이터를 추출하는데 지역을 미국으로 한정하고 검색어를 "big data", "data science", "machine learning", "deep learning"으로 놓고 데이터를 추출하여 
+`us_df`에 저장한다. 동일한 방식으로 지역을 한국으로 한정하고 4차 산업혁명시대 검색어를 동일하게 "빅데이터", "데이터 과학", "기계 학습", "딥러닝"으로 놓고 `kr_df`로 저장한다.
+시간은 "2010"년부터 최근까지 시간으로 삼는다.
+
+```{r google-trends-with-keywords-plot, eval=FALSE}
+library(tidyverse)
+# 미국
+us_df <- gtrends(c("big data", "data science", "machine learning", "deep learning"), geo = c("US"), time="2010-01-01 2018-10-09", hl = "en-US")
+
+# 대한민국
+Sys.setlocale("LC_ALL", "C")
+kr_df <- gtrends(c("빅데이터", "데이터 과학", "기계 학습", "딥러닝"), geo = c("KR"), time="2010-01-01 2018-10-09", hl = "ko-KR")
+Sys.setlocale("LC_ALL", "Korean")
+
+# us_df %>% write_rds("data/us_df.rds")
+# kr_df %>% write_rds("data/kr_df.rds")
+```
+
+구글 추세 데이터를 다운로드 받아 이를 `tidyverse` 시각화 중요 팩키지 `ggplot`으로 시각화한다.
+2017년을 기준으로 빅데이터에 대한 검색어보다 기계학습과 데이터과학에 대한 인기도가 급상승하는 것으로 나타나고 있다.
+가능한 해석은 미국 사회는 데이터 축적을 넘어 데이터과학, 기계학습, 딥러닝을 통해 가치를 창출하는 단계로 넘어간 것으로 파악된다.
+
+```{r google-trends-comparison-us}
+library(extrafont)
+loadfonts()
+
+us_df <- read_rds("data/us_df.rds")
+kr_df <- read_rds("data/kr_df.rds")
+
+us_df$interest_over_time %>% tbl_df %>% 
+  mutate(hits = as.integer(hits)) %>% 
+  ggplot(aes(x=date, y=hits, color=keyword)) +
+    geom_line() +
+    labs(x="", y="구글 인기도", color="구글 검색어", title="미국 데이터 과학 구글 추세") +
+    theme_minimal(base_family = "NanumGothic") +
+    theme(legend.position = "top")
+
+```
+
+대한민국은 상대적으로 빅데이터와 딥러닝이 인기를 얻어가고 기계학습과 데이터과학은 거의 회자되지 않는 것으로 나타난다.
+
+```{r google-trends-comparison-kr}
+kr_df$interest_over_time %>% tbl_df %>% 
+  mutate(hits = as.integer(hits)) %>% 
+  ggplot(aes(x=date, y=hits, color=keyword)) +
+    geom_line() +
+    labs(x="", y="구글 인기도", color="구글 검색어", title="대한민국 데이터과 학명 구글 추세") +
+    theme_minimal(base_family = "NanumGothic") +
+    theme(legend.position = "top")
+```
