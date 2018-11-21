@@ -431,5 +431,95 @@ Alfonso R. Reyes는 matplotlib을 오랜동안 사용했지만, 비표준 그래
 
 ## 심슨의 역설 {#data-science-fact-simpson-paradox}
 
+A/B 테스트와 같이 실험을 통해 데이터를 얻는 경우는 극히 적다. 
+데이터 과학자가 주로 다루는 데이터는 실험 데이터 보다는 관측데이터로 영국의 통계학자 에드워드 심슨이 정리한 역설(Simpson paradox)에 주의를 기울여야 한다.
+심슨의 역설은 전반적인 추세가 경향성이 존재하는 것으로 보이지만, 
+그룹으로 나눠서 개별적으로 보게 되면 경향성이 사라지거나 해석이 반대로 되는 경우를 지칭한다.
+원인은 데이터 분석과 모형 개발과정에서 중요한 변수(lurking variable)가 빠져서 주로 이런 역설이 발생한다.
+[심슨의 역설](https://statkclee.github.io/r-algorithm/r-history-of-probability.html#simpson-paradox-1951)은 확률의 역사에서도 중요한 주제 중의 하나로 자리를 잡고 있다.
+
+## 심슨의 역설 사례 [^xwMOOC-simpson] {#simpson-paradox-case-study}
+
+[^xwMOOC-simpson]: [xwMOOC(2018-09-20), "데이터 과학 – 기초 통계: 심슨의 역설(Simpson Paradox)"](https://statkclee.github.io/statistics/stat-simpson.html)
+
+심슨의 역설 사례를 책페이지수와 책가격의 관계를 살펴보자.
+데이터는 책 유형(하드커버, 페이퍼백)은 두가지가 있고,
+페이지수와 책가격이 달러로 구성된 데이터프레임이다. 이를 시각적으로 표현하면 관계가 음의 상관관계를 갖는 것을 알 수 있다.
+
+```{r simpson-data}
+library(tidyverse)
+simp_df <- tribble(
+    ~book_type, ~num_pages, ~book_price,
+    "hardcover", 150, 27.43, 
+    "hardcover", 225, 48.76, 
+    "hardcover", 342, 50.25, 
+    "hardcover", 185, 32.01, 
+    "paperback", 475, 10.00, 
+    "paperback", 834, 15.73, 
+    "paperback", 1020, 20.00, 
+    "paperback", 790, 17.89)
+
+simp_df %>% 
+    ggplot(aes(x=num_pages, y=book_price)) +
+      geom_point(size=3) +
+      geom_smooth(method = "lm", se=FALSE)
+
+```
+
+`num_pages`, `book_price` 두변수를 추출하여 상관계수를 도출한다.
+그리고 나서, 책 유형에 따른 상관관계도 도출해 낸다.
+먼저 책 유형에 관계없이 `num_pages`, `book_price` 상관관계는 `-0.5949366`으로 나름 강한 음의 상관계수가 관측된다.
+
+```{r simpson-data-cor}
+simp_df %>% 
+    summarise(book_cor = cor(num_pages, book_price)) %>% 
+    pull()
+```
+
+이번에는 책 유형에 따른 상관계수는 어떤지 계산해 보자.
+이 경우, 하드커버는 `0.848`, 페이퍼백은 `0.956`로 강한 양의 상관관계가 존재함이 확인된다.
+
+```{r simpson-data-cor-group}
+simp_df %>% 
+    group_by(book_type) %>% 
+    summarise(book_cor = cor(num_pages, book_price))
+```
+
+앞서 확인한 결과를 책 유형별로 나눠 상관계수를 시각화해보면, 앞서 책 유형이 반영되지 않았을 경우와 비교하여 
+전혀 다른 결론에 도달하게 됨을 확인할 수 있다.
+
+```{r simpson-data-cor-viz}
+simp_df %>% 
+    ggplot(aes(x=num_pages, y=book_price, color=book_type)) +
+      geom_point(size=3) +
+      geom_smooth(method = "lm", se=FALSE) +
+      theme_minimal(base_family = "NanumGothic") +
+      labs(x="책페이지 수", y="책가격($)", title="심슨의 역설 사례", color="책유형" )+
+      theme(legend.position = "top")
+```
+
+그밖에도 심슨의 역설에 대해서 
+[동아사이언스](http://dl.dongascience.com/search?keyword=%EC%8B%AC%EC%8A%A8%EC%9D%98+%EC%97%AD%EC%84%A4)에서 
+2008년, 2013년 3회 심슨의 역설에 대한 기사를 실었는데 "명문대 남녀 합격생의 반전" [^park-simpson], "오류를 잡아라! 확률 법정" [^court-simpson] 의 기사가 눈에 띈다.
+
+[^park-simpson]: [박경미 교수의 수학캠핑 - 확률 패러독스, "명문대 남녀 합격생의 반전"](http://dl.dongascience.com/magazine/view/S201307N052)
+[^court-simpson]: [최영준(2013), "오류를 잡아라! 확률 법정", 수학동아](http://dl.dongascience.com/magazine/view/M201302N008)
+
+심슨의 역설관련 가장 유명한 사례를 꼽는다면 단연, 1973년 UC 버클리 대학 입학데이터[^simpson-berkeley]로 입학에 성차별이 존재하는지에 관한 데이터다.
+
+[^simpson-berkeley]: [Johnny Hong(January 30, 2016), "A (very) brief introduction to ggplot2"](http://jcyhong.github.io/ggplot_demo.html)
+
+기술통계량과 막대 그래프를 통해 데이터 분석을 수행하면 남성 합격률이 여성보다 높은 것으로 나타나 성차별이 존재하는 것으로 파악되지만,
+학과별로 놓고 보면 여성 합격률이 더 높거나 남성과 유사한 반전이 일어난다.
+
+이외에도 모 게임에서 큰 규모의 업데이트를 한 후 게임 고객 동향을 분석한 사례도 있다.
+이 게임은 전체 게임 고객을 약 십 여가지 유형으로 분류하고 있는데, 
+크게 보면 게임 활동이 왕성하고 충성도가 높은 ‘진성’ 유형, 게임 활동이 그리 활발하지 않은 ‘라이트’ 유형, 자동 사냥 유저로 의심되는 ‘봇’ 유형 등으로 구분된다.
+기술통계량과 막대 그래프를 시계열로 늘어놓게 되면, 일별 접속자수(DAU)가 크게 늘었지만 유저당 결재금액(ARPU)가 하락하여 뭔가 특단의 조치가 필요한 것으로 파악되지만, 
+이를 고객 집단을 반영하여 분석을 하게 되면 진성유저는 큰 차이가 없고, 
+오히려 크게 늘어난 유저가 봇이거나 Non-PU 유저라 봇을 비용으로 간주하여 제거하거나 
+Non-PU유저를 PU로 바꾸거나 PU 유저의 결재금액을 높이는 방향으로 사업적인 조치를 취하는 것이 바람직스러워 보인다는 결론에 도달한 사례도 있다.
+
 
 ## 설명가능한 기계학습 {#data-science-fact-explainable-machine-learning}
+
