@@ -237,16 +237,51 @@ kr_df$interest_over_time %>% tbl_df %>%
 
 ## 데이터 과학 언어 R [^r-history] {#rhistory}
 
+### 두 언어 문제 [^Ousterhout-dichotomy] [^solving-two-language-problem] {#two-language-problem}
+
+[^Ousterhout-dichotomy]: [Ousterhout dichotomy](https://en.wikipedia.org/wiki/Ousterhout%27s_dichotomy)
+
+[^solving-two-language-problem]: [ODSC East 2016 - Stefan Karpinski - "Solving the Two Language Problem"](https://www.youtube.com/watch?v=B9moDuSYzGo)
+
+데이터 과학을 대표하는 R이나 파이썬 모두 컴퓨터 프로그래밍 언어라서 태생적으로 거의 모든 컴퓨터 프로그래밍 언어가 갖고 있는 
+두 언어 문제에서 자유로울 수는 없다. 
+과거 데이터 과학자는 선형대수, 통계&시각화, 속도, 통합작업과 관련하여 다양한 언어와 도구를 익혀야만 했지만,
+2010년 중반을 넘어서는 R과 파이썬으로 중지가 모아지고 있고, 최근에서는 
+R과 파이썬을 모두 사용하는 데이터 과학자 수가 늘어가고 있다.
+
+
+| 시스템 언어  | Ousterhout 이분법  | 스크립트 언어  |
+|-------------|-------------|-------------|
+|   정적       |     --      |     동적     |
+|   컴파일      |     --      |    인터프리터 |
+| 사용자정의 자료형|     --      |  표준 자료형 |
+|   빠른 속도   |     --      |   늦은 속도   |
+|   어려움       |     --      |   쉬움     |
+
+개발자를 위한 편리함을 위해 R, 파이썬, Matlab 등 스크립팅 언어를 사용하고, C/C++, 포트란 시스템 언어는 속도와 성능이 필요한 부분에 사용된다.
+시스템 언어와 스크립트 언어의 두가지 문제점을 해결하고, 
+두가지 다른 언어의 장점을 취하고 이를 보완하려는 노력은 계속되고 있으며 R에서 팩키지 개발에서 R 스크립트로 모든 기능을 선행하여 기능을 구현하고 
+유용성이 인정되어 사용자가 많아지면, 
+[Rcpp](https://cran.r-project.org/web/packages/Rcpp/index.html) 팩키지를 사용하여 C/C++로 후행하여 속도와 성능이 필요한 부분에 재개발하는 경우가 흔하다.
+
+<img src="fig/data-scientist-languages.png" alt="데이터 과학자 언어" width="100%">
+
+### R 언어 {#two-language-problem}
+
 [^r-history]: [Revolutions (2017), An Updated History of R](http://blog.revolutionanalytics.com/2017/10/updated-history-of-r.html)
 
-데이터 과학에서 `tidyverse`가 탄생한 배경을 이해했다면, 데이터 과학에서 파이썬과 함께 중요한 언어인 R에 대한 이해가 선행되어야 비로서 데이터 과학을 손에 잡게 된다. [Revolutions](http://blog.revolutionanalytics.com/2017/10/updated-history-of-r.html)에서 정리한 최근 R 역사는 1992년 처음 뉴질랜드 오클랜드에서 Robert Gentleman, Ross Ihaka 교수가 개발을 시작한 후에 
-GPL 라이선스를 장착하여 소스코드를 공개한 후에 R 코어 그룹이 만들어지고, 팩키지 배포 CRAN이 순차적으로 공개되고 나서,
-[R 웹사이트](https://www.r-project.org/)가 만들어지고, 처음으로 2000년에 R 1.0.0 으로 배포되고 R 저널, UseR! 컨퍼런스, 
-R 재단, R 컨소시엄이 전세계 수많은 재능있고 열정있는 수많은 사람에 의해서 만들어졌습니다. 
-그리고 한국에서도 [R Meetup](https://tidyverse-korea.github.io/r-meetup-x-presser/)을 2017년부터 시작해서 총 10회를 마쳤고,
-PRESSer X R Meetup 시즌 2를 2018년 11월부터 진행하고 있다.
-R 역사 연대기 표에 한국인의 기여는 미미하지만, 최근들어 데이터 과학 대중화에 힘입어 많은 한국인이 R 언어를 접하게 되면서
-사용자가 폭발적으로 늘어나고 있다.
+데이터 과학에서 `tidyverse`가 탄생한 배경을 이해하려면, 
+데이터 과학에서 파이썬과 함께 중요한 언어인 R에 대한 이해가 선행되어야 비로서 데이터 과학을 손에 잡게 된다. 
+[Revolutions](http://blog.revolutionanalytics.com/2017/10/updated-history-of-r.html)에서 정리한 최근 R 역사에 따르면 
+1992년 처음 뉴질랜드 오클랜드에서 Robert Gentleman, Ross Ihaka 교수가 개발을 시작한 후에 
+GPL 라이선스를 장착하여 소스코드를 공개한 뒤에 R 코어 그룹이 만들어지고, 팩키지 배포 CRAN이 순차적으로 공개되고 나서,
+[R 웹사이트](https://www.r-project.org/)가 만들어지고, 2000년에 이르러 비로소 R 1.0.0 으로 판업되어 배포되고, R 저널, UseR! 컨퍼런스, 
+R 재단, R 컨소시엄이 전세계 수많은 재능있고 열정있는 수많은 사람들의 손에 의해서 만들어졌습니다. 
+
+한국에서도 [R Meetup](https://tidyverse-korea.github.io/r-meetup-x-presser/)을 2017년부터 시작해서 총 10회를 마쳤고,
+PRESSer X R Meetup 시즌 2를 2018년 11월부터 운영하고 있습니다.
+R 역사 연대기 표에 한국인의 기여는 미미하지만, 최근들어 데이터 과학 대중화에 힘입어 많은 한국인이 데이터 과학 언어로 
+R 언어를 접할 기회가 늘어나면 사용자가 국내에서도 폭발적으로 늘어나고 있다.
 
 
 ``` {r rhistory, fig.width=12}
@@ -277,7 +312,7 @@ rhistory_df <- tribble(
 
 # 1. R 역사 연대기 표 --------------
 
-DT::datatable(rhistory_df)
+# DT::datatable(rhistory_df)
 
 # 2. R 역사 연대기 시각화 --------------
 
@@ -308,14 +343,16 @@ timelineS(rhistory_df, main = "R 연대기", buffer.days = 3600,
 > 
 > 이와 비교하여 R은 5가지 구성요소가 **언어 + 팩키지 + 환경** 으로 구성된다는 점에서 차이가 크다.
 
-## 왜 R 언어인가? [^r-rank] [^r-r4stats] {#why-r}
+### 왜 R 언어인가? [^r-rank] [^r-r4stats] {#why-r}
 
 [^r-rank]: [Interactive-The Top Programming Languages](https://spectrum.ieee.org/at-work/innovation/the-2018-top-programming-languages)
 
 [^r-r4stats]: [The Popularity of Data Analysis Software](http://r4stats.com/articles/popularity/)
 
-[Rexer Analytics](http://www.rexeranalytics.com/)가 2015년 응답자 1,220명을 대상으로 실시한 결과 R이 데이터 분석 소프트웨어 분야에서 압도적인 1위 위치를 점유하고 있음을 확인할 수 있다.
-또한, 최근 IEEE The 2018 Top Programming Languages 조사에서 다른 범용 언어와는 달리 데이터 과학에 특화된 언어로 R이 7위를 달리고 있는 점이 달라진 위상을 반영하고 있다.
+[Rexer Analytics](http://www.rexeranalytics.com/)가 2015년 응답자 1,220명을 대상으로 실시한 결과 
+R이 데이터 분석 소프트웨어 분야에서 압도적인 1위 위치를 점유하고 있음을 확인할 수 있다.
+또한, 최근 IEEE The 2018 Top Programming Languages 조사에서 다른 범용 언어와는 달리 데이터 과학에 특화된 언어로
+유일하게 R이 7위를 달리고 있는 점이 달라진 위상을 반영하고 있다.
 
 
 <div class = "row">
@@ -332,51 +369,33 @@ timelineS(rhistory_df, main = "R 연대기", buffer.days = 3600,
 </div>
 
 
-데이터 과학을 제외하고 R이 1등을 하는 분야는 없지만, 
+자바 C/C++ 파이썬과 같은 다른 범용 언어를 제외하고 R이 데이터 과학을 제외하고 1등을 하는 분야는 없지만, 
 2017년 10월 기준 [스택오버플로우-What are the Most Disliked Programming Languages?](https://stackoverflow.blog/2017/10/31/disliked-programming-languages/) 블로그를 
-참조하면 가장 싫어하지 않는 언어 1위에 등극했습니다.
+참조하면 가장 싫어하지 않는 언어 1위에 등극했습니다. 이런 지표가 가능했던 것은 스택오버플로우에서 데이터 과학자로 활약하고 있는 
+데이비드 로빈슨의 역할이 큰 것은 부정할 수 없는 사실이다.
 
 <img src="fig/languages-r-dislike.png" alt="가장 혐오하지 않는 언더" width="100%" />
 
-## 두 언어 문제 [^Ousterhout-dichotomy] [^solving-two-language-problem] {#two-language-problem}
-
-[^Ousterhout-dichotomy]: [Ousterhout dichotomy](https://en.wikipedia.org/wiki/Ousterhout%27s_dichotomy)
-
-[^solving-two-language-problem]: [ODSC East 2016 - Stefan Karpinski - "Solving the Two Language Problem"](https://www.youtube.com/watch?v=B9moDuSYzGo)
-
-과거 데이터 과학자는 선형대수, 통계&시각화, 속도, 통합작업과 관련하여 다양한 언어와 도구를 익혀야 했지만,
-2010년 중반을 넘어서는 R과 파이썬을 함께 사용하는 것으로 중지가 모아지고 있다.
 
 
-| 시스템 언어  | Ousterhout 이분법  | 스크립트 언어  |
-|-------------|-------------|-------------|
-|   정적       |     --      |     동적     |
-|   컴파일      |     --      |    인터프리터 |
-| 사용자정의 자료형|     --      |  표준 자료형 |
-|   빠른 속도   |     --      |   늦은 속도   |
-|   어려움       |     --      |   쉬움     |
-
-데이터 과학에 R과 파이썬으로 중지가 모아지는 이유는 여럿있지만, 우선 데이터 과학도 다른 분야와 마찬가지로 두 언어 문제가 존재한다.
-개발자를 위한 편리함을 위해 R, 파이썬, Matlab 등 스크립팅 언어를 사용하고, C/C++, 포트란 시스템 언어가 속도와 성능이 필요한 부분에 사용된다.
-시스템 언어와 스크립트 언어의 두가지 문제점을 해결하고, 
-두가지 다른 언어의 장점을 취하고 이를 보완하려는 노력은 계속되고 있으며 R에서 팩키지 개발에서 R 스크립트로 모든 기능을 선행하여 구현하고 
-[Rcpp](https://cran.r-project.org/web/packages/Rcpp/index.html) 팩키지를 사용하여 C/C++로 후행하여 속도와 성능이 필요한 부분에 재개발하는 경우도 있다.
-
-<img src="fig/data-scientist-languages.png" alt="데이터 과학자 언어" width="100%">
-
-
-## R의 파이썬 대비 우수성 [^linkedin-r-python] {#data-science-education-r}
+### R의 파이썬 대비 우수성 [^linkedin-r-python] {#data-science-education-r}
 
 [^linkedin-r-python]: [Alfonso R. Reyes, Chief Data Scientist at AEM Enersol (September 11, 2018), "For what things R programming language is better than Python?", LinkedIn](https://www.linkedin.com/pulse/what-things-r-programming-language-better-than-python-reyes/)
 
-저자는 10년이상 파이썬 응용프로그램을 작성했지만, 지금은 R을 사용하고 있다.
-R을 사용하진 2년이 지난 시점에서 파이썬 보다 R의 우수성에 대해서 10가지로 요약하고 있다.
+최근 R 프로그래밍 언어가 파이썬 대비 우수성을 블로그에 정리한 Alfonso R. Reyes를 비롯하여 
+R과 파이썬을 경험한 다수 개발자들이 공통적으로 언급하는 사실은 데이터 과학이라는 업무에 태생적으로 R이 적합하다는 것이다.
+Alfonso R. Reyes는 10년이상 파이썬 응용프로그램을 작성했지만, 지금은 R을 사용하고 있으며, 
+저자도 2015년 현재 아마존에서 판매되고 있는 "정보교육을 위한 파이썬"을 번역집필할 정도로 파이썬을 사랑하지만,
+데이터 과학분야에 있어 R언어의 재현가능한 연구(reproducible research)에 대한 탁월한 기능과 생산성은 파이썬보다 
+훨씬 낫다고 볼 수 있다. Alfonso R. Reyes는 R을 사용한지 2년이 지난 시점에서 파이썬 보다 R의 우수성에 대해서 다음과 같이 10가지로 요약하고 있다.
 
 간략히 요약하면, R은 데이터 과학과 기계학습 프로젝트에 이례적인 도구라고 볼 수 있다.
-R로 개발할 때 생산성은 훨씬 더 크게 느껴진다. 하지만, R을 익숙하게 다루는데는 시간이 다소 소요되기 때문에
-시간에 대한 투자도 당근 고려되어야 한다. 특히, 파이썬이 근접할 수 없는 분야는 
-프로토타입을 개발할 때 재현성을 비롯한 상당한 매력과 장점이 있다. 파이썬은 다용도 언어로 데이터 과학 선택지로서 
-입지를 다져가고 있다.
+R로 개발할 때 생산성 향상이 훨씬 더 크게 느껴진다. 
+하지만, R을 익숙하게 다루는데는 시간이 다소 소요되기 때문에
+시간에 대한 투자도 당연히 고려되어야 한다. 
+특히, 파이썬이 근접할 수 없는 분야로 
+프로토타입을 개발할 때 재현성에 대한 기능이 상당한 강력하다. 
+하지만, 파이썬은 범용 프로그래밍 언어로 데이터 과학 선택지로서 입지를 다져가고 있는 것도 사실이다.
 
 1. R은 과학, 통계학, 수학, 공학에 집중한다. 따라서 과학과 공학에 R로 접근하는 것이 엄청 필요하다.
 1. 지원에 대해서는 세계적이다. 어디를 가나 StackOverflow, 포럼, 트위터, 링크트인, 팟캐스트 등을 쉽게 접할 수 있고,
@@ -408,7 +427,6 @@ Alfonso R. Reyes는 matplotlib을 오랜동안 사용했지만, 비표준 그래
 다른 언어와 달리 R에서 클래스는 함수 아래서 동작한다. S3와 S4는 자바와 파이썬 클래스와는 근본적으로 다르게 동작한다; 가장 가까운 친적이 R6가 될 듯 싶다.
 
 ## `tidyverse` {#data-science-process-tidyverse}
-
 
 [^tidyverse-menifesto]: [The tidy tools manifesto](https://cran.r-project.org/web/packages/tidyverse/)
 
@@ -473,46 +491,51 @@ R에 파이프 연산자를 사용하여 본 전략이 구현되어 있다.
 
 - 함수를 가능하면 단순하게 작성한다. 일반적으로 각 함수는 한가지 작업을 매우 잘해야 되고, 한 문장으로 함수 존재목적을 기술할 수 있어야 된다.
 - 변형(transformation)과 부작용(side-effect)을 뒤섞지 마라. 함수가 객체를 반환하거나, 부작용을 일으키거나 둘 중 하나만 동작하게 만든다.
-- 함수명은 동사가 되어야 한다. 하지만, 예외로 대다수 함수가 동일한 동사를 사용한다. 예를 들어 `modify`, `add`, `compute` 등을 들 수 있다.
-이런 경우 반복되는 동사가 중복되지 않도록 명사에 집중한다. `ggplot2`가 좋은 예가 되는데 기존 플롯에 좌표, 점, 범례등을 거의 모든 함수가 추가하기 때문이다. 
+- 함수명은 동사가 되어야 한다. 하지만, 예외로 함수 다수가 동일한 동사를 사용하는 경우를 들 수 있다. 예를 들어 `modify`, `add`, `compute` 등을 들 수 있다.
+이런 경우 반복되는 동사가 중복되지 않도록 명사에 집중한다. `ggplot2`를 좋은 예로 들 수 있는데, 기존 플롯에 좌표, 점, 범례 등에 거의 모든 함수가 추가하기 때문이다. 
 
-R은 함수형 언어라 객체지향언어나 다른 언어 패러다임과 싸우려고 하지 말고 받아들여라. 이것이 의미하는 바는 다음과 같다.
+R은 함수형 언어라 객체지향언어(OOP)나 다른 언어 패러다임과 싸우려고 하지 말고 받아들여라. 
+이것이 의미하는 바는 다음과 같다.
 
 - 상태불변 객체: 작성된 코드에 대한 추론이 쉬움.
 - S3, S4 에서 제공하는 제네릭 함수: 상태변형 가능한 상태가 필요하다면, 파이프 내부에서 구현. 
 - `for` 루프를 추상화한 도구: `apply` 함수 가족과 `purrr` 맵(map) 함수
 
 데이터과학에서 병목점으로 문제가 발생되는 곳은 공통적으로 컴퓨터 실행시간(computing time)이 아니라 사람의 생각(thinking time)의 시간이다. 
-따라서, 함수명을 작성할 때 생각이 잘 연상되는 이름을 작명하는데 시간을 적절히 안분하고, 명시적이고 긴 명칭을 변수명, 함수명, 객체명에 사용하고, 
-짧은 명칭은 가장 중요한 이름으로 활용한다. RStudio 소스 편집기의 자동완성기능을 사용하는 경우 접두어가 접미어보다 중요하고, 
+따라서, 함수명을 작성할 때 생각이 잘 연상되는 이름을 작명하는데 시간을 적절히 안분하고, 
+명시적이고 긴 명칭을 변수명, 함수명, 객체명에 사용하고, 
+짧은 명칭은 가장 중요한 이름으로 아껴서 사용한다. 
+RStudio 소스 편집기의 자동완성기능을 사용하는 경우 접두어가 접미어보다 중요하고, 
 `stringr`, `xml2`, `rvest` 팩키지를 살펴보면 접두어에 일관된 명칭을 부여한 장점을 알수 있다.
 
-
-
 # 데이터 과학 남은 과제들 {#data-science-fact}
+
+빅데이터가 넘처나는 세상에서 기계학습과 인공지능이 마치 은총알(silver bullet)처럼 모든 문제를 해결할 것처럼 
+데이터 과학도 빅데이터, 기계학습/인공지능과 밀접한 관련이 있어 동일하거나 유사한 문제점을 갖고 있는 것도 사실이다.
 
 ## 데이터 과학의 불편한 진실 [^data-science-fun-fact] {#data-science-fact-hurt}
 
 [^data-science-fun-fact]: [Kamil Bartocha (lastminute.com), "The Inconvenient Truth About Data Science"](https://www.kdnuggets.com/2015/05/data-science-inconvenient-truth.html)
 
+[KDnuggets](https://www.kdnuggets.com/) 웹사이트에 올라오 데이터 과학에 관한 불편한 진실을 김재광 교수님께서 번역하여 페이스북에 공유해 주셨습니다. 
+가슴이 아프지만, 실무를 해보신 분은 누구나 공감이 될 것이다.
+채용과정에서는 딥러닝, 인공지능, 기계학습에 대한 내용에 상당부분 할애하는 경우가 다반사다.
+하지만, 신입직원에 대한 조기 퇴사율이 높은 이유를 설명하는데 다음에 나온 데이터 과학에 대한 불편한 진실이 도움이 될 듯 싶다.
+기계학습과 인공지능 전문가로 기대수준은 매우 높지만, 기계학습과 인공지능 모두 데이터를 원재료로 하기 때문에 
+앞서 충분한 데이터 정제과정과 탐색적 데이터 분석 과정이 생략된 채로 고급 분석과 모형을 적용하고자 할 경우 
+성능이 나오지 않는 것은 물론이고 안정성도 떨어져 조직 기대수준을 맞출 수가 없기 때문이다.
 
-[KDnuggets](https://www.kdnuggets.com/) 웹사이트에 올라오 데이터과학에 관한 불편한 진실을 김재광 교수님께서 번역하여 페이스북에 공유해 주셨습니다. 
-가슴이 아프지만, 실무를 해보신 분은 누구나 공감하실 듯 싶습니다. 
-하지만, 채용과정에서는 딥러닝, 인공지능, 기계학습에 대한 내용에 상당부분 할애하는 경우가 다반사입니다. 
-그런 이유인지 몰라도 신입직원에 대한 조기 퇴사율이 높은 이유를 설명하는데 도움이 될 듯 싶습니다.
-
-1. Data is never clean.(데이터는 절대 깨끗하지 않다)
-1. You will spend most of your time cleaning and preparing data.(당신은 분석의 대부분의 시간을 전처리 단계에서 보내게 될 것이다)
-1. 95% of tasks do not require deep learning (95% 일은 Deep Learning을 필요로 하지 않는다)
-1. In 90% of cases generalized linear regression will do the trick. (실제 분석의 90%는 GLM으로 해결된다 )
-1. Big Data is just a tool (빅 데이터는 단지 도구일 뿐이다)
-1. You should embrace the Bayesian approach (당신은 베이지안 접근을 포용해야 한다)
-1. No one cares how you did it. (사용자 입장에서는 네가 어떤 방법을 사용했는가는 중요하지 않다.) 
-1. Academia and business are two different worlds. (학계와 산업계는 서로 다른 세계이다)
-1. Presentation is key - be a master of Power Point (프리젠테이션이 핵심이다: PowerPoint 의 마스터가 되라)
-1. All models are false, but some are useful. (모든 모델은 틀렸다, 하지만 몇몇은 유용하다)
-1. There is no fully automated Data Science. You need to get your hands dirty (완전 자동화된 데이터 과학같은 것은 없다. 인간이 개입되어야 할 부분이 있다)
-
+1. 데이터는 절대 깨끗하지 않다 - Data is never clean.
+1. 당신은 분석의 대부분의 시간을 전처리 단계에서 보내게 될 것이다 - You will spend most of your time cleaning and preparing data.
+1. 95% 일에는 딥러닝(Deep Learning)을 필요로 하지 않는다 - 95% of tasks do not require deep learning.
+1. 실제 분석의 90%는 일반화 선형모형(GLM)으로 해결된다 - In 90% of cases generalized linear regression will do the trick.
+1. 빅데이터는 단지 도구일 뿐이다 - Big Data is just a tool.
+1. 당신은 베이지안 접근을 포용해야 한다 - You should embrace the Bayesian approach.
+1. 사용자 입장에서는 네가 어떤 방법을 사용했는가는 중요하지 않다 - No one cares how you did it.
+1. 학계와 산업계는 서로 다른 세계이다 - Academia and business are two different worlds.
+1. 프리젠테이션이 핵심이다: 파워포인트 마스터가 되라 - Presentation is key - be a master of Power Point.
+1. 모든 모델은 틀렸다, 하지만 몇몇은 유용하다 - All models are false, but some are useful.
+1. 완전 자동화된 데이터 과학같은 것은 없다. 인간이 개입되어야 할 부분이 있다 -There is no fully automated Data Science. You need to get your hands dirty.
 
 ## 심슨의 역설 {#data-science-fact-simpson-paradox}
 
@@ -608,15 +631,33 @@ Non-PU유저를 PU로 바꾸거나 PU 유저의 결재금액을 높이는 방향
 
 ## 설명가능한 기계학습 {#data-science-fact-explainable-machine-learning}
 
-디터 제체 메르세데스-벤츠 자동차그룹 회장이 2012년 **“자동차는 이제 기름이 아니라 소프트웨어로 달린다.”**라고 선언한 것과 유사하게 골드만삭스의 로이드 블랭크페인 회장은 2015년 **"골드만삭스는 IT회사"**라고 선언하면서 실제로 골드만삭스 전체 임직원 중 4분의 1 가량이 컴퓨터 엔지니어 구성된 것으로 알려져 있다. 이제 금융회사에 취직하려면 경영학이나 경제학을 공부할 수 있는 상경대학보다는 전산학과나 데이터과학을 공부할 수 있는 이공계로 진학하는게 더 유리한 세상이 되었다. 
+디터 제체 메르세데스-벤츠 자동차그룹 회장이 2012년 **“자동차는 이제 기름이 아니라 소프트웨어로 달린다.”**라고 선언한 것과 
+유사하게 골드만삭스의 로이드 블랭크페인 회장은 2015년 **"골드만삭스는 IT회사"**라고 선언하면서 
+실제로 골드만삭스 전체 임직원 중 4분의 1 가량이 컴퓨터 엔지니어 구성된 것으로 알려져 있다. 
+이제 금융회사에 취직하려면 경영학이나 경제학을 공부할 수 있는 상경대학보다는 전산학과나 데이터과학을 공부할 수 있는 이공계로 진학하는게 더 유리한 세상이 되었다. 
 
-대표적인 자동차 및 금융회사의 변화는 반복적 업무나 중요한 의사결정을 내리는데 기계학습/인공지능 알고리즘을 활용하여 **거래비용**을 줄이고, **정보유통**을 활발히 하며, 양질의 **제품/서비스 정보**를 고객에게 제공하는 것이 보편화 되어가고 있기 때문이다. 특히, **다이내믹프라이싱(DynamicPricing)**을 활용하여 가격민감도가 서로 다른 고객들에게 차별화된 가격을 제시함으로써 알고리즘 기반으로 실시간 가격차별화를 통해 ~~단일가격을 책정~~했을때 대비하여  더 큰이익을 창출하고, 알고리즘 활용 추천시스템을 통해 사용자 행동패턴, 사용자간 관계, 상품유사도를 바탕으로 고객의 취향과 선호를 예측, 이에 적합한 상품을 추천하여 마케팅 효과를 높이고 있다.
+대표적인 자동차 및 금융회사의 변화는 반복적 업무나 중요한 의사결정을 내리는데 기계학습/인공지능 알고리즘을 활용하여 
+**거래비용**을 줄이고, **정보유통**을 활발히 하며, 
+양질의 **제품/서비스 정보**를 고객에게 제공하는 것이 보편화 되어가고 있기 때문이다. 
+특히, **다이내믹프라이싱(DynamicPricing)**을 활용하여 가격민감도가 서로 다른 고객들에게 차별화된 가격을 제시함으로써 알고리즘 기반으로 
+실시간 가격차별화를 통해 ~~단일가격을 책정~~했을때 대비하여 
+더 큰이익을 창출하고, 알고리즘 활용 추천시스템을 통해 사용자 행동패턴, 사용자간 관계, 
+상품유사도를 바탕으로 고객의 취향과 선호를 예측, 이에 적합한 상품을 추천하여 마케팅 효과를 높이고 있다.
 
-이런 이면에 **알고리즘 담합**으로 알려진 경쟁사업자들 간에 알고리즘을 이용하여 가격, 공급량 등을 조정하거나 관련 정보를 공유함으로써 시장 경쟁강도를 약화시키고 산업의 혁신을 저하시키는 사례가 규제당국에 적발되고 있다. 예를 들어, 온라인에서 포스터를 판매하는 미국기업 포스터레볼루션(PosterRevolution)의 창업자 데이빗톱킨스(David Topkins)는 사업자들과 일부 고전영화포스터의 **가격을 고정**하기로 합의한 사례를 들 수 있다. 톱킨스와 공모기업들은 병행알고리즘 형태로 가격담합을 추진해 오다가 발각되어, 2015년 미국법무부는 톱킨스에게 **2만 달러** 벌금부과 받았다.
+이런 이면에 **알고리즘 담합**으로 알려진 경쟁사업자들 간에 알고리즘을 이용하여 
+가격, 공급량 등을 조정하거나 관련 정보를 공유함으로써 시장 경쟁강도를 약화시키고 
+산업의 혁신을 저하시키는 사례가 규제당국에 적발되고 있다. 
+예를 들어, 온라인에서 포스터를 판매하는 미국기업 포스터레볼루션(PosterRevolution)의 창업자 데이빗톱킨스(David Topkins)는 
+사업자들과 일부 고전영화포스터의 **가격을 고정**하기로 합의한 사례를 들 수 있다. 
+톱킨스와 공모기업들은 병행알고리즘 형태로 가격담합을 추진해 오다가 발각되어, 2015년 미국법무부는 톱킨스에게 **2만 달러** 벌금부과 받았다.
 
-이외에도 알고리즘 설계시 **인간의 개입에 따른 오류와 편향성**의 발생가능성이 존재하므로, 각국정부와 기업, 학계는 알고리즘의 활용이 윤리적 방향성을 지녀야 한다는 데 공감이 확산되고 있다. 최근 **EU GDPR(개인정보보호규정)도입과 알고리즘 규제**에는 알고리즘이 내리는 자동화된 의사결정에 대해 설명을 요구할 수 있는 권리를 포함하고 있어, **예측은 뛰어나지만 설명이 어려운** 실무에서 많이 사용되는 블랙박스 예측 및 추천 알고리즘에 대한 완전한 점검이 필요하다는 논의가 제기되고 있기도 하다. 
+이외에도 알고리즘 설계시 **인간의 개입에 따른 오류와 편향성**의 발생가능성이 존재하므로, 
+각국정부와 기업, 학계는 알고리즘의 활용이 윤리적 방향성을 지녀야 한다는 데 공감이 확산되고 있다. 
+최근 **EU GDPR(개인정보보호규정)도입과 알고리즘 규제**에는 알고리즘이 내리는 자동화된 의사결정에 대해 설명을 요구할 수 있는 권리를 포함하고 있어, 
+**예측은 뛰어나지만 설명이 어려운** 실무에서 많이 사용되는 블랙박스 예측 및 추천 알고리즘에 대한 완전한 점검이 필요하다는 논의가 제기되고 있기도 하다. 
 
-이에 대응하여 설명가능한 기계학습/인공지능 기술이 발전되고 있고, LIME/DALEX와 같은 R 팩키지 및 관련 방법론이 데이터 과학의 새로운 연구분야로 떠오르고 있다. 
+이에 대응하여 설명가능한 기계학습/인공지능 기술이 발전되고 있고, LIME/DALEX와 같은 R 팩키지 및 관련 방법론이 데이터 과학의 새로운 연구분야로 떠오르고 있다.
+
 
 
 
