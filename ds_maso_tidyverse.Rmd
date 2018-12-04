@@ -136,29 +136,7 @@ kr_df$interest_over_time %>% tbl_df %>%
     theme(legend.position = "top")
 ```
 
-## 데이터 과학업무 세분화 [^airbnb-data-science] {#data-science-specialization}
-
-[^airbnb-data-science]: [Elena Grewal(July 25, 2018), "One Data Science Job Doesn’t Fit All"](https://www.linkedin.com/pulse/one-data-science-job-doesnt-fit-all-elena-grewal/)
-
-빅데이터에서 데이터 과학(Data Science)으로 관심이 넘어가고 있지만, 데이터 과학도 시간이 흐름에 따라 의미하는 바가 달라지고 있다.
-빅데이터와 비교하여 차이가 있지만, 데이터 과학 용어 자체로만 보면 데이터 과학은 2012년을 변곡점으로 해서 급격하게 관심도가 높아지고 있다. [^data-science-google-trends]
-
-[^data-science-google-trends]: [Google Trends](https://trends.google.com/trends/explore?date=all&geo=US&q=data%20science)
-
-초창기 데이터 과학자가 데이터에 대한 수집, 분석, 모형개발, 추론, 제품/서비스 개발 및 운영 등 거의 모든 작업을 수행하였다면, 
-최근 2~3년 동안 업무 분화와 더불어 전문화가 가속화되어 일어나고 있다.
-
-<img src="fig/data-science-airbnb.png" alt="데이터 과학 에어비앤비" width="100%" />
-
-에어비앤비(Air B&B)에서 데이터 과학을 이끌고 있는 Elena Grewal 박사는 에어비앤비 데이터 과학 초장기부터 최근까지의 경험을 바탕으로 
-크게 세가지 영역으로 데이터 과학 업무를 세분화했고 각각의 역할을 다음과 같이 정의했다.
-
-**분석(Analytics) 데이터 과학자**는 좋은 질문을 던질 수 있고, 
-탐색적 데이터 분석을 통해서 명확히 하는 재주가 있고, 대쉬보드와 시각화를 통해 데이터 분석을 자동화하고, 추천 결과물로 비즈니스를 변화시킨다. 
-**알고리즘(algorithm) 데이터 과학자**는 기계학습에 특기가 있는 사람에 적합하고 제품/서비스, 프로세스에 데이터를 녹여내서 비즈니스 가치를 창출한다. 
-**추론(inference) 데이터 과학자**는 통계를 사용해서 의사결정을 향상시키고, 업무의 영향도를 측정하는데 주로 통계학자, 경제학자, 사화과학자에 적합하다.
-
-# 데이터 과학 (Data Science) [^xwMOOC-data-science] {#data-science}
+## 데이터 과학 (Data Science) [^xwMOOC-data-science] {#data-science}
 
 [^xwMOOC-data-science]: [데이터 과학 - 데이터 과학과 R 언어](https://statkclee.github.io/data-science/ds-r-lang.html)
 
@@ -190,100 +168,74 @@ kr_df$interest_over_time %>% tbl_df %>%
 데이터에서 법칙과 규칙을 찾게 되면 과정이 고난하고 어렵고 금전적인 투자도 있어야하고 경험도 많이 필요하지만 
 일단, 법칙과 규칙을 찾게 되면 그 가치는 상상을 초월하게 된다. 
 
-데이터 과학을 떠받치는 중요한 기둥은 통계학과 컴퓨터 과학이다. 
+## 데이터 과학업무 세분화 [^airbnb-data-science] {#data-science-specialization}
+
+[^airbnb-data-science]: [Elena Grewal(July 25, 2018), "One Data Science Job Doesn’t Fit All"](https://www.linkedin.com/pulse/one-data-science-job-doesnt-fit-all-elena-grewal/)
+
+빅데이터에서 데이터 과학(Data Science)으로 관심이 넘어가고 있지만, 데이터 과학도 시간이 흐름에 따라 의미하는 바가 달라지고 있다.
+빅데이터와 비교하여 차이가 있지만, 데이터 과학 용어 자체로만 보면 데이터 과학은 2012년을 변곡점으로 해서 급격하게 관심도가 높아지고 있다. [^data-science-google-trends]
+
+[^data-science-google-trends]: [Google Trends](https://trends.google.com/trends/explore?date=all&geo=US&q=data%20science)
+
+초창기 데이터 과학자가 데이터에 대한 수집, 분석, 모형개발, 추론, 제품/서비스 개발 및 운영 등 거의 모든 작업을 수행하였다면, 
+최근 2~3년 동안 업무 분화와 더불어 전문화가 가속화되어 일어나고 있다.
+
+<img src="fig/data-science-airbnb.png" alt="데이터 과학 에어비앤비" width="100%" />
+
+에어비앤비(Air B&B)에서 데이터 과학을 이끌고 있는 Elena Grewal 박사는 에어비앤비 데이터 과학 초장기부터 최근까지의 경험을 바탕으로 
+크게 세가지 영역으로 데이터 과학 업무를 세분화했고 각각의 역할을 다음과 같이 정의했다.
+
+**분석(Analytics) 데이터 과학자**는 좋은 질문을 던질 수 있고, 
+탐색적 데이터 분석을 통해서 명확히 하는 재주가 있고, 대쉬보드와 시각화를 통해 데이터 분석을 자동화하고, 추천 결과물로 비즈니스를 변화시킨다. 
+**알고리즘(algorithm) 데이터 과학자**는 기계학습에 특기가 있는 사람에 적합하고 제품/서비스, 프로세스에 데이터를 녹여내서 비즈니스 가치를 창출한다. 
+**추론(inference) 데이터 과학자**는 통계를 사용해서 의사결정을 향상시키고, 업무의 영향도를 측정하는데 주로 통계학자, 경제학자, 사화과학자에 적합하다.
+
+
 
 ## 컴퓨팅 사고력(Computational Thinking) [^statistics] {#data-science-education-definition}
 
 [^statistics]: [김충락 부산대 통계학과 교수 한국통계학회장, "통계를 ‘권력의 시녀’로 만들려는 유혹"](https://news.joins.com/article/22939324)
 
-데이터 과학을 지탱하는 튼튼한 기둥중의 하나는 통계학으로 컴퓨터 과학과 밀접한 관계를 갖고 지속적으로 발전해 나갈 것으로 예상된다. 
+데이터 과학을 떠받치는 중요한 기둥은 수학적 사고가 바탕이된 통계학과 전산학이다.
+귀납적 사고의 집합체인 통계학은 컴퓨터 과학과 밀접한 관계를 갖고 물론 독자적인 학문으로 지속적으로 발전해 나갈 것으로 예상된다. 
 통계학은 영어로 ‘Statistics’로 국가(State)를 통치하는 데 필요한 학문이라는 어원을 갖고 있으며 다음 세 단계로 정의된다.
 
 1. 자료를 수집 (sampling), 
 1. 자료를 분석 (analysis), 
 1. 수집된 데이터를 분석하여 일반화된 결론을 끌어냄 (generalization)
 
-“자료 그 자체에 충실하라(Let the data speak for  themselves)”는 말이 있다.
-과학적 성과의 입증이나 정부의 정책을 뒷받침하는 과정에서 자료나 통계가 조금이라도 왜곡되거나 조작되면 안 된다. 
-이를 흔히 우리는 **통계의 중립성**과 **독립성**이라 부르고 ,
-컴퓨터로 처리하게 되면 "쓰레기가 들어가면 쓰레기가 나온다(Garbage in, garbage out)"라고 한다.
+과학적 성과 입증이나 정부정책을 뒷받침하는 과정에서도 데이터 자체 및 통계에 조금이라도 왜곡이나 조작이 존재하면 안 된다.
+마치 컴퓨터로 데이터를 처리하게 될때 "쓰레기가 들어가면 쓰레기가 나온다(Garbage in, garbage out)"라고 사실과 일맥상통한다.
+따라서, “자료 그 자체에 충실하라(Let the data speak for themselves)” 말처럼 **데이터의 중립성**과 **독립성**이 담보되어야만
+이를 바탕으로 제작되는 모형과 시각화 산출물이 의미를 갖게 된다.
 
-특정분야의 전문지식을 배경으로 왜(Why)하는가 하는 동기를 부여받고, 
-이를 실제 소프트웨어 코드를 통해서 구현하고, 피드백을 받는 일련의 과정은 단속적이며 서로 독립적으로 구분되는 과정이 아니라, 
-추상적 사고와 자동화를 근간으로 하고 있는 컴퓨터적 사고와 밀접한 관련이 있다.
+최근 인공지능 기술의 발전에 따른 실업에 대한 공포가 그 어느 때보다 커지고 있다. 
+그 이면에는 과거 사람이 잘하는 영역과 기계(컴퓨터)가 잘하는 영역이 확연히 구분되어 나름 일자리에 대해서는 공존의 시간을 가졌다.
+사람은 이미지 인식등 추상적인 사고에 강한 반면 반복되는 작업에는 실수를 연발하는 등 약점을 갖는 반면에 
+기계는 반대로 영혼이 없는 사람처럼 아무 생각없이 일하는 반복되는 작업을 묵묵히 성실히 24시간 쉬지않고 작업을 진행하는데는 
+장점을 가진 반면에 이미지 인식 등 추상적인 작업(예를 들면 바둑)은 전혀 인간의 적수가 되지 못했다.
 
-최근 가장 영향력있는 데이터 과학 분야 스타인 Hadley Wickham은 데이터 과학을 인지단계(Cognitive)와 계산단계(Computational)로 구분하고, 
-인지단계에서 문제를 파악하고, 문제를 기술하고, 
-접근법을 정리하고 나서 계산단계에서 소프트웨어 아키텍처와 알고리즘을 설계하고 실제로 코딩하여 구현하는 과정을 제시하고 있다.
+하지만, 최근 인공지능 기술의 비약적인 발전으로 바둑을 비롯한 고도의 사고가 필요한 영역과 다국어 번역, 이미지 분류 등 
+사람이 절대적인 우위를 가진 영역이 속절없이 기계가 우세한 영역으로 뒤바뀌고 있다.
 
-<img src="fig/cognitive-performance.png" alt="인지 단계, 계산단계" width="77%" />
+따라서 과거 사람이 기계에 대해 우위를 가졌던 영역의 일자리가 없어지면서 새롭게 늘어나고 있는 영역이 이러한 
+인공지능을 제작하는 분야로 넓혀가고 있다. 
+최근 가장 영향력있는 데이터 과학 분야 스타인 하들리 위캠(Hadley Wickham)은 데이터 과학을 인지단계(Cognitive)와 계산단계(Computational)로 구분하고, 
+인지단계에서 문제를 파악하고, 문제를 기술하고, 접근법을 정리하고 나서 계산단계에서 소프트웨어 아키텍처와 알고리즘을 설계하고 실제로 코딩하여 구현하는 과정을 제시했다.
+특정분야의 전문지식을 배경으로 왜(Why)하는가 라는 질문을 통해 스스로 동기를 부여받고, 
+이를 실제 소프트웨어 코드로 구현하고, 피드백을 받는 일련의 과정을 단속적이며 서로 독립적인 과정이 아니라는 점에서  
+추상화(abstraction)와 자동화(automation)를 근간으로 하고 있는 컴퓨터적 사고와 밀접한 연관을 갖고 있음을 확인할 수 있다.
 
-데이터 과학은 다른 소프트웨어 개발과 동일하게 컴퓨터 시간(Computer time)과 개발자 시간(Human time)을 최적화하는 과정으로 볼 수 있다. 최근에 가장 희귀하고 귀중한 자원은 컴퓨터가 아니라 개발자 시간 즉, 사람이다.
+<img src="fig/cognitive-performance.png" alt="인지 단계, 계산단계" width="57%" />
 
-## `tidyverse` 데이터 과학 [^tidyverse-menifesto]  {#data-science-process}
+데이터 과학은 다른 소프트웨어 개발과 동일하게 컴퓨터 시간(Computer time)과 개발자 시간(Human time)을 최적화하는 과정으로 볼 수 있다. 
+최근에 가장 희귀하고 귀중한 자원은 컴퓨터가 아니라 개발자 시간 즉, 사람이 된다. 
+앞으로 기계와의 경쟁에서 기계가 차지하는 일자리를 벌충하고 남는 유의미한 크기를 갖는 직업군이 
+데이터 과학자라는 직군이 될 것이라는 점은 의심의 여지가 없이 명확하다.
 
-[^tidyverse-menifesto]: [The tidy tools manifesto](https://cran.r-project.org/web/packages/tidyverse/)
+# `tidyverse` 데이터 과학 [^tidyverse-menifesto]  {#data-science-process}
 
-[CRISP-DM(Cross-industry standard process for data mining)](https://en.wikipedia.org/wiki/Cross-industry_standard_process_for_data_mining)은 
-데이터에서 유용한 무언가를 찾아내기 위해서 많은 시도가 있기에 베스트 프랙티스(Best Practcice)를 모아 정리한 과거 유명한 
-데이터 마이닝 모형이었다. [^crisp-dm-kor] 지금에 와서 인기를 얻고 있는 기계학습(Machine Learning)이나 인공지능(AI) 제품과 서비스 
-개발 과정과 별반 차이점은 없어 보인다.
-
-[^crisp-dm-kor]: [데이터 마이닝 방법론/프로세스 CRISP-DM](http://itlab.tistory.com/122)
-
-- Business Understanding: 비즈니스 문제 인식 및 해결을 위한 데이터 마이닝 프로세스 명료화
-- Data understanding: 데이터 탐색 및 이해
-- Data prepation: 데이터를 통한 문제 인식 및 해결
-- Modelding: 데이터 마이닝 기법 적용
-- Evaluation: 비즈니스 상황에 따른 데이터 마이닝 결과의 해설
-- Deployment: 데이터 마이닝 결과의 전개 및 유지
-
-<img src="fig/data-science-process-as-is-to-be.png" alt="데이터 과학 프로세스 비교" width="100%" />
-
-최근 인기를 얻고 있는 기계학습(Machine Learning)이나 인공지능(AI)과는 별개로 몇년 전부터 
-RStudio의 최고 데이터과학자 위캠 박사가 `tidyverse`을 통해 데이터 과학을 새롭게 정의하는 시도가 있었고 많은 호응을 얻고 있다.
-`tidyverse`는 수많은 기여자들의 도움을 받아 Hadley Wickham이 오랜동안 나름대로의 방식으로 데이터 과학을 체계적으로 집대성하였다.
-특히, 데이터 과학자 및 데이터 실무자에게 큰 도움을 주고 있다. 어떻게 보면 오픈소스 운동의 커다란 동력으로 이해할 수도 있다.
-
-R 언어 기반의 만개가 넘는 팩키지가 개발되어 활용되고 있으나, 각자의 설계원칙에 맞춰 제각기 개발되고 손을 바꿔 다른 사람들이 
-오랜동안 이어 받아 진행되어 초기 세워진 설계원칙이 많이 무너진 것도 사실이다. 이에 `tidyverse`는 데이터과학에 
-그동안 R 팩키지를 개발하면서 축척된 경험과 노하우를 기반으로 R 설계 원칙을 정립하고자 한다.
-
-엉망진창인 R 도구상자(`messyverse`)와 비교하여 깔끔한 R 도구상자(`tidyverse`)는 깔끔한(tidy) API에 다음과 같은 4가지 원칙을 제시한다.
-
-- 기존 자료구조를 재사용: Reuse existing data structures.
-- 파이프 연산자로 간단한 함수를 조합: Compose simple functions with the pipe.
-- 함수형 프로그래밍을 적극 사용: Embrace functional programming.
-- 기계가 아닌 인간을 위한 설계: Design for humans.
-
-시각화(Visualization)는 데이터에 대한 통찰력(insight)과 탄성, 놀라움을 줄 수 있지만, 확장성(Scalability)은 떨어진다. 
-왜냐하면, 사람이 데이터 분석 루프에 포함되기 때문에 확장 및 자동화에 한계가 있다. 
-반대로 모형(Model)은 자동화와 확장성에는 장점이 있지만, 주어진 모형틀안에서 이루어지기 때문에 통찰력, 놀라움, 탄성을 주지는 못하는 아쉬움이 있다. 
-
-가능하면 기존 자료구조를 재사용한다. `ggplot2`, `dplyr`, `tidyr`을 포함한 대다수 R 팩키지는 칼럼에 변수, 행에 관측점을 갖는 
-직사각형 형태 데이터셋을 가정한다.  그리고, 일부 팩키지는 특정한 변수 자료형에 집중한다. `stringr`은 문자열, `lubridate`는 날짜/시간,
-`forcats`는 요인 자료형에 집중한다.
-
-파이프 연산자로 간단한 함수를 조합하여 시스템 전체의 힘을 극대화한다. 복잡한 문제를 해결하는 강력한 전략은 단순한 많은 조각으로 나누고 이를 조합하는 것이다. 단, 각 조각은 격리되어 쉽게 파악되고, 다른 조각과 조합할 수 있는 표준이 성립되어야 된다.
-R에 파이프 연산자를 사용하여 본 전략이 구현되어 있다. `%>%` 연산자는 많은 팩키지에 두루 걸쳐 동작되는 일반적인 결합 방식으로 이를 위해 함수를 작성할 때 다음 원칙을 갖고 작성한다.
-
-- 함수를 가능하면 단순하게 작성한다. 일반적으로 각 함수는 한가지 작업을 매우 잘해야 되고, 한 문장으로 함수 존재목적을 기술할 수 있어야 된다.
-- 변형(transformation)과 부작용(side-effect)을 뒤섞지 마라. 함수가 객체를 반환하거나, 부작용을 일으키거나 둘 중 하나만 동작하게 만든다.
-- 함수명은 동사가 되어야 한다. 하지만, 예외로 대다수 함수가 동일한 동사를 사용한다. 예를 들어 `modify`, `add`, `compute` 등을 들 수 있다.
-이런 경우 반복되는 동사가 중복되지 않도록 명사에 집중한다. `ggplot2`가 좋은 예가 되는데 기존 플롯에 좌표, 점, 범례등을 거의 모든 함수가 추가하기 때문이다. 
-
-R은 함수형 언어라 객체지향언어나 다른 언어 패러다임과 싸우려고 하지 말고 받아들여라. 이것이 의미하는 바는 다음과 같다.
-
-- 상태불변 객체: 작성된 코드에 대한 추론이 쉬움.
-- S3, S4 에서 제공하는 제네릭 함수: 상태변형 가능한 상태가 필요하다면, 파이프 내부에서 구현. 
-- `for` 루프를 추상화한 도구: `apply` 함수 가족과 `purrr` 맵(map) 함수
-
-데이터과학에서 병목점으로 문제가 발생되는 곳은 공통적으로 컴퓨터 실행시간(computing time)이 아니라 사람의 생각(thinking time)의 시간이다. 따라서, 함수명을 작성할 때 생각이 잘 연상되는 이름을 작명하는데 시간을 적절히 안분하고, 명시적이고 긴 명칭을 변수명, 함수명, 객체명에 사용하고, 짧은 명칭은 가장 중요한 이름으로 활용한다. RStudio 소스 편집기의 자동완성기능을 사용하는 경우 접두어가 접미어보다 중요하고,`stringr`, `xml2`, `rvest` 팩키지를 살펴보면 접두어에 일관된 명칭을 부여한 장점을 알수 있다.
-
-
-
-
-# 데이터 과학 언어 R [^r-history] {#rhistory}
+## 데이터 과학 언어 R [^r-history] {#rhistory}
 
 [^r-history]: [Revolutions (2017), An Updated History of R](http://blog.revolutionanalytics.com/2017/10/updated-history-of-r.html)
 
@@ -454,6 +406,87 @@ Alfonso R. Reyes는 matplotlib을 오랜동안 사용했지만, 비표준 그래
 클래스와 객체형 프로그래밍을 배우려고 한다면, 파이썬을 추천한다. 세상에서 가장 배우기 쉬운 것 중 하나다.
 이런 관점에 반대하여 R 세상은 다르다; 함수가 R세상에서는 첫째 시민(first class citizen)이다. 
 다른 언어와 달리 R에서 클래스는 함수 아래서 동작한다. S3와 S4는 자바와 파이썬 클래스와는 근본적으로 다르게 동작한다; 가장 가까운 친적이 R6가 될 듯 싶다.
+
+## `tidyverse` {#data-science-process-tidyverse}
+
+
+[^tidyverse-menifesto]: [The tidy tools manifesto](https://cran.r-project.org/web/packages/tidyverse/)
+
+데이터 과학은 어떻게 보면 과거 보험회사에서 처음 시작했다고 해도 과언은 아니다. 사망에 따른 데이터를 모아 사망률 통계표를 만들고 
+이를 바탕으로 위험에 가격을 매겨 상품을 만들어 오래전부터 사업화하여 우리 곁에 다가왔다는 면에서 지금 많이 회자되는 
+데이터 과학과 큰 차이는 없다. 
+
+[CRISP-DM(Cross-industry standard process for data mining)](https://en.wikipedia.org/wiki/Cross-industry_standard_process_for_data_mining)은 
+데이터에서 유용한 무언가를 찾아내기 위해서 많은 시도를 베스트 프랙티스(Best Practcice) 형태로 모아 정리한 유명한 
+데이터 마이닝 작업흐름 모형이었다. [^crisp-dm-kor] 
+현재 인기를 얻고 있는 기계학습(Machine Learning)이나 인공지능(AI) 제품과 서비스 개발 과정 작업흐름과 비교해봐도 별반 차이점이 있어 보이지 않는다.
+
+[^crisp-dm-kor]: [데이터 마이닝 방법론/프로세스 CRISP-DM](http://itlab.tistory.com/122)
+
+- Business Understanding: 비즈니스 문제 인식 및 해결을 위한 데이터 마이닝 프로세스 명료화
+- Data understanding: 데이터 탐색 및 이해
+- Data prepation: 데이터를 통한 문제 인식 및 해결
+- Modelding: 데이터 마이닝 기법 적용
+- Evaluation: 비즈니스 상황에 따른 데이터 마이닝 결과의 해설
+- Deployment: 데이터 마이닝 결과의 전개 및 유지
+
+<img src="fig/data-science-process-as-is-to-be.png" alt="데이터 과학 프로세스 비교" width="100%" />
+
+데이터 마이닝에 특화된 CRISP-DM을 tidyverse 작업흐름과 비교해 보면 큰 차이점이 좀더 데이터 과학자 사람에게 다가온 것을 알 수 있다.
+그 이유는 아마도 CRISP-DM 시절 개발된 많은 부분이 자동화되거나 데이터 공학(data engineering), 웹 공학(web engineering), 나아가 
+클라우드 IaaS 영역으로 흡수되어 데이터 과학자가 신경쓸 필요가 없어진 것이 가장 큰 이유인 듯 싶다.
+
+최근 인기를 얻고 있는 기계학습(Machine Learning)이나 인공지능(AI)과는 별개로 몇년 전부터 
+RStudio의 최고 데이터과학자 위캠 박사가 `tidyverse`을 통해 데이터 과학을 새롭게 정의하는 시도가 있었고 많은 호응을 얻고 있다.
+`tidyverse`는 수많은 기여자들의 도움을 받아 Hadley Wickham이 오랜동안 나름대로의 방식으로 데이터 과학을 체계적으로 집대성하였다.
+특히, 데이터 과학자 및 데이터 실무자에게 큰 도움을 주고 있다. 어떻게 보면 데이터 과학 오픈소스 운동의 커다란 동력으로 이해되기도 한다.
+
+R 언어 기반의 만개가 넘는 팩키지가 개발되어 활용되고 있으나, 각자의 설계원칙에 맞춰 제각기 개발되고 손을 바꿔 다른 사람들이 
+오랜동안 이어 받아 진행되어 초기 세워진 설계원칙이 많이 무너진 것도 사실이다. 이에 `tidyverse`는 데이터과학에 
+그동안 R 팩키지를 개발하면서 축척된 경험과 노하우를 기반으로 R 설계 원칙을 정립했다는 평가를 받고 있다.
+
+<img src="fig/maso_tidyverse.png" alt="Tidyverse 데이터 과학 작업흐름" width="100%" />
+
+`tidyverse`의 핵심적인 내용은 아마도 데이터를 최적 시각화 산출물과 모형을 개발할 때까지 반복적으로 작업하고 이를 데이터 과학 제품과 서비스 
+소비자인 사람 혹은 기계에 전달하는 과정으로 추상화한 것이다.
+시각화(Visualization)는 데이터에 대한 통찰력(insight)과 탄성, 놀라움을 줄 수 있지만, 확장성(Scalability) 측면에서는 한계가 명확하다.
+왜냐하면, 사람이 데이터 분석 루프에 포함되기 때문에 확장 및 자동화에 한계가 분명히 존재하기 때문이다.
+반대로 모형(Model)은 자동화와 확장성에는 장점이 있지만, 주어진 모형틀안에서 이루어지기 때문에 통찰력, 놀라움, 탄성을 주지는 못하는 아쉬움이 있다. 
+
+엉망진창인 R 도구상자(`messyverse`)와 비교하여 깔끔한 R 도구상자(`tidyverse`)는 깔끔한(tidy) API에 다음과 같은 4가지 원칙을 제시한다.
+
+- 기존 자료구조를 재사용: Reuse existing data structures.
+- 파이프 연산자로 간단한 함수를 조합: Compose simple functions with the pipe.
+- 함수형 프로그래밍을 적극 사용: Embrace functional programming.
+- 기계가 아닌 인간을 위한 설계: Design for humans.
+
+시각화와 모형을 새로 개발하는데 별도 자료구조(data structure)를 다시 창조하는 대신에 가능하면 기존 자료구조를 재사용하는 것을 원칙으로 한다.
+`ggplot2`, `dplyr`, `tidyr`을 포함한 대다수 R 팩키지는 칼럼에 변수, 행에 관측점을 갖는 
+직사각형 형태 데이터셋을 가정한다.  그리고, 일부 팩키지는 특정한 변수 자료형에 집중한다. `stringr`은 문자열, `lubridate`는 날짜/시간,
+`forcats`는 요인 자료형에 집중한다.
+
+파이프 연산자로 간단한 함수를 조합하여 시스템 전체의 힘을 극대화한다. 
+복잡한 문제를 해결하는 강력한 전략은 단순한 많은 조각으로 나누고 이를 조합해낸다. 
+단, 각 조각은 격리되어 쉽게 파악되고, 다른 조각과 조합할 수 있는 표준위에서 성립되어야 된다.
+R에 파이프 연산자를 사용하여 본 전략이 구현되어 있다. 
+`%>%` 연산자는 많은 팩키지에 두루 걸쳐 동작되는 일반적인 결합 방식으로 이를 위해 함수를 작성할 때 다음 원칙을 갖고 작성한다.
+
+- 함수를 가능하면 단순하게 작성한다. 일반적으로 각 함수는 한가지 작업을 매우 잘해야 되고, 한 문장으로 함수 존재목적을 기술할 수 있어야 된다.
+- 변형(transformation)과 부작용(side-effect)을 뒤섞지 마라. 함수가 객체를 반환하거나, 부작용을 일으키거나 둘 중 하나만 동작하게 만든다.
+- 함수명은 동사가 되어야 한다. 하지만, 예외로 대다수 함수가 동일한 동사를 사용한다. 예를 들어 `modify`, `add`, `compute` 등을 들 수 있다.
+이런 경우 반복되는 동사가 중복되지 않도록 명사에 집중한다. `ggplot2`가 좋은 예가 되는데 기존 플롯에 좌표, 점, 범례등을 거의 모든 함수가 추가하기 때문이다. 
+
+R은 함수형 언어라 객체지향언어나 다른 언어 패러다임과 싸우려고 하지 말고 받아들여라. 이것이 의미하는 바는 다음과 같다.
+
+- 상태불변 객체: 작성된 코드에 대한 추론이 쉬움.
+- S3, S4 에서 제공하는 제네릭 함수: 상태변형 가능한 상태가 필요하다면, 파이프 내부에서 구현. 
+- `for` 루프를 추상화한 도구: `apply` 함수 가족과 `purrr` 맵(map) 함수
+
+데이터과학에서 병목점으로 문제가 발생되는 곳은 공통적으로 컴퓨터 실행시간(computing time)이 아니라 사람의 생각(thinking time)의 시간이다. 
+따라서, 함수명을 작성할 때 생각이 잘 연상되는 이름을 작명하는데 시간을 적절히 안분하고, 명시적이고 긴 명칭을 변수명, 함수명, 객체명에 사용하고, 
+짧은 명칭은 가장 중요한 이름으로 활용한다. RStudio 소스 편집기의 자동완성기능을 사용하는 경우 접두어가 접미어보다 중요하고, 
+`stringr`, `xml2`, `rvest` 팩키지를 살펴보면 접두어에 일관된 명칭을 부여한 장점을 알수 있다.
+
 
 
 # 데이터 과학 남은 과제들 {#data-science-fact}
