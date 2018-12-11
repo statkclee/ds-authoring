@@ -1,0 +1,203 @@
+---
+title: "이상점과 어노말리"
+subtitle: "Fraud & Anomaly Detection"
+author: "이광춘 <br/> (<a href='https://software-carpentry.org/'> 소프트웨어 카펜트리 </a>/ <a href='https://www.facebook.com/groups/tidyverse/'> Tidyverse Korea </a>)"
+date: "2018/12/20"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: ["default"]
+    logo: fig/cloudera_logo.png
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+
+knitr::opts_chunk$set(echo = FALSE, warning=FALSE, message=FALSE,
+                    comment="", digits = 3, tidy = FALSE, prompt = FALSE, fig.align = 'center')
+
+```
+
+class: inverse, middle, center
+
+# 이상점 검출 <br> (Outlier Detection)
+
+---
+## 소득 천분위 데이터
+
+심상정 국회의원은 국세청으로부터 제출받은 지난해 소득 천분위 자료를 최초로 분석했습니다. 근로소득뿐만 아니라 이자·배당·종합소득 천분위 자료까지 국세청으로부터 확보하여 소득주도성장을 둘러싼 논란이 한창인 이 시점 소득의 실상을 정확히 아는 것이 무엇보다 중요하다는 점을 분명히 했습니다.
+
+- 이 분석 자료를 보면 소득양극화의 결과가 상위 1%, 나아가 0.1%의 소득에 의해 주도된다는 점을 확인하면서 국세청 데이터를 근거로 다음을 들고 있습니다.
+- 근로소득 상위 0.1%의 1인당 평균은 6억 5천만원으로 하위 10%의 69만원보다 1천배 가까이 많음.
+- 상위 0.1%의 #이자소득 총액은 2조 5078억으로 전체의 17.79%를 차지했고, #배당소득 은 7조 2896억으로 전체의 51.75%에 달함. - 이자·배당·부동산임대·사업·근로·기타소득을 모두 합산한 종합소득을 살펴보면, 상위 0.1%가 1인당 25억 8900만원을 벌었는데 반해, 하위 10%는 1인당 평균 193만원으로 월 17만원에 못미침.
+
+---
+## 기술 통계량
+
+.left[
+#### 정규분포
+$$z_i = \frac{x_i - \hat{\mu}}{\hat{\sigma}}$$
+]
+.left[
+#### 강건한 통계량
+$$z_i = \frac{x_i - \hat{\text{중위수}}} {\hat{\text{MAD}}}$$
+]
+
+.left[
+#### 소득 천분위수 소득분포
+]
+
+.left[
+#### 지니계수
+]
+
+.left[
+#### 로렌츠 곡선
+]
+
+
+.footnote[
+  [소득천분위수 탐색적 데이터분석](https://statkclee.github.io/ml/ml-detect-outliers-mahalanobis.html#3_%EC%9D%B8%EB%8B%B9_%EC%86%8C%EB%93%9D_%EC%9D%B4%EC%83%81%EC%A0%90_%EA%B2%80%EC%B6%9C)
+]
+
+
+---
+## 상자그림 (Boxplot) - 2 변수
+
+.left[
+#### 상자그림
+]
+
+.left[
+#### 강건한 상자그림
+수정된 상자그림(Adjusted boxplot)은 [robustbase: Basic Robust Statistics](https://cran.r-project.org/web/packages/robustbase/index.html) 팩키지에 포함되어 있는 `adjboxStats()`함수로 구현이 가능한데 이론적인 배경은 [Hubert and Vandervieren (2008), "An Adjusted Boxplot for Skewed Distributions", Computational Statistics & Data Analysis 52(12):5186-5201](https://www.researchgate.net/publication/4749681_An_Adjusted_Boxplot_for_Skewed_Distributions)
+참조.
+]
+
+.left[
+#### 이변량 상자그림
+]
+
+
+
+.footnote[
+  [소득천분위수 상자그림](https://statkclee.github.io/ml/ml-detect-outliers-mahalanobis.html#3_%EC%9D%B8%EB%8B%B9_%EC%86%8C%EB%93%9D_%EC%9D%B4%EC%83%81%EC%A0%90_%EA%B2%80%EC%B6%9C)
+]
+
+
+---
+## 다변량 - 마할라노비스 거리
+
+.left[
+#### 마할라노비스 거리
+
+다차원 공간에서 이상점을 찾아내는 간단한 방법이 [마할라노비스 거리](https://en.wikipedia.org/wiki/Mahalanobis_distance)를 활용하는 것이다.
+유클리디안 거리를 다차원 공간으로 확장한 것으로 생각하면 쉽게 이해할 수 있다.
+
+평균 $\vec{\mu} = ( \mu_1, \mu_2, \mu_3, \dots , \mu_N )^T$와 공분산 $S$를 갖는 벡터 $\vec{x} = ( x_1, x_2, x_3, \dots, x_N )^T$에 대한  
+마할라노비스 거리에 대한 수학적 정의는 다음과 같다.
+
+$D_M(\vec{x}) = \sqrt{(\vec{x} - \vec{\mu})^T S^{-1} (\vec{x}-\vec{\mu})}$
+]
+
+.left[
+#### 주의점
+
+마할라노비스 거리를 활용하여 이상점을 추출할 수 있으나 선형적인 관계가 존재할 때 유용하고 비선형인 경우 이상점을 잘못 검출할 수 있다.
+]
+
+.footnote[
+  [다변량 이상점 검출 -마할라노비스](https://statkclee.github.io/ml/ml-detect-outliers-mahalanobis.html#53_%EB%A7%88%ED%95%A0%EB%9D%BC%EB%85%B8%EB%B9%84%EC%8A%A4_%EC%9D%B4%EC%83%81%EC%A0%90_%ED%83%90%EC%A7%80)
+]
+
+---
+class: inverse, middle, center
+
+# 어노말리  <br> (Outlier Detection)
+
+
+---
+## 오노말리 탐지 기법
+
+**어노말리(Anomaly)**는 동일한 패턴을 따르지 않거나 나머지 데이터와 동일한 구조를 갖지 않는 관측점을 일컫는다. 혹은, 기존 관측과는 상이하여 다른 생성기제에 의해 생성되었다고 판단할만한 관측값으로 정의할 수 있다.
+
+<img src="fig/anomaly.png" alt="어노멀리 탐지" width="100%" />
+
+---
+## 단변량
+
+.left[
+#### Grubbs 검정 
+
+$$
+G =  \frac{\displaystyle\max_{i=1,\ldots, N}\left \vert Y_i - \bar{Y}\right\vert}{s}
+$$
+
+$\overline{Y}$는 표본평균,  $s$는 표준편차를 나타낸다. $N-2$를 따르는 $t-$분포의 임계점을 기준으로 이상점 여부를 판정한다.
+]
+
+.left[
+#### 단변량 시계열 - Seasonal-Hybrid ESD
+
+`library(AnomalyDetection)`
+
+`library(wikipediatrend)`
+
+]
+
+.footnote[
+  [단변량 정규분포/시계열](https://statkclee.github.io/model/model-anomaly.html#11_%EC%A0%95%EA%B7%9C%EB%B6%84%ED%8F%AC_%EB%8B%A8%EB%B3%80%EB%9F%89_-_grubbs_%EA%B2%80%EC%A0%95)
+]
+
+
+---
+## 다변량
+
+
+.left[
+#### 다변량 전역 이상점
+
+- [FNN: Fast Nearest Neighbor Search Algorithms and Applications](https://cran.r-project.org/web/packages/FNN/index.html)
+- `knn` 알고리즘
+]
+
+.left[
+#### 다변량 지역 이상점
+
+`knn` 알고리즘은 전역(Global) 이상점을 탐지하는데 반면에 `dbscan` 팩키지  `lof()` 함수는 지역(local) 이상점 검출에 도움을 줄 수 있다.
+
+]
+
+.footnote[
+  [다변량 전역/로컬 이상점](https://statkclee.github.io/model/model-anomaly.html#2_%EB%8B%A4%EB%B3%80%EB%9F%89_%EC%A0%84%EC%97%AD%EB%A1%9C%EC%BB%AC_%EC%9D%B4%EC%83%81%EC%A0%90)
+]
+
+
+---
+## 범주형 변수 반영 - 다변량 
+
+범주형 변수를 반영하는 측도로 Gower를 활용하여 거리를 산출한 후에 `lof()` 함수에 넣어 이상점을 검출해내는 것도 가능하다.
+
+.footnote[
+  [범주형 변수 반영](https://statkclee.github.io/model/model-anomaly.html#4_%EB%B2%94%EC%A3%BC%ED%98%95_%EB%B3%80%EC%88%98_%EB%B0%98%EC%98%81)
+]
+
+
+
+
+---
+## `Random Forest` 모형
+
+random forest 모형을 활용하여 이상점을 검출하는 것도 가능하다. Isolation Forest는 비지도 어나멀리 검출 알고리즘으로 이상점(Anomaly)는 상대적으로 의사결정나무 분기가 적게 된다는 아이디어에 기초한 모형이다.
+
+[isofor](https://github.com/Zelazny7/isofor)
+
+.footnote[
+  [random forest 모형](https://statkclee.github.io/model/model-anomaly.html#3_random_forest_%EB%AA%A8%ED%98%95_4)
+]
