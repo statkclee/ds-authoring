@@ -54,6 +54,8 @@ title: 데이터 과학을 위한 저작도구
     * [부작업(Sub-tasks)](doit-sub_tasks.html)
     * [분석결과가 최신상태인지 점검하기](doit-uptodate.html)
 1. **발표자료와 기고문**
+    1. [한국 제조업 데이터 축적의 시간을 지나 가치 창출의 시대로 향하다.](intree-seminar-2019-01.html) 
+        - Intree 4.0 World Forum, "Data Scientist 가 바라본 제조업의 발전 전략 및 방안", KPMG 강남파이낸스센터27층 비전룸 (2019-01-26)
     1. [이상점과 어노말리(Fraud & Anomaly Detection)](r_meetup_outlier_anomaly.html) 
         - [PRESSer X R Meetup 시즌2 "데이터 과학자 12월"](https://tidyverse-korea.github.io/r-meetup-x-presser/), 2018-12-20
     1. [빅데이터를 넘은 데이터 과학 Tidyverse로 향하다](ds_maso_tidyverse.html) 
