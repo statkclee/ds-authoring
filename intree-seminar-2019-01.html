@@ -58,8 +58,64 @@ class: inverse, middle, center
 &lt;br&gt;
 
 
+
 ---
-### 자동차 제조업
+class: inverse, middle, center
+
+자동차 제조업
+
+
+---
+## 가치(Value) 원천
+
+.center[
+  &lt;img src="fig/ai-lab-korea-science.png" width="77%" /&gt;
+]
+
+세계은행(World Bank)과 한국개발연구원(KDI)은 약 2년여 기간의 공동연구를 통해 1960-2005 년간 한국 경제발전 과정에 관한 보고서를 출간했다. 경제성장이 지속되기 위해서는 생산성 증가가 대단히 중요하고, 1960년 이후 한국경제의 성공은 광의의 지식축적에 기인한 것으로 1960-2005년 사이 한국의 실질 1인당GDP의 75%가 광의의 지식축적에 기인한 것으로 분석했다.
+
+---
+## 자동차 클러스터 사례
+
+.center[
+  &lt;img src="fig/ai-digital-cluster.png" width="87%" /&gt;
+]
+
+---
+## 4번째 패러다임
+
+.center[
+  &lt;img src="fig/ai-lab-4th-paradigm.png" width="100%" /&gt;
+]
+
+---
+## 수직적 시장 &amp;rarr; 인공지능 시장
+
+.center[
+  &lt;img src="fig/slide-4th-industry-revolution-roadmap.png" width="100%" /&gt;
+]
+- 수직적(Vertical) 시장 &amp;rarr; 플랫폼(Platform) 시장 &amp;rarr; 인공지능(AI) 마켓으로
+
+---
+## 한국 기업(?) vs. AI기반 기업
+
+.center[
+  &lt;img src="fig/stat-data-science.png" width="100%" /&gt;
+]
+
+---
+## 산업역군(?)
+
+.center[
+  &lt;iframe width="400" height="270" src="https://www.youtube.com/embed/t346si4gy_M" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;
+
+  &lt;img src="fig/ai-basic-skills.png" width="37%" /&gt;
+]
+
+.footnote[
+  [MATT RICHTEL, "Reading, Writing, Arithmetic, and Lately, Coding"", The New York Time,  MAY 10, 2014](http://www.nytimes.com/2014/05/11/us/reading-writing-arithmetic-and-lately-coding.html)
+]
+
 
 
 ---
@@ -160,6 +216,102 @@ R을 예로 들면, 팩키지 개발을 할 때 R 스크립트로 모든 기능�
 - 파이프 연산자로 간단한 함수를 조합: Compose simple functions with the pipe.
 - 함수형 프로그래밍을 적극 사용: Embrace functional programming.
 - 기계가 아닌 인간을 위한 설계: Design for humans.
+
+---
+### 데이터 사이언스 남은 과제들 - 불편한 진실 
+
+
+1. 데이터는 절대 깨끗하지 않다
+1. 당신은 분석의 대부분의 시간을 전처리 단계에서 보내게 될 것이다
+1. 95% 일에는 딥러닝(Deep Learning)을 필요로 하지 않는다
+1. 실제 분석의 90%는 일반화 선형모형(GLM)으로 해결된다
+1. 빅데이터는 단지 도구일 뿐이다
+1. 당신은 베이지안 접근을 포용해야 한다
+1. 사용자 입장에서는 네가 어떤 방법을 사용했는가는 중요하지 않다
+1. 학계와 산업계는 서로 다른 세계이다
+1. 프리젠테이션이 핵심이다: 파워포인트 마스터가 되라
+1. 모든 모델은 틀렸다, 하지만 몇몇은 유용하다
+1. 완전 자동화된 데이터 사이언스같은 것은 없다. 인간이 개입되어야 할 부분이 있다
+
+
+---
+### 데이터 사이언스 남은 과제들 - 심슨의 역설
+
+&lt;img src="intree-seminar-2019-01_files/figure-html/simpson-data-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+### 설명가능한 기계학습 - 늑대와 허스키(에스키모 개) 분류 사례
+
+.center[
+  &lt;img src="fig/explainable-ai-wolf-husky.png" alt="늑대와 허스키 분류" width="50%"&gt;
+]
+
+
+.footnote[
+Marco Tulio Ribeiro, Sameer Singh, Carlos Guestrin(2016), "Why Should I Trust You?": Explaining the Predictions of Any Classifier", [arXiv:1602.04938](https://arxiv.org/abs/1602.04938)
+]
+
+
+---
+### 실제로 분류한 것은? 
+
+.center[
+  &lt;img src="fig/explainable-ai-wolf-husky-lime.png" alt="늑대와 허스키 실제 분류" width="100%"&gt;
+]
+
+.footnote[
+[Kasia Kulma (PhD, Data Scientist, Aviva, 2017), "Interpretable Machine Learning Using LIME Framework", `\(H_2 O\)`.ai](https://www.youtube.com/watch?v=CY3t11vuuOM&amp;t=1956s)
+]
+
+
+---
+### 알고리즘 담합 유형
+
+.center[
+  &lt;img src="fig/explainable-ai-collusion.png" alt="알고리즘 담합" width="70%" /&gt;
+]
+
+
+.footnote[  
+  [ODEC (2017), "ALGORITHMS AND COLLUSION - Competition policy in the digital age"](http://www.oecd.org/competition/algorithms-collusion-competition-policy-in-the-digital-age.htm)
+]
+
+---
+### 암묵적 담합에 대한 법규 준수
+
+.left[
+
+```r
+if (가격 상관계수 &gt; 0.9999 &amp; 
+      case_when(회사 알고리즘,
+                   모니터링 알고리즘 ~ TRUE,
+                   병행 알고리즘 ~ TRUE,
+                   신호 알고리즘 ~ TRUE,
+                   작학습 알고리즘 ~ TRUE)) {
+  return(공정거래법 위반)
+} else {
+  return(공정거래법 위반 없음)
+}
+```
+]
+
+.right[
+    &lt;img src="fig/explainable-ai-whity.jpg" alt="제임스 화이티 벌저" width="40%" /&gt;
+]
+
+.footnote[
+  [연합뉴스 (2018/10/31), '전설적인 美 보스턴 갱두목, 비참한 최후…"종신형 감옥서 피살"'](http://www.yonhapnews.co.kr/bulletin/2018/10/31/0200000000AKR20181031005300072.HTML)
+]
+
+---
+### 알고리즘 담합 사례
+
+1. **포스터 레볼루션, 병행 알고리즘으로 가격담합**
+    - 온라인에서 포스터를 판매하는 미국기업 포스터레볼루션(PosterRevolution)의 창업자 데이빗톱킨스(David Topkins)는 사업자들과 일부 고전영화포스터의 **가격을 고정**하기로 합의. 톱킨스와 공모기업들은 병행알고리즘 형태로 가격담합. 결국 2015년 미국법무부는 톱킨스에게 **2만 달러** 벌금부과.
+1. **이투라스, 암묵적 동의하에 이루어진 담합**
+    - 온라인 여행예약 사이트를 운영하는 리투아니아 이투라스(Eturas)는 자사 플랫폼에서 사업을 영위하는 여행사들에게 소비자에게 적용되는 최대할인율을 공통적으로 제한한다는 메시지를 보내고 예약시스템의 **최대할인율을 3%로 일괄조정**. 리투아니아 최고행정법원은 이투라스와 여행사간 암묵적 동의하에 이루어진 담합이라 판단, 이투라스와 여행사에 **과징금 150만 유로** 부과.
+1. **우버, Hub-and-Spoke 모델로 가격담합 논란**
+    - 공유경제 생태계에서 플랫폼 역할을 하는 우버는 최적화 알고리즘을 통해 가격을 결정. 법적으로 사업관계인 운전드라이버들이 우버의 동일가격 알고리즘을 이용하는 것이 담합에 해당되는지, 담합에 해당되지 않는지 논란됨. 뉴욕남부지법은 중재를 해달라는 우버의 주장을 기각하고, 집단소송 원고적격을 인정. 지금은 연방항소법원에서 **심리중**.
     </textarea>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
 <script>var slideshow = remark.create({
