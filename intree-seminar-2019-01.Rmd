@@ -62,7 +62,6 @@ class: inverse, middle, center
 <br>
 
 
-
 ---
 class: inverse, middle, center
 
@@ -79,17 +78,102 @@ class: inverse, middle, center
 세계은행(World Bank)과 한국개발연구원(KDI)은 약 2년여 기간의 공동연구를 통해 1960-2005 년간 한국 경제발전 과정에 관한 보고서를 출간했다. 경제성장이 지속되기 위해서는 생산성 증가가 대단히 중요하고, 1960년 이후 한국경제의 성공은 광의의 지식축적에 기인한 것으로 1960-2005년 사이 한국의 실질 1인당GDP의 75%가 광의의 지식축적에 기인한 것으로 분석했다.
 
 ---
+## 4번째 패러다임
+
+.center[
+  <img src="fig/ai-lab-4th-paradigm.png" width="100%" />
+]
+
+---
+### [자동차 데이터](https://statkclee.github.io/automotive/)
+
+- 자동차 제조사(OEM)와 공급사
+    - 자동차 생산량 - 제조사별, 국가별
+    - 글로벌 자동차 부품공급사(상위 100사)
+- 자동차 품질
+    - 초기품질지수(IQS)
+    - 차량 내구성 조사(VDS)
+    - 초기품질지수 vs 차량 내구성 조사
+- 자동차 경제성
+    - 자동차 연비
+- 리콜과 불만
+    - NHTSA - 현대기아차 리콜과 불만 추세(2001-2017)
+        - NHTSA - 현대기아차 리콜 고장부품
+        - NHTSA - 현대기아차 고객불만 고장부품
+    - 공공데이터포털 - 대한민국 리콜(2011-2016)
+
+---
 ## 자동차 클러스터 사례
 
 .center[
   <img src="fig/ai-digital-cluster.png" width="87%" />
 ]
 
+
 ---
-## 4번째 패러다임
+### 차량 내 전장부품 원가비중
 
 .center[
-  <img src="fig/ai-lab-4th-paradigm.png" width="100%" />
+  <img src="fig/autonomous_vehicle_cost-structure.png" width="100%" />
+]
+
+.footnote[
+  [Analyst 이안나 (2018-06-25), "자동차 전장부품 - 차량용 반도체가 핵심!", 골든브릿지투자증권 리서치센터](http://file.mk.co.kr/imss/write/20180625141236__00.pdf) 內 현기차 시스템 반도체 포럼 참조.
+]
+
+---
+### ECU 내부 
+
+.center[
+  <img src="fig/autonomous_vehicle-ecu.png" width="100%" />
+]
+
+.footnote[
+  [Analyst 이안나 (2018-06-25), "자동차 전장부품 - 차량용 반도체가 핵심!", 골든브릿지투자증권 리서치센터](http://file.mk.co.kr/imss/write/20180625141236__00.pdf) 內 현기차 시스템 반도체 포럼 참조.
+]
+
+
+---
+### ECU 제어기 &rarr; 반도체 
+
+.center[
+  <img src="fig/autonomous_vehicle_ecu_semiconductor.png" width="100%" />
+]
+
+.footnote[
+  [Analyst 이안나 (2018-06-25), "자동차 전장부품 - 차량용 반도체가 핵심!", 골든브릿지투자증권 리서치센터](http://file.mk.co.kr/imss/write/20180625141236__00.pdf) 內 현기차 시스템 반도체 포럼 참조.
+]
+
+---
+### 자율주행 시대 자동차 경쟁구도 변화
+
+.center[
+  <img src="fig/autonomous_vehicle_competition.png" width="100%" />
+]
+
+.footnote[
+  [Analyst 이안나 (2018-06-25), "자동차 전장부품 - 차량용 반도체가 핵심!", 골든브릿지투자증권 리서치센터](http://file.mk.co.kr/imss/write/20180625141236__00.pdf)
+]
+
+---
+### 기계-전기전자-반도체-소프트웨어 원가구조 변화
+
+.center[
+  <img src="fig/autonomous_vehicle_cost_trend.png" width="100%" />
+]
+
+---
+### 자동차 원산지 관리 
+
+.center[
+  <img src="fig/fta-om-global.png" width="100%" />
+]
+
+---
+### 부품-반도체-소프트웨어
+
+.center[
+  <img src="fig/fta-semiconductor-software.png" width="100%" />
 ]
 
 ---
@@ -99,26 +183,6 @@ class: inverse, middle, center
   <img src="fig/slide-4th-industry-revolution-roadmap.png" width="100%" />
 ]
 - 수직적(Vertical) 시장 &rarr; 플랫폼(Platform) 시장 &rarr; 인공지능(AI) 마켓으로
-
----
-## 한국 기업(?) vs. AI기반 기업
-
-.center[
-  <img src="fig/stat-data-science.png" width="100%" />
-]
-
----
-## 산업역군(?)
-
-.center[
-  <iframe width="400" height="270" src="https://www.youtube.com/embed/t346si4gy_M" frameborder="0" allowfullscreen></iframe>
-
-  <img src="fig/ai-basic-skills.png" width="37%" />
-]
-
-.footnote[
-  [MATT RICHTEL, "Reading, Writing, Arithmetic, and Lately, Coding"", The New York Time,  MAY 10, 2014](http://www.nytimes.com/2014/05/11/us/reading-writing-arithmetic-and-lately-coding.html)
-]
 
 
 
@@ -177,6 +241,27 @@ kr_df$interest_over_time %>% tbl_df %>%
           legend.title=element_text(size=17), 
           legend.text=element_text(size=15))
 ```
+
+---
+## 산업역군(?)
+
+.center[
+  <iframe width="400" height="270" src="https://www.youtube.com/embed/t346si4gy_M" frameborder="0" allowfullscreen></iframe>
+
+  <img src="fig/ai-basic-skills.png" width="37%" />
+]
+
+.footnote[
+  [MATT RICHTEL, "Reading, Writing, Arithmetic, and Lately, Coding"", The New York Time,  MAY 10, 2014](http://www.nytimes.com/2014/05/11/us/reading-writing-arithmetic-and-lately-coding.html)
+]
+
+---
+## 한국 기업(?) vs. AI기반 기업
+
+.center[
+  <img src="fig/stat-data-science.png" width="100%" />
+]
+
 
 ---
 ### 데이터 사이언스란?
@@ -380,3 +465,14 @@ if (가격 상관계수 > 0.9999 &
     - 온라인 여행예약 사이트를 운영하는 리투아니아 이투라스(Eturas)는 자사 플랫폼에서 사업을 영위하는 여행사들에게 소비자에게 적용되는 최대할인율을 공통적으로 제한한다는 메시지를 보내고 예약시스템의 **최대할인율을 3%로 일괄조정**. 리투아니아 최고행정법원은 이투라스와 여행사간 암묵적 동의하에 이루어진 담합이라 판단, 이투라스와 여행사에 **과징금 150만 유로** 부과.
 1. **우버, Hub-and-Spoke 모델로 가격담합 논란**
     - 공유경제 생태계에서 플랫폼 역할을 하는 우버는 최적화 알고리즘을 통해 가격을 결정. 법적으로 사업관계인 운전드라이버들이 우버의 동일가격 알고리즘을 이용하는 것이 담합에 해당되는지, 담합에 해당되지 않는지 논란됨. 뉴욕남부지법은 중재를 해달라는 우버의 주장을 기각하고, 집단소송 원고적격을 인정. 지금은 연방항소법원에서 **심리중**.
+
+
+---
+class: inverse, middle, center
+
+스마트 공장 - 캐글
+
+.footnote[
+- [Kaggle(2016), "Bosch Production Line Performance: Reduce manufacturing failures"](https://www.kaggle.com/c/bosch-production-line-performance)
+- [Kaggle(2016), "Mercedes-Benz Greener Manufacturing - Can you cut the time a Mercedes-Benz spends on the test bench?"](https://www.kaggle.com/c/mercedes-benz-greener-manufacturing)
+]
