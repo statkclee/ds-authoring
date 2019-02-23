@@ -30,7 +30,7 @@ title: 데이터 과학을 위한 저작도구
     * [마크다운 기초](http://statkclee.github.io/modern-scientific-authoring/02-markdown-kr.html)
     * [고급 마크다운](http://statkclee.github.io/modern-scientific-authoring/03-advanced-kr.html)
     * [R 마크다운 실무](rmarkdown-in-production.html)
-1. R
+1. **R**
     * [북다운(bookdown)](bookdown-intro.html)
         * [출판 자동화(DevOps)](bookdown-github-travis.html)
     * [R 노트북(Notebook)](ds-notebook.html)
@@ -54,7 +54,8 @@ title: 데이터 과학을 위한 저작도구
     * [부작업(Sub-tasks)](doit-sub_tasks.html)
     * [분석결과가 최신상태인지 점검하기](doit-uptodate.html)
 1. **발표자료와 기고문**
-    1. ["소프트웨어 카펜트리 (2019)"](ds_software_carpentry_2019.html)
+    1. [빅데이터로 총선에서 살아남기](ds_election_2019.html) - 여의도 (2019-02-27)
+    1. ["소프트웨어 카펜트리 (2019)"](ds_software_carpentry_2019.html) - D타워 (2019-02-14)
     1. [한국 제조업 데이터 축적의 시간을 지나 가치 창출의 시대로 향하다.](intree-seminar-2019-01.html) 
         - Intree 4.0 World Forum, "Data Scientist 가 바라본 제조업의 발전 전략 및 방안", KPMG 강남파이낸스센터27층 비전룸 (2019-01-26)
     1. [이상점과 어노말리(Fraud & Anomaly Detection)](r_meetup_outlier_anomaly.html) 

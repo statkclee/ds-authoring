@@ -11,5 +11,4 @@ _site
 fig/Thumbs.db
 play_with_data_conference.Rproj
 .Rproj.user
-data/
 .Rhistory
