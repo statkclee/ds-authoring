@@ -1,6 +1,5 @@
 ---
-title: "뉴스데이터 – 데이터 사이언스 사례"
-subtitle: "'뉴스 데이터'라고 읽고 '텍스트 데이터'로 분석하여 사례 만들기"
+title: "'뉴스 데이터'라고 읽고 '텍스트 데이터'로 분석하여 사례 만들기"
 author: "이광춘 <br> 연세대 겸임교수"
 date: "2019-04-04"
 output:
@@ -12,6 +11,7 @@ output:
       countIncrementalSlides: false
 editor_options: 
   chunk_output_type: console
+main_font: NanumGothic  
 ---
 
 ```{r setup, include=FALSE}
@@ -137,12 +137,36 @@ class: inverse, middle, center
 ---
 class: inverse, middle, center
 
-## 뉴스를 데이터로 바라보기
+## 뉴스를 데이터로 바라보기 <br>
+
+### 준비
 
 ---
-### NLP 생태계
+### 텍스트 데이터 도전 현황
+
+<img src="fig/npl_status.png" alt="자연어 처리 현황" width="100%" />
+
+.footnote[
+- [xwMOOC 자연어 처리 - 텍스트, "단어주머니(Bag of Words)"](https://statkclee.github.io/text/nlp-bag-of-words.html)
+]
+
+---
+### 자연어 처리 흐름
+
+<img src="fig/nlp-overview.png" alt="자연어 처리 흐름" width="100%" />
+
+.footnote[
+- [xwMOOC 자연어 처리, "텍스트 데이터"](https://statkclee.github.io/text/nlp-text.html)
+]
+
+---
+### NLP 생태계 - R
 
 - [NLP 생태계 이미지](http://www.bnosac.be/images/bnosac/blog/NLP-R-ecosystem.png)
+
+.center[
+  <img src="fig/NLP-R-ecosystem.png" alt="R 팩키지" width="50%" />
+]
 
 .footnote[
 - NLP(Natural Language Processing): 자연어 처리
@@ -150,9 +174,28 @@ class: inverse, middle, center
 ]
 
 ---
-### 파이썬 자연어 처리
+### 한글 자연어 처리 - 파이썬
 
-- [자연어 처리 입문 - 파이썬](https://statkclee.github.io/text/nlp-intro-python.html)
+
+<img src="fig/nlp-python-korean.png" alt="", width="100%" />
+
+.footnote[
+[자연어 처리 입문 - 파이썬](https://statkclee.github.io/text/nlp-intro-python.html)
+]
+
+---
+class: inverse, middle, center
+
+## 텍스트 데이터 - 자원
+
+---
+### 텍스트 데이터 구하기
+
+- [네이버 뉴스](https://statkclee.github.io/text/nlp-naver-news.html)
+- [대통령 연설문 데이터 긁어오기](https://statkclee.github.io/text/nlp-president-crawl.html)
+- [대한민국 헌법](https://statkclee.github.io/text/text-constitution.html)
+- [건축학 개론](https://statkclee.github.io/text/nlp-movie-arch101.html)
+- [영어 교과서 감성분석](https://statkclee.github.io/text/nlp-english-textbook.html)
 
 ---
 class: inverse, middle, center
@@ -160,7 +203,7 @@ class: inverse, middle, center
 ## 탐색적 데이터 분석
 
 ---
-### 텍스트 마이닝
+### 텍스트 마이닝 - 케인즈 vs 하이에크
 
 <img src="fig/text_eda.png" alt="탐색적 데이터 분석" width="100%" />
 
@@ -169,13 +212,63 @@ class: inverse, middle, center
 ]
 
 ---
+### 텍스트 마이닝 - 신년기자회견
+
+<img src="fig/text_eda_viz.png" alt="탐색적 데이터 분석" width="100%" />
+
+.footnote[
+- [깔끔한 텍스트 (Tidytext) - 신년기자회견(2019)](https://statkclee.github.io/text/nlp-tidytext-moon-speech.html)
+]
+
+
+
+
+---
 class: inverse, middle, center
 
 ## 데이터 탐색 &rarr; 예측모형
 
 ---
+### 단어구름 &rarr; 토픽 모형
+
+.center[
+<img src="fig/topic-modeling-text.png" alt="토픽모형" width="85%" />
+]
+
+.footnote[
+- [단어구름에서 토픽모형 -From World Cloud to Toptic Modeling](https://statkclee.github.io/text/silge-topic-modeling.html)
+- [xwMOOC 자연어 처리 - 텍스트, "케인즈 vs 하이에크 - 토픽 모형"](https://statkclee.github.io/text/langcon-keynes-hayek-topic.html)
+]
+
+---
 ### 예측모형
 
+.center[
+<img src="fig/predictive-model-text.png" alt="예측모형" width="100%" />
+]
+
+.footnote[
 - [SMS 스팸분류 - Random Forest](https://statkclee.github.io/text/nlp-spam-machine-learning.html)
+- [xwMOOC 자연어 처리 - 텍스트, "알릴레요 vs. 홍카콜라 - 댓글 분류"](https://statkclee.github.io/text/youtube-channel-comment-classification.html)
+- [텍스트 분류(Text Classification) - 나이브 베이즈(naive bayes)](https://statkclee.github.io/text/nlp-text-classification.html)
+]
+
+---
+class: inverse, middle, center
+
+##  예측모형 &rarr; 데이터 제품
+
+
+---
+### 사례: 너의 기분 이모지(emoji)?
+
+.center[
+<iframe width="560" height="315" src="https://www.youtube.com/embed/PElfNl7bH-w" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+]
+
+.footnote[
+- [김지연, 홍익대, "제9회 보아즈(BOAZ) 빅데이터 컨퍼런스 - 너의 기분 이모지(emoji)?"](https://www.youtube.com/watch?v=PElfNl7bH-w)
+- [데이터 사이언스 Meetup - 5월, 2019년 5월 22일 (수요일)](https://tidyverse-korea.github.io/r-meetup-x-presser/)
+]
 
 
