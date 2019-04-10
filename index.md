@@ -54,6 +54,8 @@ title: 데이터 과학을 위한 저작도구
     * [부작업(Sub-tasks)](doit-sub_tasks.html)
     * [분석결과가 최신상태인지 점검하기](doit-uptodate.html)
 1. **발표자료와 기고문**
+    1. [(한국) 데이터 과학자의 클라우드 서비스](ds_meetup_ds_on_cloud.html) 
+        - [데이터 사이언스 미트업 (2019-04)](https://tidyverse-korea.github.io/r-meetup-x-presser/)
     1. ['뉴스 데이터'라고 읽고 '텍스트 데이터'로 분석하여 사례 만들기](ds_kpf.html) 
         - 한국언론진흥재단 주관, "서울창업허브 9층 세미나실2" (2019-04-04)
     1. [빅데이터로 총선에서 살아남기](ds_election_2019.html) - 여의도 (2019-02-27)

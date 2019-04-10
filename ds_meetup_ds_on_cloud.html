@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <title>(한국) 데이터 과학자의   클라우드 서비스</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="데이터 사이언스 미트업   이광춘" />
+    <meta name="date" content="2019-04-24" />
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/remark-css/default-fonts.css" rel="stylesheet" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# (한국) 데이터 과학자의 <br> 클라우드 서비스
+### 데이터 사이언스 미트업 <br> 이광춘
+### 2019-04-24
+
+---
+
+
+
+
+
+class: inverse, middle, center
+
+## 빅데이터 &amp;rarr; 데이터 사이언스
+
+---
+### 구글 Trends 데이터 사이언스 한미 비교 - 미국
+
+&lt;img src="ds_meetup_ds_on_cloud_files/figure-html/google-trends-comparison-us-1.png" style="display: block; margin: auto;" /&gt;
+
+
+---
+### 구글 Trends 데이터 사이언스 한미 비교 - 한국
+
+
+&lt;img src="ds_meetup_ds_on_cloud_files/figure-html/google-trends-comparison-kr-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+class: inverse, middle, center
+
+## 데이터 사이언스
+
+---
+### 데이터 사이언스란?
+
+데이터 사이언스는 데이터를 다루는 과학이다. 따라서 자연법칙을 다루는 자연과학과 맥이 닿아있다.
+자연법칙을 측정하여 데이터프레임(`DataFrame`)으로 나타내면 **변수(Variable)**, **관측점(Observation)**, **값(Value)**으로 표현된다.
+
+&lt;img src="fig/data-science-overview.png" alt="데이터 사이언스 개요" width="100%" /&gt;
+
+
+---
+### 데이터 사이언스 업무
+
+&lt;img src="fig/data-science-airbnb.png" alt="데이터 사이언스 에어비앤비" width="100%" /&gt;
+
+- **분석(Analytics) 데이터 과학자**는 좋은 질문을 던질 수 있고, 
+탐색적 데이터 분석을 통해서 문제와 해법을 명확히 하는 재주가 있고, 대쉬보드와 시각화를 통해 데이터 분석을 자동화하고, 추천 결과물을 통해 비즈니스를 변화시킨다. 
+- **알고리즘(algorithm) 데이터 과학자**는 기계학습에 특기가 있는 사람에 적합하고 제품/서비스, 프로세스에 데이터를 알고리즘을 통해 녹여내서 비즈니스 가치를 창출한다. 
+- **추론(inference) 데이터 과학자**는 통계를 사용해서 의사결정을 향상시키고, 업무의 영향도를 측정하는데 주로 통계학, 경제학, 사화과학 전공지식을 적극 활용한다.
+
+.footnote[
+  [Elena Grewal(July 25, 2018), "One Data Science Job Doesn’t Fit All"](https://www.linkedin.com/pulse/one-data-science-job-doesnt-fit-all-elena-grewal/)
+]
+
+---
+class: inverse, middle, center
+
+## R 미트업 &lt;br&gt;
+
+---
+### 2018년 2월 R 미트업
+
+&lt;img src="fig/bigmemory.png" alt="bigmemory" width="100%" /&gt;
+
+.footnote[
+- [이광춘, 2018.02.21(수)	빅데이터는 디스크에 쓰고 R 메모리라고 읽는다](https://statkclee.github.io/bigdata/bigdata-bigmemeory.html)
+]
+
+---
+class: inverse, middle, center
+
+## HPC &lt;br&gt;
+
+---
+### HPC(High Performance Computing)
+
+.center[
+  &lt;img src="fig/hpc-intro.png" alt="HPC 개념 소개" width="77%" /&gt;
+]
+
+방의 4면에 도배를 하거나 페인트를 칠하는 것을 예로 들어볼 수 있다.
+
+.footnote[
+- [고성능 컴퓨팅(HPC), 고성능 컴퓨팅 기초](http://statkclee.github.io/hpc/hpc-basic.html)
+]
+
+---
+### 유전체학 (Genomics) 
+
+.center[
+  &lt;img src="fig/comicServers.png" alt="HPC 개념 소개" width="100%" /&gt;
+]
+
+.footnote[
+- [클라우드 컴퓨팅 소개 - 유전체학(Genomics)](https://statkclee.github.io/cloud-genomics-kr/)
+]
+
+---
+### 소프트웨어 카펜트리 &amp;rarr; HPC 카펜트리 
+
+- [Introduction to High-Performance Computing](https://hpc-carpentry.github.io/hpc-intro/)
+&lt;br&gt;
+- [Introduction to using the shell in a High-Performance Computing context](https://hpc-carpentry.github.io/hpc-shell/)
+&lt;br&gt;
+- [Analysis pipelines with Python](https://hpc-carpentry.github.io/hpc-python/)
+
+.footnote[
+- [HPC Carpentry:Teaching basic skills for high-performance computing.](https://hpc-carpentry.github.io/)
+]
+
+
+---
+class: inverse, middle, center
+
+## 데이터 사이언스 서버
+
+---
+### 세가지 시나리오 - AWS
+
+&lt;img src="fig/aws-scenario.png" alt="AWS 시나리오별 활용사례" width="100%" /&gt;
+
+.footnote[
+- [시나리오별 클라우드(AWS) 컴퓨팅 자원을 데이터 과학에 활용](https://statkclee.github.io/bigdata/ml-aws-from-pc.html)
+]
+
+
+---
+class: inverse, middle, center
+
+## 스파크 (Spark)
+
+---
+### 스파크(Spark) - `localhost`
+
+.center[
+&lt;img src="fig/install-spark.png" alt="토픽모형" width="100%" /&gt;
+]
+
+.footnote[
+- [로컬 컴퓨터 스파크 설치](https://statkclee.github.io/bigdata/ds-sparklyr.html)
+]
+
+---
+### `MovieLens` 데이터 - `sparklyr` 
+
+.center[
+&lt;img src="fig/sparklyr-illustration.png" alt="Sparklyr" width="100%" /&gt;
+]
+
+.footnote[
+- [영화추천 사례](https://statkclee.github.io/parallel-r/recommendation-sparklyr.html)
+]
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();</script>
+
+<script>
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
