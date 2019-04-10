@@ -54,6 +54,9 @@ title: 데이터 과학을 위한 저작도구
     * [부작업(Sub-tasks)](doit-sub_tasks.html)
     * [분석결과가 최신상태인지 점검하기](doit-uptodate.html)
 1. **발표자료와 기고문**
+    1. [소프트웨어에 물들다](http://somul.kr/) 
+        - [소프트웨어에 물들다(왕곡초등학교, 2018-05-26)](somul_20180525.html) -  글쓰기를 잘하기 위해서 알아야 되는 코딩
+        - [소프트웨어에 물들다(푸른도서관, 2019-05-25)](somul_20190525.html) - [글쓰기] 아마존 제프 베이조스의 가르침을 넘어서
     1. [(한국) 데이터 과학자의 클라우드 서비스](ds_meetup_ds_on_cloud.html) 
         - [데이터 사이언스 미트업 (2019-04)](https://tidyverse-korea.github.io/r-meetup-x-presser/)
     1. ['뉴스 데이터'라고 읽고 '텍스트 데이터'로 분석하여 사례 만들기](ds_kpf.html) 
@@ -82,7 +85,6 @@ title: 데이터 과학을 위한 저작도구
         - [한밭대학교(2018-05-29)](한밭대_창업과인공지능_20180529.html) - 인공지능 제품개발    
         - [한밭대학교(2018-05-03)](한밭대_창업과인공지능_20180503.html) - 창업과 인공지능
     1. [Korea-Japan R Meetup Exchange Meeting (2018-09-03)](korea-japan-r-meetup.html)
-    1. [소프트웨어에 물들다(왕곡초등학교, 2018-05-26)](somul_20180525.html) -  글쓰기를 잘하기 위해서 알아야 되는 코딩
     1. [빅데이터는 위기이자 기회, 게임산업도 예외는 아니다.](digital-times-2017.html) [디지털타임즈,게임산업 숨은 특수 빅데이터, 2017-08-28](http://www.dt.co.kr/contents.html?article_no=2017082902101531043002)
     1. [통계의 창 - 21세기 통계학을 배우는 방법](window-of-statistics.html)
     1. [머신러닝 레볼루션 - 머신러닝의 이해와 비즈니스 기회](http://statkclee.github.io/mlrv/): xwMOOC와 함께하는 한국인 - 기계와의 경쟁을 준비하며
