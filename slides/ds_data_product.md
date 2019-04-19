@@ -26,71 +26,71 @@
 }
 </style>
 
-½Ì½ÌÇÑ Àç·á¸¦ Á¦Ç°À¸·Î, µ¥ÀÌÅÍ¸¦ µ¥ÀÌÅÍ Á¦Ç°À¸·Î
+ì‹±ì‹±í•œ ìž¬ë£Œë¥¼ ì œí’ˆìœ¼ë¡œ, ë°ì´í„°ë¥¼ ë°ì´í„° ì œí’ˆìœ¼ë¡œ
 ========================================================
 autosize: true
 font-import: http://fonts.googleapis.com/css?family=jejugothic
 font-family: 'jejugothic'
 
 
-<div class="footer" style="margin-top:-50px;background-color:transparent;"><SPAN STYLE="font-size:120%;font-weight:bold;"><a href="http://www.webzen.com/">À¥Á¨ µ¥ÀÌÅÍ °úÇÐÀÚ</a><br>2017³â 10¿ù</SPAN></div>
+<div class="footer" style="margin-top:-50px;background-color:transparent;"><SPAN STYLE="font-size:120%;font-weight:bold;"><a href="http://www.webzen.com/">ì›¹ì   ë°ì´í„° ê³¼í•™ìž</a><br>2017ë…„ 10ì›”</SPAN></div>
 
 
-½ÄÀÚÀçÀ» À½½ÄÀ¸·Î...
+ì‹ìžìž¬ì„ ìŒì‹ìœ¼ë¡œ...
 ========================================================
 
-<img src="../img/food_dishes.png" alt="Àç·á¿¡¼­ ½Ä»ç" width="97%" />
+<img src="../img/food_dishes.png" alt="ìž¬ë£Œì—ì„œ ì‹ì‚¬" width="97%" />
 
-°í·³, µ¥ÀÌÅÍ¸¦ Á¦Ç°À¸·Î...
+ê³ ëŸ¼, ë°ì´í„°ë¥¼ ì œí’ˆìœ¼ë¡œ...
 ========================================================
 
-<img src="../img/data-product.png" alt="µ¥ÀÌÅÍ¸¦ Á¦Ç°À¸·Î" width="97%" />
+<img src="../img/data-product.png" alt="ë°ì´í„°ë¥¼ ì œí’ˆìœ¼ë¡œ" width="97%" />
 
-¿ä¸®¹ý(Recipe)
+ìš”ë¦¬ë²•(Recipe)
 ========================================================
 
-<img src="../img/recipe.png" alt="¿ä¸®¹ý" width="97%" />
+<img src="../img/recipe.png" alt="ìš”ë¦¬ë²•" width="97%" />
 
-¿øÀç·á »ìÆìº¸±â
+ì›ìž¬ë£Œ ì‚´íŽ´ë³´ê¸°
 ========================================================
 
-- ÇÑ±¹¿øÀÚ·Â»ê¾÷ÇùÈ¸ - ±¹³» ¿øÀü ÇöÈ²
+- í•œêµ­ì›ìžë ¥ì‚°ì—…í˜‘íšŒ - êµ­ë‚´ ì›ì „ í˜„í™©
 - <http://www.kaif.or.kr/?c=dat&s=6>
 
-Á¶¸®¹ý »ó¼¼
+ì¡°ë¦¬ë²• ìƒì„¸
 ========================================================
 
 <https://statkclee.github.io/data-product/shiny-nucelar-powerplant.html>
 
-¸Àº¸±â
+ë§›ë³´ê¸°
 ========================================================
 
-<img src="../img/tasting.png" alt="¸Àº¸±â" width="97%" />
+<img src="../img/tasting.png" alt="ë§›ë³´ê¸°" width="97%" />
 
-±¸¼º Á¦Ç° ÁØºñ - Ä¿¹Â´ÏÄÉÀÌ¼Ç
+êµ¬ì„± ì œí’ˆ ì¤€ë¹„ - ì»¤ë®¤ë‹ˆì¼€ì´ì…˜
 ========================================================
 
-<img src="../img/product-item.png" alt="±¸¼ºÁ¦Ç° ÁØºñ" width="97%" />
+<img src="../img/product-item.png" alt="êµ¬ì„±ì œí’ˆ ì¤€ë¹„" width="97%" />
 
-±¸¼º Á¦Ç° ÁØºñ - ÀÎÅÍ·¢Æ¼ºê Áöµµ
+êµ¬ì„± ì œí’ˆ ì¤€ë¹„ - ì¸í„°ëž™í‹°ë¸Œ ì§€ë„
 ========================================================
 
 <https://statkclee.github.io/data-product/shiny-nucelar-powerplant.html#---map-messagefalse-warningfalse>
 
-Æ÷Àå
+í¬ìž¥
 ========================================================
 
-<img src="../img/packaging.png" alt="Æ÷Àå" width="97%" />
+<img src="../img/packaging.png" alt="í¬ìž¥" width="97%" />
 
-Á¦Ç°Ãâ½Ã
+ì œí’ˆì¶œì‹œ
 ========================================================
 
-- ¿µ¹®: <https://dl-dashboard.shinyapps.io/npp_server_eng/>
-- ±¹¹®: <https://dl-dashboard.shinyapps.io/npp_server/>
+- ì˜ë¬¸: <https://dl-dashboard.shinyapps.io/npp_server_eng/>
+- êµ­ë¬¸: <https://dl-dashboard.shinyapps.io/npp_server/>
 
 
 
-Âü°íÀÚ·á
+ì°¸ê³ ìžë£Œ
 ========================================================
 
-* [xwMOOC - ´ëÇÑ¹Î±¹ ¿øÀÚ·Â ¹ßÀü¼Ò ÇöÈ² (2016)](https://statkclee.github.io/data-product/shiny-nucelar-powerplant.html)
+* [xwMOOC - ëŒ€í•œë¯¼êµ­ ì›ìžë ¥ ë°œì „ì†Œ í˜„í™© (2016)](https://statkclee.github.io/data-product/shiny-nucelar-powerplant.html)
