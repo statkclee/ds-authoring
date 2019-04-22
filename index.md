@@ -54,7 +54,8 @@ title: 데이터 과학을 위한 저작도구
     * [부작업(Sub-tasks)](doit-sub_tasks.html)
     * [분석결과가 최신상태인지 점검하기](doit-uptodate.html)
 1. **발표자료와 기고문**
-    1. [도전받는 엑셀과 파워포인드 - R/파이썬](ds-finance-201904.html)
+    1. [왜 데이터 사이언스인가?](ds-finance-why-201904.html) 
+        - **실무자**: [도전받는 엑셀과 파워포인드 - R/파이썬](ds-finance-201904.html)
     1. [데이터 사이언스 언어 - R](ds-db-20190517.html)
         - 산업은행, 5월 17일(금)
     1. [소프트웨어에 물들다](http://somul.kr/) 

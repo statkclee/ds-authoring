@@ -374,6 +374,8 @@ class: inverse, middle, center
 ---
 ## 재현 가능한 데이터 사이언스 - 시연
 
+- [Rmd 코드](https://github.com/statkclee/author_carpentry_kr/blob/gh-pages/tutorial/reproducible_finance/reproducible_finance.Rmd)
+- [재현가능한 데이터 사이언스 - BMI](https://statkclee.github.io/author_carpentry_kr/tutorial/reproducible_finance/reproducible_finance.html)
 
 ---
 ## 참고문헌

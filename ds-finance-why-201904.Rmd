@@ -1,0 +1,294 @@
+---
+title: "데이터 사이언스 가치"
+subtitle: ""
+author: "데이터 과학자 이광춘"
+date: "2019년 4월"
+output:
+  xaringan::moon_reader:
+    css: xwmooc.css
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+
+knitr::opts_chunk$set(echo = FALSE, warning=FALSE, message=FALSE,
+                    comment="", digits = 3, tidy = FALSE, prompt = TRUE, fig.align = 'center')
+```
+
+class: inverse, middle, center
+
+## 데이터 과학자 1세대
+
+---
+### 데이터 과학자
+
+.pull-left[
+  <img src="fig/victorlee-bizcard.png" alt="명함" width="100%" />
+]
+
+.pull-right[
+  <iframe width="400" height="250" src="https://www.youtube.com/embed/K_TGdklC504" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+]
+
+.footnote[
+- 삼정 KPMG 데이터 과학자
+- 연세대학교 겸임교수, ["데이터 사이언스 입문"](https://statkclee.github.io/yonsei/)
+- [이광춘(2019) "데이터 사이언스, 타이디버스로 향하다", 마이크로소프트웨어 395호](http://it.chosun.com/site/data/html_dir/2019/01/29/2019012900392.html)
+- [데이터 사이언스 미트업 운영](https://tidyverse-korea.github.io/r-meetup-x-presser/)
+- [소프트웨어 카펜트리(Software Carpentry) 강사 (Kwangchun Lee)](https://carpentries.org/instructors/)
+- [Cloudera Conference 2018 - Seoul: 기계의 역습 - 설명가능한 기계학습](https://www.clouderasessionsseoul.com/agenda.php)
+]
+
+---
+class: inverse, middle, center
+
+## 빅데이터 &rarr; 데이터 사이언스
+
+---
+### 구글 Trends 데이터 사이언스 한미 비교 - 미국
+
+```{r google-trends-comparison-us, echo=FALSE, fig.width=12, fig.height=8}
+library(tidyverse)
+library(lubridate)
+library(googleVis)
+library(extrafont)
+loadfonts()
+
+Sys.setenv(TZ='Asia/Seoul')
+
+us_df <- read_rds("data/us_df.rds")
+kr_df <- read_rds("data/kr_df.rds")
+
+us_df$interest_over_time %>% tbl_df %>% 
+  mutate(hits = as.integer(hits)) %>% 
+  ggplot(aes(x=date, y=hits, color=keyword)) +
+    geom_line() +
+    labs(x="", y="구글 인기도", color="구글 검색어") +
+    theme_minimal(base_family = "NanumGothic") +
+    theme(legend.position = "top",
+          legend.title=element_text(size=17), 
+          legend.text=element_text(size=15))
+
+```
+
+
+---
+### 구글 Trends 데이터 사이언스 한미 비교 - 한국
+
+
+```{r google-trends-comparison-kr, fig.width=12, fig.height=8}
+kr_df$interest_over_time %>% tbl_df %>% 
+  mutate(hits = as.integer(hits)) %>% 
+  ggplot(aes(x=date, y=hits, color=keyword)) +
+    geom_line() +
+    labs(x="", y="구글 인기도", color="구글 검색어") +
+    theme_minimal(base_family = "NanumGothic") +
+    theme(legend.position = "top",
+          legend.title=element_text(size=17), 
+          legend.text=element_text(size=15))
+```
+
+---
+### 데이터 사이언스란?
+
+데이터 사이언스는 데이터를 다루는 과학이다. 따라서 자연법칙을 다루는 자연과학과 맥이 닿아있다.
+자연법칙을 측정하여 데이터프레임(`DataFrame`)으로 나타내면 **변수(Variable)**, **관측점(Observation)**, **값(Value)**으로 표현된다.
+
+<img src="fig/data-science-overview.png" alt="데이터 사이언스 개요" width="100%" />
+
+
+---
+### 데이터 사이언스 업무 - 에어비앤비
+
+<img src="fig/data-science-airbnb.png" alt="데이터 사이언스 에어비앤비" width="100%" />
+
+- **분석(Analytics) 데이터 과학자(Data Analyst)**는 좋은 질문을 던질 수 있고, 
+탐색적 데이터 분석을 통해서 문제와 해법을 명확히 하는 재주가 있고, 대쉬보드와 시각화를 통해 데이터 분석을 자동화하고, 추천 결과물을 통해 비즈니스를 변화시킨다. 
+- **알고리즘(algorithm) 데이터 과학자(AI/Machine Learning Engineer)**는 기계학습에 특기가 있는 사람에 적합하고 제품/서비스, 프로세스에 데이터를 알고리즘을 통해 녹여내서 비즈니스 가치를 창출한다. 
+- **추론(inference) 데이터 과학자(Statistician)**는 통계를 사용해서 의사결정을 향상시키고, 업무의 영향도를 측정하는데 주로 통계학, 경제학, 사화과학 전공지식을 적극 활용한다.
+
+.footnote[
+  [Elena Grewal(July 25, 2018), "One Data Science Job Doesn’t Fit All"](https://www.linkedin.com/pulse/one-data-science-job-doesnt-fit-all-elena-grewal/)
+]
+
+---
+class: inverse, middle, center
+
+## 데이터 사이언스 가치
+
+
+---
+## 가치(Value) 원천
+
+.center[
+  <img src="fig/ai-lab-korea-science.png" width="77%" />
+]
+
+세계은행(World Bank)과 한국개발연구원(KDI)은 약 2년여 기간의 공동연구를 통해 1960-2005 년간 한국 경제발전 과정에 관한 보고서를 출간했다. 경제성장이 지속되기 위해서는 생산성 증가가 대단히 중요하고, 1960년 이후 한국경제의 성공은 **광의의 지식축적**에 기인한 것으로 1960-2005년 사이 한국의 실질 1인당GDP의 75%가 광의의 지식축적에 기인한 것으로 분석했다.
+
+---
+## 4번째 패러다임
+
+.center[
+  <img src="fig/ai-lab-4th-paradigm.png" width="100%" />
+]
+
+---
+## 자동차 클러스터 사례
+
+.center[
+  <img src="fig/ai-digital-cluster.png" width="87%" />
+]
+
+---
+### 기계-전기전자-반도체-소프트웨어 원가구조 변화
+### 불과 10년 전
+
+.center[
+  <img src="fig/autonomous_vehicle_cost_trend.png" width="100%" />
+]
+
+---
+## 수직적 시장 &rarr; 인공지능 시장
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+.center[
+  <img src="fig/slide-4th-industry-revolution-roadmap.png" width="100%" />
+]
+
+<br>
+<br>
+
+- 수직적(Vertical) 시장 &rarr; 플랫폼(Platform) 시장 &rarr; 인공지능(AI) 마켓으로
+
+---
+class: inverse, middle, center
+
+## 데이터 사이언스로 요약
+
+
+---
+class: middle, center
+
+
+<img src="fig/intree-xy.png" alt="XY" width="100%" />
+
+---
+class: middle, center
+
+
+<img src="fig/intree-xy-x.png" alt="XY" width="100%" />
+
+---
+class: middle, center
+
+
+<img src="fig/intree-xy-y.png" alt="XY" width="100%" />
+
+---
+class: middle, center
+
+<img src="fig/intree-xy-f.png" alt="XY" width="100%" />
+
+
+---
+class: inverse, middle, center
+
+## 은폐된 데이터 사이언스 진실
+
+---
+### 설명가능한 기계학습 - 늑대와 허스키(에스키모 개) 분류 사례
+
+.center[
+  <img src="fig/explainable-ai-wolf-husky.png" alt="늑대와 허스키 분류" width="50%">
+]
+
+
+.footnote[
+Marco Tulio Ribeiro, Sameer Singh, Carlos Guestrin(2016), "Why Should I Trust You?": Explaining the Predictions of Any Classifier", [arXiv:1602.04938](https://arxiv.org/abs/1602.04938)
+]
+
+
+---
+### 실제로 분류한 것은? 
+
+.center[
+  <img src="fig/explainable-ai-wolf-husky-lime.png" alt="늑대와 허스키 실제 분류" width="100%">
+]
+
+.footnote[
+[Kasia Kulma (PhD, Data Scientist, Aviva, 2017), "Interpretable Machine Learning Using LIME Framework", $H_2 O$.ai](https://www.youtube.com/watch?v=CY3t11vuuOM&t=1956s)
+]
+
+
+---
+### 알고리즘 담합 유형
+
+.center[
+  <img src="fig/explainable-ai-collusion.png" alt="알고리즘 담합" width="70%" />
+]
+
+
+.footnote[  
+  [ODEC (2017), "ALGORITHMS AND COLLUSION - Competition policy in the digital age"](http://www.oecd.org/competition/algorithms-collusion-competition-policy-in-the-digital-age.htm)
+]
+
+---
+### 암묵적 담합에 대한 법규 준수
+
+.left[
+```{r algorithm-tacit-collusion, engine="bash", eval=FALSE, echo=TRUE}
+
+if (가격 상관계수 > 0.9999 & 
+      case_when(회사 알고리즘,
+                   모니터링 알고리즘 ~ TRUE,
+                   병행 알고리즘 ~ TRUE,
+                   신호 알고리즘 ~ TRUE,
+                   작학습 알고리즘 ~ TRUE)) {
+  return(공정거래법 위반)
+} else {
+  return(공정거래법 위반 없음)
+}
+      
+```
+]
+
+.right[
+    <img src="fig/explainable-ai-whity.jpg" alt="제임스 화이티 벌저" width="40%" />
+]
+
+.footnote[
+  [연합뉴스 (2018/10/31), '전설적인 美 보스턴 갱두목, 비참한 최후…"종신형 감옥서 피살"'](http://www.yonhapnews.co.kr/bulletin/2018/10/31/0200000000AKR20181031005300072.HTML)
+]
+
+---
+### 알고리즘 담합 사례
+
+1. **포스터 레볼루션, 병행 알고리즘으로 가격담합**
+    - 온라인에서 포스터를 판매하는 미국기업 포스터레볼루션(PosterRevolution)의 창업자 데이빗톱킨스(David Topkins)는 사업자들과 일부 고전영화포스터의 **가격을 고정**하기로 합의. 톱킨스와 공모기업들은 병행알고리즘 형태로 가격담합. 결국 2015년 미국법무부는 톱킨스에게 **2만 달러** 벌금부과.
+1. **이투라스, 암묵적 동의하에 이루어진 담합**
+    - 온라인 여행예약 사이트를 운영하는 리투아니아 이투라스(Eturas)는 자사 플랫폼에서 사업을 영위하는 여행사들에게 소비자에게 적용되는 최대할인율을 공통적으로 제한한다는 메시지를 보내고 예약시스템의 **최대할인율을 3%로 일괄조정**. 리투아니아 최고행정법원은 이투라스와 여행사간 암묵적 동의하에 이루어진 담합이라 판단, 이투라스와 여행사에 **과징금 150만 유로** 부과.
+1. **우버, Hub-and-Spoke 모델로 가격담합 논란**
+    - 공유경제 생태계에서 플랫폼 역할을 하는 우버는 최적화 알고리즘을 통해 가격을 결정. 법적으로 사업관계인 운전드라이버들이 우버의 동일가격 알고리즘을 이용하는 것이 담합에 해당되는지, 담합에 해당되지 않는지 논란됨. 뉴욕남부지법은 중재를 해달라는 우버의 주장을 기각하고, 집단소송 원고적격을 인정. 지금은 연방항소법원에서 **심리중**.
+
+
+---
+### 기계의 역습 - 설명가능한 기계학습
+
+.center[
+  <iframe width="600" height="350" src="https://www.youtube.com/embed/K_TGdklC504" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+]
+
+.footnote[
+- [Cloudera Conference 2018 - Seoul: 기계의 역습 - 설명가능한 기계학습](https://www.clouderasessionsseoul.com/agenda.php)
+]
