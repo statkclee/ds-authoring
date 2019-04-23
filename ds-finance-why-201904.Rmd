@@ -146,8 +146,7 @@ class: inverse, middle, center
 ]
 
 ---
-### 기계-전기전자-반도체-소프트웨어 원가구조 변화
-### 불과 10년 전
+## 기계-전기전자-반도체-SW 원가구조 변화 - 10년 전
 
 .center[
   <img src="fig/autonomous_vehicle_cost_trend.png" width="100%" />
