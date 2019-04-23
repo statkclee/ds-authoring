@@ -1,11 +1,11 @@
 ---
-title: "데이터 사이언스 가치"
+title: "데이터 사이언스 가치<br><br>"
 subtitle: ""
 author: "데이터 과학자 이광춘"
 date: "2019년 4월"
 output:
   xaringan::moon_reader:
-    css: xwmooc.css
+    css: ["default", "css/tidyverse.css", "css/tidyverse-fonts.css"]
     lib_dir: libs
     nature:
       highlightStyle: github
@@ -25,7 +25,7 @@ class: inverse, middle, center
 ## 데이터 과학자 1세대
 
 ---
-### 데이터 과학자
+## 데이터 과학자
 
 .pull-left[
   <img src="fig/victorlee-bizcard.png" alt="명함" width="100%" />
@@ -50,7 +50,7 @@ class: inverse, middle, center
 ## 빅데이터 &rarr; 데이터 사이언스
 
 ---
-### 구글 Trends 데이터 사이언스 한미 비교 - 미국
+## 구글 Trends 데이터 사이언스 한미 비교 - 미국
 
 ```{r google-trends-comparison-us, echo=FALSE, fig.width=12, fig.height=8}
 library(tidyverse)
@@ -78,7 +78,7 @@ us_df$interest_over_time %>% tbl_df %>%
 
 
 ---
-### 구글 Trends 데이터 사이언스 한미 비교 - 한국
+## 구글 Trends 데이터 사이언스 한미 비교 - 한국
 
 
 ```{r google-trends-comparison-kr, fig.width=12, fig.height=8}
@@ -94,7 +94,7 @@ kr_df$interest_over_time %>% tbl_df %>%
 ```
 
 ---
-### 데이터 사이언스란?
+## 데이터 사이언스란?
 
 데이터 사이언스는 데이터를 다루는 과학이다. 따라서 자연법칙을 다루는 자연과학과 맥이 닿아있다.
 자연법칙을 측정하여 데이터프레임(`DataFrame`)으로 나타내면 **변수(Variable)**, **관측점(Observation)**, **값(Value)**으로 표현된다.
@@ -103,7 +103,7 @@ kr_df$interest_over_time %>% tbl_df %>%
 
 
 ---
-### 데이터 사이언스 업무 - 에어비앤비
+## 데이터 사이언스 업무 - 에어비앤비
 
 <img src="fig/data-science-airbnb.png" alt="데이터 사이언스 에어비앤비" width="100%" />
 

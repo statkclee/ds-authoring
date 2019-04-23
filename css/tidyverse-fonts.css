@@ -1,0 +1,24 @@
+@import url(https://fonts.googleapis.com/css?family=Cute+Font|Jua|Dokdo|Nanum+Pen+Script|Nanum+Gothic);
+
+
+h1 {
+  font-family: 'Jua', sans-serif;
+}
+
+h2 {
+  font-family: 'Cute Font',  cursive;
+}
+
+h3 {
+  font-family: 'Dokdo',  cursive;
+}
+
+h4 {
+  font-family: 'Dokdo',  cursive;
+}
+
+
+p {
+  font-family: 'Nanum Gothic', sans-serif;
+  font-size: 17px;
+}
