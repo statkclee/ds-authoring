@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "데이터 과학을 위한 저작도구"
-subtitle: "R 발표자료(Presentation)"
+subtitle: "R 발표자료(Presentation) - `xaringan` 슬라이드쇼"
 author:
     name: xwMOOC
 date: "`r Sys.Date()`"
@@ -10,7 +10,7 @@ output:
     toc: yes
     toc_float: true
     highlight: tango
-    code_folding: hide
+    code_folding: show
     number_section: true
     self_contained: true
 editor_options: 
@@ -38,3 +38,74 @@ xaringan::inf_mr()
 ```
 
 <img src="fig/instant-preview.gif" alt="즉시 미리보기" width="100%" />
+
+# 글꼴(font) 설정 {#ds-xaringan-font}
+
+[구글 글꼴(Google Fonts)](https://fonts.google.com/) 웹사이트에서 인터넷 글꼴을 가져와서 `xaringan`에 반영하는 것이 가능하다.
+이를 위해서 먼저 원하는 한글 글꼴을 선택한다. "Languages"를 선택하고 "Korean"을 지정하게 되면 구글 폰트 중 한글 글꼴만 확인이 가능하다.
+이중 원하는 글꼴을 선택하게 되면 다음과 같이 @import 할 수 있고 CSS에서 사용할 수 있도록 코드가 제공된다.
+
+```{r xaringan-css, eval=FALSE}
+<style>
+@import url('https://fonts.googleapis.com/css?family=Nanum+Pen+Script');
+</style>
+
+font-family: 'Nanum Pen Script', cursive;
+```
+
+상기정보를 활용하여 R마크다운 `xaringan` 슬라이스쇼에 반영시키면 된다.
+
+R마크다운 `YAML` 헤더에 다음과 같이 작성하게 되면 `css` 디렉토리에 `tidyverse.css`, `tidyverse-fonts.css` 앞서 전달받은 내용을 반영시킨다.
+
+```{r xaringan-css-rmarkdown, eval=FALSE}
+output:
+  xaringan::moon_reader:
+    css: ["default", "css/tidyverse.css", "css/tidyverse-fonts.css"]
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+```
+
+"css/tidyverse-fonts.css" 파일에 다음과 같이 구글 웹폰트를 반영하여 슬라이드쇼에 반영시킨다.
+
+```{r css-rmarkdown, eval=FALSE}
+@import url(https://fonts.googleapis.com/css?family=Cute+Font|Jua|Dokdo|Nanum+Pen+Script|Nanum+Gothic);
+
+h1 {
+  font-family: 'Jua', sans-serif;
+}
+
+h2, h3 {
+  font-family: 'Cute Font',  cursive;
+}
+
+p {
+  font-family: 'Nanum Gothic', sans-serif;
+  font-size: 17px;
+}
+```
+
+# 사용자 정의 슬라이드 [^xaringan-custom-slide] {#ds-xaringan-slide}
+
+[^xaringan-custom-slide]: [Steven V. Miller (February 3, 2018), "Make Your Presentations Fun in Xaringan"](http://svmiller.com/blog/2018/02/r-markdown-xaringan-theme/)
+
+사용자 정의 슬라이드를 제작하는 것도 가능한데 원리는 앞서와 마찬가지로 사용자 정의 `.css` 파일을 제작한다.
+그리고 `.css` 파일을 `Rmd` 파일에 지정하여 연결시키고 컴파일하는 작업흐름을 취한다.
+
+```{r css-custom-rmarkdown, eval=FALSE}
+.title-slide {
+	background-color: #fff;
+  background-image: url(/home/steve/Dropbox/teaching/clemson-academic.png);
+	background-position: center bottom 170px;
+	background-size: 30%;
+	border-bottom: 0px solid  #522D80;
+	box-shadow:  0 55px 0 #fff;
+}
+```
+
+
+# 스타일 생성 {#ds-xaringan-slide-style}
+
+`xaringan` 슬라이드에 스타일 입히는 [`xaringanthemer`](https://github.com/gadenbuie/xaringanthemer) 팩키지를 통해서 슬라이드 내용은 그대로 둔 채로 다양한 스타일을 입힐 수 있다.
