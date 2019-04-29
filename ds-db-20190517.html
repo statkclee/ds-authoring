@@ -88,7 +88,116 @@ class: inverse, middle, center
 ---
 class: inverse, middle, center
 
-## 데이터 사이언스 기본기 &amp;rarr; 글쓰기
+## 도전받는 데이터 사이언스 도구
+
+### 엑셀
+ 
+---
+### 위기의 스프레드쉬트(엑셀)
+
+.center[
+&lt;img src="fig/train2data-analysis.jpg" alt="분석행" width="57%" /&gt;
+]
+
+.footnote[
+ [스터디 뽀개기 7월 (2016-07-30), 분석행(Train to data-analysis)](https://onoffmix.com/event/73626)
+]
+
+---
+### 스프레드쉬트 참사 
+
+|     회사      | 참사 비용 |   발생일 |        영향           |               참사 개요                         | 
+|---------------|-----------|----------|-----------------------|-------------------------------------------------|
+| 옥스포드 대학 | 미확인    | '11.12월 | 학생 인터뷰 일정 지연 | 엑셀이 수식이 꼬여 인터뷰 일정이 뒤죽박죽 [^12] |
+|      MI5      | 미확인    |   '11년  | 잘못된 전화번호 작업  | 엑셀 서식 수식이 꼬여 엉뚱한 전화번호 작업 [^11] |
+| '12년 런던 올림픽 | £ 0.5백만  |  '12.01월  | 티켓 환불 소동  | 수영장 10,000 티켓이 초과 판매 (엑셀 입력 오류) [^10] |
+|     Mouchel   |  £ 4.3백만  |  '10.11월  | CEO 사임, 주가폭락 | 연금펀드평가 £ 4.3백만 엑셀 오류 [^09] |
+|   C&amp;C Group   |  £ 9 백만  |  '09.7월  | 주가 15% 하락 등 | 매출 3% 상승이 아니고 5% 하락, 엑셀 오류 [^08] |
+|   UK 교통부   | 최소 £ 50 백만 |  '12.10월  | 영국민 추가 세금 부담 | 영국 철도 입찰 오류 [^07] |
+|   King 펀드   | £ 130 백만 |  '11.05월  | 브래드 이미지 하락 | 웨일즈 지방 NHS 지출 엑셀 오류 [^06] |
+| AXA Rosenberg | £ 150 백만 |  '11.02월  | 은폐, 벌금, 브래드 이미지 하락 | 엑셀 오류를 감춰서 $242 백만 벌금 |
+| JP Morgan Chase | £ 250 백만 |  '13.01월  | 명성, 고객 신뢰도 저하 | 바젤 II VaR 위험 평가 엑셀 오류 [^04] |
+| Fidelity Magellan 펀드 | £ 1.6 십억 |  '95.01월  | 투자자에게 약속한 배당금 지급 못함 | 음수 부호 누락으로 자본이득 과대계상 [^03] |
+| 미연방준비위원회 | £ 2.5 십억 |  '10.10월  | 명확하지 않음 | 리볼빙 카드 신용액 산출 과정에 엑셀 오류 [^02] |
+|  하버드 대학  | 평가 불능 | '13.04월  | 유럽 정부 긴축예산 편성 근거 | GDP 대비 정부 부채 영향도 분석 엑셀 오류 [^01] |
+
+[^12]: [Test errors impede History applications](http://www.cherwell.org/2011/12/07/test-errors-impede-history-applications/)
+[^11]: [MI5 makes 1,061 bugging errors](http://national-security.governmentcomputing.com/news/2011/jul/01/mi5-data-collection-errors)
+[^10]: [London 2012 Olympics - lucky few to get 100m final tickets after synchronised swimming was overbooked by 10,000](http://www.telegraph.co.uk/sport/olympics/8992490/London-2012-Olympics-lucky-few-to-get-100m-final-tickets-after-synchronised-swimming-was-overbooked-by-10000.html)
+[^09]: [Mouchel profits blow](http://www.express.co.uk/finance/city/276053/Mouchel-profits-blow)
+[^08]: [C&amp;C Group admit to mistake in revenue results](http://drinksdaily.com/2009/07/cc-group-admit-to-mistake-in-revenue-results/)
+[^07]: [West Coast Main Line franchise fiasco 'to cost at least £50m'](http://www.bbc.com/news/uk-politics-21577826)
+[^06]: [King’s Fund apologise for “error” in figures on health spending in Wales](http://leftfootforward.org/2011/05/kings-fund-apologise-for-error-on-health-spending-in-wales/)
+[^04]: [Report of JPMorgan Chase &amp; Co. Management Task Force Regarding 2012 CIO Losses](http://files.shareholder.com/downloads/ONE/2261602328x0x628656/4cb574a0-0bf5-4728-9582-625e4519b5ab/Task_Force_Report.pdf)
+[^03]: [Computing error at Fidelity's Magellan fund](http://catless.ncl.ac.uk/Risks/16.72.html#subj1)
+[^02]: [Blatant Data Error At The Federal Reserve](http://www.zerohedge.com/article/blatant-data-error-federal-reserve)
+[^01]: [Is the evidence for austerity based on an Excel spreadsheet error?](https://www.washingtonpost.com/news/wonk/wp/2013/04/16/is-the-best-evidence-for-austerity-based-on-an-excel-spreadsheet-error/)
+
+.footnote[
+[THE DIRTY DOZEN 12 MODELLING HORROR STORIES &amp; SPREADSHEET DISASTERS](http://blogs.mazars.com/the-model-auditor/files/2014/01/12-Modelling-Horror-Stories-and-Spreadsheet-Disasters-Mazars-UK.pdf)
+]
+
+---
+### 스프레드쉬트를 버려야 하는 6가지 이유 
+
+&gt; #### 스프레드쉬트를 사용하는 이유
+&gt; 
+&gt; * 항상 엑셀을 사용했다: 항상 데이터를 엑셀로 저장하고 분석해서 사용했다. 하지만, 버튼 하나로 데이터를 내보내기 쉽다.
+&gt; * 데이터베이스를 사용할 만큼 데이터가 충분하지 않다: 데이터가 작아서 데이터베이스를 사용할 이유를 찾지 못하지만,
+사업이 커지고, 업무량이 늘어나면서 엑셀 작업량이 높아지고, 복잡성도 커지고, 엑셀 자체에서 처리되는 시간도 늘어난다.
+
+1. 한번에 한사람만 작업이 가능하다.
+&lt;br&gt;
+1. 데이터 감사는 데이터베이스에서만 가능
+&lt;br&gt;
+1. 데이터베이스는 정형화된 작업흐름을 지원한다.
+&lt;br&gt;
+1. 데이터베이스는 엑셀보다 모형을 보다 잘 지원한다.
+&lt;br&gt;
+1. 데이터베이스로 보고서 생성이 수월하다.
+&lt;br&gt;
+1.  데이터베이스는 보안이 강력하고 규제하기 좋다.
+&lt;br&gt;
+
+.footnote[
+ [데이터 과학, "위기의 스프레드쉬트"](https://statkclee.github.io/data-science/ds-why-not-excel.html)
+]
+
+---
+### 스프레드쉬트 알고리즘 복잡성
+
+.center[
+&lt;img src="fig/ds-xls-algo-complexity.png" alt="알고리즘 복잡성" width="100%" /&gt;
+]
+
+.footnote[
+[탈옥(jailbreakr) – 엑셀에서 탈출… 자유](https://statkclee.github.io/data-science/ds-xls.html)
+]
+
+
+---
+### 스프레드쉬트 복잡성과 효율성
+
+- 스프레드쉬트는 데이터, 서식, 수식으로 구성된다. 
+- 숫자 데이터를 엑셀로 가져오게 되면 엑셀 내장 함수를 통해 수식 계산을 수행한다. 
+- 엑셀 사용자 본인 혹은 외부 사람을 위해 서식을 입히는 과정을 거쳐 비로소 완성된 스프레드쉬트가 된다.
+
+.center[
+&lt;img src="fig/ds-xls-data-format-logic.png" alt="알고리즘 복잡성" width="57%" /&gt;
+]
+
+.footnote[
+[탈옥(jailbreakr) – 엑셀에서 탈출… 자유](https://statkclee.github.io/data-science/ds-xls.html)
+]
+
+
+
+---
+class: inverse, middle, center
+
+## 도전받는 데이터 사이언스 도구
+
+### 파워포인트
  
 ---
 ### 파워포인트의 종말 &amp;larr; 아마존 제프 베이조스
@@ -100,7 +209,7 @@ class: inverse, middle, center
 .footnote[
  [김미리 기자 (2019.04.06.), "보고서 치장은 그만, 글로 써라.. '제로 PPT' 선언하는 기업들", 조선일보](https://news.v.daum.net/v/20190406030158105)
 ]
-
+ 
 ---
 ## 세가지 다른 글쓰기 패러다임
 
@@ -232,20 +341,97 @@ class: inverse, middle, center
 [데이터 과학: 재현가능한 저작](https://statkclee.github.io/author_carpentry_kr/)
 ]
 
+
 ---
 class: inverse, middle, center
 
-# 인공지능과 기계학습
+# 시각화
+
 
 ---
-## 딥러닝
+## 왜 시각화하는가?
+
+.center[
+  &lt;img src="fig/why-viz.png" alt="시각화 이유" width="100%" /&gt;
+]
 
 
+- [이광춘 (2019-02-24), "시각화 (Visualization) 개요", Tidyverse Korea](https://statkclee.github.io/viz/viz.html)
+
+
+
+---
+## 데이터 + 모형 + 시각화
+
+[xwMOOC 모형 (2018-06-29), "회귀모형 - purrr + trelliscopejs"](https://statkclee.github.io/model/model_purrr_trelliscopejs.html)
+
+---
+## 데이터 + 모형 + 시각화
+
+[이광춘, "데이터 과학자의 시각화 - 7. 애니메이션 기능 - 그래프", 데이터야 놀자 2018](https://statkclee.github.io/ds-authoring/ds_data_scientist_visualization.html#26)
+
+---
+## 인터랙티브 시각화 - `crosstalk`
+
+[이광춘, "데이터 과학자의 시각화 - 다른 위젯 조합 - crosstalk", 데이터야 놀자 2018](https://statkclee.github.io/ds-authoring/ds_data_scientist_visualization.html#30)
+
+
+---
+class: inverse, middle, center
+
+## R언어로 금융 의사소통
+
+---
+## 기계가 인식하는 사물
+
+
+---
+class: inverse, middle, center
+
+# 인공지능과 금융
+
+---
+## 기계가 인식하는 사물
+
+
+- [사진속 객체 인식 - 작업흐름](https://statkclee.github.io/sw4ds/sw4ds-keras-image-object.html)
+    - 국문: `~swc/author_carpentry_kr/tutorial/reproducible_finance/shiny`
+    - 영문: `~swc/author_carpentry_kr/tutorial/reproducible_finance/shiny`
+- [비행기 vs 자동차 vs 배 인식](https://statkclee.github.io/deep-learning/r-keras-cnn.html) 
 
 .footnote[
 [xwMOOC, "이미지 분류 - 케라스(딥러닝)"](https://statkclee.github.io/data-product/shiny-image-classification.html)
 ]
 
+---
+### 금융 적용 - 인지기술(cognitive technology)
+
+.center[
+&lt;img src="fig/ocr_in_finance.png" alt="금융계약문서 인식" width="77%" /&gt;
+]
+
+- 각종 계약서
+    - 리보(LIBOR, London Interbank Offered Rate, 런던 은행간 금리)가 명기된 계약서
+- 우편 분류
+
+---
+### 한영 번역 
+
+- [데이터 사이언스를 위한 소프트웨어 공학, "파파고 API - 한영번역"](https://statkclee.github.io/sw4ds/sw4ds-api-papago-translation.html)
+
+
+```python
+&gt; $ curl "https://openapi.naver.com/v1/papago/n2mt" \
+&gt;   -H "Content-Type: application/x-www-form-urlencoded; charset=UTF-8" \
+&gt;   -H "X-Naver-Client-Id: zRsZRLqoDEYE1AufliHS" \
+&gt;   -H "X-Naver-Client-Secret: i5n4wY0ZLi" \
+&gt;   -d "source=ko&amp;target=en&amp;text=만나서 반갑습니다." -v
+&gt; 
+&gt; * Connection #0 to host openapi.naver.com left intact
+&gt; {"message":{"@type":"response","@service":"naverservice.nmt.proxy",
+&gt; "@version":"1.0.0","result":{"srcLangType":"ko","tarLangType":"en",
+&gt; "translatedText":"Nice to meet you."}}}
+```
 
 ---
 ## 데이터 사이언스와 API 프로그래밍
