@@ -16,7 +16,7 @@ title: 데이터 과학을 위한 저작도구
 1. **인코딩과 텍스트**
     * [R 유니코드, 인코딩](regex-encoding.html)
     * [R 정규표현식](regex-r.html)
-    * [정규표현식과 문자데이터](regex-r-char.html)
+    * [정규표현식과 문자데이터 - `regexplain`](regex-r-char.html)
     * [정규표현식](regex-index.html)
         * [정규표현식 소개](regex-intro.html)
         * [간단한 패턴](regex-simple-pattern.html)
