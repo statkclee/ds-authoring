@@ -149,13 +149,13 @@ class: inverse, left
 
 |     회사      | 손실 |   날짜 |        영향           |               참사 개요                         | 
 |---------------|-----------|----------|-----------------------|-------------------------------------------------|
-|     Mouchel   |  £ 4.3백만  |  '10.11월  | CEO 사임, 주가폭락 | 연금펀드평가 £ 4.3백만 엑셀 오류 [^09] |
-|   C&C Group   |  £ 9 백만  |  '09.7월  | 주가 15% 하락 등 | 매출 3% 상승이 아니고 5% 하락, 엑셀 오류 [^08] |
-|   King 펀드   | £ 130 백만 |  '11.05월  | 브래드 이미지 하락 | 웨일즈 지방 NHS 지출 엑셀 오류 [^06] |
+|     Mouchel   |  £ 4.3백만  |  '10.11월  | CEO 사임, 주가폭락 | 연금펀드평가 £ 4.3백만 엑셀 오류 |
+|   C&C Group   |  £ 9 백만  |  '09.7월  | 주가 15% 하락 등 | 매출 3% 상승이 아니고 5% 하락, 엑셀 오류 |
+|   King 펀드   | £ 130 백만 |  '11.05월  | 브래드 이미지 하락 | 웨일즈 지방 NHS 지출 엑셀 오류 |
 | AXA Rosenberg | £ 150 백만 |  '11.02월  | 은폐, 벌금, 브래드 이미지 하락 | 엑셀 오류를 감춰서 $242 백만 벌금 |
-| JP Morgan Chase | £ 250 백만 |  '13.01월  | 명성, 고객 신뢰도 저하 | 바젤 II VaR 위험 평가 엑셀 오류 [^04] |
-| Fidelity Magellan 펀드 | £ 1.6 십억 |  '95.01월  | 투자자에게 약속한 배당금 지급 못함 | 음수 부호 누락으로 자본이득 과대계상 [^03] |
-| 미연방준비위원회 | £ 2.5 십억 |  '10.10월  | 명확하지 않음 | 리볼빙 카드 신용액 산출 과정에 엑셀 오류 [^02] |
+| JP Morgan Chase | £ 250 백만 |  '13.01월  | 명성, 고객 신뢰도 저하 | 바젤 II VaR 위험 평가 엑셀 오류 |
+| Magellan 펀드 | £ 1.6 십억 |  '95.01월  | 투자자에게 약속한 배당금 지급 못함 | 음수 부호 누락으로 자본이득 과대계상|
+| 미연방준비위원회 | £ 2.5 십억 |  '10.10월  | 명확하지 않음 | 리볼빙 카드 신용액 산출 과정에 엑셀 오류 |
 
 
 .footnote[
@@ -315,9 +315,9 @@ class: inverse, left
 ---
 class: inverse, left
 
-# 도전받는 데이터 사이언스 도구
+## 도전받는 데이터 사이언스 도구
 
-## 워드
+### 워드
 
 .footnote[
 1. ~~도전받는 데이터 사이언스 도구: 엑셀~~
@@ -393,6 +393,18 @@ class: inverse, left
 ]
 
 ---
+class: middle
+
+## BMI 데이터 사이언스 보고서
+
+`author_carpentry_kr/tutorial/reproducible_finance/reproducible_finance.Rmd`
+
+.footnote[
+[재현가능한 데이터 사이언스 - BMI](https://statkclee.github.io/author_carpentry_kr/tutorial/reproducible_finance/reproducible_finance.html)
+]
+
+
+---
 class: inverse, left
 
 # 데이터 사이언스 언어
@@ -428,7 +440,7 @@ class: inverse, left
 <br>
 
 | 시스템 언어  | Ousterhout 이분법  | 스크립트 언어  |
-|-------------|-------------|-------------|
+|:-------------:|:-----------:|:-------------:|
 |   정적       |     --      |     동적     |
 |   컴파일      |     --      |    인터프리터 |
 | 사용자정의 자료형|     --      |  표준 자료형 |
@@ -571,27 +583,24 @@ class: inverse, left
 ] 
 
 ---
-## 기계가 인식하는 사물
+## 데이터 사이언스와 API 프로그래밍
 
-- [사진속 객체 인식 - 작업흐름](https://statkclee.github.io/sw4ds/sw4ds-keras-image-object.html)
-    - 국문: `~swc/author_carpentry_kr/tutorial/reproducible_finance/shiny`
-    - 영문: `~swc/author_carpentry_kr/tutorial/reproducible_finance/shiny`
-- [비행기 vs 자동차 vs 배 인식](https://statkclee.github.io/deep-learning/r-keras-cnn.html) 
+- 들어가며: 코드 몇줄로 엄청난 생산성!!!
+    - [데이터 과학 – 기초 통계, `tidycensus` 기초](https://statkclee.github.io/statistics/tidycensus-basic.html)
+- 웹크롤링과 API 비교
+    - [데이터 과학 – 기초 통계, `kosis`와 `tidycensus` 비교](https://statkclee.github.io/statistics/tidycensus-kosis-comparison.html)
+- 유료와 무료    
+    - [공간통계를 위한 데이터 사이언스, "지리정보 API - 주소와 위도경도"](https://statkclee.github.io/spatial/geo-info-lonlat.html)
+- AI 인공지능
+    - [xwMOOC 딥러닝, "텍스트와 이미지 API"](https://statkclee.github.io/deep-learning/ms-text-image.html)
+    - [구글 클라우드 비젼 API](https://statkclee.github.io/deep-learning/r-google-vision-api.html)
+    - [xwMOOC 딥러닝 - "IBM 왓슨"](https://statkclee.github.io/deep-learning/r-watson.html)
+    - [유튜브 - "알릴레요 vs. 홍카콜라 - 댓글 분류"](https://statkclee.github.io/text/nlp-youtube-comment.html)
 
-.footnote[
-[xwMOOC, "이미지 분류 - 케라스(딥러닝)"](https://statkclee.github.io/data-product/shiny-image-classification.html)
+.footnote[ 
+- [안상선 M로보 대표 "MVP는 경운기 만드는 과정"](https://mirakle.mk.co.kr/view.php?year=2019&no=209240)
+- [이광춘 (2019-04-04), "'뉴스 데이터'라고 읽고 '텍스트 데이터'로 분석하여 사례 만들기"](https://statkclee.github.io/ds-authoring/ds_kpf.html), 한국언론진흥재단, “2019 뉴스빅데이터 해커톤 개최”
 ]
-
----
-### 금융 적용 - 인지기술(cognitive technology)
-
-.center[
-<img src="fig/ocr_in_finance.png" alt="금융계약문서 인식" width="77%" />
-]
-
-- 각종 계약서
-    - 리보(LIBOR, London Interbank Offered Rate, 런던 은행간 금리)가 명기된 계약서
-- 우편 분류
 
 ---
 ### 한영 번역 
@@ -612,23 +621,40 @@ $ curl "https://openapi.naver.com/v1/papago/n2mt" \
 ```
 
 ---
-## 데이터 사이언스와 API 프로그래밍
+### 금융 적용 - 인지기술(cognitive technology)
 
-- 들어가며: 코드 몇줄로 엄청난 생산성!!!
-    - [데이터 과학 – 기초 통계, `tidycensus` 기초](https://statkclee.github.io/statistics/tidycensus-basic.html)
-- 웹크롤링과 API 비교
-    - [데이터 과학 – 기초 통계, `kosis`와 `tidycensus` 비교](https://statkclee.github.io/statistics/tidycensus-kosis-comparison.html)
-- 유료와 무료    
-    - [공간통계를 위한 데이터 사이언스, "지리정보 API - 주소와 위도경도"](https://statkclee.github.io/spatial/geo-info-lonlat.html)
-- AI 인공지능
-    - [xwMOOC 딥러닝, "텍스트와 이미지 API"](https://statkclee.github.io/deep-learning/ms-text-image.html)
-    - [구글 클라우드 비젼 API](https://statkclee.github.io/deep-learning/r-google-vision-api.html)
-    - [xwMOOC 딥러닝 - "IBM 왓슨"](https://statkclee.github.io/deep-learning/r-watson.html)
-    - [유튜브 - "알릴레요 vs. 홍카콜라 - 댓글 분류"](https://statkclee.github.io/text/nlp-youtube-comment.html)
-
-.footnote[ 
-[이광춘 (2019-04-04), "'뉴스 데이터'라고 읽고 '텍스트 데이터'로 분석하여 사례 만들기"](https://statkclee.github.io/ds-authoring/ds_kpf.html), 한국언론진흥재단, “2019 뉴스빅데이터 해커톤 개최”
+.center[
+<img src="fig/ocr_in_finance.png" alt="금융계약문서 인식" width="77%" />
 ]
+
+- 각종 계약서
+    - 리보(LIBOR, London Interbank Offered Rate, 런던 은행간 금리)가 명기된 계약서
+- 우편 분류
+
+
+---
+## 기계가 인식하는 사물
+
+- [사진속 객체 인식 - 작업흐름](https://statkclee.github.io/sw4ds/sw4ds-keras-image-object.html)
+    - 국문: `~swc/author_carpentry_kr/tutorial/reproducible_finance/shiny`
+    - 영문: `~swc/author_carpentry_kr/tutorial/reproducible_finance/shiny`
+- [비행기 vs 자동차 vs 배 인식](https://statkclee.github.io/deep-learning/r-keras-cnn.html) 
+
+.footnote[
+[xwMOOC, "이미지 분류 - 케라스(딥러닝)"](https://statkclee.github.io/data-product/shiny-image-classification.html)
+]
+
+
+---
+class: middle
+
+## R powered by AI
+
+- `author_carpentry_kr/tutorial/reproducible_finance/shiny/`
+- `author_carpentry_kr/tutorial/reproducible_finance/shiny/global.R`  
+- `author_carpentry_kr/tutorial/reproducible_finance/shiny/server.R`
+- `author_carpentry_kr/tutorial/reproducible_finance/shiny/ui.R`
+- `author_carpentry_kr/tutorial/reproducible_finance/shiny/www/*.jpg`
 
 
 
