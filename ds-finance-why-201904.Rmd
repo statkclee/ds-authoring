@@ -2,7 +2,7 @@
 title: "데이터 사이언스 가치<br><br>"
 subtitle: ""
 author: "데이터 과학자 이광춘"
-date: "2019년 4월"
+date: "2019년 6월, 7월"
 output:
   xaringan::moon_reader:
     css: ["default", "css/tidyverse.css", "css/tidyverse-fonts.css"]
@@ -20,6 +20,20 @@ knitr::opts_chunk$set(echo = FALSE, warning=FALSE, message=FALSE,
                     comment="", digits = 3, tidy = FALSE, prompt = TRUE, fig.align = 'center')
 ```
 
+## 빅데이터의 이해와 정책 활용
+
+- 강의주제: 빅데이터의 이해와 정책 활용
+- 강의일시
+    - 2019년 6월 17일(월) 15:00 ~ 17:00 (1기)
+    - 2019년 7월 08일(월) 15:00 ~ 17:00 (1기)
+- 강의장소: 경기도 인재개발원 본관 307호
+- 대상: 도, 시군 공무원 및 공공기관 직원
+- 강의내용
+    - 빅데이터 개념
+    - 빅데이터 사례
+    - 현업에 돌아가서 빅데이터 정책을 활용
+
+---
 class: inverse, middle, center
 
 ## 데이터 과학자 1세대
