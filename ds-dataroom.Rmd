@@ -229,7 +229,7 @@ R을 예로 들면, 팩키지 개발을 할 때 R 스크립트로 모든 기능�
 <img src="fig/data-science-process-as-is-to-be.png" alt="데이터 사이언스 프로세스 비교" width="100%" />
 
 ---
-### `tidyverse`
+### tidyverse
 
 .center[
   <img src="fig/maso_tidyverse.png" alt="Tidyverse 데이터 사이언스 작업흐름" width="100%" />
@@ -268,13 +268,91 @@ R을 예로 들면, 팩키지 개발을 할 때 R 스크립트로 모든 기능�
 [MICRO SOFTWARE 홈페이지](https://www.imaso.co.kr/), [마이크로소프트웨어 395호 데이터 탐험(Data Adventure)](https://www.imaso.co.kr/archives/4654)
 ]
 
+---
+class: inverse, middle, center
+
+# 데이터 사이언스 - AI/ML
+
+---
+### 데이터 사이언스와 API 프로그래밍
+
+- 들어가며: 코드 몇줄로 엄청난 생산성!!!
+    - [데이터 과학 – 기초 통계, `tidycensus` 기초](https://statkclee.github.io/statistics/tidycensus-basic.html)
+- 웹크롤링과 API 비교
+    - [데이터 과학 – 기초 통계, `kosis`와 `tidycensus` 비교](https://statkclee.github.io/statistics/tidycensus-kosis-comparison.html)
+- 유료와 무료    
+    - [공간통계를 위한 데이터 사이언스, "지리정보 API - 주소와 위도경도"](https://statkclee.github.io/spatial/geo-info-lonlat.html)
+- AI 인공지능
+    - [xwMOOC 딥러닝, "텍스트와 이미지 API"](https://statkclee.github.io/deep-learning/ms-text-image.html)
+    - [구글 클라우드 비젼 API](https://statkclee.github.io/deep-learning/r-google-vision-api.html)
+    - [xwMOOC 딥러닝 - "IBM 왓슨"](https://statkclee.github.io/deep-learning/r-watson.html)
+    - [유튜브 - "알릴레요 vs. 홍카콜라 - 댓글 분류"](https://statkclee.github.io/text/nlp-youtube-comment.html)
+
+.footnote[ 
+- [안상선 M로보 대표 "MVP는 경운기 만드는 과정"](https://mirakle.mk.co.kr/view.php?year=2019&no=209240)
+- [이광춘 (2019-04-04), "'뉴스 데이터'라고 읽고 '텍스트 데이터'로 분석하여 사례 만들기"](https://statkclee.github.io/ds-authoring/ds_kpf.html), 한국언론진흥재단, “2019 뉴스빅데이터 해커톤 개최”
+]
+
+---
+### 한영 번역 
+
+- [데이터 사이언스를 위한 소프트웨어 공학, "파파고 API - 한영번역"](https://statkclee.github.io/sw4ds/sw4ds-api-papago-translation.html)
+
+```{python show-translation, echo=TRUE, eval=FALSE}
+$ curl "https://openapi.naver.com/v1/papago/n2mt" \
+  -H "Content-Type: application/x-www-form-urlencoded; charset=UTF-8" \
+  -H "X-Naver-Client-Id: zRsZRLqoDEYE1AufliHS" \
+  -H "X-Naver-Client-Secret: i5n4wY0ZLi" \
+  -d "source=ko&target=en&text=만나서 반갑습니다." -v
+
+* Connection #0 to host openapi.naver.com left intact
+{"message":{"@type":"response","@service":"naverservice.nmt.proxy",
+"@version":"1.0.0","result":{"srcLangType":"ko","tarLangType":"en",
+"translatedText":"Nice to meet you."}}}
+```
+
+---
+### 금융 적용 - 인지기술(cognitive technology)
+
+.center[
+<img src="fig/ocr_in_finance.png" alt="금융계약문서 인식" width="77%" />
+]
+
+- 각종 계약서
+    - 리보(LIBOR, London Interbank Offered Rate, 런던 은행간 금리)가 명기된 계약서
+- 우편/민원/이력서 분류
+
+
+---
+## 기계가 인식하는 사물
+
+- [사진속 객체 인식 - 작업흐름](https://statkclee.github.io/sw4ds/sw4ds-keras-image-object.html)
+    - 국문: `~swc/author_carpentry_kr/tutorial/reproducible_finance/shiny`
+    - 영문: `~swc/author_carpentry_kr/tutorial/reproducible_finance/shiny`
+- [비행기 vs 자동차 vs 배 인식](https://statkclee.github.io/deep-learning/r-keras-cnn.html) 
+
+.footnote[
+[xwMOOC, "이미지 분류 - 케라스(딥러닝)"](https://statkclee.github.io/data-product/shiny-image-classification.html)
+]
+
+
+---
+class: middle
+
+## R powered by AI
+
+- `author_carpentry_kr/tutorial/reproducible_finance/shiny/`
+- `author_carpentry_kr/tutorial/reproducible_finance/shiny/global.R`  
+- `author_carpentry_kr/tutorial/reproducible_finance/shiny/server.R`
+- `author_carpentry_kr/tutorial/reproducible_finance/shiny/ui.R`
+- `author_carpentry_kr/tutorial/reproducible_finance/shiny/www/*.jpg`
 
 ---
 background-image: url("fig/Avengers_Endgame_poster.jpg")
 background-position: 50% 50%
 class: center, bottom, inverse
 
-#  삼정 KPMG 채용 중 
+#  삼정 KPMG 인턴 채용 중 
 
 
 
