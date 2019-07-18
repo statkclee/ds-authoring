@@ -30,6 +30,7 @@ title: 데이터 과학을 위한 저작도구
     * [R 발표자료(Presentation)](ds-presn.html)
     * [보고서 자동화](ds-report-automation.html)
     * [블로그 - blogdown](ds-blogdown.html)
+    * [이력서(Resume)](ds-resume.html)
 1. [문서 프로그래밍 - 한글 LaTeX 사전준비](latex.html)
     * [한글 LaTeX 소개](latex-intro.html)
     * [한글 LaTeX 윈도우 설치](latex-install-windows.html)
