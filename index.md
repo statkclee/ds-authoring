@@ -38,6 +38,7 @@ title: 데이터 과학을 위한 저작도구
     * [한글 LaTeX 편집기](latex-utils.html)
     * [파이썬 스핑크스](latex-sphinx.html)
 1.  [데이터 과학 개발운영 아키텍처](devops-dev-vm-arch.html)
+    * [Github - 블로그](ds-github-blog.html)
     * [정적 웹서비스 개발 툴체인](devops-dev-vm.html) 
         * [윈도우 정적 웹서비스 개발 툴체인](devops-dev-vm-windows.html) 
     * [객체 저장소 FTP 배포(Deployment)](devops-ftp-object-storage.html)
