@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <title>Document Engineering and Digital Labor</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="데이터 과학자 이광춘" />
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/tidyverse.css" type="text/css" />
+    <link rel="stylesheet" href="css/tidyverse-fonts.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Document Engineering and Digital Labor
+## Market-Oriented Big Data &amp; IoT - 고려대
+### 데이터 과학자 이광춘
+### 2019년 8월 29월
+
+---
+
+
+
+
+## Market-Oriented Big Data &amp; IoT
+
+- 강의제목: "Document Engineering and Digital Labor"
+- 강의일시
+    - 2019년 8월 29일(목) 16:30 ~ 18:30
+- 강의장소: 고려대 Hyundai Motor Hall
+- 강의내용
+    - Document Engineering
+    - One Source Multi-Use: Authoring Automation
+    - Digital Labor
+    - RPA Software
+
+---
+class: inverse, middle, center
+
+## 데이터 과학자 1세대
+
+---
+## 데이터 과학자
+
+.pull-left[
+  &lt;img src="fig/victorlee-bizcard.png" alt="명함" width="100%" /&gt;
+]
+
+.pull-right[
+  &lt;iframe width="400" height="250" src="https://www.youtube.com/embed/K_TGdklC504" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+]
+
+.footnote[
+- 삼정 KPMG 데이터 과학자
+- 연세대학교 겸임교수, ["데이터 사이언스 입문"](https://statkclee.github.io/yonsei/)
+- [이광춘(2019) "데이터 사이언스, 타이디버스로 향하다", 마이크로소프트웨어 395호](http://it.chosun.com/site/data/html_dir/2019/01/29/2019012900392.html)
+- [데이터 사이언스 미트업 운영](https://tidyverse-korea.github.io/r-meetup-x-presser/)
+- [소프트웨어 카펜트리(Software Carpentry) 강사 (Kwangchun Lee)](https://carpentries.org/instructors/)
+- [Cloudera Conference 2018 - Seoul: 기계의 역습 - 설명가능한 기계학습](https://www.clouderasessionsseoul.com/agenda.php)
+]
+
+
+---
+class: inverse, left
+
+## Document Engineering and Digital Labor
+
+### Software Document
+
+.footnote[
+1. Software Document
+1. No More Microsoft Office 
+1. OSMU - R Markdown and friends
+1. Document Engineering
+1. Digital Labor
+1. RPA Software
+] 
+
+---
+## Online help framework - ACM 2007
+
+.pull-left[
+    &lt;img src="fig/korea-online-help-architecture.png" alt="Web Architecture" width="100%" /&gt;
+]
+
+.pull-right[
+    &lt;img src="fig/korea-online-help.png" alt="Online Help" width="100%" /&gt;
+]
+
+
+.footnote[ 
+[KwangChun Lee and Dan Hyung Lee, "An online help framework for web applications", SIGDOC '07 Proceedings of the 25th annual ACM international conference on Design of communication Pages 176-180, El Paso, Texas, USA — October 22 - 24, 2007 ](https://dl.acm.org/citation.cfm?id=1297179)
+]
+
+---
+## Hewlett-Packard Company
+
+- [Hewlett-Packard](https://en.wikipedia.org/wiki/Hewlett-Packard)
+- [List of acquisitions by Hewlett-Packard](https://en.wikipedia.org/wiki/List_of_acquisitions_by_Hewlett-Packard)
+- [Office Locations - HPE WW Office Locations](https://www.hpe.com/us/en/ww-office-locations.html)
+- [IT INFRASTRUCTURE PRODUCTS &amp; SOLUTIONS](https://www.hpe.com/us/en/products.html)
+
+---
+## Hewlett-Packard Company - ACM 2007
+
+.pull-left[
+    &lt;img src="fig/korea-rowland.png" alt="User Manuals" width="100%" /&gt;
+]
+
+.pull-right[
+    &lt;img src="fig/korea-hp-workflow.png" alt="HP Publishing System" width="100%" /&gt;
+]
+
+.footnote[ 
+[Kathy Haramundanis and Larry Rowland (Hewlett-Packard Company), "Experience paper: a content reuse documentation design experience", SIGDOC '07 Proceedings of the 25th annual ACM international conference on Design of communication Pages 229-233, El Paso, Texas, USA — October 22 - 24, 2007 ](https://dl.acm.org/citation.cfm?id=1297193)
+]
+
+---
+class: inverse, left
+
+## Document Engineering and Digital Labor
+
+### No More Microsoft Office 
+
+.footnote[
+1. ~~Software Document~~
+1. No More Microsoft Office 
+1. OSMU - R Markdown and friends
+1. Document Engineering
+1. Digital Labor
+1. RPA Software
+]
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();</script>
+
+<script>
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
