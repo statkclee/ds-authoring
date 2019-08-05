@@ -49,6 +49,8 @@ title: 데이터 과학을 위한 저작도구
     * [부작업(Sub-tasks)](doit-sub_tasks.html)
     * [분석결과가 최신상태인지 점검하기](doit-uptodate.html)
 1. **발표자료와 기고문**
+    1. [데이터 과학자의 클라우드 블로그](ds-blog-aws-cloud.html) 
+        - AWSKRUG - AWS한국사용자모임 (2019년 9월 5일)
     1. [Document Engineering and Digital Labor](ds-korea-univ-201908.html) 
         - 고려대 (2019년 8월 29일)
     1. [시빌워에서 아름다운 동행 R과 파이썬](ds-dataroom.html)
