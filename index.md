@@ -49,7 +49,7 @@ title: 데이터 과학을 위한 저작도구
     * [부작업(Sub-tasks)](doit-sub_tasks.html)
     * [분석결과가 최신상태인지 점검하기](doit-uptodate.html)
 1. **발표자료와 기고문**
-    1. [재현가능한 데이터 사이언스 - 자동화의 시작은 글쓰기](ds-digital-literacy.html) 
+    1. [글쓰기는 자동화의 시작 - 데이터 과학의 세계](ds-digital-literacy.html) - 재현가능한 데이터 사이언스 - 자동화의 시작은 글쓰기
         - "디지털 리터러시 특강", 한림대학교 임베디드 실습실 (2019년 9월 17일)
     1. [데이터 과학자의 클라우드 블로그](ds-blog-aws-cloud.html) 
         - AWSKRUG - AWS한국사용자모임 (2019년 9월 5일)

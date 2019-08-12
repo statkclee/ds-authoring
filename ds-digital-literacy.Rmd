@@ -1,7 +1,7 @@
 ---
 title: "디지털 리터러시 특강"
-subtitle: <small> "재현가능한 데이터 사이언스 - 자동화의 시작은 글쓰기" </small>
-author: <large> "데이터 과학자 이광춘" </large>
+subtitle: <small> "글쓰기는 자동화의 시작 - 데이터 과학의 세계" </small>
+author: <large> "이광춘 (삼정회계법인 상무)" </large>
 date: "2019년 9월 17일"
 output: 
   revealjs::revealjs_presentation:
