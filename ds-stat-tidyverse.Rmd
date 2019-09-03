@@ -1,7 +1,7 @@
 ---
 title: "데이터 사이언스 운영체제 - `tidyverse`"
 subtitle: "[한국통계학회 소식지](http://www.kss.or.kr/) 2019년 10월호"
-author: "이광춘 <br/> (<a href='https://home.kpmg/kr/ko/home.html'> 삼정 KPMG 상무</a>)"
+author: "이광춘 (<a href='https://home.kpmg/kr/ko/home.html'> 삼정 KPMG 상무</a>)"
 date: "`r Sys.Date()`"
 output:
   html_document: 
@@ -24,7 +24,7 @@ knitr::opts_chunk$set(echo = FALSE, warning=FALSE, message=FALSE,
 ```
 
 
-## 소프트웨어 패러다임의 변화 [^tidyverse-menifesto] {#data-science-paradigm}
+# 소프트웨어 패러다임의 변화 [^tidyverse-menifesto] {#data-science-paradigm}
 
 [^tidyverse-menifesto]: [Hadley Wickham (2017-11-13), "The tidy tools manifesto"](https://cran.r-project.org/web/packages/tidyverse/vignettes/manifesto.html)
 
@@ -43,7 +43,7 @@ knitr::opts_chunk$set(echo = FALSE, warning=FALSE, message=FALSE,
 Tidyverse 선언문(Tidy Tools Manifesto)을 직접 작성하여 웹사이트에 공개하였다.  
 
 
-## 깔끔한 데이터 사이언스 세상 {#data-science-process-tidyverse}
+# 깔끔한 데이터 사이언스 세상 {#data-science-process-tidyverse}
 
 해드리 위컴이 주장한 `tidyverse`(타이디버스, 깔끔한 세상)를 이해하기 위해서 필히 **유닉스 철학(Unix Philosophy)**에 대한 기본 지식이 필요하다.
 세상의 유일한 운영체제는 누구나 유닉스를 꼽고 있다. 사실 유닉스를 포크(fork) 떠서 만든 것이 마이크로소프트의 윈도우즈 운영체제다.
@@ -61,7 +61,7 @@ Tidyverse 선언문(Tidy Tools Manifesto)을 직접 작성하여 웹사이트에
 - 함수형 프로그래밍을 적극 사용: Embrace functional programming.
 - 기계가 아닌 인간을 위한 설계: Design for humans.
 
-## `tidyverse` 작업흐름 {#tidyverse-workflow}
+# `tidyverse` 작업흐름 {#tidyverse-workflow}
 
 이에 `tidyverse`는 그동안 R 팩키지를 개발하면서 축척된 경험과 노하우를 기반으로 R 설계 원칙을 재정립했다는 평가를 받고 있다.
 
@@ -72,7 +72,7 @@ Tidyverse 선언문(Tidy Tools Manifesto)을 직접 작성하여 웹사이트에
 시각화(Visualization)는 데이터에 대한 통찰력(insight)과 탄성, 놀라움을 줄 수 있지만, 확장성(Scalability) 측면에서는 한계가 명확하다. 이유는 사람이 데이터 분석 루프에 포함되기 때문이다. 반대로 모형(Model)은 자동화와 확장성에는 장점이 있지만, 주어진 모형틀안에서만 이뤄지기 때문에 통찰력, 놀라움, 탄성을 주지는 못하는 아쉬움이 있다. 
 
 
-## 함수형 프로그래밍 {#tidyverse-functional-programming}
+# 함수형 프로그래밍 {#tidyverse-functional-programming}
 
 시각화와 모형을 새로 개발하는데 별도 자료구조(data structure)를 다시 창조하는 대신에 가능하면 기존 자료구조를 재사용하는 것을 원칙으로 삼고 있다. `ggplot2`, `dplyr`, `tidyr`을 포함한 대다수 R 팩키지는 칼럼에 변수, 행에 관측점을 갖는 직사각형 형태 데이터셋을 가정하고 있다.  그리고, 일부 팩키지는 특정한 변수 자료형에 집중한다. `stringr`은 문자열, `lubridate`는 날짜/시간,`forcats`는 요인 자료형에 집중하고 있지만 모두 기존 자료구조 재사용을 염두에 두고 있는 것도 사실이다.
 
