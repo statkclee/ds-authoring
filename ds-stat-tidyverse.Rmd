@@ -23,6 +23,10 @@ knitr::opts_chunk$set(echo = FALSE, warning=FALSE, message=FALSE,
 
 ```
 
+최근 인기를 얻고 있는 기계학습(Machine Learning)이나 인공지능(AI)과는 별개로 몇년 전부터 
+RStudio의 해들리 위컴(Hadley Wickham) 박사는 `tidyverse`을 통해 데이터 사이언스를 새롭게 정의하는 시도를 하였고 많은 호응을 얻고 있다.
+만개가 넘는 R 팩키지가 개발되어 활용되다는 점은 긍정적지만, 각자의 설계원칙에 맞춰 제각기 개발되고 손을 바꿔 다른 사람들이 이어 받아 유지보수되면서 초기 세워진 설계원칙과 철학이 많이 무너진 점이 지속가능한 데이터 사이언스 발전을 가로막고 있는 커다란 장애물로 떠올랐고, 이를 가장 먼저 인지한 데이터 과학자 중 한명이 해들리 위컴이다.
+`tidyverse`는 수많은 기여자들의 도움을 받아 하들리 위캠이 오랜동안 나름대로의 방식으로 체계화시킨 것을 확대 발전 시킨 것으로 데이터 사이언스를 체계적으로 집대성하였다는 평가를 받고 있다. 특히, 데이터 과학자 및 데이터 실무자에게 큰 도움을 주었으며 어떻게 보면 데이터 사이언스 오픈소스 운동의 커다란 동력으로 받아들여지고 있다.
 
 # 패러다임의 변화 [^tidyverse-menifesto] {#data-science-paradigm}
 
@@ -153,14 +157,30 @@ R은 데이터를 위해 개발된 함수형 언어를 근본에 두고 있지�
 명시적이며 긴 명칭을 변수명, 함수명, 객체명에 사용하고, 짧은 명칭은 가장 중요한 이름으로 아껴서 사용한다. RStudio 소스 편집기의 자동완성기능을 사용하는 경우 접두어가 접미어보다 중요하다. 
 `stringr`, `xml2`, `rvest` 팩키지를 살펴보면 접두어에 일관된 명칭을 부여한 장점을 알 수 있다.
 
-# Split-Apply-Combine 전략 {#split-apply-combine}
+# `tidyverse` 사례: 분할-적용-병합(Split-Apply-Combine) 전략 {#split-apply-combine}
 
+전통적으로 R은 작은 데이터를 빠르게 탐색하는데 최적의 환경을 제공했는데,
+빅데이터도 많지 않았고, 지금과 같이 다양한 영역에서 폭넓고 깊이 있게 다룰 필요성이 없었던 것도 큰 이유가 된다. 하지만, 현재 상황은 빅데이터는 널려 있으며 컴퓨팅 자원을 클라우드와 HPC 서비스를 통해서 누구나 저렴한 비용으로 사용할 수 있게 되었다. 
 
+`tidyverse` 패러다임과 도구를 적극 도입할 경우 데이터 과학자가 다뤄야 되는 거의 모든 데이터를 원하는 방향으로 정제와 변환, 시각화, 모형개발, 실운영환경 배포를 할 수 있다.  빅데이터를 `tidyverse` 패러다임임을 적용하여 다음과 같이 접근할 수 있다.
 
-최근 인기를 얻고 있는 기계학습(Machine Learning)이나 인공지능(AI)과는 별개로 몇년 전부터 
-RStudio의 하들리 위캠(Hadley Wickham) 박사는 `tidyverse`을 통해 데이터 사이언스를 새롭게 정의하는 시도를 하였고 많은 호응을 얻고 있다.
-`tidyverse`는 수많은 기여자들의 도움을 받아 하들리 위캠이 오랜동안 나름대로의 방식으로 체계화시킨 것을 확대 발전 시킨 것으로 데이터 사이언스를 체계적으로 집대성하였다는 평가를 받고 있다. 특히, 데이터 과학자 및 데이터 실무자에게 큰 도움을 주었으며 어떻게 보면 데이터 사이언스 오픈소스 운동의 커다란 동력으로 받아들여지고 있다.
+- 빅데이터 문제 소규모 분석방법(Big Data-Small Analytics) : 요약/표본추출/부분집합 추출 (90%)
+- 병렬처리가 가능한 문제: 작은 데이터 문제로 쪼개서 분할 정복 (9%)
+- 빅데이터 문제 대규모 분석방법(Big Data-Large Scale Analytics): 더이상 어찌할 수 없는 큰 문제 데이터 (1%)
 
-R 언어 기반의 만개가 넘는 팩키지가 개발되어 활용되다는 점은 긍정적지만, 각자의 설계원칙에 맞춰 제각기 개발되고 손을 바꿔 다른 사람들이 이어 받아 유지보수되면서 초기 세워진 설계원칙과 철학이 많이 무너진 것도 사실이다. 
+빅데이터를 처리하는데 하둡과 스파크(Hadoop and Spark)를 기술적으로 검토하기 이전에 데이터를 다루게 되는 전략에 대한 부분을 생각하게 되면, 정보량을 잃지 않으면서 빅데이터를 요약하는 방법과 병렬처리 가능한 문제로 바꾸어서 클라우드 컴퓨팅 자원을 활용하여 처리할 수 있는 방법을 고려할 경우 거의 99%의 빅데이터 문제를 처리할 수 잇다.
+
+데이터 분석에서 흔히 사용되는 방법 중 하나가 **분할-적용-병합(Split-Apply-Combine)** 전략이다. 즉, 큰 문제를 작은 문제로 쪼개고 각 문제에 대해서 적절한 연산(예를 들어 요약통계량)을 취하고 이를 결합하는 방법이 많이 사용되는 방법이다. 예를 들어 [재현가능한 과학적 분석을 위한 R - "분할-적용-병합 전략"](https://statkclee.github.io/r-novice-gapminder/12-plyr-kr.html)에 나온 것처럼 각 그룹별로 쪼갠 후에 각 그룹별로 평균을 내고 이를 조합한 사례가 전반적인 큰 그림을 그리는데 도움이 될 수 있다. 여기서 평균을 사용했는데 요약(summarize) 뿐만 아니라, 윈도우 함수, 이를 일반화한 `do()` 함수도 포함된다. 이론적인 사항은 Hadley Wickham의 2011년 Journal of Statistical Software 에 실린 ["The Split-Apply-Combine Strategy for Data
+Analysis"](https://www.jstatsoft.org/article/view/v040i01/v40i01.pdf)를 참조한다.
+
+<img src="fig/split-apply-combine.png" alt="split apply combine" width="100%" />
+
+이와 같은 병렬처리 방식은 오랜기간 동안 잘 활용되었는데, 이제는 `tidyverse` 아래 `group_by` &rarr; `nest` &rarr; `mutate(map())`으로 수렴되고 있다. 자세한 적용 사례로 빅데이터를 가장 잘 활용하는 보건 통계학자로 잘 알려진 한스 로슬링의 `gapminder` 데이터셋을 활용한 [분할-적용-병합(Split-Apply-Combine) 전략](https://statkclee.github.io/parallel-r/r-parallel-split-apply-combine.html) 사례를 참조하기 바란다.
+
+- 선사시대 Split-Apply-Combine: split, lapply, do.call(rbind, …)
+- 석기시대(plyr) Split-Apply-Combine: plyr::ddply
+- 초기 tidyverse 시대 Split-Apply-Combine: group_by, do
+- 중기 tidyverse 시대 Split-Apply-Combine: group_by & by_slice
+- 현대 tidyverse 시대 Split-Apply-Combine: group_by, nest, mutate(map())
 
 
