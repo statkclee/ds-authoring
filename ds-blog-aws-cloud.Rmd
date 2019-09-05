@@ -1,7 +1,7 @@
 ---
 title: "데이터 과학자의 클라우드 블로그"
 subtitle: "GitHub &rarr; AWS S3"
-author: "데이터 과학자 이광춘"
+author: "삼정 KPMG 이광춘 <br> We're Hiring!!!"
 date: "2019년 9월 5월"
 output:
   xaringan::moon_reader:
