@@ -87,11 +87,10 @@ output:
 
 # Document AI
 
-## 이력서
-
-- [데이터 사이언스: 저작(Authoring) - 이력서(Resume)](https://statkclee.github.io/ds-authoring/ds-resume.html)
+## 반정형 문서 - 이력서
+- [데이터 사이언스: 저작(Authoring) -이력서(Resume)](https://statkclee.github.io/ds-authoring/ds-resume.html)
 - [데이터 과학: 재현가능한 저작 - 이력서](https://statkclee.github.io/author_carpentry_kr/)
-    - 영문 이력서
+
 
 # 마치며
 
