@@ -49,6 +49,8 @@ title: 데이터 과학을 위한 저작도구
     * [부작업(Sub-tasks)](doit-sub_tasks.html)
     * [분석결과가 최신상태인지 점검하기](doit-uptodate.html)
 1. **발표자료와 기고문**
+    1. [문서를 이해하는 AI](ds-document-ai.html)
+        - 데이터 사이언스 미트업 시즌2 (2019-09-18, 스파크 플러스 역삼점)
     1. [데이터 사이언스 운영체제 - `tidyverse`](ds-stat-tidyverse.html)
         - 한국통계학회 소식지 (2019년 10월호)
     1. [글쓰기는 자동화의 시작 - 데이터 과학의 세계](ds-digital-literacy.html) - 재현가능한 데이터 사이언스 - 자동화의 시작은 글쓰기
