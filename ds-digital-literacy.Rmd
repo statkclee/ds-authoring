@@ -17,6 +17,11 @@ output:
     - [Cloudera Conference 2018: 설명가능한 기계학습](https://www.clouderasessionsseoul.com/agenda.php)
 ]
 
+## 특강 안내
+
+<img src="fig/digital_literacy.jpeg" alt="" width="45%" />
+
+
 ## 특강 개요
 
 - 강의 목차
