@@ -29,7 +29,8 @@ knitr::opts_chunk$set(echo = FALSE, warning=FALSE, message=FALSE,
 최근 인기를 얻고 있는 기계학습(Machine Learning)이나 인공지능(AI)과는 별개로 몇년 전부터 
 RStudio의 해들리 위컴(Hadley Wickham) 박사는 `tidyverse`을 통해 데이터 사이언스를 새롭게 정의하는 시도를 하였고 많은 호응을 얻고 있었고, 얼마전 통계학의 노벨상이라고 불리는 COPSS 상을 해들리 위컴이 수상하면서 순수 이론 중심의 통계학도 데이터 사이언스를 적극 포용하는 시작을 공식적으로 알리는 계기가 되었다.  
 
-<img src="fig/tidyvese_os.png" alt="tidyverse 운영체제" width="77%" />
+![tidyverse 운영체제](fig/tidyvese_os.png){#id .class width=50% height=50%}
+<!-- <img src="fig/tidyvese_os.png" alt="tidyverse 운영체제" width="77%" /> -->
 
 # 패러다임의 변화 [^tidyverse-menifesto] {#data-science-paradigm}
 
@@ -77,7 +78,9 @@ Tidyverse 선언문(Tidy Tools Manifesto)을 직접 작성하여 웹사이트에
 반대로 모형(Model)은 자동화와 확장성에는 장점이 있지만, 주어진 모형틀 안에서만 이뤄지기 때문에 통찰력, 놀라움, 탄성을 주지는 못하는 아쉬움이 있다.
 따라서, `tidyverse`는 시각화와 모형을 통해 통찰력과 함께 자동화에 대한 부분도 충분히 반영한 체계적인 작업흐름을 제시하고 있는데, 이를 관통하는 핵심적인 개념이 파이프(pipe)로 이미 이런 개념은 유닉스 파이프 연산자를 통해 검증되었다. 
 
-<img src="fig/maso_tidyverse.png" alt="Tidyverse 데이터 사이언스 작업흐름" width="100%" />
+![Tidyverse 데이터 사이언스 작업흐름](fig/maso_tidyverse.png){#id .class width=100%}
+
+<!-- <img src="fig/maso_tidyverse.png" alt="Tidyverse 데이터 사이언스 작업흐름" width="100%" /> -->
 
 ## 깔끔한 데이터 {#tidy-data}
 
@@ -157,7 +160,8 @@ R은 데이터를 위해 개발된 함수형 언어를 근본에 두고 있지�
 [재현가능한 과학적 분석을 위한 R - "분할-적용-병합 전략"](https://statkclee.github.io/r-novice-gapminder/12-plyr-kr.html)에 나온 것처럼 각 그룹별로 쪼갠 후에 각 그룹별로 평균을 내고 이를 조합한 사례가 전반적인 큰 그림을 그리는데 도움이 될 수 있다. 여기서 평균을 사용했는데 요약(summarize) 뿐만 아니라, 윈도우 함수, 이를 일반화한 `do()` 함수로도 넓힐 수 있다. 이론적인 사항은 Hadley Wickham의 2011년 Journal of Statistical Software 에 실린 ["The Split-Apply-Combine Strategy for Data
 Analysis"](https://www.jstatsoft.org/article/view/v040i01/v40i01.pdf)를 참조한다.
 
-<img src="fig/split-apply-combine.png" alt="split apply combine" width="100%" />
+![분할-적용-병합(Split-Apply-Combine) 전략](fig/split-apply-combine.png){#id .class width=100%}
+<!-- <img src="fig/split-apply-combine.png" alt="split apply combine" width="100%" /> -->
 
 이와 같은 병렬처리 방식은 오랜기간 동안 잘 활용되었는데, 이제는 `tidyverse` 아래 `group_by` &rarr; `nest` &rarr; `mutate(map())`으로 수렴되고 있다. 자세한 적용 사례로 빅데이터를 가장 잘 활용하는 보건 통계학자로 잘 알려진 한스 로슬링의 `gapminder` 데이터셋을 활용한 [분할-적용-병합(Split-Apply-Combine) 전략](https://statkclee.github.io/parallel-r/r-parallel-split-apply-combine.html) 사례를 참조하기 바란다.
 
