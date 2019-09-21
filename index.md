@@ -49,6 +49,8 @@ title: 데이터 과학을 위한 저작도구
     * [부작업(Sub-tasks)](doit-sub_tasks.html)
     * [분석결과가 최신상태인지 점검하기](doit-uptodate.html)
 1. **발표자료와 기고문**
+    1. [4차산업혁명과 대한민국 혁신성장 활로모색](ds-4th-ir.html)
+        - 국회의원회관 제8간담회실 (2019-10-07)
     1. [문서를 이해하는 AI](ds-document-ai.html)
         - 데이터 사이언스 미트업 시즌2 (2019-09-18, 스파크 플러스 역삼점)
     1. [데이터 사이언스 운영체제 - `tidyverse`](ds-stat-tidyverse.html)
