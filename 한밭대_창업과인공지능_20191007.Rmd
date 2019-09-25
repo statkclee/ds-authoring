@@ -78,25 +78,8 @@ class: inverse, middle, center
 
     - 소프트웨어 공학 &rArr; [소프트웨어 카펜트리 5.3](http://statkclee.github.io/swcarpentry-version-5-3-new/)
     
-    - 데이터 사이언스 &rArr; [데이터 사이언스 입문](http://statkclee.github.io/yonsei/), [SW4DS](http://statkclee.github.io/yonsei2/)
+    - [추가] 데이터 사이언스 &rArr; [데이터 사이언스 입문](http://statkclee.github.io/yonsei/), [SW4DS](http://statkclee.github.io/yonsei2/)
 
----
-## xwMOOC 해법
-
-
-- 한국인을 위한 컴퓨팅 사고력 교육 서비스를 제공
-
-- 전국민이 컴퓨터 공학, 통계학, 전자공학 학사가 필요
-
-    - 초등(K6) &rArr; [컴퓨터 과학 언플러그드](http://statkclee.github.io/unplugged)  
-
-    - 리보그와 러플	&rArr; 	[리보그 - 프로그래밍과 문제해결](https://statkclee.github.io/code-perspectives/)  
-
-    - 파이썬 &rArr; [정보과학을 위한 파이썬](https://statkclee.github.io/pythonlearn-kr/)  
-
-    - 소프트웨어 공학 &rArr; [소프트웨어 카펜트리 5.3](http://statkclee.github.io/swcarpentry-version-5-3-new/)
-    
-    - 통계(데이터과학) &rArr; [데이터 과학](https://statkclee.github.io/data-science/)
 
 ---
 ## 가치 제안(Value Proposition)
@@ -110,6 +93,12 @@ class: inverse, middle, center
 - 새로운 문제를 해결에 매진
 
 - HPC, 클라우드, 빅데이터에 대한 준비 ...
+
+- [추가] 인당 초당 1.7 MB 데이터 생성 등... 
+
+.footnote[
+[Christo Petrov (March 22, 2019), "Big Data Statistics 2019", techjury](https://techjury.net/stats-about/big-data-statistics/)
+]
 
 ---
 ## 기계와 경쟁을 준비하는 한국인
@@ -139,7 +128,7 @@ class: inverse, middle, center
 ## 사고체계의 진화
 
 .center[
-  <img src="fig/ai-lab-ct-4th-paradigm.png" width="50%" />
+  <img src="fig/ai-lab-ct-4th-paradigm.png" width="70%" />
 ]
 
 - 수학적 사고(Mathematical Thinking)
@@ -162,18 +151,46 @@ class: inverse, middle, center
 ]
 
 ---
-
 ## 자동차 클러스터 사례
 
 .center[
-  <img src="fig/ai-digital-cluster.png" width="87%" />
+  <img src="fig/ai-digital-cluster.png" width="100%" />
 ]
+
+---
+## 컴퓨터 생성
+
+.pull-left[
+#### 물리적 컴퓨터
+
+<img src="fig/computer-mainbody.jpg" width="100%" />
+]
+
+.pull-right[
+
+#### 가상 컴퓨터(instance, VM)
+
+```{r aws-ec2-code, eval=FALSE}
+import boto3
+ec2 = boto3.resource('ec2')
+
+instances = ec2.create_instances(
+     ImageId='ami-00b6a8a2bd28daf19',
+     MinCount=1,
+     MaxCount=2,
+     InstanceType='t2.micro',
+     KeyName='ec2-keypair'
+ )
+```
+
+ t2.micro, t2.small, m5.large ...
+]
+
 
 ---
 class: inverse, middle, center
 
-# 시장의 변화
-
+# 시장, 기업, 인력 비교
 
 
 ---
@@ -213,31 +230,76 @@ class: inverse, middle, center
 ## RPA (Robotic Process Automation)
 
 - 로봇과 자동화가 인간의 일자리를 빼앗아 간다는 부정적인 전망도 있지만, 로봇 프로세스 자동화(RPA)는 반복적이고 평범한 작업을 로봇이 하게 해 조직의 시간을 절약해 준다.
+
 - RPA 업체 
-    - 오토메이션 애니웨어(Automation Anywhere)
-    - 유아이패스(UiPath)
-    - 엣지버브(EdgeVerve)
-    - 블루프리즘(Blue Prism)
+
+    - [오토메이션 애니웨어(Automation Anywhere)](https://www.automationanywhere.com/)
+
+    - [유아이패스(UiPath)](https://www.uipath.com/)
+
+    - [엣지버브(EdgeVerve)](https://www.edgeverve.com/)
+
+    - [블루프리즘(Blue Prism)](https://www.blueprism.com/)
 
 .footnote[
 ["RPA란? 어디에 어떻게 쓰이고 누가 만드나?"](http://www.ciokorea.com/news/39027#csidx3e0255b4236eca9ba5d631db45ce667)
 ]
 
 ---
+## 왜 RPA인가?
+
+<img src="fig/rpa-sourcing.png" alt="AA" width="100%" />
+
+.footnote[
+출처: Kinetics consulting services / Deloitte Korea, Automation Anywhere Korea 발표자료.
+]
+
+
+---
+## RPA - 시민 데이터 과학자
+
+<img src="fig/rpa_email.png" alt="시민 데이터 과학자" width="100%" />
+
+.footnote[
+- [xwMOOC 데이터 제품 - 전자우편 보고서 발송 자동화](https://statkclee.github.io/data-product/cron-automation.html)
+- [R을 활용한 Rpa 예제 - "네이버 금융 주요 시장지표 수집 및 이메일 발송"](https://mrkevinna.github.io/R%EC%9D%84-%ED%99%9C%EC%9A%A9%ED%95%9C-RPA-%EC%98%88%EC%A0%9C/)
+]
+
+---
+## RPA - 상업용 제품
+
+#### 동영상: [AUTOMATION ANYWHERE'S IT-ACCLAIMED ARCHITECTURE](https://goo.gl/4J94Hc)
+
+---
 class: inverse, middle, center
 
 # 디지탈 경제
 
+
 ---
-## 인공지능과 데이터
+## 데이터를 산업화
 
-<img src="fig/ds-industry.png" alt="데이터를 산업화" width="77%" />
+<img src="fig/ds-industry.png" alt="데이터를 산업화" width="67%" />
 
+.footnote[
+[4차산업혁명과 대한민국 혁신성장 활로모색 - "데이터 자원과 사이언스와 엔지니어링 그리고 사업화"](https://statkclee.github.io/ds-authoring/ds-4th-ir.html)
+]
 
 ---
 class: inverse, middle, center
 
 # 인공지능 = 데이터 + 슈퍼컴퓨터
+
+.footnote[
+벤처 창업을 위해서 알아야 되는 인공지능관련 기본 지식
+]
+
+---
+## AI/ML/통계
+
+.center[
+  <img src="fig/ai-ml-statistics.png" alt="AI > ML > Statistics" alt="100%" />
+]
 
 ---
 ## 인공지능과 데이터
@@ -247,7 +309,18 @@ class: inverse, middle, center
 ]
 
 ---
-## 왜 슈퍼컴퓨터를 알아야 하나?
+## 소프트웨어 1.0과 2.0
+
+.center[
+  <img src="fig/programming_machine_learning_comparison.png" width="80%">
+]
+
+.footnote[
+   [궁극의 주인이 될 알고리즘(Master Algorithm)](https://statkclee.github.io/ai-lab/master-algorithm.html)
+]
+
+---
+## 컴퓨터: 왜 슈퍼컴퓨터를 알아야 하나?
 
 .center[
   <img src="fig/CPU-Scaling.jpg" width="50%">
@@ -259,7 +332,7 @@ class: inverse, middle, center
 
 
 ---
-## 고성능 컴퓨팅 기초
+## 컴퓨터: 고성능 컴퓨팅 기초
 
 - 병렬 컴퓨팅 
     - 동시 실행과 병렬 실행
@@ -277,7 +350,7 @@ class: inverse, middle, center
 ]
 
 ---
-## 딥러닝(Deep Learning)
+## 알고리즘: 딥러닝(Deep Learning)
 
 .center[
   <img src="fig/three-pillars.png" width="90%">
@@ -287,27 +360,27 @@ class: inverse, middle, center
    [xwMOOC 딥러닝과 $H_2 O$](http://statkclee.github.io/deep-learning/)
 ]
 
-
 ---
-## 통계와 인공지능
+## 데이터: 빅데이터 (Big data)
 
 .center[
-  <img src="fig/programming_machine_learning_comparison.png" width="80%">
+  <img src="fig/intree-xy-f.png" alt="정형데이터와 비정형 데이터, 그리고 기계학습" width="90%">
 ]
+
 
 .footnote[
-   [궁극의 주인이 될 알고리즘(Master Algorithm)](https://statkclee.github.io/ai-lab/master-algorithm.html)
+- [데이터 가져오기](https://statkclee.github.io/ingest-data/)
+    - [직사각형 데이터](https://statkclee.github.io/data-science/)
+    - [텍스트 데이터](https://statkclee.github.io/text/)
+    - [네트워크 데이터](https://statkclee.github.io/network/)
+    - [지리정보 데이터](https://statkclee.github.io/spatial/)
+    - [이미지 데이터](https://statkclee.github.io/trilobite/)
+    - 오디오/소리 데이터
+    - ...
 ]
 
-
-
 ---
-class: inverse, middle, center
-
-# 인공지능 제품 
-
----
-## 소프트웨어/데이터 진화
+## 소프트웨어 기술
 
 .center[
   <img src="fig/software-evolution.png" width="90%">
@@ -316,6 +389,12 @@ class: inverse, middle, center
 .footnote[
    [xwMOOC 고성능 컴퓨팅(HPC) - 컴파일, 설치, 호출](https://statkclee.github.io/hpc/compile-install-call.html)
 ]
+
+
+---
+class: inverse, middle, center
+
+# 인공지능 제품 
 
 ---
 class: middle, center
@@ -346,16 +425,18 @@ class: middle, center
 ]
 
 ---
-class: middle, center
+## 반정형 데이터 - 이력서
 
-[xwMOOC R Meetup](https://github.com/KaggleBreak/xwmooc_Rmeetup)
+.center[
+<img src="fig/resume-rpa.png" alt="이력서" width="100%" />
+]
+
 
 .footnote[
-- [키워드 추출: http://sgcslab.com:4500/](http://sgcslab.com:4500/)
-- [문장요약: http://sgcslab.com:3000/](http://sgcslab.com:3000/)
-- [카테고리 분류: http://52.78.25.65:7777/](http://52.78.25.65:7777/)
-- [긍부정: http://moya.ai/sentiment](http://moya.ai/sentiment)
+- [데이터 사이언스: 저작(Authoring) - "이력서(Resume)"](https://statkclee.github.io/ds-authoring/ds-resume.html)
+- [데이터 과학: 재현가능한 저작 - 이력서](https://statkclee.github.io/author_carpentry_kr/)
 ]
+
 
 ---
 ## [얼굴 분석 - Face Analysis](https://itunes.apple.com/kr/app/%EC%96%BC%EA%B5%B4-%EB%B6%84%EC%84%9D-face-analysis/id1290130969?mt=8)
@@ -375,6 +456,14 @@ class: middle, center
     - [Azure Computer Vision API: Generate image captions with the Computer Vision API](http://blog.revolutionanalytics.com/2018/03/computer-vision-api.html)
 ]
 
-.footnote[
-  창업은 중요합니다.
-]
+---
+class: inverse, middle, center
+
+# 마무리
+
+---
+class: middle, center
+
+[데이터 사이언스 R Meetup](https://tidyverse-korea.github.io/r-meetup-x-presser/)
+
+
