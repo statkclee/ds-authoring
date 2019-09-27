@@ -25,17 +25,11 @@ class: inverse, middle, center
 ## 기계와 경쟁을 준비하는 한국인
 
 .center[
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/PcXLYOMnhd0" frameborder="0" allow="autoplay;     encrypted-media" allowfullscreen></iframe>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/N25z8Ewpaus" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 ]
 
 ---
-## 자동차 클러스터 사례
 
-.center[
-  <img src="fig/ai-digital-cluster.png" width="87%" />
-]
-
----
 ## 가치(Value) 원천
 
 .center[
@@ -49,7 +43,7 @@ class: inverse, middle, center
 ## 사고체계의 진화
 
 .center[
-  <img src="fig/ai-lab-ct-4th-paradigm.png" width="50%" />
+  <img src="fig/ai-lab-ct-4th-paradigm.png" width="70%" />
 ]
 
 - 수학적 사고(Mathematical Thinking)
@@ -64,18 +58,48 @@ class: inverse, middle, center
 
 
 ---
+
 ## 4번째 패러다임
 
 .center[
   <img src="fig/ai-lab-4th-paradigm.png" width="100%" />
 ]
 
+---
+## 자동차 클러스터 사례
+
+.center[
+  <img src="fig/ai-digital-cluster.png" width="100%" />
+]
 
 ---
-class: inverse, middle, center
+## 컴퓨터 생성
 
-# 시장의 변화
+.pull-left[
+#### 물리적 컴퓨터
 
+<img src="fig/computer-mainbody.jpg" width="100%" />
+]
+
+.pull-right[
+
+#### 가상 컴퓨터(instance, VM)
+
+```{r aws-ec2-code, eval=FALSE}
+import boto3
+ec2 = boto3.resource('ec2')
+
+instances = ec2.create_instances(
+     ImageId='ami-00b6a8a2bd28daf19',
+     MinCount=1,
+     MaxCount=2,
+     InstanceType='t2.micro',
+     KeyName='ec2-keypair'
+ )
+```
+
+ t2.micro, t2.small, m5.large ...
+]
 
 ---
 ## 수직적 시장 &rarr; 인공지능 시장
@@ -85,12 +109,11 @@ class: inverse, middle, center
 ]
 - 수직적(Vertical) 시장 &rarr; 플랫폼(Platform) 시장 &rarr; 인공지능(AI) 마켓으로
 
----
-## 한국 기업(?) vs. AI기반 기업
 
-.center[
-  <img src="fig/stat-data-science.png" width="100%" />
-]
+---
+class: inverse, middle, center
+
+# 취업/채용
 
 ---
 ## 산업역군(?)
@@ -105,21 +128,79 @@ class: inverse, middle, center
   [MATT RICHTEL, "Reading, Writing, Arithmetic, and Lately, Coding"", The New York Time,  MAY 10, 2014](http://www.nytimes.com/2014/05/11/us/reading-writing-arithmetic-and-lately-coding.html)
 ]
 
+---
+## 계급을 나누는 기준 - 데이터
+
+.center[
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/hL9uk4hKyg4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+]
+
+---  
+
+“고대에는 ’땅’이 가장 중요했고 땅이 소수에게 집중되자 인간은 귀족과 평민으로 구분됐으며, 근대에는 ’기계’가 중요해지면서 기계가 소수에게 집중되자 인간은 자본가와 노동자 계급으로 구분됐다”. 이제는 데이터가 또 한번 인류를 구분하는 기준이 될 것이다. 향후 데이터가 소수에게 집중되면 단순 계급에 그치는 게 아니라 **데이터**를 가진 종과 그렇지 못한 종으로 분류될 것이이다. - 유발 하라리(Yuval Noah Harari)
+
+---
+## AWS Data Science Meetup
+
+- 강의제목: "데이터 과학자의 클라우드 블로그"
+- 강의일시
+    - 2019년 9월 5일(목) 19:30 ~
+- 강의장소: GS강남타워 역삼동 GS타워 12층 
+- 강의내용
+    - 데이터 과학자 vs. 개발자
+    - 데이터 과학자의 블로그
+    - Github 블로그
+    - 데이터 사이언스 블로그: `blogdown`, netlify
+    - AWS 블로그: S3, Route 53
+
+.footnote[
+[데이터 과학자의 클라우드 블로그](https://statkclee.github.io/ds-authoring/ds-blog-aws-cloud.html#1)
+]
 
 ---
 class: inverse, middle, center
 
-# 인공지능 = 데이터 + 슈퍼컴퓨터
+# 디지탈(Digital) 경제
 
 ---
-## 인공지능과 데이터
+## 21세기 원유 데이터
+
+<img src="fig/ds-industry.png" alt="데이터를 산업화" width="67%" />
+
+.footnote[
+[4차산업혁명과 대한민국 혁신성장 활로모색 - "데이터 자원과 사이언스와 엔지니어링 그리고 사업화"](https://statkclee.github.io/ds-authoring/ds-4th-ir.html)
+]
+
+---
+## AI/ML/통계 - 들어가며
+
+.center[
+  <img src="fig/ai-ml-statistics.png" alt="AI > ML > Statistics" alt="100%" />
+]
+
+---
+## 한걸음 더 들어갑니다 - 인공지능(AI) 
 
 .center[
   <img src="fig/maum.png" alt="AI 플랫폼 서비스" alt="100%" />
 ]
 
 ---
-## 왜 슈퍼컴퓨터를 알아야 하나?
+## 소프트웨어 1.0과 2.0
+
+- 소프트웨어 1.0: 사람이 직접 규칙(Rule)을 작성하여 똑똑한 시스템 개발
+- 소프트웨어 2.0: 데이터에서 딥러닝 알고리즘을 활용하여 기계가 알고리즘(Algorithm)을 만듦 
+
+.center[
+  <img src="fig/programming_machine_learning_comparison.png" width="80%">
+]
+
+.footnote[
+   [궁극의 주인이 될 알고리즘(Master Algorithm)](https://statkclee.github.io/ai-lab/master-algorithm.html)
+]
+
+---
+## 컴퓨터: 왜 슈퍼컴퓨터를 알아야 하나?
 
 .center[
   <img src="fig/CPU-Scaling.jpg" width="50%">
@@ -131,7 +212,7 @@ class: inverse, middle, center
 
 
 ---
-## 고성능 컴퓨팅 기초
+## 컴퓨터: 고성능 컴퓨팅 기초
 
 - 병렬 컴퓨팅 
     - 동시 실행과 병렬 실행
@@ -149,7 +230,7 @@ class: inverse, middle, center
 ]
 
 ---
-## 딥러닝(Deep Learning)
+## 알고리즘: 딥러닝(Deep Learning)
 
 .center[
   <img src="fig/three-pillars.png" width="90%">
@@ -159,49 +240,41 @@ class: inverse, middle, center
    [xwMOOC 딥러닝과 $H_2 O$](http://statkclee.github.io/deep-learning/)
 ]
 
-
 ---
-## 프로그래밍과 기계학습 차이
+## 데이터: 빅데이터 (Big data)
 
 .center[
-  <img src="fig/programming_machine_learning_comparison.png" width="80%">
+  <img src="fig/intree-xy-f.png" alt="정형데이터와 비정형 데이터, 그리고 기계학습" width="90%">
+]
+
+
+.footnote[
+- [데이터 가져오기](https://statkclee.github.io/ingest-data/)
+    - [직사각형 데이터](https://statkclee.github.io/data-science/)
+    - [텍스트 데이터](https://statkclee.github.io/text/)
+    - [네트워크 데이터](https://statkclee.github.io/network/)
+    - [지리정보 데이터](https://statkclee.github.io/spatial/)
+    - [이미지 데이터](https://statkclee.github.io/trilobite/)
+    - 오디오/소리 데이터
+    - ...
+]
+
+---
+## 복잡성을 이겨내는 소프트웨어 기술
+
+.center[
+  <img src="fig/software-evolution.png" width="90%">
 ]
 
 .footnote[
-   [궁극의 주인이 될 알고리즘(Master Algorithm)](https://statkclee.github.io/ai-lab/master-algorithm.html)
+   [xwMOOC 고성능 컴퓨팅(HPC) - 컴파일, 설치, 호출](https://statkclee.github.io/hpc/compile-install-call.html)
 ]
-
 
 
 ---
 class: inverse, middle, center
 
-# 인공지능 제품 
-### 한국형 스타트업 인공지능 제품 개발
-
----
-## 계급을 나누는 기준 - 데이터
-
-.center[
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/7Xs3auqcX7k" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-]
-
----  
-
-“고대에는 ’땅’이 가장 중요했고 땅이 소수에게 집중되자 인간은 귀족과 평민으로 구분됐으며, 근대에는 ’기계’가 중요해지면서 기계가 소수에게 집중되자 인간은 자본가와 노동자 계급으로 구분됐다”. 이제는 데이터가 또 한번 인류를 구분하는 기준이 될 것이다. 향후 데이터가 소수에게 집중되면 단순 계급에 그치는 게 아니라 **데이터**를 가진 종과 그렇지 못한 종으로 분류될 것이이다. - 유발 하라리(Yuval Noah Harari)
-
----
-class: middle, center
-
-[xwMOOC R Meetup](https://github.com/KaggleBreak/xwmooc_Rmeetup)
-
-.footnote[
-- [키워드 추출: http://sgcslab.com:4500/](http://sgcslab.com:4500/)
-- [문장요약: http://sgcslab.com:3000/](http://sgcslab.com:3000/)
-- [카테고리 분류: http://52.78.25.65:7777/](http://52.78.25.65:7777/)
-- [긍부정: http://moya.ai/sentiment](http://moya.ai/sentiment)
-]
-
+# 기계학습 / 제품 개발 
 
 ---
 ## [얼굴 분석 - Face Analysis](https://itunes.apple.com/kr/app/%EC%96%BC%EA%B5%B4-%EB%B6%84%EC%84%9D-face-analysis/id1290130969?mt=8)
@@ -226,18 +299,19 @@ class: middle, center
 ]
 
 ---
-## 소프트웨어/데이터 진화
+## 기계가 인식하는 사물
 
-.center[
-  <img src="fig/software-evolution.png" width="90%">
-]
+- [사진속 객체 인식 - 작업흐름](https://statkclee.github.io/sw4ds/sw4ds-keras-image-object.html)
+    - 국문: `~swc/author_carpentry_kr/tutorial/reproducible_finance/shiny`
+    - 영문: `~swc/author_carpentry_kr/tutorial/reproducible_finance/shiny`
+- [비행기 vs 자동차 vs 배 인식](https://statkclee.github.io/deep-learning/r-keras-cnn.html) 
 
 .footnote[
-   [xwMOOC 고성능 컴퓨팅(HPC) - 컴파일, 설치, 호출](https://statkclee.github.io/hpc/compile-install-call.html)
+[xwMOOC, "이미지 분류 - 케라스(딥러닝)"](https://statkclee.github.io/data-product/shiny-image-classification.html)
 ]
 
 ---
-## 클라우드 API 호출
+## [API] 클라우드 API 호출
 
 <br>
 <br>
@@ -250,6 +324,45 @@ class: middle, center
 .footnote[
   [고성능 컴퓨팅(HPC) 컴파일, 설치, 호출](http://statkclee.github.io/hpc/compile-install-call.html)
 ]
+
+---
+## [API] 데이터 사이언스와 API 프로그래밍
+
+- 들어가며: 코드 몇줄로 엄청난 생산성!!!
+    - [데이터 과학 – 기초 통계, `tidycensus` 기초](https://statkclee.github.io/statistics/tidycensus-basic.html)
+- 웹크롤링과 API 비교
+    - [데이터 과학 – 기초 통계, `kosis`와 `tidycensus` 비교](https://statkclee.github.io/statistics/tidycensus-kosis-comparison.html)
+- 유료와 무료    
+    - [공간통계를 위한 데이터 사이언스, "지리정보 API - 주소와 위도경도"](https://statkclee.github.io/spatial/geo-info-lonlat.html)
+- AI 인공지능
+    - [xwMOOC 딥러닝, "텍스트와 이미지 API"](https://statkclee.github.io/deep-learning/ms-text-image.html)
+    - [구글 클라우드 비젼 API](https://statkclee.github.io/deep-learning/r-google-vision-api.html)
+    - [xwMOOC 딥러닝 - "IBM 왓슨"](https://statkclee.github.io/deep-learning/r-watson.html)
+    - [유튜브 - "알릴레요 vs. 홍카콜라 - 댓글 분류"](https://statkclee.github.io/text/nlp-youtube-comment.html)
+
+.footnote[ 
+- [안상선 M로보 대표 "MVP는 경운기 만드는 과정"](https://mirakle.mk.co.kr/view.php?year=2019&no=209240)
+- [이광춘 (2019-04-04), "'뉴스 데이터'라고 읽고 '텍스트 데이터'로 분석하여 사례 만들기"](https://statkclee.github.io/ds-authoring/ds_kpf.html), 한국언론진흥재단, “2019 뉴스빅데이터 해커톤 개최”
+]
+
+---
+## [API] 한영 번역 
+
+- [데이터 사이언스를 위한 소프트웨어 공학, "파파고 API - 한영번역"](https://statkclee.github.io/sw4ds/sw4ds-api-papago-translation.html)
+
+```{python show-translation, echo=TRUE, eval=FALSE}
+$ curl "https://openapi.naver.com/v1/papago/n2mt" \
+  -H "Content-Type: application/x-www-form-urlencoded; charset=UTF-8" \
+  -H "X-Naver-Client-Id: zRsZRLqoDEYE1AufliHS" \
+  -H "X-Naver-Client-Secret: i5n4wY0ZLi" \
+  -d "source=ko&target=en&text=만나서 반갑습니다." -v
+
+* Connection #0 to host openapi.naver.com left intact
+{"message":{"@type":"response","@service":"naverservice.nmt.proxy",
+"@version":"1.0.0","result":{"srcLangType":"ko","tarLangType":"en",
+"translatedText":"Nice to meet you."}}}
+```
+
 
 ---
 ## 데이터 저널리즘
@@ -299,3 +412,14 @@ class: middle, center
 - **클라우드 API**
     - [국회의원 사진 - MS 애저 Computer Vision API](https://statkclee.github.io/deep-learning/ms-azure-computer-vision.html) 
 
+---
+## Document Engineering
+
+.center[
+<img src="fig/df-pdf-df.png" alt="Dataframe to PDF back to Dataframe" width="100%" />
+]
+
+.footnote[
+- [영문 이력서: PDF &rarr; 데이터프레임](https://statkclee.github.io/author_carpentry_kr/df-pdf-df.html)
+- [영문 이력서: 데이터프레임 &rarr; PDF](https://statkclee.github.io/author_carpentry_kr/df-pdf.html)
+]
