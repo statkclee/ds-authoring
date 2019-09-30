@@ -1,0 +1,98 @@
+---
+title: "데이터 과학"
+subtitle: <small> "Data Science" </small>
+author: <large> "이광춘 (삼정 KPMG)" </large>
+date: "2019년 10월 26일"
+output: 
+  revealjs::revealjs_presentation:
+    center: true
+---
+
+
+# 데이터(Data)
+
+## 원재료 데이터
+
+- [직사각형 데이터](https://statkclee.github.io/data-science/)
+- [텍스트 데이터](https://statkclee.github.io/text/)
+- [네트워크 데이터](https://statkclee.github.io/network/)
+- [지리정보 데이터](https://statkclee.github.io/spatial/)
+- [이미지 데이터](https://statkclee.github.io/trilobite/)
+- 오디오/소리 데이터
+- ...
+
+## 빅데이터
+
+|       구분     |               데이터 크기                                     |
+|----------------|---------------------------------------------------------------|
+| 매우 큰 데이터 | 컴퓨터 한대 메모리에 저장될 수 없는 크기 : **5 TB이상**          |
+| 중간 데이터    | 서버 컴퓨터 메모리에 저장할 수 있는 크기 : **10 GB -- 5 TB**  |
+| 작은 데이터    | 노트북 컴퓨터 메모리에 저장할 수 있는 크기 : **10 GB 이하**       |
+
+# 컴퓨터
+
+## 왜 슈퍼컴퓨터가 필요한가?
+
+<img src="fig/CPU-Scaling.jpg" width="50%">
+
+[xwMOOC 고성능 R 아키텍처](http://statkclee.github.io/parallel-r/r-perf-arch.html)
+
+## 빅데이터 전략 
+
+<img src="fig/scale-up-out.png" width="100%">
+
+[빅데이터 - 스파크 이해하기](https://statkclee.github.io/bigdata/bigdata-spark-mooc.html)
+
+
+## 병렬/분산 컴퓨팅
+
+<img src="fig/cloud-linux.png" alt="리눅스 클라우드" width="77%" />
+
+[고성능 컴퓨팅(HPC) - 고성능 컴퓨팅 기초](http://statkclee.github.io/hpc/hpc-basic.html)
+
+# 소프트웨어
+
+## 프로그래밍 언어
+
+1. **R**
+1. **파이썬**
+1. **SQL**
+1. 자바 스크립트
+1. C/C++
+
+## 작업 흐름
+
+![Tidyverse 데이터 사이언스 작업흐름](fig/maso_tidyverse.png){#id .class width=100%}
+
+## 데이터 사이언스 운영체제
+
+![tidyverse 운영체제](fig/tidyvese_os.png){#id .class width=80% height=80%}
+
+[이광춘 ( 삼정 KPMG 상무), "데이터 사이언스 운영체제 - `tidyverse`", 한국통계학회 소식지 2019년 10월호](https://statkclee.github.io/ds-authoring/ds-stat-tidyverse.html)
+
+# 문서 != 문서 편집기
+
+## 사무자동화의 꽃 - MS 오피스
+
+- [도전받는 데이터 사이언스 도구](https://statkclee.github.io/ds-authoring/ds-finance-why-201904.html#30)
+    - 엑셀
+    - 파워포인트
+    - 워드
+    - 액세스
+
+## 디지털 리터러시 특강: 한림대
+
+<img src="fig/digital_literacy.jpeg" alt="" width="40%" />
+
+[글쓰기는 자동화의 시작 - 데이터 과학의 세계](https://statkclee.github.io/ds-authoring/ds-digital-literacy.html#/)
+
+## 데이터 과학자의 블로그
+
+<img src="fig/reproducible-data-science-make.png" alt="재현가능한 데이터 사이언스 문서" width="100%" />
+
+- [AWSKRUG - AWS한국사용자모임 (2019년 9월 5일), "데이터 과학자의 클라우드 블로그"](https://statkclee.github.io/ds-authoring/ds-blog-aws-cloud.html#7)
+
+# 실생활 데이터 사이언스
+
+
+
