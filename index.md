@@ -49,6 +49,8 @@ title: 데이터 과학을 위한 저작도구
     * [부작업(Sub-tasks)](doit-sub_tasks.html)
     * [분석결과가 최신상태인지 점검하기](doit-uptodate.html)
 1. **발표자료와 기고문**
+    1. [데이터 과학 시대 재현가능한 글쓰기](ds-kofac-writing.html)
+        - 한국과학창의재단, "2019 소프트웨어(SW) 정보교육 담당 교원 대상 연수", 11월 9일, 대전 인터시티 호텔
     1. [데이터 사이언스](ds-data-science.html)
         - [10월의 하늘(October Sky)](https://octobersky.org), 부천시립꿈여울도서관, 2019-10-26(토) 15:30 ~ 
     1. **대전 한밭대학교 창업과 인공지능**
