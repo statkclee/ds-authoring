@@ -36,20 +36,29 @@ output:
 
 # 데이터 과학 글쓰기
 
-## 데이터 과학 문서 구성요소
-
 ## 데이터 과학 문서 툴체인
 
-## 데이터 과학 문서 작성
+![데이터 과학 문서 작성 툴체인](fig/rmarkdown-toolchain.png)
 
+출처: [데이터 과학: 재현가능한 저작, "재현가능한 논문 제작 환경"](https://statkclee.github.io/author_carpentry_kr/authoring-tools.html)
+
+## 데이터 과학 문서 구성요소
+
+![데이터 과학 문서 구성요소](fig/comp-documents-overview.png)
+
+출처: [Computational Documents, "데이터 과학 문서"](https://statkclee.github.io/comp_document/)
+
+## 실습자료 다운로드
+
+[Download 클릭!!!](https://github.com/statkclee/comp_document/blob/gh-pages/tutorial.zip)
 
 # Computaional Documents
 
-## `.Rmd`
+## [`.Rmd`](https://statkclee.github.io/comp_document/tutorial/01_rmarkdown/bmi.html)
 
-## 매개변수를 갖는 `.Rmd`
+## [매개변수를 갖는 `.Rmd`](https://statkclee.github.io/comp_document/tutorial/02_parameterized_rmd/election-province.html)
 
-## `htmlwidgets` 갖는 `.Rmd`
+## [`htmlwidgets` 갖는 `.Rmd`](https://statkclee.github.io/rstudio-trainer/viz-lecture-note.html)
 
 ## Shiny 구성요소를 갖는 `.Rmd`
 
