@@ -8,6 +8,18 @@ output:
     center: true
 ---
 
+# 10월의 하늘
+
+## 2019 10월의 하늘 ( 마진혁 _mas 님 )
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/rEZ1GNx12K4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+## 데이터 과학
+
+![](fig/october-sky-2019.png){#id .class width="70%"}
+
+
+[강연/진행 기부 - 경기도](https://octobersky.org/lecture_application_donate?area=%EA%B2%BD%EA%B8%B0&roundtable=10)
 
 # 데이터(Data)
 
