@@ -1,6 +1,6 @@
 ---
 title: "데이터 사이언스 운영체제 - `tidyverse`"
-subtitle: "[한국통계학회 소식지](http://www.kss.or.kr/) 2019년 10월호"
+subtitle: "[한국통계학회 소식지](http://www.kss.or.kr/) 2019년 10월호 [pdf 다운로드](data/4 튜토리얼 3-이광춘님(웹용).pdf)"
 author: "이광춘 (<a href='https://home.kpmg/kr/ko/home.html'> 삼정 KPMG 상무</a>)"
 date: "`r Sys.Date()`"
 output:
