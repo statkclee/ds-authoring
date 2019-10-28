@@ -29,3 +29,49 @@ use_condaenv("anaconda3")
 #  [^missy-automation]
 
 [^missy-automation]: [Mary (Missy) Cummings, "Man versus Machine or Man + Machine?", Ieee INteLLIGeNt sYstems](https://hal.pratt.duke.edu/sites/hal.pratt.duke.edu/files/u10/IS-29-05-Expert%20Opinion%5B1%5D_0.pdf)
+
+# 사람과 기계 업무구분 {#man-human-boundary}
+
+오랜동안 논란이 되었지만, 대표적으로 달에 사람을 보내는 아폴로 계획에서 사람과 기계의 역할을 어떻게 구분하는 것이 좋은지는 항상 논란이 되어왔다.
+
+![아폴로 계획에 대한 역할 구분](fig/man-machine-role-allocation.png){#id .class width="100%"}
+
+
+| 인지 작업 (cognitive behavior/task) | 자동화 정도(degree of automation) |
+|:--------------------------:|--------------------------|
+| 기량(skill-based)        | 자동화에 최적화됨. 물론 내외부 상태와 오류 피드백에 대한 신뢰성있는 센서를 가정 |
+| 규칙(rule-based)         | 자동화 가능한 대상. 물론 규칙집합이 잘 만들어지고 테스트된 것을 가정 |
+| 지식(knowledge-based)    | 일부 자동화를 통해 데이터를 조직화하고, 필터링하고, 합성하는데 도움을 줌 |
+| 전문적 식견(expertise)   | 사람이 가장 잘 할 수 있지만, 팀동료로 자동화 기계를 통해 도움을 받을 수 있음 |
+
+# 사람과 기계 비교 {#man-human-comparison}
+
+|   속성  |        사람         |         기계        |
+|:---------:|:---------------------:|:---------------------:|
+|   속도  |  상대적으로 느림    |        탁월함       | 
+| 경격출력 | 상대적으로 약함    | 일관된 작업에 우수성을 보임 |
+| 일관성  | 믿을 수 없는 학습능력과 피로 | 일관되고 반복적인 작업에 이상적임 |
+| 정보처리능력 | 주로 한개 채널   | 멀티 채널 |
+| 기억     | 원칙과 전략에 좋음. 다재다능하고 혁신적임 |문자 그대로 재현하는데 이상적임, 형식적임 |
+| 추론 계산 | 귀납적, 프로그램하기 더 좋고, 느리고, 오류 수정 좋음 | 연역적, 프로그램하기 귀찮고, 빠르고 정확, 오류 수정 나쁨 |
+| 감지(sensing) | 넓은 감지 반경, 다기능, 분별력 | 정량적 평가에 좋지만, 패턴인식에는 나쁨 |
+| 인지(perceiving) | 변화에 더 잘 대응 | 잡음에 취약하여 변화에 잘 대응 못함. |
+
+
+<style>
+div.blue { background-color:#e6f0ff; border-radius: 5px; padding: 10px;}
+</style>
+<div class = "blue">
+
+**모라벡의 역설(Moravec's paradox)**
+
+미국 카네기 멜론 대학 (CMU) 로봇 공학자 한스 모라벡(Hans Moravec)이 1970년대에 ‘it is comparatively easy to make computers exhibit adult level performance on intelligence tests or playing checkers, and difficult or impossible to give them the skills of a one-year-old when it comes to perception and mobility’라는 표현으로 컴퓨터와 인간의 능력 차이를 역설적으로 표현하였다.
+
+즉, 인간은 걷기, 느끼기, 듣기, 보기, 의사소통 등의 일상적인 행위는 매우 쉽게 할 수 있는 반면 복잡한 수식 계산 등을 하기 위해서는 많은 시간과 에너지를 소비하여야 하는 반면, 컴퓨터는 인간이 하는 일상적인 행위를 수행하기 매우 어렵지만 수학적 계산, 논리 분석 등은 순식간에 해낼 수 있다.
+
+</div>
+
+
+중국어 방 역설 (Chinese room argument) - 대체 누가 중국어를 이해하고 있는가?
+
+[^chinese-room-paradox]: [중국어 방 역설 (Chinese room argument) - 대체 누가 중국어를 이해하고 있는가?](http://ko.experiments.wikidok.net/wp-d/592f718da44f1a4153e80611/View)
