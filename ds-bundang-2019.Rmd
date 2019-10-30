@@ -162,12 +162,6 @@ robot_dat %>%
     labs(x="", y="산업용 로봇 공급대수", title="전세계 연간 산업용 로봇 공급대수")
 ```
 
-
-# 참고문헌 {#references}
-
-- [Martin Ford(2015), "The Rise of the Robots: Technology and the Threat of Mass Unemployment", Basic Books](https://www.amazon.de/gp/product/1780748485)
-- [Erik Brynjolfsson, Andrew McAfee, Jeff Cummings (2014), "The Second Machine Age: Work, Progress, and Prosperity in a Time of Brilliant Technologies"](https://www.amazon.de/gp/product/B00D97HPQI)
-
 # 생산성과 임금 격차 {#wage-productivity-gap}
 
 [Economic Policy Institute, "The Productivity - Pay Gap", July 2019](https://www.epi.org/productivity-pay-gap/)
@@ -298,11 +292,118 @@ plotly::ggplotly(productivity_gap_g)
 
 [^bowley-law]: [이상혁(2014), "제네바에서 온 편지: 당신의 월급은 공정합니까?", slow news](https://slownews.kr/24431)
 
+FRED Economic Data 중 [Shares of gross domestic income: Compensation of employees, paid: Wage and salary accruals: Disbursements: to persons (W270RE1A156NBEA)](https://fred.stlouisfed.org/series/W270RE1A156NBEA) 다운로드 받아 시각화한다.
+미국 노동소득분배율이 50%대에서 40%초반으로 훅 떨어진 것이 시각적으로 확인된다.
+이에 대해서 ILO 세계임금보고서와 다른 [OECD (2015), "The Labour Share in G20 Economies"](https://www.oecd.org/g20/topics/employment-and-social-policy/The-Labour-Share-in-G20-Economies.pdf) 내용을 통해 다양한 원인을 살펴볼 수 있다.
 
 - 노동분배몫 하락 요인 (ILO 세계임금보고서, 2012)
     - 산업구조 변화와 기술 변화
     - 세계화
     - 금융화(financialization)
     - 노동시장과 복지정책의 약화
-    
-    
+
+
+```{r labor-share-us}
+labor_share <- tribble(~"date",	~"share",
+"1948-01-01",	"49.3",
+"1949-01-01",	"49.7",
+"1950-01-01",	"49.3",
+"1951-01-01",	"49.9",
+"1952-01-01",	"50.9",
+"1953-01-01",	"51.6",
+"1954-01-01",	"50.9",
+"1955-01-01",	"50.1",
+"1956-01-01",	"50.7",
+"1957-01-01",	"50.6",
+"1958-01-01",	"50.2",
+"1959-01-01",	"49.8",
+"1960-01-01",	"50.2",
+"1961-01-01",	"49.8",
+"1962-01-01",	"49.5",
+"1963-01-01",	"49.3",
+"1964-01-01",	"49.3",
+"1965-01-01",	"49.0",
+"1966-01-01",	"49.5",
+"1967-01-01",	"50.1",
+"1968-01-01",	"50.3",
+"1969-01-01",	"51.0",
+"1970-01-01",	"51.6",
+"1971-01-01",	"50.6",
+"1972-01-01",	"50.2",
+"1973-01-01",	"49.9",
+"1974-01-01",	"50.2",
+"1975-01-01",	"48.7",
+"1976-01-01",	"48.5",
+"1977-01-01",	"48.2",
+"1978-01-01",	"48.1",
+"1979-01-01",	"48.5",
+"1980-01-01",	"48.8",
+"1981-01-01",	"47.7",
+"1982-01-01",	"47.6",
+"1983-01-01",	"46.9",
+"1984-01-01",	"46.2",
+"1985-01-01",	"46.3",
+"1986-01-01",	"46.7",
+"1987-01-01",	"46.9",
+"1988-01-01",	"46.6",
+"1989-01-01",	"46.3",
+"1990-01-01",	"46.7",
+"1991-01-01",	"46.4",
+"1992-01-01",	"46.3",
+"1993-01-01",	"45.9",
+"1994-01-01",	"45.3",
+"1995-01-01",	"45.3",
+"1996-01-01",	"45.1",
+"1997-01-01",	"45.2",
+"1998-01-01",	"45.8",
+"1999-01-01",	"46.1",
+"2000-01-01",	"46.6",
+"2001-01-01",	"46.3",
+"2002-01-01",	"45.3",
+"2003-01-01",	"44.8",
+"2004-01-01",	"44.3",
+"2005-01-01",	"43.4",
+"2006-01-01",	"43.2",
+"2007-01-01",	"44.3",
+"2008-01-01",	"44.9",
+"2009-01-01",	"43.8",
+"2010-01-01",	"42.6",
+"2011-01-01",	"42.4",
+"2012-01-01",	"42.1",
+"2013-01-01",	"41.9",
+"2014-01-01",	"41.9",
+"2015-01-01",	"42.5",
+"2016-01-01",	"42.9",
+"2017-01-01",	"43.2",
+"2018-01-01",	"43.2")
+
+library(dygraphs)
+library(xts)
+
+## Dataframe --> XTS
+labor_share_df <- labor_share %>% 
+  mutate(date = lubridate::ydm(date),
+         share = parse_number(share)/100)
+
+labor_share_xts <- xts(x = labor_share_df$share, order.by = labor_share_df$date)
+colnames(labor_share_xts) <- "share" 
+
+## Dygraph 시각화  
+ # https://gist.github.com/Arkoniak/8191386f2e36309f694511dfd5bf0808
+dygraph(labor_share_xts, 
+        main = "미국 노동소득분배율 연도별 추이 (1948 - 2018)", 
+        ylab = "노동소득분배율(%)") %>% 
+  dyRangeSelector() %>% 
+  dyAxis("y", valueFormatter = "function(v){return (v*100).toFixed(1) + '%'}",
+              axisLabelFormatter = "function(v){return (v*100).toFixed(0) + '%'}")
+
+```
+
+
+# 참고문헌 {#references}
+
+- [Martin Ford(2015), "The Rise of the Robots: Technology and the Threat of Mass Unemployment", Basic Books](https://www.amazon.de/gp/product/1780748485)
+- [Erik Brynjolfsson, Andrew McAfee, Jeff Cummings (2014), "The Second Machine Age: Work, Progress, and Prosperity in a Time of Brilliant Technologies"](https://www.amazon.de/gp/product/B00D97HPQI)
+- ["This chart spells out in black and white just how many jobs will be lost to robots"](https://www.marketwatch.com/story/this-chart-spells-out-in-black-and-white-just-how-many-jobs-will-be-lost-to-robots-2017-05-31)
+
+
