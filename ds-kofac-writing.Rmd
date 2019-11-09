@@ -52,6 +52,10 @@ output:
 
 [Download 클릭!!!](https://github.com/statkclee/comp_document/blob/gh-pages/tutorial.zip)
 
+## 강의 노트
+
+[Google Docs - 공동 강의노트](https://docs.google.com/document/d/1tYH3AP8gsmwkAamZttQVW2IBjdfcZLMf2l1fydJVNeY/edit?usp=sharing)
+
 # Computaional Documents
 
 ## [`.Rmd`](https://statkclee.github.io/comp_document/tutorial/01_rmarkdown/bmi.html)
