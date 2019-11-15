@@ -49,6 +49,43 @@ use_condaenv("anaconda3")
   </div>
 </div>
 
+# 세무사 업무 변천과정 [^evolution-tax] {#change-automation}
+
+![세무 업무 변천사](fig/tax-preparation.png){#id .class width="100%"}
+
+[^evolution-tax]: [PC 매거진, "The Best Tax Software for 2019"](https://www.pcmag.com/roundup/167894/the-best-tax-software)
+
+## 연도별 세무사 합격자 {#tax-exam-trend}
+
+[등록세무사만 1만3000명인데 합격자를 늘리다니… 세무사회 불만 고조](http://biz.newdaily.co.kr/site/data/html/2019/01/22/2019012200053.html) 기사 내용에도 언급되었어듯이 2008년부터 11년간 630명가량을 다소 편차가 있지만 뽑아왔다. 현재 한국세무사회에 등록된 [개인 및 법인현황](http://www.kacpta.or.kr/)을 통해 12,973명이 개업하여 활동하고 있는 것으로 집계되어 있다.
+
+```{r tax-exam}
+library(tidyverse)
+library(rvest)
+
+tax_url <- "http://www.wcpa.co.kr/cta/info_ystats.php"
+
+Sys.setlocale("LC_ALL", "C")
+
+exam_df <- tax_url %>% 
+  read_html() %>% 
+  html_node(xpath = '/html/body/div[1]/div[2]/div/div[2]/div[2]/div/ul[2]/li/div/table') %>% 
+  html_table(fill = TRUE)
+
+Sys.setlocale("LC_ALL", "Korean")
+
+exam_df %>% 
+  gather(year, value, -`구분`) %>% 
+  filter(구분 == "합격자") %>% 
+  select(연도=year, 합격자=value) %>% 
+  knitr::kable()
+```
+
+## 세무사 연봉 [^tax-accountant-salary] {#tax-accountant-salary}
+
+[^tax-accountant-salary]: [임명규 (2018.10.10), "세무사는 얼마나 벌까요", Business Watch](http://news.bizwatch.co.kr/article/tax/2018/10/05/0010)
+
+![세무사 1인당 매출과 연봉 추청](fig/tax-accountant-pay.png)
 
 # 자동화 [^missy-automation] {#automation-overview}
 
@@ -434,7 +471,7 @@ dygraph(labor_share_xts,
 `fredr_set_key(FRED_KEY)` 명령어로 API-KEY를 설정한다.
 
 
-```{r fred-data-labor-participation}
+```{r fred-data-labor-participation, eval=FALSE}
 library(fredr)
 library(xts)
 fredr_set_key(FRED_KEY)
