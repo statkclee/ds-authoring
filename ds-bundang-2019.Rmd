@@ -400,6 +400,11 @@ dygraph(labor_participation_xts,
               axisLabelFormatter = "function(v){return (v*100).toFixed(0) + '%'}")
 ```
 
+## 소싱전략의 변화 {#strategy-change}
+
+Kinetics consulting services / Automation Anywhere 자료에 의하면 비정규직 인력아웃소싱 비용도 현재 시점에서 사무 로봇을 사용하게 되면 더욱 줄일 수 있다는 조사결과를 제시하고 있다. 
+
+![소싱 전략의 변화](fig/the-end-of-outsourcing.png){#id .class width="100%"}
 
 # 자동화 [^missy-automation] {#automation-overview}
 
@@ -517,17 +522,74 @@ div.blue { background-color:#e6f0ff; border-radius: 5px; padding: 10px;}
 
 ![human-supervisory-control](fig/human-supervisory-control.png){#id .class width="100%"}
 
+## 이세돌 9단 [^retire-lee] {#play-go}
 
+이창호를 누르고 바둑 최강자에 굴림해온 전설적인 이세돌 9단. 하지만 알파고가 나온 이후 모든 것이 바뀌었다. 커제는 알파고와 대결에서 울기도 했고, 5명의 프로기사가 때로 알파고에 덥비기도 했다. 그렇다고 결과가 바뀐 것은 아니다. NHN에서 20년동안 학습한 바둑 프로그램 한돌과 2점 깔고 두는 접바둑으로 마지막 대국을 남기고 평생을 함께 한 바둑을 놓으려고 한다. 
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/gb4wbJfyg48" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+[^retire-lee]: [이균성(2019.11.28), "이세돌 9단의 프로기사 포기는 ‘노동의 미래’다", ZDNET Korea](https://n.news.naver.com/article/092/0002175655)
+
+
+# 기계에 대체되는 일자리 [^GAN-applications] [^machine-learning-mastery] {#challenge-to-human}
+
+[^GAN-applications]: [Jonathan Hui (2018), "GAN -Some cool applications of GANs."](https://medium.com/@jonathan_hui/gan-some-cool-applications-of-gans-4c9ecca35900)
+
+[^machine-learning-mastery]: [ Jason Brownlee (June 14, 2019), "18 Impressive Applications of Generative Adversarial Networks (GANs)"](https://machinelearningmastery.com/impressive-applications-of-generative-adversarial-networks/)
+
+사람이 가지고 있는 오감(시각, 후각, 청각, 촉각, 미각) 중에서 시각을 대부분의 사람들은 가장 중요한 감각이라고 꼽는데 이유는 아마도 감각기관을 통해서 획득하는 정보의 90% 이상이 시각을 통해서 얻어진다는 점에 기인한다.
+
+![시각의 중요성 - 정보 처리 90%이상](fig/sensory-visual.png){#id .class width="50%"}
+
+**GAN(Generative Adversarial Network)**은 생성적 적대 신경망라고 번역할 수 있다. 이안 굿펠로우(Ian Goodfellow)가 NIPS 학회에서 발표한 뒤로 딥러닝의 대가인 얀 르쿤(Yann Lecun) 교수는 GAN을 최근 10년간 머신러닝 연구 중 가장 혁신적인 아이디어로 극찬했다.
+
+<div class = "row">
+  <div class = "col-md-6">
+**생성 모델링 과정**
+
+![생성 모델링 과정](fig/generative-model.png)
+
+  </div>
+  <div class = "col-md-6">
+**판별 모델링 과정**
+
+![판별 모델링 과정](fig/discriminative-model.png)
+
+  </div>
+</div>
+
+## 페인트(paint) {#challenge-to-human-paint}
+
+[Keras-GAN](https://github.com/eriklindernoren/Keras-GAN) GitHub 사이트에는 `pix2pix`, `CycleGAN`을 포함한 다양한 시각적인 사례를 살펴볼 수 있다.
+
+- 이미지 생성(Image generation): GAN을 사용하여 이미지를 기계가 자동으로 생성할 수 있다. 예를 들어 자동 로고생성기 등. [GitHub: alex-sage/logo-gen](https://github.com/alex-sage/logo-gen)
+- 텍스트로 이미지 합성 (Text-to-image synthesis): 영화산업에서 시나리오가 있는 상태에서 텍스트를 기초로 하여 이미지를 자동 생성시킴. [Nikunj Gupta, "Text-to-Image Synthesis", Medium](https://medium.com/datadriveninvestor/text-to-image-synthesis-6e5de1bf86ec), [GitHub, text-to-image](https://github.com/crisbodnar/text-to-image)
+- 얼굴 노화(Face Aging): 연애 산업과 보안산업에서 특히 유용한데 보안의 경우 얼굴 노화과정을 GAN을 통해 모델을 갖춤으로써 직원의 노화에 따라 신규 시스템으로 바꿀 필요가 없다. [GitHub, yuanzhaoYZ/Face-Aging-CAAE](https://github.com/yuanzhaoYZ/Face-Aging-CAAE)
+- 이미지를 다른 이미지로 번역(image-to-image-translation): 흑백이미지를 칼러 이미지로, 스케치 이미지를 색칠된 이미지로, 이미지를 피카소나 반고흐 스타일로 번역하는 것을 통해 시간을 상당히 줄일 수 있다. [GitHub topics: image-to-image-translation](https://github.com/topics/image-to-image-translation)
+- 고화질 이미지 생성(High-resolution image generation): 저해상도 카메라 이미지를 고화질 이미지로 변환. [david-gpu/srez](https://github.com/david-gpu/srez)
+- 결측된 이미지 채워넣기(completing missing parts of images): 이미지의 빠진 부분을 채워넣거나 불필요한 부분이 있다면 지워서 결측시킨 후에 이미지를 채워넣는다. [Github topic: image-completion](https://github.com/topics/image-completion)
+
+## 자작(write) {#writing-machine}
+
+- [GitHub topic: text-generation](https://github.com/topics/text-generation)
+    - [Maluuba NewsQA dataset](https://github.com/Maluuba/newsqa)
+    - [Multi-task Question and Answer Generation](https://github.com/Maluuba/qgen-workshop)
+
+
+## 음악(music) {#music-machine}
+
+- [museGAN](https://salu133445.github.io/musegan/)
+- [Rachel Chen (Dec 13, 2017), "Generating Ambient Music from WaveNet", Medium](https://medium.com/@rachelchen_49210/generating-ambient-noise-from-wavenet-95aa7f0a8f77)
+- [tensorflow/magenta](https://github.com/tensorflow/magenta)
+- [Abraham Khan(Dec 15, 2018), "Generating Pokemon-Inspired Music from Neural Networks", Medium](https://towardsdatascience.com/generating-pokemon-inspired-music-from-neural-networks-bc240014132)
+
+## 연극(play) {#play-machine}
+
+- [World Models](https://worldmodels.github.io/)
+- [Dylan's blog (June 06, 2018), "World Models applied to Sonic"](https://dylandjian.github.io/world-models/)
 
 # 참고문헌 {#references}
 
 - [Martin Ford(2015), "The Rise of the Robots: Technology and the Threat of Mass Unemployment", Basic Books](https://www.amazon.de/gp/product/1780748485)
 - [Erik Brynjolfsson, Andrew McAfee, Jeff Cummings (2014), "The Second Machine Age: Work, Progress, and Prosperity in a Time of Brilliant Technologies"](https://www.amazon.de/gp/product/B00D97HPQI)
 - ["This chart spells out in black and white just how many jobs will be lost to robots"](https://www.marketwatch.com/story/this-chart-spells-out-in-black-and-white-just-how-many-jobs-will-be-lost-to-robots-2017-05-31)
-
-
-
-
-
-
-
