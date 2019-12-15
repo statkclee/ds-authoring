@@ -49,11 +49,27 @@ use_condaenv("anaconda3")
   </div>
 </div>
 
-# 사람은 필요없습니다. {#humans-need-not-apply}
+# 사람은 필요없습니다. [^humans-need-not-apply] {#humans-need-not-apply}
 
-[CGP Grey (2014), "Humans Need Not Apply"](https://www.youtube.com/watch?v=7Pq-S557XQU&list=PLss17BI0c8zsYclJIwjyecYKiY6-qCodX&index=2)
+[^humans-need-not-apply]: [CGP Grey (2014), "Humans Need Not Apply"](https://www.youtube.com/watch?v=7Pq-S557XQU&list=PLss17BI0c8zsYclJIwjyecYKiY6-qCodX&index=2)
+
+<div class = "row">
+  <div class = "col-md-6">
+**Humans Need Not Apply**
 
 <iframe width="300" height="180" src="https://www.youtube.com/embed/EK2iSPjryRM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+  </div>
+  <div class = "col-md-6">
+**Automated Economy Explained: Mechanics of a Basic Income**
+
+<iframe width="300" height="180" src="https://www.youtube.com/embed/OEkT14RBzDI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+  </div>
+</div>
+
+
 
 # 세무사 업무 변천과정 [^evolution-tax] {#change-automation}
 
