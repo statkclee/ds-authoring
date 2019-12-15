@@ -49,6 +49,12 @@ use_condaenv("anaconda3")
   </div>
 </div>
 
+# 사람은 필요없습니다. {#humans-need-not-apply}
+
+[CGP Grey (2014), "Humans Need Not Apply"](https://www.youtube.com/watch?v=7Pq-S557XQU&list=PLss17BI0c8zsYclJIwjyecYKiY6-qCodX&index=2)
+
+<iframe width="300" height="180" src="https://www.youtube.com/embed/EK2iSPjryRM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 # 세무사 업무 변천과정 [^evolution-tax] {#change-automation}
 
 과거 숫자를 다룰 수 있는 소수의 사람만이 숫자의 계산을 암산에서 벗어나  주판의 도움으로 생산성을 주판을 사용하지 못한 사람과 비교하여 수십배에서 수천배의 정확도와 함께 빠른 계산을 달성하게 되었다. 이러한 주판은 중간에 기계장치 계산기(찰스 배비지)도 있었지만, 일제 전자계산기로 자리를 내어주지만 사칙연산만 이해하면 기존 주판과 비교하여 어마어마한 생산성을 향상과 정확도를 높인 것은 분명하다.
