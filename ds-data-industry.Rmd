@@ -94,6 +94,29 @@ use_condaenv("anaconda3")
 
 ## 통계학 {#basic-concept-statistics}
 
+통계학은 영어로 ‘Statistics’인데 이는 국가(State)를 통치하는 데 필요한 학문이라는 어원을 갖고 있고, 통계학은 크게 세 단계로 정의된다.
+
+- 자료를 수집 (sampling),
+- 자료를 분석 (analysis),
+- 이를 바탕으로 일반화된 결론을 끌어냄(generalization)
+
+“자료 그 자체에 충실하라(Let the data speak for themselves)”는 말이 있다. 과학적 성과의 입증이나 정부의 정책을 뒷받침하는 과정에서 자료나 통계가 조금이라도 왜곡되거나 조작되면 안 된다. 이를 흔히 우리는 통계의 중립성과 독립성이라 부른다.
+
+자료 그 자체에 충실하기 위해서는 데이터가 만들어지는 과정에 대한 이해가 반듯이 필요하다. 데이터는 **관측 데이터(Observational data)**와 **실험 데이터(Experimental Data)**로 나뉜다. 데이터 자체가 두집단을 표현하더라도 생성과정이 달라 이를 통해서 얻을 수 있는 추론 결과도 다르게 된다.
+
+![관측데이터와 실험데이터](fig/observation-experiment.png){#id .class width="100%"}
+
+- **무작위 추출(random sampling)**은 모집단에서 표본을 추출할 때 아무나 골라서 무작위로 뽑는 것을 의미한다.
+- **무작위 할당(random assignment)**은 표본을 집단에 집어넣을 때 무작위로 각 집단에 할당하는 것을 뜻한다.
+
+무작위 추출을 하게 되면 일반화(Generalization)가 가능하지만, 무작위 표본 추출이 아닌 데이터에서 얻은 정보는 일반화를 하면 안된다.
+유사하게 무작위 할당을 해서 얻게 된 정보를 바탕으로 인과관계를 도출할 수 있지만, 무작위 할당을 하지 않은 경우는 인과관계를 예단할 수는 없다.
+
+
+![추론의 범위](fig/scope-of-inference.png){#id .class width="77%"}
+
+
+
 ## 컴퓨터와 소프트웨어 {#basic-concept-software}
 
 ### 컴퓨터의 진화 [^business-for-software] {#basic-concept-software-evolution}
