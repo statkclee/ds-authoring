@@ -71,7 +71,7 @@ use_condaenv("anaconda3")
 
 과학은 가정-주도(Hypothesis-Driven)에서 데이터-주도(Data-Driven) 발견으로 급격히 이동 중에 있으며, 전혀 새로운 도전에 직면하고 있다.
 
-### 원자재 데이터 [^unplugged] {#raw-material-data}
+## 원자재 데이터 [^unplugged] {#raw-material-data}
 
 [^unplugged]: ["컴퓨터 과학 언플러그드"](https://statkclee.github.io/unplugged/)
 
@@ -81,7 +81,7 @@ use_condaenv("anaconda3")
 
 ![정형데이터와 비정형 데이터, 그리고 기계학습](fig/intree-xy-f.png){#id .class width="100%"}
 
-### 데이터 공학과 사업화 {#data-engineering}
+## 데이터 공학과 사업화 {#data-engineering}
 
 다양한 데이터 원자재를 산업화하는 과정은 다양한 실험을 통해서 성공했던 과학기술이 비로소 사업화와 접목되어야만 가능하다. 데이터 원자재를 엑셀과 같은 형태의 직사각형 정형데이터로 가정한다면 이를 사업화하여 얻을 수 있는 실익은 크지 않다. 하지만, 데이터 원자재를 정형 데이터 뿐만 아니라, 이미지, 텍스트, 소리, 로드 등 비정형 데이터를 아우르게 되면 데이터의 양과 질, 그리고 속도에서 비교가 되지 않는 고도의 기술을 필요로 한다.
 
@@ -89,8 +89,15 @@ use_condaenv("anaconda3")
 
 ![데이터를 산업화](fig/ds-industry.png){#id .class width=77%}
 
+## Industry Vertical &rarr; 플랫폼 {#towards-platform}
+
+![수직적(Vertical) 시장 &rarr; 플랫폼(Platform) 시장 &rarr; 인공지능(AI) 마켓으로](fig/slide-4th-industry-revolution-roadmap.png){#id .class width="100%"}
+
+
 
 # 기본지식 {#basic-concept}
+
+![귀납법과 연역법 그리고 데이터](fig/inductive-deductive.png){#id .class width="100%"}
 
 ## 통계학 {#basic-concept-statistics}
 
@@ -152,4 +159,17 @@ use_condaenv("anaconda3")
 
 ![데이터 과학 개요](fig/data-science-in-a-nutshell.png){#id .class width="100%"}
 
+## 심슨의 역설 {#simpson-paradox}
+
+- [데이터 과학 – 기초 통계 :" 심슨의 역설(Simpson Paradox)"](https://statkclee.github.io/statistics/stat-simpson.html)
+
+
+# 자동화 {#automation}
+
+- [자동화(Automation): ~~로봇~~ 자동화가 빼앗는 일자리 그리고 나](https://statkclee.github.io/ds-authoring/ds-bundang-2019.html)
+
+
+# 교육 {#education}
+
+- [데이터 산업 인력](https://statkclee.github.io/ds-authoring/ds-4th-ir.html#2_%EB%8D%B0%EC%9D%B4%ED%84%B0_%EC%82%B0%EC%97%85_%EC%9D%B8%EB%A0%A5)
 
