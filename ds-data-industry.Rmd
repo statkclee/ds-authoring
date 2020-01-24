@@ -21,9 +21,6 @@ editor_options:
 knitr::opts_chunk$set(echo = TRUE, message=FALSE, warning=FALSE,
                       comment="", digits = 3, tidy = FALSE, prompt = FALSE, fig.align = 'center')
 
-library(reticulate)
-use_condaenv("anaconda3")
-# reticulate::repl_python()
 ```
 
 # 국가와 회사의 흥망 {#data-trends}
@@ -51,8 +48,16 @@ use_condaenv("anaconda3")
 
 # 데이터의 가치 {#value-of-data}
 
-- [박지욱의 진료실의 고고학자(2013.09.13), 손씻기의 화신 산부인과 의사 - 01](http://www.docdocdoc.co.kr/news/articleView.html?idxno=139484)
-- [박지욱의 진료실의 고고학자(2013.09.13), 손씻기의 화신 산부인과 의사 - 02](http://www.docdocdoc.co.kr/news/articleView.html?idxno=139476)
+- [손씻기 그리고 통계 - 제멜바이스](https://statkclee.github.io/statistics/stat-hand-washing.html)
+- [기념비적인 시각화 역작모음](https://statkclee.github.io/viz/viz-history.html)
+- [독일 V2로켓 영국 폭격](https://statkclee.github.io/statistics/stat-flying-bomb-poisson.html)
+- [러시아 월드컵(2018) - 한국 vs 독일](https://statkclee.github.io/viz/viz-worldcup-germany.html)
+- [코에이(Koei) 삼국지 국력비교](https://statkclee.github.io/data-product/dp-koei-three-kingdoms-powers.html)
+- [저출산과 소요예산 - 상관관계](https://statkclee.github.io/viz/viz-low-birth-rate.html)
+- [지진해일 대피소 - `crosstalk`](https://statkclee.github.io/viz/viz-earthquake-shelter.html)
+- [일본 캐릭터와 미디어 프랜차이즈](https://statkclee.github.io/data-product/dp-media-franchise.html)
+- [서울대학교 경제학과 - 국내박사배출](https://statkclee.github.io/data-product/data-journalism-snu.html)
+- [국세 세금 데이터 분석](https://statkclee.github.io/election/election_tax_EDA.html)
 
 ## 데이터 산업 {#data-industry-from-seminar}
 
@@ -97,6 +102,8 @@ use_condaenv("anaconda3")
 
 # 기본지식 {#basic-concept}
 
+논리적 사고의 근간을 이루는 가장 중요한 밥법론이 귀납법과 연역법이다. 개별적인 특수한 사실이나 원리를 전제로 하여, 즉 데이터를 바탕으로 하여 일반적인 사실이나 원리로서의 결론을 이끌어 내는 연구 방법으로 인과 관계를 확정하는 데에 주로 사용된다. 반면 연역에 따른 추리의 방법은 일반적 사실이나 원리를 전제로 하여 개별적인 특수한 사실이나 원리를 결론으로 이끌어 내는 추리 방법으로 경험에 의하지 않고 논리상 필연적인 결론을 도출하는 것이 가능하고, 흔히 삼단 논법이 그 대표적인 형식으로 자리 잡고 있다. 하지만, 최근에 통계검증과 결합하여 논리적 사고에 따른 오류를 바로잡고 새로운 인사이트를 찾고자 하는 시도가 일반적이다.
+
 ![귀납법과 연역법 그리고 데이터](fig/inductive-deductive.png){#id .class width="100%"}
 
 ## 통계학 {#basic-concept-statistics}
@@ -122,7 +129,9 @@ use_condaenv("anaconda3")
 
 ![추론의 범위](fig/scope-of-inference.png){#id .class width="77%"}
 
+## 심슨의 역설 {#simpson-paradox}
 
+- [데이터 과학 – 기초 통계 :" 심슨의 역설(Simpson Paradox)"](https://statkclee.github.io/statistics/stat-simpson.html)
 
 ## 컴퓨터와 소프트웨어 {#basic-concept-software}
 
@@ -159,10 +168,6 @@ use_condaenv("anaconda3")
 
 ![데이터 과학 개요](fig/data-science-in-a-nutshell.png){#id .class width="100%"}
 
-## 심슨의 역설 {#simpson-paradox}
-
-- [데이터 과학 – 기초 통계 :" 심슨의 역설(Simpson Paradox)"](https://statkclee.github.io/statistics/stat-simpson.html)
-
 
 # 자동화 {#automation}
 
@@ -171,5 +176,6 @@ use_condaenv("anaconda3")
 
 # 교육 {#education}
 
+- 한국통계진흥원, ["통계의 창 2015년 15호"](http://www.stat.or.kr/down/201506.pdf)
 - [데이터 산업 인력](https://statkclee.github.io/ds-authoring/ds-4th-ir.html#2_%EB%8D%B0%EC%9D%B4%ED%84%B0_%EC%82%B0%EC%97%85_%EC%9D%B8%EB%A0%A5)
 
