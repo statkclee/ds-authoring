@@ -13,8 +13,10 @@ title: 데이터 과학 기고문과 발표자료
 
 ## 학습목차 
 
-1. [데이터 경제와 산업을 위한 데이터 과학/공학과 교육](ds-data-industry.html)
-    - 부산, 2월 4일(화) 14:00 ~
+1. [코딩으로 글쓰는 슬기로운 탐구생활](ds-rmarkdown-driven-development.html)
+    - KCD(Korea Community Day) 2020, 2월 29일(토) 오전 10시~, 한국마이크로소프트 11층(더케이트윈타워 A동)
+1. ~~[데이터 경제와 산업을 위한 데이터 과학/공학과 교육](ds-data-industry.html)~~ &larr; 코로나바이러스 연기
+    - 부산 IBIS 앰배서더, 2월 4일(화) 14:00 ~
 1. [~~로봇~~ 자동화가 빼앗는 일자리 그리고 나](ds-bundang-2019.html)
     - 분당 서현 청소년 수련관, 12월 4일(수) 14:00 ~
 1. [데이터 과학 시대 재현가능한 글쓰기](ds-kofac-writing.html)
