@@ -79,6 +79,14 @@ s
 
 # 책 {#rmarkdown-book}
 
+- [이광춘 번역 (2017-10-09), "컴퓨터 과학 언플러그드"](https://statkclee.github.io/unplugged/)
 
+# 도커 + RMDD {#RMDD}
+
+- [Tidyverse Korea (2019-12-31), "다양한 데이터 가져오기 - 트위터 데이터 과학"](https://statkclee.github.io/ingest-data/ingest-twitter-data-science.html)
+    - [Computational Documents: Makefile - PDF, HTML, DOCX](https://statkclee.github.io/comp_document/compendium.html)
+    - [Twitter 보고서](https://github.com/statkclee/compendium_301)
+- ["Computational Documents
+rocker 도커 컨테이너 - Dockerfile & Docker Hub"](https://statkclee.github.io/comp_document/cd-docker-rstudio-dockerfile.html)
 
     
