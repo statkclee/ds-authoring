@@ -13,6 +13,8 @@ title: 데이터 과학 기고문과 발표자료
 
 ## 학습목차 
 
+1. [데이터 과학과 기계학습 소프트웨어](ds-software-society.html)
+    - [소프트웨어와 사회, 2020년 가을호](http://softwareandsociety.kr/)
 1. [코딩으로 글쓰는 슬기로운 탐구생활](ds-rmarkdown-driven-development.html)
     - [KCD(Korea Community Day) 2020](https://kcd2020.festa.io/), 2월 29일(토) 오전 10시~, 한국마이크로소프트 11층(더케이트윈타워 A동)
 1. ~~[데이터 경제와 산업을 위한 데이터 과학/공학과 교육](ds-data-industry.html)~~ &larr; 코로나바이러스 연기
