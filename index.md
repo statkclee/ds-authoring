@@ -13,6 +13,8 @@ title: 데이터 과학 기고문과 발표자료
 
 ## 학습목차 
 
+1. [데이터과학 방법론 산업적용 현재와 미래](ds-statistics-symposium.html) [발표원문](ds-statistics-symposium-distill.html)
+    - [국가통계방법론 심포지엄: 국가통계의 현재와 미래](http://kostat.go.kr/sri/srikor/srikor_spn/1/1/index.action) 
 1. [데이터 과학과 기계학습 소프트웨어](ds-software-society.html)
     - [소프트웨어와 사회, 2020년 가을호](http://softwareandsociety.kr/)
 1. [코딩으로 글쓰는 슬기로운 탐구생활](ds-rmarkdown-driven-development.html)

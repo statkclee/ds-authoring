@@ -1,0 +1,38 @@
+---
+title: "데이터과학 방법론 산업적용 현재와 미래"
+subtitle: "[국가통계방법론 심포지엄: 국가통계의 현재와 미래, 2020. 9. 23.(수)~24.(목), 통계센터](http://kostat.go.kr/sri/srikor/srikor_spn/1/1/index.action)"
+description: |
+  통계학이 이론적으로 확립되기 이전부터 데이터를 활용하여 사회적 문제를 풀고 가치를 창출하고자하는 활동이 활발히 진행되었듯이, 데이터 과학을 산업현장에 적용하여 성공을 거둔 사례도 많고, 최근 유니콘으로 지칭되는 신생 스타트업 거의 모두 데이터 과학을 기업의 핵심역량으로 삼고 있다. 통계학과 차별화되는 데이터 과학 방법론의 핵심 내용을 응집하고 있는 `Tidyverse`를 살펴보고, 데이터로부터 창출된 가치를 API를 통해 선순환시켜 규모를 키워나가는 데이터 경제를 산업측면에서 살펴보고, 앞으로 펼쳐질 데이터 경제의 미래를 가장 역동인 변화가 이뤄지고 있는 데이터 과학 방법론의 심장 `Tidyverse`를 중심으로 풀어나가고자 한다.  
+author:
+  - name: 이광춘
+    url: https://www.facebook.com/groups/tidyverse/
+    affiliation: 삼정 KPMG
+    affiliation_url: https://home.kpmg/kr/ko/home.html
+date: "`r Sys.Date()`"
+output: distill::distill_article
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+# 데이터 과학 산업규모
+
+# 제2의 석유 데이터
+
+# 데이터 과학 제품/서비스 생산공장
+
+# 데이터 과학 경제: API Economy
+
+# 데이터 과학 방법론: Tidyverse
+
+# 데이터 과학 미래
+
+# 마무리 
+
+
+
+
+
+
+
