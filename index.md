@@ -13,6 +13,8 @@ title: 데이터 과학 기고문과 발표자료
 
 ## 학습목차 
 
+1. [규제법령 데이터를 클라우드 플랫폼과 NLP기술로 열어가는 AI 미래전략](ds-regulation.html)
+    - 2020-07-02, 건국대학교 상허연구관
 1. [데이터과학 방법론 산업적용 현재와 미래](ds-statistics-symposium.html) [발표원문](ds-statistics-symposium-distill.html)
     - [국가통계방법론 심포지엄: 국가통계의 현재와 미래](http://kostat.go.kr/sri/srikor/srikor_spn/1/1/index.action) 
 1. [데이터 과학과 기계학습 소프트웨어](ds-software-society.html)
