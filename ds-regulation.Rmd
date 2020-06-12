@@ -25,20 +25,18 @@ editor_options:
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-# 데이터 과학
+# AI와 클라우드
 
 # 규제법령 데이터: NLP
 
-- OCR
-- MRC
-- Text Mining
+- Ignite LIBOR
+- Ignite-REMA (Regulation Mapping)
+- 한국어 CCM
 
-# 클라우드
+# 데이터 과학 교육
 
-- HPC
-- AWS/Azure/GCP
 
-# AI 미래전략
+
 
 
 
