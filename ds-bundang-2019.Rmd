@@ -398,7 +398,7 @@ dygraph(labor_share_xts,
 `fredr_set_key(FRED_KEY)` 명령어로 API-KEY를 설정한다.
 
 
-```{r fred-data-labor-participation, eval=TRUE}
+```{r fred-data-labor-participation, eval=FALSE}
 library(fredr)
 library(xts)
 fredr_set_key(FRED_KEY)
