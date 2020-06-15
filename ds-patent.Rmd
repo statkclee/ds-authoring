@@ -1,5 +1,5 @@
 ---
-title: "AI, 빅데이터를 통한 미래 산업변화"
+title: "빅데이터로 산업변화"
 subtitle: <small> "사고체계 &rarr; 데이터 과학 &rarr; 산업" </small>
 author: <large> "이광춘 (삼정 KPMG)" </large>
 date: "2020년 06월 18일"
