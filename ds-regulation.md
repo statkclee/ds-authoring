@@ -1,0 +1,40 @@
+---
+title: "규제법령 데이터를 클라우드 플랫폼과 NLP기술로 열어가는 AI 미래전략"
+subtitle: "2020-07-02, 건국대학교 상허연구관"
+description: 
+  
+author:
+  - name: 이광춘
+    url: https://www.facebook.com/groups/tidyverse/
+    affiliation: 삼정 KPMG
+    affiliation_url: https://home.kpmg/kr/ko/home.html
+date: "2020-06-15"
+output: 
+  distill::distill_article:
+    toc: true
+    toc_depth: 2
+    highlight: tango
+    number_section: true
+bibliography: bibliography.bib
+csl: biomed-central.csl
+editor_options: 
+  chunk_output_type: console
+---
+
+
+
+# AI와 클라우드
+
+# 규제법령 데이터: NLP
+
+- Ignite LIBOR
+- Ignite-REMA (Regulation Mapping)
+- 한국어 CCM
+
+# 데이터 과학 교육
+
+
+
+
+
+
