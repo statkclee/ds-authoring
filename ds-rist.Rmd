@@ -1,0 +1,48 @@
+---
+title: "기업운영혁신을 위한 데이터 과학"
+subtitle: "<small>기업 활용방안</small>"
+author: "[Tidyverse Korea](https://www.facebook.com/groups/tidyverse/)"
+date: "2020-07-21"
+output:
+  revealjs::revealjs_presentation:
+    css: styles/mlflow.css
+    df_print: paged
+    self_contained: true
+    center: true
+    fig_width: 6
+    fig_height: 4
+fig_width: 6 
+fig_height: 4 
+---
+
+```{r setup, include = FALSE}
+options(htmltools.dir.version = FALSE)
+
+knitr::opts_chunk$set(echo = FALSE, warning=FALSE, message=FALSE,
+                    comment="", digits = 3, tidy = FALSE, prompt = FALSE, fig.align = 'center')
+
+```
+
+## 강의 개요
+
+- Big Data/AI/ML/Data Science
+- 데이터 경제와 산업
+- Data Engineering/Science/ML
+- AI 비즈니스 (KPMG)
+
+# Big Data/AI/ML/Data Science
+
+## Google Trends
+
+
+# 데이터 경제와 산업
+
+## 데이터 자원
+
+# Data Engineering/Science/ML
+
+# AI 비즈니스 (KPMG)
+
+## 텍스트/문서
+
+
