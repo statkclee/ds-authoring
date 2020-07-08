@@ -27,10 +27,57 @@ knitr::opts_chunk$set(echo = FALSE, warning=FALSE, message=FALSE,
 
 ## 강의 개요
 
+- 실생활 속 데이터 과학
 - Big Data/AI/ML/Data Science
 - 데이터 경제와 산업
-- Data Engineering/Science/ML
-- AI 비즈니스 (KPMG)
+- Tidyverse 속으로...
+- AI 비즈니스를 향해서 (KPMG)
+
+# 실생활 속 데이터 과학
+
+## 러시아 월드컵 감동을 디지털로...
+
+<img src="fig/worldcup.gif" alt="월드컵" width="80%" />
+
+[러시아 월드컵(2018) - 한국 vs 독일](https://statkclee.github.io/viz/viz-worldcup-germany.html)
+
+## 지진해일 대피소가 없다고?
+
+<img src="fig/earthquake.png" alt="월드컵" width="80%" />
+
+[xwMOOC (2018-01-17), "지진해일 대피소 - `crosstalk`"](https://statkclee.github.io/viz/viz-earthquake-shelter.html)
+
+## 자 이제 됐고! 
+
+<img src="fig/trelliscopejs.png" alt="국회의원 사진" width="80%" />
+
+[국회의원 사진 - `trelliscope`](https://statkclee.github.io/viz/viz-congressman.html)
+
+## 대통령의 마음... 슬픔은 어디에?
+
+<img src="fig/kbs-video.jpg" alt="슬픔은 어디에" width="80%" />
+
+[xwMOOC 딥러닝 - 동영상 감정 분석](https://statkclee.github.io/deep-learning/ms-oxford-video.html)
+
+[KBS NEWS, 인공지능으로 분석한 대통령의 마음…슬픔은 어디에?](http://news.kbs.co.kr/news/view.do?ncd=3390429&ref=D)
+
+## MLB 투수 유전자는 유전이 될까?
+
+<img src="fig/major-league.png" alt="MLB 투수 유전자" width="77%" />
+
+[회귀분석 - MLB 투수 유전자는 유전이 될까?](https://statkclee.github.io/politics/pe-baseball-era.html)
+
+## 출산장려 예산은 출산율을 높일까?
+
+<img src="fig/budget-birthrate.png" width="57%" />
+
+[저출산과 소요예산 - 상관관계](https://statkclee.github.io/viz/viz-low-birth-rate.html)
+
+## 증가된 정부예산: 누가 세금을 많이 냈나?
+
+<img src="fig/tax-burden.png"width="77%" />
+
+[국세 세금 데이터 분석](https://statkclee.github.io/election/election_tax_EDA.html)
 
 # Big Data/AI/ML/Data Science
 
@@ -74,7 +121,7 @@ knitr::opts_chunk$set(echo = FALSE, warning=FALSE, message=FALSE,
 
 ![](fig/automated-machine-learning.png){#id .class width="77%"}
 
-# Data Engineering/Science/ML
+# Tidyverse 속으로...
 
 ## (비)정형 데이터와 함수
 
@@ -89,9 +136,64 @@ y_fx_df <- tibble(img_path = file_path)
 slickR(y_fx_df$img_path, height = 350) 
 ```
 
+## 데이터 사이언스 운영체제
 
-# AI 비즈니스 (KPMG)
+![tidyverse 운영체제](fig/tidyvese_os.png){#id .class width=80% height=80%}
+
+[이광춘 ( 삼정 KPMG 상무), "데이터 사이언스 운영체제 - `tidyverse`", 한국통계학회 소식지 2019년 10월호](https://statkclee.github.io/ds-authoring/ds-stat-tidyverse.html)
+
+## 작업 흐름
+
+![Tidyverse 데이터 사이언스 작업흐름](fig/maso_tidyverse.png){#id .class width=100%}
+
+
+# AI 비즈니스를 향해서 (KPMG)
 
 ## 텍스트/문서
 
+## 게임시장의 미래는?
 
+![](fig/market-video-game.png)
+
+
+[비디오 게임](https://statkclee.github.io/data-product/dp-video-game.html)
+
+## 카트에 담긴 물품과 서비스
+
+![](fig/market-basket.png)
+
+[장바구니 데이터 분석](https://statkclee.github.io/ml/ml-market-basket.html)
+
+## 고객을 어떻게 세분화할까?
+
+![](fig/market-rfm.png)
+
+[RFM과 고객 세분화](https://statkclee.github.io/ml/ml-pm-applications.html)
+
+## 영화추천을 통한 추천하는 방법 
+
+![](fig/market-recommend.png)
+
+[추천 시스템(Recommendation System)](https://statkclee.github.io/parallel-r/)
+
+## 고객 잔존시간 예측은 어떻게?
+
+![](fig/market-survival.png){#id .class width="77%"}
+
+[고객이탈 - 생존분석(Survival Analysis)](https://statkclee.github.io/ml/ml-pm-survival.html)
+
+## 지방선거 광역단체장 지지율을 예측해보자
+
+![](fig/market-voting.png)
+
+[지방선거 광역단체장 지지율 예측모형](https://statkclee.github.io/ml/ml-local-election.html)
+
+## 데이터 과학으로 무장한 택시운전자
+
+![](fig/market-taxi.png)
+
+[나무모형과 지리정보 만남 - 택시](https://statkclee.github.io/model/model_geospatial_taxi.html)
+
+## 현재는 RPA와 텍스트 
+
+![](fig/Rise_of_the_Robots_(book).jpeg){#id .class width="35%"}
