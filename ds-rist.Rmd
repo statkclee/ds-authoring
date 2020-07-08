@@ -13,6 +13,8 @@ output:
     fig_height: 4
 fig_width: 6 
 fig_height: 4 
+editor_options: 
+  chunk_output_type: console
 ---
 
 ```{r setup, include = FALSE}
@@ -32,14 +34,61 @@ knitr::opts_chunk$set(echo = FALSE, warning=FALSE, message=FALSE,
 
 # Big Data/AI/ML/Data Science
 
-## Google Trends
+## Google Trends: 미국
+
+![](fig/google-trends-comparison-us-1.png)
+
+## Google Trends: 대한민국
+
+![](fig/google-trends-comparison-kr-1.png)
 
 
 # 데이터 경제와 산업
 
 ## 데이터 자원
 
+![](fig/economist-bigdata-oil.png)
+
+## 파이프라인
+
+![](fig/data-economy-industry.png)
+
+## 가치 {#data-value}
+
+<small>
+<ul>
+  <li>기술 분석(Descriptive Analytics): 무슨 일이 있었나? (What happened?)</li>
+  <li>진단 분석(Diagnostic Analytics): 왜 일어났나? (Why did it happen?)</li>
+  <li>예측 분석(Predictive Analytics): 무슨 일이 일어날까? (What will happen?)</li>
+  <li>처방 분석(Prescriptive Analytics): 어떻게 그런 일을 일으킬까? (How can we make it happen?)</li>
+</ul>
+</small>
+
+![](fig/ds-gartner.png){#id .class width="67%"}
+
+## 비용 {#data-science-cost}
+
+![](fig/data-science-cost.png){#id .class width="77%"}
+
+## 자동화 
+
+![](fig/automated-machine-learning.png){#id .class width="77%"}
+
 # Data Engineering/Science/ML
+
+## (비)정형 데이터와 함수
+
+```{r y-fx}
+library(tidyverse)
+library(slickR)
+
+file_path <- c("fig/intree-xy.png", "fig/intree-xy-x.png", "fig/intree-xy-y.png", "fig/intree-xy-f.png")
+
+y_fx_df <- tibble(img_path = file_path)
+
+slickR(y_fx_df$img_path, height = 350) 
+```
+
 
 # AI 비즈니스 (KPMG)
 
