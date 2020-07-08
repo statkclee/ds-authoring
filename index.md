@@ -14,14 +14,14 @@ title: 데이터 과학 기고문과 발표자료
 
 ## 학습목차 
 
+1. [규제법령 데이터를 클라우드 플랫폼과 NLP기술로 열어가는 AI 미래전략](ds-regulation.html)
+    - 2020-07-28, 더 좋은 규제 연구소 토론회 / 의원회관 제7간담회의실
 1. [기업운영혁신을 위한 데이터 과학: 기업의 활용방안](ds-rist.html)
     - 2020-07-21, 포항산업과학연구원(RIST)
 1. [AI, 빅데이터 등을 통한 본 미래 산업변화](ds-patent.html)
     - 2020-06-18, 특허청
-1. [규제법령 데이터를 클라우드 플랫폼과 NLP기술로 열어가는 AI 미래전략](ds-regulation.html)
-    - 2020-07-02, 건국대학교 상허연구관
 1. [데이터과학 방법론 산업적용 현재와 미래](ds-statistics-symposium.html) [발표원문](ds-statistics-symposium-distill.html)
-    - [국가통계방법론 심포지엄: 국가통계의 현재와 미래](http://kostat.go.kr/sri/srikor/srikor_spn/1/1/index.action) 
+    - [제10회 국가통계방법론 심포지엄: 국가통계의 현재와 미래](http://kostat.go.kr/sri/srikor/srikor_spn/1/1/index.action), 2020-09-23 ~ 24, 통계센터 국제회의장
 1. [데이터 과학과 기계학습 소프트웨어](ds-software-society.html)
     - [소프트웨어와 사회, 2020년 가을호](http://softwareandsociety.kr/)
 1. [코딩으로 글쓰는 슬기로운 탐구생활](ds-rmarkdown-driven-development.html)
