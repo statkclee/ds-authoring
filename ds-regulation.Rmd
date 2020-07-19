@@ -45,7 +45,6 @@ knitr::opts_chunk$set(echo = FALSE)
 
 법률 준수 및 행정 규제관련 업무를 수행하는 담당자는 기계가 대신하여 법률 행정문서 조항을 분석하고 질문에 대해 즉각적인 대답을 제시함으로써 업무상 불필요한 시간소모를 줄이는 것은 물론이고, 기관에서 일상적으로 작성하는 행정 규제문서를 자동 생성, 검증함으로써 업무 정확도 향상과 효과성 측면에서도 많은 기여를 하고 있다. 특히, 단어와 구문, 토픽(topic)을 통해 추출한 정보를 네트워크 시각화 분석과 결합하여 제시할 경우 문제 상황에 대한 정확한 파악은 물론이고 집필자의 의도까지 예측하는데 도움을 주고, 법률, 판례 및 연관 행정규제를 포함한 2차 정보까지 실시간으로 제공하고 있다. 
 
-
 # 규제 데이터 자연처 처리
 
 1. 공정거래법 전면개편안 공청회 데이터 Digitization
@@ -55,6 +54,19 @@ knitr::opts_chunk$set(echo = FALSE)
     - [케인즈 일반이론 vs 하이에크 노예의 길](https://statkclee.github.io/text/langcon-keynes-hayek.html)
     - [케인즈 vs 하이에크 - 감성, 핵심어, 연관단어](https://statkclee.github.io/text/langcon-keynes-hayek-sentiment.html)
     - [케인즈 vs 하이에크 - 토픽 모형](https://statkclee.github.io/text/langcon-keynes-hayek-topic.html)
+
+# 행정규제 자동생성
+
+최근 OpenAI에서 [GPT-3](https://arxiv.org/abs/2005.14165)를 공개하여 이전 텍스트를 기계가 자동 생성하는 것을 넘어 다양한 응용사례를 보여주고 있다. [OpenAI API 데모](https://beta.openai.com/)를 통해 기존 보여줬던 텍스트 생성, 질의응답, 번역 등을 확인할 수 있었지만 이제는 코드 작성하는게 가능하게 되었다.
+
+- 텍스트 &rarr; 파이썬 코드
+    - [OpenAI Model Generates Python Code](https://www.youtube.com/watch?v=fZSFNUT6iY8)
+- 텍스트 &rarr; 배쉬 쉘 명령어     
+    - [CMD XYZ](https://cmd.xyz/)
+- 텍스트 &rarr; $\LaTeX$ 코드
+    - [sh_reya 트윗](https://twitter.com/sh_reya/status/1284746918959239168?s=20)
+- 텍스트 &rarr; React 앱 UI
+    - [sharifshameem 트윗](https://twitter.com/sharifshameem/status/1284095222939451393?s=20)
 
 # 데이터 과학자 양성
 
