@@ -1,0 +1,199 @@
+---
+title: "<small>클라우드 플랫폼과 NLP기술로 열어가는 AI 미래전략</small>"
+subtitle: "<small>규제법령 데이터</small>"
+author: "[Tidyverse Korea](https://www.facebook.com/groups/tidyverse/)"
+date: "2020-08-25"
+output:
+  revealjs::revealjs_presentation:
+    includes:
+       in_header: GA_script.html
+    css: styles/mlflow.css
+    df_print: paged
+    self_contained: true
+    center: true
+    fig_width: 6
+    fig_height: 4
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include = FALSE}
+options(htmltools.dir.version = FALSE)
+
+knitr::opts_chunk$set(echo = FALSE, warning=FALSE, message=FALSE,
+                    comment="", digits = 3, tidy = FALSE, prompt = FALSE, fig.align = 'center')
+
+```
+
+## 강의 개요
+
+- 실생활 속 데이터 과학 (AI/ML)
+- Big Data/AI/ML/Data Science
+- 데이터 경제와 산업
+- 왜 AI/ML은 어려운가?
+- 소중한 자원 규제법령 데이터
+
+# 실생활 속 데이터 과학 (AI/ML)
+
+## 러시아 월드컵 감동을 디지털로...
+
+<img src="fig/worldcup.gif" alt="월드컵" width="80%" />
+
+[러시아 월드컵(2018) - 한국 vs 독일](https://statkclee.github.io/viz/viz-worldcup-germany.html)
+
+## 지진해일 대피소가 없다고?
+
+<img src="fig/earthquake.png" alt="월드컵" width="80%" />
+
+[xwMOOC (2018-01-17), "지진해일 대피소 - `crosstalk`"](https://statkclee.github.io/viz/viz-earthquake-shelter.html)
+
+## 자 이제 됐고! 
+
+<img src="fig/trelliscopejs.png" alt="국회의원 사진" width="80%" />
+
+[국회의원 사진 - `trelliscope`](https://statkclee.github.io/viz/viz-congressman.html)
+
+## 대통령의 마음... 슬픔은 어디에?
+
+<img src="fig/kbs-video.jpg" alt="슬픔은 어디에" width="80%" />
+
+[xwMOOC 딥러닝 - 동영상 감정 분석](https://statkclee.github.io/deep-learning/ms-oxford-video.html)
+
+[KBS NEWS, 인공지능으로 분석한 대통령의 마음…슬픔은 어디에?](http://news.kbs.co.kr/news/view.do?ncd=3390429&ref=D)
+
+## MLB 투수 유전자는 유전이 될까?
+
+<img src="fig/major-league.png" alt="MLB 투수 유전자" width="77%" />
+
+[회귀분석 - MLB 투수 유전자는 유전이 될까?](https://statkclee.github.io/politics/pe-baseball-era.html)
+
+## 출산장려 예산은 출산율을 높일까?
+
+<img src="fig/budget-birthrate.png" width="57%" />
+
+[저출산과 소요예산 - 상관관계](https://statkclee.github.io/viz/viz-low-birth-rate.html)
+
+## 증가된 정부예산: 누가 세금을 많이 냈나?
+
+<img src="fig/tax-burden.png"width="77%" />
+
+[국세 세금 데이터 분석](https://statkclee.github.io/election/election_tax_EDA.html)
+
+# Big Data/AI/ML/Data Science
+
+## Google Trends: 미국
+
+![](fig/google-trends-comparison-us-1.png)
+
+## Google Trends: 대한민국
+
+![](fig/google-trends-comparison-kr-1.png)
+
+
+# 데이터 경제와 산업
+
+## 데이터 자원
+
+![](fig/economist-bigdata-oil.png)
+
+## 파이프라인
+
+![](fig/data-economy-industry.png)
+
+## 가치 {#data-value}
+
+<small>
+<ul>
+  <li>기술 분석(Descriptive Analytics): 무슨 일이 있었나? (What happened?)</li>
+  <li>진단 분석(Diagnostic Analytics): 왜 일어났나? (Why did it happen?)</li>
+  <li>예측 분석(Predictive Analytics): 무슨 일이 일어날까? (What will happen?)</li>
+  <li>처방 분석(Prescriptive Analytics): 어떻게 그런 일을 일으킬까? (How can we make it happen?)</li>
+</ul>
+</small>
+
+![](fig/ds-gartner.png){#id .class width="67%"}
+
+## 비용 {#data-science-cost}
+
+![](fig/data-science-cost.png){#id .class width="77%"}
+
+## 자동화 
+
+![](fig/automated-machine-learning.png){#id .class width="77%"}
+
+# 왜 AI/ML은 어려운가?
+
+![](fig/01_before_start.gif)
+
+## 누구나 꿈은 있다.
+
+![](fig/03-product.gif)
+
+## 누구나 이런 소박한 꿈을 가지고 시작한다.
+
+![](fig/02-plan.gif)
+
+## 현실은 아마도 ...
+
+![](fig/04_now.gif)
+
+
+## 더 성공한 존경받는 AI/ML 프로젝트/기업(?)
+
+![](fig/04_now_two.gif)
+
+## AI/ML 성공으로부터 다른 길을 걸어간 사례 모음
+
+
+
+
+# AI 비즈니스를 향해서 (KPMG)
+
+## 텍스트/문서
+
+## 게임시장의 미래는?
+
+![](fig/market-video-game.png)
+
+
+[비디오 게임](https://statkclee.github.io/data-product/dp-video-game.html)
+
+## 카트에 담긴 물품과 서비스
+
+![](fig/market-basket.png)
+
+[장바구니 데이터 분석](https://statkclee.github.io/ml/ml-market-basket.html)
+
+## 고객을 어떻게 세분화할까?
+
+![](fig/market-rfm.png)
+
+[RFM과 고객 세분화](https://statkclee.github.io/ml/ml-pm-applications.html)
+
+## 영화추천을 통한 추천하는 방법 
+
+![](fig/market-recommend.png)
+
+[추천 시스템(Recommendation System)](https://statkclee.github.io/parallel-r/)
+
+## 고객 잔존시간 예측은 어떻게?
+
+![](fig/market-survival.png){#id .class width="77%"}
+
+[고객이탈 - 생존분석(Survival Analysis)](https://statkclee.github.io/ml/ml-pm-survival.html)
+
+## 지방선거 광역단체장 지지율을 예측해보자
+
+![](fig/market-voting.png)
+
+[지방선거 광역단체장 지지율 예측모형](https://statkclee.github.io/ml/ml-local-election.html)
+
+## 데이터 과학으로 무장한 택시운전자
+
+![](fig/market-taxi.png)
+
+[나무모형과 지리정보 만남 - 택시](https://statkclee.github.io/model/model_geospatial_taxi.html)
+
+## 현재는 RPA와 텍스트 
+
+![](fig/Rise_of_the_Robots_(book).jpeg){#id .class width="35%"}
