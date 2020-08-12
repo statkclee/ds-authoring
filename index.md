@@ -14,7 +14,7 @@ title: 데이터 과학 기고문과 발표자료
 
 ## 학습목차 
 
-1. [규제법령 데이터를 클라우드 플랫폼과 NLP기술로 열어가는 AI 미래전략](ds-regulation.html) [발표자료](ds-regulation-deck.html)
+1. [규제법령 데이터를 클라우드 플랫폼과 NLP기술로 열어가는 AI 미래전략](ds-regulation.html) : [**발표자료**](ds-regulation-deck.html)
     - 2020-07-28, 더 좋은 규제 연구소 토론회 / 의원회관 제7간담회의실
 1. [기업운영혁신을 위한 데이터 과학: 기업의 활용방안](ds-rist.html)
     - 2020-07-21, 포항산업과학연구원(RIST)
