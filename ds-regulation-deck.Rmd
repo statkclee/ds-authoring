@@ -9,7 +9,7 @@ output:
        in_header: GA_script.html
     css: styles/mlflow.css
     df_print: paged
-    self_contained: true
+    self_contained: false
     center: true
     fig_width: 6
     fig_height: 4
@@ -28,9 +28,9 @@ knitr::opts_chunk$set(echo = FALSE, warning=FALSE, message=FALSE,
 ## 강의 개요
 
 - 실생활 속 데이터 과학 (AI/ML)
+- 왜 AI/ML은 어려운가?
 - Big Data/AI/ML/Data Science
 - 데이터 경제와 산업
-- 왜 AI/ML은 어려운가?
 - 소중한 자원 규제법령 데이터
 
 # 실생활 속 데이터 과학 (AI/ML)
@@ -79,6 +79,46 @@ knitr::opts_chunk$set(echo = FALSE, warning=FALSE, message=FALSE,
 
 [국세 세금 데이터 분석](https://statkclee.github.io/election/election_tax_EDA.html)
 
+# 왜 AI/ML은 어려운가?
+
+![](fig/01_before_start.gif)
+
+## 누구나 꿈은 있다.
+
+![](fig/03-product.gif)
+
+## 누구나 이런 소박한 꿈을 가지고 시작한다.
+
+![](fig/02-plan.gif)
+
+## 현실은 아마도 ...
+
+![](fig/04_now.gif)
+
+
+## 더 성공한 존경받는 AI/ML 프로젝트/기업(?)
+
+![](fig/04_now_two.gif)
+
+## 빗나간 AI/ML 성공(?) 프로젝트 모움
+
+```{r tidyverse-list-filenames, eval = TRUE}
+library(tidyverse)
+library(slickR)
+
+filenames <- list.files("fig/")
+
+gif_filenames <- filenames[str_detect(filenames, "06.*\\.gif")]
+
+gif_df <- tibble(page = glue::glue("fig/{gif_filenames}") )
+  
+slickR(gif_df$page, height = 600)
+```
+
+## 그럼에도 불구하고 꿈꾸는 AI/ML 미래
+
+![](fig/05_future_devops.gif)
+
 # Big Data/AI/ML/Data Science
 
 ## Google Trends: 미국
@@ -121,79 +161,24 @@ knitr::opts_chunk$set(echo = FALSE, warning=FALSE, message=FALSE,
 
 ![](fig/automated-machine-learning.png){#id .class width="77%"}
 
-# 왜 AI/ML은 어려운가?
-
-![](fig/01_before_start.gif)
-
-## 누구나 꿈은 있다.
-
-![](fig/03-product.gif)
-
-## 누구나 이런 소박한 꿈을 가지고 시작한다.
-
-![](fig/02-plan.gif)
-
-## 현실은 아마도 ...
-
-![](fig/04_now.gif)
 
 
-## 더 성공한 존경받는 AI/ML 프로젝트/기업(?)
+# 소중한 자원 규제법령 데이터
 
-![](fig/04_now_two.gif)
+## 아날로그 &rarr; 디지털화(Digitization)
 
-## AI/ML 성공으로부터 다른 길을 걸어간 사례 모음
+![](fig/fair-digitization.png){#id .class width="77%"}
 
+출처: [공정거래법 전면개편안: Digitization](https://statkclee.github.io/text/text-fair-law.html)
 
+## 텍스트 추출
 
+![](fig/fair-extraction.png){#id .class width="77%"}
 
-# AI 비즈니스를 향해서 (KPMG)
+출처: [최고의 OCR 엔진: 구글, 네이버, Azure, tesseract](https://statkclee.github.io/text/text-fair-law-ocr.html)
 
-## 텍스트/문서
+## 문서 분류
 
-## 게임시장의 미래는?
+![](fig/fair-classification.jpg){#id .class width="77%"}
 
-![](fig/market-video-game.png)
-
-
-[비디오 게임](https://statkclee.github.io/data-product/dp-video-game.html)
-
-## 카트에 담긴 물품과 서비스
-
-![](fig/market-basket.png)
-
-[장바구니 데이터 분석](https://statkclee.github.io/ml/ml-market-basket.html)
-
-## 고객을 어떻게 세분화할까?
-
-![](fig/market-rfm.png)
-
-[RFM과 고객 세분화](https://statkclee.github.io/ml/ml-pm-applications.html)
-
-## 영화추천을 통한 추천하는 방법 
-
-![](fig/market-recommend.png)
-
-[추천 시스템(Recommendation System)](https://statkclee.github.io/parallel-r/)
-
-## 고객 잔존시간 예측은 어떻게?
-
-![](fig/market-survival.png){#id .class width="77%"}
-
-[고객이탈 - 생존분석(Survival Analysis)](https://statkclee.github.io/ml/ml-pm-survival.html)
-
-## 지방선거 광역단체장 지지율을 예측해보자
-
-![](fig/market-voting.png)
-
-[지방선거 광역단체장 지지율 예측모형](https://statkclee.github.io/ml/ml-local-election.html)
-
-## 데이터 과학으로 무장한 택시운전자
-
-![](fig/market-taxi.png)
-
-[나무모형과 지리정보 만남 - 택시](https://statkclee.github.io/model/model_geospatial_taxi.html)
-
-## 현재는 RPA와 텍스트 
-
-![](fig/Rise_of_the_Robots_(book).jpeg){#id .class width="35%"}
+출처: [parsnip + tidytext + textrecipes](https://statkclee.github.io/model/tidyverse-parsnip-textrecipes.html)
