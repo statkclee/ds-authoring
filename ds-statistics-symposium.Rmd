@@ -147,16 +147,47 @@ slickR(y_fx_df$img_path, height = 350)
 
 # X 문법 (Grammar of X)
 
+<br>
+<br>
+
+- Reuse existing data structures; 기존 자료구조 재사용.
+- Compose simple functions with the pipe; 파이프(pipe)를 사용해서 단순한 함수를 조합.
+- Embrace functional programming; 함수형 프로그래밍을 적극 포용.
+- Design for humans; 인간을 위한 설계
+
 ## 글쓰기 문법: `Rmd`
+
+![](fig/sharing-yml.png)
+출처: https://statkclee.github.io/comp_document/
 
 ## 데이터 문법: `dplyr`
 
+![](fig/pliers-metaphor.png)
+
+출처: https://statkclee.github.io/data-science/
+
 ## 그래프 문법: `ggplot2`
+
+![](fig/ggplot_why.png)
+
+출처: https://statkclee.github.io/viz/
 
 ## 테이블 문법: `gt`
 
+![](fig/gt-concept.png)
+
+출처: https://statkclee.github.io/data-science/ds-table-gt-kable.html
+
 ## 모형 문법: `tidymodels`
 
+![](fig/tidymodels-tidyverse.png)
+
+출처: https://statkclee.github.io/model/tidyverse-model.html
+
 ## 텍스트 문법: `tidytext`
+
+![](fig/nlp-ai-workflow.png)
+
+출처: https://statkclee.github.io/text/nlp-twitter-tidytext.html
 
 ## 지도: `sf`
