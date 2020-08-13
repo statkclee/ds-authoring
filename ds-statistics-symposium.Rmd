@@ -26,17 +26,12 @@ knitr::opts_chunk$set(echo = FALSE, warning=FALSE, message=FALSE,
 
 ```
 
-
-# 관련 자료
-
-## 시작
-
-# 두번째
-
+# 
 
 ```{r stat-symposium}
 library(tidyverse)
 library(magick)
+library(slickR)
 
 poster <- image_read("fig/stat_symposium.jpg")
 
@@ -49,8 +44,29 @@ poster_02 <- poster %>%
 poster_03 <- poster %>% 
   image_crop(geometry = geometry_area(750, 1170, 0, 970 + 1075))
 
+poster_01 %>% 
+  image_write("fig/poster_01.png")
 
+poster_02 %>% 
+  image_write("fig/poster_02.png")
+
+poster_03 %>% 
+  image_write("fig/poster_03.png")
+
+fig_files <- list.files("fig")
+
+poster_filenames <- fig_files[str_detect(fig_files, "poster_.*")]
+
+poster_df <- tibble(page = glue::glue("fig/{poster_filenames}") )
+  
+slickR(poster_df$page, height = 500)
 
 ```
+
+
+# 관련 자료
+
+## 시작
+
 
 
