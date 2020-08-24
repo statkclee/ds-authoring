@@ -11,9 +11,12 @@ title: 데이터 과학 기고문과 발표자료
 > 금수저를 입에 물고 기계학습을 통달한 사람이 가장 유리한 출발을 시작한 것도 사실이다.
 
 - [신규 템플릿(`reveal.js`)](template.html)
+- [Seoul R Meetup](https://tidyverse-korea.github.io/seoul-R/)
 
 ## 학습목차 
 
+1. [Why Tidymodels?](ds-why-tidymodels.html)
+    - [Seoul R Meetup](https://tidyverse-korea.github.io/seoul-R/#section), 줌(Zoom), 2020-09-09
 1. [**발표자료**](ds-statistics-symposium.html) [데이터과학 방법론 산업적용 현재와 미래](ds-statistics-symposium-distill.html)
     - [제10회 국가통계방법론 심포지엄: 국가통계의 현재와 미래](http://kostat.go.kr/sri/srikor/srikor_spn/1/1/index.action), 2020-09-23 ~ 24, 통계센터 국제회의장
 1. [규제법령 데이터를 클라우드 플랫폼과 NLP기술로 열어가는 AI 미래전략](ds-regulation.html) : [**발표자료**](ds-regulation-deck.html)
