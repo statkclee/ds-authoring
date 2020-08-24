@@ -158,6 +158,7 @@ slickR(y_fx_df$img_path, height = 350)
 ## 글쓰기 문법: `Rmd`
 
 ![](fig/sharing-yml.png)
+
 출처: https://statkclee.github.io/comp_document/
 
 ## 데이터 문법: `dplyr`
@@ -178,16 +179,74 @@ slickR(y_fx_df$img_path, height = 350)
 
 출처: https://statkclee.github.io/data-science/ds-table-gt-kable.html
 
-## 모형 문법: `tidymodels`
-
-![](fig/tidymodels-tidyverse.png)
-
-출처: https://statkclee.github.io/model/tidyverse-model.html
-
 ## 텍스트 문법: `tidytext`
 
 ![](fig/nlp-ai-workflow.png)
 
 출처: https://statkclee.github.io/text/nlp-twitter-tidytext.html
 
-## 지도: `sf`
+## 모형 문법: `tidymodels`
+
+![](fig/tidymodels-tidyverse.png)
+
+출처: https://statkclee.github.io/model/tidyverse-model.html
+
+# 예측 모형 (Predictive Model)
+
+## 펭귄 데이터셋
+
+![](fig/penguin-dataset.png)
+
+- [펭귄 vs 붓꽃 데이터](https://statkclee.github.io/data-science/ds-iris-penguin.html)
+
+## 탐색적 데이터 분석
+
+![](fig/penguin-rayshader-small.gif)
+
+- [Tidy Tuesday: Plamer Penguins](https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-07-28/readme.md), [Palmer Penguin Dataset, 3D ggplot](https://gist.github.com/tylermorganwall/6397f160e4e587757199fe819b6cb040)
+
+## 모형 아키텍쳐
+
+| 앙상블 | Random Forest | XGBoost |
+|--------|----------------|---------|
+|![](fig/penguin-arch-ensemble.png)| ![](fig/penguin-arch-rf.png) | ![](fig/penguin-arch-xgb.png) |
+
+- [펭귄 성별예측모형: tidymodels](https://statkclee.github.io/model/tidyverse-parsnip-penguin.html)
+
+## 모형 최적화: Hyper Parameter Tuning
+
+![](fig/xgboost-python.png)
+
+- [펭귄 성별예측모형: tidymodels - Hyper Parameter](https://statkclee.github.io/model/tidyverse-parsnip-penguin-hyper-parameter.html)
+
+## 모형 배포: RESTful API
+
+![](fig/penguin-restful-api.png)
+
+- [펭귄 성별예측모형: tidymodels - RESTful API](https://statkclee.github.io/model/tidyverse-parsnip-penguin-RESTful-api.html)
+
+## 설명가능한 예측모형: Explainable AI
+
+![](fig/mdp-DALEX.png)
+
+- [펭귄 성별예측모형: tidymodels - MDP / DALEX](https://statkclee.github.io/model/tidyverse-parsnip-penguin-DALEX.html)
+
+## `tidyposterior` 모형 평가
+
+![](fig/penguin-tidyposterior.png)
+
+- [펭귄 성별예측모형: tidyposterior](https://statkclee.github.io/model/model-tidyposterior.html)
+
+## 예측모형 모의평가: Shiny
+
+![](fig/penguin-shiny-predictive-model.gif)
+
+- [펭귄 성별예측모형: tidymodels - Shiny](https://statkclee.github.io/model/tidyverse-parsnip-penguin-shiny.html)
+
+# 데이터 과학 커뮤니티
+
+- [Seoul R Meetup Group: Meetup.com](https://www.meetup.com/seoul-r-meetup/)
+- [Facebook Group: Tidyverse Korea](https://www.facebook.com/groups/tidyverse/)
+- [Seoul R Meetup Website](https://tidyverse-korea.github.io/seoul-R/)
+- [Shiny Korea Meetup](https://github.com/shinykorea/Meetup)
+- [웹에서 하는 R 통계](http://web-r.org/)
