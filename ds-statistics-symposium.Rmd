@@ -112,6 +112,10 @@ slickR(poster_df$page, height = 500)
 
 ![](fig/automated-machine-learning.png){#id .class width="77%"}
 
+## MSA
+
+![](fig/micro-service-architecture.png)
+
 # `Tidyverse`
 
 ## (비)정형 데이터와 함수
