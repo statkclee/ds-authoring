@@ -15,6 +15,12 @@ title: 데이터 과학 기고문과 발표자료
 
 ## 학습목차 
 
+1. [데이터야 놀자](https://datayanolja.github.io/)
+    1. ["데이터 과학자 언어 전쟁"(2020)](ds-data-science-war.html): 2020-10-17 (토), 온라인 아마도 줌(Zoom)
+    1. ["데이터 과학자의 시각화"(2018)](ds_data_scientist_visualization.html): 2018-10-19/20 (금/토), 마이크로소프트 광화문 오피스
+        - ["소프트웨어 카펜트리 (시즌2)"](ds_software_carpentry_2018.html): 2018-10-19/20 (금/토), 마이크로소프트 광화문 오피스
+    1. ["싱싱한 재료를 제품으로, 데이터를 데이터 제품으로"(2017)](slides/ds_data_product.html): 2017-10-13(금), 한빛미디어 홍대 신사옥
+    1. ["데이터과학을 위한 저작도구"(2016)](slides/2016/ds_authoring_toolchain.html): 2016-10-14(금), [마루 180, 서울 강남구 역삼로 180](http://dmaps.kr/owgj)    
 1. [Why Tidymodels?](ds-why-tidymodels.html)
     - [Seoul R Meetup](https://tidyverse-korea.github.io/seoul-R/#section), 줌(Zoom), 2020-09-09
 1. [**발표자료**](ds-statistics-symposium.html) [데이터과학 방법론 산업적용 현재와 미래](ds-statistics-symposium-distill.html)
@@ -80,11 +86,6 @@ title: 데이터 과학 기고문과 발표자료
     - 마이크로소프트웨어는 1983년 11월에 창간한 소프트웨어 전문 잡지로, 2017년부터 3개월에 1회씩 1가지 주제를 선정해 발행 중.
 1. [기계의 역습: 설명가능한 기계학습](ds_explainable_machine_learning_2018.html): [slideshare](https://www.slideshare.net/statkclee/cloudera-sessions-2018-datayanolja)
     - [클라우데라 서울 컨퍼런스, 2018년 11월 8일, 인터컨티넨탈 서울 코엑스](https://clouderasessionsseoul.com/)
-1. [데이터야 놀자](https://datayanolja.github.io/)
-    1. ["데이터 과학자의 시각화"(2018)](ds_data_scientist_visualization.html): 2018-10-19/20 (금/토), 마이크로소프트 광화문 오피스
-        - ["소프트웨어 카펜트리 (시즌2)"](ds_software_carpentry_2018.html): 2018-10-19/20 (금/토), 마이크로소프트 광화문 오피스
-    1. ["싱싱한 재료를 제품으로, 데이터를 데이터 제품으로"(2017)](slides/ds_data_product.html): 2017-10-13(금), 한빛미디어 홍대 신사옥
-    1. ["데이터과학을 위한 저작도구"(2016)](slides/2016/ds_authoring_toolchain.html): 2016-10-14(금), [마루 180, 서울 강남구 역삼로 180](http://dmaps.kr/owgj)    
 1. [Tidyverse와 기계학습(2018-10-07)](machine_learning_tidyverse_20181007.html): [데이터뽀개기 2018: Hello Kaggler!](http://kagglebreak.com/databreak2018), 마이크로소프트 광화문 오피스
     - [Tidyverse와 함께 하는 A/B 테스팅(2018-10-07)](ab_testing_tidyverse_20181007.html)
 1. [LG인화원(2018-06-22)](LG인화원_20180622.html)
