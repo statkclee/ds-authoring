@@ -10,7 +10,7 @@ output:
        in_header: GA_script.html
     css: styles/mlflow.css
     df_print: paged
-    self_contained: yes
+    self_contained: true
     center: true
     fig_width: 6
     fig_height: 4
@@ -26,7 +26,73 @@ knitr::opts_chunk$set(echo = FALSE, warning=FALSE, message=FALSE,
 
 ```
 
-# 데이터 과학 전쟁
+
+# 들어가며
+
+## 데이터야 놀자 2020
+
+![](fig/dataya-nolja-2020.jpg)
+
+<small>
+데이터와 놀이를 시작해야 되는데 가장 먼저 어떤 친구와 놀까가 매우 중요하게 다가오는데... 데이터 과학 언어를 선정하는데 다른 어떤 것보다 현실적인 문제를 푸는데 집중하고 덤으로 재미를 추구해야 하는데 그것이 쉽지 않고 귀가 얇아 주변에서 어떤게 좋다고하고 이러한 비행에 편승하여 비행 데이터 과학자가 되곤 한다. 조언이 도움이 되지 못하고 오히려 모든 고통의 원천이 되기도 한다. 데이터 과학 언어 전쟁은 결론이 나 있지만 사실 많은 사람들은 승부가 결론난 전쟁에 아직도 싸움을 계속하고 있다.
+</small>
+
+- 행사링크: [데이터야놀자](https://datayanolja.github.io/)
+
+# 데이터 과학 
+
+## 사람 vs. 기계
+
+<img src="fig/stat-modeling-workflow.png" alt="데이터 과학과 통계모형" width="120%" />
+
+[기초 통계 -통계 모형(Statistical models)](https://statkclee.github.io/statistics/stat-modeling.html)
+
+## 데이터 사이언스 언어
+
+데이터 사이언스를 대표하는 R이나 파이썬 모두 컴퓨터 프로그래밍 언어라서 태생적으로 거의 모든 컴퓨터 프로그래밍 언어가 갖고 있는 두 언어 문제에서 역시 자유로울 수는 없다.
+
+<br>
+<br>
+
+| 시스템 언어  | Ousterhout 이분법  | 스크립트 언어  |
+|:-------------:|:-----------:|:-------------:|
+|   정적       |     --      |     동적     |
+|   컴파일      |     --      |    인터프리터 |
+| 사용자정의 자료형|     --      |  표준 자료형 |
+|   빠른 속도   |     --      |   늦은 속도   |
+|   어려움       |     --      |   쉬움     |
+
+
+[Ousterhout dichotomy](https://en.wikipedia.org/wiki/Ousterhout%27s_dichotomy)
+
+## 유닉스 | `tidyverse`
+
+<img src="fig/maso_tidyverse.png" alt="Tidyverse 데이터 사이언스 작업흐름" width="100%" />
+
+- 기존 자료구조를 재사용: Reuse existing data structures.
+- 파이프 연산자로 간단한 함수를 조합: Compose simple functions with the pipe.
+- 함수형 프로그래밍을 적극 사용: Embrace functional programming.
+- 기계가 아닌 인간을 위한 설계: Design for humans.
+
+## 데이터 과학 프로세스 
+
+<img src="fig/data-science-process-as-is-to-be.png" alt="데이터 사이언스 프로세스 비교" width="100%" />
+
+## ML 개발 프로세스
+
+![](fig/DALEXverse.png)
+
+## 어떤 언어를 고를 것인가?
+
+<img src="fig/cognitive-performance.png" alt="인지 단계, 계산단계" width="67%" />
+
+## 데이터 과학 언어 추세
+
+<small>
+R을 예로 들면, 팩키지 개발을 할 때 R 스크립트로 모든 기능을 선행하여 기능을 구현하고 유용성이 인정되어 사용자가 많아지면, [Rcpp](https://cran.r-project.org/web/packages/Rcpp/index.html) 팩키지를 사용하여 C/C++로 후행하여 속도와 성능이 필요한 부분에 재개발하는 경우가 흔하다.
+</small>
+
+<img src="fig/data-scientist-languages.png" alt="데이터 사이언스 언어" width="77%">
 
 
 # 데이터 과학 커뮤니티
@@ -36,3 +102,15 @@ knitr::opts_chunk$set(echo = FALSE, warning=FALSE, message=FALSE,
 - [Seoul R Meetup Website](https://tidyverse-korea.github.io/seoul-R/)
 - [Shiny Korea Meetup](https://github.com/shinykorea/Meetup)
 - [웹에서 하는 R 통계](http://web-r.org/)
+
+# 데이터 과학 언어
+
+## 문제 개요
+
+![](fig/shiny-python.png)
+
+- [펭귄 성별예측모형: 파이썬 + `Shiny`](https://statkclee.github.io/model/tidyverse-penguin-python-shiny.html)
+
+## 펭귄 데이터
+
+
