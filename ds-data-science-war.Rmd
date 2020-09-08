@@ -10,7 +10,7 @@ output:
        in_header: GA_script.html
     css: styles/mlflow.css
     df_print: paged
-    self_contained: true
+    self_contained: false
     center: true
     fig_width: 6
     fig_height: 4
@@ -38,6 +38,39 @@ knitr::opts_chunk$set(echo = FALSE, warning=FALSE, message=FALSE,
 </small>
 
 - 행사링크: [데이터야놀자](https://datayanolja.github.io/)
+
+# 과학 기술 
+
+## 가치(Value) 원천
+
+<img src="fig/ai-lab-korea-science.png" width="77%" />
+
+<small> 세계은행(World Bank)과 한국개발연구원(KDI)은 약 2년여 기간의 공동연구를 통해 1960-2005 년간 한국 경제발전 과정에 관한 보고서를 출간했다. 경제성장이 지속되기 위해서는 생산성 증가가 대단히 중요하고, 1960년 이후 한국경제의 성공은 광의의 지식축적에 기인한 것으로 1960-2005년 사이 한국의 실질 1인당GDP의 75%가 광의의 지식축적에 기인한 것으로 분석했다. 
+</small>
+
+## 4번째 패러다임
+
+<img src="fig/ai-lab-4th-paradigm.png" width="100%" />
+
+## 라즈베리파이와 파이썬
+
+![](fig/raspberry-pi-programming-science.png)
+
+[과학기술 파이썬 툴체인](https://statkclee.github.io/raspberry-pi/raspberry-pi-programming-science.html)
+
+## 과학컴퓨팅
+
+![](fig/raspberry-pi-programming-toolchain-history.png)
+
+[과학기술 파이썬 툴체인](https://statkclee.github.io/raspberry-pi/raspberry-pi-programming-science.html)
+
+## 소트프웨어 카펜트리
+
+![](fig/swcarpentry-in-korea.png)
+
+- [이광춘 (2015년 8월), "한국에서 SW 카펜트리 1년...", 파이콘 2015](http://statkclee.github.io/slideshows/korea/index.html)
+- [소프트웨어 카펜트리 버젼 5.3.](http://statkclee.github.io/swcarpentry-version-5-3-new/)
+
 
 # 데이터 과학 
 
@@ -95,14 +128,6 @@ R을 예로 들면, 팩키지 개발을 할 때 R 스크립트로 모든 기능�
 <img src="fig/data-scientist-languages.png" alt="데이터 사이언스 언어" width="77%">
 
 
-# 데이터 과학 커뮤니티
-
-- [Seoul R Meetup Group: Meetup.com](https://www.meetup.com/seoul-r-meetup/)
-- [Facebook Group: Tidyverse Korea](https://www.facebook.com/groups/tidyverse/)
-- [Seoul R Meetup Website](https://tidyverse-korea.github.io/seoul-R/)
-- [Shiny Korea Meetup](https://github.com/shinykorea/Meetup)
-- [웹에서 하는 R 통계](http://web-r.org/)
-
 # 데이터 과학 언어
 
 ## 문제 개요
@@ -111,6 +136,62 @@ R을 예로 들면, 팩키지 개발을 할 때 R 스크립트로 모든 기능�
 
 - [펭귄 성별예측모형: 파이썬 + `Shiny`](https://statkclee.github.io/model/tidyverse-penguin-python-shiny.html)
 
-## 펭귄 데이터
+## 펭귄 데이터셋
 
+![](fig/penguin-dataset.png)
 
+- [펭귄 vs 붓꽃 데이터](https://statkclee.github.io/data-science/ds-iris-penguin.html)
+
+## 모형 아키텍쳐
+
+| 앙상블 | Random Forest | XGBoost |
+|--------|----------------|---------|
+|![](fig/penguin-arch-ensemble.png)| ![](fig/penguin-arch-rf.png) | ![](fig/penguin-arch-xgb.png) |
+
+- [펭귄 성별예측모형: tidymodels](https://statkclee.github.io/model/tidyverse-parsnip-penguin.html)
+
+## 모형 최적화: Hyper Parameter Tuning
+
+![](fig/xgboost-python.png)
+
+- [펭귄 성별예측모형: tidymodels - Hyper Parameter](https://statkclee.github.io/model/tidyverse-parsnip-penguin-hyper-parameter.html)
+
+## 모형 배포: RESTful API
+
+![](fig/penguin-restful-api.png)
+
+- [펭귄 성별예측모형: tidymodels - RESTful API](https://statkclee.github.io/model/tidyverse-parsnip-penguin-RESTful-api.html)
+
+## 설명가능한 예측모형: Explainable AI
+
+![](fig/mdp-DALEX.png)
+
+- [펭귄 성별예측모형: tidymodels - MDP / DALEX](https://statkclee.github.io/model/tidyverse-parsnip-penguin-DALEX.html)
+
+## `tidyposterior` 모형 평가
+
+![](fig/penguin-tidyposterior.png)
+
+- [펭귄 성별예측모형: tidyposterior](https://statkclee.github.io/model/model-tidyposterior.html)
+
+## Shiny Front-End + `tidymodels` Back-End
+
+![](fig/penguin-shiny-predictive-model.gif)
+
+- [펭귄 성별예측모형: `tidymodels` - Shiny](https://statkclee.github.io/model/tidyverse-parsnip-penguin-shiny.html)
+
+## Shiny Front-End + Python Back-End
+
+![](fig/shiny-fe-python-be.gif)
+
+- [펭귄 성별예측모형: 파이썬 - `Shiny`](https://statkclee.github.io/model/tidyverse-penguin-python-shiny.html)
+
+# 데이터 과학 커뮤니티
+
+- [Seoul R Meetup Group: Meetup.com](https://www.meetup.com/seoul-r-meetup/)
+- [Facebook Group: Tidyverse Korea](https://www.facebook.com/groups/tidyverse/)
+- [Seoul R Meetup Website](https://tidyverse-korea.github.io/seoul-R/)
+- [Shiny Korea Meetup](https://github.com/shinykorea/Meetup)
+- [웹에서 하는 R 통계](http://web-r.org/)
+
+# 
