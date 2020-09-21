@@ -1,8 +1,8 @@
 ---
 layout: page
 title: "데이터 과학 언어 전쟁"
-subtitle: "<small>[데이터야 놀자](https://datayanolja.github.io/) (2020) </small>"
-author: "<br> <br> <br> <small>Tidyverse Korea <br> 이광춘</small>"
+subtitle: "<small> 재미 중의 재미는 아무래도 싸움 구경 재미가 최고! </small>"
+author: "<small>[데이터야 놀자](https://datayanolja.github.io/) (2020) </small><br> <br> <br> <small>[Tidyverse Korea](https://www.facebook.com/groups/tidyverse/) <br> 이광춘</small>"
 date: "2020-10-17"
 output:
   revealjs::revealjs_presentation:
