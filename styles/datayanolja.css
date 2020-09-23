@@ -1,12 +1,5 @@
 @import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
 
-.reveal .title {
-       background-image: url(https://github.com/statkclee/ds-authoring/raw/gh-pages/fig/00_cover_boy_girl.png);
-       background-position: center center;
-       background-attachment: fixed;
-       background-repeat: no-repeat;
-       }
-
 .reveal .slides {
   font-family: "Noto Sans KR";
   font-size: 26px;
@@ -160,3 +153,4 @@ slide.current::after {
 .reveal .spaced {
   margin-top: 25px;
 }
+
