@@ -15,6 +15,8 @@ title: 데이터 과학 기고문과 발표자료
 
 ## 학습목차 
 
+1. [코딩으로 글쓰는 슬기로운 탐구생활](ds-rmarkdown-driven-development.html)
+    - [KCD(Korea Community Day) 2020](https://kcd2020.festa.io/), 11월 7일(토), 비대면 ~~2월 29일(토) 오전 10시~, 한국마이크로소프트 11층(더케이트윈타워 A동)~~ 
 1. [데이터야 놀자](https://datayanolja.github.io/)
     1. ["데이터 과학자 언어 전쟁"(2020)](ds-data-science-war.html): 2020-10-17 (토), 온라인 아마도 줌(Zoom)
     1. ["데이터 과학자의 시각화"(2018)](ds_data_scientist_visualization.html): 2018-10-19/20 (금/토), 마이크로소프트 광화문 오피스
@@ -33,8 +35,6 @@ title: 데이터 과학 기고문과 발표자료
     - 2020-06-18, 특허청
 1. [데이터 과학과 기계학습 소프트웨어](ds-software-society.html)
     - [소프트웨어와 사회, 2020년 가을호](http://softwareandsociety.kr/)
-1. [코딩으로 글쓰는 슬기로운 탐구생활](ds-rmarkdown-driven-development.html)
-    - [KCD(Korea Community Day) 2020](https://kcd2020.festa.io/), 2월 29일(토) 오전 10시~, 한국마이크로소프트 11층(더케이트윈타워 A동)
 1. ~~[데이터 경제와 산업을 위한 데이터 과학/공학과 교육](ds-data-industry.html)~~ &larr; 코로나바이러스 연기
     - 부산 IBIS 앰배서더, 2월 4일(화) 14:00 ~
 1. [~~로봇~~ 자동화가 빼앗는 일자리 그리고 나](ds-bundang-2019.html)
