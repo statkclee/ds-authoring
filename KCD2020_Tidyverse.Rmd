@@ -19,6 +19,7 @@ output:
 
 ```{r setup, include=FALSE}
 options(htmltools.dir.version = FALSE)
+options(knitr.duplicate.label = 'allow')
 ```
 
 class: kcd-title-slide
@@ -38,11 +39,119 @@ layout: false
 - 책
 - 논문
 
+```{r child='KCD2020_opening.Rmd'}
+```
+
+```{r child='KCD2020_writing.Rmd'}
+```
+
+
 ---
 class: title-style
 layout: false
 
-# 코딩으로 글쓰는 기본기
+# 책 -  $LaTex$ 사례
 
-한글 사랑...
+
+<br>
+<br>
+
+.pull-left[
+  <img src="fig/latex-how-it-works.png" alt="도구가 자동화하는 저작 업무" width="100%" />
+]
+.pull-right[
+  <img src="fig/py4inf.jpg" alt="도구가 자동화하는 저작 업무" width="77%" />
+]
+
+.footnote[
+  [정보교육을 위한 파이썬: 데이터 과학자로의 여정, 아마존 절찬 판매중](https://statkclee.github.io/pythonlearn-kr/01-py4inf-python2/)
+]  
+
+---
+class: title-style
+layout: false
+
+# 블로그
+
+.center[
+  <img src="fig/blogdown-deployment.png" alt="정적 웹콘텐츠 배포" width="100%" />
+]
+
+.footnote[
+  [데이터 과학을 위한 저작도구: Computational Documents - 블로그 `blogdown`](https://statkclee.github.io/comp_document/ds-blogdown.html)
+]  
+
+---
+class: title-style
+layout: false
+
+# 이력서
+
+.center[
+  <img src="fig/resume.png" alt="정적 웹콘텐츠 배포" width="80%" />
+]
+
+.footnote[
+- [데이터 과학을 위한 저작도구: Computational Documents - 이력서(Resume)](https://statkclee.github.io/comp_document/ds-resume.html)
+- [데이터 과학 입문 - 2020 봄학기](https://statkclee.github.io/ds-intro-2020/)
+] 
+
+---
+class: title-style
+layout: false
+
+# 논문 - 재현가능한 글쓰기
+
+.center[
+  <img src="fig/data-science-authoring.png" alt="데이터 사이언스 저작" width="80%" />
+]
+
+.footnote[
+  [데이터 과학: 재현가능한 저작 - R 마크다운 논문](https://statkclee.github.io/author_carpentry_kr/rmarkdown-authoring-paper.html)
+]
+
+
+---
+class: title-style
+layout: false
+
+# 논문 - 재현가능한 글쓰기 환경
+
+.center[
+  <img src="fig/data-science-authoring-env.png" alt="데이터 사이언스 저작 환경" width="80%" />
+]
+
+.footnote[
+  [데이터 과학: 재현가능한 저작 - R 마크다운 논문](https://statkclee.github.io/author_carpentry_kr/rmarkdown-authoring-paper.html)
+]
+
+---
+class: title-style
+layout: false
+
+# 논문 - 한국디지털경영학회
+
+.center[
+  <img src="fig/paper-transition.png" alt="한국디지털경영학회" width="100%" />
+]
+
+.footnote[
+  [자동화에 따른 노동시간 변화 분석, 한국디지털경영학회](https://statkclee.github.io/comp_document/automation-kasdba.html)
+]
+
+---
+class: title-style
+layout: false
+
+# 파워포인트 - `slideshow`
+
+.center[
+  <img src="fig/instant-preview.gif" alt="한국디지털경영학회" width="67%" />
+]
+
+.footnote[
+  [R 발표자료(Presentation) - xaringan 슬라이드쇼](https://statkclee.github.io/comp_document/ds-presn.html)
+]
+
+
 
