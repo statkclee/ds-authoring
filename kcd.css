@@ -1,7 +1,7 @@
 
 @import url('https://fonts.googleapis.com/earlyaccess/nanumbrushscript.css');
 
-html, body, h1, h2, h3, h4, h5, h6, li, p {font-family: 'KoPubWorld Dotum Medium', Georgia, Times;} */
+html, body, h1, h2, h3, h4, h5, h6, li, p {font-family: 'KoPubWorld Dotum Medium', Georgia, Times;} 
 
 @font-face {
   font-family: 'KoPubWorld Dotum Medium'; 
@@ -56,6 +56,18 @@ html, body, h1, h2, h3, h4, h5, h6, li, p {font-family: 'KoPubWorld Dotum Medium
   background-image: url(https://github.com/statkclee/ds-authoring/raw/gh-pages/fig/KCD_title.PNG);
   background-size: cover;
 }
+
+.kcd-title-subslide {
+  background-image: url(https://github.com/statkclee/ds-authoring/raw/gh-pages/fig/KCD_subtitle.png);
+  background-size: cover;
+  color: #39A8C7;
+  font-size: 3.7em;
+  font-weight: normal;
+  padding-left: 300px;
+  padding-top: 270px;  
+  margin-left: 10px;
+}
+
 
 .kcd-title-slide .remark-slide-number {
   display: none;
@@ -123,7 +135,7 @@ html, body, h1, h2, h3, h4, h5, h6, li, p {font-family: 'KoPubWorld Dotum Medium
 .title-style p, li {
   text-shadow: none;
   color: #767171;
-  font-size: 1.5em;
+  font-size: 1.0em;
   font-weight: normal;
   font-family: Georgia, Times;
   unicode-range: U+0020-007E;

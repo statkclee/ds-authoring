@@ -1,9 +1,9 @@
 ---
-title: "Presentation Ninja"
+title: "코딩으로 글쓰는 슬기로운 탐구생활"
 subtitle: "⚔<br/>with xaringan"
-author: "Yihui Xie"
-institute: "RStudio, PBC"
-date: "2016/12/12 (updated: `r Sys.Date()`)"
+author: "이광춘"
+institute: "Tidyverse Korea"
+date: "`r Sys.Date()`"
 output:
   xaringan::moon_reader:
     css: ["default", "kcd.css"]
@@ -15,6 +15,8 @@ output:
       countIncrementalSlides: false
       ratio: '16:9'
       slideNumberFormat: "Page %current%"  
+editor_options: 
+  chunk_output_type: console
 ---
 
 ```{r setup, include=FALSE}
@@ -29,20 +31,19 @@ layout: false
 
 # 목차
 
-## 코딩
+## 코딩 문서 기본기
+## 코딩 문서 사례
+## 코딩 문서를 넘어서
 
-- 코딩으로 글쓰는 기본기
-    - Literate Programming
-    - Tidyverse
-- 블로그
-- 책
-- 논문
 
----
-class: title-style
-layout: false
+```{r child='KCD2020_opening.Rmd'}
+```
 
-# 코딩으로 글쓰는 기본기
 
-한글 사랑...
+```{r child='KCD2020_writing.Rmd'}
+```
 
+
+```{r child='KCD2020_bookdown.Rmd'}
+```
+ 
