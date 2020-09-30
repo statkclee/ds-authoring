@@ -21,6 +21,7 @@ editor_options:
 
 ```{r setup, include=FALSE}
 options(htmltools.dir.version = FALSE)
+options(knitr.duplicate.label = 'allow')
 ```
 
 class: kcd-title-slide
@@ -35,15 +36,13 @@ layout: false
 ## 코딩 문서 사례
 ## 코딩 문서를 넘어서
 
-
+ 
 ```{r child='KCD2020_opening.Rmd'}
 ```
-
 
 ```{r child='KCD2020_writing.Rmd'}
 ```
 
-
 ```{r child='KCD2020_bookdown.Rmd'}
 ```
- 
+

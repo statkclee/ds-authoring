@@ -68,7 +68,6 @@ html, body, h1, h2, h3, h4, h5, h6, li, p {font-family: 'KoPubWorld Dotum Medium
   margin-left: 10px;
 }
 
-
 .kcd-title-slide .remark-slide-number {
   display: none;
 }
@@ -128,17 +127,8 @@ html, body, h1, h2, h3, h4, h5, h6, li, p {font-family: 'KoPubWorld Dotum Medium
 .title-style p, li {
   text-shadow: none;
   color: #767171;
-  font-size: 1.5em;
-  font-weight: normal;
-}
-
-.title-style p, li {
-  text-shadow: none;
-  color: #767171;
   font-size: 1.0em;
   font-weight: normal;
-  font-family: Georgia, Times;
-  unicode-range: U+0020-007E;
 }
 
 

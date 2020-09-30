@@ -15,7 +15,7 @@ title: 데이터 과학 기고문과 발표자료
 
 ## 학습목차 
 
-1. [코딩으로 글쓰는 슬기로운 탐구생활](ds-rmarkdown-driven-development.html)
+1. [코딩으로 글쓰는 슬기로운 탐구생활](ds-rmarkdown-driven-development.html) [**발표자료**](KCD2020_Tidyverse.html)
     - [KCD(Korea Community Day) 2020](https://kcd2020.festa.io/), 11월 7일(토), 비대면 ~~2월 29일(토) 오전 10시~, 한국마이크로소프트 11층(더케이트윈타워 A동)~~ 
 1. [데이터야 놀자](https://datayanolja.github.io/)
     1. ["데이터 과학자 언어 전쟁"(2020)](ds-data-science-war.html): 2020-10-17 (토), 온라인 아마도 줌(Zoom)
