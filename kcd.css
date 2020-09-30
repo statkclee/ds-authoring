@@ -57,6 +57,11 @@ html, body, h1, h2, h3, h4, h5, h6, li, p {font-family: 'KoPubWorld Dotum Medium
   background-size: cover;
 }
 
+.kcd-title-subslide {
+  background-image: url(https://github.com/statkclee/ds-authoring/raw/gh-pages/fig/KCD_subtitle.png);
+  background-size: cover;
+}
+
 .kcd-title-slide .remark-slide-number {
   display: none;
 }

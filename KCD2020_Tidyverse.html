@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>Presentation Ninja</title>
+    <title>코딩으로 글쓰는 슬기로운 탐구생활</title>
     <meta charset="utf-8" />
-    <meta name="author" content="Yihui Xie" />
+    <meta name="author" content="이광춘" />
+    <meta name="date" content="2020-09-30" />
     <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <link rel="stylesheet" href="kcd.css" type="text/css" />
@@ -102,13 +103,11 @@ layout: false
 
 
 
-
 ---
 class: title-style
 layout: false
 
 # 책 -  `\(LaTex\)` 사례
-
 
 &lt;br&gt;
 &lt;br&gt;
@@ -207,8 +206,136 @@ layout: false
 ]
 
 .footnote[
-  [R 발표자료(Presentation) - xaringan 슬라이드쇼](https://statkclee.github.io/comp_document/ds-presn.html)
+- [R 발표자료(Presentation) - xaringan 슬라이드쇼](https://statkclee.github.io/comp_document/ds-presn.html)
+- [코딩으로 글쓰는 슬기로운 탐구생활, KCD 2020](https://statkclee.github.io/ds-authoring/KCD2020_Tidyverse.html#1)
 ]
+
+---
+class: title-style
+layout: false
+
+# GITHUB `readme.md`
+
+
+
+.center[
+  &lt;img src="fig/github-readme.png" alt="GitHub ReadMe" width="57%" /&gt;
+]
+
+.footnote[
+  [데이터 과학을 위한 저작도구: Computational Documents - GITHUB `readme.md`](https://statkclee.github.io/comp_document/ds-github-readme.html)
+]
+
+
+
+
+
+---
+class: title-style
+layout: false
+
+# 보고서 생성 자동화
+
+.center[
+  &lt;img src="fig/report-many-automation.png" alt="보고서 자동화" width="40%" /&gt;
+]
+
+.footnote[
+- [데이터 과학을 위한 저작도구 - 보고서 자동화](https://statkclee.github.io/comp_document/ds-report-automation.html)
+]  
+
+---
+class: title-style
+layout: false
+
+# Parameterized 문서
+
+.pull-left[
+
+```r
+# 1. 시도명 ---------------------------------------
+provinces &lt;- c("강원도", "경기도", "경상남도", "경상북도", "광주광역시", "대구광역시", 
+               "대전광역시", "부산광역시", "서울특별시", "세종특별자치시", "울산광역시", 
+               "인천광역시", "전라남도", "전라북도", "제주특별자치도", "충청남도", 
+               "충청북도")
+
+# 2. 보고서 만들기 ---------------------------------------
+for(province in provinces) {
+  rmarkdown::render("election-province.Rmd", 
+                    output_format="html_document",
+                    params = list(province = province),
+  output_file = str_c(paste0(province, "_report_"), Sys.Date(), ".html", sep=""),
+  encoding = 'UTF-8', 
+  output_dir = "report")
+}
+```
+]
+
+.pull-right[
+
+
+```r
+---
+layout: page
+title: "Computational Document"
+subtitle: "`r params$province` 대통령 선거 득표 보고서"
+author:
+    name: 이광춘 (KPMG)
+    affilates: 데이터 과학자
+date: "`r Sys.Date()`"
+always_allow_html: yes
+params:
+  province: "서울특별시"
+output:
+  html_document: 
+    toc: yes
+    toc_float: true
+    highlight: tango
+    code_folding: show
+    number_section: true
+---
+```
+
+]
+
+.footnote[
+- [기본문서](https://statkclee.github.io/comp_document/tutorial/02_parameterized_rmd/election.html)
+- [매개변수 적용된 문서](https://statkclee.github.io/comp_document/tutorial/02_parameterized_rmd/election-province.html)
+]  
+
+
+---
+class: title-style
+layout: false
+
+# 전자책 저작
+
+.center[
+  &lt;img src="fig/bookdown-netlify.png" alt="북다운" width="60%" /&gt;
+]
+
+.footnote[
+- [데이터 과학을 위한 저작도구: Computational Documents - 북다운(`bookdown`)](https://statkclee.github.io/comp_document/bookdown-intro.html)
+- [데이터과학을 위한 미적분학](https://calculus-book.netlify.app/)  
+]  
+
+---
+class: title-style
+layout: false
+
+# 대쉬보드
+
+&lt;br&gt;
+&lt;br&gt;
+
+.center[
+  &lt;img src="fig/kcd-dashboard.png" alt="북다운" width="100%" /&gt;
+]
+
+.footnote[
+- [데이터 과학을 위한 저작도구: Computational Documents - 대쉬보드(Dashboard)](https://statkclee.github.io/comp_document/cd-dashboard.html)
+- [코로나19 대쉬보드](https://statkclee.github.io/comp_document/cd-corona.html)  
+]  
 
 
 
