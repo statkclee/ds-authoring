@@ -15,6 +15,9 @@ title: 데이터 과학 기고문과 발표자료
 
 ## 학습목차 
 
+1. [Seoul R Meetup](https://tidyverse-korea.github.io/seoul-R/#section), 줌(Zoom)
+    - [Why Tidymodels?](ds-why-tidymodels.html), 2020-09-09
+    - [날씨보고서 자동화 - GitHub Actions](ds-weather-github-actions.html), 2020-09-09
 1. [코딩으로 글쓰는 슬기로운 탐구생활](ds-rmarkdown-driven-development.html) [**발표자료**](KCD2020_Tidyverse.html)
     - [KCD(Korea Community Day) 2020](https://kcd2020.festa.io/), 11월 7일(토), 비대면 ~~2월 29일(토) 오전 10시~, 한국마이크로소프트 11층(더케이트윈타워 A동)~~ 
 1. [데이터야 놀자](https://datayanolja.github.io/)
@@ -23,8 +26,6 @@ title: 데이터 과학 기고문과 발표자료
         - ["소프트웨어 카펜트리 (시즌2)"](ds_software_carpentry_2018.html): 2018-10-19/20 (금/토), 마이크로소프트 광화문 오피스
     1. ["싱싱한 재료를 제품으로, 데이터를 데이터 제품으로"(2017)](slides/ds_data_product.html): 2017-10-13(금), 한빛미디어 홍대 신사옥
     1. ["데이터과학을 위한 저작도구"(2016)](slides/2016/ds_authoring_toolchain.html): 2016-10-14(금), [마루 180, 서울 강남구 역삼로 180](http://dmaps.kr/owgj)    
-1. [Why Tidymodels?](ds-why-tidymodels.html)
-    - [Seoul R Meetup](https://tidyverse-korea.github.io/seoul-R/#section), 줌(Zoom), 2020-09-09
 1. [**발표자료**](ds-statistics-symposium.html) [데이터과학 방법론 산업적용 현재와 미래](ds-statistics-symposium-distill.html)
     - [제10회 국가통계방법론 심포지엄: 국가통계의 현재와 미래](http://kostat.go.kr/sri/srikor/srikor_spn/1/1/index.action), 2020-09-23 ~ 24, 통계센터 국제회의장
 1. [규제법령 데이터를 클라우드 플랫폼과 NLP기술로 열어가는 AI 미래전략](ds-regulation.html) : [**발표자료**](ds-regulation-deck.html)
