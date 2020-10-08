@@ -1,0 +1,30 @@
+---
+title: "디지털 뉴딜"
+subtitle: "디지털 뉴딜"
+description: |
+  디지털 뉴딜
+author:
+  - name: 이광춘
+    url: https://www.facebook.com/groups/tidyverse/
+    affiliation: 삼정 KPMG
+    affiliation_url: https://home.kpmg/kr/ko/home.html
+date: "`r Sys.Date()`"
+output: 
+  distill::distill_article:
+    toc: true
+    toc_depth: 2
+    highlight: tango
+    number_section: true
+bibliography: bibliography.bib
+csl: biomed-central.csl
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+# 디지털 뉴딜
+
+

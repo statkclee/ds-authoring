@@ -15,6 +15,8 @@ title: 데이터 과학 기고문과 발표자료
 
 ## 학습목차 
 
+1. [디지털 뉴딜](krila-digital-new-deal.html)
+    - [지방자치이슈와 포럼](https://www.krila.re.kr/publication/periodical/issue) 2020년 10월호(제33호)
 1. [Seoul R Meetup](https://tidyverse-korea.github.io/seoul-R/#section), 줌(Zoom)
     - [Why Tidymodels?](ds-why-tidymodels.html), 2020-09-09
     - [날씨보고서 자동화 - GitHub Actions](ds-weather-github-actions.html), 2020-09-09
