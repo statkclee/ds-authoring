@@ -76,5 +76,90 @@ timevis(oecd_df, groups = location, options = list(stack = FALSE)) %>%
 ```
 
 
-# OECD 국가 비교 
+# OECD 국가 비교 {#compare-oecd-countries}
+
+- 이스라엘 FSI는 [Fragile States Index Country Dashboard](https://fragilestatesindex.org/country-data/)를 참고하여 75.1로 치환.
+- 뉴질랜드 소득 불평등 지수는 [INEQUALITY AND POVERTY: A SUMMARY OF THE 2019 HOUSEHOLD INCOMES IN NEW ZEALAND REPORT](http://www.goodsociety.nz/inequality-and-poverty-a-summary-of-the-2019-household-incomes-in-new-zealand-report/)을 참조하여 33으로 치환
+- 폴란드 소득 불평등 지수는 [index mundi Poland - GINI index (World Bank estimate)](https://www.indexmundi.com/facts/poland/indicator/SI.POV.GINI) 참조하여 31.8로 치환.
+- 결측값 갖는 룩셈부르크 제외
+
+```{r compare-oecd-countries}
+oecd_fact <- read_html("https://en.wikipedia.org/wiki/OECD") %>% 
+  html_nodes(xpath = '//*[@id="mw-content-text"]/div[1]/table[6]') %>% 
+  html_table() %>% 
+  .[[1]] %>% 
+  as_tibble() %>% 
+  janitor::clean_names()
+
+oecd_fact_df <- oecd_fact %>% 
+  set_names(c("country", "area", "population", "gdp", 
+              "gdp_per_capita", "income_inequality", 
+              "hdi", "fsi", "rli", "cpi", "ief", 
+              "gpi", "wpfi", "di")) %>% 
+  mutate(income_inequality = ifelse(income_inequality == "N/A", NA, income_inequality),
+         fsi = ifelse(fsi == "N/A", NA, fsi),
+         rli = ifelse(rli == "N/A", NA, rli),
+         gpi = ifelse(gpi == "N/A", NA, gpi)) %>% 
+  select(-rli) %>%  ## 결측값이 8개국
+  mutate(income_inequality = ifelse(country == "New Zealand", 33, income_inequality),
+         income_inequality = ifelse(country == "Poland", 31.8, income_inequality),
+         fsi = ifelse(country == "Israel", 75.1, fsi)) %>% 
+  filter(!str_detect(country, "Luxembourg|OECD|Country"))  %>% 
+  mutate(across(.cols=area:di, parse_number))
+
+
+## 변수 결측값
+sapply(oecd_fact_df, function(y) sum(length(which(is.na(y))))) %>% 
+  as.data.frame() %>% 
+  rownames_to_column(var="country") %>% 
+  as_tibble() %>% 
+  set_names(c("country", "missings")) %>% 
+  arrange(desc(missings))
+
+## 관측점 국가별 결측값
+rowSums(is.na(oecd_fact_df)) %>% 
+  as_tibble() %>% 
+  bind_cols(oecd_fact_df %>% select(country)) %>% 
+  rename(missings = value) %>% 
+  arrange(desc(missings))
+```
+
+정제된 데이터를 경제적인 측정지수 외에 다양한 지수를 바탕으로 일별해보자.
+
+- HDI: Human Development Index
+- FSI: Fragile States Index
+- CPI: Corruption Perceptions Index
+- IEF: Index of Economic Freedom
+- GPI: Global Peace Index
+- WPFI: Reporters Without Borders
+- DI: Democracy Index
+
+```{r country-data-clean}
+oecd_fact_df %>% 
+  arrange(desc(gdp)) %>% 
+  DT::datatable() %>% 
+  DT::formatRound(c("area", "population", "gdp", "gdp_per_capita"), digits = 0, interval = 3)
+```
+
+
+# Digital Transformation {#digital-transformation}
+
+## IMD Digital Competitiveness {#digital-transformation-ranking}
+
+[The 2020 IMD World Digital Competitiveness Ranking](https://www.imd.org/wcc/world-competitiveness-center-rankings/world-digital-competitiveness-rankings-2020/) 보고서
+
+![](data/digital_2020.pdf)
+
+
+## weforum Global Competitiveness {#digital-transformation-weforum-ranking}
+
+[World Economic Forum, "Global Competitiveness Index 4.0"](https://reports.weforum.org/global-competitiveness-report-2019/competitiveness-rankings/)
+
+보고서: ![](data/WEF_TheGlobalCompetitivenessReport2019.pdf)
+
+```{r weforum-global-competitiveness}
+
+
+
+```
 
