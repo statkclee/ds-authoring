@@ -17,7 +17,7 @@ title: 데이터 과학 기고문과 발표자료
 
 1. OCR Digitization for Industry Powered by ScanDoc and ButterBlock Suite
     - NAVER CLOUD AI SUMMIT, 2020년 12월 17일~18일, 온라인
-1. [디지털 뉴딜](krila-digital-new-deal.html) [분석 보고서](krila-to-digital.html)
+1. [디지털 뉴딜](krila-digital-new-deal.html) [분석 보고서](krila-to-digital.html) [데이터 댐 外](krila-data-dam.html)
     - [지방자치이슈와 포럼](https://www.krila.re.kr/publication/periodical/issue) 2020년 10월호(제33호)
 1. [Seoul R Meetup](https://tidyverse-korea.github.io/seoul-R/#section), 줌(Zoom)
     - [Why Tidymodels?](ds-why-tidymodels.html), 2020-09-09
