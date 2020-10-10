@@ -94,3 +94,139 @@ collapsibleTree(한국판뉴딜,
 ```
 
 
+# 재원과 일자리 {#investment-jobs}
+
+## 분야별 세부과제 투자/일자리 {#investment-jobs-fig}
+
+```{r investment-jobs-figure}
+library(magick)
+
+jobs_img <- image_read("fig/new-deal-investment-jobs.jpg")
+
+jobs_img
+```
+
+먼저 데이터를 이미지에서 OCR할 수 있는지 살펴보자.
+
+```{r investment-jobs-figure-pdf}
+library(tesseract)
+library(image.binarization)
+
+only_numbers <- tesseract(options = list(tessedit_char_whitelist = ".0123456789"))
+
+jobs_img %>% 
+  image_crop("400x965+520+100")
+
+jobs_img %>% 
+  image_crop("400x650+500+100") %>% 
+  tesseract::ocr(engine = only_numbers)
+
+## '20추 ~ '22추    
+field_01 <- jobs_img %>% 
+  image_crop("50x650+520+100") %>% 
+  # image_convert(format = "PGM", colorspace = "Gray") %>% 
+  # image_binarization(type = "otsu") %>% 
+  tesseract::ocr(engine = only_numbers) 
+
+field_01_df <- field_01 %>% 
+  str_split(pattern = "\n") %>% 
+  as.data.frame() %>% 
+  set_names("20-22") %>% 
+  as_tibble()
+
+field_01_df
+
+## '20추 ~ '25추    
+field_02 <- jobs_img %>% 
+  image_crop("50x650+580+100") %>% 
+  # image_convert(format = "PGM", colorspace = "Gray") %>% 
+  # image_binarization(type = "otsu") %>% 
+  tesseract::ocr(engine = only_numbers) 
+
+field_02_df <- field_02 %>% 
+  str_split(pattern = "\n") %>% 
+  as.data.frame() %>% 
+  set_names("20-25") %>% 
+  as_tibble() %>% 
+  filter(`20-25` != "")
+
+## 일자리
+field_03 <- jobs_img %>% 
+  image_crop("50x650+650+100") %>% 
+  # image_convert(format = "PGM", colorspace = "Gray") %>% 
+  # image_binarization(type = "otsu") %>% 
+  tesseract::ocr(engine = only_numbers) 
+
+field_03_df <- field_03 %>% 
+  str_split(pattern = "\n") %>% 
+  as.data.frame() %>% 
+  set_names("일자리") %>% 
+  as_tibble()
+
+## 분야
+sub_names <- tribble(~"subnames",
+                     "합계",
+                     "소계",
+                     "", "", "", "",
+                     "소계",
+                     "", "",
+                     "소계",
+                     "", "", "",
+                     "소계",
+                     "", "", "",
+                     "합계",
+                     "소계",
+                     "", "", "",
+                     "소계",
+                     "", "", "",
+                     "소계",
+                     "", "")
+ocred_df <- bind_cols(sub_names) %>% 
+  bind_cols(field_01_df) %>% 
+  bind_cols(field_02_df) %>% 
+  bind_cols(field_03_df) %>% 
+  filter(subnames =="") %>% 
+  bind_cols(한국판뉴딜 %>% filter(`레벨1` %in% c("디지털뉴딜", "그린뉴딜"))) %>% 
+  select(레벨0, 레벨1, 레벨2, 레벨3,  `20-22`, `20-25`, 일자리)
+
+ocred_df
+```
+
+## 투자 재원 {#investment-finance}
+
+```{r new-deal-finance}
+library(data.tree)
+
+finance_df <- read_excel("data/한국판뉴딜.xlsx", sheet="finance")
+
+finance_df$pathString <- paste(finance_df$레벨0,
+                               finance_df$레벨1, 
+                               finance_df$레벨2,
+                               finance_df$레벨3,
+                               sep = "/")
+
+nd_finance <- as.Node(finance_df)
+
+nd_finance$Do(function(node) node$재원 <- data.tree::Aggregate(node, attribute = "재원", aggFun = sum))
+
+collapsibleTree(nd_finance, 
+                zoomable = FALSE,
+                collapsed = FALSE,
+                nodeSize  = "재원", attribute = "재원", tooltip = TRUE)
+
+```
+
+
+## 일자리 {#investment-finance-jobs}
+
+```{r new-deal-finance-jobs}
+
+nd_finance$Do(function(node) node$일자리 <- data.tree::Aggregate(node, attribute = "일자리", aggFun = sum))
+
+collapsibleTree(nd_finance, 
+                zoomable = FALSE,
+                collapsed = FALSE,
+                nodeSize  = "일자리", 
+                attribute = "일자리", tooltip = TRUE)
+
+```
