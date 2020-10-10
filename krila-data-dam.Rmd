@@ -32,7 +32,65 @@ editor_options:
 knitr::opts_chunk$set(echo = TRUE, message=FALSE, warning=FALSE,
                       comment="", digits = 3, tidy = FALSE, prompt = FALSE, fig.align = 'center')
 
+library(tidyverse)
+library(slickR)
+library(pdftools)
 ```
 
 
 # 디지털 뉴딜 발표 {#digital-new-deal}
+
+[정부혁신1번가](https://www.innogov.go.kr/) 웹사이트에서 `HOME` > `디지털 정부혁신` > `디지털정부혁신자료실` 에서 [한국판 뉴딜 및 디지털 뉴딜 계획자료](https://www.innogov.go.kr/ucms/bbs/B0000051/view.do?nttId=4201&menuNo=300145&pageIndex=1) 보고서를 만날 수 있다.
+
+
+```{r digital-new-deal-report, eval = FALSE}
+library(tidyverse)
+library(slickR)
+library(pdftools)
+
+ND_pdf <- pdf_convert("data/200715_digital_new_deal_report.pdf",format = 'png',verbose = FALSE)
+ND_detail_pdf <- pdf_convert("data/200714_digital_new_deal_report_deail.pdf",format = 'png',verbose = FALSE)
+```
+
+## 디지털 뉴딜 종합계획 {#digital-new-deal-detail}
+
+```{r digital-new-deal-report-main}
+# ND_pdf %>% write_rds("data/ND_pdf.rds")
+ND_pdf <- read_rds("data/ND_pdf.rds")
+
+ND_pdf_df <- tibble(page = glue::glue("fig/{ND_pdf}") )
+  
+slickR(ND_pdf_df$page, height = 600)
+```
+
+## 한국판 뉴딜 종합계획 {#korean-new-deal}
+
+```{r digital-new-deal-report-detail}
+# ND_detail_pdf %>% write_rds("data/ND_detail_pdf")
+ND_detail_pdf <- read_rds("data/ND_detail_pdf")
+
+ND_detail_pdf_df <- tibble(page = glue::glue("fig/{ND_detail_pdf}") )
+  
+slickR(ND_detail_pdf_df$page, height = 600)
+```
+
+## 한국판 뉴딜 [^new-deal-with-money] {#korean-new-deal-moef}
+
+[^new-deal-with-money]: [대한민국 정책브리핑, "정책위키 - 한국판 뉴딜"](http://www.korea.kr/special/policyCurationView.do?newsId=148874860)
+
+기획재정부 [한국판 뉴딜](http://www.moef.go.kr/mp/nd/newDeal.do) 웹사이트에 확고한 **사람중심 포용국가** 기반 위에 **디지털(digital) 뉴딜**과 **그린(green) 뉴딜** 두 개의 축으로 추진하며, 2025년까지 총**160조원**(국비 114.1조원)을 투입하고 총**190.1만개 일자리**를 창출하겠다는 내용이 정리되어 있다.
+
+```{r korean-new-deal-all-about}
+library(collapsibleTree)
+library(tidyverse)
+library(readxl)
+
+한국판뉴딜 <- read_excel("data/한국판뉴딜.xlsx")
+
+collapsibleTree(한국판뉴딜, 
+                hierarchy = c("레벨1", "레벨2", "레벨3"),
+                tooltip = TRUE,
+                attributes = "레벨1")
+```
+
+
