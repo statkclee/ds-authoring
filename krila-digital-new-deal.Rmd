@@ -25,6 +25,56 @@ editor_options:
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-# 디지털 뉴딜
+# OECD 국가 비교 {#oecd-comparison}
 
+
+```{r oecd-comparison}
+library(tidyverse)
+library(reactable)
+library(htmltools)
+library(countrycode)
+library(knitr)
+
+oecd_df <- read_rds("data/oecd_full_df.rds")
+
+oecd_df <- oecd_df %>% 
+  select(country, flags, contains("rank"), everything()) %>% 
+  mutate(iso2c = countrycode(iso3c, origin = "iso3c", destination = "iso2c") %>% str_to_lower(.)) %>% 
+  mutate(gdp = round(gdp/10^9, 0),
+         population = round(population / 10^6, 0))
+  
+oecd_df %>% 
+  select(iso2c, country, contains("rank"), everything(), -iso3c, -flags) %>% 
+  arrange(ai_rank) %>% 
+  reactable(
+    filterable = TRUE,
+    searchable = TRUE,
+    minRows = 10,
+    highlight = TRUE,
+    columns = list(
+        country = colDef(
+          html = TRUE,
+          cell = JS("function(cell) {
+            return '<a href=\"https://wikipedia.org/wiki/' + cell.value + '\">' + cell.value + '</a>'
+          }")
+        ),
+        iso2c = colDef(cell = function(value) {
+          img_src <- sprintf('http://flagpedia.net/data/flags/mini/%s.png', value)
+          image <- img(src = img_src, height = "24px", alt = "")
+          tagList(
+            div(style = list(display = "inline-block", width = "45px"), image)
+          )
+        }),
+        gdp = colDef(
+          format = colFormat(separators = TRUE)
+        ),
+        area = colDef(
+          format = colFormat(separators = TRUE)
+        ),
+        gdp_per_capita = colDef(
+          format = colFormat(separators = TRUE)
+        )
+    )
+  )
+```
 
