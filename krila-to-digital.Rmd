@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "디지털 뉴딜"
-subtitle: "분석 보고서"
+subtitle: "국가별 분석 보고서"
 author:
   - name: "[Tidyverse Korea](https://www.facebook.com/groups/tidyverse/)"
     url: https://www.facebook.com/groups/tidyverse/
@@ -303,6 +303,89 @@ digital_df
 ```
 
 
+# 옥스퍼드 AI 준비 보고서 {#oxford-ai-readiness}
+
+Oxford Insights 웹사이트에서 [AI Readiness Index 2020](https://www.oxfordinsights.com/government-ai-readiness-index-2020) PDF 파일을 가져와서 국가별 순위를 추출한다.
+
+![](fig/oxford-method.png)
+
+```{r oxford-ai-readiness}
+oxford <- pdftools::pdf_data("data/AI+Readiness+Report.pdf")
+
+## Full Rankings: 1-24
+oxford_01 <- oxford[[129]]
+
+oxford_01_tbl <- oxford_01 %>% 
+  filter(x > 137, x < 460, y > 178, y < 795)
+
+oxford_01_tbl <- oxford_01_tbl %>% 
+  mutate(x = round(x/5),     #reduce resolution to minimise inconsistent coordinates
+         y = round(y/5)) %>% 
+  arrange(y, x) %>%                        #sort in reading order
+  mutate(group = cumsum(!lag(space, default = 0))) %>%  #identify text with spaces and paste
+  group_by(group) %>% 
+  summarise(x = first(x),
+            y = first(y),
+            text = paste(text, collapse = " ")) %>% 
+  group_by(y) %>% 
+  mutate(colno = row_number()) %>%         #add column numbers for table data 
+  ungroup() %>% 
+  select(text, colno, y) %>% 
+  pivot_wider(names_from = colno, values_from = text) %>% #pivot into table format
+  select(-y) %>% 
+  set_names(c("rank", "country", "score"))
+
+## Full Rankings: 25-51
+## Full Rankings: 52-78, ... "160-172"
+
+get_page_rank <- function(page) {
+  oxford_page <- oxford[[page]]
+
+  oxford_page_tbl <- oxford_page %>% 
+    filter(x > 137, x < 460, y > 99, y < 795)
+  
+  oxford_page_tbl <- oxford_page_tbl %>% 
+    mutate(x = round(x/3),     #reduce resolution to minimise inconsistent coordinates
+           y = round(y/3)) %>% 
+    arrange(y, x) %>%                        #sort in reading order
+    mutate(group = cumsum(!lag(space, default = 0))) %>%  #identify text with spaces and paste
+    group_by(group) %>% 
+    summarise(x = first(x),
+              y = first(y),
+              text = paste(text, collapse = " ")) %>% 
+    group_by(y) %>% 
+    mutate(colno = row_number()) %>%         #add column numbers for table data 
+    ungroup() %>% 
+    select(text, colno, y) %>% 
+    pivot_wider(names_from = colno, values_from = text) %>% #pivot into table format
+    select(-y) %>% 
+    set_names(c("rank", "country", "score"))
+  
+  return(oxford_page_tbl)
+}
+
+oxford_02_tbl <- get_page_rank(130)
+oxford_03_tbl <- get_page_rank(131)
+oxford_04_tbl <- get_page_rank(132)
+oxford_05_tbl <- get_page_rank(133)
+oxford_06_tbl <- get_page_rank(134)
+oxford_07_tbl <- get_page_rank(135)
+
+oxford_ranking <- bind_rows(oxford_01_tbl, oxford_02_tbl) %>% 
+  bind_rows(oxford_03_tbl) %>% 
+  bind_rows(oxford_04_tbl) %>% 
+  bind_rows(oxford_05_tbl) %>% 
+  bind_rows(oxford_06_tbl) %>% 
+  bind_rows(oxford_07_tbl)
+
+oxford_ranking_df <- oxford_ranking %>% 
+  mutate(across(.col = c(rank, score), parse_number)) %>% 
+  select(ai_rank = rank, country) %>% 
+  mutate(iso3c = countrycode(country, origin = "country.name", 'iso3c'))
+
+oxford_ranking_df
+```
+
 # OECD 통합 데이터 {#consolidated-dataframe}
 
 마지막 단계로 위키백과사전 OECD 국가별 중요 지표와 디지털 경쟁력을 담고 있는 World Economic Forum(WEF) 글로벌 경쟁력, IMD 디지털 경쟁력 지표를 결합시켜 후속 작업을 위한 데이터로 준비한다.
@@ -311,10 +394,10 @@ digital_df
 library(fuzzyjoin)
 
 oecd_full_df <- oecd_fact_df %>%
-  inner_join(wef_top_country, by="iso3c") %>% 
-  select(country = country.x, everything(), -country.y) %>% 
+  inner_join(wef_top_country %>% select(-country), by="iso3c") %>% 
   left_join(digital_df, by = "iso3c") %>% 
-  select(-wef_score)
+  select(-wef_score) %>% 
+  left_join(oxford_ranking_df %>% select(-country), by="iso3c")
 
 oecd_full_df 
 ```
@@ -325,4 +408,3 @@ oecd_full_df
 oecd_full_df %>% 
   write_rds("data/oecd_full_df.rds")
 ```
-
