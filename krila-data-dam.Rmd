@@ -37,11 +37,27 @@ library(slickR)
 library(pdftools)
 ```
 
+<style>
+div.blue { background-color:#e6f0ff; border-radius: 5px; padding: 10px;}
+</style>
+<div class = "blue">
+
+> The storm will pass, humankind will survive, most of us will still be alive — but we will inhabit a different world.
+> 폭풍은 지나갈 것이고 인류는 살아남을 것이다. 그러나 우리는 전혀 다른 세상에서 살아갈 것이다.  <br>
+> 
+> 유발하라리: Yuval Noah Harari (MARCH 20 2020), "the world after coronavirus", the Financial Times.
+> 
+> As Covid-19 impacts every aspect of our work and life, we have seen two years' worth of digital transformation in two months.
+> 코로나19가 모든 영역에서 영향을 미침으로 인해, 2년이 걸릴 디지털 대전환이 지난 2개월 만에 이뤄졌다.  <br>
+>
+> 사티아 나델라: Satya Nadella 마이크로소프트 CEO
+
+</div> 
+
 
 # 디지털 뉴딜 발표 {#digital-new-deal}
 
-[정부혁신1번가](https://www.innogov.go.kr/) 웹사이트에서 `HOME` > `디지털 정부혁신` > `디지털정부혁신자료실` 에서 [한국판 뉴딜 및 디지털 뉴딜 계획자료](https://www.innogov.go.kr/ucms/bbs/B0000051/view.do?nttId=4201&menuNo=300145&pageIndex=1) 보고서를 만날 수 있다.
-
+[정부혁신1번가](https://www.innogov.go.kr/) 웹사이트에서 `HOME` \> `디지털 정부혁신` \> `디지털정부혁신자료실` 에서 [한국판 뉴딜 및 디지털 뉴딜 계획자료](https://www.innogov.go.kr/ucms/bbs/B0000051/view.do?nttId=4201&menuNo=300145&pageIndex=1) 보고서를 만날 수 있다.
 
 ```{r digital-new-deal-report, eval = FALSE}
 library(tidyverse)
@@ -74,9 +90,9 @@ ND_detail_pdf_df <- tibble(page = glue::glue("fig/{ND_detail_pdf}") )
 slickR(ND_detail_pdf_df$page, height = 600)
 ```
 
-## 한국판 뉴딜 [^new-deal-with-money] {#korean-new-deal-moef}
+## 한국판 뉴딜 [^1] {#korean-new-deal-moef}
 
-[^new-deal-with-money]: [대한민국 정책브리핑, "정책위키 - 한국판 뉴딜"](http://www.korea.kr/special/policyCurationView.do?newsId=148874860)
+[^1]: [대한민국 정책브리핑, "정책위키 - 한국판 뉴딜"](http://www.korea.kr/special/policyCurationView.do?newsId=148874860)
 
 기획재정부 [한국판 뉴딜](http://www.moef.go.kr/mp/nd/newDeal.do) 웹사이트에 확고한 **사람중심 포용국가** 기반 위에 **디지털(digital) 뉴딜**과 **그린(green) 뉴딜** 두 개의 축으로 추진하며, 2025년까지 총**160조원**(국비 114.1조원)을 투입하고 총**190.1만개 일자리**를 창출하겠다는 내용이 정리되어 있다.
 
@@ -92,7 +108,6 @@ collapsibleTree(한국판뉴딜,
                 tooltip = TRUE,
                 attributes = "레벨1")
 ```
-
 
 # 재원과 일자리 {#investment-jobs}
 
@@ -211,11 +226,10 @@ nd_finance$Do(function(node) node$재원 <- data.tree::Aggregate(node, attribute
 
 collapsibleTree(nd_finance, 
                 zoomable = FALSE,
-                collapsed = FALSE,
+                collapsed = TRUE,
                 nodeSize  = "재원", attribute = "재원", tooltip = TRUE)
 
 ```
-
 
 ## 일자리 {#investment-finance-jobs}
 
@@ -225,8 +239,75 @@ nd_finance$Do(function(node) node$일자리 <- data.tree::Aggregate(node, attrib
 
 collapsibleTree(nd_finance, 
                 zoomable = FALSE,
-                collapsed = FALSE,
+                collapsed = TRUE,
                 nodeSize  = "일자리", 
                 attribute = "일자리", tooltip = TRUE)
 
 ```
+
+# 투자재원과 일자리
+
+2025년까지 총**160조원**(국비 114.1조원)을 투입하여 총**190.1만개 일자리**를 창출하기로 되어있는데 투자재원별로 일자리 창출관계를 시각화하여 살펴보자.
+
+```{r investment-jobs-EDA}
+library(ggrepel)
+library(extrafont)
+loadfonts()
+
+fin_job_df <- read_excel("data/한국판뉴딜.xlsx", sheet="EDA")
+
+fin_job_df %>% 
+  ggplot(aes(x=재원, y=일자리, color = 레벨1, label=str_trunc(레벨3, 20))) +
+    geom_point() +
+    geom_smooth(method = "lm", se=FALSE) +
+    geom_text_repel(hjust=-.1,  check_overlap=TRUE) +
+    theme_bw(base_family = "NanumGothic") +
+    theme(legend.position = "top") +
+    labs(color="뉴딜 3대축", x="투자재원 (단위:조)", y="일자리 (단위:만)",
+         title = "한국판 뉴딜 주요추진과제별 투자재원과 일자리")
+
+```
+
+## 투자 → 일자리
+
+```{r}
+fin_job_df %>% 
+  group_by(레벨2) %>% 
+  summarise(투자재원 = sum(재원),
+            일자리 = sum(일자리)) %>% 
+  pivot_longer(cols=투자재원:일자리, names_to="구분") %>% 
+  mutate(구분 = factor(구분, levels=c("투자재원", "일자리"))) %>% 
+  ggplot(aes(x=fct_reorder(레벨2, value), y=value, fill=구분)) +
+    geom_col(show.legend = FALSE) +
+    facet_wrap(~구분) +
+    coord_flip() +
+    theme_bw(base_family = "NanumGothic") +
+    labs(x="", y="투자재원(단위:조원), 일자리(단위:만명)")
+
+```
+
+
+# 동영상 {.tabset .tabset-fade .tabset-pills}
+
+## 홍남기 경기부총리
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/dMEFcRHLxzo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+
+</iframe>
+
+## 외신기자 다른 시점
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/HnymTzUzQFY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+- 도널드 커크(미국 기자): 중소기업과 다양한 분야를 활성화하여 경기회복과 코로나 19 극복을 원하나 한국경제를 지배하는 족별 대기업에 자금이 몰리는 것은 원하지 않음. 대기업과 이해관계가 없는 창의성과 혁신을 가진 중소기업을 격려하고자 함. 실제로 대기업없이 그런일을 할 수 있는지 의구심이 감. 
+- 앤드류 살먼(영국 기자): 세계의 모든 정부가 비슷한 일을 하고 있음. 한국은 경제의 70%를 대외무역에 의존하고 있다. 따라서 한국은 국내정책에 따라 해외시장에 대한 의존도가 달라지는 경제임. 
+- 프랭크 스미스(캐나다 기자): 절박한 시기에 과감한 조치가 필요하다고 생각됨. 코로나 19로 사회구조가 바뀌게 되어 일자리와 사없을 잃은 사람에게 더 강력한 사회안전망을 제공하기 위해 개입하는 것은 타당. 디지털 경제와 녹색 경제에 집중하는 것은 좋은 것이지만 고용면에서 전세계에서 일어나고 있는 더 많은 종류의 "자동화"라는 추세를 인지해야 함. 사업혁명 이후 새로운 패러다임이 요구되고 있으며 제조업에서는 더이상 일자리가 늘어나지 않음. 따라서 일하는 시간을 줄이고 일자리를 나누는 등 새로운 조치가 필요하고 경제성장 보다는 사회의 행복에 중점을 둔 장기적으로 지속가능한 발전이 필요함.
+
+
+## 데이터 탬
+
+‘데이터 댐’ 일자리 39만 개…직접 체험해 보니 / KBS뉴스(News)
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Y9sxF3LhymY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
