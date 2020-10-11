@@ -41,7 +41,10 @@ oecd_df <- oecd_df %>%
   select(country, flags, contains("rank"), everything()) %>% 
   mutate(iso2c = countrycode(iso3c, origin = "iso3c", destination = "iso2c") %>% str_to_lower(.)) %>% 
   mutate(gdp = round(gdp/10^9, 0),
-         population = round(population / 10^6, 0))
+         population = round(population / 10^6, 0)) %>% 
+  mutate(ai_rank = max(ai_rank) - ai_rank + 1,
+         wef_rank = max(wef_rank) - wef_rank + 1,
+         digital_rank = max(digital_rank) - digital_rank + 1)
   
 oecd_df %>% 
   select(iso2c, country, contains("rank"), everything(), -iso3c, -flags) %>% 
@@ -76,5 +79,59 @@ oecd_df %>%
         )
     )
   )
+```
+
+
+# AI 역량 비교 {#oecd-ai-comparison}
+
+
+```{r ai-capability-comparison}
+library(tidymodels)
+library(embed)
+
+recipe_spec <- oecd_df %>% 
+  recipe( ~ .) %>%
+    update_role(country, flags, iso2c, iso3c, new_role = "id") %>%
+    step_normalize(all_predictors()) %>%
+    step_umap(all_numeric(), num_comp = 3, seed = c(123, 123))
+
+umap_tbl <- recipe_spec %>% prep() %>% juice()
+# umap_tbl
+```
+
+```{r plotly-visualization}
+library(plotly)
+
+# 툴팁 데이터 작성
+plot_tbl <- umap_tbl %>%
+    inner_join(
+        oecd_df %>%
+            select(country, contains("rank"))
+    ) %>%
+    mutate(tooltip = str_glue(
+        "
+        Country: {country}
+        WEF Rank: {wef_rank}
+        IMD Rank: {digital_rank}
+        AI Rank: {ai_rank}
+        "
+    )) %>% 
+  mutate(club_3050 = ifelse(str_detect(country, "United States|Korea|Japan|United Kingdom|France|Germany|Italy"), "30-50 클럽","기타") ) %>% 
+  mutate(club_3050 = factor(club_3050, levels = c("30-50 클럽","기타")))
+  # mutate(class = case_when(str_detect(country, "United States") ~ "United States",
+  #                          str_detect(country, "Korea") ~ "Korea",
+  #                          str_detect(country, "Japan") ~ "Japan",
+  #                          str_detect(country, "Germany") ~ "Germany",
+  #                          TRUE ~ "기타")) %>% 
+  # mutate(class = factor(class, levels=c("Korea", "United States", "Japan", "Germany", "기타")))
+
+# Plotly 시각화 ----
+plot_tbl %>%
+    plot_ly(x = ~ umap_1, y = ~ umap_2, z = ~ umap_3,
+            # color = ~ class, colors = c('red', 'blue', 'black', 'pink', 'darkgray'),
+            color = ~ club_3050, colors = c('red', 'darkgray'),
+            hovertemplate = ~ tooltip) %>%
+    add_markers(opacity = 1) %>% 
+    add_text(text = ~country, showlegend = FALSE)
 ```
 
