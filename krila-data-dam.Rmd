@@ -252,6 +252,7 @@ collapsibleTree(nd_finance,
 ```{r investment-jobs-EDA}
 library(ggrepel)
 library(extrafont)
+# font_import(pattern = "Nanum")
 loadfonts()
 
 fin_job_df <- read_excel("data/한국판뉴딜.xlsx", sheet="EDA")
@@ -260,7 +261,7 @@ fin_job_df %>%
   ggplot(aes(x=재원, y=일자리, color = 레벨1, label=str_trunc(레벨3, 20))) +
     geom_point() +
     geom_smooth(method = "lm", se=FALSE) +
-    geom_text_repel(hjust=-.1,  check_overlap=TRUE) +
+    geom_text_repel(hjust=-.1,  check_overlap=TRUE, family="NanumGothic") +
     theme_bw(base_family = "NanumGothic") +
     theme(legend.position = "top") +
     labs(color="뉴딜 3대축", x="투자재원 (단위:조)", y="일자리 (단위:만)",
@@ -309,5 +310,112 @@ fin_job_df %>%
 ‘데이터 댐’ 일자리 39만 개…직접 체험해 보니 / KBS뉴스(News)
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Y9sxF3LhymY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+## 과기정통부장관
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/oJwEFhbw2QU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+디지털 뉴딜 - 최기영 과학기술정보통신부 장관에게 들어봅니다.
+
+- Q: 디지털 뉴딜 어떤 정책들이 추진되나요?
+    - 디지털 대전환을 선도하기 위한 국가 전략 2021년 약 7.9조원 규모의 예산 투입 예정
+    - DNA 생태계 강화, 교육 인프라 디지털 전환, 비대면 산업육성, SOC 디지털화 등 4개 분야로 구성
+    - 디지털 뉴딜의 핵심사업인 **데이터 탬**
+        - 데이터 탬: 데이터들을 모으고, 가공활용하여 혁신적인 서비스 개발과 산업 육성을 통해 일자리 창출    
+- Q: 기존 정책과의 차별점은?
+    - D.N.A : Data, Network, AI
+        - Data &rarr; 데이터 3법 통과
+        - Network &rarr; 5G 세계 최초 상용화
+        - AI &rarr; 인공지능 국가전략 수립
+    - 일자리 창출 집중, 선제적인 미래집중
+- Q: 일자리 창출과 경기 회복에 효과는?
+    - 디지털 대전화이 성공적으로 추진될 경우 산업, 기업, 국민의 일상까지 전반적인 변혁 체감
+    - 기업은 새로운 시자오가 비즈니스 모델을 만들어 경기 회복과 일자리 창출
+    - 다양한 디지털 기술을 기반으로 국민들은 안전하고 편리한 생활 향유
+- Q: 디지털 뉴딜 관련 규제 및 제도 개선을 위한 노력은?
+    - 디지털 뉴딜 제도 개선을 위해 한국판 뉴딜 '법, 제도 개혁 TF' 참여 중
+    - 규제샌드박스: 신기술을 활용한 새로운 제품, 서비스의 시장출시가 가능하도록 일정조건(장소, 규모 등) 하에서 규제를 면제시켜주는 제도
+    - 디지털뉴딜 분야 기업을 대상으로 '찾아가는 설명회'로 심화 상담을 강화
+    - 법령개선지원단 운영 
+    
+## 한국판 뉴딜 비판
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/fcXfpj6NqAg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    
+이명박 정권시절 4대강 사업도 뉴딜 사업으로 서브프라임으로 부동산이 무너져 건축 토목 기업들의 실적이 안 좋아지자 4대강을 만들어서 건설업자들에게 일거리를 주었고, 기업은 사람을 고용하는 모습이 "한국판 뉴딜"과 똑같음.
+예를 들어, 160조 사업을 따기 위해 회사를 설립해서 정부 발주 사업을 수주하고, 또 다른 가족이나 아들딸에게 회사를 만들어서 하청을 주고 하청에 재하청에 얼마 돈도 받지 못하고 일을 하게 되는 현상이 발생.
+어릴 때부터 디지털 기반 교육을 강조하고 산업을 비대면으로 바꿔 디지털화 시켜 더 많은 일을 처리함.
+탄약고에서 철조망을 짓는데 20명이 곡갱이질을 계속하고 있는데 도저히 안 돼 가지고 공병대를 불러서 포크레인으로 파보니까 정말 몇 번 작업으로 1시간도 안 되서 작업 끝. 포크레인 AI가 알아서 일을 하니 관리자 몇명만 필요한 겁니다.
+
+디지털 뉴딜 160조 투자의 실체는 ... 실제로 정부가 하는 것은 디지털 관련 인재를 교육하고 양성하고 배출하는 것임. 수 많은 아이를 교육시켜서 그 중에 뛰어난 인재를 선발한다는 것 뿐임. 따라서 경제에는 도움이 거의 안 됨.
+우리나라 경제를 위해서라면 이명박 정권처럼 땅을 파서 노동자를 고용하는 것이 가장 좋음. 디지털 뉴딜은 좋은 인재만 가져가고 나머지는 버리겠다는 의미임.
+ 
+그린 뉴딜은 태양광 사업을 통해 중국에 조공형식으로 중국기업만 살린 대표적인 실패사례와 다르지 않음.
+유가가 100달러 갈 때 태양광, 풍력이 인기가 있었으나 현재는 유가가 대폭 하락한 현재 경제적 타당성이 없음.
+
+안전망 강화도 디지털 뉴딜이 5G와 AI라 고용이 줄어들 수 밖에 없는 구조라 앞뒤가 안 맞음.
+사람투자도 인재양성일 뿐이라 현재 도움은 안 됨.
+
+## 지역균형 뉴딜
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/rFTqpSYengo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+- 지역균형 뉴딜 왜 필요한가?
+    - 수도권/비수도권 GRDP 격차 심화 및 수도권 인구비중 50%를 넘어 증가
+    - 한국판 뉴딜의 본격 추진 + 지역확산, 지역경제 활성화, 국가균형발전 도모
+- 지역균형 뉴딜이란?    
+    - 한국판 뉴딜 지역사업(가속화), 지자체 주도형 뉴딜사업(확산), 공공기관 선도형 뉴딜사업(선도)
+    - 한국판 뉴딜 지역사업: 중앙정부 추진 프로젝트(지역에서 구현), 중앙정부+지방정부 매칭 프로젝트
+    - 디지털 뉴딜: 에너지 공공기관(지능형 디지털 발전소 구축), 가스공사(당진 LNG 생산기지 스마트팩토리 구축), 
+    - 그린 뉴딜: 한국전력(신안 해양풍력단지 조성)
+- 지역균형 뉴딜, 이렇게 추진하겠습니다.
+    - 지자체가 한국판 뉴딜을 (1) 지역에서 구현하고, (2) 창의적인 뉴딜을 만들어내는 주역 (대통령 국무회의 모두 발언, 7.21일)
+    - 지역 구현성 + 지역적 창의성
+        - 한국판 뉴딜 지역사업의 신속 실행
+        - 지자체 주도형 뉴딜사업의 확산 지원
+        - 공공기관 선도형 뉴딜 사업 추진 뒷받침
+        - 지속가능한 지역균형 뉴딜 생태계의 조성
+        
+## 시도별 추진 전략
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/1CWzBDM2Lxg?start=1279" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+- 제주 (원희룡)
+    - 탄소중립 - 신재생 에너지, 전기차, 스마트 그리드
+    - 미래혁신인재 10만 양성
+    - 기후변화협약 당사자총회 제주유치
+- 대전 (허태정)
+    - 디지털 경제: 전국 최고의 과학기술자원, 스마트한 과학인재, 작지만 강한 벤처기업
+    - 오픈데이터 기반의 '인공지능 실험도시': 정부 데이터 댐 + 대전 공공, 민간 데이터 개방
+    - 지속가능한 도시 솔류션 제공: 인공지능 기반의 스마트 시티
+- 강원도 (최문순)
+    - 액화수소산업
+- 이재명 (경기도)
+    - 도민 참여형 공정 디지털 SOC 구축
+    - 공공 배달앱 구축 (지역화폐와 연계)
+    - 데이터 독점, 데이터 주권, 디지털 불평등
+- 김영록 (전라남도)
+    - 그린 뉴딜 전남형 상생 일자리
+    - 그린 뉴딜 + 블루 에너지 (해상 풍력 등)
+- 김경수 (경상남도)
+    - 수도권 쏠림현상 심화
+    - 권역별 발전전략 모색: 균형발전 패러다임 전환 (중앙주도 &rarr; 지역주도 뉴딜)
+    - 대중교통의 불균형 
+    - 디지털 뉴딜: 스마트 제조업 혁신, 동북아물류 플랫폼, 디지털 콘텐츠 문화
+    - 그린 뉴딜: 수소 경제권, 통합 물관리 사업
+    
+    
+    
+    
+    
+     
+    
+    
+     
+    
+    
+        
+    
 
 
