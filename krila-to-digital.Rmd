@@ -386,6 +386,45 @@ oxford_ranking_df <- oxford_ranking %>%
 oxford_ranking_df
 ```
 
+# 데이터 경제 [^hbr-data-economy] {#data-economy}
+
+[^hbr-data-economy]: [Bhaskar Chakravorti , Ajay Bhalla and Ravi Shankar Chaturvedi (January 24, 2019), "Which Countries Are Leading the Data Economy?" Harvard Business Review.](https://hbr.org/2019/01/which-countries-are-leading-the-data-economy)
+
+Harvard Business Review에서 데이터 총생산 (GDP, Gross Data Product)를 제시하는데 다음 4가지 기준을 제시하고 있다.
+
+- Volume: Absolute amount of broadband consumed by a country, as a proxy for the raw data generated.
+    - 원데이터 생산량을 추정하는 대안으로 한 국가에서 소비되는 광대역통신 절대량
+- Usage: Number of users active on the internet, as a proxy for the breadth of usage behaviors, needs and contexts.
+    - 인터넷에서 실제 활동중인 사용자수.
+- Accessibility: Institutional openness to data flows as a way to assess whether the data generated in a country permits wider usability and accessibility by multiple AI researchers, innovators, and applications.
+    - 데이터 흐름의 제도적 개방성
+- Complexity: Volume of broadband consumption per capita, as a proxy for the sophistication and complexity of digital activity.
+    - 인당 광대역 소비량
+
+
+```{r hrb-data-economy}
+hbr_url <- "https://hbr.org/2019/01/which-countries-are-leading-the-data-economy"
+
+data_economy <- hbr_url %>% 
+  read_html() %>% 
+  html_nodes(xpath ='//*[@id="main"]/div[4]/article-content/div/div[2]/div/div[3]/p[16]') %>% 
+  html_text()
+
+data_economy_df <- data_economy %>% 
+  str_split(., pattern = "\\d{1,2}\\.\\s") %>% 
+  .[[1]] %>% 
+  as_tibble() %>% 
+  rename(country = value) %>% 
+  filter(country != "") %>% 
+  mutate(country = str_trim(country)) %>% 
+  mutate(data_rank = row_number()) %>% 
+  mutate(iso3c = countrycode(country, origin = "country.name", 'iso3c')) %>% 
+  select(data_rank, country, iso3c)
+
+data_economy_df
+```
+
+
 # OECD 통합 데이터 {#consolidated-dataframe}
 
 마지막 단계로 위키백과사전 OECD 국가별 중요 지표와 디지털 경쟁력을 담고 있는 World Economic Forum(WEF) 글로벌 경쟁력, IMD 디지털 경쟁력 지표를 결합시켜 후속 작업을 위한 데이터로 준비한다.
@@ -397,7 +436,8 @@ oecd_full_df <- oecd_fact_df %>%
   inner_join(wef_top_country %>% select(-country), by="iso3c") %>% 
   left_join(digital_df, by = "iso3c") %>% 
   select(-wef_score) %>% 
-  left_join(oxford_ranking_df %>% select(-country), by="iso3c")
+  left_join(oxford_ranking_df %>% select(-country), by="iso3c") %>% 
+  left_join(data_economy_df %>% select(-country),  by="iso3c")
 
 oecd_full_df 
 ```
@@ -408,3 +448,10 @@ oecd_full_df
 oecd_full_df %>% 
   write_rds("data/oecd_full_df.rds")
 ```
+
+
+```{r}
+oecd_full_df  %>% 
+  filter(is.na(data_rank))
+```
+

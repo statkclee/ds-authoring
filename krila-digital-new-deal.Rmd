@@ -2,10 +2,10 @@
 title: "디지털 뉴딜"
 subtitle: "디지털 뉴딜와 지역균형 발전"
 description: |
-  코로나19로 인한 전대미문의 경제위기와 미중 무역갈등으로 수출에 크게 의존하고 있는 한국경제는 큰 전환점을 맞이하고 있다. 특히, 급격한 가계부채 증가와 코로나19 대응을 위한 확대 재정정책으로 정부 재정 건정성도 이슈로 부각되고 있다. 이런 와중에 코로나19로 비대면 생활이 자리를 잡으면서 디지털 격차 확대와 인공지능(AI) 자동화 추세 속도가 가속되고 있다.  
-  이러한 경제적 위기를 타계하고 인공지능으로 대표되는 디지털 전환을 선제적으로 대응하기 위하여 2020년 7월 **한국판 뉴딜**이라는 명칭으로 2025년까지 160조를 투자하여 일자리 190만개를 창출하는 추진계획을 발표하였다. 성장의 양축으로 디지털 뉴딜과 그린 뉴딜을 양대축으로 삼고 안전망 강화를 사회적 안전판을 삼는 것을 주요 골자로 하고 있다. 
-  과거 국가의 경쟁력을 단순히 인구와 국내총생산만을 주로 평가하던 것에서 더 나아가 인간개발지수(HDI), 부패인식지수(CPI), 경제자유지수(IEF), 민주화 지수, 세계평화지수(GPI) 등이 추가된 것이 얼마되지 않았다. 제4차 산업혁명으로 디지털 전환(Digital Transformation)이 부상하면서 다시 OECD 국가를 디지털 전환이 빠른 국가와 느린 국가로 나누고 있으며 이제는 AI 준비성(AI Readiness)과 디지털 경쟁력(Digital Competitiveness)이 미래 선진국가를 평가하는 중요지표로 자리를 잡아가고 있다.
-  본고에서는 코로나19와 미중 무역전쟁으로 심화된 불활실성을 선제적으로 대응하고자 정부에서 제시한 **한국판 뉴딜**에 대하여 OECD 국가와 비교하여 특히, 디지털 뉴딜이 갖는 추진 전략을 비교하여 데이터 기반으로 살펴보고자 한다. 
+  코로나19로 인한 전대미문의 경제위기와 미중 무역갈등으로 수출에 크게 의존하고 있는 한국경제는 큰 전환점을 맞이하고 있다. 특히, 급격한 가계부채 증가와 코로나19 대응을 위한 확대 재정정책으로 정부 재정 건정성도 이슈로 부각되고 있다. 이런 와중에 코로나19로 비대면 생활이 자리를 잡으면서 디지털 격차 확대와 인공지능(AI) 부상으로 자동화 추세에 속도가 붙고 있다. 
+  이러한 엄중한 경제적 위기와 사회변혁 상황에서 인공지능으로 대표되는 디지털 전환(Digital Transformation) 시기에 선제적으로 대응하기 위하여 2020년 7월 **한국판 뉴딜**이라는 명칭으로 2025년까지 160조를 투자하여 일자리 190만개를 창출하는 초대형 추진계획을 발표하였다. 디지털 뉴딜과 그린 뉴딜을 성장의 양대축으로 삼고 심화되는 불평등을 안전망 강화를 통해 사회적 안전판을 삼는 것을 주요 골자로 하고 있다. 
+  과거 국가의 경쟁력을 단순히 인구와 국내총생산만을 주로 평가하던 것에서 더 나아가 인간개발지수(HDI), 부패인식지수(CPI), 경제자유지수(IEF), 민주화 지수, 세계평화지수(GPI) 등이 추가된 것이 얼마되지 않았다. 제4차 산업혁명으로 디지털 전환(Digital Transformation)이 부상하면서 다시 OECD 국가를 디지털 전환이 빠른 국가와 느린 국가로 나누고 있으며 이제는 AI 준비성(AI Readiness)과 디지털 경쟁력(Digital Competitiveness)이 미래 선진국가로 자리매김하는 중요지표로 평가하고 있다.
+  본고에서는 코로나19와 미중 무역전쟁으로 심화된 불활실성을 선제적으로 대응하고자 정부에서 제시한 **디지털 뉴딜**에 대하여 디지털 경쟁력, 데이터 경제, AI 준비성을 중심으로 2020년 10월 12일 지역균형 뉴딜에서 주요 지자체장이 발표한 정책과 연관하여 살펴보고자 한다.  
 author:
   - name: 이광춘
     url: https://www.facebook.com/groups/tidyverse/
@@ -44,10 +44,7 @@ oecd_df <- oecd_df %>%
   select(country, flags, contains("rank"), everything()) %>% 
   mutate(iso2c = countrycode(iso3c, origin = "iso3c", destination = "iso2c") %>% str_to_lower(.)) %>% 
   mutate(gdp = round(gdp/10^9, 0),
-         population = round(population / 10^6, 0)) %>% 
-  mutate(ai_rank = max(ai_rank) - ai_rank + 1,
-         wef_rank = max(wef_rank) - wef_rank + 1,
-         digital_rank = max(digital_rank) - digital_rank + 1)
+         population = round(population / 10^6, 0))
   
 oecd_df %>% 
   select(iso2c, country, contains("rank"), everything(), -iso3c, -flags) %>% 
@@ -93,6 +90,7 @@ library(tidymodels)
 library(embed)
 
 recipe_spec <- oecd_df %>% 
+  na.omit() %>% 
   recipe( ~ .) %>%
     update_role(country, flags, iso2c, iso3c, new_role = "id") %>%
     step_normalize(all_predictors()) %>%
