@@ -5,7 +5,7 @@ description: |
   코로나19로 인한 전대미문의 경제위기와 미중 무역갈등으로 수출에 크게 의존하고 있는 한국경제는 큰 전환점을 맞이하고 있다. 특히, 급격한 가계부채 증가와 코로나19 대응을 위한 확대 재정정책으로 정부 재정 건정성도 이슈로 부각되고 있다. 이런 와중에 코로나19로 비대면 생활이 자리를 잡으면서 디지털 격차 확대와 인공지능(AI) 부상으로 자동화 추세에 속도가 붙고 있다. 
   이러한 엄중한 경제적 위기와 사회변혁 상황에서 인공지능으로 대표되는 디지털 전환(Digital Transformation) 시기에 선제적으로 대응하기 위하여 2020년 7월 **한국판 뉴딜**이라는 명칭으로 2025년까지 160조를 투자하여 일자리 190만개를 창출하는 초대형 추진계획을 발표하였다. 디지털 뉴딜과 그린 뉴딜을 성장의 양대축으로 삼고 심화되는 불평등을 안전망 강화를 통해 사회적 안전판을 삼는 것을 주요 골자로 하고 있다. 
   과거 국가의 경쟁력을 단순히 인구와 국내총생산만을 주로 평가하던 것에서 더 나아가 인간개발지수(HDI), 부패인식지수(CPI), 경제자유지수(IEF), 민주화 지수, 세계평화지수(GPI) 등이 추가된 것이 얼마되지 않았다. 제4차 산업혁명으로 디지털 전환(Digital Transformation)이 부상하면서 다시 OECD 국가를 디지털 전환이 빠른 국가와 느린 국가로 나누고 있으며 이제는 AI 준비성(AI Readiness)과 디지털 경쟁력(Digital Competitiveness)이 미래 선진국가로 자리매김하는 중요지표로 평가하고 있다.
-  본고에서는 코로나19와 미중 무역전쟁으로 심화된 불활실성을 선제적으로 대응하고자 정부에서 제시한 **디지털 뉴딜**에 대하여 디지털 경쟁력, 데이터 경제, AI 준비성을 중심으로 2020년 10월 12일 지역균형 뉴딜에서 주요 지자체장이 발표한 정책과 연관하여 살펴보고자 한다.  
+  본고에서는 코로나19와 미중 무역전쟁으로 심화된 불활실성을 선제적으로 대응하고자 정부에서 제시한 **디지털 뉴딜**에 대하여 디지털 경쟁력, 데이터 경제, AI 준비성, 디지털 정부를 중심으로 2020년 10월 12일 지역균형 뉴딜에서 주요 지자체장이 발표한 정책과 연관하여 살펴보고자 한다.  
 author:
   - name: 이광춘
     url: https://www.facebook.com/groups/tidyverse/
@@ -18,7 +18,7 @@ output:
     toc_depth: 2
     highlight: tango
     number_section: true
-bibliography: bibliography.bib
+bibliography: bibliography_authoring.bib
 csl: biomed-central.csl
 editor_options: 
   chunk_output_type: console
@@ -330,6 +330,37 @@ oecd_df %>%
   )
 ```
 
+### 디지털 정부 순위
+
+경제협력개발기구(OECD)에서 처음으로 실시한 [디지털 정부평가(The OECD 2019 Digital Government Index)](https://www.oecd-ilibrary.org/deliver/4de9f5bb-en.pdf?itemId=%2Fcontent%2Fpaper%2F4de9f5bb-en&mimeType=pdf)는 각 나라의 디지털 전환 수준과 디지털정부 성숙도를 측정하기 위해 총 33개국을 대상으로 디지털 우선 정부, 플랫폼 정부, 열린 정부, 데이터 기반 정부, 국민주도형 정부, 선제적 정부 등 6가지 항목을 평가하는 것으로 구성되어 있다. 미국, 호주, 헝가리, 멕시코, 폴란드, 슬로바키아, 스위스는 데이터가 확인되고 있지 않다.
+
+
+```{r digital government-rank}
+oecd_df %>% 
+  arrange(gov_rank) %>% 
+  select(country, flags, gdp, population, gdp_per_capita, 디지털정부_순위 = gov_rank ) %>% 
+    reactable(
+    filterable = TRUE,
+    searchable = TRUE,
+    minRows = 10,
+    highlight = TRUE,
+        columns = list(
+        country = colDef(
+          html = TRUE,
+          cell = JS("function(cell) {
+            return '<a href=\"https://wikipedia.org/wiki/' + cell.value + '\">' + cell.value + '</a>'
+          }")
+        ),
+        gdp = colDef(
+          format = colFormat(separators = TRUE)
+        ),
+        gdp_per_capita = colDef(
+          format = colFormat(separators = TRUE)
+        )
+    )
+  )
+```
+
 # 대한민국 디지털 경쟁력
 
 세계경제포럼(WEF) 세계 경쟁력 보고서, IMD 세계 경쟁력 순위, 정부 인공지능 준비지수, 데이터 경제 순위를 OECD 상위를 점하고 있는 국가별로 비교하여 봤을 때, 미국은 모든 평가에서 타의 추종을 불허하는 1위 국가이며 이태리, 멕시코, 터키는 전통적인 의미의 강한 산업을 갖고 있는 강국이지만 디지털 역량은 더 많은 준비가 필요하고 일본, 독일, 프랑스가 대한민국과 미국에 이어 디지털 패권에 도전하는 춘추전국시대를 연상시키고 있다.
@@ -337,7 +368,8 @@ oecd_df %>%
 ```{r digital-rank}
 oecd_df %>% 
   arrange(desc(gdp)) %>% 
-  select(country, flags, gdp, population, gdp_per_capita, WEF = wef_rank, IMD = digital_rank, AI = ai_rank, 데이터경제= data_rank) %>% 
+  select(country, flags, gdp, population, gdp_per_capita, WEF = wef_rank, IMD = digital_rank, AI = ai_rank, 데이터경제= data_rank,
+         디지털정부 = gov_rank ) %>% 
     reactable(
     filterable = TRUE,
     searchable = TRUE,
@@ -366,7 +398,10 @@ OECD 주요국가 중 1인당 국민소득 3만달러 이상이며 인구가 500
 ```{r ai-capability-comparison, fig.width=8, fig.height=6, fig.align="center"}
 library(plotly)
 
-recipe_spec <- oecd_df %>% 
+oecd_model_df <- oecd_df %>% 
+  select(-gov_rank)
+
+recipe_spec <- oecd_model_df %>% 
   na.omit() %>% 
   select(country, gdp, population, gdp_per_capita, contains("rank")) %>% 
   recipe( ~ .) %>%
@@ -380,7 +415,7 @@ umap_tbl <- recipe_spec %>% prep() %>% juice()
 # 툴팁 데이터 작성
 plot_tbl <- umap_tbl %>%
     inner_join(
-        oecd_df %>%
+        oecd_model_df %>%
             select(country, contains("rank"))
     ) %>%
     mutate(tooltip = str_glue(

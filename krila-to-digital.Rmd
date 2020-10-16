@@ -303,7 +303,7 @@ digital_df
 ```
 
 
-# 옥스퍼드 AI 준비 보고서 {#oxford-ai-readiness}
+## 옥스퍼드 AI 준비 보고서 {#oxford-ai-readiness}
 
 Oxford Insights 웹사이트에서 [AI Readiness Index 2020](https://www.oxfordinsights.com/government-ai-readiness-index-2020) PDF 파일을 가져와서 국가별 순위를 추출한다.
 
@@ -386,7 +386,7 @@ oxford_ranking_df <- oxford_ranking %>%
 oxford_ranking_df
 ```
 
-# 데이터 경제 [^hbr-data-economy] {#data-economy}
+## 데이터 경제 [^hbr-data-economy] {#data-economy}
 
 [^hbr-data-economy]: [Bhaskar Chakravorti , Ajay Bhalla and Ravi Shankar Chaturvedi (January 24, 2019), "Which Countries Are Leading the Data Economy?" Harvard Business Review.](https://hbr.org/2019/01/which-countries-are-leading-the-data-economy)
 
@@ -424,6 +424,27 @@ data_economy_df <- data_economy %>%
 data_economy_df
 ```
 
+## 디지털 정부평가
+
+경제협력개발기구(OECD)에서 처음으로 실시한 [디지털 정부평가(The OECD 2019 Digital Government Index)](https://www.oecd-ilibrary.org/deliver/4de9f5bb-en.pdf?itemId=%2Fcontent%2Fpaper%2F4de9f5bb-en&mimeType=pdf)는 각 나라의 디지털 전환 수준과 디지털정부 성숙도를 측정하기 위해 총 33개국을 대상으로 디지털 우선 정부, 플랫폼 정부, 열린 정부, 데이터 기반 정부, 국민주도형 정부, 선제적 정부 등 6가지 항목을 평가하는 것으로 구성되어 있다. 
+
+Australia, Hungary, Mexico, Poland, Slovakia, Switzerland, Turkey, the United States 은 데이터가 존재하지 않는다.
+
+```{r digital-government}
+
+digital_gov <- extract_tables("data/The_OECD_2019_Digital_Government_Index.pdf", pages = 55, guess = FALSE, method = "decide", 
+                             output = "data.frame",
+                             area = list(c(142.68229, 62.84842, 694.51312, 535.30634)), encoding = "UTF-8") %>% 
+  .[[1]] %>% 
+  set_names(c("country", "디지털우선", "디지털우선순위", "데이터기반", "데이터기반순위", "플랫폼", "플랫폼순위", "열린정부", "열린정부순위", "국민주도", "국민주도순위", "선제적정부", "선제적정부순위", "종합점수", "gov_rank")) %>% 
+  select(country, gov_rank) %>% 
+  as_tibble() %>% 
+  na.omit() %>% 
+  mutate(iso3c = countrycode(country, origin = 'country.name', 'iso3c'))
+
+digital_gov
+```
+
 
 # OECD 통합 데이터 {#consolidated-dataframe}
 
@@ -437,7 +458,8 @@ oecd_full_df <- oecd_fact_df %>%
   left_join(digital_df, by = "iso3c") %>% 
   select(-wef_score) %>% 
   left_join(oxford_ranking_df %>% select(-country), by="iso3c") %>% 
-  left_join(data_economy_df %>% select(-country),  by="iso3c")
+  left_join(data_economy_df %>% select(-country),  by="iso3c") %>% 
+  left_join(digital_gov %>% select(-country), by="iso3c" )
 
 oecd_full_df 
 ```
@@ -450,8 +472,5 @@ oecd_full_df %>%
 ```
 
 
-```{r}
-oecd_full_df  %>% 
-  filter(is.na(data_rank))
-```
+
 
