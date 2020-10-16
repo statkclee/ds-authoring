@@ -147,6 +147,7 @@ plot_tbl %>%
 **한국판 뉴딜**은 디지털 뉴딜과 그린 뉴딜을 성장의 양대축으로 삼고 심화되는 불평등을 안전망 강화를 통해 사회적 안전판을 삼는 것을 주요 골자로 하고 있으며 2025년까지 누적 총사업비 160조원을 투자하여 일자리 190만개 창출을 목적으로 2020년 7월 발표되었다. 
 
 ```{r korean-new-deal}
+options( warn = -1 )
 library(collapsibleTree)
 library(tidyverse)
 library(readxl)
@@ -172,6 +173,128 @@ collapsibleTree(nd_finance,
 
 한국판 뉴딜은 디지털 뉴딜, 그린 뉴딜, 안전망 강화로 구성되며 디지털 뉴딜이 44.8조 투자되어 가장 많이 투자되고 유사한 규모로 그린 뉴딜에 투자가 된다. 디지털 뉴딜은 D.N.A 생태계 강화 약 32조를 투자하고 SOC 디지털화에 10조로 대부분의 재원이 투자된다. 다시 D.N.A 생태계 강화는 `D`에 해당되는 데이터 댐 구축, `N`에 해당되는 5G, `A`에 해당되는 인공지능을 1,2,3차 전산업으로 5G AI 융합확산에 대략 20조의 재원이 투여된다.
 
-이를 통해 디지털 뉴딜이 가장 많은 일자리 90만개를 창출할 것으로 추정하고 다시 대략 $\frac{2}{3}$의 일자리는 D.N.A 생태계 강화에서 창출될 것으로 기대하고 있으며 특히 "데이터 탬"
+이를 통해 디지털 뉴딜이 가장 많은 일자리 90만개를 창출할 것으로 추정하고 다시 대략 $\frac{2}{3}$의 일자리는 D.N.A 생태계 강화에서 창출될 것으로 기대하고 있으며 특히 "데이터 탬"으로 데이터를 저장하고 처리하여 5G와 인공지능을 통해 가치를 창출하는 산업을 육성하고 일자리를 창출하는 것이 주요 내용이다.
+
+```{r investment-vs-jobs, fig.width=10, fig.height=8, fig.align="center"}
+library(ggrepel)
+library(extrafont)
+# font_import(pattern = "Nanum")
+loadfonts()
+
+fin_job_df <- read_excel("data/한국판뉴딜.xlsx", sheet="EDA")
+
+fin_job_df %>% 
+  ggplot(aes(x=재원, y=일자리, color = 레벨1, label=str_trunc(레벨3, 20))) +
+    geom_point() +
+    geom_smooth(method = "lm", se=FALSE) +
+    geom_text_repel(hjust=-.1,  check_overlap=TRUE, family="NanumGothic") +
+    theme_bw(base_family = "NanumGothic") +
+    theme(legend.position = "top") +
+    labs(color="뉴딜 3대축", x="투자재원 (단위:조)", y="일자리 (단위:만)",
+         title = "한국판 뉴딜 주요추진과제별 투자재원과 일자리")
+```
+
+디지털 뉴딜, 그린 뉴딜, 안전망 강화 세가지 분야로 투자대비 일자리 창출을 비교하면 디지털 뉴딜과 그린 뉴딜에서 일자리 창출이 주도되고 특히 디지털 뉴딜 중 "데이터 구축, 개방, 활용"은 투자재원 대비 일자리 창출 효과가 가장 큰 사업으로 나타나는데 인공지능 알고리즘 개발에 필요한 고품질 데이터 축적에 **데이터 라벨링(Data Labelling)** 작업 때문인 것으로 판단된다.
+
+
+# OECD 국가 디지털 역량
+
+## 연도별 OECD 가입 국가
+
+영문 위키백과사전 [OECD](https://en.wikipedia.org/wiki/OECD) 국가별 가입연도를 통해 선진국에 가입되는 국가에 대한 추세를 확인할 수 있다. 1960년대 초반 북미와 유럽을 중심으로 OECD가 태동되었고, 아시아에서는 일본이 1964년 가입을 시작했으며 1970년대 호주와 뉴질랜드도 가입했고, 80년대는 주춤하고 다시 90년대 들어서 한국을 비롯하여 유럽과 미국 인접국이 가입한 것을 확인할 수 있다.
+
+
+```{r oecd-trends, fig.width=10, fig.height=8, fig.align="center"}
+library(rvest)
+library(timevis)
+
+oecd_countries <- read_html("https://en.wikipedia.org/wiki/OECD") %>% 
+  html_nodes(xpath = '//*[@id="mw-content-text"]/div[1]/table[5]') %>% 
+  html_table() %>% 
+  .[[1]]
+
+oecd_df <- oecd_countries %>% 
+  as_tibble() %>% 
+  janitor::clean_names() %>% 
+  # mutate(id = row_number()) %>%
+  select(content=country, start=membership_1, group = geographic_location) %>% 
+  mutate(start = str_extract(start, "[0-9]{1,2}\\s[a-zA-Z]+\\s[0-9]{4}")) %>% 
+  mutate(start = lubridate::dmy(start)) 
+
+location <- oecd_df %>% 
+  count(group) %>% 
+  select(id = group) %>% 
+  mutate(content = id)
+  
+oecd_df %>% 
+  mutate(id = row_number()) %>% 
+  # filter(str_detect(content, "Korea")) %>% 
+  timevis(groups = location, options = list(stack = FALSE), showZoom = TRUE) %>% 
+    setOptions(list(editable = TRUE)) %>%
+    setSelection("20") %>%
+    fitWindow(list(animation = FALSE))
+```
+
+## OECD 국가 
+
+과거 선진국은 인구와 국민총생산만을 지표를 중요지표로 삼았다면 이제는 부폐관련 지표, 민주화 관련 지표, 국가 안정성 지표 등 다양한 지표가 활용되고 있다. 면적, 인구, 국민총생산 외에 거의 매년 조사되고 있는 중요지표로 다음을 들 수 있다.
+
+- HDI: 인간개발지수(Human Development Index)
+- FSI: 취약국가지수(Fragile States Index)
+- CPI: 부패인식지수(Corruption Perceptions Index)
+- IEF: 경제자유지수(Index of Economic Freedom)
+- GPI: 세계평화지수(Global Peace Index)
+- WPFI: 언론자유지수(Reporters Without Borders)
+- DI: 민주화지수(Democracy Index)
+
+```{r oecd-stats, fig.width=10, fig.height=8, fig.align="center"}
+library(reactable)
+library(htmltools)
+
+oecd_full_df <- read_rds("data/oecd_full_df.rds")
+
+oecd_df <- oecd_full_df %>% 
+  select(country, flags, -ends_with("rank"), everything()) %>% 
+  mutate(iso2c = countrycode(iso3c, origin = "iso3c", destination = "iso2c") %>% str_to_lower(.)) %>% 
+  mutate(gdp = round(gdp/10^9, 0),
+         population = round(population / 10^6, 0))
+
+oecd_df %>% 
+  select("country", "flags", "area", "population", "gdp", "gdp_per_capita", "income_inequality", "hdi", "fsi", "cpi", "ief", "gpi", "wpfi", "di") %>% 
+  arrange(desc(gdp)) %>% 
+  reactable(
+    filterable = TRUE,
+    searchable = TRUE,
+    minRows = 10,
+    highlight = TRUE,
+    columns = list(
+        country = colDef(
+          html = TRUE,
+          cell = JS("function(cell) {
+            return '<a href=\"https://wikipedia.org/wiki/' + cell.value + '\">' + cell.value + '</a>'
+          }")
+        ),
+        # iso2c = colDef(cell = function(value) {
+        #   img_src <- sprintf('http://flagpedia.net/data/flags/mini/%s.png', value)
+        #   image <- img(src = img_src, height = "24px", alt = "")
+        #   tagList(
+        #     div(style = list(display = "inline-block", width = "45px"), image)
+        #   )
+        # }),
+        gdp = colDef(
+          format = colFormat(separators = TRUE)
+        ),
+        area = colDef(
+          format = colFormat(separators = TRUE)
+        ),
+        gdp_per_capita = colDef(
+          format = colFormat(separators = TRUE)
+        )
+    )
+  )
+```
+
+## 디지털 경쟁력 지표
+
 
 
