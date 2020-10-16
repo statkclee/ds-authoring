@@ -445,6 +445,22 @@ digital_gov <- extract_tables("data/The_OECD_2019_Digital_Government_Index.pdf",
 digital_gov
 ```
 
+## 산업용 로봇 밀도
+
+국제로봇연맹(IFR, International Federation of Robotics)에서 매년 1만명당 로봇 댓수를 매년 국가별 순위를 매겨 발표하고 있다.
+[제조업 로봇 밀도 2019](https://ifr.org/downloads/press2018/Robot_Density_by_country_WorldRobotics2020_graph.jpg)에 따르면 싱가포르와 더불어 한국이 만명당 가장 많은 로봇을 보유한 것으로 나타나고 있다.
+
+```{r robot-density}
+library(readxl)
+
+robot_dat <- read_excel("data/Robot_density.xlsx")
+
+robot_df <- robot_dat %>% 
+  mutate(iso3c = countrycode(country, origin = 'country.name', 'iso3c'))
+
+robot_df
+```
+
 
 # OECD 통합 데이터 {#consolidated-dataframe}
 
@@ -459,7 +475,8 @@ oecd_full_df <- oecd_fact_df %>%
   select(-wef_score) %>% 
   left_join(oxford_ranking_df %>% select(-country), by="iso3c") %>% 
   left_join(data_economy_df %>% select(-country),  by="iso3c") %>% 
-  left_join(digital_gov %>% select(-country), by="iso3c" )
+  left_join(digital_gov %>% select(-country), by="iso3c") %>% 
+  left_join(robot_df %>% select(-country, -density), by="iso3c")
 
 oecd_full_df 
 ```
@@ -470,6 +487,7 @@ oecd_full_df
 oecd_full_df %>% 
   write_rds("data/oecd_full_df.rds")
 ```
+
 
 
 

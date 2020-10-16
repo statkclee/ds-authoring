@@ -361,6 +361,40 @@ oecd_df %>%
   )
 ```
 
+## 산업용 로봇 밀도
+
+국제로봇연맹(IFR, International Federation of Robotics)에서 매년 1만명당 로봇 댓수를 매년 국가별 순위를 매겨 발표하고 있다.
+[제조업 로봇 밀도 2019](https://ifr.org/downloads/press2018/Robot_Density_by_country_WorldRobotics2020_graph.jpg)에 따르면 싱가포르와 더불어 한국이 만명당 가장 많은 로봇을 보유한 것으로 나타나고 있다.
+
+```{r robot-density-rank}
+oecd_df %>% 
+  arrange(robot_rank) %>% 
+  select(country, flags, gdp, population, gdp_per_capita, 로봇_순위 = robot_rank ) %>% 
+    reactable(
+    filterable = TRUE,
+    searchable = TRUE,
+    minRows = 10,
+    highlight = TRUE,
+        columns = list(
+        country = colDef(
+          html = TRUE,
+          cell = JS("function(cell) {
+            return '<a href=\"https://wikipedia.org/wiki/' + cell.value + '\">' + cell.value + '</a>'
+          }")
+        ),
+        gdp = colDef(
+          format = colFormat(separators = TRUE)
+        ),
+        gdp_per_capita = colDef(
+          format = colFormat(separators = TRUE)
+        )
+    )
+  )
+
+```
+
+
+
 # 대한민국 디지털 경쟁력
 
 세계경제포럼(WEF) 세계 경쟁력 보고서, IMD 세계 경쟁력 순위, 정부 인공지능 준비지수, 데이터 경제 순위를 OECD 상위를 점하고 있는 국가별로 비교하여 봤을 때, 미국은 모든 평가에서 타의 추종을 불허하는 1위 국가이며 이태리, 멕시코, 터키는 전통적인 의미의 강한 산업을 갖고 있는 강국이지만 디지털 역량은 더 많은 준비가 필요하고 일본, 독일, 프랑스가 대한민국과 미국에 이어 디지털 패권에 도전하는 춘추전국시대를 연상시키고 있다.
@@ -369,7 +403,7 @@ oecd_df %>%
 oecd_df %>% 
   arrange(desc(gdp)) %>% 
   select(country, flags, gdp, population, gdp_per_capita, WEF = wef_rank, IMD = digital_rank, AI = ai_rank, 데이터경제= data_rank,
-         디지털정부 = gov_rank ) %>% 
+         디지털정부 = gov_rank, 로봇_순위 = robot_rank) %>% 
     reactable(
     filterable = TRUE,
     searchable = TRUE,
@@ -399,7 +433,7 @@ OECD 주요국가 중 1인당 국민소득 3만달러 이상이며 인구가 500
 library(plotly)
 
 oecd_model_df <- oecd_df %>% 
-  select(-gov_rank)
+  select(-gov_rank, -robot_rank)
 
 recipe_spec <- oecd_model_df %>% 
   na.omit() %>% 
