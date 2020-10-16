@@ -433,7 +433,7 @@ data_economy_df
 library(fuzzyjoin)
 
 oecd_full_df <- oecd_fact_df %>%
-  inner_join(wef_top_country %>% select(-country), by="iso3c") %>% 
+  left_join(wef_top_country %>% select(-country), by="iso3c") %>% 
   left_join(digital_df, by = "iso3c") %>% 
   select(-wef_score) %>% 
   left_join(oxford_ranking_df %>% select(-country), by="iso3c") %>% 
