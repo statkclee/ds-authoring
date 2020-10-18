@@ -135,6 +135,18 @@ fin_job_df %>%
 - 복잡성(Complexity): 인당 광대역 소비량
 
 ```{r data-economy-rank}
+library(countrycode)
+library(tidymodels)
+library(embed)
+
+oecd_full_df <- read_rds("data/oecd_full_df.rds")
+
+oecd_df <- oecd_full_df %>% 
+  select(country, flags, -ends_with("rank"), everything()) %>% 
+  mutate(iso2c = countrycode(iso3c, origin = "iso3c", destination = "iso2c") %>% str_to_lower(.)) %>% 
+  mutate(gdp = round(gdp/10^9, 0),
+         population = round(population / 10^6, 0))
+
 oecd_df %>% 
   arrange(data_rank) %>% 
   select(country, flags, gdp, population, gdp_per_capita, 데이터경제_순위 = data_rank) %>% 
