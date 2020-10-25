@@ -1,0 +1,52 @@
+---
+title: "Almost All about Table"
+subtitle: "표에 대한 거의 모든 것"  
+author: "이광춘"
+date: '`r Sys.Date()`'
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: xaringan-themer.css
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
+
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+library(xaringanthemer)
+
+style_mono_accent(
+  base_color = "#1c5253",
+  header_font_google = google_font("Nanum Brush Script"),
+  text_font_google   = google_font("Nanum Gothic", "300", "300i"),
+  code_font_google   = google_font("Fira Mono"),
+  colors = c(
+  red = "#f34213",
+  purple = "#3e2f5b",
+  orange = "#ff8811",
+  green = "#136f63",
+  white = "#FFFFFF")
+)
+
+
+```
+
+
+# 발표 개요
+
+- 범주형 데이터
+- 범주형 변수: `factor`
+- 범주형 자료구조
+- 표(Table)
+- 범주형 .red[통계 검정]
+- 범주형 통계 모형
+- 범주형 데이터 차원축소
+
+---
+# 범주형 데이터
+
