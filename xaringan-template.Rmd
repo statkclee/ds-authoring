@@ -1,0 +1,309 @@
+---
+title: "Seoul R Meetup 템플릿"
+type: "meetup"
+author: "Tidyverse Korea 이광춘, `r Sys.Date()`"
+date: ""
+output:
+  xaringan::moon_reader:
+    includes:
+      after_body: "xaringan_libs/typed.js"
+    css: ["xaringan_libs/remark.css"]
+    lib_dir: xaringan_libs
+    nature:
+      ratio: 16:9
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      beforeInit: "xaringan_libs/macros.js"
+      slideNumberFormat: |
+        <div class="progress-bar-container">
+          <div class="progress-bar" style="width: calc(%current% / %total% * 100%);">
+          </div>
+        </div>
+    seal: true
+---
+
+```{r setup, echo = FALSE, cache = FALSE, results = 'hide'}
+library(knitr)
+options(
+  htmltools.dir.version = FALSE, tibble.width = 60, tibble.print_min = 6,
+  crayon.enabled = TRUE
+)
+opts_chunk$set(
+  echo = FALSE, warning = FALSE, message = FALSE, comment = "#>",
+  fig.path = 'figure/', fig.align = 'center', fig.height = 8.5,
+  out.width = '100%', fig.show = 'hold', fig.retina = 3,
+  cache = TRUE, cache.path = 'cache/'
+)
+```
+
+
+class: middle
+
+background-image: url(fig/설악산.jpeg)
+background-position: 50% 50%
+background-size: cover
+class: inverse middle
+
+```{r xaringan-logo, echo=FALSE}
+# 로고 ----
+xaringanExtra::use_logo(image_url = "fig/Tidyverse_Korea_logo_transparent.png",
+                        link_url = "https://tidyverse-korea.github.io/seoul-R/",
+                        position = xaringanExtra::css_position(top = "0.5em", right = "0.5em"))
+```
+
+
+## 발표 형식 `r emo::ji("crossed_swords")`aringan
+
+1. 구상하기
+2. R마크다운 작성
+3. 테스트
+4. 사전검사
+
+.footnote[image credit: 산림청, https://www.forest.go.kr/]
+
+---
+## .left[`r emo::ji("hammer_and_wrench")` 슬라이드 발표순서]
+
+<br>
+.alert[
+  .large[
+1. 슬라이드 열기
+2. 발표하기
+3. 슬라이드 닫기
+  ]
+]
+
+---
+class: inverse middle center
+
+.pull-left[
+.animate__animated.animate__bounceInDown[
+![:scale 50%](fig/kunoichi.svg)
+]
+]
+.pull-right[
+<br>
+<br>
+# HTML.orange[<i class="fab fa-html5"></i>]
+<hr>
+# 다양한 시도
+# Tidyverse Korea
+]
+
+
+---
+class: middle
+
+.left-column[
+.center[![:scale 50%](https://user-images.githubusercontent.com/163582/45438104-ea200600-b67b-11e8-80fa-d9f2a99a03b0.png)]
+### - markdown
+]
+
+.right-column[
+````markdown
+---
+background-image: url(fig/kunoichi.svg)
+background-position: 50% 50%
+background-size: cover
+class: inverse middle
+
+## Presenting like a kunoichi with `r emo::ji("crossed_swords")`aringan
+
+1. Jot down in Markdown
+2. Prettify with CSS
+3. Interact with JS
+
+`r ''````{r eval = FALSE}
+install.packages("xaringan") #<<
+```
+
+.footnote[image credit: Emi Tanaka]
+---
+
+````
+]
+
+
+---
+
+.left-column[
+.center[![:scale 50%](https://user-images.githubusercontent.com/163582/45438104-ea200600-b67b-11e8-80fa-d9f2a99a03b0.png)]
+### - markdown
+### - prettify
+]
+.right-column[
+##  다단 편집
+```css
+@import url('https://fonts.googleapis.com/css2?family=Libre+Barcode+128+Text&display=swap');
+.encoding {
+  font-family: 'Libre Barcode 128 Text', cursive;
+}
+```
+
+.pull-left[
+```yml
+---
+output:
+  xaringan::moon_reader:
+    css: [default, custom.css]
+---
+.encoding[
+This message is encoded.
+]
+```
+]
+
+.pull-right[
+```html
+<div class="encoding">
+  <p>This message is encoded.</p>
+</div>
+```
+.alert.center[.encoding[
+This message is encoded.
+]]
+]
+]
+
+
+
+---
+class: center middle inverse
+
+# 경청해 주셔서 감사합니다.
+
+--
+
+# 질문?
+
+--
+
+# 끝
+
+---
+class: center middle inverse
+
+.animate__animated.animate__hinge[
+# 경청해 주셔서 감사합니다.
+# 질문?
+# 끝
+]
+
+---
+
+---
+class: inverse middle center
+
+.pull-left[
+<br>
+# 발표자료
+<hr>
+# 일반 발표자료
+]
+.pull-right[
+![:scale 35%](fig/kunoichi.svg)
+<hr>
+
+![:scale 35%](https://upload.wikimedia.org/wikipedia/commons/b/be/Sharingan_triple.svg)
+]
+
+---
+
+.center[
+`r emo::ji("point_down")` 슬라이드에 슬라이드 넣기
+<iframe src="https://slides.yihui.org/xaringan/" frameborder="0" height="480" width="640">
+</iframe>
+]
+
+---
+class: center middle
+
+## 슬라이드 카드
+
+.card[
+[![](fig/kunoichi.svg)](https://statkclee.github.io/ds-authoring/ds-statistics-symposium.html#/)
+]
+.card[
+[![](fig/xaringan-hex.png)](https://statkclee.github.io/ds-authoring/ds-weather-github-actions.html#1)
+]
+
+---
+class: middle
+
+## 이모티콘과 발표자료 링크
+
+<i class="fas fa-images"></i> [remark.js](https://remarkjs.com)
+
+<i class="fas fa-images"></i> [Presentation ninja](https://slides.yihui.org/xaringan)
+
+<i class="fas fa-images"></i> [Making slides in R Markdown](https://arm.rbind.io/slides/xaringan.html)
+
+<i class="fas fa-book-open"></i> [xaringan wiki](https://github.com/yihui/xaringan/wiki)
+
+<i class="fas fa-blog"></i> [Infinite moon reader](https://yihui.org/en/2019/02/ultimate-inf-mr/)
+
+---
+
+.left-column[
+.center[![:scale 50%](https://user-images.githubusercontent.com/163582/45438104-ea200600-b67b-11e8-80fa-d9f2a99a03b0.png)]
+### - markdown
+### - prettify
+### - interact
+]
+.right-column[
+## Use `custom.js`
+<br>
+```yml
+output:
+  xaringan::moon_reader:
+*   includes:
+*     after_body: "custom.js"
+```
+
+.center[.typed-eg[]]
+
+.footnote[Typing is powered by [`typed.js`](http://mattboldt.github.io/typed.js/).]
+]
+
+
+---
+```{r panelset}
+xaringanExtra::use_panelset()
+```
+
+.left-column[
+.center[![:scale 50%](https://user-images.githubusercontent.com/163582/45438104-ea200600-b67b-11e8-80fa-d9f2a99a03b0.png)]
+### - markdown
+### - prettify
+### - interact
+]
+.right-column[
+.right[
+### `r emo::ji("bookmark_tabs")`
+]
+.panelset[
+.panel[.panel-name[Code]
+
+```{r ggplot, fig.show = "hide", echo = TRUE}
+library(ggplot2)
+ggplot(mpg, aes(displ, hwy, colour = class)) +
+  geom_point()
+```
+]
+
+.panel[.panel-name[Plot]
+```{r ref.label = "ggplot", fig.height = 5, out.width = "70%"}
+```
+]
+
+.panel[.panel-name[Plot_old]
+```{r existing-method, fig.height = 5, out.width = "70%"}
+ggplot(mpg, aes(displ, hwy, colour = class)) +
+  geom_point(size=2) +
+  labs(title="Old way")
+```
+]
+
+]
+]
