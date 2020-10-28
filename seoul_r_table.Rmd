@@ -1,0 +1,157 @@
+---
+title: "표에 대한 거의 모든 것"
+type: "meetup"
+author: "Tidyverse Korea, 이광춘, `r Sys.Date()`"
+date: ""
+output:
+  xaringan::moon_reader:
+    includes:
+      after_body: "xaringan_libs/typed.js"
+    css: ["xaringan_libs/remark.css"]
+    lib_dir: xaringan_libs
+    nature:
+      ratio: 16:9
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      beforeInit: "xaringan_libs/macros.js"
+      slideNumberFormat: |
+        <div class="progress-bar-container">
+          <div class="progress-bar" style="width: calc(%current% / %total% * 100%);">
+          </div>
+        </div>
+    seal: true
+---
+
+```{r setup, echo = FALSE, cache = FALSE, results = 'hide'}
+library(knitr)
+options(
+  htmltools.dir.version = FALSE, tibble.width = 60, tibble.print_min = 6,
+  crayon.enabled = TRUE
+)
+opts_chunk$set(
+  echo = FALSE, warning = FALSE, message = FALSE, comment = "#>",
+  fig.path = 'figure/', fig.align = 'center', fig.height = 8.5,
+  out.width = '100%', fig.show = 'hold', fig.retina = 3,
+  cache = TRUE, cache.path = 'cache/'
+)
+```
+
+
+
+```{r xaringan-logo, echo=FALSE}
+# 로고 ----
+xaringanExtra::use_logo(image_url = "fig/Tidyverse_Korea_logo_transparent.png",
+                        link_url = "https://tidyverse-korea.github.io/seoul-R/",
+                        position = xaringanExtra::css_position(top = "0.5em", right = "0.5em"))
+```
+
+---
+class: inverse middle center
+
+.pull-left[
+.animate__animated.animate__bounceInDown[
+![:scale 50%](fig/kunoichi.svg)
+]
+]
+.pull-right[
+<br>
+<br>
+# 범주형 자료 `r emo::ji("zoom")`
+<hr>
+# 자료구조
+# 요인(Factor)
+# forcats
+]
+
+---
+class: middle
+
+.left-column[
+.center[![:scale 50%](https://user-images.githubusercontent.com/163582/45438104-ea200600-b67b-11e8-80fa-d9f2a99a03b0.png)]
+### - 자료구조
+]
+
+.right-column[
+### Stevens, Stanley Smith. “On the theory of scales of measurement.” (1946)
+
+.center[
+![:scale 100%](fig/data-structure-factor.png)
+]
+
+.footnote[reference: https://statkclee.github.io/data-science/ds-data-structure.html]
+
+]
+
+---
+class: middle
+
+.left-column[
+.center[![:scale 50%](https://user-images.githubusercontent.com/163582/45438104-ea200600-b67b-11e8-80fa-d9f2a99a03b0.png)]
+### - 자료구조
+]
+
+.right-column[
+### R 자료구조
+
+.center[
+![:scale 100%](fig/data-structure-R.png)
+]
+
+.footnote[reference: https://statkclee.github.io/data-science/ds-data-structure.html]
+
+]
+
+
+---
+class: middle
+
+.left-column[
+.center[![:scale 50%](https://user-images.githubusercontent.com/163582/45438104-ea200600-b67b-11e8-80fa-d9f2a99a03b0.png)]
+### - 자료구조
+### - Factor
+]
+
+.right-column[
+### 요인(Factor)
+
+```{r r-factor-code, echo=TRUE}
+library(tidyverse)
+x1 <- c("Dec", "Apr", "Jan", "Mar")
+sort(x1)
+
+month_levels <- c(
+  "Jan", "Feb", "Mar", "Apr", "May", "Jun", 
+  "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")
+
+y1 <- factor(x1, levels = month_levels)
+y1
+```
+
+.footnote[reference: https://statkclee.github.io/data-science/ds-factor-cdata.html]
+
+]
+
+
+---
+class: middle
+
+.left-column[
+.center[![:scale 50%](https://user-images.githubusercontent.com/163582/45438104-ea200600-b67b-11e8-80fa-d9f2a99a03b0.png)]
+### - 자료구조
+### - Factor
+### - forcats
+]
+
+.right-column[
+### `forcats`
+
+- 요인 수준(factor level)에 대한 라벨(label) 바꿈 &rarr; `forcats::fct_recode`, `dplyr::recode`
+- 요인 수준 순서 바꾸기 &rarr; `fct_relevel()`
+- 요인 범주수준을 줄이기 &rarr; `if_else()`
+- 파생 요인 변수 생성시킴 &rarr; `case_when()`
+
+.footnote[reference: https://statkclee.github.io/data-science/ds-factor-cdata.html]
+
+]
+

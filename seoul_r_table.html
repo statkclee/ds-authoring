@@ -1,50 +1,194 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>Almost All about Table</title>
+    <title>표에 대한 거의 모든 것</title>
     <meta charset="utf-8" />
-    <meta name="author" content="이광춘" />
-    <meta name="date" content="2020-10-28" />
-    <script src="libs/header-attrs/header-attrs.js"></script>
-    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+    <meta name="author" content="Tidyverse Korea, 이광춘, 2020-10-28" />
+    <script src="xaringan_libs/header-attrs/header-attrs.js"></script>
+    <link rel="stylesheet" href="xaringan_libs\remark.css" type="text/css" />
   </head>
   <body>
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
-# Almost All about Table
-## 표에 대한 거의 모든 것
-### 이광춘
-### 2020-10-28
+# 표에 대한 거의 모든 것
+### Tidyverse Korea, 이광춘, 2020-10-28
 
 ---
 
 
 
+```
+## Warning: package 'knitr' was built under R version 4.0.2
+```
 
 
 
-
-# 발표 개요
-
-- 범주형 데이터
-- 범주형 변수: `factor`
-- 범주형 자료구조
-- 표(Table)
-- 범주형 .red[통계 검정]
-- 범주형 통계 모형
-- 범주형 데이터 차원축소
+<div>
+<style type="text/css">.xaringan-extra-logo {
+width: 110px;
+height: 128px;
+z-index: 0;
+background-image: url(fig/Tidyverse_Korea_logo_transparent.png);
+background-size: contain;
+background-repeat: no-repeat;
+position: absolute;
+top:0.5em;right:0.5em;
+}
+</style>
+<script>(function () {
+  let tries = 0
+  function addLogo () {
+    if (typeof slideshow === 'undefined') {
+      tries += 1
+      if (tries < 10) {
+        setTimeout(addLogo, 100)
+      }
+    } else {
+      document.querySelectorAll('.remark-slide-content:not(.title-slide):not(.inverse):not(.hide_logo)')
+        .forEach(function (slide) {
+          const logo = document.createElement('a')
+          logo.classList = 'xaringan-extra-logo'
+          logo.href = 'https://tidyverse-korea.github.io/seoul-R/'
+          slide.appendChild(logo)
+        })
+    }
+  }
+  document.addEventListener('DOMContentLoaded', addLogo)
+})()</script>
+</div>
 
 ---
-# 범주형 데이터
+class: inverse middle center
+
+.pull-left[
+.animate__animated.animate__bounceInDown[
+![:scale 50%](fig/kunoichi.svg)
+]
+]
+.pull-right[
+&lt;br&gt;
+&lt;br&gt;
+# 범주형 자료 🔍
+&lt;hr&gt;
+# 자료구조
+# 요인(Factor)
+# forcats
+]
+
+---
+class: middle
+
+.left-column[
+.center[![:scale 50%](https://user-images.githubusercontent.com/163582/45438104-ea200600-b67b-11e8-80fa-d9f2a99a03b0.png)]
+### - 자료구조
+]
+
+.right-column[
+### Stevens, Stanley Smith. “On the theory of scales of measurement.” (1946)
+
+.center[
+![:scale 100%](fig/data-structure-factor.png)
+]
+
+.footnote[reference: https://statkclee.github.io/data-science/ds-data-structure.html]
+
+]
+
+---
+class: middle
+
+.left-column[
+.center[![:scale 50%](https://user-images.githubusercontent.com/163582/45438104-ea200600-b67b-11e8-80fa-d9f2a99a03b0.png)]
+### - 자료구조
+]
+
+.right-column[
+### R 자료구조
+
+.center[
+![:scale 100%](fig/data-structure-R.png)
+]
+
+.footnote[reference: https://statkclee.github.io/data-science/ds-data-structure.html]
+
+]
+
+
+---
+class: middle
+
+.left-column[
+.center[![:scale 50%](https://user-images.githubusercontent.com/163582/45438104-ea200600-b67b-11e8-80fa-d9f2a99a03b0.png)]
+### - 자료구조
+### - Factor
+]
+
+.right-column[
+### 요인(Factor)
+
+
+```r
+library(tidyverse)
+x1 &lt;- c("Dec", "Apr", "Jan", "Mar")
+sort(x1)
+```
+
+```
+#&gt; [1] "Apr" "Dec" "Jan" "Mar"
+```
+
+```r
+month_levels &lt;- c(
+  "Jan", "Feb", "Mar", "Apr", "May", "Jun", 
+  "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")
+
+y1 &lt;- factor(x1, levels = month_levels)
+y1
+```
+
+```
+#&gt; [1] Dec Apr Jan Mar
+#&gt; Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec
+```
+
+.footnote[reference: https://statkclee.github.io/data-science/ds-factor-cdata.html]
+
+]
+
+
+---
+class: middle
+
+.left-column[
+.center[![:scale 50%](https://user-images.githubusercontent.com/163582/45438104-ea200600-b67b-11e8-80fa-d9f2a99a03b0.png)]
+### - 자료구조
+### - Factor
+### - forcats
+]
+
+.right-column[
+### `forcats`
+
+- 요인 수준(factor level)에 대한 라벨(label) 바꿈 &amp;rarr; `forcats::fct_recode`, `dplyr::recode`
+- 요인 수준 순서 바꾸기 &amp;rarr; `fct_relevel()`
+- 요인 범주수준을 줄이기 &amp;rarr; `if_else()`
+- 파생 요인 변수 생성시킴 &amp;rarr; `case_when()`
+
+.footnote[reference: https://statkclee.github.io/data-science/ds-factor-cdata.html]
+
+]
 
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="xaringan_libs/macros.js"></script>
 <script>var slideshow = remark.create({
+"ratio": "16:9",
 "highlightStyle": "github",
 "highlightLines": true,
-"countIncrementalSlides": false
+"countIncrementalSlides": false,
+"slideNumberFormat": "<div class=\"progress-bar-container\">   <div class=\"progress-bar\" style=\"width: calc(%current% / %total% * 100%);\">   </div> </div> "
 });
 if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
   window.dispatchEvent(new Event('resize'));
@@ -128,6 +272,22 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
   }
   preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
 })(document);</script>
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
+
+<script>
+const options = {
+  strings: [
+    '<pre>data["instructor"]</pre>', '<pre>data["researcher"]</pre>', '<pre>data["visualiser"]</pre>'
+  ],
+  typeSpeed: 60,
+  backSpeed: 20,
+  cursorChar: '',
+  loop: true
+};
+
+const typed = new Typed('.typed', options);
+const typed2 = new Typed('.typed-eg', options);
+</script>
 
 <script>
 slideshow._releaseMath = function(el) {
