@@ -3,26 +3,39 @@
   <head>
     <title>표에 대한 거의 모든 것</title>
     <meta charset="utf-8" />
-    <meta name="author" content="Tidyverse Korea, 이광춘, 2020-10-28" />
-    <script src="xaringan_libs/header-attrs/header-attrs.js"></script>
-    <link rel="stylesheet" href="xaringan_libs\remark.css" type="text/css" />
+    <meta name="author" content="Tidyverse Korea, 이광춘, 2020-10-29" />
+    <link rel="stylesheet" href="xaringan_libs/remark.css" type="text/css" />
   </head>
   <body>
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
 # 표에 대한 거의 모든 것
-### Tidyverse Korea, 이광춘, 2020-10-28
+### Tidyverse Korea, 이광춘, 2020-10-29
 
 ---
 
 
 
-```
-## Warning: package 'knitr' was built under R version 4.0.2
-```
 
 
+---
+class: inverse middle center
+
+.pull-left[
+.animate__animated.animate__bounceInDown[
+![:scale 50%](fig/forcats.png)
+]
+]
+.pull-right[
+&lt;br&gt;
+&lt;br&gt;
+# 범주형 자료 🔍
+&lt;hr&gt;
+# 자료구조
+# 요인(Factor)
+# forcats
+]
 
 <div>
 <style type="text/css">.xaringan-extra-logo {
@@ -59,28 +72,10 @@ top:0.5em;right:0.5em;
 </div>
 
 ---
-class: inverse middle center
-
-.pull-left[
-.animate__animated.animate__bounceInDown[
-![:scale 50%](fig/kunoichi.svg)
-]
-]
-.pull-right[
-&lt;br&gt;
-&lt;br&gt;
-# 범주형 자료 🔍
-&lt;hr&gt;
-# 자료구조
-# 요인(Factor)
-# forcats
-]
-
----
 class: middle
 
 .left-column[
-.center[![:scale 50%](https://user-images.githubusercontent.com/163582/45438104-ea200600-b67b-11e8-80fa-d9f2a99a03b0.png)]
+.center[![:scale 50%](fig/forcats.png)]
 ### - 자료구조
 ]
 
@@ -99,7 +94,7 @@ class: middle
 class: middle
 
 .left-column[
-.center[![:scale 50%](https://user-images.githubusercontent.com/163582/45438104-ea200600-b67b-11e8-80fa-d9f2a99a03b0.png)]
+.center[![:scale 50%](fig/forcats.png)]
 ### - 자료구조
 ]
 
@@ -119,7 +114,7 @@ class: middle
 class: middle
 
 .left-column[
-.center[![:scale 50%](https://user-images.githubusercontent.com/163582/45438104-ea200600-b67b-11e8-80fa-d9f2a99a03b0.png)]
+.center[![:scale 50%](fig/forcats.png)]
 ### - 자료구조
 ### - Factor
 ]
@@ -161,7 +156,7 @@ y1
 class: middle
 
 .left-column[
-.center[![:scale 50%](https://user-images.githubusercontent.com/163582/45438104-ea200600-b67b-11e8-80fa-d9f2a99a03b0.png)]
+.center[![:scale 50%](fig/forcats.png)]
 ### - 자료구조
 ### - Factor
 ### - forcats
@@ -179,6 +174,42 @@ class: middle
 
 ]
 
+---
+class: inverse middle center
+
+.pull-left[
+.animate__animated.animate__bounceInDown[
+![:scale 50%](fig/forcats.png)
+]
+]
+.pull-right[
+&lt;br&gt;
+&lt;br&gt;
+# 표 자료구조 🔍
+&lt;hr&gt;
+# Case-by-Case
+# Frequency
+# Table
+]
+
+---
+class: middle
+
+.left-column[
+.center[![:scale 50%](fig/forcats.png)]
+### - Case-by-Case
+
+]
+
+.right-column[
+### Case-by-Case
+.center[
+![:scale 60%](fig/category-data-structure.png)
+]
+
+.footnote[reference: https://cran.r-project.org/web/packages/DescTools/vignettes/TablesInR.pdf]
+
+]
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
@@ -188,7 +219,7 @@ class: middle
 "highlightStyle": "github",
 "highlightLines": true,
 "countIncrementalSlides": false,
-"slideNumberFormat": "<div class=\"progress-bar-container\">   <div class=\"progress-bar\" style=\"width: calc(%current% / %total% * 100%);\">   </div> </div> "
+"slideNumberFormat": "<div class=\"progress-bar-container\">\n  <div class=\"progress-bar\" style=\"width: calc(%current% / %total% * 100%);\">\n  </div>\n</div>\n"
 });
 if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
   window.dispatchEvent(new Event('resize'));
