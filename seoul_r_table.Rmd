@@ -17,10 +17,11 @@ output:
       beforeInit: "xaringan_libs/macros.js"
       slideNumberFormat: |
         <div class="progress-bar-container">
-          <div class="progress-bar" style="width: calc(%current% / %total% * 100%);">
           </div>
-        </div>
+          <div class="progress-bar" style="width: calc(%current% / %total% * 100%);">
     seal: true
+editor_options: 
+  chunk_output_type: console
 ---
 
 ```{r setup, echo = FALSE, cache = FALSE, results = 'hide'}
@@ -35,6 +36,8 @@ opts_chunk$set(
   out.width = '100%', fig.show = 'hold', fig.retina = 3,
   cache = TRUE, cache.path = 'cache/'
 )
+
+library(tidyverse)
 ```
 
 
@@ -167,9 +170,11 @@ class: inverse middle center
 <br>
 # 표 자료구조 `r emo::ji("zoom")`
 <hr>
-# Case-by-Case
-# Frequency
-# Table
+## 큰 그림
+### Case-by-Case
+### Frequency
+### Table
+### 변환
 ]
 
 ---
@@ -177,12 +182,12 @@ class: middle
 
 .left-column[
 .center[![:scale 50%](fig/forcats.png)]
-### - Case-by-Case
+### 큰 그림
 
 ]
 
 .right-column[
-### Case-by-Case
+### 큰 그림
 .center[
 ![:scale 60%](fig/category-data-structure.png)
 ]
@@ -191,5 +196,235 @@ class: middle
 
 ]
 
+---
+class: middle
 
+.left-column[
+.center[![:scale 50%](fig/forcats.png)]
+#### Case-by-Case
+
+]
+
+.right-column[
+### Case-by-Case
+
+```{r DescTools-case-by-case, echo=TRUE}
+library(DescTools)
+
+Untable(UCBAdmissions) %>% head
+```
+
+
+.footnote[reference: https://cran.r-project.org/web/packages/DescTools/vignettes/TablesInR.pdf]
+
+]
+
+---
+class: middle
+
+.left-column[
+.center[![:scale 50%](fig/forcats.png)]
+#### Case-by-Case
+### Frequency
+
+]
+
+.right-column[
+### 빈도수 (Frequency)
+
+```{r DescTools-frequency, echo=TRUE}
+data.frame(UCBAdmissions) %>% head
+```
+
+
+.footnote[reference: https://cran.r-project.org/web/packages/DescTools/vignettes/TablesInR.pdf]
+
+]
+
+---
+class: middle
+
+.left-column[
+.center[![:scale 50%](fig/forcats.png)]
+#### Case-by-Case
+### Frequency
+### Table
+]
+
+.right-column[
+### 표(Table)
+
+```{r DescTools-table, echo=TRUE}
+UCBAdmissions[,,Dept=c("A", "B")]
+```
+
+.footnote[reference: https://cran.r-project.org/web/packages/DescTools/vignettes/TablesInR.pdf]
+]
+
+---
+class: middle
+
+.left-column[
+.center[![:scale 50%](fig/forcats.png)]
+#### Case-by-Case
+### Frequency
+### Table
+### 변환
+]
+
+.right-column[
+### 변환
+.center[
+![:scale 80%](fig/table-conversion.png)
+]
+
+.footnote[reference: https://cran.r-project.org/web/packages/DescTools/vignettes/TablesInR.pdf]
+]
+
+
+---
+class: inverse middle center
+
+.pull-left[
+.animate__animated.animate__bounceInDown[
+![:scale 50%](fig/ggplot-logo.png)
+]
+]
+.pull-right[
+<br>
+<br>
+# 시각화 `r emo::ji("graph")`
+<hr>
+## 큰 그림
+## 깔끔한 데이터
+## ggplot
+## 차원축소
+]
+
+---
+class: middle
+
+.left-column[
+.center[![:scale 50%](fig/ggplot-logo.png)]
+### 큰 그림
+]
+
+.right-column[
+### 큰 그림
+.center[
+![:scale 100%](fig/categorical-data-viz.png)
+]
+
+.footnote[reference: https://statkclee.github.io/data-science/ds-factor-dplyr-mosaic.html]
+]
+
+---
+class: middle
+
+.left-column[
+.center[![:scale 50%](fig/ggplot-logo.png)]
+### 큰 그림
+]
+
+.right-column[
+### 큰 그림
+.center[
+![:scale 100%](fig/categorical-data-viz.png)
+]
+
+.footnote[reference: https://statkclee.github.io/data-science/ds-factor-dplyr-mosaic.html]
+]
+
+---
+class: middle
+
+.left-column[
+.center[ ![:scale 50%](fig/ggplot-logo.png) ]
+### 큰 그림
+### Tidy 데이터
+]
+
+.right-column[
+### 깔끔한 데이터
+
+```{r hair-eye-color-tibble, echo = TRUE}
+data("HairEyeColor")
+hair_df <- as_tibble(HairEyeColor) %>% 
+  janitor::clean_names()
+
+hair_df %>% sample_n(3)
+```
+
+
+.footnote[reference: https://statkclee.github.io/data-science/ds-factor-dplyr-mosaic.html]
+]
+
+
+---
+class: middle
+
+.left-column[
+.center[ ![:scale 50%](fig/ggplot-logo.png) ]
+### 큰 그림
+### Tidy 데이터
+### ggplot
+]
+
+.right-column[
+### 깔끔한 데이터
+
+.pull-left[
+```{r hair-ggplot, fig.show = "hide", echo = TRUE}
+hair_df %>% 
+  unite(appearance, hair:sex, sep="_") %>% 
+  filter(n > 10) %>% 
+  mutate(appearance = fct_reorder(appearance, n)) %>% 
+  ggplot(aes(x=appearance, y=n)) +
+    geom_col() +
+    coord_flip() +
+    theme_bw() +
+    labs(x="", y="")
+```
+]
+.pull-right[
+```{r ref.label= "hair-ggplot", out.width="100%"}
+```
+]
+
+.footnote[reference: https://statkclee.github.io/data-science/ds-factor-dplyr-mosaic.html]
+]
+
+---
+class: middle
+
+.left-column[
+.center[ ![:scale 50%](fig/ggplot-logo.png) ]
+### 큰 그림
+### Tidy 데이터
+### ggplot
+]
+
+.right-column[
+### 깔끔한 데이터
+
+.pull-left[
+```{r hair-ggplot, fig.show = "hide", echo = TRUE}
+hair_df %>% 
+  unite(appearance, hair:sex, sep="_") %>% 
+  filter(n > 10) %>% 
+  mutate(appearance = fct_reorder(appearance, n)) %>% 
+  ggplot(aes(x=appearance, y=n)) +
+    geom_col() +
+    coord_flip() +
+    theme_bw() +
+    labs(x="", y="")
+```
+]
+.pull-right[
+```{r ref.label= "hair-ggplot", out.width="100%"}
+```
+]
+
+.footnote[reference: https://statkclee.github.io/data-science/ds-factor-dplyr-mosaic.html]
+]
 
