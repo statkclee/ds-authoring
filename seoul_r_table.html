@@ -4,6 +4,12 @@
     <title>표에 대한 거의 모든 것</title>
     <meta charset="utf-8" />
     <meta name="author" content="Tidyverse Korea, 이광춘, 2020-10-30" />
+    <script src="xaringan_libs/core-js/shim.min.js"></script>
+    <script src="xaringan_libs/react/react.min.js"></script>
+    <script src="xaringan_libs/react/react-dom.min.js"></script>
+    <script src="xaringan_libs/reactwidget/react-tools.js"></script>
+    <script src="xaringan_libs/htmlwidgets/htmlwidgets.js"></script>
+    <script src="xaringan_libs/reactable-binding/reactable.js"></script>
     <link rel="stylesheet" href="xaringan_libs/remark.css" type="text/css" />
   </head>
   <body>
@@ -17,6 +23,19 @@ class: center, middle, inverse, title-slide
 
 
 
+
+## .left[🛠 &amp;nbsp; &amp;nbsp; 발표 목차]
+
+&lt;br&gt;
+.alert[
+  .large[
+- &amp;nbsp; 범주형 자료
+- &amp;nbsp; 표 자료구조
+- &amp;nbsp; 시각화
+- &amp;nbsp; 모형
+- &amp;nbsp; 표 작성
+  ]
+]
 
 
 ---
@@ -32,9 +51,9 @@ class: inverse middle center
 &lt;br&gt;
 # 범주형 자료 🔍
 &lt;hr&gt;
-# 자료구조
-# 요인(Factor)
-# forcats
+### 자료구조
+### 요인(Factor)
+### forcats
 ]
 
 <div>
@@ -354,7 +373,7 @@ class: inverse middle center
 ## 큰 그림
 ## 깔끔한 데이터
 ## ggplot
-## 차원축소
+## ggmosaic
 ]
 
 ---
@@ -458,6 +477,197 @@ hair_df %&gt;%
 ]
 
 .footnote[reference: https://statkclee.github.io/data-science/ds-factor-dplyr-mosaic.html]
+]
+
+---
+class: middle
+
+.left-column[
+.center[ ![:scale 50%](fig/ggplot-logo.png) ]
+### 큰 그림
+### Tidy 데이터
+### ggplot
+### `ggmosaic`
+]
+
+.right-column[
+### 모자이크 플롯
+
+.pull-left[
+
+```r
+library(ggmosaic)
+ggplot(data = hair_df) +
+  geom_mosaic(aes(weight = n, x= product(hair), conds=product(sex), fill=eye)) +
+  theme_minimal()
+```
+]
+.pull-right[
+&lt;img src="figure/unnamed-chunk-2-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+]
+
+.footnote[reference: https://statkclee.github.io/data-science/ds-factor-dplyr-mosaic.html]
+]
+
+---
+class: inverse middle center
+
+.pull-left[
+.animate__animated.animate__bounceInDown[
+![:scale 50%](fig/infer_gnome.png)
+]
+]
+.pull-right[
+&lt;br&gt;
+&lt;br&gt;
+# 모형 💻
+&lt;hr&gt;
+### V2 로켓
+### 통계 검정
+
+]
+
+---
+class: middle
+
+.left-column[
+.center[ ![:scale 100%](fig/infer_gnome.png) ]
+### V2 로켓
+]
+
+.right-column[
+### V2 로켓 🚀
+
+.pull-left[
+
+```r
+library(spatstat)
+par(mar = rep(0, 4))
+
+hit &lt;- 537
+area &lt;- 576
+
+lambda &lt;- hit/area
+
+south_london &lt;- rpoispp(lambda, win = owin(c(0, 24), c(0, 24)))
+plot(south_london, main="", cex=0.5)
+abline(h = 0:24, v = 0:24, col = "lightgray", lty = 3)
+```
+]
+.pull-right[
+&lt;img src="figure/unnamed-chunk-3-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+]
+
+.footnote[reference: https://statkclee.github.io/statistics/stat-flying-bomb-poisson.html]
+]
+
+
+---
+class: middle
+
+.left-column[
+.center[ ![:scale 100%](fig/infer_gnome.png) ]
+### V2 로켓
+### 통계 검정
+]
+
+.right-column[
+### 통계 검정
+
+
+```r
+library(infer)
+
+gss_cat_df  &lt;- gss_cat %&gt;% filter(year==2014) %&gt;% 
+    mutate(marital = fct_lump(marital, 1),
+           race = fct_lump(race, 1)) %&gt;% 
+    mutate(marital = fct_recode(marital, 
+                                Non_Married = "Other"),
+           race    = fct_recode(race, 
+                                Non_White = "Other"))
+
+## 교차표 -----
+gss_cat_df %&gt;% 
+    count(marital, race) %&gt;% 
+    spread(marital, n)
+```
+
+.footnote[reference: https://statkclee.github.io/statistics/stat-categorical-data-chisquared.html]
+]
+
+---
+class: inverse middle center
+
+.pull-left[
+.animate__animated.animate__bounceInDown[
+![:scale 50%](fig/gt-logo.svg)
+]
+]
+.pull-right[
+&lt;br&gt;
+&lt;br&gt;
+# 표 작성 📖
+&lt;hr&gt;
+### gt
+### reactable
+]
+
+---
+class: middle
+
+.left-column[
+.center[ ![:scale 50%](fig/gt-logo.svg) ]
+### `gt`
+]
+
+.right-column[
+### `gt`
+
+![](fig/gt-concept.png)
+
+.footnote[reference: https://statkclee.github.io/data-science/ds-table-gt-kable.html]
+]
+
+---
+class: middle
+
+.left-column[
+.center[ ![:scale 50%](fig/reactR-logo.svg) ]
+### `gt`
+### `reactable`
+]
+
+.right-column[
+### `reactable`
+
+<div id="htmlwidget-15e90381add3c3bbf493" class="reactable html-widget" style="width:auto;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-15e90381add3c3bbf493">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"country":["United States","Japan","Germany","France","United Kingdom"],"flags":["🇺🇸","🇯🇵","🇩🇪","🇫🇷","🇬🇧"],"gdp":[19391,5487,4188,2876,2857],"area":[9831510,377962,357380,549087,243610],"gdp_per_capita":[59532,43279,50639,42850,43269]},"columns":[{"accessor":"country","name":"country","type":"character","cell":"function(cell) {\n            return '<a href=\"https://wikipedia.org/wiki/' + cell.value + '\">' + cell.value + '<\/a>'\n          }","html":true},{"accessor":"flags","name":"flags","type":"character"},{"accessor":"gdp","name":"gdp","type":"numeric","format":{"cell":{"separators":true},"aggregated":{"separators":true}}},{"accessor":"area","name":"area","type":"numeric","format":{"cell":{"separators":true},"aggregated":{"separators":true}}},{"accessor":"gdp_per_capita","name":"gdp_per_capita","type":"numeric","format":{"cell":{"separators":true},"aggregated":{"separators":true}}}],"filterable":true,"searchable":true,"defaultPageSize":10,"paginationType":"numbers","showPageInfo":true,"minRows":10,"highlight":true,"dataKey":"4a6fbcf72e119d5d01f4e2c81c14ec17","key":"4a6fbcf72e119d5d01f4e2c81c14ec17"},"children":[]},"class":"reactR_markup"},"evals":["tag.attribs.columns.0.cell"],"jsHooks":[]}</script>
+
+.footnote[reference: https://statkclee.github.io/ds-authoring/krila-digital-new-deal.html]
+]
+
+
+---
+class: center middle inverse
+
+# 감사합니다.
+
+--
+
+# 질문?
+
+--
+
+# 끝
+
+---
+class: center middle inverse
+
+.animate__animated.animate__hinge[
+
+# 감사합니다.
+# 질문?
+# 끝
 ]
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>

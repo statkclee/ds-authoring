@@ -10,3 +10,12 @@ dplyr
 stringr
 forcats
 DescTools
+ggmosaic
+spatstat.data
+nlme
+rpart
+spatstat
+infer
+reactable
+htmltools
+countrycode
