@@ -18,7 +18,7 @@ title: 데이터 과학 기고문과 발표자료
 ## 학습목차 
 
 1. [Seoul R Meetup](https://tidyverse-korea.github.io/seoul-R/#section), 줌(Zoom)
-    - [Almost All about Table](seoul_r_table.Rmd) 2020-11-11
+    - [Almost All about Table](seoul_r_table.html) 2020-11-11
     - [날씨보고서 자동화 - GitHub Actions](ds-weather-github-actions.html), 2020-10-14
     - [Why Tidymodels?](ds-why-tidymodels.html), 2020-09-09
 1. OCR Digitization for Industry Powered by ScanDoc and ButterBlock Suite
