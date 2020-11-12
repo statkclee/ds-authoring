@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>파워포인트를 넘어서 - xaringan</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Tidyverse Korea, 이광춘, 2020-11-12" />
+    <script src="xaringan_libs/header-attrs/header-attrs.js"></script>
+    <link href="xaringan_libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
+    <script src="xaringan_libs/anchor-sections/anchor-sections.js"></script>
+    <link rel="stylesheet" href="xaringan_libs/remark.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# 파워포인트를 넘어서 - <code>xaringan</code>
+### Tidyverse Korea, 이광춘, 2020-11-12
+
+---
+
+
+
+```
+## Warning: package 'knitr' was built under R version 4.0.2
+```
+
+```
+## -- [1mAttaching packages[22m ------------------------------------------------------------------------------------------ tidyverse 1.3.0 --
+```
+
+```
+## [32m√[39m [34mggplot2[39m 3.3.2     [32m√[39m [34mpurrr  [39m 0.3.4
+## [32m√[39m [34mtibble [39m 3.0.3     [32m√[39m [34mdplyr  [39m 1.0.2
+## [32m√[39m [34mtidyr  [39m 1.1.1     [32m√[39m [34mstringr[39m 1.4.0
+## [32m√[39m [34mreadr  [39m 1.3.1     [32m√[39m [34mforcats[39m 0.5.0
+```
+
+```
+## Warning: package 'ggplot2' was built under R version 4.0.2
+```
+
+```
+## Warning: package 'tibble' was built under R version 4.0.2
+```
+
+```
+## Warning: package 'tidyr' was built under R version 4.0.2
+```
+
+```
+## Warning: package 'dplyr' was built under R version 4.0.2
+```
+
+```
+## -- [1mConflicts[22m --------------------------------------------------------------------------------------------- tidyverse_conflicts() --
+## [31mx[39m [34mdplyr[39m::[32mfilter()[39m masks [34mstats[39m::filter()
+## [31mx[39m [34mdplyr[39m::[32mlag()[39m    masks [34mstats[39m::lag()
+```
+
+## .left[🛠 &amp;nbsp; &amp;nbsp; 발표 목차]
+
+&lt;br&gt;
+.alert[
+  .large[
+- &amp;nbsp; `xaringan` 기본기
+- &amp;nbsp; `xaringan` 확장
+- &amp;nbsp; 한국에서 발표
+- &amp;nbsp; AI시대 `xaringan`
+  ]
+]
+
+
+---
+class: inverse middle center
+
+.pull-left[
+.animate__animated.animate__bounceInDown[
+![:scale 50%](fig/forcats.png)
+]
+]
+.pull-right[
+&lt;br&gt;
+&lt;br&gt;
+# `xaringan` 기본기 🔍
+&lt;hr&gt;
+### 자료구조
+### 요인(Factor)
+### forcats
+]
+
+<div>
+<style type="text/css">.xaringan-extra-logo {
+width: 110px;
+height: 128px;
+z-index: 0;
+background-image: url(fig/Tidyverse_Korea_logo_transparent.png);
+background-size: contain;
+background-repeat: no-repeat;
+position: absolute;
+top:0.5em;right:0.5em;
+}
+</style>
+<script>(function () {
+  let tries = 0
+  function addLogo () {
+    if (typeof slideshow === 'undefined') {
+      tries += 1
+      if (tries < 10) {
+        setTimeout(addLogo, 100)
+      }
+    } else {
+      document.querySelectorAll('.remark-slide-content:not(.title-slide):not(.inverse):not(.hide_logo)')
+        .forEach(function (slide) {
+          const logo = document.createElement('a')
+          logo.classList = 'xaringan-extra-logo'
+          logo.href = 'https://tidyverse-korea.github.io/seoul-R/'
+          slide.appendChild(logo)
+        })
+    }
+  }
+  document.addEventListener('DOMContentLoaded', addLogo)
+})()</script>
+</div>
+
+---
+class: middle
+
+.left-column[
+.center[![:scale 50%](fig/forcats.png)]
+### - 자료구조
+]
+
+.right-column[
+### Stevens, Stanley Smith. “On the theory of scales of measurement.” (1946)
+
+.center[
+![:scale 100%](fig/data-structure-factor.png)
+]
+
+.footnote[reference: https://statkclee.github.io/data-science/ds-data-structure.html]
+
+]
+
+---
+class: middle
+
+.left-column[
+.center[![:scale 50%](fig/forcats.png)]
+### - 자료구조
+]
+
+.right-column[
+### R 자료구조
+
+.center[
+![:scale 100%](fig/data-structure-R.png)
+]
+
+.footnote[reference: https://statkclee.github.io/data-science/ds-data-structure.html]
+
+]
+
+
+---
+class: middle
+
+.left-column[
+.center[![:scale 50%](fig/forcats.png)]
+### - 자료구조
+### - Factor
+]
+
+.right-column[
+### 요인(Factor)
+
+
+```r
+library(tidyverse)
+x1 &lt;- c("Dec", "Apr", "Jan", "Mar")
+sort(x1)
+```
+
+```
+#&gt; [1] "Apr" "Dec" "Jan" "Mar"
+```
+
+```r
+month_levels &lt;- c(
+  "Jan", "Feb", "Mar", "Apr", "May", "Jun", 
+  "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")
+
+y1 &lt;- factor(x1, levels = month_levels)
+y1
+```
+
+```
+#&gt; [1] Dec Apr Jan Mar
+#&gt; Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec
+```
+
+.footnote[reference: https://statkclee.github.io/data-science/ds-factor-cdata.html]
+
+]
+
+
+---
+class: middle
+
+.left-column[
+.center[![:scale 50%](fig/forcats.png)]
+### - 자료구조
+### - Factor
+### - forcats
+]
+
+.right-column[
+### `forcats`
+
+- 요인 수준(factor level)에 대한 라벨(label) 바꿈 &amp;rarr; `forcats::fct_recode`, `dplyr::recode`
+- 요인 수준 순서 바꾸기 &amp;rarr; `fct_relevel()`
+- 요인 범주수준을 줄이기 &amp;rarr; `if_else()`
+- 파생 요인 변수 생성시킴 &amp;rarr; `case_when()`
+
+.footnote[reference: https://statkclee.github.io/data-science/ds-factor-cdata.html]
+
+]
+
+
+
+---
+class: center middle inverse
+
+# 감사합니다.
+
+--
+
+# 질문?
+
+--
+
+# 끝
+
+---
+class: center middle inverse
+
+.animate__animated.animate__hinge[
+
+# 감사합니다.
+# 질문?
+# 끝
+]
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="xaringan_libs/macros.js"></script>
+<script>var slideshow = remark.create({
+"ratio": "16:9",
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"slideNumberFormat": "<div class=\"progress-bar-container\">\n  </div>\n  <div class=\"progress-bar\" style=\"width: calc(%current% / %total% * 100%);\">\n"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
+
+<script>
+const options = {
+  strings: [
+    '<pre>data["instructor"]</pre>', '<pre>data["researcher"]</pre>', '<pre>data["visualiser"]</pre>'
+  ],
+  typeSpeed: 60,
+  backSpeed: 20,
+  cursorChar: '',
+  loop: true
+};
+
+const typed = new Typed('.typed', options);
+const typed2 = new Typed('.typed-eg', options);
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
