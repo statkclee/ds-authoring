@@ -3,59 +3,22 @@
   <head>
     <title>파워포인트를 넘어서 - xaringan</title>
     <meta charset="utf-8" />
-    <meta name="author" content="Tidyverse Korea, 이광춘, 2020-11-12" />
-    <script src="xaringan_libs/header-attrs/header-attrs.js"></script>
-    <link href="xaringan_libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
-    <script src="xaringan_libs/anchor-sections/anchor-sections.js"></script>
+    <meta name="author" content="Tidyverse Korea, 이광춘, 2020-11-24" />
     <link rel="stylesheet" href="xaringan_libs/remark.css" type="text/css" />
   </head>
   <body>
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
-# 파워포인트를 넘어서 - <code>xaringan</code>
-### Tidyverse Korea, 이광춘, 2020-11-12
+# 파워포인트를 넘어서 - xaringan
+### Tidyverse Korea, 이광춘, 2020-11-24
 
 ---
 
 
 
-```
-## Warning: package 'knitr' was built under R version 4.0.2
-```
 
-```
-## -- [1mAttaching packages[22m ------------------------------------------------------------------------------------------ tidyverse 1.3.0 --
-```
 
-```
-## [32m√[39m [34mggplot2[39m 3.3.2     [32m√[39m [34mpurrr  [39m 0.3.4
-## [32m√[39m [34mtibble [39m 3.0.3     [32m√[39m [34mdplyr  [39m 1.0.2
-## [32m√[39m [34mtidyr  [39m 1.1.1     [32m√[39m [34mstringr[39m 1.4.0
-## [32m√[39m [34mreadr  [39m 1.3.1     [32m√[39m [34mforcats[39m 0.5.0
-```
-
-```
-## Warning: package 'ggplot2' was built under R version 4.0.2
-```
-
-```
-## Warning: package 'tibble' was built under R version 4.0.2
-```
-
-```
-## Warning: package 'tidyr' was built under R version 4.0.2
-```
-
-```
-## Warning: package 'dplyr' was built under R version 4.0.2
-```
-
-```
-## -- [1mConflicts[22m --------------------------------------------------------------------------------------------- tidyverse_conflicts() --
-## [31mx[39m [34mdplyr[39m::[32mfilter()[39m masks [34mstats[39m::filter()
-## [31mx[39m [34mdplyr[39m::[32mlag()[39m    masks [34mstats[39m::lag()
-```
 
 ## .left[🛠 &amp;nbsp; &amp;nbsp; 발표 목차]
 
@@ -63,9 +26,8 @@ class: center, middle, inverse, title-slide
 .alert[
   .large[
 - &amp;nbsp; `xaringan` 기본기
-- &amp;nbsp; `xaringan` 확장
-- &amp;nbsp; 한국에서 발표
-- &amp;nbsp; AI시대 `xaringan`
+- &amp;nbsp; 피피티스러운 `xaringan`
+- &amp;nbsp; AI `xaringan`
   ]
 ]
 
@@ -75,69 +37,34 @@ class: inverse middle center
 
 .pull-left[
 .animate__animated.animate__bounceInDown[
-![:scale 50%](fig/forcats.png)
+![:scale 50%](fig/xaringan-logo.png)
 ]
 ]
 .pull-right[
 &lt;br&gt;
 &lt;br&gt;
-# `xaringan` 기본기 🔍
+# xaringan 기본 🔍
 &lt;hr&gt;
-### 자료구조
-### 요인(Factor)
-### forcats
+### 기본기능
+### 데놀 2018
 ]
-
-<div>
-<style type="text/css">.xaringan-extra-logo {
-width: 110px;
-height: 128px;
-z-index: 0;
-background-image: url(fig/Tidyverse_Korea_logo_transparent.png);
-background-size: contain;
-background-repeat: no-repeat;
-position: absolute;
-top:0.5em;right:0.5em;
-}
-</style>
-<script>(function () {
-  let tries = 0
-  function addLogo () {
-    if (typeof slideshow === 'undefined') {
-      tries += 1
-      if (tries < 10) {
-        setTimeout(addLogo, 100)
-      }
-    } else {
-      document.querySelectorAll('.remark-slide-content:not(.title-slide):not(.inverse):not(.hide_logo)')
-        .forEach(function (slide) {
-          const logo = document.createElement('a')
-          logo.classList = 'xaringan-extra-logo'
-          logo.href = 'https://tidyverse-korea.github.io/seoul-R/'
-          slide.appendChild(logo)
-        })
-    }
-  }
-  document.addEventListener('DOMContentLoaded', addLogo)
-})()</script>
-</div>
 
 ---
 class: middle
 
 .left-column[
-.center[![:scale 50%](fig/forcats.png)]
-### - 자료구조
+.center[![:scale 50%](fig/xaringan-logo.png)]
+### 기본기능
 ]
 
 .right-column[
-### Stevens, Stanley Smith. “On the theory of scales of measurement.” (1946)
+### `xaringan` 기본기능
 
 .center[
-![:scale 100%](fig/data-structure-factor.png)
+![:scale 100%](fig/xaringan-basics.png)
 ]
 
-.footnote[reference: https://statkclee.github.io/data-science/ds-data-structure.html]
+.footnote[reference: https://statkclee.github.io/comp_document/cd-xaringan-basics.html]
 
 ]
 
@@ -145,19 +72,55 @@ class: middle
 class: middle
 
 .left-column[
-.center[![:scale 50%](fig/forcats.png)]
-### - 자료구조
+.center[![:scale 50%](fig/xaringan-logo.png)]
+### 기본기능
 ]
 
 .right-column[
-### R 자료구조
+### 데놀 2018
 
 .center[
-![:scale 100%](fig/data-structure-R.png)
+
+&lt;iframe src="https://statkclee.github.io/ds-authoring/ds_data_scientist_visualization.html#1" width="100%" height="400px"&gt;&lt;/iframe&gt;
+
 ]
 
-.footnote[reference: https://statkclee.github.io/data-science/ds-data-structure.html]
+.footnote[reference: https://statkclee.github.io/ds-authoring/ds_data_scientist_visualization.html]
 
+]
+
+---
+class: inverse middle center
+
+.pull-left[
+.animate__animated.animate__bounceInDown[
+![:scale 50%](fig/officer-logo.png)
+]
+]
+.pull-right[
+&lt;br&gt;
+&lt;br&gt;
+# 피피티스러운 xaringan 📝
+&lt;hr&gt;
+### Seoul R Meetup
+### KCD 2020
+]
+
+---
+class: middle
+
+.left-column[
+.center[![:scale 50%](fig/officer-logo.png)]
+### Seoul R Meetup
+]
+
+.right-column[
+###  Weather Report Automation - GitHub Actions
+
+&lt;iframe src="https://statkclee.github.io/ds-authoring/ds-weather-github-actions.html" width="100%" height="400px"&gt;&lt;/iframe&gt;
+
+
+.footnote[reference: https://statkclee.github.io/ds-authoring/ds-weather-github-actions.html]
 ]
 
 
@@ -165,41 +128,37 @@ class: middle
 class: middle
 
 .left-column[
-.center[![:scale 50%](fig/forcats.png)]
-### - 자료구조
-### - Factor
+.center[![:scale 50%](fig/officer-logo.png)]
+### Seoul R Meetup
+### KCD 2020
 ]
 
 .right-column[
-### 요인(Factor)
+### PPT &amp;rarr; xaringan 슬라이드
+
+![:scale 100%](fig/xaringan-kcd2020.png)
 
 
-```r
-library(tidyverse)
-x1 &lt;- c("Dec", "Apr", "Jan", "Mar")
-sort(x1)
-```
+.footnote[reference: https://statkclee.github.io/comp_document/ds-presn.html#5_PPT_%E2%86%92_xaringan_%EC%8A%AC%EB%9D%BC%EC%9D%B4%EB%93%9C]
 
-```
-#&gt; [1] "Apr" "Dec" "Jan" "Mar"
-```
+]
 
-```r
-month_levels &lt;- c(
-  "Jan", "Feb", "Mar", "Apr", "May", "Jun", 
-  "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")
+---
+class: inverse middle center
 
-y1 &lt;- factor(x1, levels = month_levels)
-y1
-```
-
-```
-#&gt; [1] Dec Apr Jan Mar
-#&gt; Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec
-```
-
-.footnote[reference: https://statkclee.github.io/data-science/ds-factor-cdata.html]
-
+.pull-left[
+.animate__animated.animate__bounceInDown[
+![:scale 50%](fig/torch-logo.png)
+]
+]
+.pull-right[
+&lt;br&gt;
+&lt;br&gt;
+# AI xaringan 💻
+&lt;hr&gt;
+### TTS
+### PPT 동영상
+### xaringan 동영상
 ]
 
 
@@ -207,21 +166,60 @@ y1
 class: middle
 
 .left-column[
-.center[![:scale 50%](fig/forcats.png)]
-### - 자료구조
-### - Factor
-### - forcats
+.center[![:scale 50%](fig/torch-logo.png)]
+### TTS
 ]
 
 .right-column[
-### `forcats`
+### 문자 음성 변환 프로그램
 
-- 요인 수준(factor level)에 대한 라벨(label) 바꿈 &amp;rarr; `forcats::fct_recode`, `dplyr::recode`
-- 요인 수준 순서 바꾸기 &amp;rarr; `fct_relevel()`
-- 요인 범주수준을 줄이기 &amp;rarr; `if_else()`
-- 파생 요인 변수 생성시킴 &amp;rarr; `case_when()`
+![:scale 100%](fig/text-to-speech.png)
 
-.footnote[reference: https://statkclee.github.io/data-science/ds-factor-cdata.html]
+.footnote[reference: https://statkclee.github.io/deep-learning/r-tts.html]
+
+]
+
+---
+class: middle
+
+.left-column[
+.center[![:scale 50%](fig/torch-logo.png)]
+### TTS
+### PPT 동영상
+]
+
+.right-column[
+### 파워포인트 발표자료 유튜브 동영상 자동 제작
+
+&lt;br&gt;
+
+&lt;center&gt;
+&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/6qpWDi30L7k" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/center&gt;
+
+.footnote[reference: https://statkclee.github.io/deep-learning/r-ari.html]
+
+]
+
+---
+class: middle
+
+.left-column[
+.center[![:scale 50%](fig/torch-logo.png)]
+### TTS
+### PPT 동영상
+### xaringan
+]
+
+.right-column[
+### xaringan 발표자료 유튜브 동영상 자동 제작
+
+&lt;br&gt;
+
+![:scale 100%](fig/xaringan-workflow.png)
+
+
+.footnote[reference: https://statkclee.github.io/deep-learning/r-xaringan-ari.html]
 
 ]
 
@@ -249,8 +247,6 @@ class: center middle inverse
 # 질문?
 # 끝
 ]
-
-
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
