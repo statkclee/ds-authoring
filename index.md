@@ -17,6 +17,8 @@ title: 데이터 과학 기고문과 발표자료
 
 ## 학습목차 
 
+1. [Data Science - Signals Repository](ds-sgic.html)
+    - 서울보증보험, 2021년 1월 8일
 1. [Seoul R Meetup](https://tidyverse-korea.github.io/seoul-R/#section), 줌(Zoom)
     - [파워포인트를 넘어서 - `xaringan`](seoul_r_xaringan.html) 2020-12-11
     - [Almost All about Table](seoul_r_table.html) 2020-11-11
