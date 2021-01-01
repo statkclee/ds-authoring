@@ -70,9 +70,9 @@ class: inverse, middle
 .left[
 1\. [데이터 과학](#data-science)
 
-2\. [사례 분석 : 데이터](#case-study-1)
+2\. [사례 분석 : 데이터](#case-study-data)
 
-3\. [사례분석 : 문서](#case-study-2)
+3\. [사례분석 : 문서](#case-study-document)
 
 4\. [Signals Repository](#signals-repository)
 
@@ -81,95 +81,20 @@ class: inverse, middle
 ] <!--end of right-column-->
 
 ---
-name: data-science
-# 데이터 과학
+```{r child='ds-sgic-data-science.Rmd'}
+```
 
-데이터 사이언스(Data Science)는 데이터를 다루는 과학이다. 따라서 자연법칙을 다루는 자연과학과 맥이 닿아있다.
-자연법칙을 측정하여 데이터프레임(`DataFrame`)으로 나타내면 **변수(Variable)**, **관측점(Observation)**, **값(Value)**으로 표현된다.
+```{r child='ds-sgic-case-study-data.Rmd'}
+```
 
-<img src="fig/data-science-overview.png" alt="데이터 사이언스 개요" width="100%" />
+```{r child='ds-sgic-case-study-document.Rmd'}
+```
 
+```{r child='ds-sgic-signals-repository.Rmd'}
+```
 
-.footnote[
-[Google Search - "데이터 과학"](https://www.google.com/search?q=%EB%8D%B0%EC%9D%B4%ED%84%B0+%EA%B3%BC%ED%95%99)
-]
-
----
-name: tidyverse
-# AI/ML/DL vs 데이터 과학
-
-<br>
-
-.center[
-<img src="fig/tidyvese_os.png" width="77%" />
-]
+```{r child='ds-sgic-goodbye.Rmd'}
+```
 
 
-.footnote[
-[한국통계학회 소식지 2019년 10월호 ](https://statkclee.github.io/ds-authoring/ds-stat-tidyverse.html)
-]
-
----
-name: tidyverse-definition
-# `tidyverse`
-
-<br>
-
-.center[
-<img src="fig/maso_tidyverse.png" width="77%" />
-]
-
-
-.pull-left[
-
-- 기존 자료구조를 재사용
-- 파이프 연산자로 간단한 함수를 조합
-- 함수형 프로그래밍을 적극 사용
-- 기계가 아닌 인간을 위한 설계
-
-]
-
-.pull-right[
-
-- Reuse existing data structures.
-- Compose simple functions with the pipe.
-- Embrace functional programming.
-- Design for humans.
-
-]
-
-
----
-name: y-fx
-
-# 30년의 변화를 그림으로 표현
-
-.center[
-<img src="fig/intree-xy-f.png" alt="XY" width="77%" />
-]
-
-
-.footnote[
-[이광춘(2019-01-26), "Data Scientist 가 바라본 제조업의 발전 전략 및 방안", Intree 4.0 World Forum](https://statkclee.github.io/ds-authoring/intree-seminar-2019-01.html)
-]
-
-
----
-name: goodbye
-class: middle, inverse
-
-.pull-left[
-# **경청해 주셔서 감사합니다.**
-<br/>
-## Lighthouse Center
-
-]
-
-.pull-right[
-.right[
-
-<img style="border-radius: 100%;" src="../fig/logo-kpmg.jpg" width="300px"/>
-
-]
-]
 

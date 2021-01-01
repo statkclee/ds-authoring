@@ -49,9 +49,9 @@ class: inverse, middle
 .left[
 1\. [데이터 과학](#data-science)
 
-2\. [사례 분석 : 데이터](#case-study-1)
+2\. [사례 분석 : 데이터](#case-study-data)
 
-3\. [사례분석 : 문서](#case-study-2)
+3\. [사례분석 : 문서](#case-study-document)
 
 4\. [Signals Repository](#signals-repository)
 
@@ -60,20 +60,7 @@ class: inverse, middle
 ] &lt;!--end of right-column--&gt;
 
 ---
-name: data-science
-# 데이터 과학
 
-데이터 사이언스(Data Science)는 데이터를 다루는 과학이다. 따라서 자연법칙을 다루는 자연과학과 맥이 닿아있다.
-자연법칙을 측정하여 데이터프레임(`DataFrame`)으로 나타내면 **변수(Variable)**, **관측점(Observation)**, **값(Value)**으로 표현된다.
-
-&lt;img src="fig/data-science-overview.png" alt="데이터 사이언스 개요" width="100%" /&gt;
-
-
-.footnote[
-[Google Search - "데이터 과학"](https://www.google.com/search?q=%EB%8D%B0%EC%9D%B4%ED%84%B0+%EA%B3%BC%ED%95%99)
-]
-
----
 name: tidyverse
 # AI/ML/DL vs 데이터 과학
 
@@ -109,7 +96,7 @@ name: tidyverse-definition
 ]
 
 .pull-right[
-
+ 
 - Reuse existing data structures.
 - Compose simple functions with the pipe.
 - Embrace functional programming.
@@ -120,7 +107,6 @@ name: tidyverse-definition
 
 ---
 name: y-fx
-
 # 30년의 변화를 그림으로 표현
 
 .center[
@@ -131,6 +117,544 @@ name: y-fx
 .footnote[
 [이광춘(2019-01-26), "Data Scientist 가 바라본 제조업의 발전 전략 및 방안", Intree 4.0 World Forum](https://statkclee.github.io/ds-authoring/intree-seminar-2019-01.html)
 ]
+
+---
+name: data-science-graph
+## Big Data/AI/ML/Data Science
+
+&lt;br&gt; 
+
+.pull-left[
+### Google Trends: 미국
+
+![](fig/google-trends-comparison-us-1.png)
+]
+
+.pull-right[
+### Google Trends: 대한민국
+
+![](fig/google-trends-comparison-kr-1.png)
+]
+
+.footnote[
+[이광춘 (2020-07-21), "기업운영혁신을 위한 데이터 과학: 기업의 활용방안", 포항산업과학연구원(RIST)](https://statkclee.github.io/ds-authoring/ds-rist.html)
+]
+
+---
+name: data-science-resource
+# 데이터 경제와 산업
+
+.pull-left[
+### 데이터 자원
+
+![](fig/economist-bigdata-oil.png)
+]
+
+.pull-right[
+### 파이프라인
+
+![](fig/data-economy-industry.png)
+]
+
+.footnote[
+[이광춘 (2020-07-21), "기업운영혁신을 위한 데이터 과학: 기업의 활용방안", 포항산업과학연구원(RIST)](https://statkclee.github.io/ds-authoring/ds-rist.html)
+]
+
+---
+name: data-sciece-value
+## 가치
+
+&lt;small&gt;
+&lt;ul&gt;
+  &lt;li&gt;기술 분석(Descriptive Analytics): 무슨 일이 있었나? (What happened?)&lt;/li&gt;
+  &lt;li&gt;진단 분석(Diagnostic Analytics): 왜 일어났나? (Why did it happen?)&lt;/li&gt;
+  &lt;li&gt;예측 분석(Predictive Analytics): 무슨 일이 일어날까? (What will happen?)&lt;/li&gt;
+  &lt;li&gt;처방 분석(Prescriptive Analytics): 어떻게 그런 일을 일으킬까? (How can we make it happen?)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/small&gt;
+
+.center[
+&lt;img src="fig/ds-gartner.png" width = "80%" /&gt;
+]
+
+
+---
+name: data-sciece-cost
+# 패러다임의 변화
+
+.pull-left[
+### 비용
+
+![](fig/data-science-cost.png)
+]
+
+.pull-right[
+### 자동화 
+
+![](fig/automated-machine-learning.png)
+]
+
+
+
+
+---
+name: case-study-data
+class: inverse, middle
+
+# Outline
+
+----
+
+.pull-left[
+
+현재 각광받고 있는 .warmyellow[**데이터 과학**]에 대한 전반적인 이해와 더불어 핵심적인 개념을 짧은 시간에 다루게 됩니다.
+
+데이터 과학의 실제 .black[**다양한 사례**]를 통해 데이터 과학을 통해 성취할 수 있는 기술적인 사항에 대해 살펴보게 됩니다.
+
+데이터의 홍수에 사내 데이터와 공공 오픈 데이터를 결합시킬 수 있는 방법에 대해 .green[**Signals Repository**]에 대해 살펴봅니다.
+
+
+] &lt;!--end of left-column--&gt;
+
+.pull-right[
+.left[
+1\. [데이터 과학](#data-science)
+
+2\. **[.warmyellow[사례 분석 : 데이터]](#case-study-data)**
+
+3\. [사례분석 : 문서](#case-study-document)
+
+4\. [Signals Repository](#signals-repository)
+
+5\. [마무리](#goodbye)
+]
+] &lt;!--end of right-column--&gt;
+
+
+---
+name: case-study-worldcup
+## 러시아 월드컵 (독일전)
+
+.center[
+&lt;img src="fig/worldcup.gif" alt="월드컵" width="80%" /&gt;
+]
+
+.footnote[
+[러시아 월드컵(2018) - 한국 vs 독일](https://statkclee.github.io/viz/viz-worldcup-germany.html)
+]
+
+---
+name: case-study-earthquake
+## 지진해일 대피소
+
+.center[
+&lt;img src="fig/earthquake.png" alt="월드컵" width="80%" /&gt;
+]
+
+.footnote[
+[xwMOOC (2018-01-17), "지진해일 대피소 - `crosstalk`"](https://statkclee.github.io/viz/viz-earthquake-shelter.html)
+]
+
+---
+name: case-study-congress
+## 국회의원 프로필
+
+.center[
+&lt;img src="fig/trelliscopejs.png" alt="국회의원 사진" width="80%" /&gt;
+]
+
+.footnote[
+[국회의원 사진 - `trelliscope`](https://statkclee.github.io/viz/viz-congressman.html)
+]
+
+---
+name: case-study-avi
+## 동영상 감성 분석
+
+.center[
+&lt;img src="fig/kbs-video.jpg" alt="슬픔은 어디에" width="80%" /&gt;
+]
+
+.footnote[
+- [xwMOOC 딥러닝 - 동영상 감정 분석](https://statkclee.github.io/deep-learning/ms-oxford-video.html)
+- [KBS NEWS, 인공지능으로 분석한 대통령의 마음…슬픔은 어디에?](http://news.kbs.co.kr/news/view.do?ncd=3390429&amp;ref=D)
+]
+
+---
+name: case-study-regression
+## 회귀분석 - MLB 투수 유전자는 유전이 될까?
+
+.center[
+&lt;img src="fig/major-league.png" alt="MLB 투수 유전자" width="77%" /&gt;
+]
+
+.footnote[
+[회귀분석 - MLB 투수 유전자는 유전이 될까?](https://statkclee.github.io/politics/pe-baseball-era.html)
+]
+
+---
+name: case-study-birthrate
+## 출산장려 예산은 출산율을 높일까?
+
+.center[
+&lt;img src="fig/budget-birthrate.png" width="57%" /&gt;
+]
+
+.footnote[
+[저출산과 소요예산 - 상관관계](https://statkclee.github.io/viz/viz-low-birth-rate.html)
+]
+
+---
+name: case-study-tax
+## 증가된 정부예산: 누가 세금을 많이 냈나?
+
+.center[
+&lt;img src="fig/tax-burden.png"width="77%" /&gt;
+]
+
+.footnote[
+[국세 세금 데이터 분석](https://statkclee.github.io/election/election_tax_EDA.html)
+]
+
+
+
+
+
+---
+name: case-study-document
+class: inverse, middle
+
+# Outline
+
+----
+
+.pull-left[
+
+현재 각광받고 있는 .warmyellow[**데이터 과학**]에 대한 전반적인 이해와 더불어 핵심적인 개념을 짧은 시간에 다루게 됩니다.
+
+데이터 과학의 실제 .black[**다양한 사례**]를 통해 데이터 과학을 통해 성취할 수 있는 기술적인 사항에 대해 살펴보게 됩니다.
+
+데이터의 홍수에 사내 데이터와 공공 오픈 데이터를 결합시킬 수 있는 방법에 대해 .green[**Signals Repository**]에 대해 살펴봅니다.
+
+
+] &lt;!--end of left-column--&gt;
+
+.pull-right[
+.left[
+1\. [데이터 과학](#data-science)
+
+2\. [사례 분석 : 데이터](#case-study-1)
+
+3\. **[.warmyellow[사례분석 : 문서]](#case-study-2)**
+
+4\. [Signals Repository](#signals-repository)
+
+5\. [마무리](#goodbye)
+]
+] &lt;!--end of right-column--&gt;
+
+&lt;!--------------------------------- 엑셀 -------------------------------------- --&gt;
+
+---
+name: crisis-excel
+# 위기의 스프레드쉬트(엑셀)
+
+.center[
+&lt;img src="fig/train2data-analysis.jpg" alt="분석행" width="67%" /&gt;
+]
+
+.footnote[
+ [스터디 뽀개기 7월 (2016-07-30), 분석행(Train to data-analysis)](https://onoffmix.com/event/73626)
+]
+
+---
+name: excel-crisis-accident
+# 스프레드쉬트 참사 
+
+|     회사      | 손실 |   날짜 |        영향           |               참사 개요                         | 
+|---------------|-----------|----------|-----------------------|------------------------------------------|
+|     Mouchel   |  £ 4.3백만  |  '10.11월  | CEO 사임, 주가폭락 | 연금펀드평가 £ 4.3백만 엑셀 오류 |
+|   C&amp;C Group   |  £ 9 백만  |  '09.7월  | 주가 15% 하락 등 | 매출 3% 상승이 아니고 5% 하락, 엑셀 오류 |
+|   King 펀드   | £ 130 백만 |  '11.05월  | 브래드 이미지 하락 | 웨일즈 지방 NHS 지출 엑셀 오류 |
+| AXA Rosenberg | £ 150 백만 |  '11.02월  | 은폐, 벌금, 브래드 이미지 하락 | 엑셀 오류를 감춰서 $242 백만 벌금 |
+| JP Morgan Chase | £ 250 백만 |  '13.01월  | 명성, 고객 신뢰도 저하 | 바젤 II VaR 위험 평가 엑셀 오류 |
+| Magellan 펀드 | £ 1.6 십억 |  '95.01월  | 투자자에게 약속한 배당금 지급 못함 | 음수 부호 누락으로 자본이득 과대계상|
+| 미연방준비위원회 | £ 2.5 십억 |  '10.10월  | 명확하지 않음 | 리볼빙 카드 신용액 산출 과정에 엑셀 오류 |
+
+
+.footnote[
+[THE DIRTY DOZEN 12 MODELLING HORROR STORIES &amp; SPREADSHEET DISASTERS](http://blogs.mazars.com/the-model-auditor/files/2014/01/12-Modelling-Horror-Stories-and-Spreadsheet-Disasters-Mazars-UK.pdf)
+]
+
+---
+name: why-leave-excel
+# 스프레드쉬트를 버려야 하는 6가지 이유 
+
+### 스프레드쉬트를 사용하는 이유
+
+&gt; 
+&gt; * 항상 엑셀을 사용했다: 항상 데이터를 엑셀로 저장하고 분석해서 사용했다. 하지만, 버튼 하나로 데이터를 내보내기 쉽다.
+&gt; * 데이터베이스를 사용할 만큼 데이터가 충분하지 않다: 데이터가 작아서 데이터베이스를 사용할 이유를 찾지 못하지만,
+사업이 커지고, 업무량이 늘어나면서 엑셀 작업량이 높아지고, 복잡성도 커지고, 엑셀 자체에서 처리되는 시간도 늘어난다.
+
+### 스프레드쉬트를 떠나야하는 이유
+
+1. 한번에 한사람만 작업이 가능하다.
+1. 데이터 감사는 데이터베이스에서만 가능
+1. 데이터베이스는 정형화된 작업흐름을 지원한다.
+1. 데이터베이스는 엑셀보다 모형을 보다 잘 지원한다.
+1. 데이터베이스로 보고서 생성이 수월하다.
+1. 데이터베이스는 보안이 강력하고 규제하기 좋다.
+
+.footnote[
+ [데이터 과학, "위기의 스프레드쉬트"](https://statkclee.github.io/data-science/ds-why-not-excel.html)
+]
+
+---
+name: excel-complexity
+# 스프레드쉬트 알고리즘 복잡성
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+.center[
+&lt;img src="fig/ds-xls-algo-complexity.png" alt="알고리즘 복잡성" width="100%" /&gt;
+]
+
+.footnote[
+[탈옥(jailbreakr) – 엑셀에서 탈출… 자유](https://statkclee.github.io/data-science/ds-xls.html)
+]
+
+---
+name: reason-excel-complex
+# 스프레드쉬트 복잡성과 효율성
+
+&lt;br&gt;
+&lt;br&gt;
+
+.pull-left[
+
+- 스프레드쉬트는 데이터, 서식, 수식으로 구성된다. 
+- 숫자 데이터를 엑셀로 가져오게 되면 엑셀 내장 함수를 통해 수식 계산을 수행한다. 
+- 엑셀 사용자 본인 혹은 외부 사람을 위해 서식을 입히는 과정을 거쳐 비로소 완성된 스프레드쉬트가 된다.
+
+]
+
+.pull-right[
+.center[
+&lt;img src="fig/ds-xls-data-format-logic.png" alt="알고리즘 복잡성" width="100%" /&gt;
+]
+]
+
+.footnote[
+[탈옥(jailbreakr) – 엑셀에서 탈출… 자유](https://statkclee.github.io/data-science/ds-xls.html)
+]
+
+&lt;!--------------------------------- 파워포인트 -------------------------------------- --&gt;
+
+---
+name: crisis-powerpoint
+# 파워포인트의 종말 &amp;larr; 아마존
+
+.center[
+&lt;img src="fig/no-powerpoint.jpeg" alt="노 파워포인트" width="57%" /&gt;
+]
+
+.footnote[
+ [김미리 기자 (2019.04.06.), "보고서 치장은 그만, 글로 써라.. '제로 PPT' 선언하는 기업들", 조선일보](https://news.v.daum.net/v/20190406030158105)
+]
+ 
+---
+name: three-paradigms
+# 세가지 다른 글쓰기 패러다임
+
+.center[
+&lt;img src="img/data-conference-three-languages.png" alt="세가지 패러다임" width="120%"/&gt;
+]
+
+.footnote[
+[심각한 현재 상황](http://statkclee.github.io/modern-scientific-authoring/01-mess-kr.html)
+]
+
+---
+name: automation
+## 도구가 자동화하는 저작 업무
+
+.pull-left[
+### 1. `\(LaTex\)` 사례
+  &lt;img src="fig/latex-how-it-works.png" alt="도구가 자동화하는 저작 업무" width="100%" /&gt;
+  
+  [정보교육을 위한 파이썬: 데이터 과학자로의 여정, 아마존 절찬 판매중](https://statkclee.github.io/pythonlearn-kr/01-py4inf-python2/)
+]
+
+
+.pull-right[
+### 2. 북다운(Bookdown)
+
+.center[
+  &lt;img src="fig/00_cover_boy_girl.png" alt="컴퓨터 과학 언플러그드" width="100%" /&gt;
+]
+[컴퓨터 과학 언플러그드, 이광춘 번역](https://statkclee.github.io/unplugged/)
+]
+
+---
+name: automation-continued
+## 도구가 자동화하는 저작 업무
+
+.pull-left[
+### 3. SW 도움말
+  &lt;img src="fig/latex-sphinx.png" alt="파이썬 스핑크스 저작 흐름" width="100%" /&gt;
+
+- [Welcome to Reeborg world!](http://reeborg.ca/index_en.html)
+- [리보그 한국어 버젼](http://reeborg.ca/docs/ko/index.html)
+- [프로그래밍과 문제해결: 파이썬, 리보그, 러플](https://statkclee.github.io/code-perspectives/)
+
+]
+
+.pull-right[
+### 4. 블로그
+
+.center[
+  &lt;img src="fig/blogdown-deployment.png" alt="정적 웹콘텐츠 배포" width="100%" /&gt;
+]
+
+[데이터 과학을 위한 저작도구 블로그 - `blogdown`](https://statkclee.github.io/ds-authoring/ds-blogdown.html)
+] [xwMOOC 블로그 - `netlify`](http://xwmooc.netlify.com/)
+
+
+---
+name: automation-slideshow
+## 도구가 자동화하는 저작 업무
+
+### 5. 슬라이드쇼(slideshow)
+
+.center[
+  &lt;img src="fig/slideshow.png" alt="슬라이드쇼" width="50%" /&gt;
+]
+
+.footnote[
+  [소프트웨어에 물들다(왕곡초등학교, 2018-05-26)](somul_20180525.html) -  글쓰기를 잘하기 위해서 알아야 되는 코딩
+]
+
+---
+name: slideshow-final-boss
+# 파워포인트 &amp;rarr; AI 
+
+.center[
+
+&lt;iframe src="https://statkclee.github.io/ds-authoring/seoul_r_xaringan.html#1" width="100%" height="400px"&gt;&lt;/iframe&gt;
+
+]
+
+.footnote[
+[이광춘 (2020-12-12), "파워포인트를 넘어서 - xaringan", Seoul R Meetup 2020](https://tidyverse-korea.github.io/seoul-R/)
+]
+
+
+&lt;!--------------------------------- 워드 -------------------------------------- --&gt;
+
+---
+name: slideshow-final-boss
+# 아래한글, 워드 &amp;rarr; computational documents
+
+.pull-left[
+
+&lt;iframe src="https://statkclee.github.io/ds-authoring/KCD2020_Tidyverse.html#1" width="100%" height="400px"&gt;&lt;/iframe&gt;
+
+]
+
+.pull-right[
+
+&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/R5nD-VuzzD8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+
+]
+
+.footnote[
+[이광춘 (2020-11-07), "코딩으로 글쓰는 슬기로운 탐구생활 발표자료", KCD(Korea Community Day) 2020](https://tidyverse-korea.github.io/seoul-R/)
+]
+
+
+
+
+---
+name: case-study-document
+class: inverse, middle
+
+# Outline
+
+----
+
+.pull-left[
+
+현재 각광받고 있는 .warmyellow[**데이터 과학**]에 대한 전반적인 이해와 더불어 핵심적인 개념을 짧은 시간에 다루게 됩니다.
+
+데이터 과학의 실제 .black[**다양한 사례**]를 통해 데이터 과학을 통해 성취할 수 있는 기술적인 사항에 대해 살펴보게 됩니다.
+
+데이터의 홍수에 사내 데이터와 공공 오픈 데이터를 결합시킬 수 있는 방법에 대해 .green[**Signals Repository**]에 대해 살펴봅니다.
+
+
+] &lt;!--end of left-column--&gt;
+
+.pull-right[
+.left[
+1\. [데이터 과학](#data-science)
+
+2\. [사례 분석 : 데이터](#case-study-1)
+
+3\. [사례분석 : 문서](#case-study-2)
+
+4\. **[.warmyellow[Signals Repository]](#signals-repository)**
+
+5\. [마무리](#goodbye)
+]
+] &lt;!--end of right-column--&gt;
+
+---
+name: sr
+# Signals Repository
+
+&lt;br&gt;
+
+.center[
+&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/IgTPvuEB8KY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+]
+
+.footnote[
+[Find the signal in the noise: Introducing Bottlenose with KPMG(2016. 2. 4.)](https://www.youtube.com/watch?v=IgTPvuEB8KY)
+]
+
+---
+name: sr-intelligent-forecasting
+# KPMG Intelligent Forecasting
+
+&lt;br&gt;
+
+.center[
+&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/zjPl5EaXKeM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+]
+
+.footnote[
+[KPMG Intelligent Forecasting (2020. 2. 14.)](https://www.youtube.com/watch?v=zjPl5EaXKeM)
+]
+
+---
+name: sr-financial-statement
+# KPMG Solution: CLMS - Contract Lifecycle Management System 
+
+&lt;br&gt;
+
+.center[
+&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/pf3lTyJwt-s" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+]
+
+.footnote[
+[KPMG Solution: CLMS - Contract Lifecycle Management System](https://www.youtube.com/watch?v=pf3lTyJwt-s)
+]
+
+
+
+
 
 
 ---
@@ -151,6 +675,8 @@ class: middle, inverse
 
 ]
 ]
+
+
 
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
