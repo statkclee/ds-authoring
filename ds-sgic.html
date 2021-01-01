@@ -1,266 +1,166 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>Data Science - Signals Repository</title>
+    <title>서울보증보험 특강</title>
     <meta charset="utf-8" />
-    <meta name="author" content="이광춘, 2021-01-01" />
-    <script src="xaringan_libs/header-attrs/header-attrs.js"></script>
-    <link href="xaringan_libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
-    <script src="xaringan_libs/anchor-sections/anchor-sections.js"></script>
-    <link rel="stylesheet" href="xaringan_libs/remark.css" type="text/css" />
+    <meta name="author" content="이광춘" />
+    <meta name="date" content="2021-01-08" />
+    <script src="libs/header-attrs-2.5/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+    <script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
+    <link rel="stylesheet" href="css/nhsr.css" type="text/css" />
+    <link rel="stylesheet" href="css/nhsr-fonts.css" type="text/css" />
   </head>
   <body>
     <textarea id="source">
-class: center, middle, inverse, title-slide
-
-# Data Science - Signals Repository
-### 이광춘, 2021-01-01
-
----
 
 
 
-```
-## Warning: package 'knitr' was built under R version 4.0.2
-```
 
-```
-## -- [1mAttaching packages[22m --------------------------------------- tidyverse 1.3.0 --
-```
+class: title-slide, left, bottom
 
-```
-## [32m√[39m [34mggplot2[39m 3.3.2     [32m√[39m [34mpurrr  [39m 0.3.4
-## [32m√[39m [34mtibble [39m 3.0.4     [32m√[39m [34mdplyr  [39m 1.0.2
-## [32m√[39m [34mtidyr  [39m 1.1.1     [32m√[39m [34mstringr[39m 1.4.0
-## [32m√[39m [34mreadr  [39m 1.3.1     [32m√[39m [34mforcats[39m 0.5.0
-```
-
-```
-## Warning: package 'ggplot2' was built under R version 4.0.2
-```
-
-```
-## Warning: package 'tibble' was built under R version 4.0.3
-```
-
-```
-## Warning: package 'tidyr' was built under R version 4.0.2
-```
-
-```
-## Warning: package 'dplyr' was built under R version 4.0.2
-```
-
-```
-## -- [1mConflicts[22m ------------------------------------------ tidyverse_conflicts() --
-## [31mx[39m [34mdplyr[39m::[32mfilter()[39m masks [34mstats[39m::filter()
-## [31mx[39m [34mdplyr[39m::[32mlag()[39m    masks [34mstats[39m::lag()
-```
-
-## .left[🛠 &amp;nbsp; &amp;nbsp; 발표 목차]
-
-&lt;br&gt;
-.alert[
-  .large[
-- &amp;nbsp; `xaringan` 기본기
-- &amp;nbsp; `xaringan` 확장
-- &amp;nbsp; 한국에서 발표
-- &amp;nbsp; AI시대 `xaringan`
-  ]
-]
+# 서울보증보험 특강
+----
+## **Data Science - Signals Repository**
+### 이광춘
+### 2021-01-08
 
 
 ---
-class: inverse middle center
+class: inverse, middle
+
+# Outline
+
+----
 
 .pull-left[
-.animate__animated.animate__bounceInDown[
-![:scale 50%](fig/forcats.png)
-]
-]
+
+현재 각광받고 있는 .warmyellow[**데이터 과학**]에 대한 전반적인 이해와 더불어 핵심적인 개념을 짧은 시간에 다루게 됩니다.
+
+데이터 과학의 실제 .black[**다양한 사례**]를 통해 데이터 과학을 통해 성취할 수 있는 기술적인 사항에 대해 살펴보게 됩니다.
+
+데이터의 홍수에 사내 데이터와 공공 오픈 데이터를 결합시킬 수 있는 방법에 대해 .green[**Signals Repository**]에 대해 살펴봅니다.
+
+
+] &lt;!--end of left-column--&gt;
+
 .pull-right[
-&lt;br&gt;
-&lt;br&gt;
-# `xaringan` 기본기 🔍
-&lt;hr&gt;
-### 자료구조
-### 요인(Factor)
-### forcats
-]
+.left[
+1\. [데이터 과학](#data-science)
 
-<div>
-<style type="text/css">.xaringan-extra-logo {
-width: 110px;
-height: 128px;
-z-index: 0;
-background-image: url(fig/Tidyverse_Korea_logo_transparent.png);
-background-size: contain;
-background-repeat: no-repeat;
-position: absolute;
-top:0.5em;right:0.5em;
-}
-</style>
-<script>(function () {
-  let tries = 0
-  function addLogo () {
-    if (typeof slideshow === 'undefined') {
-      tries += 1
-      if (tries < 10) {
-        setTimeout(addLogo, 100)
-      }
-    } else {
-      document.querySelectorAll('.remark-slide-content:not(.title-slide):not(.inverse):not(.hide_logo)')
-        .forEach(function (slide) {
-          const logo = document.createElement('a')
-          logo.classList = 'xaringan-extra-logo'
-          logo.href = 'https://tidyverse-korea.github.io/seoul-R/'
-          slide.appendChild(logo)
-        })
-    }
-  }
-  document.addEventListener('DOMContentLoaded', addLogo)
-})()</script>
-</div>
+2\. [사례 분석 : 데이터](#case-study-1)
+
+3\. [사례분석 : 문서](#case-study-2)
+
+4\. [Signals Repository](#signals-repository)
+
+5\. [마무리](#goodbye)
+]
+] &lt;!--end of right-column--&gt;
 
 ---
-class: middle
+name: data-science
+# 데이터 과학
 
-.left-column[
-.center[![:scale 50%](fig/forcats.png)]
-### - 자료구조
+데이터 사이언스(Data Science)는 데이터를 다루는 과학이다. 따라서 자연법칙을 다루는 자연과학과 맥이 닿아있다.
+자연법칙을 측정하여 데이터프레임(`DataFrame`)으로 나타내면 **변수(Variable)**, **관측점(Observation)**, **값(Value)**으로 표현된다.
+
+&lt;img src="fig/data-science-overview.png" alt="데이터 사이언스 개요" width="100%" /&gt;
+
+
+.footnote[
+[Google Search - "데이터 과학"](https://www.google.com/search?q=%EB%8D%B0%EC%9D%B4%ED%84%B0+%EA%B3%BC%ED%95%99)
 ]
 
-.right-column[
-### Stevens, Stanley Smith. “On the theory of scales of measurement.” (1946)
+---
+name: tidyverse
+# AI/ML/DL vs 데이터 과학
+
+&lt;br&gt;
 
 .center[
-![:scale 100%](fig/data-structure-factor.png)
+&lt;img src="fig/tidyvese_os.png" width="77%" /&gt;
 ]
 
-.footnote[reference: https://statkclee.github.io/data-science/ds-data-structure.html]
 
+.footnote[
+[한국통계학회 소식지 2019년 10월호 ](https://statkclee.github.io/ds-authoring/ds-stat-tidyverse.html)
 ]
 
 ---
-class: middle
+name: tidyverse-definition
+# `tidyverse`
 
-.left-column[
-.center[![:scale 50%](fig/forcats.png)]
-### - 자료구조
-]
-
-.right-column[
-### R 자료구조
+&lt;br&gt;
 
 .center[
-![:scale 100%](fig/data-structure-R.png)
-]
-
-.footnote[reference: https://statkclee.github.io/data-science/ds-data-structure.html]
-
+&lt;img src="fig/maso_tidyverse.png" width="77%" /&gt;
 ]
 
 
----
-class: middle
+.pull-left[
 
-.left-column[
-.center[![:scale 50%](fig/forcats.png)]
-### - 자료구조
-### - Factor
+- 기존 자료구조를 재사용
+- 파이프 연산자로 간단한 함수를 조합
+- 함수형 프로그래밍을 적극 사용
+- 기계가 아닌 인간을 위한 설계
+
 ]
 
-.right-column[
-### 요인(Factor)
+.pull-right[
 
-
-```r
-library(tidyverse)
-x1 &lt;- c("Dec", "Apr", "Jan", "Mar")
-sort(x1)
-```
-
-```
-#&gt; [1] "Apr" "Dec" "Jan" "Mar"
-```
-
-```r
-month_levels &lt;- c(
-  "Jan", "Feb", "Mar", "Apr", "May", "Jun", 
-  "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")
-
-y1 &lt;- factor(x1, levels = month_levels)
-y1
-```
-
-```
-#&gt; [1] Dec Apr Jan Mar
-#&gt; Levels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec
-```
-
-.footnote[reference: https://statkclee.github.io/data-science/ds-factor-cdata.html]
+- Reuse existing data structures.
+- Compose simple functions with the pipe.
+- Embrace functional programming.
+- Design for humans.
 
 ]
 
 
 ---
-class: middle
+name: y-fx
 
-.left-column[
-.center[![:scale 50%](fig/forcats.png)]
-### - 자료구조
-### - Factor
-### - forcats
+# 30년의 변화를 그림으로 표현
+
+.center[
+&lt;img src="fig/intree-xy-f.png" alt="XY" width="77%" /&gt;
 ]
 
-.right-column[
-### `forcats`
 
-- 요인 수준(factor level)에 대한 라벨(label) 바꿈 &amp;rarr; `forcats::fct_recode`, `dplyr::recode`
-- 요인 수준 순서 바꾸기 &amp;rarr; `fct_relevel()`
-- 요인 범주수준을 줄이기 &amp;rarr; `if_else()`
-- 파생 요인 변수 생성시킴 &amp;rarr; `case_when()`
-
-.footnote[reference: https://statkclee.github.io/data-science/ds-factor-cdata.html]
-
+.footnote[
+[이광춘(2019-01-26), "Data Scientist 가 바라본 제조업의 발전 전략 및 방안", Intree 4.0 World Forum](https://statkclee.github.io/ds-authoring/intree-seminar-2019-01.html)
 ]
-
 
 
 ---
-class: center middle inverse
+name: goodbye
+class: middle, inverse
 
-# 감사합니다.
+.pull-left[
+# **경청해 주셔서 감사합니다.**
+&lt;br/&gt;
+## Lighthouse Center
 
---
-
-# 질문?
-
---
-
-# 끝
-
----
-class: center middle inverse
-
-.animate__animated.animate__hinge[
-
-# 감사합니다.
-# 질문?
-# 끝
 ]
 
+.pull-right[
+.right[
+
+&lt;img style="border-radius: 100%;" src="../fig/logo-kpmg.jpg" width="300px"/&gt;
+
+]
+]
 
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
-<script src="xaringan_libs/macros.js"></script>
 <script>var slideshow = remark.create({
-"ratio": "16:9",
-"highlightStyle": "github",
+"highlightStyle": "googlecode",
 "highlightLines": true,
+"highlightLanguage": "r",
 "countIncrementalSlides": false,
-"slideNumberFormat": "<div class=\"progress-bar-container\">\n  </div>\n  <div class=\"progress-bar\" style=\"width: calc(%current% / %total% * 100%);\">\n"
+"ratio": "4:3"
 });
 if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
   window.dispatchEvent(new Event('resize'));
@@ -344,21 +244,33 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
   }
   preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
 })(document);</script>
-<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
+<!--Hat-tip: https://www.garrickadenbuie.com/blog/xaringan-tip-logo-all-slides/-->
+<style>
+.logo {
+  background-image: url(../fig/logo-kpmg.jpg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  width: 110px;
+  height: 128px;
+  z-index: 0;
+}
+</style>
 
 <script>
-const options = {
-  strings: [
-    '<pre>data["instructor"]</pre>', '<pre>data["researcher"]</pre>', '<pre>data["visualiser"]</pre>'
-  ],
-  typeSpeed: 60,
-  backSpeed: 20,
-  cursorChar: '',
-  loop: true
-};
-
-const typed = new Typed('.typed', options);
-const typed2 = new Typed('.typed-eg', options);
+document
+  .querySelectorAll(
+    '.remark-slide-content' +
+    ':not(.title-slide)' +
+    // add additional classes to exclude here, e.g.
+    ':not(.inverse)' +
+    ':not(.hide-logo)'
+  )
+  .forEach(el => {
+    el.innerHTML += '<div class="logo"></div>';
+  });
 </script>
 
 <script>

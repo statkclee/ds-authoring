@@ -1,197 +1,175 @@
 ---
-title: "Data Science - Signals Repository"
-type: "meetup"
-author: "이광춘, `r Sys.Date()`"
-date: ""
+title: "서울보증보험 특강"
+subtitle: "Data Science - Signals Repository"
+author: "이광춘"
+institute: "NHS Organisation"
+date: "2021-01-08"
 output:
   xaringan::moon_reader:
-    includes:
-      after_body: "xaringan_libs/typed.js"
-    css: ["xaringan_libs/remark.css"]
-    lib_dir: xaringan_libs
+    css: 
+      - default
+      - css/nhsr.css
+      - css/nhsr-fonts.css
+    lib_dir: libs
+    seal: false
     nature:
-      ratio: 16:9
-      highlightStyle: github
+      highlightStyle: googlecode
       highlightLines: true
+      highlightLanguage: ["r"]
       countIncrementalSlides: false
-      beforeInit: "xaringan_libs/macros.js"
-      slideNumberFormat: |
-        <div class="progress-bar-container">
-          </div>
-          <div class="progress-bar" style="width: calc(%current% / %total% * 100%);">
-    seal: true
-editor_options: 
-  chunk_output_type: console
+      ratio: "4:3"
+    includes:
+      after_body: [css/insert-logo.html]
 ---
 
-```{r setup, echo = FALSE, cache = FALSE, results = 'hide'}
+```{r setup, include = FALSE}
 library(knitr)
-options(
-  htmltools.dir.version = FALSE, tibble.width = 60, tibble.print_min = 6,
-  crayon.enabled = TRUE
-)
-opts_chunk$set(
-  echo = FALSE, warning = FALSE, message = FALSE, comment = "#>",
-  fig.path = 'figure/', fig.align = 'center', fig.height = 8.5,
-  out.width = '100%', fig.show = 'hold', fig.retina = 3,
-  cache = TRUE, cache.path = 'cache/'
-)
-
 library(tidyverse)
+library(nhsrtheme)
+library(NHSRdatasets)
+# set default options
+opts_chunk$set(echo = FALSE,
+               fig.width = 7.252,
+               fig.height = 4,
+               dpi = 300)
+# uncomment the following lines if you want to use the NHS-R theme colours by default
+# scale_fill_continuous <- partial(scale_fill_nhs, discrete = FALSE)
+# scale_fill_discrete <- partial(scale_fill_nhs, discrete = TRUE)
+# scale_colour_continuous <- partial(scale_colour_nhs, discrete = FALSE)
+# scale_colour_discrete <- partial(scale_colour_nhs, discrete = TRUE)
 ```
 
-## .left[`r emo::ji("hammer_and_wrench")` &nbsp; &nbsp; 발표 목차]
+class: title-slide, left, bottom
 
-<br>
-.alert[
-  .large[
-- &nbsp; `xaringan` 기본기
-- &nbsp; `xaringan` 확장
-- &nbsp; 한국에서 발표
-- &nbsp; AI시대 `xaringan`
-  ]
-]
+# `r rmarkdown::metadata$title`
+----
+## **`r rmarkdown::metadata$subtitle`**
+### `r rmarkdown::metadata$author`
+### `r rmarkdown::metadata$date`
 
 
 ---
-class: inverse middle center
+class: inverse, middle
+
+# Outline
+
+----
 
 .pull-left[
-.animate__animated.animate__bounceInDown[
-![:scale 50%](fig/forcats.png)
-]
-]
+
+현재 각광받고 있는 .warmyellow[**데이터 과학**]에 대한 전반적인 이해와 더불어 핵심적인 개념을 짧은 시간에 다루게 됩니다.
+
+데이터 과학의 실제 .black[**다양한 사례**]를 통해 데이터 과학을 통해 성취할 수 있는 기술적인 사항에 대해 살펴보게 됩니다.
+
+데이터의 홍수에 사내 데이터와 공공 오픈 데이터를 결합시킬 수 있는 방법에 대해 .green[**Signals Repository**]에 대해 살펴봅니다.
+
+
+] <!--end of left-column-->
+
 .pull-right[
-<br>
-<br>
-# `xaringan` 기본기 `r emo::ji("zoom")`
-<hr>
-### 자료구조
-### 요인(Factor)
-### forcats
-]
+.left[
+1\. [데이터 과학](#data-science)
 
-```{r xaringan-logo, echo=FALSE}
-# 로고 ----
-xaringanExtra::use_logo(image_url = "fig/Tidyverse_Korea_logo_transparent.png",
-                        link_url = "https://tidyverse-korea.github.io/seoul-R/",
-                        position = xaringanExtra::css_position(top = "0.5em", right = "0.5em"))
-```
+2\. [사례 분석 : 데이터](#case-study-1)
+
+3\. [사례분석 : 문서](#case-study-2)
+
+4\. [Signals Repository](#signals-repository)
+
+5\. [마무리](#goodbye)
+]
+] <!--end of right-column-->
 
 ---
-class: middle
+name: data-science
+# 데이터 과학
 
-.left-column[
-.center[![:scale 50%](fig/forcats.png)]
-### - 자료구조
+데이터 사이언스(Data Science)는 데이터를 다루는 과학이다. 따라서 자연법칙을 다루는 자연과학과 맥이 닿아있다.
+자연법칙을 측정하여 데이터프레임(`DataFrame`)으로 나타내면 **변수(Variable)**, **관측점(Observation)**, **값(Value)**으로 표현된다.
+
+<img src="fig/data-science-overview.png" alt="데이터 사이언스 개요" width="100%" />
+
+
+.footnote[
+[Google Search - "데이터 과학"](https://www.google.com/search?q=%EB%8D%B0%EC%9D%B4%ED%84%B0+%EA%B3%BC%ED%95%99)
 ]
 
-.right-column[
-### Stevens, Stanley Smith. “On the theory of scales of measurement.” (1946)
+---
+name: tidyverse
+# AI/ML/DL vs 데이터 과학
+
+<br>
 
 .center[
-![:scale 100%](fig/data-structure-factor.png)
+<img src="fig/tidyvese_os.png" width="77%" />
 ]
 
-.footnote[reference: https://statkclee.github.io/data-science/ds-data-structure.html]
 
+.footnote[
+[한국통계학회 소식지 2019년 10월호 ](https://statkclee.github.io/ds-authoring/ds-stat-tidyverse.html)
 ]
 
 ---
-class: middle
+name: tidyverse-definition
+# `tidyverse`
 
-.left-column[
-.center[![:scale 50%](fig/forcats.png)]
-### - 자료구조
-]
-
-.right-column[
-### R 자료구조
+<br>
 
 .center[
-![:scale 100%](fig/data-structure-R.png)
-]
-
-.footnote[reference: https://statkclee.github.io/data-science/ds-data-structure.html]
-
+<img src="fig/maso_tidyverse.png" width="77%" />
 ]
 
 
----
-class: middle
+.pull-left[
 
-.left-column[
-.center[![:scale 50%](fig/forcats.png)]
-### - 자료구조
-### - Factor
+- 기존 자료구조를 재사용
+- 파이프 연산자로 간단한 함수를 조합
+- 함수형 프로그래밍을 적극 사용
+- 기계가 아닌 인간을 위한 설계
+
 ]
 
-.right-column[
-### 요인(Factor)
+.pull-right[
 
-```{r r-factor-code, echo=TRUE}
-library(tidyverse)
-x1 <- c("Dec", "Apr", "Jan", "Mar")
-sort(x1)
-
-month_levels <- c(
-  "Jan", "Feb", "Mar", "Apr", "May", "Jun", 
-  "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")
-
-y1 <- factor(x1, levels = month_levels)
-y1
-```
-
-.footnote[reference: https://statkclee.github.io/data-science/ds-factor-cdata.html]
+- Reuse existing data structures.
+- Compose simple functions with the pipe.
+- Embrace functional programming.
+- Design for humans.
 
 ]
 
 
 ---
-class: middle
+name: y-fx
 
-.left-column[
-.center[![:scale 50%](fig/forcats.png)]
-### - 자료구조
-### - Factor
-### - forcats
+# 30년의 변화를 그림으로 표현
+
+.center[
+<img src="fig/intree-xy-f.png" alt="XY" width="77%" />
 ]
 
-.right-column[
-### `forcats`
 
-- 요인 수준(factor level)에 대한 라벨(label) 바꿈 &rarr; `forcats::fct_recode`, `dplyr::recode`
-- 요인 수준 순서 바꾸기 &rarr; `fct_relevel()`
-- 요인 범주수준을 줄이기 &rarr; `if_else()`
-- 파생 요인 변수 생성시킴 &rarr; `case_when()`
-
-.footnote[reference: https://statkclee.github.io/data-science/ds-factor-cdata.html]
-
+.footnote[
+[이광춘(2019-01-26), "Data Scientist 가 바라본 제조업의 발전 전략 및 방안", Intree 4.0 World Forum](https://statkclee.github.io/ds-authoring/intree-seminar-2019-01.html)
 ]
-
 
 
 ---
-class: center middle inverse
+name: goodbye
+class: middle, inverse
 
-# 감사합니다.
+.pull-left[
+# **경청해 주셔서 감사합니다.**
+<br/>
+## Lighthouse Center
 
---
-
-# 질문?
-
---
-
-# 끝
-
----
-class: center middle inverse
-
-.animate__animated.animate__hinge[
-
-# 감사합니다.
-# 질문?
-# 끝
 ]
 
+.pull-right[
+.right[
+
+<img style="border-radius: 100%;" src="../fig/logo-kpmg.jpg" width="300px"/>
+
+]
+]
 
