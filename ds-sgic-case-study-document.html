@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="generator" content="pandoc">
+    <title>Software Carpentry: ds-sgic-case-study-document</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap-theme.css" />
+    <link rel="stylesheet" type="text/css" href="css/swc.css" />
+    <link rel="alternate" type="application/rss+xml" title="Software Carpentry Blog" href="http://software-carpentry.org/feed.xml"/>
+    <meta charset="UTF-8" />
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    
+    
+    <!--
+    <div id="google_translate_element"></div><script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({pageLanguage: 'ko', includedLanguages: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+    }
+    </script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    -->
+            
+  </head>
+  <body class="lesson">
+    <div class="container card">
+      <div class="banner">
+        <a href="http://software-carpentry.org" title="Software Carpentry">
+          <img alt="Software Carpentry banner" src="img/software-carpentry-banner.png" />
+        </a>
+      </div>
+      <article>
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+                    <h1 class="title"></h1>
+          <p>name: crisis-excel # 위기의 스프레드쉬트(엑셀)</p>
+<p>.center[ <img src="fig/train2data-analysis.jpg" alt="분석행" width="67%" />]</p>
+<p>.footnote[ <a href="https://onoffmix.com/event/73626">스터디 뽀개기 7월 (2016-07-30), 분석행(Train to data-analysis)</a>]</p>
+<p>name: why-leave-excel # 스프레드쉬트를 버려야 하는 6가지 이유</p>
+<h3 id="스프레드쉬트를-사용하는-이유">스프레드쉬트를 사용하는 이유</h3>
+<blockquote>
+<ul>
+<li>항상 엑셀을 사용했다: 항상 데이터를 엑셀로 저장하고 분석해서 사용했다. 하지만, 버튼 하나로 데이터를 내보내기 쉽다.</li>
+<li>데이터베이스를 사용할 만큼 데이터가 충분하지 않다: 데이터가 작아서 데이터베이스를 사용할 이유를 찾지 못하지만, 사업이 커지고, 업무량이 늘어나면서 엑셀 작업량이 높아지고, 복잡성도 커지고, 엑셀 자체에서 처리되는 시간도 늘어난다.</li>
+</ul>
+</blockquote>
+<h3 id="스프레드쉬트를-떠나야하는-이유">스프레드쉬트를 떠나야하는 이유</h3>
+<ol type="1">
+<li>한번에 한사람만 작업이 가능하다.</li>
+<li>데이터 감사는 데이터베이스에서만 가능</li>
+<li>데이터베이스는 정형화된 작업흐름을 지원한다.</li>
+<li>데이터베이스는 엑셀보다 모형을 보다 잘 지원한다.</li>
+<li>데이터베이스로 보고서 생성이 수월하다.</li>
+<li>데이터베이스는 보안이 강력하고 규제하기 좋다.</li>
+</ol>
+<p>.footnote[ <a href="https://statkclee.github.io/data-science/ds-why-not-excel.html">데이터 과학, “위기의 스프레드쉬트”</a>]</p>
+<p>name: reason-excel-complex # 스프레드쉬트 복잡성과 효율성</p>
+<p><br> <br></p>
+<p>.pull-left[</p>
+<ul>
+<li>스프레드쉬트는 데이터, 서식, 수식으로 구성된다.</li>
+<li>숫자 데이터를 엑셀로 가져오게 되면 엑셀 내장 함수를 통해 수식 계산을 수행한다.</li>
+<li>엑셀 사용자 본인 혹은 외부 사람을 위해 서식을 입히는 과정을 거쳐 비로소 완성된 스프레드쉬트가 된다.</li>
+</ul>
+<p>]</p>
+<p>.pull-right[ .center[ <img src="fig/ds-xls-data-format-logic.png" alt="알고리즘 복잡성" width="100%" />]]</p>
+<p>.footnote[ <a href="https://statkclee.github.io/data-science/ds-xls.html">탈옥(jailbreakr) – 엑셀에서 탈출… 자유</a>]</p>
+<!--------------------------------- 파워포인트 -------------------------------------- -->
+<p>name: three-paradigms # 세가지 다른 글쓰기 패러다임</p>
+<p>.center[ <img src="img/data-conference-three-languages.png" alt="세가지 패러다임" width="120%"/>]</p>
+<p>.footnote[ <a href="http://statkclee.github.io/modern-scientific-authoring/01-mess-kr.html">심각한 현재 상황</a>]</p>
+<p>name: automation-continued ## 도구가 자동화하는 저작 업무</p>
+<p>.pull-left[ ### 3. SW 도움말 <img src="fig/latex-sphinx.png" alt="파이썬 스핑크스 저작 흐름" width="100%" /></p>
+<ul>
+<li><a href="http://reeborg.ca/index_en.html">Welcome to Reeborg world!</a></li>
+<li><a href="http://reeborg.ca/docs/ko/index.html">리보그 한국어 버젼</a></li>
+<li><a href="https://statkclee.github.io/code-perspectives/">프로그래밍과 문제해결: 파이썬, 리보그, 러플</a></li>
+</ul>
+<p>]</p>
+<p>.pull-right[ ### 4. 블로그</p>
+<p>.center[ <img src="fig/blogdown-deployment.png" alt="정적 웹콘텐츠 배포" width="100%" />]</p>
+<p><a href="https://statkclee.github.io/ds-authoring/ds-blogdown.html">데이터 과학을 위한 저작도구 블로그 - <code>blogdown</code></a> ] <a href="http://xwmooc.netlify.com/">xwMOOC 블로그 - <code>netlify</code></a></p>
+<p>name: slideshow-final-boss # 파워포인트 → AI</p>
+<p>.center[</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>knitr<span class="op">::</span><span class="kw">include_url</span>(<span class="st">&#39;https://statkclee.github.io/ds-authoring/seoul_r_xaringan.html#1&#39;</span>)</span></code></pre></div>
+<p><a href="https://statkclee.github.io/ds-authoring/seoul_r_xaringan.html#1"><img src="figure/embed-seoul-r-meetup-1.png" alt="plot of chunk embed-seoul-r-meetup" /></a></p>
+<p>]</p>
+<p>.footnote[ <a href="https://tidyverse-korea.github.io/seoul-R/">이광춘 (2020-12-12), “파워포인트를 넘어서 - xaringan”, Seoul R Meetup 2020</a>]</p>
+<!--------------------------------- 워드 -------------------------------------- -->
+<hr />
+<p>name: slideshow-final-boss # 아래한글, 워드 → computational documents</p>
+<p>.pull-left[</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>knitr<span class="op">::</span><span class="kw">include_url</span>(<span class="st">&#39;https://statkclee.github.io/ds-authoring/KCD2020_Tidyverse.html#1&#39;</span>)</span></code></pre></div>
+<p><a href="https://statkclee.github.io/ds-authoring/KCD2020_Tidyverse.html#1"><img src="figure/kcd-2020-presentation-1.png" alt="plot of chunk kcd-2020-presentation" /></a></p>
+<p>]</p>
+<p>.pull-right[</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/R5nD-VuzzD8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+<p>]</p>
+<p>.footnote[ <a href="https://tidyverse-korea.github.io/seoul-R/">이광춘 (2020-11-07), “코딩으로 글쓰는 슬기로운 탐구생활 발표자료”, KCD(Korea Community Day) 2020</a>]</p>
+        </div>
+      </div>
+      </article>
+      <div class="footer">
+        <a class="label swc-blue-bg" href="http://software-carpentry.org">Software Carpentry</a>
+        <a class="label swc-blue-bg" href="https://github.com/swcarpentry/lesson-template">Source</a>
+        <a class="label swc-blue-bg" href="mailto:admin@software-carpentry.org">Contact</a>
+        <a class="label swc-blue-bg" href="LICENSE.html">License</a>
+      </div>
+    </div>
+    <!-- Javascript placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="css/bootstrap/bootstrap-js/bootstrap.js"></script>
+    <script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    
+      ga('create', 'UA-37305346-2', 'auto');
+      ga('send', 'pageview');
+    
+    </script>
+  </body>
+</html>
