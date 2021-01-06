@@ -10,16 +10,26 @@ title: 데이터 과학 기고문과 발표자료
 > 금수저, 은수저 슈퍼파워를 받은 사람과 기계학습을 통달한 흑수저들간의 무한경쟁이 드뎌 시작되었다. 물론, 
 > 금수저를 입에 물고 기계학습을 통달한 사람이 가장 유리한 출발을 시작한 것도 사실이다.
 
-- [신규 템플릿(`reveal.js`)](template.html)
 - [Seoul R Meetup](https://tidyverse-korea.github.io/seoul-R/)
+- [발표 슬라이드 템플릿 - `xaringan`](xaringan-template.html)
+- [발표 슬라이드 템플릿(`reveal.js`)](template.html)
+
 
 ## 학습목차 
 
-1. [디지털 뉴딜](krila-digital-new-deal.html)
-    - [지방자치이슈와 포럼](https://www.krila.re.kr/publication/periodical/issue) 2020년 10월호(제33호)
+1. [Natural Language Processing (NLP) 활용한 R&D 효과증대](ds-koita-2021.html)
+    - 한국산업기술진흥협회 격월간 "기술과혁신" 3/4월호
+1. [Data Science - Signals Repository](ds-sgic.html)
+    - 서울보증보험, 2021년 1월 8일
 1. [Seoul R Meetup](https://tidyverse-korea.github.io/seoul-R/#section), 줌(Zoom)
+    - [파워포인트를 넘어서 - `xaringan`](seoul_r_xaringan.html) 2020-12-11
+    - [Almost All about Table](seoul_r_table.html) 2020-11-11
+    - [날씨보고서 자동화 - GitHub Actions](ds-weather-github-actions.html), 2020-10-14
     - [Why Tidymodels?](ds-why-tidymodels.html), 2020-09-09
-    - [날씨보고서 자동화 - GitHub Actions](ds-weather-github-actions.html), 2020-09-09
+1. [OCR Digitization for Industry Powered by ScanDoc and ButterBlock Suite](https://www.ncloud-online.com/aisummit/track/?track=4)
+    - NAVER CLOUD AI SUMMIT, 2020년 12월 17일~18일, 온라인
+1. [디지털 뉴딜](krila-digital-new-deal-text.html), &nbsp;&nbsp; [디지털 뉴딜 + 데이터 과학](krila-digital-new-deal.html), &nbsp;&nbsp; [디지털 뉴딜](krila-digital-new-deal.html), &nbsp;&nbsp; [국가별 분석 보고서](krila-to-digital.html), &nbsp;&nbsp;[데이터 댐 外](krila-data-dam.html)
+    - [지방자치이슈와 포럼](https://www.krila.re.kr/publication/periodical/issue) 2020년 10월호(제33호)
 1. [코딩으로 글쓰는 슬기로운 탐구생활](ds-rmarkdown-driven-development.html) [**발표자료**](KCD2020_Tidyverse.html)
     - [KCD(Korea Community Day) 2020](https://kcd2020.festa.io/), 11월 7일(토), 비대면 ~~2월 29일(토) 오전 10시~, 한국마이크로소프트 11층(더케이트윈타워 A동)~~ 
 1. [데이터야 놀자](https://datayanolja.github.io/)
