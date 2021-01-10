@@ -17,7 +17,7 @@ title: 데이터 과학 기고문과 발표자료
 
 ## 학습목차 
 
-1. [Natural Language Processing (NLP) 활용한 R&D 효과증대](ds-koita-2021.html)
+1. [Natural Language Processing (NLP) 활용한 R&D 효과증대](ds-koita-2021.html) [`PDF`](ds-koita-2021-pdf.html)
     - 한국산업기술진흥협회 격월간 "기술과혁신" 3/4월호
 1. [Data Science - Signals Repository](ds-sgic.html)
     - 서울보증보험, 2021년 1월 8일
