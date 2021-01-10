@@ -12,3 +12,5 @@ fig/Thumbs.db
 play_with_data_conference.Rproj
 .Rproj.user
 .Rhistory
+.log
+.tex

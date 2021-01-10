@@ -3,7 +3,7 @@ title: "Natural Language Processing (NLP) 활용한 R&D 효과증대"
 subtitle: "한국산업기술진흥협회  「기술과혁신」 3/4월호"
 titlerunning: 
 authorrunning: 
-date: "`r Sys.Date()`"
+date: "2021-01-10"
 authors: 
   - name: 이광춘
     url: https://www.facebook.com/groups/tidyverse/
@@ -35,10 +35,7 @@ editor_options:
 ---
 
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE, warning=FALSE, message=FALSE,
-                    comment="", digits = 3, tidy = FALSE, prompt = FALSE, fig.align = 'center')
-```
+
 
 # 과학 패러다임의 전환
 
@@ -56,9 +53,7 @@ R&D도 이러한 변화의 물결에서 자유로울 수 없고, 인공지능을
 -   산 과학(Computational Science): 수십년에 결쳐 복잡한 현상을 모의실험에 컴퓨터를 활용한 계산 과학 시대.
 -   데이터 집약 과학(Data-Intensive Science): 현재는 이론, 실험, 빅데이터를 사용하여 계산 결과를 통합하는 데이터 집약 과학 시대.
 
-```{r paradigm, out.width = "100%", dpi = 300, fig.cap="과학기술 패러다임의 전환"}
-knitr::include_graphics("fig/ai-lab-4th-paradigm.png")
-```
+<img src="fig/ai-lab-4th-paradigm.png" title="과학기술 패러다임의 전환" alt="과학기술 패러다임의 전환" width="100%" style="display: block; margin: auto;" />
 
 
 통상적인 과학연구 과정은 가설을 세워, 데이터를 수집하고, 탐색적 과정을 거쳐 발견과 분석을 수행하고 이를 발표하는 과정을 거졌지만, 기하급수적으로 증가하는 데이터에 의해 이러한 흐름에 변화가 생겨나고 있다.
@@ -81,9 +76,7 @@ knitr::include_graphics("fig/ai-lab-4th-paradigm.png")
 
 [^1]: [김광두 (2013-05-14)), "창조경제의 개념과 성공조건", 국가미래연구원 (IFS 세미나)](https://www.youtube.com/watch?v=ZaEihnQwR9s)
 
-```{r paradigm-development, out.width = "100%", dpi = 300, fig.cap="대한민국 산업발달과정과 사고체계의 진화"}
-knitr::include_graphics("fig/korea-development-stages.png")
-```
+<img src="fig/korea-development-stages.png" title="대한민국 산업발달과정과 사고체계의 진화" alt="대한민국 산업발달과정과 사고체계의 진화" width="100%" style="display: block; margin: auto;" />
 
 
 ## 데이터 과학
@@ -97,9 +90,7 @@ knitr::include_graphics("fig/korea-development-stages.png")
 최근 인기를 얻고 있는 ML/DL 주도 인공지능(AI)과는 별개로 10여년 전부터 RStudio 해들리 위컴(Hadley Wickham) 이 주축이 되어 `tidyverse`을 통해 데이터 과학을 새롭게 정의하는 시도가 있었고, 현재는 많은 이론 통계학자와 실무자로부터 호응을 얻고 있었다.
 이러한 기여를 인정받아 2019년 통계학의 노벨상이라고 불리는 COPSS 상을 해들리 위컴이 수상하면서 순수 이론 중심의 통계학도 데이터 과학을 적극 포용하는 시작을 공식적으로 알리는 계기가 되었다.
 
-```{r paradigm-tidyverse, out.width = "100%", dpi = 300, fig.cap="tidyverse 운영체제"}
-knitr::include_graphics("fig/tidyvese_os.png")
-```
+<img src="fig/tidyvese_os.png" title="tidyverse 운영체제" alt="tidyverse 운영체제" width="100%" style="display: block; margin: auto;" />
 
 `tidyverse`의 핵심적인 내용\cite{wickham2019welcome}은 다양한 형태의 데이터를 가져와서 최종 산출물을 사람과 기계가 커뮤니케이션할 수 있는 형태로 제작하는 과정을 추상화한 것으로 이해할 수 있다.
 데이터 과학자가 `tidyverse`를 수용하여 극적인 생산성 향상을 이룰 수 있도록 과학연구의 새로운 지평을 열 수 있는 실질적인 도구도 제공됨은 물론이고, 동료 커뮤니티도 유대가 강하게 형성되어 있다.
@@ -108,9 +99,7 @@ knitr::include_graphics("fig/tidyvese_os.png")
 반대로 모형(Model)은 자동화와 확장성에는 장점이 있지만, 주어진 모형틀 안에서만 이뤄지기 때문에 통찰력, 놀라움, 탄성을 주지는 못하는 아쉬움이 있다.
 따라서, `tidyverse`는 유닉스 운영체제에서 검증된 **파이프(pipe)** 연사자를 데이터 과학에 도입하여 시각화/모형, 즉 사람과 기계를 이음새가 없이 아주 매끄럽게 연결하여 데이터에서 나오는 가치 창출을 한단계 더 높인 것으로 평가받고 있다.
 
-```{r paradigm-tidyverse-workflow, out.width = "100%", dpi = 300, fig.cap="Tidyverse 데이터 과학 작업흐름"}
-knitr::include_graphics("fig/maso_tidyverse.png")
-```
+<img src="fig/maso_tidyverse.png" title="Tidyverse 데이터 과학 작업흐름" alt="Tidyverse 데이터 과학 작업흐름" width="100%" style="display: block; margin: auto;" />
 
 ## 텍스트 데이터 자원
 
@@ -149,9 +138,7 @@ knitr::include_graphics("fig/maso_tidyverse.png")
 출판, PDF, 전자책(ePub), 웹(HTML) 배포는 DevOps 파이프라인을 구축하고 팬독(Pandoc)을 사용해서 연구원이 수작업으로 WIMP(Window, Icon, Mouse, Pointer) 대신 명령라인 인터페이스(Command Line Interface, CLI)를 통해 적극 차용한다.
 이를 통해 연구원은 One-Source Multi-Use 방식으로 소스코드만 관리하여 재현성의 문제도 극복할 뿐만 아니라 생산성이라는 두마리 토끼도 함께 잡을 수 있다.
 
-```{r paradigm-tidyverse-writing, out.width = "100%", dpi = 300, fig.cap="재현가능한 과학연구 산출물 개발 프로세스"}
-knitr::include_graphics("fig/koita-writing.png")
-```
+<img src="fig/koita-writing.png" title="재현가능한 과학연구 산출물 개발 프로세스" alt="재현가능한 과학연구 산출물 개발 프로세스" width="100%" style="display: block; margin: auto;" />
 
 ## R&D 논문 제작
 
@@ -200,7 +187,5 @@ RPA가 정형화되고 검증된 업무 흐름을 로봇을 사용해서 자동�
 NLP 기능이 탑재된 기계가 연구원을 도와 과학기술논문을 분석하고 연구원의 질문에 대해 즉각적인 대답을 제시함으로써 연구개발과정에서 낭비되는 불필요한 시간소모를 줄이는 것은 물론이고, 연구원에서 일상적으로 작성되는 일반행정문서를 자동 생성, 검증함으로써 업무 정확도 향상과 효과성 측면에서도 잡무를 줄여줌으로써 연구개발에 더 많은 시간을 투여할 수 있도록 진화하고 있다.
 특히, 단어와 구문, 토픽(topic)을 통해 추출한 정보를 네트워크 시각화 분석과 결합하여 제시할 경우 문제 상황에 대한 정확한 상황파악은 물론이고 향후 연구방향을 예측하는데 도움을 주어 연구원의 연구방향도 실시간으로 지원하고 있다.
 
-```{r paradigm-tidyverse-twoblock, out.width = "100%", dpi = 300, fig.cap="투블럭 RPAi 개념"}
-knitr::include_graphics("fig/koita-two-block.png")
-```
+<img src="fig/koita-two-block.png" title="투블럭 RPAi 개념" alt="투블럭 RPAi 개념" width="100%" style="display: block; margin: auto;" />
 

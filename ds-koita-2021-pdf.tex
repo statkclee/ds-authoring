@@ -33,6 +33,7 @@
 
 % Pandoc citation processing
 
+\usepackage{longtable}
 \usepackage{kotex}
 \usepackage{cite}
 
@@ -62,16 +63,17 @@
 \begin{abstract}
 과학의 패러다임이 빠르게 데이터 집약 과학으로 재편되고 있다. 이에 맞춰
 수학기반의 이론적 사고체계와 통계학적인 실험적 사고에 더하여 컴퓨터적
-사고를 갖춘 과학 연구자를 요구하고 있다. 데이터 집약 과학은 기존
-직사각형 형태의 정형 데이터를 넘어 텍스트로 대표되는 비정형 데이터를
-자원으로 삼아 연구성과를 한단계 높일 수 있다. 텍스트를 자원으로 가치를
-창출하는 자연어 처리가 각광을 받고 있으며 이를 위해 OCR을 도입하여 더
-많은 연구개발 성과물을 디지털화시켜 연구개발 빅데이터를 구축하고 있다.
-기계독해와 자연어 이해기술을 통해 과학 연구개발을 한단계 도약시킬 수
-있을 뿐만 아니라 재현가능한 데이터 과학 논문 저작기법을 도입하여
-버전제어와 형상관리를 통해 투명성을 높이고 특정 소프트웨어와 데이터에
-종속되지 않도록 협업할 수 있는 기반을 마련하여 과학기술 연구자들의
-생산성도 높이고 있다.
+사고를 갖춘 과학 연구자를 요구하고 있다. 재현가능한 데이터 과학 논문
+저작기법을 도입하고 버전제어와 형상관리를 통해 투명성을 높이고 특정
+소프트웨어와 데이터에 종속되지 않도록 협업환경과 문화가 마련된 경우 R\&D
+생산성을 높일 수 있는 기반이 마련된다. 데이터 집약 과학은 새로운 R\&D
+과학 패러다임으로 기존 직사각형 형태의 정형 데이터를 넘어 텍스트로
+대표되는 비정형 데이터를 자원으로 삼아 연구성과를 한단계 높일 수 있다.
+텍스트를 R\&D 기초 자원으로 인식하고 더 많은 연구개발 성과물을 OCR을
+도입하여 디지털화시켜 연구개발 빅데이터 축적을 가속화 시켜야 한다.
+축적된 빅데이터를 기계독해와 자연어 이해기술을 과학 연구개발에 접목시켜
+변화된 데이터 집약 과학 패러다임을 통해 R\&D를 한단계 도약시킬 수 있을
+것이다.
 \\
 \keywords{
         자동화 \and
@@ -96,14 +98,14 @@
 2020년 들어 가장 부각되고 있는 분야 중 하나가 인공지능(AI)라는 것은 모두
 동의할 것이다. SXSW 2010년 행사에서 Douglas Rushkoff는 ``프로그래밍
 하느냐 프로그래밍 되느냐(Program or be Programmed)''
-\citep{rushkoff2010program} 라는 표현을 통해서 일자리에 대한 위험을
+\cite{rushkoff2010program}라는 표현을 통해서 일자리에 대한 위험을
 경고했을 뿐만 아니라, 앞으로의 성장에 대해서도 방향을 제시하였다는
 평가를 받고 있다. R\&D도 이러한 변화의 물결에서 자유로울 수 없고,
 인공지능을 이해하지 않고 현재와 미래를 살아가는 것은 마치 산업화 시대에
 글과 숫자를 이해하지 못하고 산업화시대를 살아간 것에 비견될 수 있다.
 
 짐 그레이 박사는 바다에서 실종되기 전에 데이터 집약
-과학\citep{hey2009fourth}이 앞으로 가장 중요한 과학방법론이 될 것이라고
+과학\cite{hey2009fourth}이 앞으로 가장 중요한 과학방법론이 될 것이라고
 주장했으며 그의 주장은 현실로 다가왔다. 거의 모든 과학연구에서 데이터는
 기하급수적으로 증가하고 있고, 데이터 주도(Data-driven) 과학연구가 일반화
 되어 있다. 물리학과 생명과학에서 통계와 컴퓨터 과학의 빅데이터를 통한
@@ -127,9 +129,12 @@
 \end{itemize}
 
 \begin{figure}
-\centering
-\includegraphics{fig/ai-lab-4th-paradigm.png}
-\caption{과학기술 패러다임의 전환}
+
+{\centering \includegraphics[width=1\linewidth]{fig/ai-lab-4th-paradigm} 
+
+}
+
+\caption{과학기술 패러다임의 전환}\label{fig:paradigm}
 \end{figure}
 
 통상적인 과학연구 과정은 가설을 세워, 데이터를 수집하고, 탐색적 과정을
@@ -163,7 +168,7 @@ Data)를 수집하는 동시에 인터넷에 게시하여 공개를 먼저하고
 
 과학기술자가 갖춰야 되는 개인적 소양과 사고방식도 패러다임 전환의 시대에
 큰 변화를 맞이하고 있다. 카네기멜론 대학 쟈넷 윙(Wing)
-교수\citep{wing2006computational}는 \textbf{컴퓨터적 사고(Computational
+교수\cite{wing2006computational}는 \textbf{컴퓨터적 사고(Computational
 Thinking)}의 중요성을 강조하며, 이론적 사고(Theoretical Thinking),
 실험적 사고(Experimental Thinking)와 더불어 컴퓨터적 사고(Computational
 Thinking)가 향후 인간의 사고 체제를 지배하는 중추적인 역할을 할 것이라고
@@ -178,17 +183,18 @@ Thinking)가 향후 인간의 사고 체제를 지배하는 중추적인 역할�
 것임에도 통계에 대한 충분한 교육 및 훈련을 받지 못한 상태로 사회에
 진출하고 있는 것도 사실이다. 이러한 와중에 추상화(Abstraction)와
 자동화(Automation)을 근간으로 하는 컴퓨터적 사고의 중요성은 과학
-패러다임의 전환에 따라 그 중요성도 함께 주목받고 있다.
-
-\begin{figure}
-\centering
-\includegraphics{fig/korea-development-stages.png}
-\caption[대한민국 산업발달과정과 사고체계의 진화]{대한민국
-산업발달과정\footnotemark{}과 사고체계의 진화}
-\end{figure}
-\footnotetext{\href{https://www.youtube.com/watch?v=ZaEihnQwR9s}{김광두
+패러다임의 전환에 따라 그 중요성도 함께 주목받고 있다.\footnote{\href{https://www.youtube.com/watch?v=ZaEihnQwR9s}{김광두
   (2013-05-14)), ``창조경제의 개념과 성공조건'', 국가미래연구원 (IFS
   세미나)}}
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{fig/korea-development-stages} 
+
+}
+
+\caption{대한민국 산업발달과정과 사고체계의 진화}\label{fig:paradigm-development}
+\end{figure}
 
 \hypertarget{uxb370uxc774uxd130-uxacfcuxd559}{%
 \subsection{데이터 과학}\label{uxb370uxc774uxd130-uxacfcuxd559}}
@@ -212,14 +218,15 @@ RStudio 해들리 위컴(Hadley Wickham) 이 주축이 되어 \texttt{tidyverse}
 알리는 계기가 되었다.
 
 \begin{figure}
-\hypertarget{id}{%
-\centering
-\includegraphics[width=1\textwidth,height=\textheight]{fig/tidyvese_os.png}
-\caption{tidyverse 운영체제}\label{id}
+
+{\centering \includegraphics[width=1\linewidth]{fig/tidyvese_os} 
+
 }
+
+\caption{tidyverse 운영체제}\label{fig:paradigm-tidyverse}
 \end{figure}
 
-\texttt{tidyverse}의 핵심적인 내용\citep{wickham2019welcome}은 다양한
+\texttt{tidyverse}의 핵심적인 내용\cite{wickham2019welcome}은 다양한
 형태의 데이터를 가져와서 최종 산출물을 사람과 기계가 커뮤니케이션할 수
 있는 형태로 제작하는 과정을 추상화한 것으로 이해할 수 있다. 데이터
 과학자가 \texttt{tidyverse}를 수용하여 극적인 생산성 향상을 이룰 수
@@ -239,9 +246,12 @@ RStudio 해들리 위컴(Hadley Wickham) 이 주축이 되어 \texttt{tidyverse}
 있다.
 
 \begin{figure}
-\centering
-\includegraphics[width=1\textwidth,height=\textheight]{fig/maso_tidyverse.png}
-\caption{Tidyverse 데이터 과학 작업흐름}
+
+{\centering \includegraphics[width=1\linewidth]{fig/maso_tidyverse} 
+
+}
+
+\caption{Tidyverse 데이터 과학 작업흐름}\label{fig:paradigm-tidyverse-workflow}
 \end{figure}
 
 \hypertarget{uxd14duxc2a4uxd2b8-uxb370uxc774uxd130-uxc790uxc6d0}{%
@@ -261,79 +271,18 @@ RStudio 해들리 위컴(Hadley Wickham) 이 주축이 되어 \texttt{tidyverse}
 교차하여 가치를 창출하는 방안도 활발히 연구되고 있으며 실무에 적용되어
 가시적인 성과를도 내고 있다.
 
-\begin{longtable}[]{@{}llll@{}}
-\caption{캐글 2017년 설문조사 결과 (복수 응답)}\tabularnewline
-\toprule
-\begin{minipage}[b]{0.20\columnwidth}\raggedright
-원천 데이터\strut
-\end{minipage} & \begin{minipage}[b]{0.14\columnwidth}\raggedright
-응답모수\strut
-\end{minipage} & \begin{minipage}[b]{0.11\columnwidth}\raggedright
-응답자\strut
-\end{minipage} & \begin{minipage}[b]{0.12\columnwidth}\raggedright
-비율\strut
-\end{minipage}\tabularnewline
-\midrule
-\endfirsthead
-\toprule
-\begin{minipage}[b]{0.20\columnwidth}\raggedright
-원천 데이터\strut
-\end{minipage} & \begin{minipage}[b]{0.14\columnwidth}\raggedright
-응답모수\strut
-\end{minipage} & \begin{minipage}[b]{0.11\columnwidth}\raggedright
-응답자\strut
-\end{minipage} & \begin{minipage}[b]{0.12\columnwidth}\raggedright
-비율\strut
-\end{minipage}\tabularnewline
-\midrule
-\endhead
-\begin{minipage}[t]{0.20\columnwidth}\raggedright
-관계형 데이터\strut
-\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright
-8,024\strut
-\end{minipage} & \begin{minipage}[t]{0.11\columnwidth}\raggedright
-5,256\strut
-\end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright
-65.50 \%\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.20\columnwidth}\raggedright
-텍스트 데이터\strut
-\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright
-8,024\strut
-\end{minipage} & \begin{minipage}[t]{0.11\columnwidth}\raggedright
-4,255\strut
-\end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright
-53.02 \%\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.20\columnwidth}\raggedright
-이미지 데이터\strut
-\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright
-8,024\strut
-\end{minipage} & \begin{minipage}[t]{0.11\columnwidth}\raggedright
-1,456\strut
-\end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright
-18.14 \%\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.20\columnwidth}\raggedright
-기타\strut
-\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright
-8,024\strut
-\end{minipage} & \begin{minipage}[t]{0.11\columnwidth}\raggedright
-823\strut
-\end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright
-10.25 \%\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.20\columnwidth}\raggedright
-비디오 데이터\strut
-\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright
-8,024\strut
-\end{minipage} & \begin{minipage}[t]{0.11\columnwidth}\raggedright
-409\strut
-\end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\raggedright
-5.09 \%\strut
-\end{minipage}\tabularnewline
-\bottomrule
-\end{longtable}
+\begin{table}
+    \centering
+    \begin{tabular}{|l|l|l|l|}
+    \hline
+        원천 데이터 & 응답모수 & 응답자 & 비율 \\ \hline
+        관계형 데이터 & 8,024 & 5,256 & 65.50 \% \\ \hline
+        텍스트 데이터 & 8,024 & 4,255 & 53.02 \% \\ \hline
+        이미지 데이터 & 8,024 & 1,456 & 18.14 \% \\ \hline
+        기타 & 8,024 & 823 & 10.25 \% \\ \hline
+        비디오 데이터 & 8,024 & 409 & 5.09 \% \\ \hline
+    \end{tabular}
+\end{table}
 
 \hypertarget{rd-nlp}{%
 \section{R\&D NLP}\label{rd-nlp}}
@@ -376,7 +325,14 @@ Grpahics), 데이터 분석과 모형을 위한 데이터 과학 코드는 R 혹
 연구원은 One-Source Multi-Use 방식으로 소스코드만 관리하여 재현성의
 문제도 극복할 뿐만 아니라 생산성이라는 두마리 토끼도 함께 잡을 수 있다.
 
-\includegraphics{fig/koita-writing.png}
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{fig/koita-writing} 
+
+}
+
+\caption{재현가능한 과학연구 산출물 개발 프로세스}\label{fig:paradigm-tidyverse-writing}
+\end{figure}
 
 \hypertarget{rd-uxb17cuxbb38-uxc81cuxc791}{%
 \subsection{R\&D 논문 제작}\label{rd-uxb17cuxbb38-uxc81cuxc791}}
@@ -457,7 +413,7 @@ Digitization 작업에 활력을 불어넣고 있다.
 \subsection{자연어 처리}\label{uxc790uxc5f0uxc5b4-uxcc98uxb9ac}}
 
 과학연구 산출물이 9년마다 두배씩 증가한다는 연구결과는 2014년에
-발표{[}@van2014global{]}되었으며 전세계적인 대학졸업생의 증가와 맞물려
+발표\cite{van2014global}되었으며 전세계적인 대학졸업생의 증가와 맞물려
 이런 추세는 당분간 지속될 것으로 예상되고 있다. 뿐만 아니라, 기업이
 준수해야 할 법률 및 행정규제도 10년마다 30\% 증가하고 있으며 최근에는 그
 증가폭이 가파르게 상승하고 있으며 단순하게 문서에 담긴 최빈 단어를 보는
@@ -494,9 +450,12 @@ NLP 기능이 탑재된 기계가 연구원을 도와 과학기술논문을 분�
 연구원의 연구방향도 실시간으로 지원하고 있다.
 
 \begin{figure}
-\centering
-\includegraphics{fig/koita-two-block.png}
-\caption{투블럭 RPAi 개념}
+
+{\centering \includegraphics[width=1\linewidth]{fig/koita-two-block} 
+
+}
+
+\caption{투블럭 RPAi 개념}\label{fig:paradigm-tidyverse-twoblock}
 \end{figure}
 
 
