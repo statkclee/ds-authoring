@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>한밭대학교 특강</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="이광춘" />
+    <meta name="date" content="2021-01-26" />
+    <script src="libs/header-attrs-2.6/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+    <script src="libs/plotly-binding-4.9.2.1/plotly.js"></script>
+    <script src="libs/typedarray-0.1/typedarray.min.js"></script>
+    <script src="libs/jquery-1.11.3/jquery.min.js"></script>
+    <link href="libs/crosstalk-1.1.0.1/css/crosstalk.css" rel="stylesheet" />
+    <script src="libs/crosstalk-1.1.0.1/js/crosstalk.min.js"></script>
+    <link href="libs/plotly-htmlwidgets-css-1.52.2/plotly-htmlwidgets.css" rel="stylesheet" />
+    <script src="libs/plotly-main-1.52.2/plotly-latest.min.js"></script>
+    <link rel="stylesheet" href="css/nhsr.css" type="text/css" />
+    <link rel="stylesheet" href="css/nhsr-fonts.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+class: title-slide, left, bottom
+
+# 한밭대학교 특강
+----
+## **Data Science and Machine Learning**
+### 이광춘
+### 2021-01-26
+
+ 
+---
+class: inverse, middle
+
+# Outline
+
+----
+
+.pull-left[
+
+현재 각광받고 있는 .warmyellow[**데이터 과학**]에 대한 전반적인 이해와 더불어 핵심적인 개념을 짧은 시간에 다루게 됩니다.
+
+데이터 과학의 실제 .black[**다양한 사례**]를 정형데이터와 비정형 데이터(문서)를 살펴봅니다.
+
+.green[**디지털 경제**]의 주요한 동인인 .green[**자동화**]와 경제적인 면에 초점을 두어 .green[**기계학습**]에 대해 설펴봅니다.
+
+
+] &lt;!--end of left-column--&gt;
+
+.pull-right[
+.left[
+1\. [데이터 과학](#data-science)
+
+2\. [사례 분석 : 데이터](#case-study-data)
+
+3\. [사례분석 : 문서](#case-study-document)
+
+4\. [자동화(Automation)](#automation)
+
+5\. [기계학습(Machine Learning)](#machine-learning)
+
+6\. [디지털 경제 (Digital Economy)](#digital-economy)
+
+7\. [마무리](#goodbye) 
+]
+] &lt;!--end of right-column--&gt;
+  
+---
+
+name: tidyverse
+# AI/ML/DL vs 데이터 과학
+
+&lt;br&gt;
+
+.center[
+&lt;img src="fig/tidyvese_os.png" width="77%" /&gt;
+]
+
+
+.footnote[
+[한국통계학회 소식지 2019년 10월호 ](https://statkclee.github.io/ds-authoring/ds-stat-tidyverse.html)
+]
+
+---
+name: tidyverse-definition
+# `tidyverse`
+
+&lt;br&gt;
+
+.center[
+&lt;img src="fig/maso_tidyverse.png" width="77%" /&gt;
+]
+
+
+.pull-left[
+
+- 기존 자료구조를 재사용
+- 파이프 연산자로 간단한 함수를 조합
+- 함수형 프로그래밍을 적극 사용
+- 기계가 아닌 인간을 위한 설계
+
+]
+
+.pull-right[
+ 
+- Reuse existing data structures.
+- Compose simple functions with the pipe.
+- Embrace functional programming.
+- Design for humans.
+
+]
+
+
+---
+name: y-fx
+# 30년의 변화를 그림으로 표현
+
+.center[
+&lt;img src="fig/intree-xy-f.png" alt="XY" width="77%" /&gt;
+]
+
+
+.footnote[
+[이광춘(2019-01-26), "Data Scientist 가 바라본 제조업의 발전 전략 및 방안", Intree 4.0 World Forum](https://statkclee.github.io/ds-authoring/intree-seminar-2019-01.html)
+]
+
+---
+name: data-science-graph
+## Big Data/AI/ML/Data Science
+
+&lt;br&gt; 
+
+.pull-left[
+### Google Trends: 미국
+
+![](fig/google-trends-comparison-us-1.png)
+]
+
+.pull-right[
+### Google Trends: 대한민국
+
+![](fig/google-trends-comparison-kr-1.png)
+]
+
+.footnote[
+[이광춘 (2020-07-21), "기업운영혁신을 위한 데이터 과학: 기업의 활용방안", 포항산업과학연구원(RIST)](https://statkclee.github.io/ds-authoring/ds-rist.html)
+]
+
+---
+name: data-science-resource
+# 데이터 경제와 산업
+
+.pull-left[
+### 데이터 자원
+
+![](fig/economist-bigdata-oil.png)
+]
+
+.pull-right[
+### 파이프라인
+
+![](fig/data-economy-industry.png)
+]
+
+.footnote[
+[이광춘 (2020-07-21), "기업운영혁신을 위한 데이터 과학: 기업의 활용방안", 포항산업과학연구원(RIST)](https://statkclee.github.io/ds-authoring/ds-rist.html)
+]
+
+---
+name: data-sciece-value
+## 가치
+
+&lt;small&gt;
+&lt;ul&gt;
+  &lt;li&gt;기술 분석(Descriptive Analytics): 무슨 일이 있었나? (What happened?)&lt;/li&gt;
+  &lt;li&gt;진단 분석(Diagnostic Analytics): 왜 일어났나? (Why did it happen?)&lt;/li&gt;
+  &lt;li&gt;예측 분석(Predictive Analytics): 무슨 일이 일어날까? (What will happen?)&lt;/li&gt;
+  &lt;li&gt;처방 분석(Prescriptive Analytics): 어떻게 그런 일을 일으킬까? (How can we make it happen?)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/small&gt;
+
+.center[
+&lt;img src="fig/ds-gartner.png" width = "80%" /&gt;
+]
+
+
+---
+name: data-sciece-cost
+# 패러다임의 변화
+
+.pull-left[
+### 비용
+
+![](fig/data-science-cost.png)
+]
+
+.pull-right[
+### 자동화 
+
+![](fig/automated-machine-learning.png)
+]
+
+
+
+
+---
+name: case-study-data
+class: inverse, middle
+
+# Outline
+
+----
+
+
+.pull-left[
+
+현재 각광받고 있는 .warmyellow[**데이터 과학**]에 대한 전반적인 이해와 더불어 핵심적인 개념을 짧은 시간에 다루게 됩니다.
+
+데이터 과학의 실제 .black[**다양한 사례**]를 정형데이터와 비정형 데이터(문서)를 살펴봅니다.
+
+.green[**디지털 경제**]의 주요한 동인인 .green[**자동화**]와 경제적인 면에 초점을 두어 .green[**기계학습**]에 대해 설펴봅니다.
+
+
+] &lt;!--end of left-column--&gt;
+
+.pull-right[
+.left[
+1\. [데이터 과학](#data-science)
+
+2\. **[.warmyellow[사례 분석 : 데이터]](#case-study-data)**
+
+3\. [사례분석 : 문서](#case-study-document)
+
+4\. [자동화(Automation)](#automation)
+
+5\. [기계학습(Machine Learning)](#machine-learning)
+
+6\. [디지털 경제 (Digital Economy)](#digital-economy)
+
+7\. [마무리](#goodbye)
+]
+] &lt;!--end of right-column--&gt;
+
+
+---
+name: case-study-worldcup
+## 러시아 월드컵 (독일전)
+
+.center[
+&lt;img src="fig/worldcup.gif" alt="월드컵" width="80%" /&gt;
+]
+
+.footnote[
+[러시아 월드컵(2018) - 한국 vs 독일](https://statkclee.github.io/viz/viz-worldcup-germany.html)
+]
+
+---
+name: case-study-earthquake
+## 지진해일 대피소
+
+.center[
+&lt;img src="fig/earthquake.png" alt="월드컵" width="80%" /&gt;
+]
+
+.footnote[
+[xwMOOC (2018-01-17), "지진해일 대피소 - `crosstalk`"](https://statkclee.github.io/viz/viz-earthquake-shelter.html)
+]
+
+---
+name: case-study-congress
+## 국회의원 프로필
+
+.center[
+&lt;img src="fig/trelliscopejs.png" alt="국회의원 사진" width="80%" /&gt;
+]
+
+.footnote[
+[국회의원 사진 - `trelliscope`](https://statkclee.github.io/viz/viz-congressman.html)
+]
+
+---
+name: case-study-avi
+## 동영상 감성 분석
+
+.center[
+&lt;img src="fig/kbs-video.jpg" alt="슬픔은 어디에" width="80%" /&gt;
+]
+
+.footnote[
+- [xwMOOC 딥러닝 - 동영상 감정 분석](https://statkclee.github.io/deep-learning/ms-oxford-video.html)
+- [KBS NEWS, 인공지능으로 분석한 대통령의 마음…슬픔은 어디에?](http://news.kbs.co.kr/news/view.do?ncd=3390429&amp;ref=D)
+]
+
+---
+name: case-study-regression
+## 회귀분석 - MLB 투수 유전자는 유전이 될까?
+
+.center[
+&lt;img src="fig/major-league.png" alt="MLB 투수 유전자" width="77%" /&gt;
+]
+
+.footnote[
+[회귀분석 - MLB 투수 유전자는 유전이 될까?](https://statkclee.github.io/politics/pe-baseball-era.html)
+]
+
+---
+name: case-study-birthrate
+## 출산장려 예산은 출산율을 높일까?
+
+.center[
+&lt;img src="fig/budget-birthrate.png" width="57%" /&gt;
+]
+
+.footnote[
+[저출산과 소요예산 - 상관관계](https://statkclee.github.io/viz/viz-low-birth-rate.html)
+]
+
+---
+name: case-study-tax
+## 증가된 정부예산: 누가 세금을 많이 냈나?
+
+.center[
+&lt;img src="fig/tax-burden.png"width="77%" /&gt;
+]
+
+.footnote[
+[국세 세금 데이터 분석](https://statkclee.github.io/election/election_tax_EDA.html)
+]
+
+
+
+
+
+---
+name: case-study-document
+class: inverse, middle
+
+# Outline
+
+----
+
+.pull-left[
+
+현재 각광받고 있는 .warmyellow[**데이터 과학**]에 대한 전반적인 이해와 더불어 핵심적인 개념을 짧은 시간에 다루게 됩니다.
+
+데이터 과학의 실제 .black[**다양한 사례**]를 정형데이터와 비정형 데이터(문서)를 살펴봅니다.
+
+.green[**디지털 경제**]의 주요한 동인인 .green[**자동화**]와 경제적인 면에 초점을 두어 .green[**기계학습**]에 대해 설펴봅니다.
+
+
+] &lt;!--end of left-column--&gt;
+
+.pull-right[
+.left[
+1\. [데이터 과학](#data-science)
+
+2\. [사례 분석 : 데이터](#case-study-data)
+
+3\. **[.warmyellow[사례분석 : 문서]](#case-study-2)**
+
+4\. [자동화(Automation)](#automation)
+
+5\. [기계학습(Machine Learning)](#machine-learning)
+
+6\. [디지털 경제 (Digital Economy)](#digital-economy)
+
+7\. [마무리](#goodbye)
+]
+] &lt;!--end of right-column--&gt;
+
+
+
+&lt;!--------------------------------- 엑셀 -------------------------------------- --&gt;
+
+---
+name: crisis-excel
+# 위기의 스프레드쉬트(엑셀)
+
+.center[
+&lt;img src="fig/train2data-analysis.jpg" alt="분석행" width="67%" /&gt;
+]
+
+.footnote[
+ [스터디 뽀개기 7월 (2016-07-30), 분석행(Train to data-analysis)](https://onoffmix.com/event/73626)
+]
+
+---
+name: excel-crisis-accident
+# 스프레드쉬트 참사 
+
+|     회사      | 손실 |   날짜 |        영향           |               참사 개요                         | 
+|---------------|-----------|----------|-----------------------|------------------------------------------|
+|     Mouchel   |  £ 4.3백만  |  '10.11월  | CEO 사임, 주가폭락 | 연금펀드평가 £ 4.3백만 엑셀 오류 |
+|   C&amp;C Group   |  £ 9 백만  |  '09.7월  | 주가 15% 하락 등 | 매출 3% 상승이 아니고 5% 하락, 엑셀 오류 |
+|   King 펀드   | £ 130 백만 |  '11.05월  | 브래드 이미지 하락 | 웨일즈 지방 NHS 지출 엑셀 오류 |
+| AXA Rosenberg | £ 150 백만 |  '11.02월  | 은폐, 벌금, 브래드 이미지 하락 | 엑셀 오류를 감춰서 $242 백만 벌금 |
+| JP Morgan Chase | £ 250 백만 |  '13.01월  | 명성, 고객 신뢰도 저하 | 바젤 II VaR 위험 평가 엑셀 오류 |
+| Magellan 펀드 | £ 1.6 십억 |  '95.01월  | 투자자에게 약속한 배당금 지급 못함 | 음수 부호 누락으로 자본이득 과대계상|
+| 미연방준비위원회 | £ 2.5 십억 |  '10.10월  | 명확하지 않음 | 리볼빙 카드 신용액 산출 과정에 엑셀 오류 |
+
+
+.footnote[
+[THE DIRTY DOZEN 12 MODELLING HORROR STORIES &amp; SPREADSHEET DISASTERS](http://blogs.mazars.com/the-model-auditor/files/2014/01/12-Modelling-Horror-Stories-and-Spreadsheet-Disasters-Mazars-UK.pdf)
+]
+
+---
+name: why-leave-excel
+# 스프레드쉬트를 버려야 하는 6가지 이유 
+
+### 스프레드쉬트를 사용하는 이유
+
+&gt; 
+&gt; * 항상 엑셀을 사용했다: 항상 데이터를 엑셀로 저장하고 분석해서 사용했다. 하지만, 버튼 하나로 데이터를 내보내기 쉽다.
+&gt; * 데이터베이스를 사용할 만큼 데이터가 충분하지 않다: 데이터가 작아서 데이터베이스를 사용할 이유를 찾지 못하지만,
+사업이 커지고, 업무량이 늘어나면서 엑셀 작업량이 높아지고, 복잡성도 커지고, 엑셀 자체에서 처리되는 시간도 늘어난다.
+
+### 스프레드쉬트를 떠나야하는 이유
+
+1. 한번에 한사람만 작업이 가능하다.
+1. 데이터 감사는 데이터베이스에서만 가능
+1. 데이터베이스는 정형화된 작업흐름을 지원한다.
+1. 데이터베이스는 엑셀보다 모형을 보다 잘 지원한다.
+1. 데이터베이스로 보고서 생성이 수월하다.
+1. 데이터베이스는 보안이 강력하고 규제하기 좋다.
+
+.footnote[
+ [데이터 과학, "위기의 스프레드쉬트"](https://statkclee.github.io/data-science/ds-why-not-excel.html)
+]
+
+---
+name: excel-complexity
+# 스프레드쉬트 알고리즘 복잡성
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+.center[
+&lt;img src="fig/ds-xls-algo-complexity.png" alt="알고리즘 복잡성" width="100%" /&gt;
+]
+
+.footnote[
+[탈옥(jailbreakr) – 엑셀에서 탈출… 자유](https://statkclee.github.io/data-science/ds-xls.html)
+]
+
+---
+name: reason-excel-complex
+# 스프레드쉬트 복잡성과 효율성
+
+&lt;br&gt;
+&lt;br&gt;
+
+.pull-left[
+
+- 스프레드쉬트는 데이터, 서식, 수식으로 구성된다. 
+- 숫자 데이터를 엑셀로 가져오게 되면 엑셀 내장 함수를 통해 수식 계산을 수행한다. 
+- 엑셀 사용자 본인 혹은 외부 사람을 위해 서식을 입히는 과정을 거쳐 비로소 완성된 스프레드쉬트가 된다.
+
+]
+
+.pull-right[
+.center[
+&lt;img src="fig/ds-xls-data-format-logic.png" alt="알고리즘 복잡성" width="100%" /&gt;
+]
+]
+
+.footnote[
+[탈옥(jailbreakr) – 엑셀에서 탈출… 자유](https://statkclee.github.io/data-science/ds-xls.html)
+]
+
+&lt;!--------------------------------- 파워포인트 -------------------------------------- --&gt;
+
+---
+name: crisis-powerpoint
+# 파워포인트의 종말 &amp;larr; 아마존
+
+.center[
+&lt;img src="fig/no-powerpoint.jpeg" alt="노 파워포인트" width="57%" /&gt;
+]
+
+.footnote[
+ [김미리 기자 (2019.04.06.), "보고서 치장은 그만, 글로 써라.. '제로 PPT' 선언하는 기업들", 조선일보](https://news.v.daum.net/v/20190406030158105)
+]
+ 
+---
+name: three-paradigms
+# 세가지 다른 글쓰기 패러다임
+
+.center[
+&lt;img src="img/data-conference-three-languages.png" alt="세가지 패러다임" width="120%"/&gt;
+]
+
+.footnote[
+[심각한 현재 상황](http://statkclee.github.io/modern-scientific-authoring/01-mess-kr.html)
+]
+
+---
+name: automation
+## 도구가 자동화하는 저작 업무
+
+.pull-left[
+### 1. `\(LaTex\)` 사례
+  &lt;img src="fig/latex-how-it-works.png" alt="도구가 자동화하는 저작 업무" width="100%" /&gt;
+  
+  [정보교육을 위한 파이썬: 데이터 과학자로의 여정, 아마존 절찬 판매중](https://statkclee.github.io/pythonlearn-kr/01-py4inf-python2/)
+]
+
+
+.pull-right[
+### 2. 북다운(Bookdown)
+
+.center[
+  &lt;img src="fig/00_cover_boy_girl.png" alt="컴퓨터 과학 언플러그드" width="100%" /&gt;
+]
+[컴퓨터 과학 언플러그드, 이광춘 번역](https://statkclee.github.io/unplugged/)
+]
+
+---
+name: automation-continued
+## 도구가 자동화하는 저작 업무
+
+.pull-left[
+### 3. SW 도움말
+  &lt;img src="fig/latex-sphinx.png" alt="파이썬 스핑크스 저작 흐름" width="100%" /&gt;
+
+- [Welcome to Reeborg world!](http://reeborg.ca/index_en.html)
+- [리보그 한국어 버젼](http://reeborg.ca/docs/ko/index.html)
+- [프로그래밍과 문제해결: 파이썬, 리보그, 러플](https://statkclee.github.io/code-perspectives/)
+
+]
+
+.pull-right[
+### 4. 블로그
+
+.center[
+  &lt;img src="fig/blogdown-deployment.png" alt="정적 웹콘텐츠 배포" width="100%" /&gt;
+]
+
+[데이터 과학을 위한 저작도구 블로그 - `blogdown`](https://statkclee.github.io/ds-authoring/ds-blogdown.html)
+] [xwMOOC 블로그 - `netlify`](http://xwmooc.netlify.com/)
+
+
+---
+name: automation-slideshow
+## 도구가 자동화하는 저작 업무
+
+### 5. 슬라이드쇼(slideshow)
+
+.center[
+  &lt;img src="fig/slideshow.png" alt="슬라이드쇼" width="50%" /&gt;
+]
+
+.footnote[
+  [소프트웨어에 물들다(왕곡초등학교, 2018-05-26)](somul_20180525.html) -  글쓰기를 잘하기 위해서 알아야 되는 코딩
+]
+
+---
+name: slideshow-final-boss
+# 파워포인트 &amp;rarr; AI 
+
+.center[
+
+&lt;iframe src="https://statkclee.github.io/ds-authoring/seoul_r_xaringan.html#1" width="100%" height="400px"&gt;&lt;/iframe&gt;
+
+]
+
+.footnote[
+[이광춘 (2020-12-12), "파워포인트를 넘어서 - xaringan", Seoul R Meetup 2020](https://tidyverse-korea.github.io/seoul-R/)
+]
+
+
+&lt;!--------------------------------- 워드 -------------------------------------- --&gt;
+
+---
+name: slideshow-final-boss
+# 아래한글, 워드 &amp;rarr; computational documents
+
+.pull-left[
+
+&lt;iframe src="https://statkclee.github.io/ds-authoring/KCD2020_Tidyverse.html#1" width="100%" height="400px"&gt;&lt;/iframe&gt;
+
+]
+
+.pull-right[
+
+&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/R5nD-VuzzD8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+
+]
+
+.footnote[
+[이광춘 (2020-11-07), "코딩으로 글쓰는 슬기로운 탐구생활 발표자료", KCD(Korea Community Day) 2020](https://tidyverse-korea.github.io/seoul-R/)
+]
+
+
+
+
+---
+name: case-study-document
+class: inverse, middle
+
+# Outline
+
+----
+
+.pull-left[
+
+현재 각광받고 있는 .warmyellow[**데이터 과학**]에 대한 전반적인 이해와 더불어 핵심적인 개념을 짧은 시간에 다루게 됩니다.
+
+데이터 과학의 실제 .black[**다양한 사례**]를 통해 데이터 과학을 통해 성취할 수 있는 기술적인 사항에 대해 살펴보게 됩니다.
+
+데이터의 홍수에 사내 데이터와 공공 오픈 데이터를 결합시킬 수 있는 방법에 대해 .green[**Signals Repository**]에 대해 살펴봅니다.
+
+
+] &lt;!--end of left-column--&gt;
+
+.pull-right[
+.left[
+1\. [데이터 과학](#data-science)
+
+2\. [사례 분석 : 데이터](#case-study-1)
+
+3\. [사례분석 : 문서](#case-study-2)
+
+4\. **[.warmyellow[자동화(Automation)]](#automation)**
+
+5\. [기계학습(Machine Learning)](#machine-learning)
+
+6\. [디지털 경제 (Digital Economy)](#digital-economy)
+
+7\. [마무리](#goodbye)
+
+]
+] &lt;!--end of right-column--&gt;
+
+---
+name: automation-tax
+# 세무사 업무 변천과정
+
+&lt;br&gt;
+
+.center[
+
+![세무 업무 변천사](fig/tax-preparation.png)
+
+]
+
+.footnote[
+[이광춘 (2019-12-04), "자동화(Automation) - ~~로봇~~ 자동화가 빼앗는 일자리 그리고 나", 분당 서현 청소년 수련관 ](https://statkclee.github.io/ds-authoring/ds-bundang-2019.html)
+]
+
+---
+name: automation-productivity-gap
+# 생산성과 임금 격차
+
+
+<div id="htmlwidget-52eb52dc1c30bc03c24e" style="width:100%;height:67%;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-52eb52dc1c30bc03c24e">{"x":{"data":[{"x":[1948,1949,1950,1951,1952,1953,1954,1955,1956,1957,1958,1959,1960,1961,1962,1963,1964,1965,1966,1967,1968,1969,1970,1971,1972,1973,1974,1975,1976,1977,1978,1979,1980,1981,1982,1983,1984,1985,1986,1987,1988,1989,1990,1991,1992,1993,1994,1995,1996,1997,1998,1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018],"y":[0,0.0469,0.0112,0.00499999999999999,0.00470000000000001,0.0141,0.0204,0.0232,0.073,0.0704,0.0535999999999999,0.0483,0.0532,0.0347,0.0252,0.00170000000000003,0.0161999999999999,0.0265,0.0525,0.053,0.0608,0.0346,0.0354,0.0544,0.00860000000000005,0.0600000000000001,0.0678000000000001,0.1125,0.1424,0.1323,0.1261,0.1486,0.1872,0.2314,0.2067,0.2602,0.3318,0.3747,0.4103,0.4413,0.4799,0.5019,0.5458,0.5648,0.6428,0.6505,0.6665,0.6883,0.7337,0.7585,0.7694,0.8148,0.8651,0.8811,0.9201,0.9964,1.0873,1.1556,1.1773,1.1833,1.2,1.1945,1.2723,1.2974,1.3307,1.3256,1.3383,1.3334,1.3195,1.3511,1.3728],"text":["Year: 1948<br />value: 0.0000<br />metric: gap","Year: 1949<br />value: 0.0469<br />metric: gap","Year: 1950<br />value: 0.0112<br />metric: gap","Year: 1951<br />value: 0.0050<br />metric: gap","Year: 1952<br />value: 0.0047<br />metric: gap","Year: 1953<br />value: 0.0141<br />metric: gap","Year: 1954<br />value: 0.0204<br />metric: gap","Year: 1955<br />value: 0.0232<br />metric: gap","Year: 1956<br />value: 0.0730<br />metric: gap","Year: 1957<br />value: 0.0704<br />metric: gap","Year: 1958<br />value: 0.0536<br />metric: gap","Year: 1959<br />value: 0.0483<br />metric: gap","Year: 1960<br />value: 0.0532<br />metric: gap","Year: 1961<br />value: 0.0347<br />metric: gap","Year: 1962<br />value: 0.0252<br />metric: gap","Year: 1963<br />value: 0.0017<br />metric: gap","Year: 1964<br />value: 0.0162<br />metric: gap","Year: 1965<br />value: 0.0265<br />metric: gap","Year: 1966<br />value: 0.0525<br />metric: gap","Year: 1967<br />value: 0.0530<br />metric: gap","Year: 1968<br />value: 0.0608<br />metric: gap","Year: 1969<br />value: 0.0346<br />metric: gap","Year: 1970<br />value: 0.0354<br />metric: gap","Year: 1971<br />value: 0.0544<br />metric: gap","Year: 1972<br />value: 0.0086<br />metric: gap","Year: 1973<br />value: 0.0600<br />metric: gap","Year: 1974<br />value: 0.0678<br />metric: gap","Year: 1975<br />value: 0.1125<br />metric: gap","Year: 1976<br />value: 0.1424<br />metric: gap","Year: 1977<br />value: 0.1323<br />metric: gap","Year: 1978<br />value: 0.1261<br />metric: gap","Year: 1979<br />value: 0.1486<br />metric: gap","Year: 1980<br />value: 0.1872<br />metric: gap","Year: 1981<br />value: 0.2314<br />metric: gap","Year: 1982<br />value: 0.2067<br />metric: gap","Year: 1983<br />value: 0.2602<br />metric: gap","Year: 1984<br />value: 0.3318<br />metric: gap","Year: 1985<br />value: 0.3747<br />metric: gap","Year: 1986<br />value: 0.4103<br />metric: gap","Year: 1987<br />value: 0.4413<br />metric: gap","Year: 1988<br />value: 0.4799<br />metric: gap","Year: 1989<br />value: 0.5019<br />metric: gap","Year: 1990<br />value: 0.5458<br />metric: gap","Year: 1991<br />value: 0.5648<br />metric: gap","Year: 1992<br />value: 0.6428<br />metric: gap","Year: 1993<br />value: 0.6505<br />metric: gap","Year: 1994<br />value: 0.6665<br />metric: gap","Year: 1995<br />value: 0.6883<br />metric: gap","Year: 1996<br />value: 0.7337<br />metric: gap","Year: 1997<br />value: 0.7585<br />metric: gap","Year: 1998<br />value: 0.7694<br />metric: gap","Year: 1999<br />value: 0.8148<br />metric: gap","Year: 2000<br />value: 0.8651<br />metric: gap","Year: 2001<br />value: 0.8811<br />metric: gap","Year: 2002<br />value: 0.9201<br />metric: gap","Year: 2003<br />value: 0.9964<br />metric: gap","Year: 2004<br />value: 1.0873<br />metric: gap","Year: 2005<br />value: 1.1556<br />metric: gap","Year: 2006<br />value: 1.1773<br />metric: gap","Year: 2007<br />value: 1.1833<br />metric: gap","Year: 2008<br />value: 1.2000<br />metric: gap","Year: 2009<br />value: 1.1945<br />metric: gap","Year: 2010<br />value: 1.2723<br />metric: gap","Year: 2011<br />value: 1.2974<br />metric: gap","Year: 2012<br />value: 1.3307<br />metric: gap","Year: 2013<br />value: 1.3256<br />metric: gap","Year: 2014<br />value: 1.3383<br />metric: gap","Year: 2015<br />value: 1.3334<br />metric: gap","Year: 2016<br />value: 1.3195<br />metric: gap","Year: 2017<br />value: 1.3511<br />metric: gap","Year: 2018<br />value: 1.3728<br />metric: gap"],"type":"scatter","mode":"lines+markers","line":{"width":1.88976377952756,"color":"rgba(248,118,109,1)","dash":"solid"},"hoveron":"points","name":"gap","legendgroup":"gap","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","marker":{"autocolorscale":false,"color":"rgba(248,118,109,1)","opacity":1,"size":1.13385826771654,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(248,118,109,1)"}},"frame":null},{"x":[1948,1949,1950,1951,1952,1953,1954,1955,1956,1957,1958,1959,1960,1961,1962,1963,1964,1965,1966,1967,1968,1969,1970,1971,1972,1973,1974,1975,1976,1977,1978,1979,1980,1981,1982,1983,1984,1985,1986,1987,1988,1989,1990,1991,1992,1993,1994,1995,1996,1997,1998,1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018],"y":[0,0.0624,0.1046,0.1174,0.1502,0.2082,0.2348,0.287,0.3389,0.3708,0.3808,0.4246,0.4538,0.4784,0.5232,0.5486,0.5832,0.6227,0.647,0.6668,0.7105,0.7439,0.7681,0.8166,0.9134,0.9096,0.8705,0.8686,0.8935,0.9282,0.9566,0.9325,0.8805,0.8736,0.877,0.8849,0.8703,0.8618,0.8725,0.8467,0.8402,0.8393,0.8237,0.8202,0.832,0.8346,0.8389,0.8276,0.8287,0.8487,0.8927,0.9198,0.9296,0.956,0.9949,1.0158,1.0056,0.9973,0.9988,1.0145,1.0139,1.093,1.11,1.0847,1.065,1.084,1.0908,1.1241,1.1439,1.1467,1.1562],"text":["Year: 1948<br />value: 0.0000<br />metric: Hourly compensation","Year: 1949<br />value: 0.0624<br />metric: Hourly compensation","Year: 1950<br />value: 0.1046<br />metric: Hourly compensation","Year: 1951<br />value: 0.1174<br />metric: Hourly compensation","Year: 1952<br />value: 0.1502<br />metric: Hourly compensation","Year: 1953<br />value: 0.2082<br />metric: Hourly compensation","Year: 1954<br />value: 0.2348<br />metric: Hourly compensation","Year: 1955<br />value: 0.2870<br />metric: Hourly compensation","Year: 1956<br />value: 0.3389<br />metric: Hourly compensation","Year: 1957<br />value: 0.3708<br />metric: Hourly compensation","Year: 1958<br />value: 0.3808<br />metric: Hourly compensation","Year: 1959<br />value: 0.4246<br />metric: Hourly compensation","Year: 1960<br />value: 0.4538<br />metric: Hourly compensation","Year: 1961<br />value: 0.4784<br />metric: Hourly compensation","Year: 1962<br />value: 0.5232<br />metric: Hourly compensation","Year: 1963<br />value: 0.5486<br />metric: Hourly compensation","Year: 1964<br />value: 0.5832<br />metric: Hourly compensation","Year: 1965<br />value: 0.6227<br />metric: Hourly compensation","Year: 1966<br />value: 0.6470<br />metric: Hourly compensation","Year: 1967<br />value: 0.6668<br />metric: Hourly compensation","Year: 1968<br />value: 0.7105<br />metric: Hourly compensation","Year: 1969<br />value: 0.7439<br />metric: Hourly compensation","Year: 1970<br />value: 0.7681<br />metric: Hourly compensation","Year: 1971<br />value: 0.8166<br />metric: Hourly compensation","Year: 1972<br />value: 0.9134<br />metric: Hourly compensation","Year: 1973<br />value: 0.9096<br />metric: Hourly compensation","Year: 1974<br />value: 0.8705<br />metric: Hourly compensation","Year: 1975<br />value: 0.8686<br />metric: Hourly compensation","Year: 1976<br />value: 0.8935<br />metric: Hourly compensation","Year: 1977<br />value: 0.9282<br />metric: Hourly compensation","Year: 1978<br />value: 0.9566<br />metric: Hourly compensation","Year: 1979<br />value: 0.9325<br />metric: Hourly compensation","Year: 1980<br />value: 0.8805<br />metric: Hourly compensation","Year: 1981<br />value: 0.8736<br />metric: Hourly compensation","Year: 1982<br />value: 0.8770<br />metric: Hourly compensation","Year: 1983<br />value: 0.8849<br />metric: Hourly compensation","Year: 1984<br />value: 0.8703<br />metric: Hourly compensation","Year: 1985<br />value: 0.8618<br />metric: Hourly compensation","Year: 1986<br />value: 0.8725<br />metric: Hourly compensation","Year: 1987<br />value: 0.8467<br />metric: Hourly compensation","Year: 1988<br />value: 0.8402<br />metric: Hourly compensation","Year: 1989<br />value: 0.8393<br />metric: Hourly compensation","Year: 1990<br />value: 0.8237<br />metric: Hourly compensation","Year: 1991<br />value: 0.8202<br />metric: Hourly compensation","Year: 1992<br />value: 0.8320<br />metric: Hourly compensation","Year: 1993<br />value: 0.8346<br />metric: Hourly compensation","Year: 1994<br />value: 0.8389<br />metric: Hourly compensation","Year: 1995<br />value: 0.8276<br />metric: Hourly compensation","Year: 1996<br />value: 0.8287<br />metric: Hourly compensation","Year: 1997<br />value: 0.8487<br />metric: Hourly compensation","Year: 1998<br />value: 0.8927<br />metric: Hourly compensation","Year: 1999<br />value: 0.9198<br />metric: Hourly compensation","Year: 2000<br />value: 0.9296<br />metric: Hourly compensation","Year: 2001<br />value: 0.9560<br />metric: Hourly compensation","Year: 2002<br />value: 0.9949<br />metric: Hourly compensation","Year: 2003<br />value: 1.0158<br />metric: Hourly compensation","Year: 2004<br />value: 1.0056<br />metric: Hourly compensation","Year: 2005<br />value: 0.9973<br />metric: Hourly compensation","Year: 2006<br />value: 0.9988<br />metric: Hourly compensation","Year: 2007<br />value: 1.0145<br />metric: Hourly compensation","Year: 2008<br />value: 1.0139<br />metric: Hourly compensation","Year: 2009<br />value: 1.0930<br />metric: Hourly compensation","Year: 2010<br />value: 1.1100<br />metric: Hourly compensation","Year: 2011<br />value: 1.0847<br />metric: Hourly compensation","Year: 2012<br />value: 1.0650<br />metric: Hourly compensation","Year: 2013<br />value: 1.0840<br />metric: Hourly compensation","Year: 2014<br />value: 1.0908<br />metric: Hourly compensation","Year: 2015<br />value: 1.1241<br />metric: Hourly compensation","Year: 2016<br />value: 1.1439<br />metric: Hourly compensation","Year: 2017<br />value: 1.1467<br />metric: Hourly compensation","Year: 2018<br />value: 1.1562<br />metric: Hourly compensation"],"type":"scatter","mode":"lines+markers","line":{"width":1.88976377952756,"color":"rgba(0,186,56,1)","dash":"solid"},"hoveron":"points","name":"Hourly compensation","legendgroup":"Hourly compensation","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","marker":{"autocolorscale":false,"color":"rgba(0,186,56,1)","opacity":1,"size":1.13385826771654,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(0,186,56,1)"}},"frame":null},{"x":[1948,1949,1950,1951,1952,1953,1954,1955,1956,1957,1958,1959,1960,1961,1962,1963,1964,1965,1966,1967,1968,1969,1970,1971,1972,1973,1974,1975,1976,1977,1978,1979,1980,1981,1982,1983,1984,1985,1986,1987,1988,1989,1990,1991,1992,1993,1994,1995,1996,1997,1998,1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018],"y":[0,0.0155,0.0934,0.1224,0.1549,0.1941,0.2144,0.2638,0.2659,0.3004,0.3272,0.3763,0.4006,0.4437,0.498,0.5503,0.5994,0.6492,0.6995,0.7198,0.7713,0.7785,0.8035,0.871,0.922,0.9696,0.9383,0.9811,1.0359,1.0605,1.0827,1.0811,1.0677,1.105,1.0837,1.1451,1.2021,1.2365,1.2828,1.288,1.3201,1.3412,1.3695,1.385,1.4748,1.4851,1.5054,1.5159,1.5624,1.6072,1.6621,1.7346,1.7947,1.8371,1.915,2.0122,2.0929,2.1529,2.1761,2.1978,2.2139,2.2875,2.3823,2.3821,2.3957,2.4096,2.4291,2.4575,2.4634,2.4978,2.529],"text":["Year: 1948<br />value: 0.0000<br />metric: Net productivity","Year: 1949<br />value: 0.0155<br />metric: Net productivity","Year: 1950<br />value: 0.0934<br />metric: Net productivity","Year: 1951<br />value: 0.1224<br />metric: Net productivity","Year: 1952<br />value: 0.1549<br />metric: Net productivity","Year: 1953<br />value: 0.1941<br />metric: Net productivity","Year: 1954<br />value: 0.2144<br />metric: Net productivity","Year: 1955<br />value: 0.2638<br />metric: Net productivity","Year: 1956<br />value: 0.2659<br />metric: Net productivity","Year: 1957<br />value: 0.3004<br />metric: Net productivity","Year: 1958<br />value: 0.3272<br />metric: Net productivity","Year: 1959<br />value: 0.3763<br />metric: Net productivity","Year: 1960<br />value: 0.4006<br />metric: Net productivity","Year: 1961<br />value: 0.4437<br />metric: Net productivity","Year: 1962<br />value: 0.4980<br />metric: Net productivity","Year: 1963<br />value: 0.5503<br />metric: Net productivity","Year: 1964<br />value: 0.5994<br />metric: Net productivity","Year: 1965<br />value: 0.6492<br />metric: Net productivity","Year: 1966<br />value: 0.6995<br />metric: Net productivity","Year: 1967<br />value: 0.7198<br />metric: Net productivity","Year: 1968<br />value: 0.7713<br />metric: Net productivity","Year: 1969<br />value: 0.7785<br />metric: Net productivity","Year: 1970<br />value: 0.8035<br />metric: Net productivity","Year: 1971<br />value: 0.8710<br />metric: Net productivity","Year: 1972<br />value: 0.9220<br />metric: Net productivity","Year: 1973<br />value: 0.9696<br />metric: Net productivity","Year: 1974<br />value: 0.9383<br />metric: Net productivity","Year: 1975<br />value: 0.9811<br />metric: Net productivity","Year: 1976<br />value: 1.0359<br />metric: Net productivity","Year: 1977<br />value: 1.0605<br />metric: Net productivity","Year: 1978<br />value: 1.0827<br />metric: Net productivity","Year: 1979<br />value: 1.0811<br />metric: Net productivity","Year: 1980<br />value: 1.0677<br />metric: Net productivity","Year: 1981<br />value: 1.1050<br />metric: Net productivity","Year: 1982<br />value: 1.0837<br />metric: Net productivity","Year: 1983<br />value: 1.1451<br />metric: Net productivity","Year: 1984<br />value: 1.2021<br />metric: Net productivity","Year: 1985<br />value: 1.2365<br />metric: Net productivity","Year: 1986<br />value: 1.2828<br />metric: Net productivity","Year: 1987<br />value: 1.2880<br />metric: Net productivity","Year: 1988<br />value: 1.3201<br />metric: Net productivity","Year: 1989<br />value: 1.3412<br />metric: Net productivity","Year: 1990<br />value: 1.3695<br />metric: Net productivity","Year: 1991<br />value: 1.3850<br />metric: Net productivity","Year: 1992<br />value: 1.4748<br />metric: Net productivity","Year: 1993<br />value: 1.4851<br />metric: Net productivity","Year: 1994<br />value: 1.5054<br />metric: Net productivity","Year: 1995<br />value: 1.5159<br />metric: Net productivity","Year: 1996<br />value: 1.5624<br />metric: Net productivity","Year: 1997<br />value: 1.6072<br />metric: Net productivity","Year: 1998<br />value: 1.6621<br />metric: Net productivity","Year: 1999<br />value: 1.7346<br />metric: Net productivity","Year: 2000<br />value: 1.7947<br />metric: Net productivity","Year: 2001<br />value: 1.8371<br />metric: Net productivity","Year: 2002<br />value: 1.9150<br />metric: Net productivity","Year: 2003<br />value: 2.0122<br />metric: Net productivity","Year: 2004<br />value: 2.0929<br />metric: Net productivity","Year: 2005<br />value: 2.1529<br />metric: Net productivity","Year: 2006<br />value: 2.1761<br />metric: Net productivity","Year: 2007<br />value: 2.1978<br />metric: Net productivity","Year: 2008<br />value: 2.2139<br />metric: Net productivity","Year: 2009<br />value: 2.2875<br />metric: Net productivity","Year: 2010<br />value: 2.3823<br />metric: Net productivity","Year: 2011<br />value: 2.3821<br />metric: Net productivity","Year: 2012<br />value: 2.3957<br />metric: Net productivity","Year: 2013<br />value: 2.4096<br />metric: Net productivity","Year: 2014<br />value: 2.4291<br />metric: Net productivity","Year: 2015<br />value: 2.4575<br />metric: Net productivity","Year: 2016<br />value: 2.4634<br />metric: Net productivity","Year: 2017<br />value: 2.4978<br />metric: Net productivity","Year: 2018<br />value: 2.5290<br />metric: Net productivity"],"type":"scatter","mode":"lines+markers","line":{"width":1.88976377952756,"color":"rgba(97,156,255,1)","dash":"solid"},"hoveron":"points","name":"Net productivity","legendgroup":"Net productivity","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","marker":{"autocolorscale":false,"color":"rgba(97,156,255,1)","opacity":1,"size":1.13385826771654,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(97,156,255,1)"}},"frame":null}],"layout":{"margin":{"t":46.7762557077626,"r":7.30593607305936,"b":28.5844748858448,"l":34.337899543379},"plot_bgcolor":"rgba(255,255,255,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"NanumGothic","size":14.6118721461187},"title":{"text":"Productivity growth and hourly compensation growth, 1948-2018","font":{"color":"rgba(0,0,0,1)","family":"NanumGothic","size":17.5342465753425},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[1944.5,2021.5],"tickmode":"array","ticktext":["1960","1980","2000","2020"],"tickvals":[1960,1980,2000,2020],"categoryorder":"array","categoryarray":["1960","1980","2000","2020"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"NanumGothic","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"y","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"NanumGothic","size":14.6118721461187}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-0.12645,2.65545],"tickmode":"array","ticktext":["0%","50%","100%","150%","200%","250%"],"tickvals":[0,0.5,1,1.5,2,2.5],"categoryorder":"array","categoryarray":["0%","50%","100%","150%","200%","250%"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"NanumGothic","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"x","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"NanumGothic","size":14.6118721461187}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":"transparent","line":{"color":"rgba(51,51,51,1)","width":0.66417600664176,"linetype":"solid"},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.88976377952756,"font":{"color":"rgba(0,0,0,1)","family":"NanumGothic","size":11.689497716895},"y":0.974015748031496},"annotations":[{"text":"생산성과 시간당 급여","x":1.02,"y":1,"showarrow":false,"ax":0,"ay":0,"font":{"color":"rgba(0,0,0,1)","family":"NanumGothic","size":14.6118721461187},"xref":"paper","yref":"paper","textangle":-0,"xanchor":"left","yanchor":"bottom","legendTitle":true}],"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","showSendToCloud":false},"source":"A","attrs":{"4b805df918f8":{"x":{},"y":{},"colour":{},"type":"scatter"},"4b805e3a3167":{"x":{},"y":{},"colour":{}}},"cur_data":"4b805df918f8","visdat":{"4b805df918f8":["function (y) ","x"],"4b805e3a3167":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+
+.footnote[
+[Economic Policy Institute, "The Productivity - Pay Gap", July 2019](https://www.epi.org/productivity-pay-gap/)
+]
+
+
+---
+name: automation-sourcing-strategy
+# 소싱전략의 변화
+
+&lt;br&gt;
+
+.center[
+
+![소싱 전략의 변화](fig/the-end-of-outsourcing.png)
+
+]
+
+.footnote[
+자료출처: Kinetics consulting services / Automation Anywhere 
+]
+
+
+---
+name: automation-paradox
+# 모라벡의 역설(Moravec’s paradox)
+
+&lt;br&gt;
+
+.center[
+
+&lt;img src="fig/moravec-paradox.png" width = "87%" /&gt;
+
+]
+
+.footnote[
+미국 카네기 멜론 대학 (CMU) 로봇 공학자 한스 모라벡(Hans Moravec)이 1970년대에 ‘it is comparatively easy to make computers exhibit adult level performance on intelligence tests or playing checkers, and difficult or impossible to give them the skills of a one-year-old when it comes to perception and mobility’라는 표현으로 컴퓨터와 인간의 능력 차이를 역설적으로 표현하였다.
+]
+
+---
+name: automation-comparison
+# 중국어 방 (Chinese room)
+
+&lt;br&gt;
+
+.pull-left[
+![중국어 방 주장을 모사한 도해](fig/chinese-room-argument.jpg)
+]
+
+.pull-right[
+
+|  인공지능 |       컴퓨터      |       인간            |
+|:---------:|:-----------------:|:---------------------:|
+| 중국어 방 |      하드웨어     | 인간의 외형적인 몸체  |
+| 영어만 할 줄 아는 사람| 소프트웨어| 인간의 지능 |
+| 중국어로 된 질문 | 입력(Input) | 인간이 외부에서 접할 수 있는 자극 |
+| 중국어로 된 답변 | 출력(Output) | 인간이 외부에서 접한 자극에 대한 반응 |
+| 질문&amp;대답 목록 | 데이터베이스(Database) | 습득된 기억 |
+
+]
+
+.footnote[
+[중국어 방 역설 (Chinese room argument) - 대체 누가 중국어를 이해하고 있는가?](http://ko.experiments.wikidok.net/wp-d/592f718da44f1a4153e80611/View)
+]
+
+
+---
+name: automation-apollo
+# 아폴로 우주선
+
+&lt;br&gt;
+
+.center[
+
+![아폴로 계획에 대한 역할 구분](fig/man-machine-role-allocation.png)
+
+]
+
+.footnote[
+
+[Mary (Missy) Cummings (2014), "Man versus Machine or Man + Machine?", Duke University and MIT](https://hal.pratt.duke.edu/sites/hal.pratt.duke.edu/files/u10/IS-29-05-Expert%20Opinion[1]_0.pdf)
+
+]
+
+---
+name: automation-role-allocation
+# 인간과 기계 업무분장
+
+&lt;br&gt;
+
+.center[
+
+![S-R-K-E 비행기 적용 업무분장](fig/role-allocation-skill-rules-experties.gif)
+
+]
+
+.footnote[
+
+[Mary (Missy) Cummings (2017), "Informing Autonomous System Design Through the Lens of Skill-, Rule-, and Knowledge-Based Behaviors", Duke University](https://hal.pratt.duke.edu/sites/hal.pratt.duke.edu/files/u10/IS-29-05-Expert%20Opinion[1]_0.pdf)
+
+]
+
+---
+name: automation-jobs
+# Human Supoervisory Control
+
+&lt;br&gt;
+
+.center[
+
+![human-supervisory-control](fig/human-supervisory-control.png)
+
+]
+
+.footnote[
+
+[Mary (Missy) Cummings (2017), "Informing Autonomous System Design Through the Lens of Skill-, Rule-, and Knowledge-Based Behaviors", Duke University](https://hal.pratt.duke.edu/sites/hal.pratt.duke.edu/files/u10/IS-29-05-Expert%20Opinion[1]_0.pdf)
+
+]
+
+
+
+
+---
+name: case-study-document
+class: inverse, middle
+
+# Outline
+
+----
+
+.pull-left[
+
+현재 각광받고 있는 .warmyellow[**데이터 과학**]에 대한 전반적인 이해와 더불어 핵심적인 개념을 짧은 시간에 다루게 됩니다.
+
+데이터 과학의 실제 .black[**다양한 사례**]를 통해 데이터 과학을 통해 성취할 수 있는 기술적인 사항에 대해 살펴보게 됩니다.
+
+데이터의 홍수에 사내 데이터와 공공 오픈 데이터를 결합시킬 수 있는 방법에 대해 .green[**Signals Repository**]에 대해 살펴봅니다.
+
+
+] &lt;!--end of left-column--&gt;
+
+.pull-right[
+.left[
+1\. [데이터 과학](#data-science)
+
+2\. [사례 분석 : 데이터](#case-study-1)
+
+3\. [사례분석 : 문서](#case-study-2)
+
+4\. **[.warmyellow[자동화(Automation)]](#automation)**
+
+5\. [기계학습(Machine Learning)](#machine-learning)
+
+6\. [디지털 경제 (Digital Economy)](#digital-economy)
+
+7\. [마무리](#goodbye)
+
+]
+] &lt;!--end of right-column--&gt;
+
+---
+name: automation-tax
+# 세무사 업무 변천과정
+
+&lt;br&gt;
+
+.center[
+
+![세무 업무 변천사](fig/tax-preparation.png)
+
+]
+
+.footnote[
+[이광춘 (2019-12-04), "자동화(Automation) - ~~로봇~~ 자동화가 빼앗는 일자리 그리고 나", 분당 서현 청소년 수련관 ](https://statkclee.github.io/ds-authoring/ds-bundang-2019.html)
+]
+
+ 
+
+
+---
+name: case-study-document
+class: inverse, middle
+
+# Outline
+
+----
+
+.pull-left[
+
+현재 각광받고 있는 .warmyellow[**데이터 과학**]에 대한 전반적인 이해와 더불어 핵심적인 개념을 짧은 시간에 다루게 됩니다.
+
+데이터 과학의 실제 .black[**다양한 사례**]를 통해 데이터 과학을 통해 성취할 수 있는 기술적인 사항에 대해 살펴보게 됩니다.
+
+데이터의 홍수에 사내 데이터와 공공 오픈 데이터를 결합시킬 수 있는 방법에 대해 .green[**Signals Repository**]에 대해 살펴봅니다.
+
+
+] &lt;!--end of left-column--&gt;
+
+.pull-right[
+.left[
+1\. [데이터 과학](#data-science)
+
+2\. [사례 분석 : 데이터](#case-study-1)
+
+3\. [사례분석 : 문서](#case-study-2)
+
+4\. **[.warmyellow[자동화(Automation)]](#automation)**
+
+5\. [기계학습(Machine Learning)](#machine-learning)
+
+6\. [디지털 경제 (Digital Economy)](#digital-economy)
+
+7\. [마무리](#goodbye)
+
+]
+] &lt;!--end of right-column--&gt;
+
+---
+name: automation-tax
+# 세무사 업무 변천과정
+
+&lt;br&gt;
+
+.center[
+
+![세무 업무 변천사](fig/tax-preparation.png)
+
+]
+
+.footnote[
+[이광춘 (2019-12-04), "자동화(Automation) - ~~로봇~~ 자동화가 빼앗는 일자리 그리고 나", 분당 서현 청소년 수련관 ](https://statkclee.github.io/ds-authoring/ds-bundang-2019.html)
+]
+
+  
+
+---
+name: goodbye
+class: middle, inverse
+
+.pull-left[
+# **경청해 주셔서 감사합니다.**
+&lt;br/&gt;
+## Lighthouse Center
+
+]
+
+.pull-right[
+.right[
+
+&lt;img style="border-radius: 100%;" src="../fig/Tidyverse_Korea_logo_transparent.png" width="300px"/&gt;
+
+]
+]
+
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "googlecode",
+"highlightLines": true,
+"highlightLanguage": "r",
+"countIncrementalSlides": false,
+"ratio": "4:3"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+<!--Hat-tip: https://www.garrickadenbuie.com/blog/xaringan-tip-logo-all-slides/-->
+<style>
+.logo {
+  background-image: url(../fig/Tidyverse_Korea_logo_transparent.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  width: 110px;
+  height: 128px;
+  z-index: 0;
+}
+</style>
+
+<script>
+document
+  .querySelectorAll(
+    '.remark-slide-content' +
+    ':not(.title-slide)' +
+    // add additional classes to exclude here, e.g.
+    ':not(.inverse)' +
+    ':not(.hide-logo)'
+  )
+  .forEach(el => {
+    el.innerHTML += '<div class="logo"></div>';
+  });
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
