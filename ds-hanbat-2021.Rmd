@@ -1,0 +1,112 @@
+---
+title: "한밭대학교 특강"
+subtitle: "Data Science and Machine Learning"
+author: "이광춘"
+institute: "Tidyverse Korea"
+date: "2021-01-26"
+output:
+  xaringan::moon_reader:
+    css: 
+      - default
+      - css/nhsr.css
+      - css/nhsr-fonts.css
+    lib_dir: libs
+    seal: false
+    nature:
+      highlightStyle: googlecode
+      highlightLines: true
+      highlightLanguage: ["r"]
+      countIncrementalSlides: false
+      ratio: "4:3"
+    includes:
+      after_body: [css/insert-logo.html]
+---
+
+```{r setup, include = FALSE}
+library(tidyverse)
+library(nhsrtheme)
+library(NHSRdatasets)
+# set default options
+
+knitr::opts_chunk$set(echo = FALSE, message=FALSE, warning=FALSE,
+                      comment="", digits = 3, tidy = FALSE, prompt = FALSE, fig.align = 'center',
+                      fig.width = 7.252,
+                      fig.height = 4,
+                      dpi = 300)
+
+# uncomment the following lines if you want to use the NHS-R theme colours by default
+# scale_fill_continuous <- partial(scale_fill_nhs, discrete = FALSE)
+# scale_fill_discrete <- partial(scale_fill_nhs, discrete = TRUE)
+# scale_colour_continuous <- partial(scale_colour_nhs, discrete = FALSE)
+# scale_colour_discrete <- partial(scale_colour_nhs, discrete = TRUE)
+```
+
+class: title-slide, left, bottom
+
+# `r rmarkdown::metadata$title`
+----
+## **`r rmarkdown::metadata$subtitle`**
+### `r rmarkdown::metadata$author`
+### `r rmarkdown::metadata$date`
+
+ 
+---
+class: inverse, middle
+
+# Outline
+
+----
+
+.pull-left[
+
+현재 각광받고 있는 .warmyellow[**데이터 과학**]에 대한 전반적인 이해와 더불어 핵심적인 개념을 짧은 시간에 다루게 됩니다.
+
+데이터 과학의 실제 .black[**다양한 사례**]를 정형데이터와 비정형 데이터(문서)를 살펴봅니다.
+
+.green[**디지털 경제**]의 주요한 동인인 .green[**자동화**]와 경제적인 면에 초점을 두어 .green[**기계학습**]에 대해 설펴봅니다.
+
+
+] <!--end of left-column-->
+
+.pull-right[
+.left[
+1\. [데이터 과학](#data-science)
+
+2\. [사례 분석 : 데이터](#case-study-data)
+
+3\. [사례분석 : 문서](#case-study-document)
+
+4\. [자동화(Automation)](#automation)
+
+5\. [기계학습(Machine Learning)](#machine-learning)
+
+6\. [디지털 경제 (Digital Economy)](#digital-economy)
+
+7\. [마무리](#goodbye) 
+]
+] <!--end of right-column-->
+  
+---
+```{r child='ds-sgic-data-science.Rmd'}
+```
+
+```{r child='ds-sgic-case-study-data.Rmd'}
+```
+
+```{r child='ds-sgic-case-study-document.Rmd'}
+```
+
+```{r child='hanbat_2021/ds-hanbat-automation.Rmd'}
+```
+
+```{r child='hanbat_2021/ds-hanbat-ml.Rmd'}
+```
+ 
+```{r child='hanbat_2021/ds-hanbat-digital-economy.Rmd'}
+```
+  
+```{r child='ds-sgic-goodbye.Rmd'}
+```
+
+
+
