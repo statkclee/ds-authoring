@@ -3,9 +3,9 @@ name: goodbye
 class: middle, inverse
 
 .pull-left[
-# **경청해 주셔서 감사합니다.**
+# **경청해 주셔서 <br>감사합니다.**
 <br/>
-## Lighthouse Center
+## Tidyverse Korea
 
 ]
 

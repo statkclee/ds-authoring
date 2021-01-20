@@ -24,8 +24,8 @@ output:
 
 ```{r setup, include = FALSE}
 library(tidyverse)
-library(nhsrtheme)
-library(NHSRdatasets)
+# library(nhsrtheme)
+# library(NHSRdatasets)
 # set default options
 
 knitr::opts_chunk$set(echo = FALSE, message=FALSE, warning=FALSE,
@@ -68,7 +68,7 @@ class: inverse, middle
 
 ] <!--end of left-column-->
 
-.pull-right[
+.pull-right[   
 .left[
 1\. [데이터 과학](#data-science)
 
@@ -107,6 +107,4 @@ class: inverse, middle
   
 ```{r child='ds-sgic-goodbye.Rmd'}
 ```
-
-
 
