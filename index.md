@@ -19,7 +19,7 @@ title: 데이터 과학 기고문과 발표자료
 
 1. [Data Science and Machine Learning](ds-hanbat-2021.html)
     - 한밭대학교 특강, 2021년 1월 26일
-1. [일반인 버전](ds-koita-intro.html) | [Natural Language Processing (NLP) 활용한 R&D 효과증대](ds-koita-2021.html) [`PDF`](ds-koita-2021-pdf.pdf), [`.Rmd`](ds-koita-2021-pdf.Rmd)
+1. [일반인 버전](ds-koita-intro.html) [`PDF`](ds-koita-intro-pdf.pdf) | [Natural Language Processing (NLP) 활용한 R&D 효과증대](ds-koita-2021.html) [`PDF`](ds-koita-2021-pdf.pdf), [`.Rmd`](ds-koita-2021-pdf.Rmd)
     - 한국산업기술진흥협회 격월간 "기술과혁신" 2021년 3/4월호
 1. [Data Science - Signals Repository](ds-sgic.html)
     - 서울보증보험, 2021년 1월 8일
