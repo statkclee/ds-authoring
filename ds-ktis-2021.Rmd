@@ -1,0 +1,108 @@
+---
+title: "KTIS"
+subtitle: "STT powered by Data Science"
+author: "이광춘"
+institute: "Tidyverse Korea"
+date: "2021-02-05"
+output:
+  xaringan::moon_reader:
+    css: 
+      - default
+      - css/nhsr.css
+      - css/nhsr-fonts.css
+    lib_dir: libs
+    seal: false
+    nature:
+      highlightStyle: googlecode
+      highlightLines: true
+      highlightLanguage: ["r"]
+      countIncrementalSlides: false
+      ratio: "4:3"
+    includes:
+      after_body: [css/insert-logo.html]
+---
+
+```{r setup, include = FALSE}
+library(tidyverse)
+# library(nhsrtheme)
+# library(NHSRdatasets)
+# set default options
+
+knitr::opts_chunk$set(echo = FALSE, message=FALSE, warning=FALSE,
+                      comment="", digits = 3, tidy = FALSE, prompt = FALSE, fig.align = 'center',
+                      fig.width = 7.252,
+                      fig.height = 4,
+                      dpi = 300)
+
+# uncomment the following lines if you want to use the NHS-R theme colours by default
+# scale_fill_continuous <- partial(scale_fill_nhs, discrete = FALSE)
+# scale_fill_discrete <- partial(scale_fill_nhs, discrete = TRUE)
+# scale_colour_continuous <- partial(scale_colour_nhs, discrete = FALSE)
+# scale_colour_discrete <- partial(scale_colour_nhs, discrete = TRUE)
+```
+
+class: title-slide, left, bottom
+
+# `r rmarkdown::metadata$title`
+----
+## **`r rmarkdown::metadata$subtitle`**
+### `r rmarkdown::metadata$author`
+### `r rmarkdown::metadata$date`
+
+ 
+---
+class: inverse, middle
+
+# Outline
+
+----
+
+.pull-left[
+
+경제적인 면에 초점을 두어 .green[**디지털 경제**]의 주요한 동인인 .green[**자동화**]와 .green[**기계학습**]에 대해 살펴봅니다.
+
+개인용 컴퓨터의 보급 이후 만들어진 디지털 유산인 사무 자동화(Office Automation) .warmyellow[**문서**]의 한계와 이를 벗어나려고 하는 다양한 최신 움직임도 짚어봅니다.
+
+디지털 전환의 기본을 이루는 .black[**데이터 과학**]의 핵심적인 내용을 다루고,
+다양한 데이터 중 하나인 음성을 텍스트로 변환시킨 후 가치를 창출하는 전반적인 과정을 다뤄보고자 합니다.
+
+
+] <!--end of left-column-->
+
+.pull-right[   
+.left[
+1\. **[.warmyellow[자동화(Automation)]](#automation)**
+
+2\. [기계학습(Machine Learning)](#machine-learning)
+
+3\. [사무 문서](#case-study-document)
+
+4\. [데이터 과학](#data-science)
+
+5\. [STT](#stt)
+
+6\. [마무리](#goodbye) 
+]
+] <!--end of right-column-->
+  
+
+```{r child='ktis/ds-hanbat-automation.Rmd'}
+```
+
+```{r child='ktis/ds-hanbat-ml.Rmd'}
+```
+
+```{r child='ktis/ds-sgic-case-study-document.Rmd'}
+```
+
+```{r child='ktis/ds-sgic-data-science.Rmd'}
+```
+
+```{r child='ktis/ds-stt.Rmd'}
+```
+
+```{r child='hanbat_2021/ds-sgic-goodbye.Rmd'}
+```
+
+
+

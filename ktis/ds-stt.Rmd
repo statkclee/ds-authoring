@@ -1,0 +1,81 @@
+
+---
+name: case-study-document
+class: inverse, middle
+
+# Outline
+
+----
+
+.pull-left[
+
+경제적인 면에 초점을 두어 .green[**디지털 경제**]의 주요한 동인인 .green[**자동화**]와 .green[**기계학습**]에 대해 살펴봅니다.
+
+개인용 컴퓨터의 보급 이후 만들어진 디지털 유산인 사무 자동화(Office Automation) .warmyellow[**문서**]의 한계와 이를 벗어나려고 하는 다양한 최신 움직임도 짚어봅니다.
+
+디지털 전환의 기본을 이루는 .black[**데이터 과학**]의 핵심적인 내용을 다루고,
+다양한 데이터 중 하나인 음성을 텍스트로 변환시킨 후 가치를 창출하는 전반적인 과정을 다뤄보고자 합니다.
+
+
+] <!--end of left-column-->
+
+.pull-right[   
+.left[
+1\. [자동화(Automation)](#automation)
+
+2\. [기계학습(Machine Learning)](#machine-learning)
+
+3\. [사무 문서](#case-study-document)
+
+4\. [데이터 과학](#data-science)
+
+5\. **[.warmyellow[STT]](#stt)**
+
+6\. [마무리](#goodbye) 
+]
+] <!--end of right-column-->
+
+
+---
+name: ml-overview
+# STT 사례
+
+<br>
+
+.center[
+  <img src="fig/stt-google.png" alt="" alt="100%" />
+]
+
+.footnote[
+[speech-to-text - 음성을 텍스트로 변환](https://statkclee.github.io/deep-learning/r-stt.html)
+]
+
+
+---
+name: ml-overview
+# 자연어 처리 흐름
+
+<br>
+
+.center[
+  <img src="fig/text-mining-workflow.png" alt="" alt="100%" />
+]
+
+.footnote[
+[텍스트 데이터](https://statkclee.github.io/text/nlp-text.html)
+]
+
+---
+name: ml-overview
+# 언어기술 로드맵
+
+<br>
+
+.center[
+  <img src="fig/ml-text-technology-roadmap.png" alt="" alt="100%" />
+]
+
+.footnote[
+[단어주머니(Bag of Words)](https://statkclee.github.io/text/nlp-bag-of-words.html)
+]
+
