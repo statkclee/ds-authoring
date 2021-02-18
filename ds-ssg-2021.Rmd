@@ -1,0 +1,97 @@
+---
+title: "직장인 데이터 과학"
+subtitle: "사례, 개념, 플랫폼, 언어, 윤리, 마이데이터"
+author: "이광춘"
+institute: "Tidyverse Korea"
+date: "2021-05-01"
+output:
+  xaringan::moon_reader:
+    css: 
+      - default
+      - css/nhsr.css
+      - css/nhsr-fonts.css
+    lib_dir: libs
+    seal: false
+    nature:
+      highlightStyle: googlecode
+      highlightLines: true
+      highlightLanguage: ["r"]
+      countIncrementalSlides: false
+      ratio: "4:3"
+    includes:
+      after_body: [css/insert-logo.html]
+---
+
+```{r setup, include = FALSE}
+library(tidyverse)
+# library(nhsrtheme)
+# library(NHSRdatasets)
+# set default options
+
+knitr::opts_chunk$set(echo = FALSE, message=FALSE, warning=FALSE,
+                      comment="", digits = 3, tidy = FALSE, prompt = FALSE, fig.align = 'center',
+                      fig.width = 7.252,
+                      fig.height = 4,
+                      dpi = 300)
+
+# uncomment the following lines if you want to use the NHS-R theme colours by default
+# scale_fill_continuous <- partial(scale_fill_nhs, discrete = FALSE)
+# scale_fill_discrete <- partial(scale_fill_nhs, discrete = TRUE)
+# scale_colour_continuous <- partial(scale_colour_nhs, discrete = FALSE)
+# scale_colour_discrete <- partial(scale_colour_nhs, discrete = TRUE)
+```
+
+class: title-slide, left, bottom
+
+# `r rmarkdown::metadata$title`
+----
+## **`r rmarkdown::metadata$subtitle`**
+### `r rmarkdown::metadata$author`
+### `r rmarkdown::metadata$date`
+
+ 
+---
+class: inverse, middle
+
+# Outline
+
+----
+
+.pull-left[
+
+직장인의 업무 생산성 향상의 총아로 각광받던 오피스(한글/워드, 엑셀, 파워포인트, 액세스) 시대가 한시대를 풍미했다. 
+Six Sigma를 필두로 한 제조업의 혁신을 이끈 통계학도 제조업체를 중심으로 엑셀에 탑재된 기본기능이 부족하여 미니탭과 같은 통계 팩키지를 직장인이 필히 익혀야 하는 필수 역량으로 자리잡았다.
+대기업을 중심으로 고학력을 가진 석박사가 증가하면서 논문 작성에 필요한 고급 통계분석으로 사회과학 분야는 SPSS, 의학 및 경영대는 SAS, 계량경제학 분야는 Gauss, E-View와 같은 특화된 팩키지 소프트웨어를 활용하였고, 좀더 학구적인 역량을 갖춘 분들은 논문을 $\LaTeX$으로 작성하여 해외 저널과 컨퍼런스에 발표를 하였다.
+
+현재 대한민국을 강타하고 있는 디지털 전환의 바탕이 되는 빅데이터와 AI/기계학습을 아우르는 .green[**데이터 과학**]이 그 실체를 들어내고 있다. 직장인의 기본기로 자리잡아가고 있는 .green[**데이터 과학**](Data Science)을 집중적으로 다양한 관점으로 살펴본다.  .green[**데이터 과학**]에 대한 소개부터 이를 떠받치고 있는 다양한 개념과 .warmyellow[**플랫폼**]은 물론, .pink[**윤리**], .red[**언어**], .black[**마이데이터**] 등 가능하면 많은 내용을 폭넓게 다뤄 직장인의 현재 업무에 작게나마 도움을 드리고자 한다.
+]
+
+.pull-right[   
+.left[
+1\. **[.green[데이터 과학 개념]](#concept)**
+
+2\. [데이터 과학 플랫폼](#platform)
+
+3\. [데이터 과학 언어](#tool)
+
+4\. [데이터 과학 윤리](#ethics)
+
+5\. [마이데이터](#mydata)
+
+6\. [마무리](#goodbye) 
+]
+] <!--end of right-column-->
+  
+
+
+```{r child='ssg/ssg-concept.Rmd'}
+```
+
+```{r child='ssg/ssg-platform.Rmd'}
+```
+
+<!--
+
+-->
+
+

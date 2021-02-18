@@ -17,6 +17,8 @@ title: 데이터 과학 기고문과 발표자료
 
 ## 학습목차 
 
+1. [직장인 데이터 과학](ds-ssg-2021.html)
+    - 성균관대학교 퀀트응용경제학과 응용경제세미나 특강, 2021년 5월 01일
 1. [STT powered by Data Science](ds-ktis-2021.html)
     - KTIS 특강, 2021년 2월 05일
 1. [Data Science and Machine Learning](ds-hanbat-2021.html)
