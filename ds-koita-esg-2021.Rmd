@@ -1,0 +1,54 @@
+---
+title: "ESG"
+subtitle: "한국산업기술진흥협회  「기술과혁신」 5/6월호"
+description: | 
+   작성 예정
+author:
+  - name: 이광춘
+    url: https://www.facebook.com/groups/tidyverse/
+    affiliation: 삼정 KPMG
+    affiliation_url: https://home.kpmg/kr/ko/home.html
+date: "`r Sys.Date()`"
+output: 
+  distill::distill_article:
+    toc: true
+    toc_depth: 2
+    highlight: tango
+    number_section: true
+bibliography: bibliography_authoring.bib
+csl: biomed-central.csl
+editor_options: 
+  chunk_output_type: console
+  markdown: 
+    wrap: sentence
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning=FALSE, message=FALSE,
+                    comment="", digits = 3, tidy = FALSE, prompt = FALSE, fig.align = 'center')
+```
+
+# 기후변화
+
+시간을 되돌려 10년 전으로 돌아가면 자산가치 붕괴, 중국성장 둔화, 소득 불균형, 미국 재정적자와 같은 경제적 위험이 큰 과제였다면 현재는 기상 이변, 자연 재해, 온실가스, 생물 다양성 감소와 같은 환경적 위험이 누구나 손꼽는 최우선 과제임은 재론의 여지가 없다.
+
+# 국가/기업별 대응
+
+# Green Transformation을 성장의 기회
+
+# 기업 
+
+ESG 성과가 기업의 재무적 가치에 영향을 미치고 , 공식적인 기업 평가지표로서 ESG 의 역할이 확대됨에 따라 ESG 는 기업 경영의 핵심 요소로 주목받고 있음
+
+글로벌 연기금 및 자산운용사들은 ESG 투자 요구 증대에 따라 ESG 투자체계를 강화하고 있으며 , 실제 ESG 투자규모도 폭발적인 증가 추세에 있음
+
+G250의 CEO 들은 기후 변화를 리스크로 인식하고, 적기 대응을 위한 기업 차원의 선제적 움직임을 강화하는 등 기업 운영 핵심 Agenda 로 GT 의 역할이 급부상 중
+
+ESG 경영이 기업 경영 화두의 최우선 과제로 급부상하는 가운데 , 국내 기업은 글로벌 대비 낮은 수준을 보이며 , ESG 등급 개선 속도 또한 미진한 상황임
+
+
+
+
+
+
+
