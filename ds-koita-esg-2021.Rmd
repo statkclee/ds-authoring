@@ -10,11 +10,13 @@ author:
     affiliation_url: https://home.kpmg/kr/ko/home.html
 date: "`r Sys.Date()`"
 output: 
-  distill::distill_article:
+  bookdown::html_document2:
+    base_format: distill::distill_article
     toc: true
     toc_depth: 2
     highlight: tango
     number_section: true
+    pandoc_args: ["--number-sections"]
 bibliography: bibliography_authoring.bib
 csl: biomed-central.csl
 editor_options: 
@@ -53,5 +55,25 @@ knitr::opts_chunk$set(echo = FALSE, warning=FALSE, message=FALSE,
 
 ESG 성과가 기업의 재무적 가치에 영향을 미치고, 공식적인 기업 평가지표로서 ESG 의 역할이 확대됨에 따라 ESG는 기업 경영의 핵심 요소로 주목받고 있다. 글로벌 연기금 및 자산운용사들은 ESG 투자 요구 증대에 따라 ESG 투자체계를 강화하고 있으며, 실제 ESG 투자규모도 폭발적인 증가 추세에 있다. 실제로 포츈 500에서 추린 상위 250개 기업(G250)의 CEO 들은 기후 변화를 중대 위험으로 인식하고, 적기 대응을 위한 기업 차원의 선제적 움직임을 강화하는 등 기업 운영 핵심 Agenda 로 설정하며 적극적인 움직임을 보이고 있다. 하지만, ESG 경영이 기업 경영 화두의 최우선 과제로 급부상하는 가운데, 국내 기업은 글로벌 대비 낮은 수준을 보이며 , ESG 등급 개선 속도 또한 미진한 상황이다.
 
+ESG[@esg2021hankyung]
+
+파이낸싱 측면에서도 ESG 요소가 자금조달·투자 기준으로 부상하고 있다. 네덜란드의 ING, 프랑스의 BNP파리바 등 글로벌 대형 은행 중심으로 지속가능 연계대출 활동이 증가하고 있고, 국내 주요 은행도 ESG 요소 도입을 구체화하고 있다. 블랙록, 뱅가드, 스테이트스트리트(SSGA) 등 글로벌 3대 자산운용사도 투자 포트폴리오에서 ESG 요소를 강화하고 있다. 뿐만 아니라 ESG 채권 발행 및 펀드로의 자금 유입도 증가하고 있다. 2020년 글로벌 ESG 채권 발행 규모는 4841억달러(약 529조원)로 전년 대비 63% 증가했다.
+
+기업 인수합병(M&A) 딜 소싱과 밸류에이션 과정에서도 ESG 테마에 대한 검토가 필요하다. 최근 전기차 소재, 폐기물 처리 등 환경 테마의 대형 딜이 활발하게 진행되고 있으며, 2020년 거래액 5000억원 이상의 국내 대형 M&A 중 40% 이상이 ESG 관련 M&A인 것으로 파악된다. ESG 선도 기업들은 딜 소싱 시 환경오염 유발, 사회갈등 야기, 경영진의 비위 등을 기준으로 기업을 선별하는 작업을 강화하고 있다. 반환경적, 반윤리적, 비인도적 사업에 대해선 매각도 검토하고 있다.
+
+
 # Green Transformation을 성장의 기회
 
+# 데이터 사이언스
+
+데이터 사이언스(Data Science)를 기반으로 ESG의 투명성, 가시성, 오픈협업 유인을 조성할 수
+
+
+A.	E: 공장의 EHS 솔루션과 활동 기반 Process Mining
+B.	S: 브랜드 평판분석, VoC 등 디지털마케팅 방법론 중 Data Science 기반 재정리
+C.	G: 글로벌 MNC들이 채택하는 IBM, SAP 등의 GRC 솔루션 기반 Process Mining과 BoD 이사회의사록, 경영회의 등 비정형 혹은 자연어 제약조건의 비교분석
+
+
+# 
+
+![](fig/databricks-data-driven-approach.png)
