@@ -17,6 +17,12 @@ title: 데이터 과학 기고문과 발표자료
 
 ## 학습목차 
 
+1. [Seoul R Meetup](https://tidyverse-korea.github.io/seoul-R/#section), 줌(Zoom)
+    - [한글 워드프로세서 - RStudio Visual R Markdown 편집기](https://statkclee.github.io/latex/document-ide.html) 2020-04-14
+    - [파워포인트를 넘어서 - `xaringan`](seoul_r_xaringan.html) 2020-12-11
+    - [Almost All about Table](seoul_r_table.html) 2020-11-11
+    - [날씨보고서 자동화 - GitHub Actions](ds-weather-github-actions.html), 2020-10-14
+    - [Why Tidymodels?](ds-why-tidymodels.html), 2020-09-09
 1. [ESG](ds-koita-esg-2021.html)
     - 한국산업기술진흥협회 격월간 "기술과혁신" 2021년 5/6월호
 1. [직장인 데이터 과학](ds-ssg-2021.html)
@@ -29,11 +35,6 @@ title: 데이터 과학 기고문과 발표자료
     - 한국산업기술진흥협회 격월간 "기술과혁신" 2021년 3/4월호
 1. [Data Science - Signals Repository](ds-sgic.html)
     - 서울보증보험, 2021년 1월 8일
-1. [Seoul R Meetup](https://tidyverse-korea.github.io/seoul-R/#section), 줌(Zoom)
-    - [파워포인트를 넘어서 - `xaringan`](seoul_r_xaringan.html) 2020-12-11
-    - [Almost All about Table](seoul_r_table.html) 2020-11-11
-    - [날씨보고서 자동화 - GitHub Actions](ds-weather-github-actions.html), 2020-10-14
-    - [Why Tidymodels?](ds-why-tidymodels.html), 2020-09-09
 1. [OCR Digitization for Industry Powered by ScanDoc and ButterBlock Suite](https://www.ncloud-online.com/aisummit/track/?track=4)
     - NAVER CLOUD AI SUMMIT, 2020년 12월 17일~18일, 온라인
 1. [디지털 뉴딜](krila-digital-new-deal-text.html), &nbsp;&nbsp; [디지털 뉴딜 + 데이터 과학](krila-digital-new-deal.html), &nbsp;&nbsp; [디지털 뉴딜](krila-digital-new-deal.html), &nbsp;&nbsp; [국가별 분석 보고서](krila-to-digital.html), &nbsp;&nbsp;[데이터 댐 外](krila-data-dam.html)
