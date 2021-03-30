@@ -23,7 +23,7 @@ title: 데이터 과학 기고문과 발표자료
     - [Almost All about Table](seoul_r_table.html) 2020-11-11
     - [날씨보고서 자동화 - GitHub Actions](ds-weather-github-actions.html), 2020-10-14
     - [Why Tidymodels?](ds-why-tidymodels.html), 2020-09-09
-1. [ESG](ds-koita-esg-2021.html)
+1. [Data-Driven ESG](ds-koita-esg-2021.html)
     - 한국산업기술진흥협회 격월간 "기술과혁신" 2021년 5/6월호
 1. [직장인 데이터 과학](ds-ssg-2021.html)
     - 성균관대학교 퀀트응용경제학과 응용경제세미나 특강, 2021년 5월 01일
