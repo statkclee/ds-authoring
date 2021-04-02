@@ -25,14 +25,13 @@ title: 데이터 과학 기고문과 발표자료
     - [Almost All about Table](seoul_r_table.html) 2020-11-11
     - [날씨보고서 자동화 - GitHub Actions](ds-weather-github-actions.html), 2020-10-14
     - [Why Tidymodels?](ds-why-tidymodels.html), 2020-09-09
-1. [Data-Driven ESG](ds-koita-esg-2021.html)
-    - 한국산업기술진흥협회 격월간 "기술과혁신" 2021년 5/6월호
 1. [STT powered by Data Science](ds-ktis-2021.html)
     - KTIS 특강, 2021년 2월 05일
 1. [Data Science and Machine Learning](ds-hanbat-2021.html)
     - 한밭대학교 특강, 2021년 1월 26일
-1. [일반인 버전](ds-koita-intro.html) [`PDF`](ds-koita-intro-pdf.pdf) | [Natural Language Processing (NLP) 활용한 R&D 효과증대](ds-koita-2021.html) [`PDF`](ds-koita-2021-pdf.pdf), [`.Rmd`](ds-koita-2021-pdf.Rmd)
-    - 한국산업기술진흥협회 격월간 "기술과혁신" 2021년 3/4월호
+1. 한국산업기술진흥협회 격월간 "기술과혁신"
+    - [Data-Driven ESG](ds-koita-esg-2021.html): 한국산업기술진흥협회 격월간 "기술과혁신" 2021년 5/6월호
+    - [일반인 버전](ds-koita-intro.html) [`PDF`](ds-koita-intro-pdf.pdf) | [Natural Language Processing (NLP) 활용한 R&D 효과증대](ds-koita-2021.html) [`PDF`](ds-koita-2021-pdf.pdf), [`.Rmd`](ds-koita-2021-pdf.Rmd): 한국산업기술진흥협회 격월간 "기술과혁신" 2021년 3/4월호
 1. [Data Science - Signals Repository](ds-sgic.html)
     - 서울보증보험, 2021년 1월 8일
 1. [OCR Digitization for Industry Powered by ScanDoc and ButterBlock Suite](https://www.ncloud-online.com/aisummit/track/?track=4)
