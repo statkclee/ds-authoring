@@ -17,7 +17,7 @@ title: 데이터 과학 기고문과 발표자료
 
 ## 학습목차 
 
-1. [직장인 데이터 과학](ds-ssg-2021.html)
+1. [직장인 데이터 과학](ds-sgg-2021.html)
     - 2021년 05월 01일, 성균관대학교 퀀트응용경제학과 응용경제세미나 특강
 1. [Seoul R Meetup](https://tidyverse-korea.github.io/seoul-R/#section), 줌(Zoom)
     - [한글 워드프로세서 - RStudio Visual R Markdown 편집기](https://statkclee.github.io/latex/document-ide.html) 2020-04-14
