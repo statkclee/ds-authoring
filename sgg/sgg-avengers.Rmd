@@ -1,0 +1,169 @@
+
+
+---
+class: inverse, middle
+name: data-science-avengers
+
+# 강의 개요 
+
+----
+
+.pull-left[
+
+직장인의 업무 생산성 향상의 총아로 각광받던 MS 오피스가 한시대를 풍미했다. 
+$6\sigma$를 필두로 제조업의 혁신을 이끈 통계학도 엑셀에 탑재된 기본기능이 부족하여 미니탭과 같은 통계 팩키지를 필히 익혀야 하는 필수 역량이 되었다.
+
+대기업을 중심으로 고학력을 가진 석박사가 증가하면서 논문 작성에 필요한 고급 통계분석으로 사회과학 분야는 SPSS, 의학 및 경영대는 SAS, 계량경제학 분야는 Gauss, E-View와 같은 특화된 팩키지 소프트웨어를 활용하였고, 좀더 학구적인 역량을 갖춘 분들은 논문을 $\LaTeX$으로 작성하여 해외 저널과 컨퍼런스에 발표를 하였다.
+
+현재 대한민국을 강타하고 있는 디지털 전환의 바탕이 되는 빅데이터와 AI/기계학습을 아우르는 .green[**데이터 과학**]이 그 실체를 들어내고 있다. 직장인의 기본기로 자리잡아가고 있는 **데이터 과학**과 가장 기본이 되는 .red[**글쓰기**]를 중심으로 학업과 현업 업무를 병행하는 직장인에게 작게나마 도움을 드리고자 한다.
+]
+
+.pull-right[   
+.left[
+
+1\. [데이터 과학 사례](#data-science-case)
+
+2\. [데이터 과학](#data-science)
+
+3\. [데이터 과학 전쟁](#language-war)
+
+4\. **[.green[데이터 과학 어벤저스]](#data-science-avengers)**
+
+5\. [글쓰기](#writing)
+
+6\. [마무리](#goodbye) 
+]
+] <!--end of right-column-->
+
+---
+name: avengers-problem
+# 펭귄 어벤저스
+
+.center[
+![](fig/shiny-python.png)
+]
+
+.footnote[
+[펭귄 성별예측모형: 파이썬 + `Shiny`](https://statkclee.github.io/model/tidyverse-penguin-python-shiny.html)
+]
+
+---
+names: avengers-penguin
+# 펭귄 데이터셋
+
+.center[
+![](fig/penguin-dataset.png)
+]
+
+.footnote[
+- [펭귄 vs 붓꽃 데이터](https://statkclee.github.io/data-science/ds-iris-penguin.html)
+]
+
+---
+name: avengers-architecture
+# 모형 아키텍쳐
+
+<br>
+<br>
+
+| 앙상블 | Random Forest | XGBoost |
+|--------|----------------|---------|
+|![](fig/penguin-arch-ensemble.png)| ![](fig/penguin-arch-rf.png) | ![](fig/penguin-arch-xgb.png) |
+
+.footnote[
+- [펭귄 성별예측모형: tidymodels](https://statkclee.github.io/model/tidyverse-parsnip-penguin.html)
+]
+
+---
+name: avengers-tuning
+# 모형 최적화: Hyper Parameter Tuning
+
+<br>
+<br>
+
+.center[
+![](fig/xgboost-python.png)
+]
+
+.footnote[
+- [펭귄 성별예측모형: tidymodels - Hyper Parameter](https://statkclee.github.io/model/tidyverse-parsnip-penguin-hyper-parameter.html)
+]
+
+---
+name: avengers-restful
+# 모형 배포: RESTful API
+
+<br>
+<br>
+
+.center[
+<img src = "fig/penguin-restful-api.png" width = "100%" />
+]
+
+.footnote[
+- [펭귄 성별예측모형: tidymodels - RESTful API](https://statkclee.github.io/model/tidyverse-parsnip-penguin-RESTful-api.html)
+]
+
+---
+name: avengers-explainable-ai
+# 설명가능한 예측모형: Explainable AI
+
+.center[
+![](fig/mdp-DALEX.png)
+]
+
+.footnote[
+- [펭귄 성별예측모형: tidymodels - MDP / DALEX](https://statkclee.github.io/model/tidyverse-parsnip-penguin-DALEX.html)
+]
+
+---
+name: avengers-evaluation
+# `tidyposterior` 모형 평가
+
+.center[
+<img src = "fig/penguin-tidyposterior.png" width = "87%" />
+]
+
+.footnote[
+- [펭귄 성별예측모형: tidyposterior](https://statkclee.github.io/model/model-tidyposterior.html)
+]
+
+---
+name: avengers-frontend-backed
+# Shiny Front-End + `tidymodels` Back-End
+
+.center[
+![](fig/penguin-shiny-predictive-model.gif)
+]
+
+.footnote[
+- [펭귄 성별예측모형: `tidymodels` - Shiny](https://statkclee.github.io/model/tidyverse-parsnip-penguin-shiny.html)
+]
+
+---
+name: avengers-shiny-python
+# Shiny Front-End + Python Back-End
+
+.center[
+![](fig/shiny-fe-python-be.gif)
+]
+
+.footnote[
+- [펭귄 성별예측모형: 파이썬 - `Shiny`](https://statkclee.github.io/model/tidyverse-penguin-python-shiny.html)
+]
+
+
+---
+name: avengers-model
+# 데이터 과학 EDA 환경: R + 파이썬
+
+.center[
+<img src= "fig/ds-avengers-model.png" width="77%" />
+]
+
+.footnote[
+- [데이터 과학 개발 환경: R+파이썬](https://statkclee.github.io/data-science/ds-languages.html)
+]
+
+
+

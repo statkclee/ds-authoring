@@ -17,6 +17,8 @@ title: 데이터 과학 기고문과 발표자료
 
 ## 학습목차 
 
+1. [직장인 데이터 과학](ds-ssg-2021.html)
+    - 2021년 05월 01일, 성균관대학교 퀀트응용경제학과 응용경제세미나 특강
 1. [Seoul R Meetup](https://tidyverse-korea.github.io/seoul-R/#section), 줌(Zoom)
     - [한글 워드프로세서 - RStudio Visual R Markdown 편집기](https://statkclee.github.io/latex/document-ide.html) 2020-04-14
     - [파워포인트를 넘어서 - `xaringan`](seoul_r_xaringan.html) 2020-12-11
@@ -25,8 +27,6 @@ title: 데이터 과학 기고문과 발표자료
     - [Why Tidymodels?](ds-why-tidymodels.html), 2020-09-09
 1. [Data-Driven ESG](ds-koita-esg-2021.html)
     - 한국산업기술진흥협회 격월간 "기술과혁신" 2021년 5/6월호
-1. [직장인 데이터 과학](ds-ssg-2021.html)
-    - 성균관대학교 퀀트응용경제학과 응용경제세미나 특강, 2021년 5월 01일
 1. [STT powered by Data Science](ds-ktis-2021.html)
     - KTIS 특강, 2021년 2월 05일
 1. [Data Science and Machine Learning](ds-hanbat-2021.html)
