@@ -1,6 +1,6 @@
 ---
 title: "직장인 데이터 과학"
-subtitle: "사례, 개념, 플랫폼, 언어, 윤리, 마이데이터"
+subtitle: "사례, 개념, 플랫폼, 언어 전쟁, 글쓰기"
 author: "이광춘"
 institute: "Tidyverse Korea"
 date: "2021-05-01"

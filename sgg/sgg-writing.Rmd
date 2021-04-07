@@ -123,3 +123,15 @@ name: writing-slideshow
 ]
 
 
+---
+name: writing-pdf2website
+# PDF/워드 &rarr; 웹사이트
+
+.center[
+<img src="fig/pdf2website.png" />
+]
+
+.footnote[
+- 제작방법: [PDF를 데이터로 보는 올바른 자세: PDF &rarr; 웹사이트](https://statkclee.github.io/pdf/pdf-to-website.html)
+- 웹사이트: [웹에서 하는 R 통계분석](https://statkclee.github.io/webr-book/)
+]
