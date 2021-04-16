@@ -17,6 +17,8 @@ title: 데이터 과학 기고문과 발표자료
 
 ## 학습목차 
 
+1. [증거기반의 ESG 전략](data-driven-esg.html)
+    - 2021년 05월 14일, 성남시의회 대회의실
 1. [직장인 데이터 과학](ds-sgg-2021.html)
     - 2021년 05월 01일, 성균관대학교 퀀트응용경제학과 응용경제세미나 특강
 1. [Seoul R Meetup](https://tidyverse-korea.github.io/seoul-R/#section), 줌(Zoom)
