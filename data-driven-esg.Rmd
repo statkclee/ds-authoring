@@ -20,6 +20,8 @@ output:
       ratio: "4:3"
     includes:
       after_body: [css/insert-logo.html]
+editor_options: 
+  chunk_output_type: console
 ---
 
 ```{r setup, include = FALSE}
@@ -27,6 +29,13 @@ library(tidyverse)
 # library(nhsrtheme)
 # library(NHSRdatasets)
 # set default options
+
+options(
+  htmltools.dir.version = FALSE, 
+  htmltools.preserve.raw = FALSE,
+  tibble.width = 60, tibble.print_min = 6,
+  crayon.enabled = TRUE
+)
 
 knitr::opts_chunk$set(echo = FALSE, message=FALSE, warning=FALSE,
                       comment="", digits = 3, tidy = FALSE, prompt = FALSE, fig.align = 'center',
@@ -86,5 +95,46 @@ name: data-science-case
 
 ```{r child='slideshows/esg/esg-goodbye.Rmd'}
 ```
- 
 
+```{r child='slideshows/esg/esg-country-classic.Rmd'}
+```
+
+---
+class: inverse, middle
+name: data-science-case
+
+# 강의 개요
+
+----
+
+.pull-left[
+
+기존 특정부문 예를 들어 GDP, 순이익 등 하나의 지표를 최적화했다면, .green[**ESG**]는 여러 목표를 동시에 최적화하는 전략을 요구하고 있다.
+
+**증거기반 데이터 주도(Data-Driven)**를 통해 .warmyellow[**국가**]를 이해하는 것이 어떤 것인지 살펴본다.
+
+최근 중요성이 부각되고 있는 ESG를 국가에서 .black[**지방자치단체, 기업**]으로 확대할 수 있는 방안을 살펴보자. 
+
+]
+
+.pull-right[   
+.left[
+
+1\. [데이터를 통한 국가](#esg-country)
+
+2\. **[.red[디지털 전환 국가]](#esg-digital-country)**
+
+3\. [그린 전환 국가](#esg-green-transformation)
+
+4\. [국가 &rarr; 지자체와 기업](#from-country-to-company)
+
+5\. [마무리](#goodbye) 
+]
+] <!--end of right-column-->
+
+ 
+---
+name: esg-digital-country
+# 디지털 강대국
+
+ 

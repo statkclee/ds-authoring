@@ -9,3 +9,6 @@ purrr
 dplyr
 stringr
 forcats
+reactable
+htmltools
+countrycode

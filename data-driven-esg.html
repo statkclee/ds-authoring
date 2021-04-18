@@ -5,8 +5,14 @@
     <meta charset="utf-8" />
     <meta name="author" content="이광춘" />
     <meta name="date" content="2021-05-14" />
-    <script src="libs/header-attrs-2.7/header-attrs.js"></script>
-    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <script src="libs/core-js/shim.min.js"></script>
+    <script src="libs/react/react.min.js"></script>
+    <script src="libs/react/react-dom.min.js"></script>
+    <script src="libs/reactwidget/react-tools.js"></script>
+    <script src="libs/htmlwidgets/htmlwidgets.js"></script>
+    <script src="libs/reactable-binding/reactable.js"></script>
     <link rel="stylesheet" href="css/nhsr.css" type="text/css" />
     <link rel="stylesheet" href="css/nhsr-fonts.css" type="text/css" />
   </head>
@@ -78,8 +84,90 @@ class: middle, inverse
 
 ]
 ]
- 
 
+
+
+---
+name: esg-country
+# 전통적 지표
+&lt;br&gt;
+&lt;br&gt;
+
+.center[
+&lt;img src="fig/esg-country-classic.png" /&gt;
+]
+
+.footnote[
+- [위키백과 OECD](https://en.wikipedia.org/wiki/OECD)
+]
+
+---
+name: esg-country-classic
+# 전통 지표 기준 강대국
+
+<div id="htmlwidget-cf7f135f7c1cea18bb27" class="reactable html-widget" style="width:auto;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-cf7f135f7c1cea18bb27">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"country":["United States","Japan","Germany","France","United Kingdom","Italy","Mexico","Turkey","Korea, South","Spain","Canada","Australia","Poland","Netherlands","Colombia","Switzerland","Belgium","Sweden","Austria","Chile","Czech Republic","Ireland","Israel","Portugal","Norway","Greece","Denmark","Hungary","Finland","New Zealand","Slovakia","Lithuania","Slovenia","Latvia","Estonia","Iceland"],"flags":["🇺🇸","🇯🇵","🇩🇪","🇫🇷","🇬🇧","🇮🇹","🇲🇽","🇹🇷","🇰🇷","🇪🇸","🇨🇦","🇦🇺","🇵🇱","🇳🇱","🇨🇴","🇨🇭","🇧🇪","🇸🇪","🇦🇹","🇨🇱","🇨🇿","🇮🇪","🇮🇱","🇵🇹","🇳🇴","🇬🇷","🇩🇰","🇭🇺","🇫🇮","🇳🇿","🇸🇰","🇱🇹","🇸🇮","🇱🇻","🇪🇪","🇮🇸"],"gdp":[19391,5487,4188,2876,2857,2387,2358,2140,1973,1770,1714,1192,1102,900,709,548,544,505,462,445,385,364,333,326,324,297,296,275,247,197,172,91,72,54,42,18],"area":[9831510,377962,357380,549087,243610,301340,1964380,785350,100280,505940,9984670,7741220,312680,41540,1141748,41290,30530,447420,83879,756096,78870,70280,22070,92225,385178,131960,42922,93030,338420,267710,49035,65286,20270,64490,45230,103000],"population":[326,127,83,67,66,61,129,81,51,47,37,25,38,17,49,8,11,10,9,18,11,5,9,10,5,11,6,10,6,5,5,3,2,2,1,0],"gdp_per_capita":[59532,43279,50639,42850,43269,39427,18258,29505,38335,37998,46705,48460,29026,52503,14507,64712,47840,50208,52398,24635,36327,75648,38262,31673,61414,27602,51364,28108,44866,41109,31616,32092,34868,27598,31742,53153]},"columns":[{"accessor":"country","name":"country","type":"character","cell":"function(cell) {\n            return '<a href=\"https://wikipedia.org/wiki/' + cell.value + '\">' + cell.value + '<\/a>'\n          }","html":true,"width":200},{"accessor":"flags","name":"flags","type":"character","width":70},{"accessor":"gdp","name":"gdp","type":"numeric","format":{"cell":{"separators":true},"aggregated":{"separators":true}},"width":100},{"accessor":"area","name":"area","type":"numeric","format":{"cell":{"separators":true},"aggregated":{"separators":true}}},{"accessor":"population","name":"population","type":"numeric"},{"accessor":"gdp_per_capita","name":"gdp_per_capita","type":"numeric","format":{"cell":{"separators":true},"aggregated":{"separators":true}}}],"defaultPageSize":10,"paginationType":"numbers","showPageInfo":true,"minRows":5,"highlight":true,"dataKey":"0b6a92a29c08fe337021bebe4e6fb335","key":"0b6a92a29c08fe337021bebe4e6fb335"},"children":[]},"class":"reactR_markup"},"evals":["tag.attribs.columns.0.cell"],"jsHooks":[]}</script>
+
+---
+name: esg-country-extended
+# 확장 전통 지표
+&lt;br&gt;
+&lt;br&gt;
+
+.center[
+&lt;img src="fig/esg-country-extension.png" /&gt;
+]
+
+.footnote[
+- [위키백과 OECD](https://en.wikipedia.org/wiki/OECD)
+]
+
+---
+name: esg-country-extended-table
+# 확장 지표 기준 선진국
+
+<div id="htmlwidget-fb20aeaceb5846ea2474" class="reactable html-widget" style="width:auto;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-fb20aeaceb5846ea2474">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"country":["Slovenia","Czech Republic","Slovakia","Finland","Norway","Belgium","Iceland","Denmark","Netherlands","Sweden","Hungary","Austria","Korea, South","Germany","Ireland","Poland","Japan","Switzerland","Estonia","France","New Zealand","United Kingdom","Canada","Latvia","Australia","Italy","Portugal","Greece","Spain","Lithuania","Israel","United States","Turkey","Mexico","Chile","Colombia"],"flags":["🇸🇮","🇨🇿","🇸🇰","🇫🇮","🇳🇴","🇧🇪","🇮🇸","🇩🇰","🇳🇱","🇸🇪","🇭🇺","🇦🇹","🇰🇷","🇩🇪","🇮🇪","🇵🇱","🇯🇵","🇨🇭","🇪🇪","🇫🇷","🇳🇿","🇬🇧","🇨🇦","🇱🇻","🇦🇺","🇮🇹","🇵🇹","🇬🇷","🇪🇸","🇱🇹","🇮🇱","🇺🇸","🇹🇷","🇲🇽","🇨🇱","🇨🇴"],"income_inequality":[25.4,25.9,26.5,27.1,27.5,27.7,27.8,28.2,28.2,29.2,30.4,30.5,31.6,31.7,31.8,31.8,32.1,32.3,32.7,32.7,33,33.2,34,34.2,34.7,35.4,35.5,36,36.2,37.4,41.4,41.5,41.9,43.4,47.7,49.7],"hdi":[0.902,0.891,0.857,0.925,0.954,0.919,0.938,0.93,0.933,0.937,0.845,0.914,0.906,0.939,0.942,0.872,0.915,0.946,0.882,0.891,0.921,0.92,0.922,0.854,0.938,0.883,0.85,0.872,0.893,0.869,0.906,0.92,0.806,0.767,0.847,0.761],"fsi":[28,37.6,40.5,16.9,18,28.6,19.8,19.5,24.8,20.3,49.6,25,33.7,24.7,20.6,42.8,34.3,18.7,40.8,32,20.1,36.7,20,43.9,19.7,43.8,25.3,53.9,40.7,38.1,75.1,38,80.3,69.7,38.9,75.7],"cpi":[60,56,50,86,84,75,78,87,82,85,44,77,59,80,74,58,73,85,74,69,87,77,77,56,77,53,62,48,62,60,60,69,39,29,67,37],"ief":[67.8,74.8,66.8,75.7,73.4,68.9,77.1,78.3,77,74.9,66.4,73.3,74,73.5,80.9,69.1,73.3,82,77.7,66,84.1,79.3,78.2,71.9,82.6,63.8,67,59.9,66.9,76.7,74,76.6,64.4,66,76.8,69.2],"gpi":[1.355,1.383,1.55,1.488,1.536,1.533,1.072,1.316,1.53,1.533,1.54,1.291,1.867,1.547,1.39,1.654,1.369,1.375,1.727,1.892,1.221,1.801,1.327,1.718,1.419,1.754,1.274,1.933,1.699,1.779,2.735,2.401,3.015,2.6,1.634,2.661],"wpfi":[22.31,24.89,23.58,7.9,7.82,12.07,14.71,9.87,8.63,8.31,30.44,15.33,24.94,14.6,15,28.89,29.36,10.52,12.27,22.21,10.75,22.23,15.69,19.53,16.55,24.98,12.65,29.08,21.99,22.06,30.8,25.69,52.81,46.78,25.65,42.82],"di":[7.5,7.69,7.17,9.25,9.87,7.64,9.58,9.22,9.01,9.39,6.63,8.29,8,8.68,9.24,6.62,7.99,9.03,7.9,8.12,9.26,8.52,9.22,7.49,9.09,7.52,8.03,7.43,8.29,7.5,7.86,7.96,4.09,6.09,8.08,7.13]},"columns":[{"accessor":"country","name":"country","type":"character","cell":"function(cell) {\n            return '<a href=\"https://wikipedia.org/wiki/' + cell.value + '\">' + cell.value + '<\/a>'\n          }","html":true,"width":170},{"accessor":"flags","name":"flags","type":"character","width":70},{"accessor":"income_inequality","name":"income_inequality","type":"numeric","width":110},{"accessor":"hdi","name":"hdi","type":"numeric","width":70},{"accessor":"fsi","name":"fsi","type":"numeric","width":70},{"accessor":"cpi","name":"cpi","type":"numeric","width":70},{"accessor":"ief","name":"ief","type":"numeric","width":70},{"accessor":"gpi","name":"gpi","type":"numeric","width":70},{"accessor":"wpfi","name":"wpfi","type":"numeric","width":70},{"accessor":"di","name":"di","type":"numeric"}],"defaultPageSize":10,"paginationType":"numbers","showPageInfo":true,"minRows":5,"highlight":true,"dataKey":"78086b17f212e94d72dc51fb9f5c26ff","key":"78086b17f212e94d72dc51fb9f5c26ff"},"children":[]},"class":"reactR_markup"},"evals":["tag.attribs.columns.0.cell"],"jsHooks":[]}</script>
+
+---
+class: inverse, middle
+name: data-science-case
+
+# 강의 개요
+
+----
+
+.pull-left[
+
+기존 특정부문 예를 들어 GDP, 순이익 등 하나의 지표를 최적화했다면, .green[**ESG**]는 여러 목표를 동시에 최적화하는 전략을 요구하고 있다.
+
+**증거기반 데이터 주도(Data-Driven)**를 통해 .warmyellow[**국가**]를 이해하는 것이 어떤 것인지 살펴본다.
+
+최근 중요성이 부각되고 있는 ESG를 국가에서 .black[**지방자치단체, 기업**]으로 확대할 수 있는 방안을 살펴보자. 
+
+]
+
+.pull-right[   
+.left[
+
+1\. [데이터를 통한 국가](#esg-country)
+
+2\. **[.red[디지털 전환 국가]](#esg-digital-country)**
+
+3\. [그린 전환 국가](#esg-green-transformation)
+
+4\. [국가 &amp;rarr; 지자체와 기업](#from-country-to-company)
+
+5\. [마무리](#goodbye) 
+]
+] &lt;!--end of right-column--&gt;
+
+ 
+---
+name: esg-digital-country
+# 디지털 강대국
+
+ 
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
