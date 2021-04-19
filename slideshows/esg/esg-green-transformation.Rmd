@@ -1,0 +1,119 @@
+
+---
+class: inverse, middle
+name: esg-green-transformation
+
+# 강의 개요
+
+----
+
+.pull-left[
+
+기존 특정부문 예를 들어 GDP, 순이익 등 하나의 지표를 최적화했다면, .green[**ESG**]는 여러 목표를 동시에 최적화하는 전략을 요구하고 있다.
+
+**증거기반 데이터 주도(Data-Driven)**를 통해 .warmyellow[**국가**]를 이해하는 것이 어떤 것인지 살펴본다.
+
+최근 중요성이 부각되고 있는 ESG를 국가에서 .black[**지방자치단체, 기업**]으로 확대할 수 있는 방안을 살펴보자. 
+
+]
+
+.pull-right[   
+.left[
+
+1\. [데이터를 통한 국가](#esg-country)
+
+2\. [디지털 전환 국가](#esg-digital-country)
+
+3\. **.[.green[그린 전환 국가]](#esg-green-transformation)**
+
+4\. [국가 &rarr; 지자체와 기업](#from-country-to-company)
+
+5\. [마무리](#goodbye) 
+]
+] <!--end of right-column-->
+   
+---
+name: esg-green-transformation-start
+# 한국판 뉴딜 
+
+```{r korean-new-deal, out.width="100%", out.height="100%"}
+library(collapsibleTree)
+library(tidyverse)
+library(readxl)
+
+한국판뉴딜 <- read_excel(glue::glue("{here::here()}/data/한국판뉴딜.xlsx"))
+
+collapsibleTree(한국판뉴딜, 
+                hierarchy = c("레벨1", "레벨2", "레벨3"),
+                tooltip = TRUE,
+                attributes = "레벨1")
+```
+
+---
+name: esg-green-transformation-epi
+# 환경 성과 지수 (EPI)
+
+
+```{r gt-epi, out.width="100%", out.height="100%"}
+library(rvest)
+
+epi_html <- read_html(x = "https://en.wikipedia.org/wiki/Environmental_Performance_Index")
+
+epi_raw <- epi_html %>% 
+  html_node(xpath = '//*[@id="mw-content-text"]/div[1]/table[1]') %>% 
+  html_table(fill = FALSE, header = TRUE) %>% 
+  as_tibble() %>% 
+  janitor::clean_names()
+
+epi_tbl <- epi_raw %>% 
+  mutate(objective = ifelse(str_detect(objective, "Performance"), "Ecosystem vitality (60%)", objective)) %>% 
+  separate(objective, into = c("objective", "obj_wgt"), sep = "\\(") %>% 
+  mutate(obj_wgt = parse_number(obj_wgt)) %>%
+  mutate(issue_category = ifelse(str_detect(issue_category, "Performance"), NA, issue_category)) %>% 
+  mutate(issue_category = zoo::na.locf(issue_category)) %>% 
+  separate(issue_category, into = c("issue", "issue_wgt"), sep = "\\(") %>% 
+  mutate(issue_wgt = parse_number(issue_wgt)) %>% 
+  mutate(ind_wgt = str_extract(indicator, pattern = "\\([0-9].*\\)$") %>% parse_number) %>% 
+  mutate(indicator = str_remove(indicator, pattern = "\\([0-9].*\\)$"))
+
+collapsibleTree(epi_tbl, 
+                hierarchy  = c("objective", "issue", "indicator"),
+                root       = "EPI",
+                tooltip    = TRUE,
+                attribute   = "ind_wgt", 
+                collapsed  = TRUE, 
+                zoomable   = TRUE)
+```
+
+.footnote[
+- [ESG - 환경성과지수 (EPI, Environmental Performance Index)](https://statkclee.github.io/esg/esg-epi.html)
+]
+
+---
+name: esg-green-transformation-epi-rank
+# 주요 국가별 환경 성과 지수 (EPI)
+
+<br>
+
+```{r gt-epi-rank, out.width="100%", out.height="100%"}
+library(ggflags) # remotes::install_github("ellisp/ggflags")
+epi_tbl <- read_rds(glue::glue("{here::here()}/data/epi_tbl.rds"))
+
+epi_tbl %>% 
+  mutate(country = ifelse(str_detect(country, "United States"), "USA", country)) %>% 
+  filter(str_detect(country, pattern = "(Korea)|(Canada)|(France)|(Italy)|(USA)|(Germany)|(Japan)")) %>% 
+  mutate(flag = countrycode::countrycode(country, origin = 'country.name', destination = 'genc2c') %>% str_to_lower(.)) %>% 
+  mutate(country = fct_reorder(country, -epi_score)) %>% 
+  ggplot(aes(x=year, y = epi_score, group = country, color = country)) +
+    geom_line() + 
+    geom_point() +
+    geom_flag(aes(country = flag), size = 5) +
+    theme_minimal(base_family = "NanumGothic") +
+    labs(x="", y="환경성과점수", color = "국가",
+         title = "주요 경쟁국가 환경성과점수") 
+
+```
+
+.footnote[
+- [ESG - 환경성과지수 (EPI, Environmental Performance Index)](https://statkclee.github.io/esg/esg-epi.html)
+]

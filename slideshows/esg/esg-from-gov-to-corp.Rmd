@@ -1,0 +1,155 @@
+
+---
+class: inverse, middle
+name: from-country-to-company
+
+# 강의 개요
+
+----
+
+.pull-left[
+
+기존 특정부문 예를 들어 GDP, 순이익 등 하나의 지표를 최적화했다면, .green[**ESG**]는 여러 목표를 동시에 최적화하는 전략을 요구하고 있다.
+
+**증거기반 데이터 주도(Data-Driven)**를 통해 .warmyellow[**국가**]를 이해하는 것이 어떤 것인지 살펴본다.
+
+최근 중요성이 부각되고 있는 ESG를 국가에서 .black[**지방자치단체, 기업**]으로 확대할 수 있는 방안을 살펴보자. 
+
+]
+
+.pull-right[   
+.left[
+
+1\. [데이터를 통한 국가](#esg-country)
+
+2\. [디지털 전환 국가](#esg-digital-country)
+
+3\. [그린 전환 국가](#esg-green-transformation)
+
+4\. **.[.black[국가 &rarr; 지자체와 기업]](#from-country-to-company)**
+
+5\. [마무리](#goodbye) 
+]
+] <!--end of right-column-->
+   
+---
+name: esg-government-to-corp
+# 한국판 뉴딜: 정부 &rarr; 기업
+
+```{r from-gov-to-corp, out.width="100%", out.height="100%"}
+library(collapsibleTree)
+library(tidyverse)
+library(readxl)
+
+한국판뉴딜 <- read_excel(glue::glue("{here::here()}/data/한국판뉴딜.xlsx"))
+
+collapsibleTree(한국판뉴딜, 
+                hierarchy = c("레벨1", "레벨2", "레벨3"),
+                tooltip = TRUE,
+                attributes = "레벨1")
+```
+
+
+---
+name: esg-government-to-corp-effect
+# 투자 대비 일자리 창출
+
+<br>
+
+```{r from-gov-to-corp-effect, out.width="100%", out.height="100%"}
+fin_job_df <- read_excel(glue::glue("{here::here()}/data/한국판뉴딜.xlsx"), sheet="EDA")
+
+fin_job_df %>% 
+  group_by(레벨2) %>% 
+  summarise(투자재원 = sum(재원),
+            일자리 = sum(일자리)) %>% 
+  mutate(일자리창출 = 일자리 / 투자재원) %>% 
+  pivot_longer(cols=투자재원:일자리창출, names_to="구분") %>% 
+  mutate(구분 = factor(구분, levels=c("투자재원", "일자리", "일자리창출"))) %>% 
+  ggplot(aes(x=fct_reorder(레벨2, value), y=value, fill=구분)) +
+    geom_col(show.legend = FALSE) +
+    facet_wrap(~구분) +
+    coord_flip() +
+    theme_bw(base_family = "NanumGothic") +
+    labs(x="", y="투자재원(단위:조원), 일자리(단위:만명), 조당 일자리 창출(단위:만명)",
+         title = "한국판 뉴딜 투자재원과 일자리")
+```
+ 
+ 
+ .footnote[
+ - [디지털 뉴딜: 데이터 댐 外](https://statkclee.github.io/ds-authoring/krila-data-dam.html)
+ ]
+ 
+---
+name: esg-government-to-corp-paradigm
+# 기업가치 패러다임 전환
+
+<br>
+
+.center[
+![](fig/esg-comparison.png)
+]
+
+
+.footnote[
+ - [ESG](https://statkclee.github.io/esg/what-is-esg.html)
+ ]
+ 
+
+---
+name: esg-government-to-corp-paradigm
+# 주주의 확대
+
+<br>
+
+.center[
+![](fig/esg-shareholders.png)
+]
+
+
+.footnote[
+ - [ESG](https://statkclee.github.io/esg/what-is-esg.html)
+ ]
+ 
+---
+name: esg-government-to-corp-data
+# ESG 데이터
+
+.center[
+![](fig/esg-data-source.png)
+]
+
+
+.footnote[
+ - [ESG](https://statkclee.github.io/esg/what-is-esg.html)
+ ]
+
+---
+name: esg-government-to-corp-msci
+# MSCI: From Data to Rating
+
+
+.center[
+<img src = "fig/esg-rating-framework.png" width = "77%"/>
+]
+
+
+.footnote[
+ - [ESG](https://statkclee.github.io/esg/what-is-esg.html)
+ ]
+
+
+---
+name: esg-government-to-corp-msci-index
+# MSCI: ESG 지표
+
+<br>
+<br>
+
+.center[
+<img src = "fig/msci-esg-framework.png" width = "100%"/>
+]
+
+.footnote[
+ - [ESG](https://statkclee.github.io/esg/what-is-esg.html)
+ ]
