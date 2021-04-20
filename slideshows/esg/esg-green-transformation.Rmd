@@ -24,13 +24,27 @@ name: esg-green-transformation
 
 2\. [디지털 전환 국가](#esg-digital-country)
 
-3\. **.[.green[그린 전환 국가]](#esg-green-transformation)**
+3\. **[.green[그린 전환 국가]](#esg-green-transformation)**
 
 4\. [국가 &rarr; 지자체와 기업](#from-country-to-company)
 
 5\. [마무리](#goodbye) 
 ]
 ] <!--end of right-column-->
+
+---
+name: esg-green-transformation-full
+# ESG 지표 추가
+
+<br>
+
+.center[
+![](fig/esg-country-index.png)
+]
+
+
+
+
    
 ---
 name: esg-green-transformation-start
