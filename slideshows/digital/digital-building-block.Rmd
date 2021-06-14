@@ -1,0 +1,73 @@
+
+---
+name: digital-building-block
+# Building Blocks: 비즈니스 모형
+
+.center[
+<img src="fig/mba-bm.png", width="77%" />
+]
+
+
+.footnote[
+```{r ai-reference, results = 'asis'}
+library(rcrossref)
+doi <- c('10.1111/radm.12489')
+cat(unlist(rcrossref::cr_cn(dois = doi, format = "text", style = 'apa')))
+```
+]
+
+---
+name: digital-company-om
+# Building Blocks: 운영 모형
+
+.center[
+<img src="fig/mba-om.png", width="100%" />
+]
+
+---
+name: digital-company-bm-om
+# Building Blocks: BM &rarr; OM
+
+<br>
+<br>
+
+.center[
+<img src="fig/mba-bm-om.png", width="100%" />
+]
+
+---
+name: digital-company-network-effect
+# Building Blocks: 네트워크 효과
+
+<br>
+
+.center[
+<img src="fig/digital-newtork-effect.png", width="77%" />
+]
+
+---
+name: digital-company-ai
+# Building Blocks: Weak AI vs Strong AI
+
+> -   **Strong AI**: "Machine that can think and act in a way that matches or surpasses human intelligence"
+> -   **Weak AI**: "Any activity computers are able to perform that humans once performed.
+>
+> Nils J. Nilsson, 2010; Standford AI 100 report, 2016.
+
+
+<img src = "fig/digital-weak-ai.png" width = "90%" />
+
+
+.footnote[
+- [Michalis A. Michael (2019-05-21), "What are the opportunities and practical applications of AI in research and insights?", Research World](https://www.researchworld.com/what-are-the-opportunities-and-practical-applications-of-ai-in-research-and-insights/)
+]
+
+---
+name: digital-company-ai-factory
+# Building Blocks: AI Factory
+
+<br>
+<br>
+
+<img src = "fig/ai-factory.png" width = "100%" />
+

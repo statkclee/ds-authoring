@@ -1,0 +1,117 @@
+---
+title: "디지털 AI 기업"
+subtitle: "Competiting in the age of AI"
+author: "이광춘"
+institute: "Tidyverse Korea"
+date: "2021-06-16"
+output:
+  xaringan::moon_reader:
+    css: 
+      - [default]
+      - css/nhsr.css
+      - css/nhsr-fonts.css
+    lib_dir: libs
+    seal: false
+    nature:
+      highlightStyle: googlecode
+      highlightLines: true
+      highlightLanguage: ["r"]
+      countIncrementalSlides: false
+      ratio: "4:3"
+      beforeInit: "macros.js"
+    includes:
+      after_body: [css/insert-logo.html]
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include = FALSE}
+library(tidyverse)
+# library(nhsrtheme)
+# library(NHSRdatasets)
+# set default options
+
+options(
+  htmltools.dir.version = FALSE, 
+  htmltools.preserve.raw = FALSE,
+  tibble.width = 60, tibble.print_min = 6,
+  crayon.enabled = TRUE
+)
+
+knitr::opts_chunk$set(echo = FALSE, message=FALSE, warning=FALSE,
+                      comment="", digits = 3, tidy = FALSE, prompt = FALSE, fig.align = 'center',
+                      fig.width = 7.252,
+                      fig.height = 4,
+                      dpi = 300)
+
+# uncomment the following lines if you want to use the NHS-R theme colours by default
+# scale_fill_continuous <- partial(scale_fill_nhs, discrete = FALSE)
+# scale_fill_discrete <- partial(scale_fill_nhs, discrete = TRUE)
+# scale_colour_continuous <- partial(scale_colour_nhs, discrete = FALSE)
+# scale_colour_discrete <- partial(scale_colour_nhs, discrete = TRUE)
+```
+
+```{r, load_refs}
+library(RefManageR)
+
+BibOptions(check.entries = FALSE, bib.style = "authoryear", style = "markdown",
+           dashed = TRUE)
+
+file_name <- system.file("bibliography_auth.bib", package = "RefManageR")
+auth_bib <- ReadBib(file_name, check = FALSE)
+```
+
+
+class: title-slide, left, bottom
+
+# `r rmarkdown::metadata$title`
+----
+## **`r rmarkdown::metadata$subtitle`**
+### `r rmarkdown::metadata$author`
+### `r rmarkdown::metadata$date`
+
+ 
+---
+class: inverse, middle
+name: data-science-case
+
+# 발표 개요
+
+----
+
+.pull-left[
+
+전통기업과 디지털 인공지능(AI) 기업간 경쟁이 치열해지면서 이제는 서서희 윤곽이 나타나고 있다.
+
+전통기업이든 디지털 AI 기업이든 .green[**기업(레고, Building Block)**]이라는 존재는 동일하기 때문에 기업에 대해서 살펴보고,
+
+.warmyellow[**디지털 AI 기업**]을 전통기업과 대비하여 .black[**AIS**]를 제대로 이해하자.
+
+]
+ 
+.pull-right[   
+.left[
+
+0\. **[.green[레고, Building Block]](#digital-building-block)**
+
+1\. [전통 기업](#digital-traditional-company)
+
+2\. [디지털 AI 기업](#digital-ai-company)
+
+3\. [AIS](#digital-ais)
+
+4\. [마무리](#goodbye) 
+]
+] <!--end of right-column-->
+
+```{r child='slideshows/digital/digital-building-block.Rmd'}
+```
+
+<!--```{r child='slideshows/digital/digital-traditional-company.Rmd'} ```-->
+  
+ 
+ 
+
+ 
+
+

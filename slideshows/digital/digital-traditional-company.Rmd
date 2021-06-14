@@ -1,0 +1,84 @@
+
+---
+class: inverse, middle
+name: data-science-case
+
+# 발표 개요
+
+----
+
+.pull-left[
+
+전통기업과 디지털 인공지능(AI) 기업간 경쟁이 치열해지면서 이제는 서서희 윤곽이 나타나고 있다.
+
+.red[**전통기업**]이든 디지털 AI 기업이든 .green[**기업(레고, Building Block)**]이라는 존재는 동일하기 때문에 기업에 대해서 살펴보고,
+
+.warmyellow[**디지털 AI 기업**]을 전통기업과 대비하여 .black[**AIS**]를 제대로 이해하자.
+
+]
+ 
+.pull-right[   
+.left[
+
+0\. [레고(Building Block)](#digital-building-block)
+
+1\. **[.red[전통 기업]](#digital-traditional-company)**
+
+2\. [디지털 AI 기업](#digital-ai-company)
+
+3\. [AIS](#digital-ais)
+
+4\. [마무리](#goodbye) 
+]
+] <!--end of right-column-->
+
+
+---
+name: digital-traditional-company
+# 전통기업: 사업 모형
+
+.center[
+<img src="fig/digital-business-model.png", width="67%" />
+]
+
+---
+name: digital-traditional-company-om
+# 전통기업: 운영 모형
+
+.center[
+<img src="fig/digital-operating-model.png", width="87%" />
+]
+
+---
+name: digital-traditional-company-bm-om
+# 전통기업: BM &rarr; OM
+
+<br>
+<br>
+
+.center[
+<img src="fig/digital-bm-om.png", width="100%" />
+]
+
+---
+name: digital-traditional-company-problem
+# 전통기업: 문제점
+
+<br>
+<br>
+
+.center[
+<img src="fig/traditional-value-of-firm.png", width="100%" />
+]
+
+---
+name: digital-traditional-company-problem
+# 전통기업: 근본 원인
+
+<br>
+
+.center[
+<img src="fig/traditional-om.png", width="100%" />
+]
+
+

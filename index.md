@@ -17,6 +17,8 @@ title: 데이터 과학 기고문과 발표자료
 
 ## 학습목차 
 
+1. [디지털 AI 기업](digital-ai-company.html)
+    - 2021년 06월 16일, 인천
 1. [증거기반의 ESG 전략](data-driven-esg.html)
     - 2021년 05월 14일, 성남시의회 대회의실
 1. [직장인 데이터 과학](ds-sgg-2021.html)
