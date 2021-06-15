@@ -46,6 +46,18 @@ name: digital-company-network-effect
 ]
 
 ---
+name: digital-company-data-platform
+# Building Blocks: 데이터 플랫폼
+
+.center[
+<img src="fig/state-of-the-art-data-platform.png", width="100%" />
+]
+
+.footnote[
+Source: Keystone Strategy
+]
+
+---
 name: digital-company-ai
 # Building Blocks: Weak AI vs Strong AI
 

@@ -1,7 +1,7 @@
 
 ---
 class: inverse, middle
-name: data-science-case
+name: digital-traditional-company-toc
 
 # 발표 개요
 
@@ -22,11 +22,11 @@ name: data-science-case
 
 0\. [레고(Building Block)](#digital-building-block)
 
-1\. **[.red[전통 기업]](#digital-traditional-company)**
+1\. **[.red[전통 기업]](#digital-traditional-company-toc)**
 
-2\. [디지털 AI 기업](#digital-ai-company)
+2\. [디지털 AI 기업](#digital-newtork-ai-company-toc)
 
-3\. [AIS](#digital-ais)
+3\. [AIS](#digital-uber-ais-toc)
 
 4\. [마무리](#goodbye) 
 ]
@@ -81,4 +81,13 @@ name: digital-traditional-company-problem
 <img src="fig/traditional-om.png", width="100%" />
 ]
 
+---
+name: digital-collision
+# 전통기업: 디지털 운영 모형 전환
+
+<br>
+
+.center[
+<img src="fig/digital-transformation-om.png", width="100%" />
+]
 

@@ -1,5 +1,0 @@
-
----
-class: inverse, middle
-name: digital-company
-

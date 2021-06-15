@@ -1,5 +1,5 @@
 ---
-name: goodbye
+name: digital-goodbye
 class: middle, inverse
 
 .pull-left[
@@ -12,7 +12,7 @@ class: middle, inverse
 .pull-right[
 .right[
 
-<img style="border-radius: 100%;" src="../../fig/Tidyverse_Korea_logo_transparent.png" width="300px"/>
+<img style="border-radius: 100%;" src="fig/Tidyverse_Korea_logo_transparent.png" width="300px"/>
 
 ]
 ]

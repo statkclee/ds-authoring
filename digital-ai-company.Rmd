@@ -83,7 +83,7 @@ name: data-science-case
 
 전통기업과 디지털 인공지능(AI) 기업간 경쟁이 치열해지면서 이제는 서서희 윤곽이 나타나고 있다.
 
-전통기업이든 디지털 AI 기업이든 .green[**기업(레고, Building Block)**]이라는 존재는 동일하기 때문에 기업에 대해서 살펴보고,
+.red[**전통기업**]이든 디지털 AI 기업이든 .green[**기업(레고, Building Block)**]이라는 존재는 동일하기 때문에 기업에 대해서 살펴보고,
 
 .warmyellow[**디지털 AI 기업**]을 전통기업과 대비하여 .black[**AIS**]를 제대로 이해하자.
 
@@ -94,24 +94,29 @@ name: data-science-case
 
 0\. **[.green[레고, Building Block]](#digital-building-block)**
 
-1\. [전통 기업](#digital-traditional-company)
+1\. [전통 기업](#digital-traditional-company-toc)
 
-2\. [디지털 AI 기업](#digital-ai-company)
+2\. [디지털 AI 기업](#digital-newtork-ai-company-toc)
 
-3\. [AIS](#digital-ais)
+3\. [우버(Uber), AIS](#digital-uber-ais-toc)
 
-4\. [마무리](#goodbye) 
+4\. [마무리](#digital-goodbye) 
 ]
 ] <!--end of right-column-->
 
 ```{r child='slideshows/digital/digital-building-block.Rmd'}
 ```
 
-<!--```{r child='slideshows/digital/digital-traditional-company.Rmd'} ```-->
+```{r child='slideshows/digital/digital-traditional-company.Rmd'} 
+```
+
+```{r child='slideshows/digital/digital-network-ai-company.Rmd'} 
+```
+
+```{r child='slideshows/digital/digital-uber-ais.Rmd'} 
+```
   
- 
- 
+```{r child='slideshows/digital/digital-goodbye.Rmd'} 
+```
 
  
-
-
