@@ -1,0 +1,26 @@
+<!--------------------------  디지털 경제 전환 ----------------------------------------->
+
+```{r child='slideshows/healthcare/healthcare-dt.Rmd'} 
+```
+
+
+<!--------------------------  데이터 과학 ----------------------------------------->
+
+```{r child='slideshows/healthcare/healthcare-ds-case-study.Rmd'}
+```
+
+```{r child='slideshows/healthcare/healthcare-ds.Rmd'}
+```
+
+<!--------------------------  인공지능 ----------------------------------------->
+
+
+```{r child='slideshows/healthcare/healthcare-ai.Rmd'} 
+```
+
+<!--------------------------  헬스케어 ----------------------------------------->
+
+
+```{r child='slideshows/healthcare/healthcare-ai.Rmd'} 
+```
+

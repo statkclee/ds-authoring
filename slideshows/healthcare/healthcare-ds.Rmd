@@ -1,0 +1,186 @@
+
+---
+class: inverse, middle
+name: data-science-case
+
+# 발표 개요
+
+----
+
+.pull-left[
+
+알파고가 2016년 이세돌 9단을 가볍게 승리하면서 **AI 디지털 경제전환**이 촉발되었다면
+코로나19는 .red[**디지털 경제전환**]을 가속화를 넘어 디지털 불평등을 심화시키고 있다.
+
+AI 디지털 경제전환을 이해하는데 꼭 필요한 .black[**데이터 과학**]과 .green[**인공지능**] 기술적 토대를 살펴보고 이를 .warmyellow[**헬스케어**] 영역에 응용하여 활용방안을 모색해 보자. 
+
+]
+ 
+.pull-right[   
+.left[
+
+1\. **[.red[디지털 경제전환 (DT)]](#digital-transformation)**
+
+2\. [데이터 과학 사례](#digital-data-science-case-study)
+
+3\. [데이터 과학 (Data Science)](#data-science)
+
+4\. [인공지능 (AI)](#digital-ai)
+
+5\. [헬스케어 응용](#digital-healthcare)
+
+6\. [마무리](#digital-goodbye)
+
+]
+] <!--end of right-column-->
+
+
+
+---
+name: data-science-definition
+# 데이터 과학
+
+데이터 사이언스(Data Science)는 데이터를 다루는 과학이다. 따라서 자연법칙을 다루는 자연과학과 맥이 닿아있다.
+자연법칙을 측정하여 데이터프레임(`DataFrame`)으로 나타내면 **변수(Variable)**, **관측점(Observation)**, **값(Value)**으로 표현된다.
+
+<img src="fig/data-science-overview.png" alt="데이터 사이언스 개요" width="100%" />
+
+
+.footnote[
+[Google Search - "데이터 과학"](https://www.google.com/search?q=%EB%8D%B0%EC%9D%B4%ED%84%B0+%EA%B3%BC%ED%95%99)
+]
+
+---
+name: tidyverse
+# AI/ML/DL vs 데이터 과학
+
+<br>
+
+.center[
+<img src="fig/tidyvese_os.png" width="77%" />
+]
+
+
+.footnote[
+[한국통계학회 소식지 2019년 10월호 ](https://statkclee.github.io/ds-authoring/ds-stat-tidyverse.html)
+]
+
+---
+name: tidyverse-definition
+# `tidyverse`
+
+<br>
+
+.center[
+<img src="fig/maso_tidyverse.png" width="77%" />
+]
+
+
+.pull-left[
+
+- 기존 자료구조를 재사용
+- 파이프 연산자로 간단한 함수를 조합
+- 함수형 프로그래밍을 적극 사용
+- 기계가 아닌 인간을 위한 설계
+
+]
+
+.pull-right[
+ 
+- Reuse existing data structures.
+- Compose simple functions with the pipe.
+- Embrace functional programming.
+- Design for humans.
+
+]
+
+
+---
+name: y-fx
+# 30년의 변화를 그림으로 표현
+
+.center[
+<img src="fig/intree-xy-f.png" alt="XY" width="77%" />
+]
+
+
+.footnote[
+[이광춘(2019-01-26), "Data Scientist 가 바라본 제조업의 발전 전략 및 방안", Intree 4.0 World Forum](https://statkclee.github.io/ds-authoring/intree-seminar-2019-01.html)
+]
+
+---
+name: data-science-graph
+## Big Data/AI/ML/Data Science
+
+<br> 
+
+.pull-left[
+### Google Trends: 미국
+
+![](fig/google-trends-comparison-us-1.png)
+]
+
+.pull-right[
+### Google Trends: 대한민국
+
+![](fig/google-trends-comparison-kr-1.png)
+]
+
+.footnote[
+[이광춘 (2020-07-21), "기업운영혁신을 위한 데이터 과학: 기업의 활용방안", 포항산업과학연구원(RIST)](https://statkclee.github.io/ds-authoring/ds-rist.html)
+]
+
+---
+name: data-science-resource
+# 데이터 경제와 산업
+
+.pull-left[
+### 데이터 자원
+
+![](fig/economist-bigdata-oil.png)
+]
+
+.pull-right[
+### 파이프라인
+
+![](fig/data-economy-industry.png)
+]
+
+.footnote[
+[이광춘 (2020-07-21), "기업운영혁신을 위한 데이터 과학: 기업의 활용방안", 포항산업과학연구원(RIST)](https://statkclee.github.io/ds-authoring/ds-rist.html)
+]
+
+---
+name: data-sciece-value
+## 가치
+
+<small>
+<ul>
+  <li>기술 분석(Descriptive Analytics): 무슨 일이 있었나? (What happened?)</li>
+  <li>진단 분석(Diagnostic Analytics): 왜 일어났나? (Why did it happen?)</li>
+  <li>예측 분석(Predictive Analytics): 무슨 일이 일어날까? (What will happen?)</li>
+  <li>처방 분석(Prescriptive Analytics): 어떻게 그런 일을 일으킬까? (How can we make it happen?)</li>
+</ul>
+</small>
+
+.center[
+<img src="fig/ds-gartner.png" width = "80%" />
+]
+
+
+---
+name: data-sciece-cost
+# 패러다임의 변화
+
+.pull-left[
+### 비용
+
+![](fig/data-science-cost.png)
+]
+
+.pull-right[
+### 자동화 
+
+![](fig/automated-machine-learning.png)
+]
+
