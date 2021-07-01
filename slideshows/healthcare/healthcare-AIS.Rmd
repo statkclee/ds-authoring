@@ -1,16 +1,16 @@
 
 
 ---
-name: esg-country
-# 전통적 지표
+name: healthcare-data
+# 개인정보
 <br>
 <br>
 
 .center[
-<img src="fig/esg-country-classic.png" />
+<img src="https://raw.githubusercontent.com/statkclee/privacy/gh-pages/fig/personal-data.png" />
 ]
 
 .footnote[
-- [위키백과 OECD](https://en.wikipedia.org/wiki/OECD)
+- [개인정보와 익명화](https://statkclee.github.io/privacy/anonymization.html)
 ]
 
