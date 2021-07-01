@@ -21,6 +21,6 @@
 <!--------------------------  헬스케어 ----------------------------------------->
 
 
-```{r child='slideshows/healthcare/healthcare-ai.Rmd'} 
+```{r child='slideshows/healthcare/healthcare-AIS.Rmd'} 
 ```
 

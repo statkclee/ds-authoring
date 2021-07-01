@@ -1,0 +1,16 @@
+
+
+---
+name: esg-country
+# 전통적 지표
+<br>
+<br>
+
+.center[
+<img src="fig/esg-country-classic.png" />
+]
+
+.footnote[
+- [위키백과 OECD](https://en.wikipedia.org/wiki/OECD)
+]
+

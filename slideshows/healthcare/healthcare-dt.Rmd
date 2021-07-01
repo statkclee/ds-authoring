@@ -1,0 +1,510 @@
+
+
+---
+name: esg-country
+# 전통적 지표
+<br>
+<br>
+
+.center[
+<img src="fig/esg-country-classic.png" />
+]
+
+.footnote[
+- [위키백과 OECD](https://en.wikipedia.org/wiki/OECD)
+]
+
+---
+name: esg-country-classic
+# 전통 지표 기준 강대국
+
+```{r oecd-stats }
+library(tidyverse)
+library(countrycode)
+library(reactable)
+library(htmltools)
+
+oecd_full_df <- read_rds(glue::glue("{here::here()}/data/oecd_full_df.rds"))
+
+oecd_df <- oecd_full_df %>% 
+  select(country, flags, -ends_with("rank"), everything()) %>% 
+  mutate(iso2c = countrycode(iso3c, origin = "iso3c", destination = "iso2c") %>% str_to_lower(.)) %>% 
+  mutate(gdp = round(gdp/10^9, 0),
+         population = round(population / 10^6, 0))
+
+oecd_df %>% 
+  select("country", "flags", "gdp", "area", "population", "gdp_per_capita") %>% 
+  arrange(desc(gdp)) %>% 
+    reactable(
+    filterable = FALSE,
+    searchable = FALSE,
+    minRows = 5,
+    highlight = TRUE,
+    columns = list(
+        country = colDef(
+          width = 200,
+          html = TRUE,
+          cell = JS("function(cell) {
+            return '<a href=\"https://wikipedia.org/wiki/' + cell.value + '\">' + cell.value + '</a>'
+          }")
+        ),
+        flags = colDef(
+          width = 70
+        ),
+        gdp = colDef(
+          width = 100,
+          format = colFormat(separators = TRUE)
+        ),
+        area = colDef(
+          format = colFormat(separators = TRUE)
+        ),
+        gdp_per_capita = colDef(
+          format = colFormat(separators = TRUE)
+        )
+    )
+  )
+```
+
+---
+name: esg-country-extended
+# 확장 전통 지표
+<br>
+<br>
+
+.center[
+<img src="fig/esg-country-extension.png" />
+]
+
+.footnote[
+- [위키백과 OECD](https://en.wikipedia.org/wiki/OECD)
+]
+
+---
+name: esg-country-extended-table
+# 확장 지표 기준 선진국
+
+```{r oecd-esg-extended}
+
+oecd_df %>% 
+  select("country", "flags", "income_inequality", "hdi", "fsi", "cpi", "ief", "gpi", "wpfi", "di") %>% 
+  arrange(income_inequality) %>% 
+    reactable(
+    filterable = FALSE,
+    searchable = FALSE,
+    minRows = 5,
+    highlight = TRUE,
+    columns = list(
+        country = colDef(
+          width = 170,
+          html = TRUE,
+          cell = JS("function(cell) {
+            return '<a href=\"https://wikipedia.org/wiki/' + cell.value + '\">' + cell.value + '</a>'
+          }")
+        ),
+        flags = colDef(
+          width = 70
+        ),
+        income_inequality = colDef(
+          width = 110
+        ),
+        hdi = colDef(
+          width = 70
+        ),
+        fsi = colDef(
+          width = 70
+        ),
+        cpi = colDef(
+          width = 70
+        ),  
+        ief = colDef(
+          width = 70
+        ),
+        gpi = colDef(
+          width = 70
+        ),
+        wpfi = colDef(
+          width = 70
+        )        
+    )
+  )
+```
+
+ 
+---
+name: esg-digital-country-start
+# 디지털 강대국 지표
+
+.center[
+![](fig/oecd-dataset.png)
+]
+
+
+- [디지털 정부 순위](https://www.oecd-ilibrary.org/deliver/4de9f5bb-en.pdf?itemId=%2Fcontent%2Fpaper%2F4de9f5bb-en&mimeType=pdf)
+- [정부 인공지능 준비지수](https://www.oxfordinsights.com/government-ai-readiness-index-2020)
+- [데이터 경제 순위](https://hbr.org/2019/01/which-countries-are-leading-the-data-economy)
+- [산업용 로봇 밀도](https://ifr.org/downloads/press2018/Robot_Density_by_country_WorldRobotics2020_graph.jpg)
+- [세계 경쟁력 보고서](https://reports.weforum.org/global-competitiveness-report-2019/competitiveness-rankings/)
+- [IMD 세계 경쟁력 연감](https://www.imd.org/wcc/world-competitiveness-center-rankings/world-digital-competitiveness-rankings-2020/)
+
+
+---
+name: esg-digital-government
+# 디지털 강대국 지표 - 디지털 정부 순위
+
+```{r digital-index-government}
+library(tidyverse)
+library(reactable)
+library(htmltools)
+
+oecd_full_df <- read_rds(glue::glue("{here::here()}/data/oecd_full_df.rds"))
+
+oecd_df <- oecd_full_df %>% 
+  select(country, flags, -ends_with("rank"), everything()) %>% 
+  mutate(iso2c = countrycode(iso3c, origin = "iso3c", destination = "iso2c") %>% str_to_lower(.)) %>% 
+  mutate(gdp = round(gdp/10^9, 0),
+         population = round(population / 10^6, 0))
+
+oecd_df %>% 
+  arrange(gov_rank) %>% 
+  select(country, flags, 디지털정부 = gov_rank, gdp, gdp_per_capita) %>% 
+    reactable(
+    filterable = FALSE,
+    searchable = FALSE,
+    minRows = 10,
+    highlight = TRUE,
+        columns = list(
+        country = colDef(
+          html = TRUE,
+          cell = JS("function(cell) {
+            return '<a href=\"https://wikipedia.org/wiki/' + cell.value + '\">' + cell.value + '</a>'
+          }")
+        ),
+        flags = colDef(
+          width = 70
+        ),
+        gdp = colDef(
+          width = 100,
+          format = colFormat(separators = TRUE)
+        ),
+        gdp_per_capita = colDef(
+          format = colFormat(separators = TRUE)
+        ),
+        디지털정부 = colDef(
+          align = "center",
+          format = colFormat(separators = TRUE)
+        )
+    )
+  )
+
+```
+
+---
+name: esg-digital-ai-government
+# 디지털 강대국 지표 - 인공지능 준비지수
+
+```{r digital-index-ai-government}
+
+oecd_df %>% 
+  arrange(ai_rank) %>% 
+  select(country, flags, AI_순위 = ai_rank, gdp, gdp_per_capita) %>% 
+    reactable(
+    filterable = FALSE,
+    searchable = FALSE,
+    minRows = 10,
+    highlight = TRUE,
+        columns = list(
+        country = colDef(
+          html = TRUE,
+          cell = JS("function(cell) {
+            return '<a href=\"https://wikipedia.org/wiki/' + cell.value + '\">' + cell.value + '</a>'
+          }")
+        ),
+        flags = colDef(
+          width = 70
+        ),
+        gdp = colDef(
+          width = 100,
+          format = colFormat(separators = TRUE)
+        ),
+        gdp_per_capita = colDef(
+          format = colFormat(separators = TRUE)
+        ),
+        AI_순위 = colDef(
+          align = "center",
+          format = colFormat(separators = TRUE)
+        )
+    )
+  )
+
+```
+ 
+---
+name: esg-digital-data-economy
+# 디지털 강대국 지표 - 데이터 경제
+
+```{r digital-index-data-economy}
+
+oecd_df %>% 
+  arrange(ai_rank) %>% 
+  select(country, flags, 데이터경제 = data_rank, gdp, gdp_per_capita) %>% 
+    reactable(
+    filterable = FALSE,
+    searchable = FALSE,
+    minRows = 10,
+    highlight = TRUE,
+        columns = list(
+        country = colDef(
+          html = TRUE,
+          cell = JS("function(cell) {
+            return '<a href=\"https://wikipedia.org/wiki/' + cell.value + '\">' + cell.value + '</a>'
+          }")
+        ),
+        flags = colDef(
+          width = 70
+        ),
+        gdp = colDef(
+          width = 100,
+          format = colFormat(separators = TRUE)
+        ),
+        gdp_per_capita = colDef(
+          format = colFormat(separators = TRUE)
+        ),
+        데이터경제 = colDef(
+          align = "center",
+          format = colFormat(separators = TRUE)
+        )
+    )
+  )
+
+```
+
+---
+name: esg-digital-robot
+# 디지털 강대국 지표 - 산업용 로봇
+
+```{r digital-index-robot}
+
+oecd_df %>% 
+  arrange(robot_rank) %>% 
+  select(country, flags, 로봇_순위 = robot_rank, gdp, gdp_per_capita) %>% 
+    reactable(
+    filterable = FALSE,
+    searchable = FALSE,
+    minRows = 10,
+    highlight = TRUE,
+        columns = list(
+        country = colDef(
+          html = TRUE,
+          cell = JS("function(cell) {
+            return '<a href=\"https://wikipedia.org/wiki/' + cell.value + '\">' + cell.value + '</a>'
+          }")
+        ),
+        flags = colDef(
+          width = 70
+        ),
+        gdp = colDef(
+          width = 100,
+          format = colFormat(separators = TRUE)
+        ),
+        gdp_per_capita = colDef(
+          format = colFormat(separators = TRUE)
+        ),
+        로봇_순위 = colDef(
+          align = "center",
+          format = colFormat(separators = TRUE)
+        )
+    )
+  )
+```
+
+
+---
+name: esg-digital-competitiveness
+# 디지털 강대국 지표 - WEF 세계 경쟁력
+
+```{r digital-index-competitiveness}
+
+oecd_df %>% 
+  arrange(wef_rank) %>% 
+  select(country, flags, WEF_순위 = wef_rank, gdp, gdp_per_capita) %>% 
+    reactable(
+    filterable = FALSE,
+    searchable = FALSE,
+    minRows = 10,
+    highlight = TRUE,
+        columns = list(
+        country = colDef(
+          html = TRUE,
+          cell = JS("function(cell) {
+            return '<a href=\"https://wikipedia.org/wiki/' + cell.value + '\">' + cell.value + '</a>'
+          }")
+        ),
+        flags = colDef(
+          width = 70
+        ),
+        gdp = colDef(
+          width = 100,
+          format = colFormat(separators = TRUE)
+        ),
+        gdp_per_capita = colDef(
+          format = colFormat(separators = TRUE)
+        ),
+        WEF_순위 = colDef(
+          align = "center",
+          format = colFormat(separators = TRUE)
+        )
+    )
+  )
+```
+
+---
+name: esg-digital-imd
+# 디지털 강대국 지표 - IMD 디지털 경쟁력
+
+```{r digital-index-imd}
+
+oecd_df %>% 
+  arrange(digital_rank) %>% 
+  select(country, flags, IMD_순위 = digital_rank, gdp, gdp_per_capita) %>% 
+    reactable(
+    filterable = FALSE,
+    searchable = FALSE,
+    minRows = 10,
+    highlight = TRUE,
+        columns = list(
+        country = colDef(
+          html = TRUE,
+          cell = JS("function(cell) {
+            return '<a href=\"https://wikipedia.org/wiki/' + cell.value + '\">' + cell.value + '</a>'
+          }")
+        ),
+        flags = colDef(
+          width = 70
+        ),
+        gdp = colDef(
+          width = 100,
+          format = colFormat(separators = TRUE)
+        ),
+        gdp_per_capita = colDef(
+          format = colFormat(separators = TRUE)
+        ),
+        IMD_순위 = colDef(
+          align = "center",
+          format = colFormat(separators = TRUE)
+        )
+    )
+  )
+```
+
+
+---
+name: esg-digital-summary
+# 디지털 강대국 지표 - 종합
+
+```{r digital-index-summary}
+
+oecd_df %>% 
+  arrange(robot_rank) %>% 
+  select(country, flags, 정부 = gov_rank, AI = ai_rank, 데이터경제 = data_rank, 로봇 = robot_rank, WEF = wef_rank, IMD = digital_rank) %>% 
+    reactable(
+    filterable = FALSE,
+    searchable = FALSE,
+    minRows = 10,
+    highlight = TRUE,
+        columns = list(
+        country = colDef(
+          width = 170,
+          html = TRUE,
+          cell = JS("function(cell) {
+            return '<a href=\"https://wikipedia.org/wiki/' + cell.value + '\">' + cell.value + '</a>'
+          }")
+        ),
+        flags = colDef(
+          width = 70
+        ),
+        정부 = colDef(
+          width = 70,
+          align = "center"
+        ),
+        AI = colDef(
+          width = 70,
+          align = "center"
+        ),
+        로봇 = colDef(
+          width = 70,
+          align = "center"
+        ),
+        WEF = colDef(
+          width = 70,
+          align = "center"
+        ),
+        IMD = colDef(
+          width = 70,
+          align = "center"
+        ),
+        데이터경제 = colDef(
+          align = "center",
+          width = 125,
+          format = colFormat(separators = TRUE)
+        )
+    )
+  )
+```
+
+---
+name: esg-digital-visualization
+# 디지털 강대국 지표 - 종합 시각화
+
+```{r digital-index-visualizatio, out.width="100%", out.height="85%"}
+library(plotly)
+library(tidymodels)
+library(embed)
+
+oecd_model_df <- oecd_df %>% 
+  select(-gov_rank, -robot_rank)
+
+recipe_spec <- oecd_model_df %>% 
+  na.omit() %>% 
+  select(country, gdp, population, gdp_per_capita, contains("rank")) %>% 
+  recipe( ~ .) %>%
+    update_role(country, new_role = "id") %>%
+    step_normalize(all_predictors()) %>%
+    step_umap(all_numeric(), num_comp = 2, seed = c(777, 987))
+
+umap_tbl <- recipe_spec %>% prep() %>% juice()
+
+# 툴팁 데이터 작성
+plot_tbl <- umap_tbl %>%
+    inner_join(
+        oecd_model_df %>%
+            select(country, contains("rank"))
+    ) %>%
+    mutate(tooltip = str_glue(
+        "
+        Country: {country}
+        WEF Rank: {wef_rank}
+        IMD Rank: {digital_rank}
+        AI Rank: {ai_rank}
+        데이터경제 Rank: {data_rank}
+        "
+    )) %>% 
+  mutate(club_3050 = ifelse(str_detect(country, "United States|Korea|Japan|United Kingdom|France|Germany|Italy"), "30-50 클럽","기타") ) %>% 
+  mutate(club_3050 = factor(club_3050, levels = c("30-50 클럽","기타")))
+  # mutate(class = case_when(str_detect(country, "United States") ~ "United States",
+  #                          str_detect(country, "Korea") ~ "Korea",
+  #                          str_detect(country, "Japan") ~ "Japan",
+  #                          str_detect(country, "Germany") ~ "Germany",
+  #                          TRUE ~ "기타")) %>% 
+  # mutate(class = factor(class, levels=c("Korea", "United States", "Japan", "Germany", "기타")))
+
+# Plotly 시각화 ----
+plot_tbl %>%
+    plot_ly(x = ~ umap_1, y = ~ umap_2,
+            color = ~ club_3050, colors = c('red', 'darkgray'),
+            hovertemplate = ~ tooltip) %>%
+    add_markers(opacity = 1) %>% 
+    add_text(text = ~country, showlegend = FALSE, textposition = "top right")
+
+```
+
+

@@ -98,9 +98,23 @@ AI 디지털 경제전환을 이해하는데 꼭 필요한 .black[**데이터 �
 
 
 
-
 ```{r child='slideshows/healthcare/healthcare-goodbye.Rmd'} 
 ```
+
+
+---
+name: esg-country
+# 전통적 지표
+<br>
+<br>
+
+.center[
+<img src="fig/esg-country-classic.png" />
+]
+
+.footnote[
+- [위키백과 OECD](https://en.wikipedia.org/wiki/OECD)
+]
 
 
 
