@@ -3,14 +3,115 @@
 ---
 name: healthcare-data
 # 개인정보
-<br>
-<br>
 
 .center[
-<img src="https://raw.githubusercontent.com/statkclee/privacy/gh-pages/fig/personal-data.png" />
+<img src="https://raw.githubusercontent.com/statkclee/privacy/gh-pages/fig/personal-data.png" width = "87%" />
 ]
 
 .footnote[
 - [개인정보와 익명화](https://statkclee.github.io/privacy/anonymization.html)
 ]
+
+---
+name: healthcare-respiration
+# 호흡 데이터 생성
+
+.center[
+<img src="fig/sensor-data-generation.png" width = "100%" />
+]
+
+.footnote[
+
+```{r ai-device, results = 'asis'}
+library(rcrossref)
+doi <- c('10.3390/electronics9010084')
+cat(unlist(rcrossref::cr_cn(dois = doi, format = "text", style = 'apa')))
+```
+
+]
+
+---
+name: healthcare-respiration
+# 데이터 종류
+
+<br>
+
+.center[
+<img src="https://raw.githubusercontent.com/statkclee/data-science/gh-pages/fig/classify-data.png" width = "100%" />
+]
+
+.footnote[
+
+- [Tidyverse Korea, "데이터 사이언스: 관계형 데이터베이스(RDBMS)"](https://statkclee.github.io/data-science/ds-rdbms.html)
+]
+
+---
+name: healthcare-respiration
+# RDBMS ERD - Chinook
+
+.center[
+<img src="https://raw.githubusercontent.com/statkclee/data-science/gh-pages/fig/chinook-erd.png" width = "80%" />
+]
+
+.footnote[
+
+- [Tidyverse Korea, "데이터 사이언스: 관계형 데이터베이스(RDBMS)"](https://statkclee.github.io/data-science/ds-rdbms.html)
+]
+
+---
+name: healthcare-respiration
+# 호흡 진단기 ERD
+
+.center[
+<img src="fig/sensor-erd.png" width = "80%" />
+]
+
+.footnote[
+
+- [Tidyverse Korea, "데이터 사이언스: 관계형 데이터베이스(RDBMS)"](https://statkclee.github.io/data-science/ds-rdbms.html)
+]
+ 
+---
+name: healthcare-respiration
+# Feature Engineering
+
+<br>
+<br>
+
+.center[
+<img src="fig/feature-engineering.png" width = "80%" />
+]
+
+.footnote[
+
+```{r ai-fe, results = 'asis'}
+doi_fe <- c('10.3390/s151127804')
+cat(unlist(rcrossref::cr_cn(dois = doi_fe, format = "text", style = 'apa')))
+```
+
+]
+ 
+---
+name: healthcare-respiration
+# AI 딥러닝 모델 개발
+
+<br>
+<br>
+
+.center[
+<img src="https://raw.githubusercontent.com/statkclee/model/gh-pages/fig/tidymodels-ecosystem.png" width = "100%" />
+]
+
+.footnote[
+
+- [Tidyverse 모형 - tidymodels, "펭귄 성별예측모형: tidymodels"](https://statkclee.github.io/model/tidyverse-parsnip-penguin-101.html)
+
+]
+ 
+---
+name: healthcare-respiration
+# 설명가능한 기계학습
+
+<iframe width="800" height="500" src="https://www.youtube.com/embed/K_TGdklC504" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 

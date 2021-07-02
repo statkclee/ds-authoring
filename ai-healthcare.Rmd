@@ -96,42 +96,14 @@ AI 디지털 경제전환을 이해하는데 꼭 필요한 .black[**데이터 �
 ]
 ] <!--end of right-column-->
 
+<!--------------------------  헬스케어 ----------------------------------------->
+
+```{r child='slideshows/healthcare/healthcare-AIS.Rmd'} 
+```
 
 
 ```{r child='slideshows/healthcare/healthcare-goodbye.Rmd'} 
 ```
 
 
----
-name: healthcare-data
-# 개인정보
 
-.center[
-<img src="https://raw.githubusercontent.com/statkclee/privacy/gh-pages/fig/personal-data.png" width = "87%" />
-]
-
-.footnote[
-- [개인정보와 익명화](https://statkclee.github.io/privacy/anonymization.html)
-]
-
----
-name: healthcare-respiration
-# 호흡 데이터 생성
-
-.center[
-<img src="fig/sensor-data-generation.png" width = "100%" />
-]
-
-.footnote[
-
-```{r ai-device, results = 'asis'}
-library(rcrossref)
-doi <- c('10.3390/electronics9010084')
-cat(unlist(rcrossref::cr_cn(dois = doi, format = "text", style = 'apa')))
-```
-
-]
-
-
-
- 
