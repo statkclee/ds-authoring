@@ -17,7 +17,7 @@ title: 데이터 과학 기고문과 발표자료
 
 ## 학습목차 
 
-1. [디지털 AI 기업](digital-ai-company.html)
+1. [AI와 디지털 기업](ai-digital-company.html)
     - 2021년 07월 29일 (금), 인천 청운대학교
 1. [AI 기반 체외진단 응용](ai-healthcare.html)
     - 2021년 07월 16일 (금), 대전 카이스트 내 나노종합기술원

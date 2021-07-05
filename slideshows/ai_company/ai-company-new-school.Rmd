@@ -1,0 +1,85 @@
+
+---
+class: inverse, middle
+name: digital-newtork-ai-company-toc
+
+# 발표 개요
+
+----
+
+.pull-left[
+
+전통기업과 디지털 인공지능(AI) 기업간 경쟁이 치열해지면서 이제는 서서희 윤곽이 나타나고 있다.
+
+.red[**전통기업**]이든 디지털 AI 기업이든 .green[**기업(레고, Building Block)**]이라는 존재는 동일하기 때문에 기업에 대해서 살펴보고,
+
+.warmyellow[**디지털 AI 기업**]을 전통기업과 대비하여 .black[**AIS**]를 제대로 이해하자.
+
+]
+ 
+.pull-right[   
+.left[
+
+0\. [레고, Building Block](#digital-building-block)
+
+1\. [전통 기업](#digital-traditional-company-toc)
+
+2\. **[.warmyellow[디지털 AI 기업]](#digital-newtork-ai-company-toc)**
+
+3\. [AIS](#digital-uber-ais-toc)
+
+4\. [마무리](#goodbye) 
+]
+] <!--end of right-column-->
+
+
+
+---
+name: digital-network-ai-company
+# 디지털 AI 기업: AI 공장과 운영모형
+
+<br>
+<br>
+
+.center[
+<img src="fig/ai-factory-om.png", width="100%" />
+]
+
+---
+name: digital-network-om
+# 디지털 AI 기업: 운영모형 + 네트워크 효과
+
+.center[
+<img src="fig/network-effect-digital.png", width="100%" />
+]
+
+---
+name: digital-value
+# 디지털 AI 기업: 가치(Value), 효용(Utility)
+
+.center[
+<img src="fig/network-ai-value.png", width="87%" />
+]
+ 
+---
+name: digital-value
+# 디지털 AI 기업: 운영모형
+
+<br>
+
+.center[
+<img src="fig/ai-network-om.png", width="100%" />
+]
+ 
+ 
+---
+name: digital-value
+# 디지털 AI 기업: 운영모형 비교
+
+<br>
+
+.center[
+<img src="fig/digital-ai-om.png", width="100%" />
+]
+ 
+
