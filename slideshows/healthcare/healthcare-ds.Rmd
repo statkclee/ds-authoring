@@ -1,7 +1,7 @@
 
 ---
 class: inverse, middle
-name: data-science-case
+name: data-science
 
 # 발표 개요
 
@@ -19,11 +19,11 @@ AI 디지털 경제전환을 이해하는데 꼭 필요한 .black[**데이터 �
 .pull-right[   
 .left[
 
-1\. **[.red[디지털 경제전환 (DT)]](#digital-transformation)**
+1\. [디지털 경제전환 (DT)](#digital-transformation)
 
-2\. [데이터 과학 사례](#digital-data-science-case-study)
+2\. **[.black[데이터 과학 사례]](#digital-data-science-case-study)**
 
-3\. [데이터 과학 (Data Science)](#data-science)
+3\. **[.black[데이터 과학 (Data Science)]](#data-science)**
 
 4\. [인공지능 (AI)](#digital-ai)
 
@@ -31,8 +31,9 @@ AI 디지털 경제전환을 이해하는데 꼭 필요한 .black[**데이터 �
 
 6\. [마무리](#digital-goodbye)
 
-]
+] 
 ] <!--end of right-column-->
+
 
 
 

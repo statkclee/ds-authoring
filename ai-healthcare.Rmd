@@ -87,7 +87,7 @@ AI 디지털 경제전환을 이해하는데 꼭 필요한 .black[**데이터 �
 
 3\. [데이터 과학 (Data Science)](#data-science)
 
-4\. **[.green[인공지능 (AI)]](#digital-ai)**
+4\. [인공지능 (AI)](#digital-ai)
 
 5\. [헬스케어 응용](#digital-healthcare)
 
@@ -96,14 +96,37 @@ AI 디지털 경제전환을 이해하는데 꼭 필요한 .black[**데이터 �
 ]
 ] <!--end of right-column-->
 
+
+<!--------------------------  디지털 경제 전환 ----------------------------------------->
+
+```{r child='slideshows/healthcare/healthcare-dt.Rmd'} 
+```
+
+
+<!--------------------------  데이터 과학 ----------------------------------------->
+
+```{r child='slideshows/healthcare/healthcare-ds-case-study.Rmd'}
+```
+
+```{r child='slideshows/healthcare/healthcare-ds.Rmd'}
+```
+
+<!--------------------------  인공지능 ----------------------------------------->
+
+
+```{r child='slideshows/healthcare/healthcare-ai.Rmd'} 
+```
+
 <!--------------------------  헬스케어 ----------------------------------------->
+
 
 ```{r child='slideshows/healthcare/healthcare-AIS.Rmd'} 
 ```
 
+<!--------------------------  마무리 ----------------------------------------->
 
 ```{r child='slideshows/healthcare/healthcare-goodbye.Rmd'} 
 ```
 
-
-
+ 
+   

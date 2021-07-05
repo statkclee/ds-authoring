@@ -455,7 +455,7 @@ oecd_df %>%
 name: esg-digital-visualization
 # 디지털 강대국 지표 - 종합 시각화
 
-```{r digital-index-visualizatio, out.width="100%", out.height="85%"}
+```{r digital-index-visualizatio, out.width="100%", out.height="75%"}
 library(plotly)
 library(tidymodels)
 library(embed)

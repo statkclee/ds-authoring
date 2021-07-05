@@ -1,5 +1,42 @@
 
 ---
+class: inverse, middle
+name: healthcare-ai
+
+# 발표 개요
+
+----
+
+.pull-left[
+
+알파고가 2016년 이세돌 9단을 가볍게 승리하면서 **AI 디지털 경제전환**이 촉발되었다면
+코로나19는 .red[**디지털 경제전환**]을 가속화를 넘어 디지털 불평등을 심화시키고 있다.
+
+AI 디지털 경제전환을 이해하는데 꼭 필요한 .black[**데이터 과학**]과 .green[**인공지능**] 기술적 토대를 살펴보고 이를 .warmyellow[**헬스케어**] 영역에 응용하여 활용방안을 모색해 보자. 
+
+]
+ 
+.pull-right[   
+.left[
+
+1\. [디지털 경제전환 (DT)](#digital-transformation)
+
+2\. [데이터 과학 사례](#digital-data-science-case-study)
+
+3\. [데이터 과학 (Data Science)](#data-science)
+
+4\. **[.green[인공지능 (AI)]](#digital-ai)**
+
+5\. [헬스케어 응용](#digital-healthcare)
+
+6\. [마무리](#digital-goodbye)
+
+] 
+] <!--end of right-column-->
+
+
+
+---
 name: ml-overview
 # AI / ML / 통계
 
