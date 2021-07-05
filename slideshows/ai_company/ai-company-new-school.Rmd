@@ -1,7 +1,7 @@
 
 ---
 class: inverse, middle
-name: digital-newtork-ai-company-toc
+name: digital-company-lego
 
 # 발표 개요
 
@@ -9,28 +9,35 @@ name: digital-newtork-ai-company-toc
 
 .pull-left[
 
-전통기업과 디지털 인공지능(AI) 기업간 경쟁이 치열해지면서 이제는 서서희 윤곽이 나타나고 있다.
+알파고가 2016년 이세돌 9단을 가볍게 승리하면서 **AI 디지털 경제전환**이 촉발되었다면
+코로나19는 .red[**디지털 경제전환**]을 가속화를 넘어 디지털 불평등도 심화시키고 있다.
 
-.red[**전통기업**]이든 디지털 AI 기업이든 .green[**기업(레고, Building Block)**]이라는 존재는 동일하기 때문에 기업에 대해서 살펴보고,
-
-.warmyellow[**디지털 AI 기업**]을 전통기업과 대비하여 .black[**AIS**]를 제대로 이해하자.
+AI 디지털 경제전환 시대 .warmyellow[**디지털 기업**]을 이해하는데 
+꼭 필요한 .green[**인공지능**] 기술적 토대를 살펴보고 
+전통기업과 비교하여 상대적으로 디지털 기업을 이해해 보자.
 
 ]
  
 .pull-right[   
 .left[
 
-0\. [레고, Building Block](#digital-building-block)
+1\. [디지털 경제전환 (DT)](#digital-transformation)
 
-1\. [전통 기업](#digital-traditional-company-toc)
+2\. [인공지능 (AI)](#digital-ai)
 
-2\. **[.warmyellow[디지털 AI 기업]](#digital-newtork-ai-company-toc)**
+3\. **디지털 기업**
 
-3\. [AIS](#digital-uber-ais-toc)
+&nbsp;&nbsp;&nbsp; 3\.1\. [레고, Building Block](#digital-company-lego)
 
-4\. [마무리](#goodbye) 
+&nbsp;&nbsp;&nbsp; 3\.2\. [전통 기업](#digital-company-old-school)
+
+&nbsp;&nbsp;&nbsp; 3\.3\. **[.warmyellow[디지털 AI 기업]](#digital-company-new-school)**
+
+4\. [마무리](#digital-goodbye)
+
 ]
-] <!--end of right-column-->
+] <!--end of right-column--> 
+
 
 
 

@@ -7,6 +7,19 @@
     <meta name="date" content="2021-07-29" />
     <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <script src="libs/core-js/shim.min.js"></script>
+    <script src="libs/react/react.min.js"></script>
+    <script src="libs/react/react-dom.min.js"></script>
+    <script src="libs/reactwidget/react-tools.js"></script>
+    <script src="libs/htmlwidgets/htmlwidgets.js"></script>
+    <script src="libs/reactable-binding/reactable.js"></script>
+    <script src="libs/plotly-binding/plotly.js"></script>
+    <script src="libs/typedarray/typedarray.min.js"></script>
+    <script src="libs/jquery/jquery.min.js"></script>
+    <link href="libs/crosstalk/css/crosstalk.css" rel="stylesheet" />
+    <script src="libs/crosstalk/js/crosstalk.min.js"></script>
+    <link href="libs/plotly-htmlwidgets-css/plotly-htmlwidgets.css" rel="stylesheet" />
+    <script src="libs/plotly-main/plotly-latest.min.js"></script>
     <link rel="stylesheet" href="css/nhsr.css" type="text/css" />
     <link rel="stylesheet" href="css/nhsr-fonts.css" type="text/css" />
   </head>
@@ -52,7 +65,7 @@ AI 디지털 경제전환 시대 .warmyellow[**디지털 기업**]을 이해하�
 
 2\. [인공지능 (AI)](#digital-ai)
 
-3\. [디지털 기업](#digital-company)
+3\. **디지털 기업**
 
 &amp;nbsp;&amp;nbsp;&amp;nbsp; 3\.1\. [레고, Building Block](#digital-company-lego)
 
@@ -60,14 +73,286 @@ AI 디지털 경제전환 시대 .warmyellow[**디지털 기업**]을 이해하�
 
 &amp;nbsp;&amp;nbsp;&amp;nbsp; 3\.3\. [디지털 AI 기업](#digital-company-new-school)
 
-6\. [마무리](#digital-goodbye)
+4\. [마무리](#digital-goodbye)
 
 ]
 ] &lt;!--end of right-column--&gt; 
 
+&lt;!--------------------------  디지털 경제 전환 -----------------------------------------&gt;
+
+
+
+
+---
+name: esg-country
+# 전통적 지표
+&lt;br&gt;
+&lt;br&gt;
+
+.center[
+&lt;img src="fig/esg-country-classic.png" /&gt;
+]
+
+.footnote[
+- [위키백과 OECD](https://en.wikipedia.org/wiki/OECD)
+]
+
+---
+name: esg-country-classic
+# 전통 지표 기준 강대국
+
+<div id="htmlwidget-7fa2402b525be3f39e29" class="reactable html-widget" style="width:auto;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-7fa2402b525be3f39e29">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"country":["United States","Japan","Germany","France","United Kingdom","Italy","Mexico","Turkey","Korea, South","Spain","Canada","Australia","Poland","Netherlands","Colombia","Switzerland","Belgium","Sweden","Austria","Chile","Czech Republic","Ireland","Israel","Portugal","Norway","Greece","Denmark","Hungary","Finland","New Zealand","Slovakia","Lithuania","Slovenia","Latvia","Estonia","Iceland"],"flags":["🇺🇸","🇯🇵","🇩🇪","🇫🇷","🇬🇧","🇮🇹","🇲🇽","🇹🇷","🇰🇷","🇪🇸","🇨🇦","🇦🇺","🇵🇱","🇳🇱","🇨🇴","🇨🇭","🇧🇪","🇸🇪","🇦🇹","🇨🇱","🇨🇿","🇮🇪","🇮🇱","🇵🇹","🇳🇴","🇬🇷","🇩🇰","🇭🇺","🇫🇮","🇳🇿","🇸🇰","🇱🇹","🇸🇮","🇱🇻","🇪🇪","🇮🇸"],"gdp":[19391,5487,4188,2876,2857,2387,2358,2140,1973,1770,1714,1192,1102,900,709,548,544,505,462,445,385,364,333,326,324,297,296,275,247,197,172,91,72,54,42,18],"area":[9831510,377962,357380,549087,243610,301340,1964380,785350,100280,505940,9984670,7741220,312680,41540,1141748,41290,30530,447420,83879,756096,78870,70280,22070,92225,385178,131960,42922,93030,338420,267710,49035,65286,20270,64490,45230,103000],"population":[326,127,83,67,66,61,129,81,51,47,37,25,38,17,49,8,11,10,9,18,11,5,9,10,5,11,6,10,6,5,5,3,2,2,1,0],"gdp_per_capita":[59532,43279,50639,42850,43269,39427,18258,29505,38335,37998,46705,48460,29026,52503,14507,64712,47840,50208,52398,24635,36327,75648,38262,31673,61414,27602,51364,28108,44866,41109,31616,32092,34868,27598,31742,53153]},"columns":[{"accessor":"country","name":"country","type":"character","cell":"function(cell) {\n            return '<a href=\"https://wikipedia.org/wiki/' + cell.value + '\">' + cell.value + '<\/a>'\n          }","html":true,"width":200},{"accessor":"flags","name":"flags","type":"character","width":70},{"accessor":"gdp","name":"gdp","type":"numeric","format":{"cell":{"separators":true},"aggregated":{"separators":true}},"width":100},{"accessor":"area","name":"area","type":"numeric","format":{"cell":{"separators":true},"aggregated":{"separators":true}}},{"accessor":"population","name":"population","type":"numeric"},{"accessor":"gdp_per_capita","name":"gdp_per_capita","type":"numeric","format":{"cell":{"separators":true},"aggregated":{"separators":true}}}],"defaultPageSize":10,"paginationType":"numbers","showPageInfo":true,"minRows":5,"highlight":true,"dataKey":"0b6a92a29c08fe337021bebe4e6fb335","key":"0b6a92a29c08fe337021bebe4e6fb335"},"children":[]},"class":"reactR_markup"},"evals":["tag.attribs.columns.0.cell"],"jsHooks":[]}</script>
+
+---
+name: esg-country-extended
+# 확장 전통 지표
+&lt;br&gt;
+&lt;br&gt;
+
+.center[
+&lt;img src="fig/esg-country-extension.png" /&gt;
+]
+
+.footnote[
+- [위키백과 OECD](https://en.wikipedia.org/wiki/OECD)
+]
+
+---
+name: esg-country-extended-table
+# 확장 지표 기준 선진국
+
+<div id="htmlwidget-10de521e2315f4bf1a2f" class="reactable html-widget" style="width:auto;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-10de521e2315f4bf1a2f">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"country":["Slovenia","Czech Republic","Slovakia","Finland","Norway","Belgium","Iceland","Denmark","Netherlands","Sweden","Hungary","Austria","Korea, South","Germany","Ireland","Poland","Japan","Switzerland","Estonia","France","New Zealand","United Kingdom","Canada","Latvia","Australia","Italy","Portugal","Greece","Spain","Lithuania","Israel","United States","Turkey","Mexico","Chile","Colombia"],"flags":["🇸🇮","🇨🇿","🇸🇰","🇫🇮","🇳🇴","🇧🇪","🇮🇸","🇩🇰","🇳🇱","🇸🇪","🇭🇺","🇦🇹","🇰🇷","🇩🇪","🇮🇪","🇵🇱","🇯🇵","🇨🇭","🇪🇪","🇫🇷","🇳🇿","🇬🇧","🇨🇦","🇱🇻","🇦🇺","🇮🇹","🇵🇹","🇬🇷","🇪🇸","🇱🇹","🇮🇱","🇺🇸","🇹🇷","🇲🇽","🇨🇱","🇨🇴"],"income_inequality":[25.4,25.9,26.5,27.1,27.5,27.7,27.8,28.2,28.2,29.2,30.4,30.5,31.6,31.7,31.8,31.8,32.1,32.3,32.7,32.7,33,33.2,34,34.2,34.7,35.4,35.5,36,36.2,37.4,41.4,41.5,41.9,43.4,47.7,49.7],"hdi":[0.902,0.891,0.857,0.925,0.954,0.919,0.938,0.93,0.933,0.937,0.845,0.914,0.906,0.939,0.942,0.872,0.915,0.946,0.882,0.891,0.921,0.92,0.922,0.854,0.938,0.883,0.85,0.872,0.893,0.869,0.906,0.92,0.806,0.767,0.847,0.761],"fsi":[28,37.6,40.5,16.9,18,28.6,19.8,19.5,24.8,20.3,49.6,25,33.7,24.7,20.6,42.8,34.3,18.7,40.8,32,20.1,36.7,20,43.9,19.7,43.8,25.3,53.9,40.7,38.1,75.1,38,80.3,69.7,38.9,75.7],"cpi":[60,56,50,86,84,75,78,87,82,85,44,77,59,80,74,58,73,85,74,69,87,77,77,56,77,53,62,48,62,60,60,69,39,29,67,37],"ief":[67.8,74.8,66.8,75.7,73.4,68.9,77.1,78.3,77,74.9,66.4,73.3,74,73.5,80.9,69.1,73.3,82,77.7,66,84.1,79.3,78.2,71.9,82.6,63.8,67,59.9,66.9,76.7,74,76.6,64.4,66,76.8,69.2],"gpi":[1.355,1.383,1.55,1.488,1.536,1.533,1.072,1.316,1.53,1.533,1.54,1.291,1.867,1.547,1.39,1.654,1.369,1.375,1.727,1.892,1.221,1.801,1.327,1.718,1.419,1.754,1.274,1.933,1.699,1.779,2.735,2.401,3.015,2.6,1.634,2.661],"wpfi":[22.31,24.89,23.58,7.9,7.82,12.07,14.71,9.87,8.63,8.31,30.44,15.33,24.94,14.6,15,28.89,29.36,10.52,12.27,22.21,10.75,22.23,15.69,19.53,16.55,24.98,12.65,29.08,21.99,22.06,30.8,25.69,52.81,46.78,25.65,42.82],"di":[7.5,7.69,7.17,9.25,9.87,7.64,9.58,9.22,9.01,9.39,6.63,8.29,8,8.68,9.24,6.62,7.99,9.03,7.9,8.12,9.26,8.52,9.22,7.49,9.09,7.52,8.03,7.43,8.29,7.5,7.86,7.96,4.09,6.09,8.08,7.13]},"columns":[{"accessor":"country","name":"country","type":"character","cell":"function(cell) {\n            return '<a href=\"https://wikipedia.org/wiki/' + cell.value + '\">' + cell.value + '<\/a>'\n          }","html":true,"width":170},{"accessor":"flags","name":"flags","type":"character","width":70},{"accessor":"income_inequality","name":"income_inequality","type":"numeric","width":110},{"accessor":"hdi","name":"hdi","type":"numeric","width":70},{"accessor":"fsi","name":"fsi","type":"numeric","width":70},{"accessor":"cpi","name":"cpi","type":"numeric","width":70},{"accessor":"ief","name":"ief","type":"numeric","width":70},{"accessor":"gpi","name":"gpi","type":"numeric","width":70},{"accessor":"wpfi","name":"wpfi","type":"numeric","width":70},{"accessor":"di","name":"di","type":"numeric"}],"defaultPageSize":10,"paginationType":"numbers","showPageInfo":true,"minRows":5,"highlight":true,"dataKey":"78086b17f212e94d72dc51fb9f5c26ff","key":"78086b17f212e94d72dc51fb9f5c26ff"},"children":[]},"class":"reactR_markup"},"evals":["tag.attribs.columns.0.cell"],"jsHooks":[]}</script>
+
+ 
+---
+name: esg-digital-country-start
+# 디지털 강대국 지표
+
+.center[
+![](fig/oecd-dataset.png)
+]
+
+
+- [디지털 정부 순위](https://www.oecd-ilibrary.org/deliver/4de9f5bb-en.pdf?itemId=%2Fcontent%2Fpaper%2F4de9f5bb-en&amp;mimeType=pdf)
+- [정부 인공지능 준비지수](https://www.oxfordinsights.com/government-ai-readiness-index-2020)
+- [데이터 경제 순위](https://hbr.org/2019/01/which-countries-are-leading-the-data-economy)
+- [산업용 로봇 밀도](https://ifr.org/downloads/press2018/Robot_Density_by_country_WorldRobotics2020_graph.jpg)
+- [세계 경쟁력 보고서](https://reports.weforum.org/global-competitiveness-report-2019/competitiveness-rankings/)
+- [IMD 세계 경쟁력 연감](https://www.imd.org/wcc/world-competitiveness-center-rankings/world-digital-competitiveness-rankings-2020/)
+
+
+---
+name: esg-digital-government
+# 디지털 강대국 지표 - 디지털 정부 순위
+
+<div id="htmlwidget-06431820784cdca72312" class="reactable html-widget" style="width:auto;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-06431820784cdca72312">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"country":["Korea, South","United Kingdom","Colombia","Denmark","Japan","Canada","Spain","Israel","Portugal","France","New Zealand","Norway","Italy","Slovenia","Estonia","Latvia","Austria","Netherlands","Czech Republic","Ireland","Chile","Belgium","Germany","Lithuania","Finland","Greece","Iceland","Sweden","Australia","Hungary","Mexico","Poland","Slovakia","Switzerland","Turkey","United States"],"flags":["🇰🇷","🇬🇧","🇨🇴","🇩🇰","🇯🇵","🇨🇦","🇪🇸","🇮🇱","🇵🇹","🇫🇷","🇳🇿","🇳🇴","🇮🇹","🇸🇮","🇪🇪","🇱🇻","🇦🇹","🇳🇱","🇨🇿","🇮🇪","🇨🇱","🇧🇪","🇩🇪","🇱🇹","🇫🇮","🇬🇷","🇮🇸","🇸🇪","🇦🇺","🇭🇺","🇲🇽","🇵🇱","🇸🇰","🇨🇭","🇹🇷","🇺🇸"],"디지털정부":[1,2,3,4,5,6,7,8,10,11,12,13,15,17,18,19,20,21,22,23,24,25,26,27,28,29,32,33,"NA","NA","NA","NA","NA","NA","NA","NA"],"gdp":[1973,2857,709,296,5487,1714,1770,333,326,2876,197,324,2387,72,42,54,462,900,385,364,445,544,4188,91,247,297,18,505,1192,275,2358,1102,172,548,2140,19391],"gdp_per_capita":[38335,43269,14507,51364,43279,46705,37998,38262,31673,42850,41109,61414,39427,34868,31742,27598,52398,52503,36327,75648,24635,47840,50639,32092,44866,27602,53153,50208,48460,28108,18258,29026,31616,64712,29505,59532]},"columns":[{"accessor":"country","name":"country","type":"character","cell":"function(cell) {\n            return '<a href=\"https://wikipedia.org/wiki/' + cell.value + '\">' + cell.value + '<\/a>'\n          }","html":true},{"accessor":"flags","name":"flags","type":"character","width":70},{"accessor":"디지털정부","name":"디지털정부","type":"numeric","format":{"cell":{"separators":true},"aggregated":{"separators":true}},"align":"center"},{"accessor":"gdp","name":"gdp","type":"numeric","format":{"cell":{"separators":true},"aggregated":{"separators":true}},"width":100},{"accessor":"gdp_per_capita","name":"gdp_per_capita","type":"numeric","format":{"cell":{"separators":true},"aggregated":{"separators":true}}}],"defaultPageSize":10,"paginationType":"numbers","showPageInfo":true,"minRows":10,"highlight":true,"dataKey":"4ce41b6384a8a0685beeceddaebbb656","key":"4ce41b6384a8a0685beeceddaebbb656"},"children":[]},"class":"reactR_markup"},"evals":["tag.attribs.columns.0.cell"],"jsHooks":[]}</script>
+
+---
+name: esg-digital-ai-government
+# 디지털 강대국 지표 - 인공지능 준비지수
+
+<div id="htmlwidget-331aae41940a4647952e" class="reactable html-widget" style="width:auto;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-331aae41940a4647952e">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"country":["United States","United Kingdom","Finland","Germany","Sweden","Korea, South","Denmark","Netherlands","Norway","France","Australia","Japan","Canada","Estonia","Switzerland","Israel","Ireland","Austria","New Zealand","Spain","Italy","Lithuania","Portugal","Belgium","Poland","Czech Republic","Slovakia","Iceland","Latvia","Slovenia","Hungary","Chile","Colombia","Mexico","Greece","Turkey"],"flags":["🇺🇸","🇬🇧","🇫🇮","🇩🇪","🇸🇪","🇰🇷","🇩🇰","🇳🇱","🇳🇴","🇫🇷","🇦🇺","🇯🇵","🇨🇦","🇪🇪","🇨🇭","🇮🇱","🇮🇪","🇦🇹","🇳🇿","🇪🇸","🇮🇹","🇱🇹","🇵🇹","🇧🇪","🇵🇱","🇨🇿","🇸🇰","🇮🇸","🇱🇻","🇸🇮","🇭🇺","🇨🇱","🇨🇴","🇲🇽","🇬🇷","🇹🇷"],"AI_순위":[1,2,3,4,5,7,8,9,10,11,12,13,14,17,18,20,21,22,23,24,25,26,27,29,31,32,34,35,36,39,41,47,51,55,61,67],"gdp":[19391,2857,247,4188,505,1973,296,900,324,2876,1192,5487,1714,42,548,333,364,462,197,1770,2387,91,326,544,1102,385,172,18,54,72,275,445,709,2358,297,2140],"gdp_per_capita":[59532,43269,44866,50639,50208,38335,51364,52503,61414,42850,48460,43279,46705,31742,64712,38262,75648,52398,41109,37998,39427,32092,31673,47840,29026,36327,31616,53153,27598,34868,28108,24635,14507,18258,27602,29505]},"columns":[{"accessor":"country","name":"country","type":"character","cell":"function(cell) {\n            return '<a href=\"https://wikipedia.org/wiki/' + cell.value + '\">' + cell.value + '<\/a>'\n          }","html":true},{"accessor":"flags","name":"flags","type":"character","width":70},{"accessor":"AI_순위","name":"AI_순위","type":"numeric","format":{"cell":{"separators":true},"aggregated":{"separators":true}},"align":"center"},{"accessor":"gdp","name":"gdp","type":"numeric","format":{"cell":{"separators":true},"aggregated":{"separators":true}},"width":100},{"accessor":"gdp_per_capita","name":"gdp_per_capita","type":"numeric","format":{"cell":{"separators":true},"aggregated":{"separators":true}}}],"defaultPageSize":10,"paginationType":"numbers","showPageInfo":true,"minRows":10,"highlight":true,"dataKey":"518d2a97c4ed4ae5abdc6cdf71aebb0d","key":"518d2a97c4ed4ae5abdc6cdf71aebb0d"},"children":[]},"class":"reactR_markup"},"evals":["tag.attribs.columns.0.cell"],"jsHooks":[]}</script>
+ 
+---
+name: esg-digital-data-economy
+# 디지털 강대국 지표 - 데이터 경제
+
+<div id="htmlwidget-c6b4bca385c56de5502f" class="reactable html-widget" style="width:auto;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-c6b4bca385c56de5502f">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"country":["United States","United Kingdom","Finland","Germany","Sweden","Korea, South","Denmark","Netherlands","Norway","France","Australia","Japan","Canada","Estonia","Switzerland","Israel","Ireland","Austria","New Zealand","Spain","Italy","Lithuania","Portugal","Belgium","Poland","Czech Republic","Slovakia","Iceland","Latvia","Slovenia","Hungary","Chile","Colombia","Mexico","Greece","Turkey"],"flags":["🇺🇸","🇬🇧","🇫🇮","🇩🇪","🇸🇪","🇰🇷","🇩🇰","🇳🇱","🇳🇴","🇫🇷","🇦🇺","🇯🇵","🇨🇦","🇪🇪","🇨🇭","🇮🇱","🇮🇪","🇦🇹","🇳🇿","🇪🇸","🇮🇹","🇱🇹","🇵🇹","🇧🇪","🇵🇱","🇨🇿","🇸🇰","🇮🇸","🇱🇻","🇸🇮","🇭🇺","🇨🇱","🇨🇴","🇲🇽","🇬🇷","🇹🇷"],"데이터경제":[1,2,"NA",13,8,5,"NA","NA","NA",6,9,11,7,"NA",4,"NA",15,"NA",12,14,16,"NA",17,"NA",21,10,"NA","NA","NA","NA",26,20,"NA",18,23,29],"gdp":[19391,2857,247,4188,505,1973,296,900,324,2876,1192,5487,1714,42,548,333,364,462,197,1770,2387,91,326,544,1102,385,172,18,54,72,275,445,709,2358,297,2140],"gdp_per_capita":[59532,43269,44866,50639,50208,38335,51364,52503,61414,42850,48460,43279,46705,31742,64712,38262,75648,52398,41109,37998,39427,32092,31673,47840,29026,36327,31616,53153,27598,34868,28108,24635,14507,18258,27602,29505]},"columns":[{"accessor":"country","name":"country","type":"character","cell":"function(cell) {\n            return '<a href=\"https://wikipedia.org/wiki/' + cell.value + '\">' + cell.value + '<\/a>'\n          }","html":true},{"accessor":"flags","name":"flags","type":"character","width":70},{"accessor":"데이터경제","name":"데이터경제","type":"numeric","format":{"cell":{"separators":true},"aggregated":{"separators":true}},"align":"center"},{"accessor":"gdp","name":"gdp","type":"numeric","format":{"cell":{"separators":true},"aggregated":{"separators":true}},"width":100},{"accessor":"gdp_per_capita","name":"gdp_per_capita","type":"numeric","format":{"cell":{"separators":true},"aggregated":{"separators":true}}}],"defaultPageSize":10,"paginationType":"numbers","showPageInfo":true,"minRows":10,"highlight":true,"dataKey":"5265aa25cbb96f97340dc9076e9ede56","key":"5265aa25cbb96f97340dc9076e9ede56"},"children":[]},"class":"reactR_markup"},"evals":["tag.attribs.columns.0.cell"],"jsHooks":[]}</script>
+
+---
+name: esg-digital-robot
+# 디지털 강대국 지표 - 산업용 로봇
+
+<div id="htmlwidget-54cb405f94aeb2de3a66" class="reactable html-widget" style="width:auto;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-54cb405f94aeb2de3a66">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"country":["Korea, South","Japan","Germany","Sweden","Denmark","United States","Italy","Belgium","Netherlands","Spain","Austria","France","Slovakia","Canada","Switzerland","Slovenia","Australia","Chile","Colombia","Czech Republic","Estonia","Finland","Greece","Hungary","Iceland","Ireland","Israel","Latvia","Lithuania","Mexico","New Zealand","Norway","Poland","Portugal","Turkey","United Kingdom"],"flags":["🇰🇷","🇯🇵","🇩🇪","🇸🇪","🇩🇰","🇺🇸","🇮🇹","🇧🇪","🇳🇱","🇪🇸","🇦🇹","🇫🇷","🇸🇰","🇨🇦","🇨🇭","🇸🇮","🇦🇺","🇨🇱","🇨🇴","🇨🇿","🇪🇪","🇫🇮","🇬🇷","🇭🇺","🇮🇸","🇮🇪","🇮🇱","🇱🇻","🇱🇹","🇲🇽","🇳🇿","🇳🇴","🇵🇱","🇵🇹","🇹🇷","🇬🇧"],"로봇_순위":[2,3,4,5,6,9,10,11,12,13,14,16,17,18,19,20,"NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA"],"gdp":[1973,5487,4188,505,296,19391,2387,544,900,1770,462,2876,172,1714,548,72,1192,445,709,385,42,247,297,275,18,364,333,54,91,2358,197,324,1102,326,2140,2857],"gdp_per_capita":[38335,43279,50639,50208,51364,59532,39427,47840,52503,37998,52398,42850,31616,46705,64712,34868,48460,24635,14507,36327,31742,44866,27602,28108,53153,75648,38262,27598,32092,18258,41109,61414,29026,31673,29505,43269]},"columns":[{"accessor":"country","name":"country","type":"character","cell":"function(cell) {\n            return '<a href=\"https://wikipedia.org/wiki/' + cell.value + '\">' + cell.value + '<\/a>'\n          }","html":true},{"accessor":"flags","name":"flags","type":"character","width":70},{"accessor":"로봇_순위","name":"로봇_순위","type":"numeric","format":{"cell":{"separators":true},"aggregated":{"separators":true}},"align":"center"},{"accessor":"gdp","name":"gdp","type":"numeric","format":{"cell":{"separators":true},"aggregated":{"separators":true}},"width":100},{"accessor":"gdp_per_capita","name":"gdp_per_capita","type":"numeric","format":{"cell":{"separators":true},"aggregated":{"separators":true}}}],"defaultPageSize":10,"paginationType":"numbers","showPageInfo":true,"minRows":10,"highlight":true,"dataKey":"5d0eea6ac2127168d97c54e7e186de34","key":"5d0eea6ac2127168d97c54e7e186de34"},"children":[]},"class":"reactR_markup"},"evals":["tag.attribs.columns.0.cell"],"jsHooks":[]}</script>
+
+
+---
+name: esg-digital-competitiveness
+# 디지털 강대국 지표 - WEF 세계 경쟁력
+
+<div id="htmlwidget-53802f82f2b953a3b30f" class="reactable html-widget" style="width:auto;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-53802f82f2b953a3b30f">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"country":["United States","Netherlands","Switzerland","Japan","Germany","Sweden","United Kingdom","Denmark","Finland","Korea, South","Canada","France","Australia","Norway","New Zealand","Israel","Austria","Belgium","Spain","Ireland","Iceland","Italy","Estonia","Czech Republic","Chile","Portugal","Slovenia","Poland","Lithuania","Latvia","Slovakia","Hungary","Mexico","Colombia","Greece","Turkey"],"flags":["🇺🇸","🇳🇱","🇨🇭","🇯🇵","🇩🇪","🇸🇪","🇬🇧","🇩🇰","🇫🇮","🇰🇷","🇨🇦","🇫🇷","🇦🇺","🇳🇴","🇳🇿","🇮🇱","🇦🇹","🇧🇪","🇪🇸","🇮🇪","🇮🇸","🇮🇹","🇪🇪","🇨🇿","🇨🇱","🇵🇹","🇸🇮","🇵🇱","🇱🇹","🇱🇻","🇸🇰","🇭🇺","🇲🇽","🇨🇴","🇬🇷","🇹🇷"],"WEF_순위":[1,3,4,5,6,7,8,9,10,12,13,14,15,16,18,19,20,21,22,23,25,29,30,31,32,33,34,36,38,40,41,46,48,57,59,61],"gdp":[19391,900,548,5487,4188,505,2857,296,247,1973,1714,2876,1192,324,197,333,462,544,1770,364,18,2387,42,385,445,326,72,1102,91,54,172,275,2358,709,297,2140],"gdp_per_capita":[59532,52503,64712,43279,50639,50208,43269,51364,44866,38335,46705,42850,48460,61414,41109,38262,52398,47840,37998,75648,53153,39427,31742,36327,24635,31673,34868,29026,32092,27598,31616,28108,18258,14507,27602,29505]},"columns":[{"accessor":"country","name":"country","type":"character","cell":"function(cell) {\n            return '<a href=\"https://wikipedia.org/wiki/' + cell.value + '\">' + cell.value + '<\/a>'\n          }","html":true},{"accessor":"flags","name":"flags","type":"character","width":70},{"accessor":"WEF_순위","name":"WEF_순위","type":"numeric","format":{"cell":{"separators":true},"aggregated":{"separators":true}},"align":"center"},{"accessor":"gdp","name":"gdp","type":"numeric","format":{"cell":{"separators":true},"aggregated":{"separators":true}},"width":100},{"accessor":"gdp_per_capita","name":"gdp_per_capita","type":"numeric","format":{"cell":{"separators":true},"aggregated":{"separators":true}}}],"defaultPageSize":10,"paginationType":"numbers","showPageInfo":true,"minRows":10,"highlight":true,"dataKey":"5d489cc78151a9f98d766e3a970a6bb0","key":"5d489cc78151a9f98d766e3a970a6bb0"},"children":[]},"class":"reactR_markup"},"evals":["tag.attribs.columns.0.cell"],"jsHooks":[]}</script>
+
+---
+name: esg-digital-imd
+# 디지털 강대국 지표 - IMD 디지털 경쟁력
+
+<div id="htmlwidget-099b36b416a2da7bbee1" class="reactable html-widget" style="width:auto;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-099b36b416a2da7bbee1">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"country":["United States","Denmark","Sweden","Switzerland","Netherlands","Korea, South","Norway","Finland","Canada","United Kingdom","Australia","Austria","Germany","Israel","Ireland","Estonia","New Zealand","Iceland","France","Belgium","Japan","Lithuania","Slovenia","Poland","Spain","Czech Republic","Portugal","Latvia","Chile","Italy","Turkey","Greece","Hungary","Slovakia","Mexico","Colombia"],"flags":["🇺🇸","🇩🇰","🇸🇪","🇨🇭","🇳🇱","🇰🇷","🇳🇴","🇫🇮","🇨🇦","🇬🇧","🇦🇺","🇦🇹","🇩🇪","🇮🇱","🇮🇪","🇪🇪","🇳🇿","🇮🇸","🇫🇷","🇧🇪","🇯🇵","🇱🇹","🇸🇮","🇵🇱","🇪🇸","🇨🇿","🇵🇹","🇱🇻","🇨🇱","🇮🇹","🇹🇷","🇬🇷","🇭🇺","🇸🇰","🇲🇽","🇨🇴"],"IMD_순위":[1,3,4,6,7,8,9,10,12,13,15,17,18,19,20,21,22,23,24,25,27,29,31,32,33,35,37,38,41,42,44,46,47,50,54,61],"gdp":[19391,296,505,548,900,1973,324,247,1714,2857,1192,462,4188,333,364,42,197,18,2876,544,5487,91,72,1102,1770,385,326,54,445,2387,2140,297,275,172,2358,709],"gdp_per_capita":[59532,51364,50208,64712,52503,38335,61414,44866,46705,43269,48460,52398,50639,38262,75648,31742,41109,53153,42850,47840,43279,32092,34868,29026,37998,36327,31673,27598,24635,39427,29505,27602,28108,31616,18258,14507]},"columns":[{"accessor":"country","name":"country","type":"character","cell":"function(cell) {\n            return '<a href=\"https://wikipedia.org/wiki/' + cell.value + '\">' + cell.value + '<\/a>'\n          }","html":true},{"accessor":"flags","name":"flags","type":"character","width":70},{"accessor":"IMD_순위","name":"IMD_순위","type":"numeric","format":{"cell":{"separators":true},"aggregated":{"separators":true}},"align":"center"},{"accessor":"gdp","name":"gdp","type":"numeric","format":{"cell":{"separators":true},"aggregated":{"separators":true}},"width":100},{"accessor":"gdp_per_capita","name":"gdp_per_capita","type":"numeric","format":{"cell":{"separators":true},"aggregated":{"separators":true}}}],"defaultPageSize":10,"paginationType":"numbers","showPageInfo":true,"minRows":10,"highlight":true,"dataKey":"11c1d8ba015395900e11f1bfb049a349","key":"11c1d8ba015395900e11f1bfb049a349"},"children":[]},"class":"reactR_markup"},"evals":["tag.attribs.columns.0.cell"],"jsHooks":[]}</script>
+
+
+---
+name: esg-digital-summary
+# 디지털 강대국 지표 - 종합
+
+<div id="htmlwidget-ee4900078d8ac3e7f60b" class="reactable html-widget" style="width:auto;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-ee4900078d8ac3e7f60b">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"country":["Korea, South","Japan","Germany","Sweden","Denmark","United States","Italy","Belgium","Netherlands","Spain","Austria","France","Slovakia","Canada","Switzerland","Slovenia","Australia","Chile","Colombia","Czech Republic","Estonia","Finland","Greece","Hungary","Iceland","Ireland","Israel","Latvia","Lithuania","Mexico","New Zealand","Norway","Poland","Portugal","Turkey","United Kingdom"],"flags":["🇰🇷","🇯🇵","🇩🇪","🇸🇪","🇩🇰","🇺🇸","🇮🇹","🇧🇪","🇳🇱","🇪🇸","🇦🇹","🇫🇷","🇸🇰","🇨🇦","🇨🇭","🇸🇮","🇦🇺","🇨🇱","🇨🇴","🇨🇿","🇪🇪","🇫🇮","🇬🇷","🇭🇺","🇮🇸","🇮🇪","🇮🇱","🇱🇻","🇱🇹","🇲🇽","🇳🇿","🇳🇴","🇵🇱","🇵🇹","🇹🇷","🇬🇧"],"정부":[1,5,26,33,4,"NA",15,25,21,7,20,11,"NA",6,"NA",17,"NA",24,3,22,18,28,29,"NA",32,23,8,19,27,"NA",12,13,"NA",10,"NA",2],"AI":[7,13,4,5,8,1,25,29,9,24,22,11,34,14,18,39,12,47,51,32,17,3,61,41,35,21,20,36,26,55,23,10,31,27,67,2],"데이터경제":[5,11,13,8,"NA",1,16,"NA","NA",14,"NA",6,"NA",7,4,"NA",9,20,"NA",10,"NA","NA",23,26,"NA",15,"NA","NA","NA",18,12,"NA",21,17,29,2],"로봇":[2,3,4,5,6,9,10,11,12,13,14,16,17,18,19,20,"NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA"],"WEF":[12,5,6,7,9,1,29,21,3,22,20,14,41,13,4,34,15,32,57,31,30,10,59,46,25,23,19,40,38,48,18,16,36,33,61,8],"IMD":[8,27,18,4,3,1,42,25,7,33,17,24,50,12,6,31,15,41,61,35,21,10,46,47,23,20,19,38,29,54,22,9,32,37,44,13]},"columns":[{"accessor":"country","name":"country","type":"character","cell":"function(cell) {\n            return '<a href=\"https://wikipedia.org/wiki/' + cell.value + '\">' + cell.value + '<\/a>'\n          }","html":true,"width":170},{"accessor":"flags","name":"flags","type":"character","width":70},{"accessor":"정부","name":"정부","type":"numeric","width":70,"align":"center"},{"accessor":"AI","name":"AI","type":"numeric","width":70,"align":"center"},{"accessor":"데이터경제","name":"데이터경제","type":"numeric","format":{"cell":{"separators":true},"aggregated":{"separators":true}},"width":125,"align":"center"},{"accessor":"로봇","name":"로봇","type":"numeric","width":70,"align":"center"},{"accessor":"WEF","name":"WEF","type":"numeric","width":70,"align":"center"},{"accessor":"IMD","name":"IMD","type":"numeric","width":70,"align":"center"}],"defaultPageSize":10,"paginationType":"numbers","showPageInfo":true,"minRows":10,"highlight":true,"dataKey":"a602367c59aa37fe66f4bb79b1543667","key":"a602367c59aa37fe66f4bb79b1543667"},"children":[]},"class":"reactR_markup"},"evals":["tag.attribs.columns.0.cell"],"jsHooks":[]}</script>
+
+---
+name: esg-digital-visualization
+# 디지털 강대국 지표 - 종합 시각화
+
+<div id="htmlwidget-5348cd47c72e03d5bd79" style="width:100%;height:75%;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-5348cd47c72e03d5bd79">{"x":{"visdat":{"c7757c720692":["function () ","plotlyVisDat"]},"cur_data":"c7757c720692","attrs":{"c7757c720692":{"x":{},"y":{},"hovertemplate":{},"color":{},"colors":["red","darkgray"],"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter","mode":"markers","opacity":1,"inherit":true},"c7757c720692.1":{"x":{},"y":{},"hovertemplate":{},"color":{},"colors":["red","darkgray"],"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"text":{},"type":"scatter","mode":"text","showlegend":false,"textposition":"top right","inherit":true}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"xaxis":{"domain":[0,1],"automargin":true,"title":"umap_1"},"yaxis":{"domain":[0,1],"automargin":true,"title":"umap_2"},"hovermode":"closest","showlegend":true},"source":"A","config":{"showSendToCloud":false},"data":[{"x":[1.29179644584656,1.04730200767517,-0.918413817882538,-0.494783312082291,1.81938743591309,2.65574479103088,0.197219982743263],"y":[-0.694290518760681,1.97183561325073,0.0843101814389229,1.34978330135345,1.57613408565521,0.125611618161201,1.86512422561646],"hovertemplate":["Country: France<br />WEF Rank: 14<br />IMD Rank: 24<br />AI Rank: 11<br />데이터경제 Rank: 6","Country: Germany<br />WEF Rank: 6<br />IMD Rank: 18<br />AI Rank: 4<br />데이터경제 Rank: 13","Country: Italy<br />WEF Rank: 29<br />IMD Rank: 42<br />AI Rank: 25<br />데이터경제 Rank: 16","Country: Japan<br />WEF Rank: 5<br />IMD Rank: 27<br />AI Rank: 13<br />데이터경제 Rank: 11","Country: Korea, South<br />WEF Rank: 12<br />IMD Rank: 8<br />AI Rank: 7<br />데이터경제 Rank: 5","Country: United Kingdom<br />WEF Rank: 8<br />IMD Rank: 13<br />AI Rank: 2<br />데이터경제 Rank: 2","Country: United States<br />WEF Rank: 1<br />IMD Rank: 1<br />AI Rank: 1<br />데이터경제 Rank: 1"],"type":"scatter","mode":"markers","opacity":1,"name":"30-50 클럽","marker":{"color":"rgba(255,0,0,1)","line":{"color":"rgba(255,0,0,1)"}},"textfont":{"color":"rgba(255,0,0,1)"},"error_y":{"color":"rgba(255,0,0,1)"},"error_x":{"color":"rgba(255,0,0,1)"},"line":{"color":"rgba(255,0,0,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":[1.33946800231934,2.0256986618042,-0.98104453086853,-0.920667946338654,-2.31852436065674,-1.90635073184967,1.76807582378387,-2.33793687820435,1.287224650383,-0.431034982204437,-0.267480969429016,0.359642088413239,2.09138607978821,2.33645987510681,-1.91122305393219],"y":[-0.495814323425293,1.65477418899536,-1.7349511384964,0.291377782821655,-1.58475816249847,-0.215625748038292,-0.411906749010086,-0.381676971912384,2.32442164421082,-1.77861905097961,-1.50049519538879,-1.03422868251801,-0.0615554377436638,0.812588393688202,-0.461597621440887],"hovertemplate":["Country: Australia<br />WEF Rank: 15<br />IMD Rank: 15<br />AI Rank: 12<br />데이터경제 Rank: 9","Country: Canada<br />WEF Rank: 13<br />IMD Rank: 12<br />AI Rank: 14<br />데이터경제 Rank: 7","Country: Chile<br />WEF Rank: 32<br />IMD Rank: 41<br />AI Rank: 47<br />데이터경제 Rank: 20","Country: Czech Republic<br />WEF Rank: 31<br />IMD Rank: 35<br />AI Rank: 32<br />데이터경제 Rank: 10","Country: Greece<br />WEF Rank: 59<br />IMD Rank: 46<br />AI Rank: 61<br />데이터경제 Rank: 23","Country: Hungary<br />WEF Rank: 46<br />IMD Rank: 47<br />AI Rank: 41<br />데이터경제 Rank: 26","Country: Ireland<br />WEF Rank: 23<br />IMD Rank: 20<br />AI Rank: 21<br />데이터경제 Rank: 15","Country: Mexico<br />WEF Rank: 48<br />IMD Rank: 54<br />AI Rank: 55<br />데이터경제 Rank: 18","Country: New Zealand<br />WEF Rank: 18<br />IMD Rank: 22<br />AI Rank: 23<br />데이터경제 Rank: 12","Country: Poland<br />WEF Rank: 36<br />IMD Rank: 32<br />AI Rank: 31<br />데이터경제 Rank: 21","Country: Portugal<br />WEF Rank: 33<br />IMD Rank: 37<br />AI Rank: 27<br />데이터경제 Rank: 17","Country: Spain<br />WEF Rank: 22<br />IMD Rank: 33<br />AI Rank: 24<br />데이터경제 Rank: 14","Country: Sweden<br />WEF Rank: 7<br />IMD Rank: 4<br />AI Rank: 5<br />데이터경제 Rank: 8","Country: Switzerland<br />WEF Rank: 4<br />IMD Rank: 6<br />AI Rank: 18<br />데이터경제 Rank: 4","Country: Turkey<br />WEF Rank: 61<br />IMD Rank: 44<br />AI Rank: 67<br />데이터경제 Rank: 29"],"type":"scatter","mode":"markers","opacity":1,"name":"기타","marker":{"color":"rgba(169,169,169,1)","line":{"color":"rgba(169,169,169,1)"}},"textfont":{"color":"rgba(169,169,169,1)"},"error_y":{"color":"rgba(169,169,169,1)"},"error_x":{"color":"rgba(169,169,169,1)"},"line":{"color":"rgba(169,169,169,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":[1.29179644584656,1.04730200767517,-0.918413817882538,-0.494783312082291,1.81938743591309,2.65574479103088,0.197219982743263],"y":[-0.694290518760681,1.97183561325073,0.0843101814389229,1.34978330135345,1.57613408565521,0.125611618161201,1.86512422561646],"hovertemplate":["Country: France<br />WEF Rank: 14<br />IMD Rank: 24<br />AI Rank: 11<br />데이터경제 Rank: 6","Country: Germany<br />WEF Rank: 6<br />IMD Rank: 18<br />AI Rank: 4<br />데이터경제 Rank: 13","Country: Italy<br />WEF Rank: 29<br />IMD Rank: 42<br />AI Rank: 25<br />데이터경제 Rank: 16","Country: Japan<br />WEF Rank: 5<br />IMD Rank: 27<br />AI Rank: 13<br />데이터경제 Rank: 11","Country: Korea, South<br />WEF Rank: 12<br />IMD Rank: 8<br />AI Rank: 7<br />데이터경제 Rank: 5","Country: United Kingdom<br />WEF Rank: 8<br />IMD Rank: 13<br />AI Rank: 2<br />데이터경제 Rank: 2","Country: United States<br />WEF Rank: 1<br />IMD Rank: 1<br />AI Rank: 1<br />데이터경제 Rank: 1"],"text":["France","Germany","Italy","Japan","Korea, South","United Kingdom","United States"],"type":"scatter","mode":"text","showlegend":false,"textposition":["top right","top right","top right","top right","top right","top right","top right"],"name":"30-50 클럽","marker":{"color":"rgba(255,0,0,1)","line":{"color":"rgba(255,0,0,1)"}},"textfont":{"color":"rgba(255,0,0,1)"},"error_y":{"color":"rgba(255,0,0,1)"},"error_x":{"color":"rgba(255,0,0,1)"},"line":{"color":"rgba(255,0,0,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":[1.33946800231934,2.0256986618042,-0.98104453086853,-0.920667946338654,-2.31852436065674,-1.90635073184967,1.76807582378387,-2.33793687820435,1.287224650383,-0.431034982204437,-0.267480969429016,0.359642088413239,2.09138607978821,2.33645987510681,-1.91122305393219],"y":[-0.495814323425293,1.65477418899536,-1.7349511384964,0.291377782821655,-1.58475816249847,-0.215625748038292,-0.411906749010086,-0.381676971912384,2.32442164421082,-1.77861905097961,-1.50049519538879,-1.03422868251801,-0.0615554377436638,0.812588393688202,-0.461597621440887],"hovertemplate":["Country: Australia<br />WEF Rank: 15<br />IMD Rank: 15<br />AI Rank: 12<br />데이터경제 Rank: 9","Country: Canada<br />WEF Rank: 13<br />IMD Rank: 12<br />AI Rank: 14<br />데이터경제 Rank: 7","Country: Chile<br />WEF Rank: 32<br />IMD Rank: 41<br />AI Rank: 47<br />데이터경제 Rank: 20","Country: Czech Republic<br />WEF Rank: 31<br />IMD Rank: 35<br />AI Rank: 32<br />데이터경제 Rank: 10","Country: Greece<br />WEF Rank: 59<br />IMD Rank: 46<br />AI Rank: 61<br />데이터경제 Rank: 23","Country: Hungary<br />WEF Rank: 46<br />IMD Rank: 47<br />AI Rank: 41<br />데이터경제 Rank: 26","Country: Ireland<br />WEF Rank: 23<br />IMD Rank: 20<br />AI Rank: 21<br />데이터경제 Rank: 15","Country: Mexico<br />WEF Rank: 48<br />IMD Rank: 54<br />AI Rank: 55<br />데이터경제 Rank: 18","Country: New Zealand<br />WEF Rank: 18<br />IMD Rank: 22<br />AI Rank: 23<br />데이터경제 Rank: 12","Country: Poland<br />WEF Rank: 36<br />IMD Rank: 32<br />AI Rank: 31<br />데이터경제 Rank: 21","Country: Portugal<br />WEF Rank: 33<br />IMD Rank: 37<br />AI Rank: 27<br />데이터경제 Rank: 17","Country: Spain<br />WEF Rank: 22<br />IMD Rank: 33<br />AI Rank: 24<br />데이터경제 Rank: 14","Country: Sweden<br />WEF Rank: 7<br />IMD Rank: 4<br />AI Rank: 5<br />데이터경제 Rank: 8","Country: Switzerland<br />WEF Rank: 4<br />IMD Rank: 6<br />AI Rank: 18<br />데이터경제 Rank: 4","Country: Turkey<br />WEF Rank: 61<br />IMD Rank: 44<br />AI Rank: 67<br />데이터경제 Rank: 29"],"text":["Australia","Canada","Chile","Czech Republic","Greece","Hungary","Ireland","Mexico","New Zealand","Poland","Portugal","Spain","Sweden","Switzerland","Turkey"],"type":"scatter","mode":"text","showlegend":false,"textposition":["top right","top right","top right","top right","top right","top right","top right","top right","top right","top right","top right","top right","top right","top right","top right"],"name":"기타","marker":{"color":"rgba(169,169,169,1)","line":{"color":"rgba(169,169,169,1)"}},"textfont":{"color":"rgba(169,169,169,1)"},"error_y":{"color":"rgba(169,169,169,1)"},"error_x":{"color":"rgba(169,169,169,1)"},"line":{"color":"rgba(169,169,169,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+
+
+
+
+&lt;!--------------------------  인공지능 -----------------------------------------&gt;
+
+
+
+
+---
+class: inverse, middle
+name: data-science-case
+
+# 발표 개요
+
+----
+
+.pull-left[
+
+알파고가 2016년 이세돌 9단을 가볍게 승리하면서 **AI 디지털 경제전환**이 촉발되었다면
+코로나19는 .red[**디지털 경제전환**]을 가속화를 넘어 디지털 불평등도 심화시키고 있다.
+
+AI 디지털 경제전환 시대 .warmyellow[**디지털 기업**]을 이해하는데 
+꼭 필요한 .green[**인공지능**] 기술적 토대를 살펴보고 
+전통기업과 비교하여 상대적으로 디지털 기업을 이해해 보자.
+
+]
+ 
+.pull-right[   
+.left[
+
+1\. [디지털 경제전환 (DT)](#digital-transformation)
+
+2\. **[.green[인공지능 (AI)]](#digital-ai)**
+
+3\. **디지털 기업**
+
+&amp;nbsp;&amp;nbsp;&amp;nbsp; 3\.1\. [레고, Building Block](#digital-company-lego)
+
+&amp;nbsp;&amp;nbsp;&amp;nbsp; 3\.2\. [전통 기업](#digital-company-old-school)
+
+&amp;nbsp;&amp;nbsp;&amp;nbsp; 3\.3\. [디지털 AI 기업](#digital-company-new-school)
+
+4\. [마무리](#digital-goodbye)
+
+]
+] &lt;!--end of right-column--&gt; 
+
+
+
+---
+name: ml-overview
+# AI / ML / 통계
+
+&lt;br&gt;
+
+.center[
+  &lt;img src="fig/ai-ml-statistics.png" alt="AI &gt; ML &gt; Statistics" alt="100%" /&gt;
+]
+
+---
+name: ml-sofware
+# 소프트웨어 1.0과 2.0
+
+- 소프트웨어 1.0: 사람이 직접 규칙(Rule)을 작성하여 똑똑한 시스템 개발
+- 소프트웨어 2.0: 데이터에서 딥러닝 알고리즘을 활용 기계가 알고리즘(Algorithm) 제작 
+
+.center[
+  &lt;img src="fig/programming_machine_learning_comparison.png" width="77%"&gt;
+]
+
+.footnote[
+   [궁극의 주인이 될 알고리즘(Master Algorithm)](https://statkclee.github.io/ai-lab/master-algorithm.html)
+]
+
+---
+name: ml-bigdata-ml
+# 빅데이터와 기계학습
+
+.center[
+  &lt;img src="fig/intree-xy-f.png" alt="정형데이터와 비정형 데이터, 그리고 기계학습" width="90%"&gt;
+]
+
+
+.footnote[
+- [데이터 가져오기](https://statkclee.github.io/ingest-data/)
+    - [직사각형 데이터](https://statkclee.github.io/data-science/)
+    - [텍스트 데이터](https://statkclee.github.io/text/)
+    - [네트워크 데이터](https://statkclee.github.io/network/)
+    - [지리정보 데이터](https://statkclee.github.io/spatial/)
+    - [이미지 데이터](https://statkclee.github.io/trilobite/)
+    - 오디오/소리 데이터
+    - ...
+]
+
+
+---
+name: ml-deep-learning
+# 딥러닝(Deep Learning)
+
+.center[
+  &lt;img src="fig/three-pillars.png" width="90%"&gt;
+]
+
+.footnote[
+   [xwMOOC 딥러닝과 `\(H_2 O\)`](http://statkclee.github.io/deep-learning/)
+]
+
+
+
 &lt;!--------------------------  디지털 기업 -----------------------------------------&gt;
 
 
+
+
+---
+class: inverse, middle
+name: digital-company-lego
+
+# 발표 개요
+
+----
+
+.pull-left[
+
+알파고가 2016년 이세돌 9단을 가볍게 승리하면서 **AI 디지털 경제전환**이 촉발되었다면
+코로나19는 .red[**디지털 경제전환**]을 가속화를 넘어 디지털 불평등도 심화시키고 있다.
+
+AI 디지털 경제전환 시대 .warmyellow[**디지털 기업**]을 이해하는데 
+꼭 필요한 .green[**인공지능**] 기술적 토대를 살펴보고 
+전통기업과 비교하여 상대적으로 디지털 기업을 이해해 보자.
+
+]
+ 
+.pull-right[   
+.left[
+
+1\. [디지털 경제전환 (DT)](#digital-transformation)
+
+2\. [인공지능 (AI)](#digital-ai)
+
+3\. **디지털 기업**
+
+&amp;nbsp;&amp;nbsp;&amp;nbsp; 3\.1\. **[.warmyellow[레고, Building Block]](#digital-company-lego)**
+
+&amp;nbsp;&amp;nbsp;&amp;nbsp; 3\.2\. [전통 기업](#digital-company-old-school)
+
+&amp;nbsp;&amp;nbsp;&amp;nbsp; 3\.3\. [디지털 AI 기업](#digital-company-new-school)
+
+4\. [마무리](#digital-goodbye)
+
+]
+] &lt;!--end of right-column--&gt; 
 
 
 ---
@@ -155,7 +440,7 @@ name: digital-company-ai-factory
 
 ---
 class: inverse, middle
-name: digital-traditional-company-toc
+name: digital-company-lego
 
 # 발표 개요
 
@@ -163,28 +448,34 @@ name: digital-traditional-company-toc
 
 .pull-left[
 
-전통기업과 디지털 인공지능(AI) 기업간 경쟁이 치열해지면서 이제는 서서희 윤곽이 나타나고 있다.
+알파고가 2016년 이세돌 9단을 가볍게 승리하면서 **AI 디지털 경제전환**이 촉발되었다면
+코로나19는 .red[**디지털 경제전환**]을 가속화를 넘어 디지털 불평등도 심화시키고 있다.
 
-.red[**전통기업**]이든 디지털 AI 기업이든 .green[**기업(레고, Building Block)**]이라는 존재는 동일하기 때문에 기업에 대해서 살펴보고,
-
-.warmyellow[**디지털 AI 기업**]을 전통기업과 대비하여 .black[**AIS**]를 제대로 이해하자.
+AI 디지털 경제전환 시대 .warmyellow[**디지털 기업**]을 이해하는데 
+꼭 필요한 .green[**인공지능**] 기술적 토대를 살펴보고 
+전통기업과 비교하여 상대적으로 디지털 기업을 이해해 보자.
 
 ]
  
 .pull-right[   
 .left[
 
-0\. [레고(Building Block)](#digital-building-block)
+1\. [디지털 경제전환 (DT)](#digital-transformation)
 
-1\. **[.red[전통 기업]](#digital-traditional-company-toc)**
+2\. [인공지능 (AI)](#digital-ai)
 
-2\. [디지털 AI 기업](#digital-newtork-ai-company-toc)
+3\. **디지털 기업**
 
-3\. [AIS](#digital-uber-ais-toc)
+&amp;nbsp;&amp;nbsp;&amp;nbsp; 3\.1\. [레고, Building Block](#digital-company-lego)
 
-4\. [마무리](#goodbye) 
+&amp;nbsp;&amp;nbsp;&amp;nbsp; 3\.2\. **[.warmyellow[전통 기업]](#digital-company-old-school)**
+
+&amp;nbsp;&amp;nbsp;&amp;nbsp; 3\.3\. [디지털 AI 기업](#digital-company-new-school)
+
+4\. [마무리](#digital-goodbye)
+
 ]
-] &lt;!--end of right-column--&gt;
+] &lt;!--end of right-column--&gt; 
 
 
 ---
@@ -250,7 +541,7 @@ name: digital-collision
 
 ---
 class: inverse, middle
-name: digital-newtork-ai-company-toc
+name: digital-company-lego
 
 # 발표 개요
 
@@ -258,28 +549,35 @@ name: digital-newtork-ai-company-toc
 
 .pull-left[
 
-전통기업과 디지털 인공지능(AI) 기업간 경쟁이 치열해지면서 이제는 서서희 윤곽이 나타나고 있다.
+알파고가 2016년 이세돌 9단을 가볍게 승리하면서 **AI 디지털 경제전환**이 촉발되었다면
+코로나19는 .red[**디지털 경제전환**]을 가속화를 넘어 디지털 불평등도 심화시키고 있다.
 
-.red[**전통기업**]이든 디지털 AI 기업이든 .green[**기업(레고, Building Block)**]이라는 존재는 동일하기 때문에 기업에 대해서 살펴보고,
-
-.warmyellow[**디지털 AI 기업**]을 전통기업과 대비하여 .black[**AIS**]를 제대로 이해하자.
+AI 디지털 경제전환 시대 .warmyellow[**디지털 기업**]을 이해하는데 
+꼭 필요한 .green[**인공지능**] 기술적 토대를 살펴보고 
+전통기업과 비교하여 상대적으로 디지털 기업을 이해해 보자.
 
 ]
  
 .pull-right[   
 .left[
 
-0\. [레고, Building Block](#digital-building-block)
+1\. [디지털 경제전환 (DT)](#digital-transformation)
 
-1\. [전통 기업](#digital-traditional-company-toc)
+2\. [인공지능 (AI)](#digital-ai)
 
-2\. **[.warmyellow[디지털 AI 기업]](#digital-newtork-ai-company-toc)**
+3\. **디지털 기업**
 
-3\. [AIS](#digital-uber-ais-toc)
+&amp;nbsp;&amp;nbsp;&amp;nbsp; 3\.1\. [레고, Building Block](#digital-company-lego)
 
-4\. [마무리](#goodbye) 
+&amp;nbsp;&amp;nbsp;&amp;nbsp; 3\.2\. [전통 기업](#digital-company-old-school)
+
+&amp;nbsp;&amp;nbsp;&amp;nbsp; 3\.3\. **[.warmyellow[디지털 AI 기업]](#digital-company-new-school)**
+
+4\. [마무리](#digital-goodbye)
+
 ]
-] &lt;!--end of right-column--&gt;
+] &lt;!--end of right-column--&gt; 
+
 
 
 

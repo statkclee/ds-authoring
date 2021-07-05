@@ -1,7 +1,7 @@
 
 ---
 class: inverse, middle
-name: healthcare-ai
+name: data-science-case
 
 # 발표 개요
 
@@ -10,9 +10,11 @@ name: healthcare-ai
 .pull-left[
 
 알파고가 2016년 이세돌 9단을 가볍게 승리하면서 **AI 디지털 경제전환**이 촉발되었다면
-코로나19는 .red[**디지털 경제전환**]을 가속화를 넘어 디지털 불평등을 심화시키고 있다.
+코로나19는 .red[**디지털 경제전환**]을 가속화를 넘어 디지털 불평등도 심화시키고 있다.
 
-AI 디지털 경제전환을 이해하는데 꼭 필요한 .black[**데이터 과학**]과 .green[**인공지능**] 기술적 토대를 살펴보고 이를 .warmyellow[**헬스케어**] 영역에 응용하여 활용방안을 모색해 보자. 
+AI 디지털 경제전환 시대 .warmyellow[**디지털 기업**]을 이해하는데 
+꼭 필요한 .green[**인공지능**] 기술적 토대를 살펴보고 
+전통기업과 비교하여 상대적으로 디지털 기업을 이해해 보자.
 
 ]
  
@@ -21,18 +23,20 @@ AI 디지털 경제전환을 이해하는데 꼭 필요한 .black[**데이터 �
 
 1\. [디지털 경제전환 (DT)](#digital-transformation)
 
-2\. [데이터 과학 사례](#digital-data-science-case-study)
+2\. **[.green[인공지능 (AI)]](#digital-ai)**
 
-3\. [데이터 과학 (Data Science)](#data-science)
+3\. **디지털 기업**
 
-4\. **[.green[인공지능 (AI)]](#digital-ai)**
+&nbsp;&nbsp;&nbsp; 3\.1\. [레고, Building Block](#digital-company-lego)
 
-5\. [헬스케어 응용](#digital-healthcare)
+&nbsp;&nbsp;&nbsp; 3\.2\. [전통 기업](#digital-company-old-school)
 
-6\. [마무리](#digital-goodbye)
+&nbsp;&nbsp;&nbsp; 3\.3\. [디지털 AI 기업](#digital-company-new-school)
 
-] 
-] <!--end of right-column-->
+4\. [마무리](#digital-goodbye)
+
+]
+] <!--end of right-column--> 
 
 
 
