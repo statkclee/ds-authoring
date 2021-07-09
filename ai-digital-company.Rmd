@@ -3,7 +3,7 @@ title: "AI와 디지털 기업"
 subtitle: "Competiting in the age of AI"
 author: "이광춘"
 institute: "Tidyverse Korea"
-date: "2021-07-29"
+date: "2021-07-30"
 output:
   xaringan::moon_reader:
     css: 
