@@ -49,6 +49,8 @@ knitr::opts_chunk$set(echo = FALSE, message=FALSE, warning=FALSE,
 # scale_fill_discrete <- partial(scale_fill_nhs, discrete = TRUE)
 # scale_colour_continuous <- partial(scale_colour_nhs, discrete = FALSE)
 # scale_colour_discrete <- partial(scale_colour_nhs, discrete = TRUE)
+
+xaringanExtra::use_panelset()
 ```
 
 
@@ -90,7 +92,7 @@ name: data-science-case
 
 &nbsp;&nbsp;&nbsp; 2\.1\. Literate Programming
 
-&nbsp;&nbsp;&nbsp; 2\.2\. 자동화
+&nbsp;&nbsp;&nbsp; 2\.2\. 자동화/Parameterized Report
 
 &nbsp;&nbsp;&nbsp; 3\.3\. 전문가 보고서
 
@@ -98,28 +100,13 @@ name: data-science-case
 
 &nbsp;&nbsp;&nbsp; 2\.1\. Document Factory
 
-&nbsp;&nbsp;&nbsp; 2\.2\. Parameterized Report
+&nbsp;&nbsp;&nbsp; 2\.2\. 한국 R 컨퍼런스
 
 4\. [마무리](#document-goodbye)
 
 ]
 ] <!--end of right-column--> 
 
----
-name: healthcare-data
-# 개인정보
-
-.center[
-<img src="fig/r2doc2r-overview.png" width = "100%" />
-]
-
-.footnote[
-- [데이터 과학 문서](https://statkclee.github.io/comp_document/)
-- [PDF를 데이터로 보는 올바른 자세](https://statkclee.github.io/pdf/)
-]
-
-
-  
 
 
 <!--------------------------  마무리 ----------------------------------------->
@@ -127,7 +114,76 @@ name: healthcare-data
 ```{r child='slideshows/rconf/rconf-goodbye.Rmd'} 
 ```
 
-```{r child='slideshows/rconf/rconf-dt.Rmd'} 
-```
+---
+class: inverse, middle
+name: data-science-case
+
+# 발표 개요
  
+----
+
+.pull-left[
+
+.warmyellow[디지털 경제전환(Digital Transformation)] 시대는 각종문서를 
+다루는 지식(공부) 노동자에게 .green[규모의 경제(Economy of Scale)]와 더불어 
+.red[범위의 경제(Economy of Scope)]를 적극 도입하여 문서를 증거기반 데이터를 
+반영하여 재현가능하며 협업이 가능한 형태로 작업하는 것을 요구하고 있다.
+
+`Tidyverse` 생태계를 구축하는 중요한 축을 담당하는 `R Markdown`을 
+중심으로 이런 문제를 해결하여 **저녁이 있는 삶**을 만들어보자.
+
+]
+ 
+.pull-right[   
+.left[
+
+1\. 디지털 경제전환
+
+2\. 규모의 경제 (Economy of Scale)
+
+&nbsp;&nbsp;&nbsp; 2\.1\. Literate Programming
+
+&nbsp;&nbsp;&nbsp; 2\.2\. 자동화/Parameterized Report
+
+&nbsp;&nbsp;&nbsp; 3\.3\. 전문가 보고서
+
+**.red[3\. 범위의 경제 (Economy of Scope)]**
+
+&nbsp;&nbsp;&nbsp; 2\.1\. Document Factory
+
+&nbsp;&nbsp;&nbsp; 2\.2\. 한국 R 컨퍼런스
+
+4\. [마무리](#document-goodbye)
+
+]
+] <!--end of right-column--> 
    
+---
+name: es-document-factory
+# 문서 공장(Document Factory)
+
+<br>
+
+.center[
+<img src="fig/document-factory.png" width = "100%" />
+]
+
+.footnote[
+- [데이터 과학 문서](https://statkclee.github.io/comp_document/)
+- [PDF를 데이터로 보는 올바른 자세](https://statkclee.github.io/pdf/)
+]
+ 
+---
+name: es-rconf-website
+# 한국 R 컨퍼런스 - 웹사이트
+
+<br>
+
+.center[
+<img src="fig/document-factory.png" width = "100%" />
+]
+
+.footnote[
+- [데이터 과학 문서](https://statkclee.github.io/comp_document/)
+- [PDF를 데이터로 보는 올바른 자세](https://statkclee.github.io/pdf/)
+]

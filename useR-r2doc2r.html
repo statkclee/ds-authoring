@@ -7,6 +7,8 @@
     <meta name="date" content="2021-11-19" />
     <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/panelset/panelset.css" rel="stylesheet" />
+    <script src="libs/panelset/panelset.js"></script>
     <link rel="stylesheet" href="css/nhsr.css" type="text/css" />
     <link rel="stylesheet" href="css/nhsr-fonts.css" type="text/css" />
   </head>
@@ -55,7 +57,7 @@ name: data-science-case
 
 &amp;nbsp;&amp;nbsp;&amp;nbsp; 2\.1\. Literate Programming
 
-&amp;nbsp;&amp;nbsp;&amp;nbsp; 2\.2\. 자동화
+&amp;nbsp;&amp;nbsp;&amp;nbsp; 2\.2\. 자동화/Parameterized Report
 
 &amp;nbsp;&amp;nbsp;&amp;nbsp; 3\.3\. 전문가 보고서
 
@@ -63,28 +65,13 @@ name: data-science-case
 
 &amp;nbsp;&amp;nbsp;&amp;nbsp; 2\.1\. Document Factory
 
-&amp;nbsp;&amp;nbsp;&amp;nbsp; 2\.2\. Parameterized Report
+&amp;nbsp;&amp;nbsp;&amp;nbsp; 2\.2\. 한국 R 컨퍼런스
 
 4\. [마무리](#document-goodbye)
 
 ]
 ] &lt;!--end of right-column--&gt; 
 
----
-name: healthcare-data
-# 개인정보
-
-.center[
-&lt;img src="fig/r2doc2r-overview.png" width = "100%" /&gt;
-]
-
-.footnote[
-- [데이터 과학 문서](https://statkclee.github.io/comp_document/)
-- [PDF를 데이터로 보는 올바른 자세](https://statkclee.github.io/pdf/)
-]
-
-
-  
 
 
 &lt;!--------------------------  마무리 -----------------------------------------&gt;
@@ -109,14 +96,12 @@ class: middle, inverse
 ]
 ]
 
-
-
 ---
 class: inverse, middle
 name: data-science-case
 
 # 발표 개요
-
+ 
 ----
 
 .pull-left[
@@ -134,122 +119,56 @@ name: data-science-case
 .pull-right[   
 .left[
 
-.warmyellow[1\. 디지털 경제전환]
+1\. 디지털 경제전환
 
 2\. 규모의 경제 (Economy of Scale)
 
 &amp;nbsp;&amp;nbsp;&amp;nbsp; 2\.1\. Literate Programming
 
-&amp;nbsp;&amp;nbsp;&amp;nbsp; 2\.2\. 자동화
+&amp;nbsp;&amp;nbsp;&amp;nbsp; 2\.2\. 자동화/Parameterized Report
 
 &amp;nbsp;&amp;nbsp;&amp;nbsp; 3\.3\. 전문가 보고서
 
-3\. 범위의 경제 (Economy of Scope)
+**.red[3\. 범위의 경제 (Economy of Scope)]**
 
 &amp;nbsp;&amp;nbsp;&amp;nbsp; 2\.1\. Document Factory
 
-&amp;nbsp;&amp;nbsp;&amp;nbsp; 2\.2\. Parameterized Report
+&amp;nbsp;&amp;nbsp;&amp;nbsp; 2\.2\. 한국 R 컨퍼런스
 
 4\. [마무리](#document-goodbye)
 
 ]
 ] &lt;!--end of right-column--&gt; 
-
-
+   
 ---
-name: digital-building-block
-# Building Blocks: 비즈니스 모형
+name: es-document-factory
+# 문서 공장(Document Factory)
+
+&lt;br&gt;
 
 .center[
-&lt;img src="fig/mba-bm.png", width="77%" /&gt;
+&lt;img src="fig/document-factory.png" width = "100%" /&gt;
 ]
-
 
 .footnote[
-Klein, J. (2021). Competing in the Age of AI. By MarcoIansiti and KarimLakhani. Harvard Business Review Press: Boston, MA, 2020, ISBN‐13 978‐1633697621, hardback, £18, pp. 288. R&amp;D Management. doi:10.1111/radm.12489
-]
-
----
-name: digital-company-om
-# Building Blocks: 운영 모형
-
-.center[
-&lt;img src="fig/mba-om.png", width="100%" /&gt;
-]
-
-
----
-name: digital-network-ai-company
-# 디지털 AI 기업: AI 공장과 운영모형
-
-&lt;br&gt;
-&lt;br&gt;
-
-.center[
-&lt;img src="fig/ai-factory-om.png", width="100%" /&gt;
-]
-
----
-name: digital-network-om
-# 디지털 AI 기업: 운영모형 + 네트워크 효과
-
-.center[
-&lt;img src="fig/network-effect-digital.png", width="100%" /&gt;
-]
-
----
-name: digital-value
-# 디지털 AI 기업: 가치(Value), 효용(Utility)
-
-.center[
-&lt;img src="fig/network-ai-value.png", width="87%" /&gt;
+- [데이터 과학 문서](https://statkclee.github.io/comp_document/)
+- [PDF를 데이터로 보는 올바른 자세](https://statkclee.github.io/pdf/)
 ]
  
 ---
-name: digital-value
-# 디지털 AI 기업: 운영모형
+name: es-rconf-website
+# 한국 R 컨퍼런스 - 웹사이트
 
 &lt;br&gt;
 
 .center[
-&lt;img src="fig/ai-network-om.png", width="100%" /&gt;
-]
- 
- 
----
-name: digital-value
-# 디지털 AI 기업: 운영모형 비교
-
-&lt;br&gt;
-
-.center[
-&lt;img src="fig/digital-ai-om.png", width="100%" /&gt;
+&lt;img src="fig/document-factory.png" width = "100%" /&gt;
 ]
 
----
-name: digital-collision
-# 사례: 노키아 vs 애플
-
-&lt;br&gt;
-
-.center[
-&lt;img src="fig/nokia-apple.png", width="100%" /&gt;
+.footnote[
+- [데이터 과학 문서](https://statkclee.github.io/comp_document/)
+- [PDF를 데이터로 보는 올바른 자세](https://statkclee.github.io/pdf/)
 ]
-
----
-name: digital-collision
-# 사례: 충돌 사례
-
-&lt;br&gt;
-
-.center[
-&lt;img src="fig/collision-companies.png", width="100%" /&gt;
-]
-
- 
-
- 
-   
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
