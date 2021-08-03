@@ -1,6 +1,6 @@
 ---
 title: "문서는 커뮤니케이션이다."
-subtitle: "Tidyverse, R Markdown, OCR, MRC"
+subtitle: "Tidyverse, R Markdown, Pro PDFs, Shiny"
 author: "이광춘"
 institute: "Tidyverse Korea"
 date: "2021-11-19"
@@ -71,33 +71,36 @@ name: data-science-case
 
 .pull-left[
 
-증거기반 행정이 부상하고 디지털 경제전환 사회로 바뀌면서 문서를 다양한 형태로
-빠른 시간내에 고품질로 제작하는 것이 필요함과 동시에 기계판독도 되지 않는 
-다양한 문서에서 정형 데이터를 추출하는 것도 기계가 더 잘하는 세상이 되었다.
+.warmyellow[디지털 경제전환(Digital Transformation)] 시대는 각종문서를 
+다루는 지식(공부) 노동자에게 .green[규모의 경제(Economy of Scale)]와 더불어 
+.red[범위의 경제(Economy of Scope)]를 적극 도입하여 문서를 증거기반 데이터를 
+반영하여 재현가능하며 협업이 가능한 형태로 작업하는 것을 요구하고 있다.
 
+`Tidyverse` 생태계를 구축하는 중요한 축을 담당하는 `R Markdown`을 
+중심으로 이런 문제를 해결하여 **저녁이 있는 삶**을 만들어보자.
 
 ]
  
 .pull-right[   
 .left[
 
-1\. 개요
+.warmyellow[1\. 디지털 경제전환]
 
-2\. [R 마크다운](#digital-ai)
+.green[2\. 규모의 경제 (Economy of Scale)]
 
 &nbsp;&nbsp;&nbsp; 2\.1\. Literate Programming
 
-&nbsp;&nbsp;&nbsp; 2\.2\. 커뮤니케이션
+&nbsp;&nbsp;&nbsp; 2\.2\. 자동화
 
-&nbsp;&nbsp;&nbsp; 3\.3\. 문서 대량생산
+&nbsp;&nbsp;&nbsp; 3\.3\. 전문가 보고서
 
-3\. Digitization과 기계독해
+.red[3\. 범위의 경제 (Economy of Scope)]
 
-&nbsp;&nbsp;&nbsp; 2\.1\. OCR
+&nbsp;&nbsp;&nbsp; 2\.1\. Document Factory
 
-&nbsp;&nbsp;&nbsp; 2\.2\. 기계독해
+&nbsp;&nbsp;&nbsp; 2\.2\. Parameterized Report
 
-4\. [마무리](#digital-goodbye)
+4\. [마무리](#document-goodbye)
 
 ]
 ] <!--end of right-column--> 
@@ -116,13 +119,15 @@ name: healthcare-data
 ]
 
 
-
+  
 
 
 <!--------------------------  마무리 ----------------------------------------->
 
-```{r child='slideshows/useR/useR-goodbye.Rmd'} 
+```{r child='slideshows/rconf/rconf-goodbye.Rmd'} 
 ```
 
+```{r child='slideshows/rconf/rconf-dt.Rmd'} 
+```
  
    
