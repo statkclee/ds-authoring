@@ -14,7 +14,12 @@
 ```{r child='slideshows/rconf/rconf-eco-scale.Rmd'} 
 ```
 
+<!-------------------------- 범위의 경제 ----------------------------------------->
+
+```{r child='slideshows/rconf/rconf-eco-scope.Rmd'} 
+```
+
 <!--------------------------  마무리 ----------------------------------------->
 
-```{r child='slideshows/useR/useR-goodbye.Rmd'} 
+```{r child='slideshows/rconf/rconf-goodbye.Rmd'} 
 ```
