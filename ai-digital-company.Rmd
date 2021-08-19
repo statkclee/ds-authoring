@@ -3,7 +3,7 @@ title: "AI와 디지털 기업"
 subtitle: "Competiting in the age of AI"
 author: "이광춘"
 institute: "Tidyverse Korea"
-date: "2021-07-30"
+date: "2021-08-27"
 output:
   xaringan::moon_reader:
     css: 
@@ -115,9 +115,7 @@ AI 디지털 경제전환 시대 .warmyellow[**디지털 기업**]을 이해하�
 
 <!--------------------------  디지털 기업 ----------------------------------------->
 
-
-```{r child='slideshows/ai_company/ai-company-lego.Rmd'} 
-```
+```{r child='slideshows/ai_company/ai-company-lego.Rmd'} ```
 
 ```{r child='slideshows/ai_company/ai-company-old-school.Rmd'} 
 ```

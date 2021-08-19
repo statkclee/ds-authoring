@@ -20,7 +20,7 @@ title: 데이터 과학 기고문과 발표자료
 1. [결국 문서는 커뮤니케이션이다.](useR-r2doc2r.html)
     - 2021년 11월 19일 (금), 롯데월드타워, useR! 2021 Korea
 1. [AI와 디지털 기업](ai-digital-company.html)
-    - 2021년 07월 29일 (금), 인천 청운대학교
+    - 2021년 08월 27일 (금), 인천 청운대학교
 1. [AI 기반 체외진단 응용](ai-healthcare.html)
     - 2021년 07월 16일 (금), 대전 카이스트 내 나노종합기술원
 1. [디지털 AI 기업](digital-ai-company.html)

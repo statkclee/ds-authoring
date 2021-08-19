@@ -49,7 +49,7 @@ name: digital-building-block
 
 
 .footnote[
-```{r ai-reference, results = 'asis'}
+```{r ai-reference, results = 'asis', eval = FALSE}
 library(rcrossref)
 doi <- c('10.1111/radm.12489')
 cat(unlist(rcrossref::cr_cn(dois = doi, format = "text", style = 'apa')))
