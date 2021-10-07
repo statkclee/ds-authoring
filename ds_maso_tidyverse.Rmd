@@ -608,6 +608,22 @@ Non-PU를 결제 유저(PU)로 바꾸거나 결제 유저의 결재금액을 높
 이러한 도전에 대해 설명가능한 기계학습/인공지능 기술과 결합하여 현존하는 데이터 사이언스에 대한 인간의 지적 자산이 응축된 `tidyverse`가 영역을 넓혀 큰 역할을 담당하게 될 것이다.
 
 
+# 마이크로소프트웨어 395호 데이터 탐험(Data Adventure){#maso-live}
+
+[조병승 기자 | 2019년 1월 24일, "데이터 탐험(Data Adventure)", 마이크로소프트웨어 395호](https://www.imaso.co.kr/archives/4654)
+
+
+```{r maso-live}
+library(tidyverse)
+library(slickR)
+
+maso_img <- fs::dir_ls("fig/maso/")
+
+maso_tbl <- 
+  tibble(filename = maso_img)
+
+slickR(obj = maso_tbl$filename)
+```
 
 
 
