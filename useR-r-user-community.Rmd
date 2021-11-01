@@ -203,6 +203,6 @@ class: middle, inverse
 <!-- <img style="border-radius: 100%;" src="fig/rconf-logo.png" width="300px"/> -->
 
 <img src="fig/rconf-logo.png" width="300px"/>
-
+ 
 ]
 ]
