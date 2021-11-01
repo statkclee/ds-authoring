@@ -67,7 +67,7 @@ class: title-slide, left, bottom
 class: inverse, middle
 name: data-science-case
 
-# 발표 개요
+# 발표 개요 
 
 ----
 
