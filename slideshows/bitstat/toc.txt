@@ -1,0 +1,33 @@
+
+<!--------------------------  디지털 경제 전환 ----------------------------------------->
+
+```{r child='slideshows/ai_company/ai-company-dt.Rmd'} 
+```
+
+
+<!--------------------------  인공지능 ----------------------------------------->
+
+
+```{r child='slideshows/ai_company/ai-company-ai.Rmd'} 
+```
+
+<!--------------------------  디지털 기업 ----------------------------------------->
+
+
+```{r child='slideshows/ai_company/ai-company.Rmd'} 
+```
+
+```{r child='slideshows/ai_company/ai-company-lego.Rmd'} 
+```
+
+```{r child='slideshows/ai_company/ai-company-old-school.Rmd'} 
+```
+
+```{r child='slideshows/ai_company/ai-company-new-school.Rmd'} 
+```
+
+
+<!--------------------------  마무리 ----------------------------------------->
+
+```{r child='slideshows/ai_company/ai-company-goodbye.Rmd'} 
+```

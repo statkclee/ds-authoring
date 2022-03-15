@@ -17,6 +17,7 @@ title: 데이터 과학 기고문과 발표자료
 
 ## 학습목차 
 
+1. [오픈통계패키지 - 빗스탯](bit_stat.html)
 1. [데이터야 놀자](https://datayanolja.github.io/)
     1. [~~"데이터 제품 커뮤니케이션"(2021)~~](ds-data-product-communication.html): 2021-10-16 (토), 온라인
     1. ["데이터 과학자 언어 전쟁"(2020)](ds-data-science-war.html): 2020-10-17 (토), 온라인
