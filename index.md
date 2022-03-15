@@ -17,7 +17,7 @@ title: 데이터 과학 기고문과 발표자료
 
 ## 학습목차 
 
-1. [오픈통계패키지 - 빗스탯](bit_stat.html)
+<!-- 1. [오픈통계패키지 - 빗스탯](bit_stat.html) --> 
 1. [한국 R 컨퍼런스 - R 사용자회](useR-r-user-community.html)
     - 2021년 11월 19일 (금), 롯데월드타워, [한국 R 컨퍼런스](https://use-r.kr/) 
 1. [데이터야 놀자](https://datayanolja.github.io/)
