@@ -1,0 +1,64 @@
+
+
+
+---
+name: bitstat-architecture
+# 시스템 아키텍쳐
+
+<br>
+
+.center[
+  <img src="fig/bitstat/development-architecture.png" />
+]
+
+---
+name: bistat-architecture-product
+# [1차년] 오픈통계 패키지 제품 개발
+ 
+<br>
+
+
+.center[
+  <img src="fig/bitstat/development-product.png" />
+]
+
+
+---
+name: bistat-architecture-product
+# [2차년] 오픈통계 패키지 클라우드 서비스 
+
+<br>
+
+.center[
+  <img src="fig/bitstat/development-service.png" />
+]
+
+---
+name: bistat-architecture-metrics
+# 성능지표와 일정
+
+
+.pull-left[
+## 성능지표
+
+.left[
+<img src="fig/bitstat/metrics.jpg" width = "100%"/>
+]
+
+]
+
+.pull-left[
+## 개발일정
+
+.left[
+<img src="fig/bitstat/timeline.jpg" width = "100%"/>
+]
+
+] 
+
+
+---
+name: bistat-architecture-team
+# 개발인력과 커뮤니티(한국 R 사용자회)
+
+<img src="fig/bitstat/team.jpg" width = "120%"/>

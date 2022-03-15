@@ -1,2 +1,76 @@
 
+---
+name: bitstat-demo-eda
+# 데모 - 탐색적 데이터 분석
+
+<br>
+
+.center[
+  <img src="fig/bitstat/openStat_demo.gif" />
+]
+
+
+.footnote[
+- 한국 R 사용자회(Tidyverse Korea) - 컨트리뷰톤 2021년 Open UP 오픈 프런티어 "마스터 프런티어" 프로젝트
+]
+
+
+---
+name: bitstat-demo-ui
+# 데모 - UI
+
+<br>
+.pull-left[
+## 외양(theme)
+.left[
+  <img src="fig/bitstat/ui_shinythemes_fonts.gif" />
+]
+]
+
+.pull-right[
+## 통계량 시각화
+.right[
+  <img src="fig/bitstat/ui_univariate_categorical.gif" />
+]
+
+]
+
+.footnote[
+- [tidyverse-korea/open_stat](https://github.com/tidyverse-korea/open_stat)
+- [tidyverse-korea/open_stat_ui](https://github.com/tidyverse-korea/open_stat_ui)
+]
+
+
+---
+name: bitstat-demo-eda
+# 데모 - 데이터 패키지
+
+<br>
+
+.center[
+  <img src="fig/bitstat/demo-data-package.jpg" />
+]
+
+
+.footnote[
+- [GitHub 저장소]((https://github.com/tidyverse-korea/statdata)) 
+- [statdata 웹사이트](https://tidyverse-korea.github.io/statdata/) 
+- [eStat](http://estat.me/estat/eStat/)
+]
+
+
+---
+name: bitstat-demo-eda
+# 데모 - BitStat 튜토리얼
+
+<br>
+
+.center[
+  <img src="fig/bitstat/demo-tutorial.png" />
+]
+
+
+.footnote[
+- [BitStat 개발자 튜토리얼](https://choonghyunryu.github.io/openstat_project/)
+]
 
