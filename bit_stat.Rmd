@@ -85,7 +85,11 @@ name: data-science-case
 
 1\. **[.warmyellow[개발필요성]](#bitstat-why)**
 
-2\. **[.warmyellow[시장(Market)]](#bitstat-market)**
+2\. [개발](#bitstat-development)
+
+3\. [커뮤니티](#bitstat-community)
+
+4\. [시제품 데모](#bitstat-demo)
 
 4\. [마무리](#bitstat-goodbye) 
 
