@@ -94,7 +94,7 @@ name: data-science-case
 5\. [마무리](#bitstat-goodbye) 
 
 ]
-] <!--end of right-column--> 
+] <!--end of right-column-->  
 
 <!--------------------------  1. 개발 필요성 ----------------------------------------->
 
