@@ -1,12 +1,6 @@
 
- 
 ---
-class: inverse, middle
 name: bitstat-why
-
-
----
-name: ml-overview
 # 디지털 불평등
 
 <br>

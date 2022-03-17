@@ -27,14 +27,16 @@ name: data-science-case
 
 2\. [개발](#bitstat-development)
 
-3\. [커뮤니티](#bitstat-community)
+3\. **[.warmyellow[사업화와 공개SW]](#bitstat-business)**
 
-4\. **[.warmyellow[시제품 데모]](#bitstat-demo)**
+4\. [시제품 데모](#bitstat-demo)
 
-4\. [마무리](#bitstat-goodbye) 
+5\. [마무리](#bitstat-goodbye) 
 
 ]
 ] <!--end of right-column--> 
+
+
 
 ---
 name: bistat-ecosystem
@@ -46,14 +48,41 @@ name: bistat-ecosystem
   <img src="fig/bitstat/business-ecosystem.png" />
 ]
 
-
+.footnote[
+- 에이아이에스: http://aispiration.com/
+- Korea R Conference: https://use-r.kr/
+- Tidyverse Seoul R Meetup: https://tidyverse-korea.github.io/seoul-R/
+- Youtube Channel: https://www.youtube.com/channel/UCW-epmIvjBEhhVXw_F0Nqbw
+- Facebook Group: https://www.facebook.com/groups/tidyverse
+]
 ---
 name: bistat-business
 # 사업화 방안과 공개SW
 
 
+.center[
+  <img src="fig/bitstat/business-education.png" />
+]
+
+.footnote[
+- https://bit.ly/3eSQOdK
+- https://bit.ly/3f7xd9X
+]
+
 ---
 name: bistat-developers
 # 참여인력 보유 역량
+
+<br>
+
+.center[
+  <img src="fig/bitstat/profile.png" />
+]
+
+.footnote[
+- [R Bootcamp - learnr](https://r-bootcamp-kr.netlify.app/), [R Bootcamp - binder](https://r-bootcamp-kr.netlify.app/)
+- [RStudio Education - Certified Instructor](https://education.rstudio.com/trainers/people/lee+kwangchun/)
+- [dlookr: Tools for Data Diagnosis, Exploration, Transformation](https://cran.r-project.org/web/packages/dlookr/index.html)
+]
 
 

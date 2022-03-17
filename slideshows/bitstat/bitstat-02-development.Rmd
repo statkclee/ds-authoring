@@ -26,11 +26,11 @@ name: data-science-case
 
 2\. **[.warmyellow[개발]](#bitstat-development)**
 
-3\. [커뮤니티](#bitstat-community)
+3\. [사업화와 공개SW](#bitstat-business)
 
 4\. [시제품 데모](#bitstat-demo)
 
-4\. [마무리](#bitstat-goodbye) 
+5\. [마무리](#bitstat-goodbye) 
 
 ]
 ] <!--end of right-column--> 
