@@ -1,5 +1,6 @@
 
 
+
 ---
 class: inverse, middle
 name: data-science-case
@@ -24,59 +25,35 @@ name: data-science-case
 
 1\. [개발필요성](#bitstat-why)
 
-2\. **[.warmyellow[개발]](#bitstat-development)**
+2\. [개발](#bitstat-development)
 
 3\. [커뮤니티](#bitstat-community)
 
-4\. [시제품 데모](#bitstat-demo)
+4\. **[.warmyellow[시제품 데모]](#bitstat-demo)**
 
 4\. [마무리](#bitstat-goodbye) 
 
 ]
 ] <!--end of right-column--> 
 
-
-
-
 ---
-name: bitstat-architecture
-# 시스템 아키텍쳐
+name: bistat-ecosystem
+# 오픈통계 패키지 생태계
 
 <br>
 
 .center[
-  <img src="fig/bitstat/development-architecture.png" />
-]
-
----
-name: bistat-architecture-product
-# [1차년] 오픈통계 패키지 제품 개발
- 
-<br>
-
-
-.center[
-  <img src="fig/bitstat/development-product.png" />
+  <img src="fig/bitstat/business-ecosystem.png" />
 ]
 
 
 ---
-name: bistat-architecture-product
-# [2차년] 오픈통계 패키지 클라우드 서비스 
+name: bistat-business
+# 사업화 방안과 공개SW
 
-<br>
-
-.center[
-  <img src="fig/bitstat/development-service.png" />
-]
 
 ---
-name: bistat-architecture-metrics
-# 연구개발 추진프로세스
+name: bistat-developers
+# 참여인력 보유 역량
 
-<br>
-
-.center[
-<img src="fig/bitstat/deveopment-process.png" width = "150%"/>
-]
 

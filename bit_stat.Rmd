@@ -87,11 +87,11 @@ name: data-science-case
 
 2\. [개발](#bitstat-development)
 
-3\. [커뮤니티](#bitstat-community)
+3\. [사업화와 공개SW](#bitstat-business)
 
 4\. [시제품 데모](#bitstat-demo)
 
-4\. [마무리](#bitstat-goodbye) 
+5\. [마무리](#bitstat-goodbye) 
 
 ]
 ] <!--end of right-column--> 
@@ -102,6 +102,8 @@ name: data-science-case
 ```{r child='slideshows/bitstat/bitstat-01-why.Rmd'}
 ```
 
+
+
 <!--------------------------  2. 개발 -----------------------------------------> 
 
 
@@ -109,8 +111,15 @@ name: data-science-case
 ```
 
 
+<!-------------------------- 4. 사업화와 공개SW ----------------------------------------->
 
-<!-------------------------- 4. 시제품 데모 ----------------------------------------->
+
+```{r child='slideshows/bitstat/bitstat-03-business.Rmd'}
+```
+
+
+<!-------------------------- 5. 시제품 데모 ----------------------------------------->
+
 
 
 ```{r child='slideshows/bitstat/bitstat-04-demo.Rmd'}
@@ -118,19 +127,16 @@ name: data-science-case
 
 
 
-
-
 <!--------------------------  마무리 ----------------------------------------->
 
-```{r child='slideshows/bitstat/bitstat-goodbye.Rmd'} 
+
+```{r child='slideshows/bitstat/bitstat-goodbye.Rmd'}
 ```
 
- 
 
 
----
-name: bistat-architecture-open-sw
-# SW품질관리계획 및 공개SW활용방안
+
+
 
 
 
