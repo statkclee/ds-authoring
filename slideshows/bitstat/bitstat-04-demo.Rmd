@@ -45,7 +45,7 @@ name: bitstat-demo-eda
 <br>
 
 .center[
-  <img src="fig/bitstat/openStat_demo.gif" />
+  <img src="fig/bitstat/openStat_quick.gif" />
 ]
 
 

@@ -45,7 +45,7 @@ name: bistat-ecosystem
 <br>
 
 .center[
-  <img src="fig/bitstat/business-ecosystem.png" />
+  <img src="fig/bitstat/business-ecosystem.png" width = "77%"/>
 ]
 
 .footnote[
