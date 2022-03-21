@@ -74,8 +74,6 @@ name: bistat-architecture-product
 name: bistat-architecture-metrics
 # 연구개발 추진프로세스
 
-<br>
-
 .center[
 <img src="fig/bitstat/deveopment-process.png" width = "150%"/>
 ]
