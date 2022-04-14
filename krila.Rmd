@@ -102,38 +102,23 @@ name: data-science-case
 <!--------------------------  1. 개발 필요성 ----------------------------------------->
  
 
-<!-- ```{r child='slideshows/krila/krila-goodbye.Rmd'} -->
-<!-- ``` -->
+```{r child='slideshows/krila/krila-01-data-science.Rmd'}
+```
 
+```{r child='slideshows/krila/krila-02-digital-company.Rmd'}
+```
 
-<!-- ```{r child='slideshows/krila/krila-01-data-science.Rmd'} -->
-<!-- ``` -->
+```{r child='slideshows/krila/krila-03-automation.Rmd'}
+```
 
+```{r child='slideshows/krila/krila-04-platform.Rmd'}
+```
 
-<!-- ```{r child='slideshows/krila/krila-02-digital-company.Rmd'} -->
-<!-- ``` -->
-
-
-<!-- ```{r child='slideshows/krila/krila-03-automation.Rmd'} -->
-<!-- ``` -->
-
-<!-- ```{r child='slideshows/krila/krila-04-platform.Rmd'} -->
-<!-- ``` -->
+```{r child='slideshows/krila/krila-goodbye.Rmd'}
+```
 
 
 
----
-name: data-science
-# 플랫폼
 
-데이터 사이언스(Data Science)는 데이터를 다루는 과학이다. 따라서 자연법칙을 다루는 자연과학과 맥이 닿아있다.
-자연법칙을 측정하여 데이터프레임(DataFrame)으로 나타내면 **변수(Variable)**, **관측점(Observation)**, **값(Value)**으로 표현된다.
-
-<img src="fig/data-science-overview.png" alt="데이터 사이언스 개요" width="100%" />
-
-
-.footnote[
-[Google Search - "데이터 과학"](https://www.google.com/search?q=%EB%8D%B0%EC%9D%B4%ED%84%B0+%EA%B3%BC%ED%95%99)
-]
 
 

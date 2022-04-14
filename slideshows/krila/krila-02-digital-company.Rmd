@@ -1,4 +1,43 @@
 
+ 
+---
+class: inverse, middle
+name: data-science-case
+
+# 발표 개요 
+
+----
+
+.pull-left[
+
+**.warmyellow[데이터가 기하급수적으로 증가]**하고 있으며, 
+지속적인 공공데이터 확대, 
+데이터3법 및 데이터 기본법 통과에 따른 선진적인 데이터 법제도 기틀 마련되면서
+이를 (데이터) 자원으로 가치를 창출하는 **디지털 전환**이 급속도로 진행되고 있으나,
+디지털 전환에 따른 **.red[행정, 인력, 기술기반(도구와 언어)]**등 제반 여건은 성숙되지 못한 상황. 
+
+**.red[플랫폼 (지방)정부]**를 위해서는 선진 디지털 기업을 벤치마킹하고
+디지털 기업을 지탱하는 **.green[자동화(Automation)와 추상화(Abstraction)]** 
+내재화가 반드시 필요함.
+
+]
+ 
+.pull-right[   
+.left[
+
+1\. [데이터 과학](#krila-01-data-science)
+
+2\. **[.warmyellow[디지털 기업]](#krila-02-digital-company)**
+
+3\. [자동화](#krila-03-automation)
+
+4\. [플랫폼 (정부)](#krila-04-platform)
+
+5\. [마무리](#krila-goodbye) 
+
+]
+] <!--end of right-column-->  
+
 
 ---
 name: digital-traditional-company

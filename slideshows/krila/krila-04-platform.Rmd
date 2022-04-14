@@ -1,6 +1,5 @@
 
-
-
+ 
 ---
 class: inverse, middle
 name: data-science-case
@@ -11,105 +10,85 @@ name: data-science-case
 
 .pull-left[
 
-지속적인 공공데이터 확대, 데이터3법 통과에 따라 **.warmyellow[데이터가 기하급수적으로 방대]**해져 가고 있으며 
-이를 분석하여 가치를 창출하는 **데이터 경제**가 급속도로 성장하고 있으나 
-데이터 분야에 대한 **.red[인력 육성이나 도구는 선형적 증가 상황]**에 맞춰져 있는 상황임.
+**.warmyellow[데이터가 기하급수적으로 증가]**하고 있으며, 
+지속적인 공공데이터 확대, 
+데이터3법 및 데이터 기본법 통과에 따른 선진적인 데이터 법제도 기틀 마련되면서
+이를 (데이터) 자원으로 가치를 창출하는 **디지털 전환**이 급속도로 진행되고 있으나,
+디지털 전환에 따른 **.red[행정, 인력, 기술기반(도구와 언어)]**등 제반 여건은 성숙되지 못한 상황. 
 
-**.green[데이터 통계 분석의 대중화]**를 위해서는 통계 비전공자 및 일반인이 쉽게 사용할 수 있는 
-**.green[통계 패키지 SW 개발]**이 필요함
+**.red[플랫폼 (지방)정부]**를 위해서는 선진 디지털 기업을 벤치마킹하고
+디지털 기업을 지탱하는 **.green[자동화(Automation)와 추상화(Abstraction)]** 
+내재화가 반드시 필요함.
 
 ]
  
 .pull-right[   
 .left[
 
-1\. [개발필요성](#bitstat-why)
+1\. [데이터 과학](#krila-01-data-science)
 
-2\. [개발](#bitstat-development)
+2\. [디지털 기업](#krila-02-digital-company)
 
-3\. [사업화와 공개SW](#bitstat-business)
+3\. [자동화](#krila-03-automation)
 
-4\. **[.warmyellow[시제품 데모]](#bitstat-demo)**
+4\. **[.warmyellow[플랫폼 (정부)]](#krila-04-platform)**
 
-5\. [마무리](#bitstat-goodbye) 
-
+5\. [마무리](#krila-goodbye) 
 
 ]
-] <!--end of right-column--> 
+] <!--end of right-column-->  
 
 
 ---
-name: bitstat-demo-eda
-# 데모 - 탐색적 데이터 분석
+name: platform-railroad
+# 플랫폼
 
 <br>
 
 .center[
-  <img src="fig/bitstat/openStat_quick.gif" />
+  <img src="fig/krila_railroad.png" alt="플랫폼" width="100%" />
 ]
-
-
-.footnote[
-- 한국 R 사용자회(Tidyverse Korea) - 컨트리뷰톤 2021년 Open UP 오픈 프런티어 "마스터 프런티어" 프로젝트
-]
-
 
 ---
-name: bitstat-demo-ui
-# 데모 - UI
+name: platform-aa
+# 자동화와 추상화
 
 <br>
-.pull-left[
-## 외양(theme)
-.left[
-  <img src="fig/bitstat/ui_shinythemes_fonts.gif" />
-]
-]
+<br>
 
-.pull-right[
-## 통계량 시각화
-.right[
-  <img src="fig/bitstat/ui_univariate_categorical.gif" />
-]
-
-]
-
-.footnote[
-- [tidyverse-korea/open_stat](https://github.com/tidyverse-korea/open_stat)
-- [tidyverse-korea/open_stat_ui](https://github.com/tidyverse-korea/open_stat_ui)
+.center[
+  <img src="fig/krila_aa.png" alt="자동화와 추상화" width="100%" />
 ]
 
 
 ---
-name: bitstat-demo-eda
-# 데모 - 데이터 패키지
+name: platform-operating-system
+# 플랫폼 - 운영체제(리눅스)
+
+<br>
+<br>
+
+.center[
+  <img src="fig/krila_os.png" alt="운영체제" width="100%" />
+]
+
+
+---
+name: platform-government
+# (지방) 정부 (X) 플랫폼
 
 <br>
 
 .center[
-  <img src="fig/bitstat/demo-data-package.jpg" />
+  <img src="fig/krila_open_gov_platform.png" alt="열린 정부 데이터 플랫폼" width="77%" />
 ]
-
 
 .footnote[
-- [GitHub 저장소]((https://github.com/tidyverse-korea/statdata)) 
-- [statdata 웹사이트](https://tidyverse-korea.github.io/statdata/) 
-- [eStat](http://estat.me/estat/eStat/)
-]
 
+```{r open-reference, results = 'asis', eval = TRUE}
+doi <- c('10.1016/j.giq.2020.101479')
+cat(unlist(rcrossref::cr_cn(dois = doi, format = "text", style = 'apa')))
+```
 
----
-name: bitstat-demo-eda
-# 데모 - BitStat 튜토리얼
-
-<br>
-
-.center[
-  <img src="fig/bitstat/demo-tutorial.png" />
-]
-
-
-.footnote[
-- [BitStat 개발자 튜토리얼](https://choonghyunryu.github.io/openstat_project/)
 ]
 

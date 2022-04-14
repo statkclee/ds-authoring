@@ -7,6 +7,14 @@
     <meta name="date" content="2022-04-25" />
     <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <script src="libs/htmlwidgets/htmlwidgets.js"></script>
+    <script src="libs/plotly-binding/plotly.js"></script>
+    <script src="libs/typedarray/typedarray.min.js"></script>
+    <script src="libs/jquery/jquery.min.js"></script>
+    <link href="libs/crosstalk/css/crosstalk.min.css" rel="stylesheet" />
+    <script src="libs/crosstalk/js/crosstalk.min.js"></script>
+    <link href="libs/plotly-htmlwidgets-css/plotly-htmlwidgets.css" rel="stylesheet" />
+    <script src="libs/plotly-main/plotly-latest.min.js"></script>
     <link rel="stylesheet" href="css/krila.css" type="text/css" />
     <link rel="stylesheet" href="css/nhsr-fonts.css" type="text/css" />
   </head>
@@ -67,29 +75,12 @@ name: data-science-case
 &lt;!--------------------------  1. 개발 필요성 -----------------------------------------&gt;
  
 
-&lt;!-- ```{r child='slideshows/krila/krila-goodbye.Rmd'} --&gt;
-&lt;!-- ``` --&gt;
-
-
-&lt;!-- ```{r child='slideshows/krila/krila-01-data-science.Rmd'} --&gt;
-&lt;!-- ``` --&gt;
-
-
-&lt;!-- ```{r child='slideshows/krila/krila-02-digital-company.Rmd'} --&gt;
-&lt;!-- ``` --&gt;
-
-
-&lt;!-- ```{r child='slideshows/krila/krila-03-automation.Rmd'} --&gt;
-&lt;!-- ``` --&gt;
-
-&lt;!-- ```{r child='slideshows/krila/krila-04-platform.Rmd'} --&gt;
-&lt;!-- ``` --&gt;
 
 
 
 ---
 name: data-science
-# 플랫폼
+# 데이터 과학
 
 데이터 사이언스(Data Science)는 데이터를 다루는 과학이다. 따라서 자연법칙을 다루는 자연과학과 맥이 닿아있다.
 자연법칙을 측정하여 데이터프레임(DataFrame)으로 나타내면 **변수(Variable)**, **관측점(Observation)**, **값(Value)**으로 표현된다.
@@ -100,6 +91,731 @@ name: data-science
 .footnote[
 [Google Search - "데이터 과학"](https://www.google.com/search?q=%EB%8D%B0%EC%9D%B4%ED%84%B0+%EA%B3%BC%ED%95%99)
 ]
+
+
+---
+name: tidyverse
+# AI/ML/DL vs 데이터 과학
+
+&lt;br&gt;
+
+.center[
+&lt;img src="fig/tidyvese_os.png" width="77%" /&gt;
+]
+
+
+.footnote[
+[한국통계학회 소식지 2019년 10월호 ](https://statkclee.github.io/ds-authoring/ds-stat-tidyverse.html)
+]
+
+
+---
+name: tidyverse-definition
+# tidyverse
+
+&lt;br&gt;
+
+.center[
+&lt;img src="fig/maso_tidyverse.png" width="77%" /&gt;
+]
+
+
+.pull-left[
+
+- 기존 자료구조를 재사용
+- 파이프 연산자로 간단한 함수를 조합
+- 함수형 프로그래밍을 적극 사용
+- 기계가 아닌 인간을 위한 설계
+
+]
+
+.pull-right[
+ 
+- Reuse existing data structures.
+- Compose simple functions with the pipe.
+- Embrace functional programming.
+- Design for humans.
+
+]
+
+
+---
+name: y-fx
+# 30년의 변화를 그림으로 표현
+
+.center[
+&lt;img src="fig/intree-xy-f.png" alt="XY" width="77%" /&gt;
+]
+
+
+.footnote[
+[이광춘(2019-01-26), "Data Scientist 가 바라본 제조업의 발전 전략 및 방안", Intree 4.0 World Forum](https://statkclee.github.io/ds-authoring/intree-seminar-2019-01.html)
+]
+
+---
+name: data-science-graph
+## Big Data/AI/ML/Data Science
+
+&lt;br&gt; 
+
+.pull-left[
+### Google Trends: 미국
+
+![](fig/google-trends-comparison-us-1.png)
+]
+
+.pull-right[
+### Google Trends: 대한민국
+
+![](fig/google-trends-comparison-kr-1.png)
+]
+
+.footnote[
+[이광춘 (2020-07-21), "기업운영혁신을 위한 데이터 과학: 기업의 활용방안", 포항산업과학연구원(RIST)](https://statkclee.github.io/ds-authoring/ds-rist.html)
+]
+
+---
+name: data-science-resource
+# 데이터 경제와 산업
+
+&lt;br&gt;
+
+.pull-left[
+### 데이터 자원
+
+![](fig/economist-bigdata-oil.png)
+]
+
+.pull-right[
+### 파이프라인
+
+![](fig/data-economy-industry.png)
+]
+
+.footnote[
+[이광춘 (2020-07-21), "기업운영혁신을 위한 데이터 과학: 기업의 활용방안", 포항산업과학연구원(RIST)](https://statkclee.github.io/ds-authoring/ds-rist.html)
+]
+
+---
+name: data-sciece-value
+## 가치
+
+&lt;small&gt;
+&lt;ul&gt;
+  &lt;li&gt;기술 분석(Descriptive Analytics): 무슨 일이 있었나? (What happened?)&lt;/li&gt;
+  &lt;li&gt;진단 분석(Diagnostic Analytics): 왜 일어났나? (Why did it happen?)&lt;/li&gt;
+  &lt;li&gt;예측 분석(Predictive Analytics): 무슨 일이 일어날까? (What will happen?)&lt;/li&gt;
+  &lt;li&gt;처방 분석(Prescriptive Analytics): 어떻게 그런 일을 일으킬까? (How can we make it happen?)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/small&gt;
+
+.center[
+&lt;img src="fig/ds-gartner.png" width = "80%" /&gt;
+]
+
+
+---
+name: data-sciece-cost
+# 패러다임의 변화
+
+&lt;br&gt;
+
+.pull-left[
+### 비용 (인건비 + 자본비용)
+
+![](fig/data-science-cost.png)
+]
+
+.pull-right[
+### 자동화 (소프트웨어 1.0 + 2.0)
+
+![](fig/automated-machine-learning.png)
+]
+
+
+---
+name: case-study-worldcup
+## [실제 사례] 러시아 월드컵 (독일전)
+
+&lt;br&gt;
+
+.center[
+&lt;img src="fig/worldcup.gif" alt="월드컵" width="80%" /&gt;
+]
+
+.footnote[
+[러시아 월드컵(2018) - 한국 vs 독일](https://statkclee.github.io/viz/viz-worldcup-germany.html)
+]
+
+---
+name: case-study-earthquake
+## [실제 사례] 지진해일 대피소
+
+&lt;br&gt;
+
+.center[
+&lt;img src="fig/earthquake.png" alt="월드컵" width="80%" /&gt;
+]
+
+.footnote[
+[xwMOOC (2018-01-17), "지진해일 대피소 - crosstalk"](https://statkclee.github.io/viz/viz-earthquake-shelter.html)
+]
+
+---
+name: case-study-congress
+## [실제 사례] 국회의원 프로필
+
+&lt;br&gt;
+
+.center[
+&lt;img src="fig/trelliscopejs.png" alt="국회의원 사진" width="80%" /&gt;
+]
+
+.footnote[
+[국회의원 사진 - trelliscope](https://statkclee.github.io/viz/viz-congressman.html)
+]
+
+---
+name: case-study-avi
+## [실제 사례] 동영상 감성 분석
+
+&lt;br&gt;
+
+.center[
+&lt;img src="fig/kbs-video.jpg" alt="슬픔은 어디에" width="80%" /&gt;
+]
+
+.footnote[
+- [xwMOOC 딥러닝 - 동영상 감정 분석](https://statkclee.github.io/deep-learning/ms-oxford-video.html)
+- [KBS NEWS, 인공지능으로 분석한 대통령의 마음…슬픔은 어디에?](http://news.kbs.co.kr/news/view.do?ncd=3390429&amp;ref=D)
+]
+
+---
+name: case-study-regression
+## [실제 사례] 회귀분석 - MLB 투수 유전자는 유전이 될까?
+
+&lt;br&gt;
+
+.center[
+&lt;img src="fig/major-league.png" alt="MLB 투수 유전자" width="77%" /&gt;
+]
+
+.footnote[
+[회귀분석 - MLB 투수 유전자는 유전이 될까?](https://statkclee.github.io/politics/pe-baseball-era.html)
+]
+
+---
+name: case-study-birthrate
+## [실제 사례] 출산장려 예산은 출산율을 높일까?
+
+&lt;br&gt;
+
+.center[
+&lt;img src="fig/budget-birthrate.png" width="57%" /&gt;
+]
+
+.footnote[
+[저출산과 소요예산 - 상관관계](https://statkclee.github.io/viz/viz-low-birth-rate.html)
+]
+
+---
+name: case-study-tax
+## [실제 사례] 증가된 정부예산: 누가 세금을 많이 냈나?
+
+&lt;br&gt;
+
+.center[
+&lt;img src="fig/tax-burden.png"width="77%" /&gt;
+]
+
+.footnote[
+[국세 세금 데이터 분석](https://statkclee.github.io/election/election_tax_EDA.html)
+]
+
+
+---
+name: case-study-dashboard
+## [실제 사례] 대쉬보드
+
+&lt;br&gt;
+
+.center[
+&lt;img src="fig/krila_dashboard.png" width="100%" /&gt;
+]
+
+.footnote[
+[대통령선거 - 대쉬보드](https://aispiration.com/president/social-dashboard.html)
+]
+
+
+
+
+ 
+---
+class: inverse, middle
+name: data-science-case
+
+# 발표 개요 
+
+----
+
+.pull-left[
+
+**.warmyellow[데이터가 기하급수적으로 증가]**하고 있으며, 
+지속적인 공공데이터 확대, 
+데이터3법 및 데이터 기본법 통과에 따른 선진적인 데이터 법제도 기틀 마련되면서
+이를 (데이터) 자원으로 가치를 창출하는 **디지털 전환**이 급속도로 진행되고 있으나,
+디지털 전환에 따른 **.red[행정, 인력, 기술기반(도구와 언어)]**등 제반 여건은 성숙되지 못한 상황. 
+
+**.red[플랫폼 (지방)정부]**를 위해서는 선진 디지털 기업을 벤치마킹하고
+디지털 기업을 지탱하는 **.green[자동화(Automation)와 추상화(Abstraction)]** 
+내재화가 반드시 필요함.
+
+]
+ 
+.pull-right[   
+.left[
+
+1\. [데이터 과학](#krila-01-data-science)
+
+2\. **[.warmyellow[디지털 기업]](#krila-02-digital-company)**
+
+3\. [자동화](#krila-03-automation)
+
+4\. [플랫폼 (정부)](#krila-04-platform)
+
+5\. [마무리](#krila-goodbye) 
+
+]
+] &lt;!--end of right-column--&gt;  
+
+
+---
+name: digital-traditional-company
+# 전통기업: 사업 모형
+
+.center[
+&lt;img src="fig/digital-business-model.png", width="67%" /&gt;
+]
+
+.footnote[
+
+Klein, J. (2021). Competing in the Age of AI. By MarcoIansiti and KarimLakhani. Harvard Business Review Press: Boston, MA, 2020, ISBN&lt;U+2010&gt;13 978&lt;U+2010&gt;1633697621, hardback, ￡18, pp. 288. R&amp;amp;D Management, 52(1), 153&lt;U+2013&gt;154. Portico. https://doi.org/10.1111/radm.12489
+
+]
+
+---
+name: digital-traditional-company-om
+# 전통기업: 운영 모형
+
+.center[
+&lt;img src="fig/digital-operating-model.png", width="87%" /&gt;
+]
+
+---
+name: digital-traditional-company-bm-om
+# 전통기업: BM &amp;rarr; OM
+
+&lt;br&gt;
+&lt;br&gt;
+
+.center[
+&lt;img src="fig/digital-bm-om.png", width="100%" /&gt;
+]
+
+---
+name: digital-traditional-company-problem
+# 전통기업: 문제점
+
+&lt;br&gt;
+&lt;br&gt;
+
+.center[
+&lt;img src="fig/traditional-value-of-firm.png", width="100%" /&gt;
+]
+
+---
+name: digital-traditional-company-problem
+# 전통기업: 근본 원인
+
+&lt;br&gt;
+
+.center[
+&lt;img src="fig/traditional-om.png", width="100%" /&gt;
+]
+
+---
+name: digital-network-om
+# 디지털 AI 기업: 운영모형 + 네트워크 효과
+
+.center[
+&lt;img src="fig/network-effect-digital.png", width="100%" /&gt;
+]
+
+---
+name: digital-network-ai-company
+# 디지털 AI 기업: AI 공장과 운영모형
+
+&lt;br&gt;
+&lt;br&gt;
+
+.center[
+&lt;img src="fig/ai-factory-om.png", width="100%" /&gt;
+]
+
+
+---
+name: digital-value
+# 디지털 AI 기업: 가치(Value), 효용(Utility)
+
+.center[
+&lt;img src="fig/network-ai-value.png", width="87%" /&gt;
+]
+ 
+---
+name: digital-value
+# 디지털 AI 기업: 운영모형
+
+&lt;br&gt;
+
+.center[
+&lt;img src="fig/ai-network-om.png", width="100%" /&gt;
+]
+ 
+ 
+---
+name: digital-value
+# 디지털 AI 기업: 운영모형 비교
+
+&lt;br&gt;
+
+.center[
+&lt;img src="fig/digital-ai-om.png", width="100%" /&gt;
+]
+ 
+---
+name: digital-collision
+# 전통기업: 디지털 운영 모형 전환
+
+&lt;br&gt;
+
+.center[
+&lt;img src="fig/digital-transformation-om.png", width="100%" /&gt;
+]
+
+
+
+
+ 
+---
+class: inverse, middle
+name: data-science-case
+
+# 발표 개요 
+
+----
+
+.pull-left[
+
+**.warmyellow[데이터가 기하급수적으로 증가]**하고 있으며, 
+지속적인 공공데이터 확대, 
+데이터3법 및 데이터 기본법 통과에 따른 선진적인 데이터 법제도 기틀 마련되면서
+이를 (데이터) 자원으로 가치를 창출하는 **디지털 전환**이 급속도로 진행되고 있으나,
+디지털 전환에 따른 **.red[행정, 인력, 기술기반(도구와 언어)]**등 제반 여건은 성숙되지 못한 상황. 
+
+**.red[플랫폼 (지방)정부]**를 위해서는 선진 디지털 기업을 벤치마킹하고
+디지털 기업을 지탱하는 **.green[자동화(Automation)와 추상화(Abstraction)]** 
+내재화가 반드시 필요함.
+
+]
+ 
+.pull-right[   
+.left[
+
+1\. [데이터 과학](#krila-01-data-science)
+
+2\. [디지털 기업](#krila-02-digital-company)
+
+3\. **[.warmyellow[자동화]](#krila-03-automation)**
+
+4\. [플랫폼 (정부)](#krila-04-platform)
+
+5\. [마무리](#krila-goodbye) 
+
+]
+] &lt;!--end of right-column--&gt;  
+
+
+---
+name: automation-tax
+# 세무사 업무 변천과정
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+.center[
+
+![세무 업무 변천사](fig/tax-preparation.png)
+
+]
+
+.footnote[
+[이광춘 (2019-12-04), "자동화(Automation) - ~~로봇~~ 자동화가 빼앗는 일자리 그리고 나", 분당 서현 청소년 수련관 ](https://statkclee.github.io/ds-authoring/ds-bundang-2019.html)
+]
+
+---
+name: automation-productivity-gap
+# 생산성과 임금 격차
+
+&lt;br&gt;
+
+<div id="htmlwidget-cdfa7a2088d4905dea5f" style="width:100%;height:67%;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-cdfa7a2088d4905dea5f">{"x":{"data":[{"x":[1948,1949,1950,1951,1952,1953,1954,1955,1956,1957,1958,1959,1960,1961,1962,1963,1964,1965,1966,1967,1968,1969,1970,1971,1972,1973,1974,1975,1976,1977,1978,1979,1980,1981,1982,1983,1984,1985,1986,1987,1988,1989,1990,1991,1992,1993,1994,1995,1996,1997,1998,1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018],"y":[0,0.0469,0.0112,0.00499999999999999,0.00470000000000001,0.0141,0.0204,0.0232,0.073,0.0704,0.0535999999999999,0.0483,0.0532,0.0347,0.0252,0.00170000000000003,0.0161999999999999,0.0265,0.0525,0.053,0.0608,0.0346,0.0354,0.0544,0.00860000000000005,0.0600000000000001,0.0678000000000001,0.1125,0.1424,0.1323,0.1261,0.1486,0.1872,0.2314,0.2067,0.2602,0.3318,0.3747,0.4103,0.4413,0.4799,0.5019,0.5458,0.5648,0.6428,0.6505,0.6665,0.6883,0.7337,0.7585,0.7694,0.8148,0.8651,0.8811,0.9201,0.9964,1.0873,1.1556,1.1773,1.1833,1.2,1.1945,1.2723,1.2974,1.3307,1.3256,1.3383,1.3334,1.3195,1.3511,1.3728],"text":["Year: 1948<br />value: 0.0000<br />metric: gap","Year: 1949<br />value: 0.0469<br />metric: gap","Year: 1950<br />value: 0.0112<br />metric: gap","Year: 1951<br />value: 0.0050<br />metric: gap","Year: 1952<br />value: 0.0047<br />metric: gap","Year: 1953<br />value: 0.0141<br />metric: gap","Year: 1954<br />value: 0.0204<br />metric: gap","Year: 1955<br />value: 0.0232<br />metric: gap","Year: 1956<br />value: 0.0730<br />metric: gap","Year: 1957<br />value: 0.0704<br />metric: gap","Year: 1958<br />value: 0.0536<br />metric: gap","Year: 1959<br />value: 0.0483<br />metric: gap","Year: 1960<br />value: 0.0532<br />metric: gap","Year: 1961<br />value: 0.0347<br />metric: gap","Year: 1962<br />value: 0.0252<br />metric: gap","Year: 1963<br />value: 0.0017<br />metric: gap","Year: 1964<br />value: 0.0162<br />metric: gap","Year: 1965<br />value: 0.0265<br />metric: gap","Year: 1966<br />value: 0.0525<br />metric: gap","Year: 1967<br />value: 0.0530<br />metric: gap","Year: 1968<br />value: 0.0608<br />metric: gap","Year: 1969<br />value: 0.0346<br />metric: gap","Year: 1970<br />value: 0.0354<br />metric: gap","Year: 1971<br />value: 0.0544<br />metric: gap","Year: 1972<br />value: 0.0086<br />metric: gap","Year: 1973<br />value: 0.0600<br />metric: gap","Year: 1974<br />value: 0.0678<br />metric: gap","Year: 1975<br />value: 0.1125<br />metric: gap","Year: 1976<br />value: 0.1424<br />metric: gap","Year: 1977<br />value: 0.1323<br />metric: gap","Year: 1978<br />value: 0.1261<br />metric: gap","Year: 1979<br />value: 0.1486<br />metric: gap","Year: 1980<br />value: 0.1872<br />metric: gap","Year: 1981<br />value: 0.2314<br />metric: gap","Year: 1982<br />value: 0.2067<br />metric: gap","Year: 1983<br />value: 0.2602<br />metric: gap","Year: 1984<br />value: 0.3318<br />metric: gap","Year: 1985<br />value: 0.3747<br />metric: gap","Year: 1986<br />value: 0.4103<br />metric: gap","Year: 1987<br />value: 0.4413<br />metric: gap","Year: 1988<br />value: 0.4799<br />metric: gap","Year: 1989<br />value: 0.5019<br />metric: gap","Year: 1990<br />value: 0.5458<br />metric: gap","Year: 1991<br />value: 0.5648<br />metric: gap","Year: 1992<br />value: 0.6428<br />metric: gap","Year: 1993<br />value: 0.6505<br />metric: gap","Year: 1994<br />value: 0.6665<br />metric: gap","Year: 1995<br />value: 0.6883<br />metric: gap","Year: 1996<br />value: 0.7337<br />metric: gap","Year: 1997<br />value: 0.7585<br />metric: gap","Year: 1998<br />value: 0.7694<br />metric: gap","Year: 1999<br />value: 0.8148<br />metric: gap","Year: 2000<br />value: 0.8651<br />metric: gap","Year: 2001<br />value: 0.8811<br />metric: gap","Year: 2002<br />value: 0.9201<br />metric: gap","Year: 2003<br />value: 0.9964<br />metric: gap","Year: 2004<br />value: 1.0873<br />metric: gap","Year: 2005<br />value: 1.1556<br />metric: gap","Year: 2006<br />value: 1.1773<br />metric: gap","Year: 2007<br />value: 1.1833<br />metric: gap","Year: 2008<br />value: 1.2000<br />metric: gap","Year: 2009<br />value: 1.1945<br />metric: gap","Year: 2010<br />value: 1.2723<br />metric: gap","Year: 2011<br />value: 1.2974<br />metric: gap","Year: 2012<br />value: 1.3307<br />metric: gap","Year: 2013<br />value: 1.3256<br />metric: gap","Year: 2014<br />value: 1.3383<br />metric: gap","Year: 2015<br />value: 1.3334<br />metric: gap","Year: 2016<br />value: 1.3195<br />metric: gap","Year: 2017<br />value: 1.3511<br />metric: gap","Year: 2018<br />value: 1.3728<br />metric: gap"],"type":"scatter","mode":"lines+markers","line":{"width":1.88976377952756,"color":"rgba(248,118,109,1)","dash":"solid"},"hoveron":"points","name":"gap","legendgroup":"gap","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","marker":{"autocolorscale":false,"color":"rgba(248,118,109,1)","opacity":1,"size":1.13385826771654,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(248,118,109,1)"}},"frame":null},{"x":[1948,1949,1950,1951,1952,1953,1954,1955,1956,1957,1958,1959,1960,1961,1962,1963,1964,1965,1966,1967,1968,1969,1970,1971,1972,1973,1974,1975,1976,1977,1978,1979,1980,1981,1982,1983,1984,1985,1986,1987,1988,1989,1990,1991,1992,1993,1994,1995,1996,1997,1998,1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018],"y":[0,0.0624,0.1046,0.1174,0.1502,0.2082,0.2348,0.287,0.3389,0.3708,0.3808,0.4246,0.4538,0.4784,0.5232,0.5486,0.5832,0.6227,0.647,0.6668,0.7105,0.7439,0.7681,0.8166,0.9134,0.9096,0.8705,0.8686,0.8935,0.9282,0.9566,0.9325,0.8805,0.8736,0.877,0.8849,0.8703,0.8618,0.8725,0.8467,0.8402,0.8393,0.8237,0.8202,0.832,0.8346,0.8389,0.8276,0.8287,0.8487,0.8927,0.9198,0.9296,0.956,0.9949,1.0158,1.0056,0.9973,0.9988,1.0145,1.0139,1.093,1.11,1.0847,1.065,1.084,1.0908,1.1241,1.1439,1.1467,1.1562],"text":["Year: 1948<br />value: 0.0000<br />metric: Hourly compensation","Year: 1949<br />value: 0.0624<br />metric: Hourly compensation","Year: 1950<br />value: 0.1046<br />metric: Hourly compensation","Year: 1951<br />value: 0.1174<br />metric: Hourly compensation","Year: 1952<br />value: 0.1502<br />metric: Hourly compensation","Year: 1953<br />value: 0.2082<br />metric: Hourly compensation","Year: 1954<br />value: 0.2348<br />metric: Hourly compensation","Year: 1955<br />value: 0.2870<br />metric: Hourly compensation","Year: 1956<br />value: 0.3389<br />metric: Hourly compensation","Year: 1957<br />value: 0.3708<br />metric: Hourly compensation","Year: 1958<br />value: 0.3808<br />metric: Hourly compensation","Year: 1959<br />value: 0.4246<br />metric: Hourly compensation","Year: 1960<br />value: 0.4538<br />metric: Hourly compensation","Year: 1961<br />value: 0.4784<br />metric: Hourly compensation","Year: 1962<br />value: 0.5232<br />metric: Hourly compensation","Year: 1963<br />value: 0.5486<br />metric: Hourly compensation","Year: 1964<br />value: 0.5832<br />metric: Hourly compensation","Year: 1965<br />value: 0.6227<br />metric: Hourly compensation","Year: 1966<br />value: 0.6470<br />metric: Hourly compensation","Year: 1967<br />value: 0.6668<br />metric: Hourly compensation","Year: 1968<br />value: 0.7105<br />metric: Hourly compensation","Year: 1969<br />value: 0.7439<br />metric: Hourly compensation","Year: 1970<br />value: 0.7681<br />metric: Hourly compensation","Year: 1971<br />value: 0.8166<br />metric: Hourly compensation","Year: 1972<br />value: 0.9134<br />metric: Hourly compensation","Year: 1973<br />value: 0.9096<br />metric: Hourly compensation","Year: 1974<br />value: 0.8705<br />metric: Hourly compensation","Year: 1975<br />value: 0.8686<br />metric: Hourly compensation","Year: 1976<br />value: 0.8935<br />metric: Hourly compensation","Year: 1977<br />value: 0.9282<br />metric: Hourly compensation","Year: 1978<br />value: 0.9566<br />metric: Hourly compensation","Year: 1979<br />value: 0.9325<br />metric: Hourly compensation","Year: 1980<br />value: 0.8805<br />metric: Hourly compensation","Year: 1981<br />value: 0.8736<br />metric: Hourly compensation","Year: 1982<br />value: 0.8770<br />metric: Hourly compensation","Year: 1983<br />value: 0.8849<br />metric: Hourly compensation","Year: 1984<br />value: 0.8703<br />metric: Hourly compensation","Year: 1985<br />value: 0.8618<br />metric: Hourly compensation","Year: 1986<br />value: 0.8725<br />metric: Hourly compensation","Year: 1987<br />value: 0.8467<br />metric: Hourly compensation","Year: 1988<br />value: 0.8402<br />metric: Hourly compensation","Year: 1989<br />value: 0.8393<br />metric: Hourly compensation","Year: 1990<br />value: 0.8237<br />metric: Hourly compensation","Year: 1991<br />value: 0.8202<br />metric: Hourly compensation","Year: 1992<br />value: 0.8320<br />metric: Hourly compensation","Year: 1993<br />value: 0.8346<br />metric: Hourly compensation","Year: 1994<br />value: 0.8389<br />metric: Hourly compensation","Year: 1995<br />value: 0.8276<br />metric: Hourly compensation","Year: 1996<br />value: 0.8287<br />metric: Hourly compensation","Year: 1997<br />value: 0.8487<br />metric: Hourly compensation","Year: 1998<br />value: 0.8927<br />metric: Hourly compensation","Year: 1999<br />value: 0.9198<br />metric: Hourly compensation","Year: 2000<br />value: 0.9296<br />metric: Hourly compensation","Year: 2001<br />value: 0.9560<br />metric: Hourly compensation","Year: 2002<br />value: 0.9949<br />metric: Hourly compensation","Year: 2003<br />value: 1.0158<br />metric: Hourly compensation","Year: 2004<br />value: 1.0056<br />metric: Hourly compensation","Year: 2005<br />value: 0.9973<br />metric: Hourly compensation","Year: 2006<br />value: 0.9988<br />metric: Hourly compensation","Year: 2007<br />value: 1.0145<br />metric: Hourly compensation","Year: 2008<br />value: 1.0139<br />metric: Hourly compensation","Year: 2009<br />value: 1.0930<br />metric: Hourly compensation","Year: 2010<br />value: 1.1100<br />metric: Hourly compensation","Year: 2011<br />value: 1.0847<br />metric: Hourly compensation","Year: 2012<br />value: 1.0650<br />metric: Hourly compensation","Year: 2013<br />value: 1.0840<br />metric: Hourly compensation","Year: 2014<br />value: 1.0908<br />metric: Hourly compensation","Year: 2015<br />value: 1.1241<br />metric: Hourly compensation","Year: 2016<br />value: 1.1439<br />metric: Hourly compensation","Year: 2017<br />value: 1.1467<br />metric: Hourly compensation","Year: 2018<br />value: 1.1562<br />metric: Hourly compensation"],"type":"scatter","mode":"lines+markers","line":{"width":1.88976377952756,"color":"rgba(0,186,56,1)","dash":"solid"},"hoveron":"points","name":"Hourly compensation","legendgroup":"Hourly compensation","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","marker":{"autocolorscale":false,"color":"rgba(0,186,56,1)","opacity":1,"size":1.13385826771654,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(0,186,56,1)"}},"frame":null},{"x":[1948,1949,1950,1951,1952,1953,1954,1955,1956,1957,1958,1959,1960,1961,1962,1963,1964,1965,1966,1967,1968,1969,1970,1971,1972,1973,1974,1975,1976,1977,1978,1979,1980,1981,1982,1983,1984,1985,1986,1987,1988,1989,1990,1991,1992,1993,1994,1995,1996,1997,1998,1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018],"y":[0,0.0155,0.0934,0.1224,0.1549,0.1941,0.2144,0.2638,0.2659,0.3004,0.3272,0.3763,0.4006,0.4437,0.498,0.5503,0.5994,0.6492,0.6995,0.7198,0.7713,0.7785,0.8035,0.871,0.922,0.9696,0.9383,0.9811,1.0359,1.0605,1.0827,1.0811,1.0677,1.105,1.0837,1.1451,1.2021,1.2365,1.2828,1.288,1.3201,1.3412,1.3695,1.385,1.4748,1.4851,1.5054,1.5159,1.5624,1.6072,1.6621,1.7346,1.7947,1.8371,1.915,2.0122,2.0929,2.1529,2.1761,2.1978,2.2139,2.2875,2.3823,2.3821,2.3957,2.4096,2.4291,2.4575,2.4634,2.4978,2.529],"text":["Year: 1948<br />value: 0.0000<br />metric: Net productivity","Year: 1949<br />value: 0.0155<br />metric: Net productivity","Year: 1950<br />value: 0.0934<br />metric: Net productivity","Year: 1951<br />value: 0.1224<br />metric: Net productivity","Year: 1952<br />value: 0.1549<br />metric: Net productivity","Year: 1953<br />value: 0.1941<br />metric: Net productivity","Year: 1954<br />value: 0.2144<br />metric: Net productivity","Year: 1955<br />value: 0.2638<br />metric: Net productivity","Year: 1956<br />value: 0.2659<br />metric: Net productivity","Year: 1957<br />value: 0.3004<br />metric: Net productivity","Year: 1958<br />value: 0.3272<br />metric: Net productivity","Year: 1959<br />value: 0.3763<br />metric: Net productivity","Year: 1960<br />value: 0.4006<br />metric: Net productivity","Year: 1961<br />value: 0.4437<br />metric: Net productivity","Year: 1962<br />value: 0.4980<br />metric: Net productivity","Year: 1963<br />value: 0.5503<br />metric: Net productivity","Year: 1964<br />value: 0.5994<br />metric: Net productivity","Year: 1965<br />value: 0.6492<br />metric: Net productivity","Year: 1966<br />value: 0.6995<br />metric: Net productivity","Year: 1967<br />value: 0.7198<br />metric: Net productivity","Year: 1968<br />value: 0.7713<br />metric: Net productivity","Year: 1969<br />value: 0.7785<br />metric: Net productivity","Year: 1970<br />value: 0.8035<br />metric: Net productivity","Year: 1971<br />value: 0.8710<br />metric: Net productivity","Year: 1972<br />value: 0.9220<br />metric: Net productivity","Year: 1973<br />value: 0.9696<br />metric: Net productivity","Year: 1974<br />value: 0.9383<br />metric: Net productivity","Year: 1975<br />value: 0.9811<br />metric: Net productivity","Year: 1976<br />value: 1.0359<br />metric: Net productivity","Year: 1977<br />value: 1.0605<br />metric: Net productivity","Year: 1978<br />value: 1.0827<br />metric: Net productivity","Year: 1979<br />value: 1.0811<br />metric: Net productivity","Year: 1980<br />value: 1.0677<br />metric: Net productivity","Year: 1981<br />value: 1.1050<br />metric: Net productivity","Year: 1982<br />value: 1.0837<br />metric: Net productivity","Year: 1983<br />value: 1.1451<br />metric: Net productivity","Year: 1984<br />value: 1.2021<br />metric: Net productivity","Year: 1985<br />value: 1.2365<br />metric: Net productivity","Year: 1986<br />value: 1.2828<br />metric: Net productivity","Year: 1987<br />value: 1.2880<br />metric: Net productivity","Year: 1988<br />value: 1.3201<br />metric: Net productivity","Year: 1989<br />value: 1.3412<br />metric: Net productivity","Year: 1990<br />value: 1.3695<br />metric: Net productivity","Year: 1991<br />value: 1.3850<br />metric: Net productivity","Year: 1992<br />value: 1.4748<br />metric: Net productivity","Year: 1993<br />value: 1.4851<br />metric: Net productivity","Year: 1994<br />value: 1.5054<br />metric: Net productivity","Year: 1995<br />value: 1.5159<br />metric: Net productivity","Year: 1996<br />value: 1.5624<br />metric: Net productivity","Year: 1997<br />value: 1.6072<br />metric: Net productivity","Year: 1998<br />value: 1.6621<br />metric: Net productivity","Year: 1999<br />value: 1.7346<br />metric: Net productivity","Year: 2000<br />value: 1.7947<br />metric: Net productivity","Year: 2001<br />value: 1.8371<br />metric: Net productivity","Year: 2002<br />value: 1.9150<br />metric: Net productivity","Year: 2003<br />value: 2.0122<br />metric: Net productivity","Year: 2004<br />value: 2.0929<br />metric: Net productivity","Year: 2005<br />value: 2.1529<br />metric: Net productivity","Year: 2006<br />value: 2.1761<br />metric: Net productivity","Year: 2007<br />value: 2.1978<br />metric: Net productivity","Year: 2008<br />value: 2.2139<br />metric: Net productivity","Year: 2009<br />value: 2.2875<br />metric: Net productivity","Year: 2010<br />value: 2.3823<br />metric: Net productivity","Year: 2011<br />value: 2.3821<br />metric: Net productivity","Year: 2012<br />value: 2.3957<br />metric: Net productivity","Year: 2013<br />value: 2.4096<br />metric: Net productivity","Year: 2014<br />value: 2.4291<br />metric: Net productivity","Year: 2015<br />value: 2.4575<br />metric: Net productivity","Year: 2016<br />value: 2.4634<br />metric: Net productivity","Year: 2017<br />value: 2.4978<br />metric: Net productivity","Year: 2018<br />value: 2.5290<br />metric: Net productivity"],"type":"scatter","mode":"lines+markers","line":{"width":1.88976377952756,"color":"rgba(97,156,255,1)","dash":"solid"},"hoveron":"points","name":"Net productivity","legendgroup":"Net productivity","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","marker":{"autocolorscale":false,"color":"rgba(97,156,255,1)","opacity":1,"size":1.13385826771654,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(97,156,255,1)"}},"frame":null}],"layout":{"margin":{"t":46.7762557077626,"r":7.30593607305936,"b":28.5844748858448,"l":34.337899543379},"plot_bgcolor":"rgba(255,255,255,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"NanumGothic","size":14.6118721461187},"title":{"text":"Productivity growth and hourly compensation growth, 1948-2018","font":{"color":"rgba(0,0,0,1)","family":"NanumGothic","size":17.5342465753425},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[1944.5,2021.5],"tickmode":"array","ticktext":["1960","1980","2000","2020"],"tickvals":[1960,1980,2000,2020],"categoryorder":"array","categoryarray":["1960","1980","2000","2020"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"NanumGothic","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"y","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"NanumGothic","size":14.6118721461187}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-0.12645,2.65545],"tickmode":"array","ticktext":["0%","50%","100%","150%","200%","250%"],"tickvals":[0,0.5,1,1.5,2,2.5],"categoryorder":"array","categoryarray":["0%","50%","100%","150%","200%","250%"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"NanumGothic","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"x","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"NanumGothic","size":14.6118721461187}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":"transparent","line":{"color":"rgba(51,51,51,1)","width":0.66417600664176,"linetype":"solid"},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.88976377952756,"font":{"color":"rgba(0,0,0,1)","family":"NanumGothic","size":11.689497716895},"title":{"text":"생산성과 시간당 급여","font":{"color":"rgba(0,0,0,1)","family":"NanumGothic","size":14.6118721461187}}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"50382e747631":{"x":{},"y":{},"colour":{},"type":"scatter"},"50385c721a46":{"x":{},"y":{},"colour":{}}},"cur_data":"50382e747631","visdat":{"50382e747631":["function (y) ","x"],"50385c721a46":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+
+.footnote[
+[Economic Policy Institute, "The Productivity - Pay Gap", July 2019](https://www.epi.org/productivity-pay-gap/)
+]
+
+
+---
+name: automation-sourcing-strategy
+# 소싱전략의 변화
+
+&lt;br&gt;
+&lt;br&gt;
+
+.center[
+
+![소싱 전략의 변화](fig/the-end-of-outsourcing.png)
+
+]
+
+.footnote[
+자료출처: Kinetics consulting services / Automation Anywhere 
+]
+
+
+---
+name: automation-paradox
+# 모라벡의 역설(Moravec’s paradox)
+
+&lt;br&gt;
+
+.center[
+
+&lt;img src="fig/moravec-paradox.png" width = "87%" /&gt;
+
+]
+
+.footnote[
+미국 카네기 멜론 대학 (CMU) 로봇 공학자 한스 모라벡(Hans Moravec)이 1970년대에 ‘it is comparatively easy to make computers exhibit adult level performance on intelligence tests or playing checkers, and difficult or impossible to give them the skills of a one-year-old when it comes to perception and mobility’라는 표현으로 컴퓨터와 인간의 능력 차이를 역설적으로 표현하였다.
+]
+
+---
+name: automation-comparison
+# 중국어 방 (Chinese room)
+
+&lt;br&gt;
+&lt;br&gt;
+
+
+
+
+.pull-left[
+![중국어 방 주장을 모사한 도해](fig/chinese-room-argument.jpg)
+]
+
+.pull-right[
+
+|  인공지능 |       컴퓨터      |       인간            |
+|:---------:|:-----------------:|:---------------------:|
+| 중국어 방 |      하드웨어     | 인간의 외형적인 몸체  |
+| 영어만 할 줄 아는 사람| 소프트웨어| 인간의 지능 |
+| 중국어로 된 질문 | 입력(Input) | 인간이 외부에서 접할 수 있는 자극 |
+| 중국어로 된 답변 | 출력(Output) | 인간이 외부에서 접한 자극에 대한 반응 |
+| 질문&amp;대답 목록 | 데이터베이스(Database) | 습득된 기억 |
+
+]
+
+.footnote[
+[중국어 방 역설 (Chinese room argument) - 대체 누가 중국어를 이해하고 있는가?](http://ko.experiments.wikidok.net/wp-d/592f718da44f1a4153e80611/View)
+]
+
+
+---
+name: automation-apollo
+# 아폴로 우주선
+
+&lt;br&gt;
+
+.center[
+
+![아폴로 계획에 대한 역할 구분](fig/man-machine-role-allocation.png)
+
+]
+
+.footnote[
+
+[Mary (Missy) Cummings (2014), "Man versus Machine or Man + Machine?", Duke University and MIT](https://hal.pratt.duke.edu/sites/hal.pratt.duke.edu/files/u10/IS-29-05-Expert%20Opinion[1]_0.pdf)
+
+]
+
+---
+name: automation-role-allocation
+# 인간과 기계 업무분장
+
+&lt;br&gt;
+
+.center[
+
+&lt;img src="fig/role-allocation-skill-rules-experties.gif" width = "77%" /&gt;
+
+]
+
+.footnote[
+
+[Mary (Missy) Cummings (2017), "Informing Autonomous System Design Through the Lens of Skill-, Rule-, and Knowledge-Based Behaviors", Duke University](https://hal.pratt.duke.edu/sites/hal.pratt.duke.edu/files/u10/IS-29-05-Expert%20Opinion[1]_0.pdf)
+
+]
+
+---
+name: automation-jobs
+# Human Supervisory Control
+
+&lt;br&gt;
+&lt;br&gt;
+
+.center[
+
+![human-supervisory-control](fig/human-supervisory-control.png)
+
+]
+
+.footnote[
+
+[Mary (Missy) Cummings (2017), "Informing Autonomous System Design Through the Lens of Skill-, Rule-, and Knowledge-Based Behaviors", Duke University](https://hal.pratt.duke.edu/sites/hal.pratt.duke.edu/files/u10/IS-29-05-Expert%20Opinion[1]_0.pdf)
+
+]
+
+
+
+
+
+ 
+---
+class: inverse, middle
+name: data-science-case
+
+# 발표 개요 
+
+----
+
+.pull-left[
+
+**.warmyellow[데이터가 기하급수적으로 증가]**하고 있으며, 
+지속적인 공공데이터 확대, 
+데이터3법 및 데이터 기본법 통과에 따른 선진적인 데이터 법제도 기틀 마련되면서
+이를 (데이터) 자원으로 가치를 창출하는 **디지털 전환**이 급속도로 진행되고 있으나,
+디지털 전환에 따른 **.red[행정, 인력, 기술기반(도구와 언어)]**등 제반 여건은 성숙되지 못한 상황. 
+
+**.red[플랫폼 (지방)정부]**를 위해서는 선진 디지털 기업을 벤치마킹하고
+디지털 기업을 지탱하는 **.green[자동화(Automation)와 추상화(Abstraction)]** 
+내재화가 반드시 필요함.
+
+]
+ 
+.pull-right[   
+.left[
+
+1\. [데이터 과학](#krila-01-data-science)
+
+2\. [디지털 기업](#krila-02-digital-company)
+
+3\. [자동화](#krila-03-automation)
+
+4\. **[.warmyellow[플랫폼 (정부)]](#krila-04-platform)**
+
+5\. [마무리](#krila-goodbye) 
+
+]
+] &lt;!--end of right-column--&gt;  
+
+
+---
+name: platform-railroad
+# 플랫폼
+
+&lt;br&gt;
+
+.center[
+  &lt;img src="fig/krila_railroad.png" alt="플랫폼" width="100%" /&gt;
+]
+
+---
+name: platform-aa
+# 자동화와 추상화
+
+&lt;br&gt;
+&lt;br&gt;
+
+.center[
+  &lt;img src="fig/krila_aa.png" alt="자동화와 추상화" width="100%" /&gt;
+]
+
+
+---
+name: platform-operating-system
+# 플랫폼 - 운영체제(리눅스)
+
+&lt;br&gt;
+&lt;br&gt;
+
+.center[
+  &lt;img src="fig/krila_os.png" alt="운영체제" width="100%" /&gt;
+]
+
+
+---
+name: platform-government
+# (지방) 정부 (X) 플랫폼
+
+&lt;br&gt;
+
+.center[
+  &lt;img src="fig/krila_open_gov_platform.png" alt="열린 정부 데이터 플랫폼" width="77%" /&gt;
+]
+
+.footnote[
+
+Bonina, C., &amp; Eaton, B. (2020). Cultivating open government data platform ecosystems through governance: Lessons from Buenos Aires, Mexico City and Montevideo. Government Information Quarterly, 37(3), 101479. https://doi.org/10.1016/j.giq.2020.101479
+
+]
+
+
+
+---
+name: bitstat-goodbye
+class: middle, inverse
+
+.pull-left[
+# **경청해 주셔서 &lt;br&gt;감사합니다.**
+&lt;br/&gt;
+## 한국 R 사용자회 / 오픈 통계 패키지
+
+]
+
+.pull-right[
+.right[
+
+&lt;img style="border-radius: 100%;" src="fig/bitstat_logo.jpg" width="300px"/&gt;
+
+]
+]
+
+
+
+
 
 
     </textarea>
