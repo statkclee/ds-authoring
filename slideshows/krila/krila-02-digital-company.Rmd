@@ -1,0 +1,119 @@
+
+
+---
+name: digital-traditional-company
+# 전통기업: 사업 모형
+
+.center[
+<img src="fig/digital-business-model.png", width="67%" />
+]
+
+.footnote[
+
+```{r ai-reference, results = 'asis', eval = TRUE}
+library(rcrossref)
+doi <- c('10.1111/radm.12489')
+cat(unlist(rcrossref::cr_cn(dois = doi, format = "text", style = 'apa')))
+```
+
+]
+
+---
+name: digital-traditional-company-om
+# 전통기업: 운영 모형
+
+.center[
+<img src="fig/digital-operating-model.png", width="87%" />
+]
+
+---
+name: digital-traditional-company-bm-om
+# 전통기업: BM &rarr; OM
+
+<br>
+<br>
+
+.center[
+<img src="fig/digital-bm-om.png", width="100%" />
+]
+
+---
+name: digital-traditional-company-problem
+# 전통기업: 문제점
+
+<br>
+<br>
+
+.center[
+<img src="fig/traditional-value-of-firm.png", width="100%" />
+]
+
+---
+name: digital-traditional-company-problem
+# 전통기업: 근본 원인
+
+<br>
+
+.center[
+<img src="fig/traditional-om.png", width="100%" />
+]
+
+---
+name: digital-network-om
+# 디지털 AI 기업: 운영모형 + 네트워크 효과
+
+.center[
+<img src="fig/network-effect-digital.png", width="100%" />
+]
+
+---
+name: digital-network-ai-company
+# 디지털 AI 기업: AI 공장과 운영모형
+
+<br>
+<br>
+
+.center[
+<img src="fig/ai-factory-om.png", width="100%" />
+]
+
+
+---
+name: digital-value
+# 디지털 AI 기업: 가치(Value), 효용(Utility)
+
+.center[
+<img src="fig/network-ai-value.png", width="87%" />
+]
+ 
+---
+name: digital-value
+# 디지털 AI 기업: 운영모형
+
+<br>
+
+.center[
+<img src="fig/ai-network-om.png", width="100%" />
+]
+ 
+ 
+---
+name: digital-value
+# 디지털 AI 기업: 운영모형 비교
+
+<br>
+
+.center[
+<img src="fig/digital-ai-om.png", width="100%" />
+]
+ 
+---
+name: digital-collision
+# 전통기업: 디지털 운영 모형 전환
+
+<br>
+
+.center[
+<img src="fig/digital-transformation-om.png", width="100%" />
+]
+
