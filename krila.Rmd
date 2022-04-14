@@ -49,6 +49,8 @@ knitr::opts_chunk$set(echo = FALSE, message=FALSE, warning=FALSE,
 # scale_fill_discrete <- partial(scale_fill_nhs, discrete = TRUE)
 # scale_colour_continuous <- partial(scale_colour_nhs, discrete = FALSE)
 # scale_colour_discrete <- partial(scale_colour_nhs, discrete = TRUE)
+
+xaringanExtra::use_panelset()
 ```
 
 
@@ -94,7 +96,9 @@ name: data-science-case
 
 4\. [플랫폼 (정부)](#krila-04-platform)
 
-5\. [마무리](#krila-goodbye) 
+5\. [문서 공장](#krila-05-factory)
+
+6\. [마무리](#krila-goodbye) 
 
 ]
 ] <!--end of right-column-->  
@@ -114,11 +118,9 @@ name: data-science-case
 ```{r child='slideshows/krila/krila-04-platform.Rmd'}
 ```
 
-```{r child='slideshows/krila/krila-goodbye.Rmd'}
+```{r child='slideshows/krila/krila-05-factory.Rmd'}
 ```
 
-
-
-
-
+```{r child='slideshows/krila/krila-goodbye.Rmd'}
+```
 

@@ -1,5 +1,5 @@
 ---
-name: bitstat-goodbye
+name: krila-goodbye
 class: middle, inverse
 
 .pull-left[

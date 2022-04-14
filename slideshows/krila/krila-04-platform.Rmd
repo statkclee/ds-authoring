@@ -2,7 +2,7 @@
  
 ---
 class: inverse, middle
-name: data-science-case
+name: krila-04-platform
 
 # 발표 개요 
 
@@ -33,7 +33,10 @@ name: data-science-case
 
 4\. **[.warmyellow[플랫폼 (정부)]](#krila-04-platform)**
 
-5\. [마무리](#krila-goodbye) 
+5\. [문서 공장](#krila-05-factory)
+
+6\. [마무리](#krila-goodbye) 
+
 
 ]
 ] <!--end of right-column-->  
