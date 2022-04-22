@@ -88,17 +88,13 @@ name: data-science-case
 .pull-right[   
 .left[
 
-1\. **[.warmyellow[데이터 과학]](#krila-01-data-science)**
+1\. **[.warmyellow[데이터 과학가 한일]](#ds-world)**
 
-2\. [디지털 기업](#krila-02-digital-company)
+2\. [데이터 과학자 되는 길](#ds-world-career)
 
-3\. [자동화](#krila-03-automation)
+3\. [글쓰기](#ds-world-writing)
 
-4\. [플랫폼 (정부)](#krila-04-platform)
-
-5\. [문서 공장](#krila-05-factory)
-
-6\. [마무리](#krila-goodbye) 
+4\. [마무리](#ds-world-goodbye) 
 
 ]
 ] <!--end of right-column-->  
@@ -113,144 +109,13 @@ name: data-science-case
 
 
 ---
-name: data-science
-# 데이터 과학
+name: ds-world-career-joy
+# 디지털 시대 시민 역량 - 교재
 
-데이터 사이언스(Data Science)는 데이터를 다루는 과학이다. 따라서 자연법칙을 다루는 자연과학과 맥이 닿아있다.
-자연법칙을 측정하여 데이터프레임(DataFrame)으로 나타내면 **변수(Variable)**, **관측점(Observation)**, **값(Value)**으로 표현된다.
-
-<img src="fig/data-science-overview.png" alt="데이터 사이언스 개요" width="100%" />
-
-
-.footnote[
-[Google Search - "데이터 과학"](https://www.google.com/search?q=%EB%8D%B0%EC%9D%B4%ED%84%B0+%EA%B3%BC%ED%95%99)
-]
-
-
-
----
-name: case-study-worldcup
-## [실제 사례] 러시아 월드컵 (독일전)
-
-<br>
 
 .center[
-<img src="fig/worldcup.gif" alt="월드컵" width="80%" />
-]
-
-.footnote[
-[러시아 월드컵(2018) - 한국 vs 독일](https://statkclee.github.io/viz/viz-worldcup-germany.html)
-]
-
----
-name: case-study-earthquake
-## [실제 사례] 지진해일 대피소
-
-<br>
-
-.center[
-<img src="fig/earthquake.png" alt="월드컵" width="80%" />
-]
-
-.footnote[
-[xwMOOC (2018-01-17), "지진해일 대피소 - crosstalk"](https://statkclee.github.io/viz/viz-earthquake-shelter.html)
-]
-
----
-name: case-study-congress
-## [실제 사례] 국회의원 프로필
-
-<br>
-
-.center[
-<img src="fig/trelliscopejs.png" alt="국회의원 사진" width="80%" />
-]
-
-.footnote[
-[국회의원 사진 - trelliscope](https://statkclee.github.io/viz/viz-congressman.html)
-]
-
----
-name: case-study-avi
-## [실제 사례] 동영상 감성 분석
-
-<br>
-
-.center[
-<img src="fig/kbs-video.jpg" alt="슬픔은 어디에" width="80%" />
-]
-
-.footnote[
-- [xwMOOC 딥러닝 - 동영상 감정 분석](https://statkclee.github.io/deep-learning/ms-oxford-video.html)
-- [KBS NEWS, 인공지능으로 분석한 대통령의 마음…슬픔은 어디에?](http://news.kbs.co.kr/news/view.do?ncd=3390429&ref=D)
-]
-
----
-name: case-study-regression
-## [실제 사례] 회귀분석 - MLB 투수 유전자는 유전이 될까?
-
-<br>
-
-.center[
-<img src="fig/major-league.png" alt="MLB 투수 유전자" width="77%" />
-]
-
-.footnote[
-[회귀분석 - MLB 투수 유전자는 유전이 될까?](https://statkclee.github.io/politics/pe-baseball-era.html)
-]
-
----
-name: case-study-birthrate
-## [실제 사례] 출산장려 예산은 출산율을 높일까?
-
-<br>
-
-.center[
-<img src="fig/budget-birthrate.png" width="57%" />
-]
-
-.footnote[
-[저출산과 소요예산 - 상관관계](https://statkclee.github.io/viz/viz-low-birth-rate.html)
-]
-
----
-name: case-study-tax
-## [실제 사례] 증가된 정부예산: 누가 세금을 많이 냈나?
-
-<br>
-
-.center[
-<img src="fig/tax-burden.png"width="77%" />
-]
-
-.footnote[
-[국세 세금 데이터 분석](https://statkclee.github.io/election/election_tax_EDA.html)
+<img src="fig/data-science-contents.png" alt="오픈 콘텐츠 교재" width="90%" />
 ]
 
 
----
-name: case-study-dashboard
-## [실제 사례] 대쉬보드
-
-<br>
-
-.center[
-<img src="fig/krila_dashboard.png" width="100%" />
-]
-
-.footnote[
-[대통령선거 - 대쉬보드](https://aispiration.com/president/social-dashboard.html)
-]
-
-
-
----
-name: data-science-mindmap
-# 데이터 과학 마음 지도
-
-
-
-.footnote[
-[Google Search - "데이터 과학"](https://www.google.com/search?q=%EB%8D%B0%EC%9D%B4%ED%84%B0+%EA%B3%BC%ED%95%99)
-]
 

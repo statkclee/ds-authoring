@@ -1,0 +1,43 @@
+
+
+---
+name: ds-world-career
+# 디지털 시대 시민 역량 - 코딩
+
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/t346si4gy_M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+.footnote[
+[EBS, "코딩, 소프트웨어 시대 - 조용한 혁명"](https://statkclee.github.io/viz/viz-worldcup-germany.html)
+]
+
+
+---
+name: ds-world-career-data
+# 디지털 시대 시민 역량 - 데이터 리터러시
+
+.center[
+<img src="fig/human-evolution.png" alt="월드컵" width="90%" />
+]
+
+.footnote[
+[뉴욕타임즈(2014), "Reading, Writing, Arithmetic, and Lately, Coding"](http://www.nytimes.com/2014/05/11/us/reading-writing-arithmetic-and-lately-coding.html)
+]
+
+---
+name: ds-world-career-data
+# 디지털 시대 시민 역량 - 세무사
+
+<br>
+<br>
+<br>
+
+.center[
+<img src="fig/tax-preparation.png" alt="세무 업무 변천사" width="90%" />
+]
+
+
+.footnote[
+[이광춘, "로봇 자동화가 빼앗는 일자리 그리고 나" 분당 서현 청소년 수련관, 2019년 12월 4일(수)](http://aispiration.com/ds-authoring/ds-bundang-2019.html)
+]
+

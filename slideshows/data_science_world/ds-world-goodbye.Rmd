@@ -1,5 +1,5 @@
 ---
-name: bitstat-goodbye
+name: ds-world-goodbye
 class: middle, inverse
 
 .pull-left[
