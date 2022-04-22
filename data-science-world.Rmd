@@ -1,6 +1,6 @@
 ---
-title: "데이터 과학자의 세계"
-subtitle: "자동화와 추상화, 연역적/**귀납적** 사고"
+title: "데이터 과학자의 세계 [학부모]"
+subtitle: "사례를 일반화(귀납적 추론)와 시각화"
 author: "이광춘 / 한국 알(R) 사용자회"
 institute: "한국 알(R) 사용자회"
 date: "2022-07-23"
@@ -65,7 +65,7 @@ class: title-slide, left, bottom
  
 ---
 class: inverse, middle
-name: data-science-case
+name: intro-toc
 
 # 발표 개요 
 
@@ -73,26 +73,24 @@ name: data-science-case
 
 .pull-left[
 
-**.warmyellow[데이터가 기하급수적으로 증가]**하고 있으며, 
-지속적인 공공데이터 확대, 
-데이터3법 및 데이터 기본법 통과에 따른 선진적인 데이터 법제도 기틀 마련되면서
-이를 (데이터) 자원으로 가치를 창출하는 **디지털 전환**이 급속도로 진행되고 있으나,
-디지털 전환에 따른 **.red[행정, 인력, 기술기반(도구와 언어)]**등 제반 여건은 성숙되지 못한 상황. 
+코딩, 즉 컴퓨팅 사고력은 **.green[자동화(Automation)와 추상화(Abstraction)]** 
+두 축으로 하고 있고, 데이터 과학은 **.warmyellow[데이터]** 와 
+**.warmyellow[과학]**을 합친 단어입니다. 
 
-**.red[플랫폼 (지방)정부]**를 위해서는 선진 디지털 기업을 벤치마킹하고
-디지털 기업을 지탱하는 **.green[자동화(Automation)와 추상화(Abstraction)]** 
-내재화가 반드시 필요함.
+수학은 연역적인 사고를 근간으로 하는 반면 통계(데이터)는 **.red[귀납적 사고를]** 근간으로 
+하고 있어 수 많은 데이터에서 일반적인 규칙을 찾아내는 작업과 이를 사람들에게
+제대로 알리기 위해 시각화를 많이 합니다.
 
 ]
  
 .pull-right[   
 .left[
 
-1\. **[.warmyellow[데이터 과학가 한일]](#ds-world)**
+1\. **[.warmyellow[데이터 과학가 한일]](#intro-toc)**
 
-2\. [데이터 과학자 되는 길](#ds-world-career)
+2\. [데이터 과학자 되는 길](#career-toc)
 
-3\. [글쓰기](#ds-world-writing)
+3\. [데이터 과학 기본기 - 글쓰기](#writing-toc)
 
 4\. [마무리](#ds-world-goodbye) 
 
@@ -100,22 +98,23 @@ name: data-science-case
 ] <!--end of right-column-->  
  
 - [한국통계학회 소식지 2019년 10월호 ](https://statkclee.github.io/ds-authoring/ds-stat-tidyverse.html) 
+
+
   
 <!--------------------------  1. 도구 ----------------------------------------->
 
 
-```{r child='slideshows/data_science_world/ds-world-goodbye.Rmd'}
+```{r child='slideshows/data_science_world/ds-world-01-intro.Rmd'}
 ```
 
+```{r child='slideshows/data_science_world/ds-world-02-career.Rmd'}
+```
 
----
-name: ds-world-career-joy
-# 디지털 시대 시민 역량 - 교재
+```{r child='slideshows/data_science_world/ds-world-03-writing.Rmd'}
+```
 
-
-.center[
-<img src="fig/data-science-contents.png" alt="오픈 콘텐츠 교재" width="90%" />
-]
+```{r child='slideshows/data_science_world/ds-world-goodbye.Rmd'}
+```
 
 
 

@@ -1,11 +1,51 @@
 
+---
+class: inverse, middle
+name: career-toc
+
+# 발표 개요 
+
+----
+
+.pull-left[
+
+코딩, 즉 컴퓨팅 사고력은 **.green[자동화(Automation)와 추상화(Abstraction)]** 
+두 축으로 하고 있고, 데이터 과학은 **.warmyellow[데이터]** 와 
+**.warmyellow[과학]**을 합친 단어입니다. 
+
+수학은 연역적인 사고를 근간으로 하는 반면 통계(데이터)는 **.red[귀납적 사고를]** 근간으로 
+하고 있어 수 많은 데이터에서 일반적인 규칙을 찾아내는 작업과 이를 사람들에게
+제대로 알리기 위해 시각화를 많이 합니다.
+
+]
+ 
+.pull-right[   
+.left[
+
+1\. [데이터 과학가 한일](#intro-toc)
+
+2\. **[.warmyellow[데이터 과학자 되는 길]](#career-toc)**
+
+3\. [데이터 과학 기본기 - 글쓰기](#writing-toc)
+
+4\. [마무리](#ds-world-goodbye) 
+
+]
+] <!--end of right-column-->  
+ 
+- [한국통계학회 소식지 2019년 10월호 ](https://statkclee.github.io/ds-authoring/ds-stat-tidyverse.html) 
+
+
 
 ---
 name: ds-world-career
 # 디지털 시대 시민 역량 - 코딩
 
+<br> 
 
+.center[
 <iframe width="560" height="315" src="https://www.youtube.com/embed/t346si4gy_M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+]
 
 .footnote[
 [EBS, "코딩, 소프트웨어 시대 - 조용한 혁명"](https://statkclee.github.io/viz/viz-worldcup-germany.html)
@@ -40,4 +80,33 @@ name: ds-world-career-data
 .footnote[
 [이광춘, "로봇 자동화가 빼앗는 일자리 그리고 나" 분당 서현 청소년 수련관, 2019년 12월 4일(수)](http://aispiration.com/ds-authoring/ds-bundang-2019.html)
 ]
+
+---
+name: ds-world-career-joy
+# 디지털 시대 시민 역량 - 교재
+
+
+.center[
+<img src="fig/data-science-contents.png" alt="오픈 콘텐츠 교재" width="90%" />
+]
+
+| 하드웨어                                             | 소프트웨어                                                            | 데이터                                                                            |
+|------------------|----------------------------|--------------------------|
+| [라즈베리파이](http://aispiration.com/raspberry-pi/) | [언플러그드](https://bit.ly/3rLizf3) [파이썬](https://bit.ly/3L8Lv8m) | [통계적 사고](https://bit.ly/3L9tbMn) [데이터 과학](https://bit.ly/3k3kAil)       |
+| [슈퍼컴퓨터](https://bit.ly/3MmFc1b)                 | [리보그](https://bit.ly/3y1yCcP), [러플](https://bit.ly/3MoR6b6)      | [오픈통계 패키지](https://r2bit.com/Rcmdr/) [SW 카펜트리](https://bit.ly/3xIupKP) |
+
+
+[슈퍼컴퓨터]: https://bit.ly/3MmFc1b
+[라즈베리파이]: http://aispiration.com/raspberry-pi/
+
+[언플러그드]: https://bit.ly/3rLizf3
+[리보그]: https://bit.ly/3y1yCcP
+[러플]: https://bit.ly/3MoR6b6
+[파이썬]: https://bit.ly/3L8Lv8m
+
+[통계적 사고]: https://bit.ly/3L9tbMn
+[오픈통계 패키지]: https://r2bit.com/Rcmdr/
+[공개통계학 개론]: https://bit.ly/3OttWC4
+[데이터 과학]: https://bit.ly/3k3kAil
+[SW 카펜트리]: https://bit.ly/3xIupKP
 
