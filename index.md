@@ -17,7 +17,7 @@ title: 데이터 과학 기고문과 발표자료
 
 ## 학습목차 
 
-1. [데이터 과학자의 세계, 학부모 버전](data-science-world.html) 
+1. [데이터 과학자의 세계, 학부모 버전](data-science-world.html) [학생 버전](ds-world-student.html) 
     - 2022년 07월 23일 (토), 양천구 초등학생
 1. [데이터 사이언스와 플랫폼 정부](krila.html)
     - 2022년 04월 25일 (월), [한국지방행정연구원](https://www.krila.re.kr/) 
