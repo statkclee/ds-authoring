@@ -1,0 +1,127 @@
+
+
+---
+name: john-snow
+# 1854년 런던 코로나19
+
+
+.panelset[
+
+.panel[.panel-name[팬데믹]
+.center[
+<img src="fig/1024px-Punch-A_Court_for_King_Cholera.png" alt="팬데믹" width="60%" />
+]
+]
+
+.panel[.panel-name[데이터-1]
+.center[
+<img src="fig/snow-cholera-map.jpg" alt="존 스노우 콜레라 지도" width="60%" />
+]
+]
+
+.panel[.panel-name[데이터-2]
+.center[
+
+```{r john-snow-hist-data, out.width="100%"}
+library(HistData)
+library(ggmap)
+library(maptools)
+library(leaflet)
+library(sp)
+library(rgdal)
+library(reactable)
+
+data(Snow.deaths); data(Snow.pumps); data(Snow.streets); data(Snow.polygons)
+
+Snow.deaths %>% 
+  reactable(
+    defaultPageSize = 7, minRows = 7, searchable = TRUE,
+    columns = list(
+      case = colDef(name = "사망자 번호"),
+      x = colDef(name = "경도"),
+      y = colDef(name = "위도")
+    )
+  )
+```
+
+
+]
+]
+
+
+.panel[.panel-name[탐정]
+.center[
+<img src="fig/Pump_Handle_-_John_Snow_.jpg" width = "37%" />
+]
+]
+
+.panel[.panel-name[시각화(1854)]
+.center[
+
+```{r london-map}
+
+london_map <- get_map(c(-.137,51.513), zoom=17)
+london <- ggmap(london_map) 
+SnowMap(main ="스노우가 작성한 콜레라 지도", density=TRUE)
+```
+]
+]
+
+.panel[.panel-name[시각화(2022)]
+.center[
+
+```{r john-snow-hist-data-now, out.width="100%"}
+# download.file("http://rtwilson.com/downloads/SnowGIS_SHP.zip",
+#               dest="data/SnowGIS.zip", mode="wb")
+
+deaths <- readShapePoints(glue::glue("{here::here()}/data/SnowGIS_SHP/Cholera_Deaths") )
+df_deaths <- data.frame(deaths@coords)
+
+coordinates(df_deaths)=~coords.x1+coords.x2
+
+proj4string(df_deaths)=CRS("+init=epsg:27700") 
+df_deaths = spTransform(df_deaths,CRS("+proj=longlat +datum=WGS84"))
+df=data.frame(df_deaths@coords)
+
+
+df1 <- data.frame(df$coords.x1, df$coords.x2)
+
+Pump_area <- readShapePoints(glue::glue("{here::here()}/data/SnowGIS_SHP/Pumps") )
+pump_area <- data.frame(Pump_area@coords)
+
+coordinates(pump_area)=~coords.x1+coords.x2
+
+proj4string(pump_area)=CRS("+init=epsg:27700") 
+pump_area = spTransform(pump_area,CRS("+proj=longlat +datum=WGS84"))
+pa=data.frame(pump_area@coords)
+
+
+pa1 <- data.frame(pa$coords.x1, pa$coords.x2)
+
+df2 <- cbind(Parameter = "Deaths", df1)
+colnames(df2) <- c("Parameter", "coords.x1", "coords.x2")
+
+pa2 <- cbind(Parameter = "Pump", pa1)
+colnames(pa2) <- c("Parameter", "coords.x1", "coords.x2")
+tot <- rbind(df2, pa2)
+
+london + geom_point(mapping=aes(x=coords.x1, y=coords.x2, col=Parameter,size=Parameter , shape=Parameter), data=tot) + scale_size_discrete(range = c(2, 4)) + 
+  labs(title = " 영국 런던 펌부와 콜레라 발병으로 인한 사망자 매핑")
+```
+]
+]
+
+
+
+.panel[.panel-name[메타버스]
+.center[
+<iframe width="560" height="315" src="https://www.youtube.com/embed/B_UsX5vfPJU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+]
+]
+]
+
+.footnote[
+- [1854 Broad Street cholera outbreak](https://en.wikipedia.org/wiki/1854_Broad_Street_cholera_outbreak)
+]
+
+
