@@ -1,7 +1,7 @@
 
 
 ---
-name: john-snow
+name: student-cholera
 # 1854년 런던 코로나19
 
 

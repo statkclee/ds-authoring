@@ -1,0 +1,79 @@
+
+---
+name: student-normal
+# 정규분포
+
+
+.panelset[
+
+.panel[.panel-name[골턴 보드]
+.center[
+<img src="fig/galton-board.png" alt="프랜시스 골턴" width="30%" />
+]
+]
+
+.panel[.panel-name[동영상]
+<br>
+.center[
+<iframe width="560" height="315" src="https://www.youtube.com/embed/EvHiee7gs9Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+]
+]
+
+.panel[.panel-name[모의실험]
+<br>
+.center[
+<iframe width="560" height="315" src="fig/yihui-animation.mp4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen data-external="1"></iframe>
+]
+]
+
+.panel[.panel-name[실제사례 - 신장]
+
+```{r normal-soldier, eval = FALSE}
+library(tidyverse)
+library(readxl)
+extrafont::loadfonts()
+
+source("../../../swc/sungnam-report/R/theme_election.R", encoding = "UTF-8")
+
+body_sheets <- excel_sheets("data/육군 신체측정 데이터(수시 업데이터).xls")
+
+body_list <- list()
+
+for(i in 1:length(body_sheets)) {
+  cat(body_sheets[i], "\n")
+  body_list[[i]] <- read_excel("data/육군 신체측정 데이터(수시 업데이터).xls", sheet = body_sheets[i])
+}
+
+body_raw <- map_df(body_list, rbind)
+
+height_tbl <- body_raw %>% 
+  janitor::clean_names(ascii = FALSE) %>% 
+  select(신장 = 신장_센티미터) %>% 
+  mutate(신장 = parse_number(신장))
+
+army_height_g <- height_tbl %>% 
+  ggplot(aes(x = 신장)) +
+    geom_histogram(aes(y=..density..)) +
+    geom_density(color = "red") +
+    theme_election() +
+    labs(x = "신장(센티미터)",
+         y = "밀도",
+         title = "육군 신체측정정보 - 신장(키)",
+         subtitle = "2022년 4월 23일 기준")
+ 
+ggsave( glue::glue("fig/육군_신장.png") , 
+        army_height_g,
+        device = ragg::agg_png, 
+        width = 297, height = 210, units = "mm", res = 600) 
+```
+
+.center[
+<img src="fig/육군_신장.png" alt="프랜시스 골턴" width="80%" />
+]
+
+]
+]
+
+.footnote[
+- [육군 신체측정정보 : 육군 신체측정 데이터(수시 업데이터)](https://opendata.mnd.go.kr/openinf/sheetview2.jsp?infId=OA-9425)
+]

@@ -86,19 +86,18 @@ name: intro-toc
 .pull-right[   
 .left[
 
-1\. **[.warmyellow[데이터 과학가 한일]](#intro-toc)**
+1\. [19세기 영국 코로나19](#studuent-cholera)
 
-2\. [데이터 과학자 되는 길](#career-toc)
+2\. [왜 손씻게 되었나?](#student-handwashing)
 
-3\. [데이터 과학 기본기 - 글쓰기](#writing-toc)
+3\. [내 키와 몸무게 (정규분포)](#student-normal)
 
-4\. [마무리](#ds-world-goodbye) 
+4\. [마무리](#student-goodbye) 
 
 ]
 ] <!--end of right-column-->  
  
 - [한국통계학회 소식지 2019년 10월호 ](https://statkclee.github.io/ds-authoring/ds-stat-tidyverse.html) 
-
 
   
 <!--------------------------  1. 도구 ----------------------------------------->
@@ -123,6 +122,31 @@ name: ds-world
 
 ```{r child='slideshows/data_science_student/ds-world-handwashing.Rmd'}
 ```
+
+```{r child='slideshows/data_science_student/ds-world-normal.Rmd'}
+```
+
+
+---
+name: student-goodbye
+class: middle, inverse
+
+.pull-left[
+# **경청해 주셔서 <br>감사합니다.**
+<br/>
+## 한국 R 사용자회
+
+]
+
+.pull-right[
+.right[
+
+<img style="border-radius: 100%;" src="fig/bitstat_logo.jpg" width="300px"/>
+
+]
+]
+
+
 
 
 

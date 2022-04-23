@@ -1,6 +1,6 @@
 
 ---
-name: semmelweis
+name: student-handwashing
 # 손씻기 역사
 
 
@@ -30,8 +30,8 @@ library(reactable)
 # download.file(url="https://raw.githubusercontent.com/statkclee/statistics/gh-pages/data/yearly_deaths_by_clinic.csv", destfile = "data/yearly_deaths_by_clinic.csv")
 # download.file(url="https://raw.githubusercontent.com/statkclee/statistics/gh-pages/data/monthly_deaths.csv", destfile = "data/monthly_deaths.csv")
 
-year_df <- read_csv("data/yearly_deaths_by_clinic.csv")
-month_df <- read_csv("data/monthly_deaths.csv")
+year_df <- read_csv(glue::glue("{here::here()}/data/yearly_deaths_by_clinic.csv"))
+month_df <- read_csv(glue::glue("{here::here()}/data/monthly_deaths.csv"))
 ```
 
 .pull-left[
