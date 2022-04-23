@@ -6,6 +6,14 @@ name: student-mirad
 
 .panelset[
 
+.panel[.panel-name[나폴레옹]
+<br>
+.center[
+<img src="fig/about_napoleon.png" alt="나폴레옹 러시아 침공" width="100%" />
+]
+]
+
+
 .panel[.panel-name[미나르 지도]
 <br>
 .center[
