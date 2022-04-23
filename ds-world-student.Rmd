@@ -51,6 +51,7 @@ knitr::opts_chunk$set(echo = FALSE, message=FALSE, warning=FALSE,
 # scale_colour_discrete <- partial(scale_colour_nhs, discrete = TRUE)
 
 xaringanExtra::use_panelset()
+
 ```
 
 
@@ -92,7 +93,9 @@ name: intro-toc
 
 3\. [내 키와 몸무게 (정규분포)](#student-normal)
 
-4\. [마무리](#student-goodbye) 
+4\. [나폴레옹 러시아 침공](#student-mirad)
+
+5\. [마무리](#student-goodbye) 
 
 ]
 ] <!--end of right-column-->  
@@ -126,6 +129,9 @@ name: ds-world
 ```{r child='slideshows/data_science_student/ds-world-normal.Rmd'}
 ```
 
+```{r child='slideshows/data_science_student/ds-world-russia.Rmd'}
+```
+
 
 ---
 name: student-goodbye
@@ -145,8 +151,6 @@ class: middle, inverse
 
 ]
 ]
-
-
 
 
 
