@@ -95,7 +95,9 @@ name: intro-toc
 
 4\. [나폴레옹 러시아 침공](#student-mirad)
 
-5\. [마무리](#student-goodbye) 
+5\. [백의천사 나이팅게일](#student-nightingale)
+
+6\. [마무리](#student-goodbye) 
 
 ]
 ] <!--end of right-column-->  
@@ -130,6 +132,9 @@ name: ds-world
 ```
 
 ```{r child='slideshows/data_science_student/ds-world-russia.Rmd'}
+```
+
+```{r child='slideshows/data_science_student/ds-world-nightingale.Rmd'}
 ```
 
 

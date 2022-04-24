@@ -1,0 +1,139 @@
+
+---
+name: student-nightingale
+# 나이팅게일 - 백의천사
+
+.panelset[
+
+.panel[.panel-name[나이팅게일]
+<br>
+.center[
+<img src="fig/nightingale-overview.png" alt="나이팅게일" width="90%" />
+]
+]
+
+.panel[.panel-name[크림전쟁]
+<br>
+.center[
+<img src="fig/nightingale-war.png" alt="나이팅게일" width="100%" />
+]
+]
+
+.panel[.panel-name[데이터]
+
+```{r nightingale-table}
+library(HistData)
+library(reactable)
+
+HistData::Nightingale %>% 
+  as_tibble() %>% 
+  set_names(c("일자", "월", "년", "군인수", "질병사망", "부상사망", "기타사망", "질병사망율", "부상사망율", "기타사망율")) %>% 
+  select(-월, -년) %>% 
+  mutate(질병사망율 = 질병사망율 / 100,
+         부상사망율 = 부상사망율 / 100,
+         기타사망율 = 기타사망율 / 100) %>% 
+  reactable(
+    defaultPageSize = 5, minRows = 5,  filterable = TRUE, showPagination = TRUE,
+    columns = list(
+      군인수 = colDef(align = "center", format = colFormat(separators = TRUE ) ),
+      질병사망 = colDef(align = "center", format = colFormat(separators = TRUE ) ),
+      부상사망 = colDef(align = "center", format = colFormat(separators = TRUE ) ),
+      기타사망   = colDef(align = "center", format = colFormat(separators = TRUE ) ),
+      질병사망율 = colDef(align = "center", format = colFormat(percent    = TRUE ) ),      
+      부상사망율 = colDef(align = "center", format = colFormat(percent    = TRUE ) ),      
+      기타사망율 = colDef(align = "center", format = colFormat(percent    = TRUE ) )
+    )
+  )  
+
+```
+]
+
+.panel[.panel-name[시각화]
+
+```{r nightingale-viz, eval = FALSE}
+#============================================================================
+#  R codes for recreating Rose Diagram as designed by Florence Nightingale
+#============================================================================
+# https://rpubs.com/chidungkt/819554
+
+# Clear our R environment: 
+rm(list = ls())
+
+# Load Nightingale data set: 
+data("Nightingale", package = "HistData")
+
+# Description about the data set: 
+# ?HistData::Nightingale
+
+# Load some R packages: 
+library(tidyverse) # for data manipulation and visualization.
+library(stringr) # for text prcessing.
+library(lubridate) # for date-time processing.
+library(hrbrthemes) # For using black theme.
+
+# Convert to long form and processing for some columns: 
+
+Nightingale %>% 
+  select(Date, Disease.rate, Wounds.rate, Other.rate) %>% 
+  gather(Cause, Deaths, -Date) %>% 
+  mutate(Cause = str_replace_all(Cause, "\\.rate", ""), Regime = rep(c("Before", "After"), time = 3, each = 12)) %>% 
+  mutate(Regime = factor(Regime, levels = c("Before", "After"))) %>%  
+  mutate(mo = month(Date, label = TRUE, abbr = TRUE)) -> longForm_data
+
+# Select Ubuntu Condensed font for ploting: 
+
+# Recreate Rose Diagram: 
+source("../../../swc/sungnam-report/R/theme_election.R", encoding = "UTF-8")  
+my_font <- "MaruBuri"
+
+
+nightingale_g <- longForm_data %>% 
+  mutate(Regime = ifelse(Regime == "Before", "처치 전", "처치 후")) %>% 
+  mutate(Cause = case_when(str_detect(Cause, "Disease") ~ "질병사망자",
+                           str_detect(Cause, "Wounds")  ~ "부상사망자",
+                           TRUE  ~ "기타사망자")) %>% 
+  mutate(Cause = factor(Cause, levels = c("질병사망자", "부상사망자", "기타사망자"))) %>% 
+  ggplot(aes(x = mo, y = Deaths, fill = Cause)) +
+    geom_col(color = "grey20") + 
+    theme_modern_rc(base_family = my_font, subtitle_family = my_font) + 
+    scale_fill_manual(values = c("firebrick", "orange", "#365181"), name = "") +
+    scale_y_sqrt() +
+    facet_wrap(~ Regime) + 
+    coord_equal(ratio = 1) +  
+    coord_polar() +
+    labs(title = "크림전쟁 사망원인", 
+         subtitle = "나이팅게일이 설계한 그래프", 
+         caption = "데이터출처: 크림전쟁 원일별 사망자") + 
+    theme(legend.position = "top") + 
+    theme(text = element_text(family = my_font, size = 14)) + 
+    theme(axis.title.y = element_blank()) + 
+    theme(axis.title.x = element_blank()) + 
+    theme(axis.text.y = element_blank()) + 
+    theme(axis.ticks = element_blank()) + 
+    theme(plot.margin = unit(rep(0.7, 4), "cm")) + 
+    theme(plot.title = element_text(color = "white", family = my_font, size = 25)) + 
+    theme(plot.caption = element_text(color = "grey70", family = my_font, size = 15)) + 
+    theme(plot.subtitle = element_text(color = "grey70", size = 15)) +
+    theme(legend.text = element_text(color = "white", size = 15)) + 
+    theme(strip.text = element_text(color = "white", size = 17, face = "bold", family = my_font, hjust = 0.5))
+
+
+ggsave( glue::glue("fig/나이팅게일.png") , 
+        nightingale_g,
+        device = ragg::agg_png, 
+        width = 297, height = 210, units = "mm", res = 600)
+
+```
+
+.center[
+<img src="fig/나이팅게일.png" alt="나이팅게일 크림전쟁" width="90%" />
+]
+
+]
+
+.footnote[
+- [위키백과, "플로렌스 나이팅게일"](https://ko.wikipedia.org/wiki/%ED%94%8C%EB%A1%9C%EB%A0%8C%EC%8A%A4_%EB%82%98%EC%9D%B4%ED%8C%85%EA%B2%8C%EC%9D%BC)
+- [위키백과, "크림전쟁"](https://ko.wikipedia.org/wiki/%ED%81%AC%EB%A6%BC_%EC%A0%84%EC%9F%81)
+]
+
+]
