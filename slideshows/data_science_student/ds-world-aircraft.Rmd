@@ -1,0 +1,105 @@
+
+
+```{r download-world-war, eval = FALSE}
+
+europe_names <- glue::glue("Europe_{1939:1945}")
+pacific_names <- glue::glue("Pacific_{c(1937, 1939, 1941:1945)}")
+
+for(i in 1:length(europe_names)) {
+  # cat(europe_names[i], "\n")
+  # download.file(url = glue::glue("http://www.andrewclem.com/War/Maps/{europe_names[i]}.gif"),
+  #             destfile = glue::glue("{here::here()}/fig/world_war/{europe_names[i]}.png"), mode = "wb" )
+  cat(pacific_names[i], "\n")
+  download.file(url = glue::glue("http://www.andrewclem.com/War/Maps/{pacific_names[i]}.gif"),
+              destfile = glue::glue("{here::here()}/fig/world_war/{pacific_names[i]}.png"), mode = "wb" )
+}
+```
+
+
+```{r make-gif, eval = FALSE}
+library(tidyverse)
+library(magick)
+
+world_war_files <- fs::dir_ls(path = "fig/world_war", glob = "*.png")
+
+europe_files <- world_war_files[str_detect(world_war_files, "Europe")]
+pacific_files <- world_war_files[!str_detect(world_war_files, "Europe")]
+
+## 유럽 전황 
+europe_m <- magick::image_read(pacific_files[1])
+
+for (i in 2:length(europe_files)) {
+  europe_m <- c(europe_m, magick::image_read(europe_files[i]))
+}
+
+europe_ani <- magick::image_animate(europe_m, fps = 1, loop = 0, dispose = "previous")
+magick::image_write(europe_ani, "fig/world_war_europe.gif")
+
+## 태평양 전황 
+pacific_m <- magick::image_read(pacific_files[1])
+
+for (i in 2:length(pacific_files)) {
+  pacific_m <- c(pacific_m, magick::image_read(pacific_files[i]))
+}
+
+pacific_ani <- magick::image_animate(pacific_m, fps = 1, loop = 0, dispose = "previous")
+magick::image_write(pacific_ani, "fig/world_war_pacific.gif")
+
+```
+
+
+---
+name: student-aircraft
+# 폭격 비행기
+
+.panelset[
+
+.panel[.panel-name[세계대전 - 유럽]
+
+.center[
+<img src="fig/world_war_europe.gif" alt="제2차 세계 대전 - 유럽" width="70%" />
+]
+]
+
+.panel[.panel-name[세계대전 - 태평양]
+
+.center[
+<img src="fig/world_war_pacific.gif" alt="제2차 세계 대전 - 태평양" width="70%" />
+]
+]
+
+.panel[.panel-name[대공포]
+<br>
+.center[
+<iframe width="560" height="315" src="https://www.youtube.com/embed/48zE-hRAYEA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+]
+]
+
+.panel[.panel-name[폭격기 데이터]
+<br>
+.center[
+<img src="fig/Survivorship-bias.png" alt="생존자 편향의 오류" width="70%" />
+]
+]
+
+.panel[.panel-name[고민]
+<br>
+.center[
+<img src="fig/hum_meme.jpg" alt="짤" width="50%" />
+]
+]
+
+.panel[.panel-name[업그레이드]
+
+<br>
+.center[
+<img src="fig/survivorship_bias_plane.png" alt="해법" width="90%" />
+]
+]
+
+
+]
+
+
+
+

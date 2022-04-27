@@ -72,8 +72,20 @@ ggsave( glue::glue("fig/육군_신장.png") ,
 ]
 
 ]
+
+.panel[.panel-name[미국 대학생 신장]
+<br>
+.center[
+<img src="fig/normal-in-action.png" alt="실제 정규분포" width="100%" />
+]
+]
+
+
 ]
 
 .footnote[
 - [육군 신체측정정보 : 육군 신체측정 데이터(수시 업데이터)](https://opendata.mnd.go.kr/openinf/sheetview2.jsp?infId=OA-9425)
 ]
+
+
+
