@@ -1,0 +1,80 @@
+
+
+---
+class: inverse, middle
+name: data-science-case
+
+# 발표 개요 
+
+----
+
+.pull-left[
+
+지속적인 공공데이터 확대, 데이터3법 통과에 따라 **.warmyellow[데이터가 기하급수적으로 방대]**해져 가고 있으며 
+이를 분석하여 가치를 창출하는 **데이터 경제**가 급속도로 성장하고 있으나 
+데이터 분야에 대한 **.red[인력 육성이나 도구는 선형적 증가 상황]**에 맞춰져 있는 상황임.
+
+**.green[데이터 통계 분석의 대중화]**를 위해서는 통계 비전공자 및 일반인이 쉽게 사용할 수 있는 
+**.green[통계 패키지 SW 개발]**이 필요함
+
+]
+ 
+.pull-right[   
+.left[
+
+1\. [개발필요성](#bitstat-why)
+
+2\. **[.warmyellow[개발]](#bitstat-development)**
+
+3\. [사업화와 공개SW](#bitstat-business)
+
+4\. [시제품 데모](#bitstat-demo)
+
+5\. [마무리](#bitstat-goodbye) 
+
+]
+] <!--end of right-column--> 
+
+
+
+
+---
+name: bitstat-architecture
+# 시스템 아키텍쳐
+
+<br>
+
+.center[
+  <img src="fig/bitstat/development-architecture.png" />
+]
+
+---
+name: bistat-architecture-product
+# [1차년] 오픈통계 패키지 제품 개발
+ 
+<br>
+
+
+.center[
+  <img src="fig/bitstat/development-product.png" />
+]
+
+
+---
+name: bistat-architecture-product
+# [2차년] 오픈통계 패키지 클라우드 서비스 
+
+<br>
+
+.center[
+  <img src="fig/bitstat/development-service.png" />
+]
+
+---
+name: bistat-architecture-metrics
+# 연구개발 추진프로세스
+
+.center[
+<img src="fig/bitstat/deveopment-process.png" width = "150%"/>
+]
+
