@@ -1,0 +1,117 @@
+---
+title: "R 개발자 관점에서 바라본 지역정보 수집과 분석 전략"
+subtitle: "krvote 데이터 패키지와 Shiny 대쉬보드"
+author: "이광춘 / 한국 R 사용자회"
+institute: ""
+date: "2022-07-07"
+output:
+  xaringan::moon_reader:
+    css: 
+      - [default]
+      - css/SNU.css
+      - css/nhsr-fonts.css
+    lib_dir: libs
+    seal: false
+    nature:
+      highlightStyle: googlecode
+      highlightLines: true
+      highlightLanguage: ["r"]
+      countIncrementalSlides: false
+      ratio: "4:3"
+      beforeInit: "macros.js"
+    includes:
+      after_body: [css/insert-logo-bitstat.html]
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include = FALSE}
+library(tidyverse)
+# library(nhsrtheme)
+# library(NHSRdatasets)
+# set default options
+
+options(
+  htmltools.dir.version = FALSE, 
+  htmltools.preserve.raw = FALSE,
+  tibble.width = 60, tibble.print_min = 6,
+  crayon.enabled = TRUE
+)
+
+knitr::opts_chunk$set(echo = FALSE, message=FALSE, warning=FALSE,
+                      comment="", digits = 3, tidy = FALSE, prompt = FALSE, fig.align = 'center',
+                      fig.width = 7.252,
+                      fig.height = 4,
+                      dpi = 300)
+
+# uncomment the following lines if you want to use the NHS-R theme colours by default
+# scale_fill_continuous <- partial(scale_fill_nhs, discrete = FALSE)
+# scale_fill_discrete <- partial(scale_fill_nhs, discrete = TRUE)
+# scale_colour_continuous <- partial(scale_colour_nhs, discrete = FALSE)
+# scale_colour_discrete <- partial(scale_colour_nhs, discrete = TRUE)
+```
+
+
+class: title-slide, left, bottom
+
+# `r rmarkdown::metadata$title`
+----
+## **`r rmarkdown::metadata$subtitle`**
+### `r rmarkdown::metadata$author`
+### `r rmarkdown::metadata$date`
+
+ 
+---
+class: inverse, middle
+name: data-science-case
+
+# 발표 개요 
+
+----
+
+.pull-left[
+
+디지털 전환이 급속도로 진행됨에 따라 데이터를 수집하고 처리할 수 없을 정도로 
+**.warmyellow[데이터가 폭증]**하고 있다. 무어의 법칙에 따라 컴퓨터 하드웨어와 
+네트워크 분야에서 눈부신 발전을 거듭하고 있고, 
+소프트웨어 분야도 오픈소스 문화가 정착됨에 따라 빅데이터 문제에 해법을 제시하고 있다.
+
+하지만, 데이터를 통해 가치를 창출하는 **.warmyellow[데이터 과학자]**가 병목의 중심으로 부각되고 있다.
+이에 `tidyverse` 패러다임이 이런 문제를 불식시킬 수 있는 은총알(Silver Bullet)로 
+제시되고 있다. 
+
+공공 지역정보 데이터 수집과 분석 전략을 **.warmyellow[`tidyverse` 패러다임]**으로 살펴보고,
+특히 기술적으로 데이터 패키지와 대쉬보드, 배포와 서비스 관점을 면밀히 다뤄본다.
+]
+ 
+.pull-right[   
+.left[
+
+1\. [`tidyverse` 패러다임](#aisa-tidyverse)
+
+2\. [대한민국 공공데이터](#aisa-public-data)
+
+3\. [데이터 수집 - `krvote`](#aisa-krvote)
+
+4\. [분석과 대쉬보드 - `flexdashboard`](#aisa-dashboard)
+
+5\. [배포와 서비스 - `GitHub`](#aisa-github)
+
+]
+] <!--end of right-column-->  
+  
+<!--------------------------  1. 개발 필요성 ----------------------------------------->
+ 
+ 
+```{r child='slideshows/asia/asia-goodbye.Rmd'}
+```
+
+
+
+
+
+
+
+
+
+
