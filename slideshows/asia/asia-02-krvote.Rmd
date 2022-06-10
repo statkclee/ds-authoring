@@ -85,7 +85,7 @@ election_dat <- data.frame(type=c("대통령","대통령","대통령","대통령
 
 election_timeline <- gvisTimeline(data=election_dat, 
                rowlabel="type", barlabel="subtype", 
-               start="start", end="end", options=list(width=600, height=550))
+               start="start", end="end", options=list(width=800, height=550))
 
 
 cat(election_timeline$html$chart, file = "data/krvote-election.html")
