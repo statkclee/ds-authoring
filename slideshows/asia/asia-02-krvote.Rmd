@@ -1,0 +1,179 @@
+
+---
+class: inverse, middle
+name: aisa-krvote-toc
+
+# 발표 개요 
+
+----
+
+.pull-left[
+
+디지털 전환이 급속도로 진행됨에 따라 데이터를 수집하고 처리할 수 없을 정도로 
+**.warmyellow[데이터가 폭증]**하고 있다. 무어의 법칙에 따라 컴퓨터 하드웨어와 
+네트워크 분야에서 눈부신 발전을 거듭하고 있고, 
+소프트웨어 분야도 오픈소스 문화가 정착됨에 따라 빅데이터 문제에 해법을 제시하고 있다.
+
+하지만, 데이터를 통해 가치를 창출하는 **.warmyellow[데이터 과학자]**가 병목의 중심으로 부각되고 있다.
+이에 `tidyverse` 패러다임이 이런 문제를 불식시킬 수 있는 은총알(Silver Bullet)로 
+제시되고 있다. 
+
+공공 지역정보 데이터 수집과 분석 전략을 **.warmyellow[`tidyverse` 패러다임]**으로 살펴보고,
+특히 기술적으로 데이터 패키지와 대쉬보드, 배포와 서비스 관점을 면밀히 다뤄본다.
+]
+ 
+.pull-right[   
+.left[
+
+1\. [`tidyverse` 패러다임](#aisa-tidyverse-toc)
+
+2\. [대한민국 공공데이터](#aisa-public-data-toc)
+
+3\. **[.warmyellow[데이터 패키지 - `krvote`]](#aisa-krvote-toc)**
+
+4\. [대쉬보드 - `flexdashboard`](#aisa-dashboard-toc)
+
+]
+] <!--end of right-column-->  
+
+---
+name: asia-krvote
+# 패키지 / 라이브러리 제작 이유
+
+.center[
+![](fig/asia-pkg-why.jpg)
+]
+
+.footnote[
+- [Desirée De Leon, Alison Hill, "A Handbook for Teaching and Learning with R and RStudio", 2019-09-11](https://rstudio4edu.github.io/rstudio4edu-book/)]
+
+---
+name: asia-krvote-process
+# R 데이터 패키지
+
+.center[
+![](fig/asia-pkg-overview.jpg)
+]
+
+
+.footnote[
+- [Desirée De Leon, Alison Hill, "A Handbook for Teaching and Learning with R and RStudio", 2019-09-11](https://rstudio4edu.github.io/rstudio4edu-book/)]
+ 
+
+---
+name: asia-krvote-nec
+# 주요 선거 일정
+
+<br>
+<br>
+<br>
+
+```{r election-data, eval = FALSE}
+library(googleVis)
+election_dat <- data.frame(type=c("대통령","대통령","대통령","대통령", "대통령", "대통령",
+                                  "국회의원","국회의원","국회의원","국회의원", "국회의원",
+                                  "지방선거","지방선거","지방선거","지방선거", "지방선거", "지방선거"),
+                  subtype=c("15대", "16대", "17대", "18대","19대","20대",
+                            "17대", "18대", "19대", "20대","21대",
+                            "3회","4회","5회","6회","7회","8회"),
+                  start=as.POSIXct(c("1997-12-18","2002-12-19","2007-12-19","2012-12-19","2017-5-10","2022-5-10",
+                                     "2004-5-30","2008-5-30", "2012-5-30","2016-5-30", "2020-5-30",
+                                     "2002-7-1", "2006-7-1", "2010-7-1","2014-7-1","2018-7-1","2022-7-1")),
+                    end=as.POSIXct(c("2002-12-18","2007-12-18","2012-12-19","2017-5-9", "2022-5-9", "2027-5-9",
+                                     "2008-5-29", "2012-5-29","2016-5-29","2020-5-29","2024-5-29",
+                                     "2006-6-30", "2010-6-30", "2014-6-30","2018-6-30","2022-6-30","2026-6-30")))
+
+election_timeline <- gvisTimeline(data=election_dat, 
+               rowlabel="type", barlabel="subtype", 
+               start="start", end="end", options=list(width=600, height=550))
+
+
+cat(election_timeline$html$chart, file = "data/krvote-election.html")
+```
+
+
+```{r krvote-election-timeline, results='asis', echo=FALSE, out.width="100%"}
+xfun::file_string(glue::glue('{here::here()}/data/krvote-election.html'))
+```
+
+.footnote[
+- [이광춘, "krvote - 대한민국 선거 데이터 패키지", 2022-06-09](https://ai-carpentry.github.io/krvote/)]
+
+
+---
+name: asia-krvote-sources
+# krvote 원천 데이터
+
+
+.panelset[
+
+.panel[.panel-name[중앙선관위 - 웹사이트]
+.center[ <img src="fig/asia-nec-info.jpg" alt="중앙선관위 - 웹사이트" width="80%" /> 
+]
+]
+
+.panel[.panel-name[중앙선관위 - 자료실]
+.center[ <img src="fig/asia-general-files.jpg" alt="중앙선관위 - 자료실" width="70%" /> 
+]
+]
+
+.panel[.panel-name[공공데이터포털 - API]
+.center[ <img src="fig/asia-data-portal-api.jpg" alt="공공데이터포털 - API 명세" width="80%" /> 
+]
+]
+
+]
+
+
+---
+name: asia-krvote-workflow
+# krvote 데이터 전처리 작업
+
+<br>
+<br>
+
+.center[
+![](fig/asia-data-workflow.png)
+]
+
+.footnote[
+- [이광춘, "krvote - 대한민국 선거 데이터 패키지", 2022-06-09](https://ai-carpentry.github.io/krvote/)]
+
+
+---
+name: asia-krvote-workflow-after
+# krvote 데이터 패키지 제작 작업
+
+<br>
+<br>
+
+.center[
+![](fig/asia-data-workflow-pkg.png)
+]
+
+.footnote[
+- [이광춘, "krvote - 대한민국 선거 데이터 패키지", 2022-06-09](https://ai-carpentry.github.io/krvote/)]
+
+
+---
+name: asia-krvote-inside
+# krvote 살펴보기
+
+
+```{r krvote-dataset-show, eval = TRUE, echo = FALSE}
+# remotes::install_github("ai-carpentry/krvote")
+library(tidyverse)
+library(krvote)
+
+krvote_dat <- data(package = "krvote")
+
+krvote_dat$results %>% 
+  as_tibble() %>% 
+  select(데이터셋 = Item, 데이터설명 = Title) %>% 
+  reactable::reactable(filterable = TRUE, defaultPageSize = 7 )
+```
+
+
+.footnote[
+- [이광춘, "krvote - 대한민국 선거 데이터 패키지", 2022-06-09](https://ai-carpentry.github.io/krvote/)]
+

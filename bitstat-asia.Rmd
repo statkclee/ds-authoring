@@ -20,13 +20,14 @@ output:
       ratio: "4:3"
       beforeInit: "macros.js"
     includes:
-      after_body: [css/insert-logo-bitstat.html]
+      after_body: [css/insert-logo-asia.html]
 editor_options: 
   chunk_output_type: console
 ---
 
 ```{r setup, include = FALSE}
 library(tidyverse)
+xaringanExtra::use_panelset()
 # library(nhsrtheme)
 # library(NHSRdatasets)
 # set default options
@@ -87,30 +88,44 @@ name: data-science-case
 .pull-right[   
 .left[
 
-1\. [`tidyverse` 패러다임](#aisa-tidyverse)
+1\. [`tidyverse` 패러다임](#aisa-tidyverse-toc)
 
-2\. [대한민국 공공데이터](#aisa-public-data)
+2\. [대한민국 공공데이터](#aisa-public-data-toc)
 
-3\. [데이터 수집 - `krvote`](#aisa-krvote)
+3\. [데이터 패키지 - `krvote`](#aisa-krvote-toc)
 
-4\. [분석과 대쉬보드 - `flexdashboard`](#aisa-dashboard)
-
-5\. [배포와 서비스 - `GitHub`](#aisa-github)
+4\. [대쉬보드 - `flexdashboard`](#aisa-dashboard-toc)
 
 ]
 ] <!--end of right-column-->  
-  
-<!--------------------------  1. 개발 필요성 ----------------------------------------->
+
+<!--------------------------  0. Tidyverse ----------------------------------------->
  
+
+```{r child='slideshows/asia/asia-00-tidyverse.Rmd'}
+```
+
+  
+<!--------------------------  1. 데이터 포탈 ----------------------------------------->
+ 
+
+```{r child='slideshows/asia/asia-01-data-portal.Rmd'}
+```
+
+<!--------------------------  2. 데이터 패키지 ----------------------------------------->
+
+```{r child='slideshows/asia/asia-02-krvote.Rmd'}
+```
+
+<!--------------------------  3. 대쉬보드 ----------------------------------------->
+
+```{r child='slideshows/asia/asia-03-dashboard.Rmd'}
+```
+
+<!--------------------------  마무리 ----------------------------------------->
  
 ```{r child='slideshows/asia/asia-goodbye.Rmd'}
 ```
-
-
-
-
-
-
 
 
 

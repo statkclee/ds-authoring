@@ -7,6 +7,14 @@
     <meta name="date" content="2022-07-07" />
     <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/panelset/panelset.css" rel="stylesheet" />
+    <script src="libs/panelset/panelset.js"></script>
+    <script src="libs/core-js/shim.min.js"></script>
+    <script src="libs/react/react.min.js"></script>
+    <script src="libs/react/react-dom.min.js"></script>
+    <script src="libs/reactwidget/react-tools.js"></script>
+    <script src="libs/htmlwidgets/htmlwidgets.js"></script>
+    <script src="libs/reactable-binding/reactable.js"></script>
     <link rel="stylesheet" href="css/SNU.css" type="text/css" />
     <link rel="stylesheet" href="css/nhsr-fonts.css" type="text/css" />
   </head>
@@ -52,21 +60,779 @@ name: data-science-case
 .pull-right[   
 .left[
 
-1\. [`tidyverse` 패러다임](#aisa-tidyverse)
+1\. [`tidyverse` 패러다임](#aisa-tidyverse-toc)
 
-2\. [대한민국 공공데이터](#aisa-public-data)
+2\. [대한민국 공공데이터](#aisa-public-data-toc)
 
-3\. [데이터 수집 - `krvote`](#aisa-krvote)
+3\. [데이터 패키지 - `krvote`](#aisa-krvote-toc)
 
-4\. [분석과 대쉬보드 - `flexdashboard`](#aisa-dashboard)
-
-5\. [배포와 서비스 - `GitHub`](#aisa-github)
+4\. [대쉬보드 - `flexdashboard`](#aisa-dashboard-toc)
 
 ]
 ] &lt;!--end of right-column--&gt;  
-  
-&lt;!--------------------------  1. 개발 필요성 -----------------------------------------&gt;
+
+&lt;!--------------------------  0. Tidyverse -----------------------------------------&gt;
  
+
+
+
+---
+name: aisa-tidyverse-toc
+# 데이터 과학
+
+데이터 사이언스(Data Science)는 데이터를 다루는 과학이다. 따라서 자연법칙을 다루는 자연과학과 맥이 닿아있다.
+자연법칙을 측정하여 데이터프레임(`DataFrame`)으로 나타내면 **변수(Variable)**, **관측점(Observation)**, **값(Value)**으로 표현된다.
+
+&lt;img src="fig/data-science-overview.png" alt="데이터 사이언스 개요" width="100%" /&gt;
+
+
+.footnote[
+[Google Search - "데이터 과학"](https://www.google.com/search?q=%EB%8D%B0%EC%9D%B4%ED%84%B0+%EA%B3%BC%ED%95%99)
+]
+
+---
+name: tidyverse
+# AI/ML/DL vs 데이터 과학
+
+&lt;br&gt;
+
+.center[
+&lt;img src="fig/tidyvese_os.png" width="77%" /&gt;
+]
+
+
+.footnote[
+[한국통계학회 소식지 2019년 10월호 ](https://statkclee.github.io/ds-authoring/ds-stat-tidyverse.html)
+]
+
+---
+name: tidyverse-definition
+# `tidyverse`
+
+&lt;br&gt;
+
+.center[
+&lt;img src="fig/maso_tidyverse.png" width="77%" /&gt;
+]
+
+
+.pull-left[
+
+- 기존 자료구조를 재사용
+- 파이프 연산자로 간단한 함수를 조합
+- 함수형 프로그래밍을 적극 사용
+- 기계가 아닌 인간을 위한 설계
+
+]
+
+.pull-right[
+ 
+- Reuse existing data structures.
+- Compose simple functions with the pipe.
+- Embrace functional programming.
+- Design for humans.
+
+]
+
+---
+name: data-science-graph
+## Big Data/AI/ML/Data Science
+
+&lt;br&gt; 
+
+.pull-left[
+### Google Trends: 미국
+
+![](fig/google-trends-comparison-us-1.png)
+]
+
+.pull-right[
+### Google Trends: 대한민국
+
+![](fig/google-trends-comparison-kr-1.png)
+]
+
+.footnote[
+[이광춘 (2020-07-21), "기업운영혁신을 위한 데이터 과학: 기업의 활용방안", 포항산업과학연구원(RIST)](https://statkclee.github.io/ds-authoring/ds-rist.html)
+]
+
+
+
+
+
+---
+class: inverse, middle
+name: data-science-avengers
+
+# 강의 개요 
+
+----
+
+.pull-left[
+
+직장인의 업무 생산성 향상의 총아로 각광받던 MS 오피스가 한시대를 풍미했다. 
+`\(6\sigma\)`를 필두로 제조업의 혁신을 이끈 통계학도 엑셀에 탑재된 기본기능이 부족하여 미니탭과 같은 통계 팩키지를 필히 익혀야 하는 필수 역량이 되었다.
+
+대기업을 중심으로 고학력을 가진 석박사가 증가하면서 논문 작성에 필요한 고급 통계분석으로 사회과학 분야는 SPSS, 의학 및 경영대는 SAS, 계량경제학 분야는 Gauss, E-View와 같은 특화된 팩키지 소프트웨어를 활용하였고, 좀더 학구적인 역량을 갖춘 분들은 논문을 `\(\LaTeX\)`으로 작성하여 해외 저널과 컨퍼런스에 발표를 하였다.
+
+현재 대한민국을 강타하고 있는 디지털 전환의 바탕이 되는 빅데이터와 AI/기계학습을 아우르는 .green[**데이터 과학**]이 그 실체를 들어내고 있다. 직장인의 기본기로 자리잡아가고 있는 **데이터 과학**과 가장 기본이 되는 .red[**글쓰기**]를 중심으로 학업과 현업 업무를 병행하는 직장인에게 작게나마 도움을 드리고자 한다.
+]
+
+.pull-right[   
+.left[
+
+1\. [데이터 과학 사례](#data-science-case)
+
+2\. [데이터 과학](#data-science)
+
+3\. [데이터 과학 전쟁](#language-war)
+
+4\. **[.green[데이터 과학 어벤저스]](#data-science-avengers)**
+
+5\. [글쓰기](#writing)
+
+6\. [마무리](#goodbye) 
+]
+] &lt;!--end of right-column--&gt;
+
+---
+name: avengers-problem
+# 펭귄 어벤저스
+
+.center[
+![](fig/shiny-python.png)
+]
+
+.footnote[
+[펭귄 성별예측모형: 파이썬 + `Shiny`](https://statkclee.github.io/model/tidyverse-penguin-python-shiny.html)
+]
+
+---
+names: avengers-penguin
+# 펭귄 데이터셋
+
+.center[
+![](fig/penguin-dataset.png)
+]
+
+.footnote[
+- [펭귄 vs 붓꽃 데이터](https://statkclee.github.io/data-science/ds-iris-penguin.html)
+]
+
+---
+name: avengers-architecture
+# 모형 아키텍쳐
+
+&lt;br&gt;
+&lt;br&gt;
+
+| 앙상블 | Random Forest | XGBoost |
+|--------|----------------|---------|
+|![](fig/penguin-arch-ensemble.png)| ![](fig/penguin-arch-rf.png) | ![](fig/penguin-arch-xgb.png) |
+
+.footnote[
+- [펭귄 성별예측모형: tidymodels](https://statkclee.github.io/model/tidyverse-parsnip-penguin.html)
+]
+
+---
+name: avengers-tuning
+# 모형 최적화: Hyper Parameter Tuning
+
+&lt;br&gt;
+&lt;br&gt;
+
+.center[
+![](fig/xgboost-python.png)
+]
+
+.footnote[
+- [펭귄 성별예측모형: tidymodels - Hyper Parameter](https://statkclee.github.io/model/tidyverse-parsnip-penguin-hyper-parameter.html)
+]
+
+---
+name: avengers-restful
+# 모형 배포: RESTful API
+
+&lt;br&gt;
+&lt;br&gt;
+
+.center[
+&lt;img src = "fig/penguin-restful-api.png" width = "100%" /&gt;
+]
+
+.footnote[
+- [펭귄 성별예측모형: tidymodels - RESTful API](https://statkclee.github.io/model/tidyverse-parsnip-penguin-RESTful-api.html)
+]
+
+---
+name: avengers-explainable-ai
+# 설명가능한 예측모형: Explainable AI
+
+.center[
+![](fig/mdp-DALEX.png)
+]
+
+.footnote[
+- [펭귄 성별예측모형: tidymodels - MDP / DALEX](https://statkclee.github.io/model/tidyverse-parsnip-penguin-DALEX.html)
+]
+
+---
+name: avengers-evaluation
+# `tidyposterior` 모형 평가
+
+.center[
+&lt;img src = "fig/penguin-tidyposterior.png" width = "87%" /&gt;
+]
+
+.footnote[
+- [펭귄 성별예측모형: tidyposterior](https://statkclee.github.io/model/model-tidyposterior.html)
+]
+
+---
+name: avengers-frontend-backed
+# Shiny Front-End + `tidymodels` Back-End
+
+.center[
+![](fig/penguin-shiny-predictive-model.gif)
+]
+
+.footnote[
+- [펭귄 성별예측모형: `tidymodels` - Shiny](https://statkclee.github.io/model/tidyverse-parsnip-penguin-shiny.html)
+]
+
+---
+name: avengers-shiny-python
+# Shiny Front-End + Python Back-End
+
+.center[
+![](fig/shiny-fe-python-be.gif)
+]
+
+.footnote[
+- [펭귄 성별예측모형: 파이썬 - `Shiny`](https://statkclee.github.io/model/tidyverse-penguin-python-shiny.html)
+]
+
+
+---
+name: avengers-model
+# 데이터 과학 EDA 환경: R + 파이썬
+
+.center[
+&lt;img src= "fig/ds-avengers-model.png" width="77%" /&gt;
+]
+
+.footnote[
+- [데이터 과학 개발 환경: R+파이썬](https://statkclee.github.io/data-science/ds-languages.html)
+]
+
+
+
+
+
+  
+&lt;!--------------------------  1. 데이터 포탈 -----------------------------------------&gt;
+ 
+
+
+
+---
+class: inverse, middle
+name: aisa-public-data-toc
+
+# 발표 개요 
+
+----
+
+.pull-left[
+
+디지털 전환이 급속도로 진행됨에 따라 데이터를 수집하고 처리할 수 없을 정도로 
+**.warmyellow[데이터가 폭증]**하고 있다. 무어의 법칙에 따라 컴퓨터 하드웨어와 
+네트워크 분야에서 눈부신 발전을 거듭하고 있고, 
+소프트웨어 분야도 오픈소스 문화가 정착됨에 따라 빅데이터 문제에 해법을 제시하고 있다.
+
+하지만, 데이터를 통해 가치를 창출하는 **.warmyellow[데이터 과학자]**가 병목의 중심으로 부각되고 있다.
+이에 `tidyverse` 패러다임이 이런 문제를 불식시킬 수 있는 은총알(Silver Bullet)로 
+제시되고 있다. 
+
+공공 지역정보 데이터 수집과 분석 전략을 **.warmyellow[`tidyverse` 패러다임]**으로 살펴보고,
+특히 기술적으로 데이터 패키지와 대쉬보드, 배포와 서비스 관점을 면밀히 다뤄본다.
+]
+ 
+.pull-right[   
+.left[
+
+1\. [`tidyverse` 패러다임](#aisa-tidyverse-toc)
+
+2\. **[.warmyellow[대한민국 공공데이터]](#aisa-public-data-toc)**
+
+3\. [데이터 패키지 - `krvote`](#aisa-krvote-toc)
+
+4\. [대쉬보드 - `flexdashboard`](#aisa-dashboard-toc)
+
+]
+] &lt;!--end of right-column--&gt;  
+
+---
+name: asia-public-data
+# 공공데이터 포털
+
+
+<div id="htmlwidget-4cd68aae0f34b88997cc" class="reactable html-widget" style="width:auto;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-4cd68aae0f34b88997cc">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"지자체_목록":["공공데이터포털","강원도","경기도","경상남도","경상북도","광주광역시","대구광역시","대전광역시","부산광역시","서울특별시","세종특별자치시","울산광역시","인천광역시","전라남도","전라북도","제주도","충청남도","충청북도"],"포털명":["공공데이터포털","강원 공공데이터","경기데이터드림","경남 빅데이터 허브 플랫폼","경북 공공데이터&통계","광주광역시 빅데이터 통합플랫폼","대구 D데이터허브","x","부산 공공데이터포털","서울 열린데이터광장","x","울산광역시 데이터포털","인천광역시 데이터포털","전라남도 빅데이터허브","전라북도 빅데이터허브","제주 데이터허브","충청남도 공공데이터 개방","충청북도 빅데이터 허브 플랫폼"],"x2021_7_현황_점검":["o","o","o","o","o","o","o",null,"o","o",null,"o","o","x","o","o","o","x"],"x2022_04_유지_여부_점검":["x","x","o","x","x","x","o",null,"o","o",null,"x","x","신규","o","o","o","신규"]},"columns":[{"accessor":"지자체_목록","name":"지자체_목록","type":"character"},{"accessor":"포털명","name":"포털명","type":"character","minWidth":200},{"accessor":"x2021_7_현황_점검","name":"x2021_7_현황_점검","type":"character"},{"accessor":"x2022_04_유지_여부_점검","name":"x2022_04_유지_여부_점검","type":"character"}],"defaultPageSize":10,"paginationType":"numbers","showPageInfo":true,"minRows":1,"dataKey":"6cd1c8446261ce71c8abbac04e471ac2","key":"6cd1c8446261ce71c8abbac04e471ac2"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
+
+
+.footnote[
+- [김학래, "2022 데이터 인사이트 세미나", 중앙대학교 HIKE 연구실](https://forum.datahub.kr/t/topic/128)   
+]
+
+---
+name: asia-public-data-type
+# 공공데이터 자료 제공 형식
+
+
+<div id="htmlwidget-b9d6bbd9475242a50942" class="reactable html-widget" style="width:auto;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-b9d6bbd9475242a50942">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"포털_목록":["공공데이터포털","강원 공공데이터","경기데이터드림","경남 빅데이터 허브 플랫폼","경북 공공데이터&통계","광주광역시 빅데이터 통합플랫폼","대구 D데이터허브","부산 공공데이터포털","서울 열린데이터광장","울산광역시 데이터포털","인천광역시 데이터포털","전라남도 빅데이터허브","전라북도 빅데이터허브","제주 데이터허브","충청남도 공공데이터 개방","충청북도 빅데이터 허브 플랫폼"],"서비스_유형":["LINK, LOD, REST, RSS/ATOM,YSOAP,Y다운로드,Y배송 및 기타","LINK,YSHEET,YCHART,YOPENYAPI,YMAP,YFILE","FILE,YLINK,YSHEET,YMAP,YCHART,YOPENYAPI","-","파일,YAPI,Y데이터,Y오픈API","파일,Y링크","API,YFILE","SHEET,YMAP,YAPI,YFILE,YLINK","SHEET,YOpenAPI,YFILE,YCHART,YLINK","-","FILE,YOpenAPI","FILE,YOPENAPI,YSHEET","CSV, EXCEL, GRID, CHART,YMAP,YFILE,YLINK,YAPI","FILE,YAPI,YLINK,Y영상,Y차트","-","-"]},"columns":[{"accessor":"포털_목록","name":"포털_목록","type":"character","minWidth":60},{"accessor":"서비스_유형","name":"서비스_유형","type":"character"}],"defaultPageSize":10,"paginationType":"numbers","showPageInfo":true,"minRows":1,"dataKey":"a0d9669589ab295cbfdd1be1eca7b99e","key":"a0d9669589ab295cbfdd1be1eca7b99e"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
+
+
+.footnote[
+- [김학래, "2022 데이터 인사이트 세미나", 중앙대학교 HIKE 연구실](https://forum.datahub.kr/t/topic/128)   
+]
+
+
+---
+name: asia-public-data-type
+# 공공데이터 정해진 미래(?)
+
+&lt;br&gt;
+
+.center[
+![](fig/hike-data-insight.jpg)
+]
+
+
+.footnote[
+- [김학래, "2022 데이터 인사이트 세미나", 중앙대학교 HIKE 연구실](https://forum.datahub.kr/t/topic/128)   
+]
+
+
+
+&lt;!--------------------------  2. 데이터 패키지 -----------------------------------------&gt;
+
+
+
+---
+class: inverse, middle
+name: aisa-krvote-toc
+
+# 발표 개요 
+
+----
+
+.pull-left[
+
+디지털 전환이 급속도로 진행됨에 따라 데이터를 수집하고 처리할 수 없을 정도로 
+**.warmyellow[데이터가 폭증]**하고 있다. 무어의 법칙에 따라 컴퓨터 하드웨어와 
+네트워크 분야에서 눈부신 발전을 거듭하고 있고, 
+소프트웨어 분야도 오픈소스 문화가 정착됨에 따라 빅데이터 문제에 해법을 제시하고 있다.
+
+하지만, 데이터를 통해 가치를 창출하는 **.warmyellow[데이터 과학자]**가 병목의 중심으로 부각되고 있다.
+이에 `tidyverse` 패러다임이 이런 문제를 불식시킬 수 있는 은총알(Silver Bullet)로 
+제시되고 있다. 
+
+공공 지역정보 데이터 수집과 분석 전략을 **.warmyellow[`tidyverse` 패러다임]**으로 살펴보고,
+특히 기술적으로 데이터 패키지와 대쉬보드, 배포와 서비스 관점을 면밀히 다뤄본다.
+]
+ 
+.pull-right[   
+.left[
+
+1\. [`tidyverse` 패러다임](#aisa-tidyverse-toc)
+
+2\. [대한민국 공공데이터](#aisa-public-data-toc)
+
+3\. **[.warmyellow[데이터 패키지 - `krvote`]](#aisa-krvote-toc)**
+
+4\. [대쉬보드 - `flexdashboard`](#aisa-dashboard-toc)
+
+]
+] &lt;!--end of right-column--&gt;  
+
+---
+name: asia-krvote
+# 패키지 / 라이브러리 제작 이유
+
+.center[
+![](fig/asia-pkg-why.jpg)
+]
+
+.footnote[
+- [Desirée De Leon, Alison Hill, "A Handbook for Teaching and Learning with R and RStudio", 2019-09-11](https://rstudio4edu.github.io/rstudio4edu-book/)]
+
+---
+name: asia-krvote-process
+# R 데이터 패키지
+
+.center[
+![](fig/asia-pkg-overview.jpg)
+]
+
+
+.footnote[
+- [Desirée De Leon, Alison Hill, "A Handbook for Teaching and Learning with R and RStudio", 2019-09-11](https://rstudio4edu.github.io/rstudio4edu-book/)]
+ 
+
+---
+name: asia-krvote-nec
+# 주요 선거 일정
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+
+
+
+&lt;!-- Timeline generated in R 4.2.0 by googleVis 0.7.0 package --&gt;
+&lt;!-- Fri Jun 10 11:12:09 2022 --&gt;
+
+
+&lt;!-- jsHeader --&gt;
+&lt;script type="text/javascript"&gt;
+ 
+// jsData 
+function gvisDataTimelineID59b41203625d () {
+var data = new google.visualization.DataTable();
+var datajson =
+[
+ [
+"대통령",
+"15대",
+new Date(1997,11,18,0,0,0),
+new Date(2002,11,18,0,0,0)
+],
+[
+"대통령",
+"16대",
+new Date(2002,11,19,0,0,0),
+new Date(2007,11,18,0,0,0)
+],
+[
+"대통령",
+"17대",
+new Date(2007,11,19,0,0,0),
+new Date(2012,11,19,0,0,0)
+],
+[
+"대통령",
+"18대",
+new Date(2012,11,19,0,0,0),
+new Date(2017,4,9,0,0,0)
+],
+[
+"대통령",
+"19대",
+new Date(2017,4,10,0,0,0),
+new Date(2022,4,9,0,0,0)
+],
+[
+"대통령",
+"20대",
+new Date(2022,4,10,0,0,0),
+new Date(2027,4,9,0,0,0)
+],
+[
+"국회의원",
+"17대",
+new Date(2004,4,30,0,0,0),
+new Date(2008,4,29,0,0,0)
+],
+[
+"국회의원",
+"18대",
+new Date(2008,4,30,0,0,0),
+new Date(2012,4,29,0,0,0)
+],
+[
+"국회의원",
+"19대",
+new Date(2012,4,30,0,0,0),
+new Date(2016,4,29,0,0,0)
+],
+[
+"국회의원",
+"20대",
+new Date(2016,4,30,0,0,0),
+new Date(2020,4,29,0,0,0)
+],
+[
+"국회의원",
+"21대",
+new Date(2020,4,30,0,0,0),
+new Date(2024,4,29,0,0,0)
+],
+[
+"지방선거",
+"3회",
+new Date(2002,6,1,0,0,0),
+new Date(2006,5,30,0,0,0)
+],
+[
+"지방선거",
+"4회",
+new Date(2006,6,1,0,0,0),
+new Date(2010,5,30,0,0,0)
+],
+[
+"지방선거",
+"5회",
+new Date(2010,6,1,0,0,0),
+new Date(2014,5,30,0,0,0)
+],
+[
+"지방선거",
+"6회",
+new Date(2014,6,1,0,0,0),
+new Date(2018,5,30,0,0,0)
+],
+[
+"지방선거",
+"7회",
+new Date(2018,6,1,0,0,0),
+new Date(2022,5,30,0,0,0)
+],
+[
+"지방선거",
+"8회",
+new Date(2022,6,1,0,0,0),
+new Date(2026,5,30,0,0,0)
+] 
+];
+data.addColumn('string','type');
+data.addColumn('string','subtype');
+data.addColumn('datetime','start');
+data.addColumn('datetime','end');
+data.addRows(datajson);
+return(data);
+}
+ 
+// jsDrawChart
+function drawChartTimelineID59b41203625d() {
+var data = gvisDataTimelineID59b41203625d();
+var options = {};
+options["width"] = 600;
+options["height"] = 550;
+
+    var chart = new google.visualization.Timeline(
+    document.getElementById('TimelineID59b41203625d')
+    );
+    chart.draw(data,options);
+    
+
+}
+  
+ 
+// jsDisplayChart
+(function() {
+var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+var chartid = "timeline";
+  
+// Manually see if chartid is in pkgs (not all browsers support Array.indexOf)
+var i, newPackage = true;
+for (i = 0; newPackage &amp;&amp; i &lt; pkgs.length; i++) {
+if (pkgs[i] === chartid)
+newPackage = false;
+}
+if (newPackage)
+  pkgs.push(chartid);
+  
+// Add the drawChart function to the global list of callbacks
+callbacks.push(drawChartTimelineID59b41203625d);
+})();
+function displayChartTimelineID59b41203625d() {
+  var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+  var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+  window.clearTimeout(window.__gvisLoad);
+  // The timeout is set to 100 because otherwise the container div we are
+  // targeting might not be part of the document yet
+  window.__gvisLoad = setTimeout(function() {
+  var pkgCount = pkgs.length;
+  google.load("visualization", "1", { packages:pkgs, callback: function() {
+  if (pkgCount != pkgs.length) {
+  // Race condition where another setTimeout call snuck in after us; if
+  // that call added a package, we must not shift its callback
+  return;
+}
+while (callbacks.length &gt; 0)
+callbacks.shift()();
+} });
+}, 100);
+}
+ 
+// jsFooter
+&lt;/script&gt;
+ 
+&lt;!-- jsChart --&gt;  
+&lt;script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartTimelineID59b41203625d"&gt;&lt;/script&gt;
+ 
+&lt;!-- divChart --&gt;
+  
+&lt;div id="TimelineID59b41203625d" 
+  style="width: 600; height: 550;"&gt;
+&lt;/div&gt;
+
+.footnote[
+- [이광춘, "krvote - 대한민국 선거 데이터 패키지", 2022-06-09](https://ai-carpentry.github.io/krvote/)]
+
+
+---
+name: asia-krvote-sources
+# krvote 원천 데이터
+
+
+.panelset[
+
+.panel[.panel-name[중앙선관위 - 웹사이트]
+.center[ &lt;img src="fig/asia-nec-info.jpg" alt="중앙선관위 - 웹사이트" width="80%" /&gt; 
+]
+]
+
+.panel[.panel-name[중앙선관위 - 자료실]
+.center[ &lt;img src="fig/asia-general-files.jpg" alt="중앙선관위 - 자료실" width="70%" /&gt; 
+]
+]
+
+.panel[.panel-name[공공데이터포털 - API]
+.center[ &lt;img src="fig/asia-data-portal-api.jpg" alt="공공데이터포털 - API 명세" width="80%" /&gt; 
+]
+]
+
+]
+
+
+---
+name: asia-krvote-workflow
+# krvote 데이터 전처리 작업
+
+&lt;br&gt;
+&lt;br&gt;
+
+.center[
+![](fig/asia-data-workflow.png)
+]
+
+.footnote[
+- [이광춘, "krvote - 대한민국 선거 데이터 패키지", 2022-06-09](https://ai-carpentry.github.io/krvote/)]
+
+
+---
+name: asia-krvote-workflow-after
+# krvote 데이터 패키지 제작 작업
+
+&lt;br&gt;
+&lt;br&gt;
+
+.center[
+![](fig/asia-data-workflow-pkg.png)
+]
+
+.footnote[
+- [이광춘, "krvote - 대한민국 선거 데이터 패키지", 2022-06-09](https://ai-carpentry.github.io/krvote/)]
+
+
+---
+name: asia-krvote-inside
+# krvote 살펴보기
+
+
+<div id="htmlwidget-ed0d48f21687f7c075f1" class="reactable html-widget" style="width:auto;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-ed0d48f21687f7c075f1">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"데이터셋":["by_election_2021","casting_votes","code_election","code_gusigun","code_party","code_precinct","counting_votes","early_voting","education_2010","education_2014","education_2018","election_20121219","election_20170509","election_20220309","general_2012","general_2016","general_2020","local_edu_20140604","local_edu_20180613","local_edu_gg_20140604","local_edu_seoul_20140604","local_sgg_20140604","local_sgg_20180613","local_sido_20140604","local_sido_20180613","nec_sgg_code","voter_emd","voter_gusigun","voter_precinct","voter_sido","voter_station"],"데이터설명":["서울, 부산 시장 재보궐선거","선거별 구시군별 투표수","중앙선거관리위원회 선거코드","중앙선거관리위원회 구시군코드 공공데이터포털 - 중앙선거관리위원회 구시군코드 검색어: 중앙선거관리위원회 코드정보","중앙선거관리위원회 정당코드","중앙선거관리위원회 선거구 코드","구시군, 선거구별 득표수","사전투표 현황","제5회 시도 교육감","제6회 교육감선거","제7회 교육감선거","제18대 대통령선거 2012년","제19대 대통령선거 2017년","제20대 대통령선거 2022년","제19대 국회의원선거","제20대 국회의원선거","제21대 국회의원선거","","","제6회 지방선거 - 교육감 - 경기","제6회 지방선거 - 교육감 - 서울","제6회 지방선거 - 구시군의장","제7회 지선 구시군의장","제6회 지방선거 - 지도지사","제7회 지방선거 - 시도지사","시도, 구시군 마스터 코드","선거별 구시군, 읍면동별 유권자수","선거별 구시군별 유권자수","선거별 구시군, 선거구별 유권자수","선거별 시도별 유권자수","투표구별 선거인수"]},"columns":[{"accessor":"데이터셋","name":"데이터셋","type":"character"},{"accessor":"데이터설명","name":"데이터설명","type":"character"}],"filterable":true,"defaultPageSize":7,"paginationType":"numbers","showPageInfo":true,"minRows":1,"dataKey":"7387207f772a96a16212ae4659515266","key":"7387207f772a96a16212ae4659515266"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
+
+
+.footnote[
+- [이광춘, "krvote - 대한민국 선거 데이터 패키지", 2022-06-09](https://ai-carpentry.github.io/krvote/)]
+
+
+&lt;!--------------------------  3. 대쉬보드 -----------------------------------------&gt;
+
+
+
+---
+class: inverse, middle
+name: aisa-dashboard-toc
+
+# 발표 개요 
+
+----
+
+.pull-left[
+
+디지털 전환이 급속도로 진행됨에 따라 데이터를 수집하고 처리할 수 없을 정도로 
+**.warmyellow[데이터가 폭증]**하고 있다. 무어의 법칙에 따라 컴퓨터 하드웨어와 
+네트워크 분야에서 눈부신 발전을 거듭하고 있고, 
+소프트웨어 분야도 오픈소스 문화가 정착됨에 따라 빅데이터 문제에 해법을 제시하고 있다.
+
+하지만, 데이터를 통해 가치를 창출하는 **.warmyellow[데이터 과학자]**가 병목의 중심으로 부각되고 있다.
+이에 `tidyverse` 패러다임이 이런 문제를 불식시킬 수 있는 은총알(Silver Bullet)로 
+제시되고 있다. 
+
+공공 지역정보 데이터 수집과 분석 전략을 **.warmyellow[`tidyverse` 패러다임]**으로 살펴보고,
+특히 기술적으로 데이터 패키지와 대쉬보드, 배포와 서비스 관점을 면밀히 다뤄본다.
+]
+ 
+.pull-right[   
+.left[
+
+1\. [`tidyverse` 패러다임](#aisa-tidyverse-toc)
+
+2\. [대한민국 공공데이터](#aisa-public-data-toc)
+
+3\. [데이터 패키지 - `krvote`](#aisa-krvote-toc)
+
+4\. **[.warmyellow[대쉬보드 - `flexdashboard`]](#aisa-dashboard-toc)**
+
+]
+] &lt;!--end of right-column--&gt;  
+
+---
+name: asia-krvote-ohmynews
+# 뉴스기사
+
+.center[
+&lt;img src= "fig/asia-ohmynews.jpeg" width="90%"&gt;
+]
+
+
+.footnote[
+- [이광춘, "지방선거 시도지사 절반, 5월 12일 결정된다 - 역대 선거 시도지사 정당별 득표율 데이터를 통해 본 6월 1일 지방선거", 2022-03-24, 오마이뉴스](http://omn.kr/1xylg)]
+
+---
+name: asia-krvote-example
+class: inverse, middle, center
+# krvote 유용성
+
+&lt;br&gt;
+&lt;br&gt;
+
+[제19대 대통령 선거 결과](https://aispiration.com/president/president-election-2017.html)
+
+---
+name: asia-krvote-president
+class: inverse, middle, center
+# 대통령선거 대쉬보드
+
+[제20대 대통령 선거 대쉬보드](https://aispiration.com/president/social-dashboard.html)
+
+
+---
+name: asia-krvote-local-election
+class: inverse, middle, center
+# 지방선거 대쉬보드
+
+[제8대 경기지사 대쉬보드](https://aispiration.com/president/gg-dashboard.html)
+
+
+&lt;!--------------------------  마무리 -----------------------------------------&gt;
  
 
 ---
@@ -87,12 +853,6 @@ class: middle, inverse
 
 ]
 ]
-
-
-
-
-
-
 
 
 
@@ -193,7 +953,7 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
 <!--Hat-tip: https://www.garrickadenbuie.com/blog/xaringan-tip-logo-all-slides/-->
 <style>
 .logo {
-  background-image: url(../fig/bitstat_logo.jpg);
+  background-image: url(../fig/korea_R_logo.png);
   background-size: contain;
   background-repeat: no-repeat;
   position: absolute;

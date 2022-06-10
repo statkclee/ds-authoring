@@ -1,0 +1,105 @@
+
+---
+class: inverse, middle
+name: aisa-public-data-toc
+
+# 발표 개요 
+
+----
+
+.pull-left[
+
+디지털 전환이 급속도로 진행됨에 따라 데이터를 수집하고 처리할 수 없을 정도로 
+**.warmyellow[데이터가 폭증]**하고 있다. 무어의 법칙에 따라 컴퓨터 하드웨어와 
+네트워크 분야에서 눈부신 발전을 거듭하고 있고, 
+소프트웨어 분야도 오픈소스 문화가 정착됨에 따라 빅데이터 문제에 해법을 제시하고 있다.
+
+하지만, 데이터를 통해 가치를 창출하는 **.warmyellow[데이터 과학자]**가 병목의 중심으로 부각되고 있다.
+이에 `tidyverse` 패러다임이 이런 문제를 불식시킬 수 있는 은총알(Silver Bullet)로 
+제시되고 있다. 
+
+공공 지역정보 데이터 수집과 분석 전략을 **.warmyellow[`tidyverse` 패러다임]**으로 살펴보고,
+특히 기술적으로 데이터 패키지와 대쉬보드, 배포와 서비스 관점을 면밀히 다뤄본다.
+]
+ 
+.pull-right[   
+.left[
+
+1\. [`tidyverse` 패러다임](#aisa-tidyverse-toc)
+
+2\. **[.warmyellow[대한민국 공공데이터]](#aisa-public-data-toc)**
+
+3\. [데이터 패키지 - `krvote`](#aisa-krvote-toc)
+
+4\. [대쉬보드 - `flexdashboard`](#aisa-dashboard-toc)
+
+]
+] <!--end of right-column-->  
+
+---
+name: asia-public-data
+# 공공데이터 포털
+
+
+```{r public-portal}
+library(tidyverse)
+library(readxl)
+library(reactable)
+
+public_dat <- readxl::read_excel(glue::glue("{here::here()}/data/public-data.xlsx"), sheet = "현황")
+
+public_dat %>% 
+  janitor::clean_names(ascii = FALSE) %>% 
+  reactable::reactable(defaultPageSize = 10,
+                       columns = list(
+                         포털명 = colDef(minWidth = 200)))
+
+```
+
+
+.footnote[
+- [김학래, "2022 데이터 인사이트 세미나", 중앙대학교 HIKE 연구실](https://forum.datahub.kr/t/topic/128)   
+]
+
+---
+name: asia-public-data-type
+# 공공데이터 자료 제공 형식
+
+
+```{r public-portal-type}
+library(tidyverse)
+library(readxl)
+library(reactable)
+
+public_dat_type <- readxl::read_excel(glue::glue("{here::here()}/data/public-data.xlsx"), sheet = "서비스유형")
+
+public_dat_type %>% 
+  janitor::clean_names(ascii = FALSE) %>% 
+  reactable::reactable(defaultPageSize = 10,
+                       columns = list(
+                         포털_목록 = colDef(minWidth = 60)))
+
+```
+
+
+.footnote[
+- [김학래, "2022 데이터 인사이트 세미나", 중앙대학교 HIKE 연구실](https://forum.datahub.kr/t/topic/128)   
+]
+
+
+---
+name: asia-public-data-type
+# 공공데이터 정해진 미래(?)
+
+<br>
+
+.center[
+![](fig/hike-data-insight.jpg)
+]
+
+
+.footnote[
+- [김학래, "2022 데이터 인사이트 세미나", 중앙대학교 HIKE 연구실](https://forum.datahub.kr/t/topic/128)   
+]
+
+
