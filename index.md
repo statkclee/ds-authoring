@@ -17,6 +17,8 @@ title: 데이터 과학 기고문과 발표자료
 
 ## 학습목차 
 
+1. [Tidyverse Meets Shiny](tidyverse-shiny.html)
+    - 2022년 07월 09일 (토) 성균관대학교 퇴계인문관, Seoul R Meetup
 1. [R 개발자 관점에서 바라본 지역정보 수집과 분석 전략](bitstat-asia.html)
     - 2022년 07월 07일 (목) 서울대학교 아시아지역정보센터
 1. [데이터 과학자의 세계, 학부모 버전](data-science-world.html) **[학생 버전](ds-world-student.html)** 
