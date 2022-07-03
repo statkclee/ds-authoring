@@ -5,7 +5,7 @@ class: middle, inverse
 .pull-left[
 # **경청해 주셔서 <br>감사합니다.**
 <br/>
-## 한국 R 사용자회
+## [한국 R 사용자회](https://r2bit.com/)
 
 ]
 

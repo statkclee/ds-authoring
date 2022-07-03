@@ -1,0 +1,248 @@
+
+
+---
+class: inverse, middle
+name: aisa-ai-toc
+
+# 발표 개요 
+
+----
+
+.pull-left[
+
+디지털 전환이 급속도로 진행됨에 따라 데이터를 수집하고 처리할 수 없을 정도로 
+**.warmyellow[데이터가 폭증]**하고 있다. 무어의 법칙에 따라 컴퓨터 하드웨어와 
+네트워크 분야에서 눈부신 발전을 거듭하고 있고, 
+소프트웨어 분야도 오픈소스 문화가 정착됨에 따라 빅데이터 문제에 해법을 제시하고 있다.
+
+하지만, 데이터를 통해 가치를 창출하는 **.warmyellow[데이터 과학자]**가 병목의 중심으로 부각되고 있다. 이에 `tidyverse` 패러다임이 이런 문제를 불식시킬 수 있는 은총알(Silver Bullet)로 
+제시되고 있다. 
+
+공공 지역정보 데이터 수집과 분석 전략을 **.warmyellow[`tidyverse` 패러다임]**으로 살펴보고,
+특히 기술적으로 데이터 패키지와 대쉬보드, 배포와 서비스 관점을 면밀히 다뤄본다.
+
+공공 지역정보 비정형데이터에 대한 최근 딥러닝 발전도 소개한다.
+]
+ 
+.pull-right[   
+.left[
+
+1\. [tidyverse 패러다임](#aisa-tidyverse-toc)
+
+2\. [대한민국 공공데이터](#aisa-public-data-toc)
+
+3\. [데이터 패키지 - krvote](#aisa-krvote-toc)
+
+4\. [대쉬보드 - flexdashboard](#aisa-dashboard-toc)
+
+5\. **[.warmyellow[자동화, AI, 딥러닝]](#aisa-ai-toc)**
+
+]
+] <!--end of right-column-->  
+
+
+---
+name: automation-tax
+# 세무사 업무 변천과정
+
+<br>
+<br>
+<br>
+
+.center[
+
+![세무 업무 변천사](fig/tax-preparation.png)
+
+]
+
+.footnote[
+[이광춘 (2019-12-04), "자동화(Automation) - ~~로봇~~ 자동화가 빼앗는 일자리 그리고 나", 분당 서현 청소년 수련관 ](https://statkclee.github.io/ds-authoring/ds-bundang-2019.html)
+]
+
+---
+name: automation-productivity-gap
+# 생산성과 임금 격차
+
+<br>
+
+```{r productivity-gap, out.width="100%", out.height="67%"}
+library(tidyverse)
+
+productivity_gap <- tribble(~"Year",~"Hourly compensation", ~"Net productivity",
+"1948", "0.00%"  ,"0.00%",
+"1949", "6.24%"  ,"1.55%",
+"1950", "10.46%"  ,"9.34%",
+"1951", "11.74%"  ,"12.24%",
+"1952", "15.02%"  ,"15.49%",
+"1953", "20.82%"  ,"19.41%",
+"1954", "23.48%"  ,"21.44%",
+"1955", "28.70%"  ,"26.38%",
+"1956", "33.89%"  ,"26.59%",
+"1957", "37.08%"  ,"30.04%",
+"1958", "38.08%"  ,"32.72%",
+"1959", "42.46%"  ,"37.63%",
+"1960", "45.38%"  ,"40.06%",
+"1961", "47.84%"  ,"44.37%",
+"1962", "52.32%"  ,"49.80%",
+"1963", "54.86%"  ,"55.03%",
+"1964", "58.32%"  ,"59.94%",
+"1965", "62.27%"  ,"64.92%",
+"1966", "64.70%"  ,"69.95%",
+"1967", "66.68%"  ,"71.98%",
+"1968", "71.05%"  ,"77.13%",
+"1969", "74.39%"  ,"77.85%",
+"1970", "76.81%"  ,"80.35%",
+"1971", "81.66%"  ,"87.10%",
+"1972", "91.34%"  ,"92.20%",
+"1973", "90.96%"  ,"96.96%",
+"1974", "87.05%"  ,"93.83%",
+"1975", "86.86%"  ,"98.11%",
+"1976", "89.35%"  ,"103.59%",
+"1977", "92.82%"  ,"106.05%",
+"1978", "95.66%"  ,"108.27%",
+"1979",  "93.25%",  "108.11%",
+"1980", "88.05%"  ,"106.77%",
+"1981", "87.36%"  ,"110.50%",
+"1982", "87.70%"  ,"108.37%",
+"1983", "88.49%"  ,"114.51%",
+"1984", "87.03%"  ,"120.21%",
+"1985", "86.18%"  ,"123.65%",
+"1986", "87.25%"  ,"128.28%",
+"1987", "84.67%"  ,"128.80%",
+"1988", "84.02%",  "132.01%",
+"1989", "83.93%"  ,"134.12%",
+"1990", "82.37%"  ,"136.95%",
+"1991", "82.02%"  ,"138.50%",
+"1992", "83.20%"  ,"147.48%",
+"1993", "83.46%"  ,"148.51%",
+"1994", "83.89%"  ,"150.54%",
+"1995", "82.76%"  ,"151.59%",
+"1996", "82.87%"  ,"156.24%",
+"1997", "84.87%"  ,"160.72%",
+"1998", "89.27%"  ,"166.21%",
+"1999", "91.98%"  ,"173.46%",
+"2000", "92.96%"  ,"179.47%",
+"2001", "95.60%"  ,"183.71%",
+"2002", "99.49%"  ,"191.50%",
+"2003", "101.58%",  "201.22%",
+"2004", "100.56%",  "209.29%",
+"2005", "99.73%"  ,"215.29%",
+"2006", "99.88%"  ,"217.61%",
+"2007", "101.45%",  "219.78%",
+"2008", "101.39%",  "221.39%",
+"2009", "109.30%",  "228.75%",
+"2010", "111.00%",  "238.23%",
+"2011", "108.47%",  "238.21%",
+"2012", "106.50%",  "239.57%",
+"2013", "108.40%",  "240.96%",
+"2014", "109.08%",  "242.91%",
+"2015", "112.41%",  "245.75%",
+"2016", "114.39%",  "246.34%",
+"2017", "114.67%",  "249.78%",
+"2018", "115.62%",  "252.90%")
+
+productivity_gap_df <- productivity_gap %>% 
+  mutate(`Hourly compensation` = parse_number(`Hourly compensation`) / 100,
+         `Net productivity`    = parse_number(`Net productivity`) / 100,
+         Year = as.integer(Year)) 
+
+productivity_gap_long_df <- productivity_gap_df %>%
+  mutate(gap = abs(`Net productivity` - `Hourly compensation`)) %>% 
+  gather(metric, value, - Year)
+
+library(plotly)
+
+productivity_gap_g <- productivity_gap_long_df %>% 
+  ggplot(aes(x=Year, y=value, color=metric)) +
+    geom_line() +
+    geom_point(size=0.3) +
+    scale_y_continuous(labels = scales::percent) +
+    theme_bw(base_family="NanumGothic") +
+    labs(x="", y="", title="Productivity growth and hourly compensation growth, 1948-2018",
+         color="생산성과 시간당 급여",
+         caption="") +
+    theme(legend.position = "top")
+
+plotly::ggplotly(productivity_gap_g)
+```
+
+.footnote[
+[Economic Policy Institute, "The Productivity - Pay Gap", July 2019](https://www.epi.org/productivity-pay-gap/)
+]
+
+
+---
+name: automation-sourcing-strategy
+# 소싱전략의 변화
+
+<br>
+<br>
+
+.center[
+
+![소싱 전략의 변화](fig/the-end-of-outsourcing.png)
+
+]
+
+.footnote[
+자료출처: Kinetics consulting services / Automation Anywhere 
+]
+
+
+
+---
+name: automation-apollo
+# 아폴로 우주선
+
+<br>
+
+.center[
+
+![아폴로 계획에 대한 역할 구분](fig/man-machine-role-allocation.png)
+
+]
+
+.footnote[
+
+[Mary (Missy) Cummings (2014), "Man versus Machine or Man + Machine?", Duke University and MIT](https://hal.pratt.duke.edu/sites/hal.pratt.duke.edu/files/u10/IS-29-05-Expert%20Opinion[1]_0.pdf)
+
+]
+
+---
+name: automation-role-allocation
+# 인간과 기계 업무분장
+
+<br>
+
+.center[
+
+<img src="fig/role-allocation-skill-rules-experties.gif" width = "77%" />
+
+]
+
+.footnote[
+
+[Mary (Missy) Cummings (2017), "Informing Autonomous System Design Through the Lens of Skill-, Rule-, and Knowledge-Based Behaviors", Duke University](https://hal.pratt.duke.edu/sites/hal.pratt.duke.edu/files/u10/IS-29-05-Expert%20Opinion[1]_0.pdf)
+
+]
+
+---
+name: automation-jobs
+# Human Supervisory Control
+
+<br>
+<br>
+
+.center[
+
+![human-supervisory-control](fig/human-supervisory-control.png)
+
+]
+
+.footnote[
+
+[Mary (Missy) Cummings (2017), "Informing Autonomous System Design Through the Lens of Skill-, Rule-, and Knowledge-Based Behaviors", Duke University](https://hal.pratt.duke.edu/sites/hal.pratt.duke.edu/files/u10/IS-29-05-Expert%20Opinion[1]_0.pdf)
+
+]
+
+

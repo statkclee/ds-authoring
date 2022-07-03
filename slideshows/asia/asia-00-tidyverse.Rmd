@@ -80,6 +80,122 @@ name: data-science-graph
 ]
 
 
-```{r child=glue::glue('{here::here()}/sgg/sgg-avengers.Rmd')}
-```
+---
+name: avengers-problem
+# 펭귄 어벤저스
+
+.center[
+![](fig/shiny-python.png)
+]
+
+.footnote[
+[펭귄 성별예측모형: 파이썬 + `Shiny`](https://statkclee.github.io/model/tidyverse-penguin-python-shiny.html)
+]
+
+---
+names: avengers-penguin
+# 펭귄 데이터셋
+
+.center[
+![](fig/penguin-dataset.png)
+]
+
+.footnote[
+- [펭귄 vs 붓꽃 데이터](https://statkclee.github.io/data-science/ds-iris-penguin.html)
+]
+
+---
+name: avengers-architecture
+# 모형 아키텍쳐
+
+<br>
+<br>
+
+| 앙상블 | Random Forest | XGBoost |
+|--------|----------------|---------|
+|![](fig/penguin-arch-ensemble.png)| ![](fig/penguin-arch-rf.png) | ![](fig/penguin-arch-xgb.png) |
+
+.footnote[
+- [펭귄 성별예측모형: tidymodels](https://statkclee.github.io/model/tidyverse-parsnip-penguin.html)
+]
+
+---
+name: avengers-tuning
+# 모형 최적화: Hyper Parameter Tuning
+
+<br>
+<br>
+
+.center[
+![](fig/xgboost-python.png)
+]
+
+.footnote[
+- [펭귄 성별예측모형: tidymodels - Hyper Parameter](https://statkclee.github.io/model/tidyverse-parsnip-penguin-hyper-parameter.html)
+]
+
+---
+name: avengers-restful
+# 모형 배포: RESTful API
+
+<br>
+<br>
+
+.center[
+<img src = "fig/penguin-restful-api.png" width = "100%" />
+]
+
+.footnote[
+- [펭귄 성별예측모형: tidymodels - RESTful API](https://statkclee.github.io/model/tidyverse-parsnip-penguin-RESTful-api.html)
+]
+
+---
+name: avengers-explainable-ai
+# 설명가능한 예측모형: Explainable AI
+
+.center[
+![](fig/mdp-DALEX.png)
+]
+
+.footnote[
+- [펭귄 성별예측모형: tidymodels - MDP / DALEX](https://statkclee.github.io/model/tidyverse-parsnip-penguin-DALEX.html)
+]
+
+
+---
+name: avengers-frontend-backed
+# Shiny Front-End + `tidymodels` Back-End
+
+.center[
+![](fig/penguin-shiny-predictive-model.gif)
+]
+
+.footnote[
+- [펭귄 성별예측모형: `tidymodels` - Shiny](https://statkclee.github.io/model/tidyverse-parsnip-penguin-shiny.html)
+]
+
+---
+name: avengers-shiny-python
+# Shiny Front-End + Python Back-End
+
+.center[
+![](fig/shiny-fe-python-be.gif)
+]
+
+.footnote[
+- [펭귄 성별예측모형: 파이썬 - `Shiny`](https://statkclee.github.io/model/tidyverse-penguin-python-shiny.html)
+]
+
+
+---
+name: avengers-model
+# 데이터 과학 EDA 환경: R + 파이썬
+
+.center[
+<img src= "fig/ds-avengers-model.png" width="77%" />
+]
+
+.footnote[
+- [데이터 과학 개발 환경: R+파이썬](https://statkclee.github.io/data-science/ds-languages.html)
+]
 

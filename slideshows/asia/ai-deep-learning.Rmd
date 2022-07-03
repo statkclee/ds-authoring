@@ -1,0 +1,91 @@
+
+---
+name: deep-learning-vs-software
+# 소프트웨어 2.0 vs. 딥러닝 모형
+
+<br>
+<br>
+
+.center[
+![](fig/software-versions.png)
+]
+
+.footnote[
+Domingos, Pedro. The master algorithm: How the quest for the ultimate learning machine will remake our world. Basic Books, 2015.
+]
+
+
+---
+name: hidden-technical-debt
+# 기계학습(딥러닝) 기여분
+
+<br>
+<br>
+
+.center[
+![](fig/hidden-technical-debt.png)
+]
+
+.footnote[
+Sculley, David, et al. "Hidden technical debt in machine learning systems." Advances in neural information processing systems 28 (2015).
+]
+
+---
+name: deep-learning-end2end
+# 딥러닝 모형 개발 범위
+
+<br>
+
+.center[
+<img src = "fig/end2end-deep-learning.png" width = "87%">
+]
+
+.footnote[
+Eli Stevens, Luca Antiga, and Thomas Viehmann (2020), "Deep Learning with PyTorch", Manning.
+]
+
+
+---
+name: nlp-transformers
+# Attention & Transformers
+
+<br>
+<br>
+
+.center[
+<img src = "fig/transformers-attention.png" width = "100%">
+]
+
+.footnote[
+[Lilian Weng (June 24, 2018), "Attention? Attention!"](https://lilianweng.github.io/posts/2018-06-24-attention/)
+]
+
+
+
+---
+name: nlp-bert-gpt
+# Attention & Transformers &rarr; GPT, BERT
+
+<br>
+
+.center[
+<img src = "fig/transformers-gpt-bert.png" width = "100%">
+]
+
+.footnote[
+[ratsgo's NLPBOOK](https://ratsgo.github.io/nlpbook/docs/language_model/)
+]
+
+
+---
+name: nlp-big-picture
+# 인공지능 엔진 개발
+
+<br>
+
+.center[
+<img src = "fig/big-picture.png" width = "100%">
+]
+
+
+

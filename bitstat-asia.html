@@ -15,6 +15,13 @@
     <script src="libs/reactwidget/react-tools.js"></script>
     <script src="libs/htmlwidgets/htmlwidgets.js"></script>
     <script src="libs/reactable-binding/reactable.js"></script>
+    <script src="libs/plotly-binding/plotly.js"></script>
+    <script src="libs/typedarray/typedarray.min.js"></script>
+    <script src="libs/jquery/jquery.min.js"></script>
+    <link href="libs/crosstalk/css/crosstalk.min.css" rel="stylesheet" />
+    <script src="libs/crosstalk/js/crosstalk.min.js"></script>
+    <link href="libs/plotly-htmlwidgets-css/plotly-htmlwidgets.css" rel="stylesheet" />
+    <script src="libs/plotly-main/plotly-latest.min.js"></script>
     <link rel="stylesheet" href="css/SNU.css" type="text/css" />
     <link rel="stylesheet" href="css/nhsr-fonts.css" type="text/css" />
   </head>
@@ -29,14 +36,14 @@ class: title-slide, left, bottom
 
 # R 개발자 관점에서 바라본 지역정보 수집과 분석 전략
 ----
-## **krvote 데이터 패키지와 Shiny 대쉬보드**
+## **krvote 데이터 패키지와 Shiny 대쉬보드, 그리고 인공지능(AI)**
 ### 이광춘 / 한국 R 사용자회
 ### 2022-07-07
 
  
 ---
 class: inverse, middle
-name: data-science-case
+name: aisa-tidyverse-toc
 
 # 발표 개요 
 
@@ -49,30 +56,33 @@ name: data-science-case
 네트워크 분야에서 눈부신 발전을 거듭하고 있고, 
 소프트웨어 분야도 오픈소스 문화가 정착됨에 따라 빅데이터 문제에 해법을 제시하고 있다.
 
-하지만, 데이터를 통해 가치를 창출하는 **.warmyellow[데이터 과학자]**가 병목의 중심으로 부각되고 있다.
-이에 `tidyverse` 패러다임이 이런 문제를 불식시킬 수 있는 은총알(Silver Bullet)로 
+하지만, 데이터를 통해 가치를 창출하는 **.warmyellow[데이터 과학자]**가 병목의 중심으로 부각되고 있다. 이에 `tidyverse` 패러다임이 이런 문제를 불식시킬 수 있는 은총알(Silver Bullet)로 
 제시되고 있다. 
 
 공공 지역정보 데이터 수집과 분석 전략을 **.warmyellow[`tidyverse` 패러다임]**으로 살펴보고,
 특히 기술적으로 데이터 패키지와 대쉬보드, 배포와 서비스 관점을 면밀히 다뤄본다.
+
+공공 지역정보 비정형데이터에 대한 최근 딥러닝 발전도 소개한다.
 ]
  
 .pull-right[   
 .left[
 
-1\. [`tidyverse` 패러다임](#aisa-tidyverse-toc)
+1\. [tidyverse 패러다임](#aisa-tidyverse-toc)
 
 2\. [대한민국 공공데이터](#aisa-public-data-toc)
 
-3\. [데이터 패키지 - `krvote`](#aisa-krvote-toc)
+3\. [데이터 패키지 - krvote](#aisa-krvote-toc)
 
-4\. [대쉬보드 - `flexdashboard`](#aisa-dashboard-toc)
+4\. [대쉬보드 - flexdashboard](#aisa-dashboard-toc)
+
+5\. [자동화, AI, 딥러닝](#aisa-ai-toc)
 
 ]
 ] &lt;!--end of right-column--&gt;  
 
+
 &lt;!--------------------------  0. Tidyverse -----------------------------------------&gt;
- 
 
 
 
@@ -157,44 +167,6 @@ name: data-science-graph
 ]
 
 
-
-
-
----
-class: inverse, middle
-name: data-science-avengers
-
-# 강의 개요 
-
-----
-
-.pull-left[
-
-직장인의 업무 생산성 향상의 총아로 각광받던 MS 오피스가 한시대를 풍미했다. 
-`\(6\sigma\)`를 필두로 제조업의 혁신을 이끈 통계학도 엑셀에 탑재된 기본기능이 부족하여 미니탭과 같은 통계 팩키지를 필히 익혀야 하는 필수 역량이 되었다.
-
-대기업을 중심으로 고학력을 가진 석박사가 증가하면서 논문 작성에 필요한 고급 통계분석으로 사회과학 분야는 SPSS, 의학 및 경영대는 SAS, 계량경제학 분야는 Gauss, E-View와 같은 특화된 팩키지 소프트웨어를 활용하였고, 좀더 학구적인 역량을 갖춘 분들은 논문을 `\(\LaTeX\)`으로 작성하여 해외 저널과 컨퍼런스에 발표를 하였다.
-
-현재 대한민국을 강타하고 있는 디지털 전환의 바탕이 되는 빅데이터와 AI/기계학습을 아우르는 .green[**데이터 과학**]이 그 실체를 들어내고 있다. 직장인의 기본기로 자리잡아가고 있는 **데이터 과학**과 가장 기본이 되는 .red[**글쓰기**]를 중심으로 학업과 현업 업무를 병행하는 직장인에게 작게나마 도움을 드리고자 한다.
-]
-
-.pull-right[   
-.left[
-
-1\. [데이터 과학 사례](#data-science-case)
-
-2\. [데이터 과학](#data-science)
-
-3\. [데이터 과학 전쟁](#language-war)
-
-4\. **[.green[데이터 과학 어벤저스]](#data-science-avengers)**
-
-5\. [글쓰기](#writing)
-
-6\. [마무리](#goodbye) 
-]
-] &lt;!--end of right-column--&gt;
-
 ---
 name: avengers-problem
 # 펭귄 어벤저스
@@ -276,17 +248,6 @@ name: avengers-explainable-ai
 - [펭귄 성별예측모형: tidymodels - MDP / DALEX](https://statkclee.github.io/model/tidyverse-parsnip-penguin-DALEX.html)
 ]
 
----
-name: avengers-evaluation
-# `tidyposterior` 모형 평가
-
-.center[
-&lt;img src = "fig/penguin-tidyposterior.png" width = "87%" /&gt;
-]
-
-.footnote[
-- [펭귄 성별예측모형: tidyposterior](https://statkclee.github.io/model/model-tidyposterior.html)
-]
 
 ---
 name: avengers-frontend-backed
@@ -326,12 +287,8 @@ name: avengers-model
 ]
 
 
-
-
-
-  
 &lt;!--------------------------  1. 데이터 포탈 -----------------------------------------&gt;
- 
+
 
 
 
@@ -369,6 +326,8 @@ name: aisa-public-data-toc
 
 4\. [대쉬보드 - `flexdashboard`](#aisa-dashboard-toc)
 
+5\. [자동화, AI, 딥러닝](#aisa-ai-toc)
+
 ]
 ] &lt;!--end of right-column--&gt;  
 
@@ -377,8 +336,8 @@ name: asia-public-data
 # 공공데이터 포털
 
 
-<div id="htmlwidget-a81445802d9da0aa18f8" class="reactable html-widget" style="width:auto;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-a81445802d9da0aa18f8">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"지자체_목록":["공공데이터포털","강원도","경기도","경상남도","경상북도","광주광역시","대구광역시","대전광역시","부산광역시","서울특별시","세종특별자치시","울산광역시","인천광역시","전라남도","전라북도","제주도","충청남도","충청북도"],"포털명":["공공데이터포털","강원 공공데이터","경기데이터드림","경남 빅데이터 허브 플랫폼","경북 공공데이터&통계","광주광역시 빅데이터 통합플랫폼","대구 D데이터허브","x","부산 공공데이터포털","서울 열린데이터광장","x","울산광역시 데이터포털","인천광역시 데이터포털","전라남도 빅데이터허브","전라북도 빅데이터허브","제주 데이터허브","충청남도 공공데이터 개방","충청북도 빅데이터 허브 플랫폼"],"x2021_7_현황_점검":["o","o","o","o","o","o","o",null,"o","o",null,"o","o","x","o","o","o","x"],"x2022_04_유지_여부_점검":["x","x","o","x","x","x","o",null,"o","o",null,"x","x","신규","o","o","o","신규"]},"columns":[{"accessor":"지자체_목록","name":"지자체_목록","type":"character"},{"accessor":"포털명","name":"포털명","type":"character","minWidth":200},{"accessor":"x2021_7_현황_점검","name":"x2021_7_현황_점검","type":"character"},{"accessor":"x2022_04_유지_여부_점검","name":"x2022_04_유지_여부_점검","type":"character"}],"defaultPageSize":10,"paginationType":"numbers","showPageInfo":true,"minRows":1,"dataKey":"6cd1c8446261ce71c8abbac04e471ac2","key":"6cd1c8446261ce71c8abbac04e471ac2"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-12631ba716d4881a3aa0" class="reactable html-widget" style="width:auto;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-12631ba716d4881a3aa0">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"지자체_목록":["공공데이터포털","강원도","경기도","경상남도","경상북도","광주광역시","대구광역시","대전광역시","부산광역시","서울특별시","세종특별자치시","울산광역시","인천광역시","전라남도","전라북도","제주도","충청남도","충청북도"],"포털명":["공공데이터포털","강원 공공데이터","경기데이터드림","경남 빅데이터 허브 플랫폼","경북 공공데이터&통계","광주광역시 빅데이터 통합플랫폼","대구 D데이터허브","x","부산 공공데이터포털","서울 열린데이터광장","x","울산광역시 데이터포털","인천광역시 데이터포털","전라남도 빅데이터허브","전라북도 빅데이터허브","제주 데이터허브","충청남도 공공데이터 개방","충청북도 빅데이터 허브 플랫폼"],"x2021_7_현황_점검":["o","o","o","o","o","o","o",null,"o","o",null,"o","o","x","o","o","o","x"],"x2022_04_유지_여부_점검":["x","x","o","x","x","x","o",null,"o","o",null,"x","x","신규","o","o","o","신규"]},"columns":[{"accessor":"지자체_목록","name":"지자체_목록","type":"character"},{"accessor":"포털명","name":"포털명","type":"character","minWidth":200},{"accessor":"x2021_7_현황_점검","name":"x2021_7_현황_점검","type":"character"},{"accessor":"x2022_04_유지_여부_점검","name":"x2022_04_유지_여부_점검","type":"character"}],"defaultPageSize":10,"paginationType":"numbers","showPageInfo":true,"minRows":1,"dataKey":"6cd1c8446261ce71c8abbac04e471ac2"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
 
 
 .footnote[
@@ -390,8 +349,8 @@ name: asia-public-data-type
 # 공공데이터 자료 제공 형식
 
 
-<div id="htmlwidget-1230a4c1c13583a12366" class="reactable html-widget" style="width:auto;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-1230a4c1c13583a12366">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"포털_목록":["공공데이터포털","강원 공공데이터","경기데이터드림","경남 빅데이터 허브 플랫폼","경북 공공데이터&통계","광주광역시 빅데이터 통합플랫폼","대구 D데이터허브","부산 공공데이터포털","서울 열린데이터광장","울산광역시 데이터포털","인천광역시 데이터포털","전라남도 빅데이터허브","전라북도 빅데이터허브","제주 데이터허브","충청남도 공공데이터 개방","충청북도 빅데이터 허브 플랫폼"],"서비스_유형":["LINK, LOD, REST, RSS/ATOM,YSOAP,Y다운로드,Y배송 및 기타","LINK,YSHEET,YCHART,YOPENYAPI,YMAP,YFILE","FILE,YLINK,YSHEET,YMAP,YCHART,YOPENYAPI","-","파일,YAPI,Y데이터,Y오픈API","파일,Y링크","API,YFILE","SHEET,YMAP,YAPI,YFILE,YLINK","SHEET,YOpenAPI,YFILE,YCHART,YLINK","-","FILE,YOpenAPI","FILE,YOPENAPI,YSHEET","CSV, EXCEL, GRID, CHART,YMAP,YFILE,YLINK,YAPI","FILE,YAPI,YLINK,Y영상,Y차트","-","-"]},"columns":[{"accessor":"포털_목록","name":"포털_목록","type":"character","minWidth":60},{"accessor":"서비스_유형","name":"서비스_유형","type":"character"}],"defaultPageSize":10,"paginationType":"numbers","showPageInfo":true,"minRows":1,"dataKey":"a0d9669589ab295cbfdd1be1eca7b99e","key":"a0d9669589ab295cbfdd1be1eca7b99e"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-148a8a653fe0099465de" class="reactable html-widget" style="width:auto;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-148a8a653fe0099465de">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"포털_목록":["공공데이터포털","강원 공공데이터","경기데이터드림","경남 빅데이터 허브 플랫폼","경북 공공데이터&통계","광주광역시 빅데이터 통합플랫폼","대구 D데이터허브","부산 공공데이터포털","서울 열린데이터광장","울산광역시 데이터포털","인천광역시 데이터포털","전라남도 빅데이터허브","전라북도 빅데이터허브","제주 데이터허브","충청남도 공공데이터 개방","충청북도 빅데이터 허브 플랫폼"],"서비스_유형":["LINK, LOD, REST, RSS/ATOM,YSOAP,Y다운로드,Y배송 및 기타","LINK,YSHEET,YCHART,YOPENYAPI,YMAP,YFILE","FILE,YLINK,YSHEET,YMAP,YCHART,YOPENYAPI","-","파일,YAPI,Y데이터,Y오픈API","파일,Y링크","API,YFILE","SHEET,YMAP,YAPI,YFILE,YLINK","SHEET,YOpenAPI,YFILE,YCHART,YLINK","-","FILE,YOpenAPI","FILE,YOPENAPI,YSHEET","CSV, EXCEL, GRID, CHART,YMAP,YFILE,YLINK,YAPI","FILE,YAPI,YLINK,Y영상,Y차트","-","-"]},"columns":[{"accessor":"포털_목록","name":"포털_목록","type":"character","minWidth":60},{"accessor":"서비스_유형","name":"서비스_유형","type":"character"}],"defaultPageSize":10,"paginationType":"numbers","showPageInfo":true,"minRows":1,"dataKey":"a0d9669589ab295cbfdd1be1eca7b99e"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
 
 
 .footnote[
@@ -453,6 +412,8 @@ name: aisa-krvote-toc
 3\. **[.warmyellow[데이터 패키지 - `krvote`]](#aisa-krvote-toc)**
 
 4\. [대쉬보드 - `flexdashboard`](#aisa-dashboard-toc)
+
+5\. [자동화, AI, 딥러닝](#aisa-ai-toc)
 
 ]
 ] &lt;!--end of right-column--&gt;  
@@ -745,8 +706,8 @@ name: asia-krvote-inside
 # krvote 살펴보기
 
 
-<div id="htmlwidget-8940d22008435f93258e" class="reactable html-widget" style="width:auto;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-8940d22008435f93258e">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"데이터셋":["by_election_2021","casting_votes","code_election","code_gusigun","code_party","code_precinct","counting_votes","early_voting","education_2010","education_2014","education_2018","election_20121219","election_20170509","election_20220309","general_2012","general_2016","general_2020","local_edu_20140604","local_edu_20180613","local_edu_gg_20140604","local_edu_seoul_20140604","local_sgg_20140604","local_sgg_20180613","local_sido_20140604","local_sido_20180613","nec_sgg_code","voter_emd","voter_gusigun","voter_precinct","voter_sido","voter_station"],"데이터설명":["서울, 부산 시장 재보궐선거","선거별 구시군별 투표수","중앙선거관리위원회 선거코드","중앙선거관리위원회 구시군코드 공공데이터포털 - 중앙선거관리위원회 구시군코드 검색어: 중앙선거관리위원회 코드정보","중앙선거관리위원회 정당코드","중앙선거관리위원회 선거구 코드","구시군, 선거구별 득표수","사전투표 현황","제5회 시도 교육감","제6회 교육감선거","제7회 교육감선거","제18대 대통령선거 2012년","제19대 대통령선거 2017년","제20대 대통령선거 2022년","제19대 국회의원선거","제20대 국회의원선거","제21대 국회의원선거","","","제6회 지방선거 - 교육감 - 경기","제6회 지방선거 - 교육감 - 서울","제6회 지방선거 - 구시군의장","제7회 지선 구시군의장","제6회 지방선거 - 지도지사","제7회 지방선거 - 시도지사","시도, 구시군 마스터 코드","선거별 구시군, 읍면동별 유권자수","선거별 구시군별 유권자수","선거별 구시군, 선거구별 유권자수","선거별 시도별 유권자수","투표구별 선거인수"]},"columns":[{"accessor":"데이터셋","name":"데이터셋","type":"character"},{"accessor":"데이터설명","name":"데이터설명","type":"character"}],"filterable":true,"defaultPageSize":7,"paginationType":"numbers","showPageInfo":true,"minRows":1,"dataKey":"7387207f772a96a16212ae4659515266","key":"7387207f772a96a16212ae4659515266"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-dcd3d28fb47d0068cccb" class="reactable html-widget" style="width:auto;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-dcd3d28fb47d0068cccb">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"데이터셋":["by_election_2021","casting_votes","code_election","code_gusigun","code_party","code_precinct","counting_votes","early_voting","education_2010","education_2014","education_2018","election_20121219","election_20170509","election_20220309","general_2012","general_2016","general_2020","local_edu_20140604","local_edu_20180613","local_edu_gg_20140604","local_edu_seoul_20140604","local_sgg_20140604","local_sgg_20180613","local_sido_20140604","local_sido_20180613","nec_sgg_code","voter_emd","voter_gusigun","voter_precinct","voter_sido","voter_station"],"데이터설명":["서울, 부산 시장 재보궐선거","선거별 구시군별 투표수","중앙선거관리위원회 선거코드","중앙선거관리위원회 구시군코드 공공데이터포털 - 중앙선거관리위원회 구시군코드 검색어: 중앙선거관리위원회 코드정보","중앙선거관리위원회 정당코드","중앙선거관리위원회 선거구 코드","구시군, 선거구별 득표수","사전투표 현황","제5회 시도 교육감","제6회 교육감선거","제7회 교육감선거","제18대 대통령선거 2012년","제19대 대통령선거 2017년","제20대 대통령선거 2022년","제19대 국회의원선거","제20대 국회의원선거","제21대 국회의원선거","","","제6회 지방선거 - 교육감 - 경기","제6회 지방선거 - 교육감 - 서울","제6회 지방선거 - 구시군의장","제7회 지선 구시군의장","제6회 지방선거 - 지도지사","제7회 지방선거 - 시도지사","시도, 구시군 마스터 코드","선거별 구시군, 읍면동별 유권자수","선거별 구시군별 유권자수","선거별 구시군, 선거구별 유권자수","선거별 시도별 유권자수","투표구별 선거인수"]},"columns":[{"accessor":"데이터셋","name":"데이터셋","type":"character"},{"accessor":"데이터설명","name":"데이터설명","type":"character"}],"filterable":true,"defaultPageSize":7,"paginationType":"numbers","showPageInfo":true,"minRows":1,"dataKey":"7387207f772a96a16212ae4659515266"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
 
 
 .footnote[
@@ -791,6 +752,8 @@ name: aisa-dashboard-toc
 
 4\. **[.warmyellow[대쉬보드 - `flexdashboard`]](#aisa-dashboard-toc)**
 
+5\. [자동화, AI, 딥러닝](#aisa-ai-toc)
+
 ]
 ] &lt;!--end of right-column--&gt;  
 
@@ -832,8 +795,398 @@ class: inverse, middle, center
 [제8대 경기지사 대쉬보드](https://aispiration.com/president/gg-dashboard.html)
 
 
-&lt;!--------------------------  마무리 -----------------------------------------&gt;
+&lt;!--------------------------  4. 인공지능 -----------------------------------------&gt;
+
+
+
+
+
+---
+class: inverse, middle
+name: aisa-ai-toc
+
+# 발표 개요 
+
+----
+
+.pull-left[
+
+디지털 전환이 급속도로 진행됨에 따라 데이터를 수집하고 처리할 수 없을 정도로 
+**.warmyellow[데이터가 폭증]**하고 있다. 무어의 법칙에 따라 컴퓨터 하드웨어와 
+네트워크 분야에서 눈부신 발전을 거듭하고 있고, 
+소프트웨어 분야도 오픈소스 문화가 정착됨에 따라 빅데이터 문제에 해법을 제시하고 있다.
+
+하지만, 데이터를 통해 가치를 창출하는 **.warmyellow[데이터 과학자]**가 병목의 중심으로 부각되고 있다. 이에 `tidyverse` 패러다임이 이런 문제를 불식시킬 수 있는 은총알(Silver Bullet)로 
+제시되고 있다. 
+
+공공 지역정보 데이터 수집과 분석 전략을 **.warmyellow[`tidyverse` 패러다임]**으로 살펴보고,
+특히 기술적으로 데이터 패키지와 대쉬보드, 배포와 서비스 관점을 면밀히 다뤄본다.
+
+공공 지역정보 비정형데이터에 대한 최근 딥러닝 발전도 소개한다.
+]
  
+.pull-right[   
+.left[
+
+1\. [tidyverse 패러다임](#aisa-tidyverse-toc)
+
+2\. [대한민국 공공데이터](#aisa-public-data-toc)
+
+3\. [데이터 패키지 - krvote](#aisa-krvote-toc)
+
+4\. [대쉬보드 - flexdashboard](#aisa-dashboard-toc)
+
+5\. **[.warmyellow[자동화, AI, 딥러닝]](#aisa-ai-toc)**
+
+]
+] &lt;!--end of right-column--&gt;  
+
+
+---
+name: automation-tax
+# 세무사 업무 변천과정
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+.center[
+
+![세무 업무 변천사](fig/tax-preparation.png)
+
+]
+
+.footnote[
+[이광춘 (2019-12-04), "자동화(Automation) - ~~로봇~~ 자동화가 빼앗는 일자리 그리고 나", 분당 서현 청소년 수련관 ](https://statkclee.github.io/ds-authoring/ds-bundang-2019.html)
+]
+
+---
+name: automation-productivity-gap
+# 생산성과 임금 격차
+
+&lt;br&gt;
+
+<div id="htmlwidget-89bb722d88eca329e3c2" style="width:100%;height:67%;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-89bb722d88eca329e3c2">{"x":{"data":[{"x":[1948,1949,1950,1951,1952,1953,1954,1955,1956,1957,1958,1959,1960,1961,1962,1963,1964,1965,1966,1967,1968,1969,1970,1971,1972,1973,1974,1975,1976,1977,1978,1979,1980,1981,1982,1983,1984,1985,1986,1987,1988,1989,1990,1991,1992,1993,1994,1995,1996,1997,1998,1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018],"y":[0,0.0469,0.0112,0.00499999999999999,0.00470000000000001,0.0141,0.0204,0.0232,0.073,0.0704,0.0535999999999999,0.0483,0.0532,0.0347,0.0252,0.00170000000000003,0.0161999999999999,0.0265,0.0525,0.053,0.0608,0.0346,0.0354,0.0544,0.00860000000000005,0.0600000000000001,0.0678000000000001,0.1125,0.1424,0.1323,0.1261,0.1486,0.1872,0.2314,0.2067,0.2602,0.3318,0.3747,0.4103,0.4413,0.4799,0.5019,0.5458,0.5648,0.6428,0.6505,0.6665,0.6883,0.7337,0.7585,0.7694,0.8148,0.8651,0.8811,0.9201,0.9964,1.0873,1.1556,1.1773,1.1833,1.2,1.1945,1.2723,1.2974,1.3307,1.3256,1.3383,1.3334,1.3195,1.3511,1.3728],"text":["Year: 1948<br />value: 0.0000<br />metric: gap","Year: 1949<br />value: 0.0469<br />metric: gap","Year: 1950<br />value: 0.0112<br />metric: gap","Year: 1951<br />value: 0.0050<br />metric: gap","Year: 1952<br />value: 0.0047<br />metric: gap","Year: 1953<br />value: 0.0141<br />metric: gap","Year: 1954<br />value: 0.0204<br />metric: gap","Year: 1955<br />value: 0.0232<br />metric: gap","Year: 1956<br />value: 0.0730<br />metric: gap","Year: 1957<br />value: 0.0704<br />metric: gap","Year: 1958<br />value: 0.0536<br />metric: gap","Year: 1959<br />value: 0.0483<br />metric: gap","Year: 1960<br />value: 0.0532<br />metric: gap","Year: 1961<br />value: 0.0347<br />metric: gap","Year: 1962<br />value: 0.0252<br />metric: gap","Year: 1963<br />value: 0.0017<br />metric: gap","Year: 1964<br />value: 0.0162<br />metric: gap","Year: 1965<br />value: 0.0265<br />metric: gap","Year: 1966<br />value: 0.0525<br />metric: gap","Year: 1967<br />value: 0.0530<br />metric: gap","Year: 1968<br />value: 0.0608<br />metric: gap","Year: 1969<br />value: 0.0346<br />metric: gap","Year: 1970<br />value: 0.0354<br />metric: gap","Year: 1971<br />value: 0.0544<br />metric: gap","Year: 1972<br />value: 0.0086<br />metric: gap","Year: 1973<br />value: 0.0600<br />metric: gap","Year: 1974<br />value: 0.0678<br />metric: gap","Year: 1975<br />value: 0.1125<br />metric: gap","Year: 1976<br />value: 0.1424<br />metric: gap","Year: 1977<br />value: 0.1323<br />metric: gap","Year: 1978<br />value: 0.1261<br />metric: gap","Year: 1979<br />value: 0.1486<br />metric: gap","Year: 1980<br />value: 0.1872<br />metric: gap","Year: 1981<br />value: 0.2314<br />metric: gap","Year: 1982<br />value: 0.2067<br />metric: gap","Year: 1983<br />value: 0.2602<br />metric: gap","Year: 1984<br />value: 0.3318<br />metric: gap","Year: 1985<br />value: 0.3747<br />metric: gap","Year: 1986<br />value: 0.4103<br />metric: gap","Year: 1987<br />value: 0.4413<br />metric: gap","Year: 1988<br />value: 0.4799<br />metric: gap","Year: 1989<br />value: 0.5019<br />metric: gap","Year: 1990<br />value: 0.5458<br />metric: gap","Year: 1991<br />value: 0.5648<br />metric: gap","Year: 1992<br />value: 0.6428<br />metric: gap","Year: 1993<br />value: 0.6505<br />metric: gap","Year: 1994<br />value: 0.6665<br />metric: gap","Year: 1995<br />value: 0.6883<br />metric: gap","Year: 1996<br />value: 0.7337<br />metric: gap","Year: 1997<br />value: 0.7585<br />metric: gap","Year: 1998<br />value: 0.7694<br />metric: gap","Year: 1999<br />value: 0.8148<br />metric: gap","Year: 2000<br />value: 0.8651<br />metric: gap","Year: 2001<br />value: 0.8811<br />metric: gap","Year: 2002<br />value: 0.9201<br />metric: gap","Year: 2003<br />value: 0.9964<br />metric: gap","Year: 2004<br />value: 1.0873<br />metric: gap","Year: 2005<br />value: 1.1556<br />metric: gap","Year: 2006<br />value: 1.1773<br />metric: gap","Year: 2007<br />value: 1.1833<br />metric: gap","Year: 2008<br />value: 1.2000<br />metric: gap","Year: 2009<br />value: 1.1945<br />metric: gap","Year: 2010<br />value: 1.2723<br />metric: gap","Year: 2011<br />value: 1.2974<br />metric: gap","Year: 2012<br />value: 1.3307<br />metric: gap","Year: 2013<br />value: 1.3256<br />metric: gap","Year: 2014<br />value: 1.3383<br />metric: gap","Year: 2015<br />value: 1.3334<br />metric: gap","Year: 2016<br />value: 1.3195<br />metric: gap","Year: 2017<br />value: 1.3511<br />metric: gap","Year: 2018<br />value: 1.3728<br />metric: gap"],"type":"scatter","mode":"lines+markers","line":{"width":1.88976377952756,"color":"rgba(248,118,109,1)","dash":"solid"},"hoveron":"points","name":"gap","legendgroup":"gap","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","marker":{"autocolorscale":false,"color":"rgba(248,118,109,1)","opacity":1,"size":1.13385826771654,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(248,118,109,1)"}},"frame":null},{"x":[1948,1949,1950,1951,1952,1953,1954,1955,1956,1957,1958,1959,1960,1961,1962,1963,1964,1965,1966,1967,1968,1969,1970,1971,1972,1973,1974,1975,1976,1977,1978,1979,1980,1981,1982,1983,1984,1985,1986,1987,1988,1989,1990,1991,1992,1993,1994,1995,1996,1997,1998,1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018],"y":[0,0.0624,0.1046,0.1174,0.1502,0.2082,0.2348,0.287,0.3389,0.3708,0.3808,0.4246,0.4538,0.4784,0.5232,0.5486,0.5832,0.6227,0.647,0.6668,0.7105,0.7439,0.7681,0.8166,0.9134,0.9096,0.8705,0.8686,0.8935,0.9282,0.9566,0.9325,0.8805,0.8736,0.877,0.8849,0.8703,0.8618,0.8725,0.8467,0.8402,0.8393,0.8237,0.8202,0.832,0.8346,0.8389,0.8276,0.8287,0.8487,0.8927,0.9198,0.9296,0.956,0.9949,1.0158,1.0056,0.9973,0.9988,1.0145,1.0139,1.093,1.11,1.0847,1.065,1.084,1.0908,1.1241,1.1439,1.1467,1.1562],"text":["Year: 1948<br />value: 0.0000<br />metric: Hourly compensation","Year: 1949<br />value: 0.0624<br />metric: Hourly compensation","Year: 1950<br />value: 0.1046<br />metric: Hourly compensation","Year: 1951<br />value: 0.1174<br />metric: Hourly compensation","Year: 1952<br />value: 0.1502<br />metric: Hourly compensation","Year: 1953<br />value: 0.2082<br />metric: Hourly compensation","Year: 1954<br />value: 0.2348<br />metric: Hourly compensation","Year: 1955<br />value: 0.2870<br />metric: Hourly compensation","Year: 1956<br />value: 0.3389<br />metric: Hourly compensation","Year: 1957<br />value: 0.3708<br />metric: Hourly compensation","Year: 1958<br />value: 0.3808<br />metric: Hourly compensation","Year: 1959<br />value: 0.4246<br />metric: Hourly compensation","Year: 1960<br />value: 0.4538<br />metric: Hourly compensation","Year: 1961<br />value: 0.4784<br />metric: Hourly compensation","Year: 1962<br />value: 0.5232<br />metric: Hourly compensation","Year: 1963<br />value: 0.5486<br />metric: Hourly compensation","Year: 1964<br />value: 0.5832<br />metric: Hourly compensation","Year: 1965<br />value: 0.6227<br />metric: Hourly compensation","Year: 1966<br />value: 0.6470<br />metric: Hourly compensation","Year: 1967<br />value: 0.6668<br />metric: Hourly compensation","Year: 1968<br />value: 0.7105<br />metric: Hourly compensation","Year: 1969<br />value: 0.7439<br />metric: Hourly compensation","Year: 1970<br />value: 0.7681<br />metric: Hourly compensation","Year: 1971<br />value: 0.8166<br />metric: Hourly compensation","Year: 1972<br />value: 0.9134<br />metric: Hourly compensation","Year: 1973<br />value: 0.9096<br />metric: Hourly compensation","Year: 1974<br />value: 0.8705<br />metric: Hourly compensation","Year: 1975<br />value: 0.8686<br />metric: Hourly compensation","Year: 1976<br />value: 0.8935<br />metric: Hourly compensation","Year: 1977<br />value: 0.9282<br />metric: Hourly compensation","Year: 1978<br />value: 0.9566<br />metric: Hourly compensation","Year: 1979<br />value: 0.9325<br />metric: Hourly compensation","Year: 1980<br />value: 0.8805<br />metric: Hourly compensation","Year: 1981<br />value: 0.8736<br />metric: Hourly compensation","Year: 1982<br />value: 0.8770<br />metric: Hourly compensation","Year: 1983<br />value: 0.8849<br />metric: Hourly compensation","Year: 1984<br />value: 0.8703<br />metric: Hourly compensation","Year: 1985<br />value: 0.8618<br />metric: Hourly compensation","Year: 1986<br />value: 0.8725<br />metric: Hourly compensation","Year: 1987<br />value: 0.8467<br />metric: Hourly compensation","Year: 1988<br />value: 0.8402<br />metric: Hourly compensation","Year: 1989<br />value: 0.8393<br />metric: Hourly compensation","Year: 1990<br />value: 0.8237<br />metric: Hourly compensation","Year: 1991<br />value: 0.8202<br />metric: Hourly compensation","Year: 1992<br />value: 0.8320<br />metric: Hourly compensation","Year: 1993<br />value: 0.8346<br />metric: Hourly compensation","Year: 1994<br />value: 0.8389<br />metric: Hourly compensation","Year: 1995<br />value: 0.8276<br />metric: Hourly compensation","Year: 1996<br />value: 0.8287<br />metric: Hourly compensation","Year: 1997<br />value: 0.8487<br />metric: Hourly compensation","Year: 1998<br />value: 0.8927<br />metric: Hourly compensation","Year: 1999<br />value: 0.9198<br />metric: Hourly compensation","Year: 2000<br />value: 0.9296<br />metric: Hourly compensation","Year: 2001<br />value: 0.9560<br />metric: Hourly compensation","Year: 2002<br />value: 0.9949<br />metric: Hourly compensation","Year: 2003<br />value: 1.0158<br />metric: Hourly compensation","Year: 2004<br />value: 1.0056<br />metric: Hourly compensation","Year: 2005<br />value: 0.9973<br />metric: Hourly compensation","Year: 2006<br />value: 0.9988<br />metric: Hourly compensation","Year: 2007<br />value: 1.0145<br />metric: Hourly compensation","Year: 2008<br />value: 1.0139<br />metric: Hourly compensation","Year: 2009<br />value: 1.0930<br />metric: Hourly compensation","Year: 2010<br />value: 1.1100<br />metric: Hourly compensation","Year: 2011<br />value: 1.0847<br />metric: Hourly compensation","Year: 2012<br />value: 1.0650<br />metric: Hourly compensation","Year: 2013<br />value: 1.0840<br />metric: Hourly compensation","Year: 2014<br />value: 1.0908<br />metric: Hourly compensation","Year: 2015<br />value: 1.1241<br />metric: Hourly compensation","Year: 2016<br />value: 1.1439<br />metric: Hourly compensation","Year: 2017<br />value: 1.1467<br />metric: Hourly compensation","Year: 2018<br />value: 1.1562<br />metric: Hourly compensation"],"type":"scatter","mode":"lines+markers","line":{"width":1.88976377952756,"color":"rgba(0,186,56,1)","dash":"solid"},"hoveron":"points","name":"Hourly compensation","legendgroup":"Hourly compensation","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","marker":{"autocolorscale":false,"color":"rgba(0,186,56,1)","opacity":1,"size":1.13385826771654,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(0,186,56,1)"}},"frame":null},{"x":[1948,1949,1950,1951,1952,1953,1954,1955,1956,1957,1958,1959,1960,1961,1962,1963,1964,1965,1966,1967,1968,1969,1970,1971,1972,1973,1974,1975,1976,1977,1978,1979,1980,1981,1982,1983,1984,1985,1986,1987,1988,1989,1990,1991,1992,1993,1994,1995,1996,1997,1998,1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018],"y":[0,0.0155,0.0934,0.1224,0.1549,0.1941,0.2144,0.2638,0.2659,0.3004,0.3272,0.3763,0.4006,0.4437,0.498,0.5503,0.5994,0.6492,0.6995,0.7198,0.7713,0.7785,0.8035,0.871,0.922,0.9696,0.9383,0.9811,1.0359,1.0605,1.0827,1.0811,1.0677,1.105,1.0837,1.1451,1.2021,1.2365,1.2828,1.288,1.3201,1.3412,1.3695,1.385,1.4748,1.4851,1.5054,1.5159,1.5624,1.6072,1.6621,1.7346,1.7947,1.8371,1.915,2.0122,2.0929,2.1529,2.1761,2.1978,2.2139,2.2875,2.3823,2.3821,2.3957,2.4096,2.4291,2.4575,2.4634,2.4978,2.529],"text":["Year: 1948<br />value: 0.0000<br />metric: Net productivity","Year: 1949<br />value: 0.0155<br />metric: Net productivity","Year: 1950<br />value: 0.0934<br />metric: Net productivity","Year: 1951<br />value: 0.1224<br />metric: Net productivity","Year: 1952<br />value: 0.1549<br />metric: Net productivity","Year: 1953<br />value: 0.1941<br />metric: Net productivity","Year: 1954<br />value: 0.2144<br />metric: Net productivity","Year: 1955<br />value: 0.2638<br />metric: Net productivity","Year: 1956<br />value: 0.2659<br />metric: Net productivity","Year: 1957<br />value: 0.3004<br />metric: Net productivity","Year: 1958<br />value: 0.3272<br />metric: Net productivity","Year: 1959<br />value: 0.3763<br />metric: Net productivity","Year: 1960<br />value: 0.4006<br />metric: Net productivity","Year: 1961<br />value: 0.4437<br />metric: Net productivity","Year: 1962<br />value: 0.4980<br />metric: Net productivity","Year: 1963<br />value: 0.5503<br />metric: Net productivity","Year: 1964<br />value: 0.5994<br />metric: Net productivity","Year: 1965<br />value: 0.6492<br />metric: Net productivity","Year: 1966<br />value: 0.6995<br />metric: Net productivity","Year: 1967<br />value: 0.7198<br />metric: Net productivity","Year: 1968<br />value: 0.7713<br />metric: Net productivity","Year: 1969<br />value: 0.7785<br />metric: Net productivity","Year: 1970<br />value: 0.8035<br />metric: Net productivity","Year: 1971<br />value: 0.8710<br />metric: Net productivity","Year: 1972<br />value: 0.9220<br />metric: Net productivity","Year: 1973<br />value: 0.9696<br />metric: Net productivity","Year: 1974<br />value: 0.9383<br />metric: Net productivity","Year: 1975<br />value: 0.9811<br />metric: Net productivity","Year: 1976<br />value: 1.0359<br />metric: Net productivity","Year: 1977<br />value: 1.0605<br />metric: Net productivity","Year: 1978<br />value: 1.0827<br />metric: Net productivity","Year: 1979<br />value: 1.0811<br />metric: Net productivity","Year: 1980<br />value: 1.0677<br />metric: Net productivity","Year: 1981<br />value: 1.1050<br />metric: Net productivity","Year: 1982<br />value: 1.0837<br />metric: Net productivity","Year: 1983<br />value: 1.1451<br />metric: Net productivity","Year: 1984<br />value: 1.2021<br />metric: Net productivity","Year: 1985<br />value: 1.2365<br />metric: Net productivity","Year: 1986<br />value: 1.2828<br />metric: Net productivity","Year: 1987<br />value: 1.2880<br />metric: Net productivity","Year: 1988<br />value: 1.3201<br />metric: Net productivity","Year: 1989<br />value: 1.3412<br />metric: Net productivity","Year: 1990<br />value: 1.3695<br />metric: Net productivity","Year: 1991<br />value: 1.3850<br />metric: Net productivity","Year: 1992<br />value: 1.4748<br />metric: Net productivity","Year: 1993<br />value: 1.4851<br />metric: Net productivity","Year: 1994<br />value: 1.5054<br />metric: Net productivity","Year: 1995<br />value: 1.5159<br />metric: Net productivity","Year: 1996<br />value: 1.5624<br />metric: Net productivity","Year: 1997<br />value: 1.6072<br />metric: Net productivity","Year: 1998<br />value: 1.6621<br />metric: Net productivity","Year: 1999<br />value: 1.7346<br />metric: Net productivity","Year: 2000<br />value: 1.7947<br />metric: Net productivity","Year: 2001<br />value: 1.8371<br />metric: Net productivity","Year: 2002<br />value: 1.9150<br />metric: Net productivity","Year: 2003<br />value: 2.0122<br />metric: Net productivity","Year: 2004<br />value: 2.0929<br />metric: Net productivity","Year: 2005<br />value: 2.1529<br />metric: Net productivity","Year: 2006<br />value: 2.1761<br />metric: Net productivity","Year: 2007<br />value: 2.1978<br />metric: Net productivity","Year: 2008<br />value: 2.2139<br />metric: Net productivity","Year: 2009<br />value: 2.2875<br />metric: Net productivity","Year: 2010<br />value: 2.3823<br />metric: Net productivity","Year: 2011<br />value: 2.3821<br />metric: Net productivity","Year: 2012<br />value: 2.3957<br />metric: Net productivity","Year: 2013<br />value: 2.4096<br />metric: Net productivity","Year: 2014<br />value: 2.4291<br />metric: Net productivity","Year: 2015<br />value: 2.4575<br />metric: Net productivity","Year: 2016<br />value: 2.4634<br />metric: Net productivity","Year: 2017<br />value: 2.4978<br />metric: Net productivity","Year: 2018<br />value: 2.5290<br />metric: Net productivity"],"type":"scatter","mode":"lines+markers","line":{"width":1.88976377952756,"color":"rgba(97,156,255,1)","dash":"solid"},"hoveron":"points","name":"Net productivity","legendgroup":"Net productivity","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","marker":{"autocolorscale":false,"color":"rgba(97,156,255,1)","opacity":1,"size":1.13385826771654,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(97,156,255,1)"}},"frame":null}],"layout":{"margin":{"t":46.7762557077626,"r":7.30593607305936,"b":28.5844748858448,"l":34.337899543379},"plot_bgcolor":"rgba(255,255,255,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"NanumGothic","size":14.6118721461187},"title":{"text":"Productivity growth and hourly compensation growth, 1948-2018","font":{"color":"rgba(0,0,0,1)","family":"NanumGothic","size":17.5342465753425},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[1944.5,2021.5],"tickmode":"array","ticktext":["1960","1980","2000","2020"],"tickvals":[1960,1980,2000,2020],"categoryorder":"array","categoryarray":["1960","1980","2000","2020"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"NanumGothic","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"y","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"NanumGothic","size":14.6118721461187}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-0.12645,2.65545],"tickmode":"array","ticktext":["0%","50%","100%","150%","200%","250%"],"tickvals":[0,0.5,1,1.5,2,2.5],"categoryorder":"array","categoryarray":["0%","50%","100%","150%","200%","250%"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"NanumGothic","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"x","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"NanumGothic","size":14.6118721461187}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":"transparent","line":{"color":"rgba(51,51,51,1)","width":0.66417600664176,"linetype":"solid"},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.88976377952756,"font":{"color":"rgba(0,0,0,1)","family":"NanumGothic","size":11.689497716895},"title":{"text":"생산성과 시간당 급여","font":{"color":"rgba(0,0,0,1)","family":"NanumGothic","size":14.6118721461187}}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"44b4440450b7":{"x":{},"y":{},"colour":{},"type":"scatter"},"44b410fe35f7":{"x":{},"y":{},"colour":{}}},"cur_data":"44b4440450b7","visdat":{"44b4440450b7":["function (y) ","x"],"44b410fe35f7":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+
+.footnote[
+[Economic Policy Institute, "The Productivity - Pay Gap", July 2019](https://www.epi.org/productivity-pay-gap/)
+]
+
+
+---
+name: automation-sourcing-strategy
+# 소싱전략의 변화
+
+&lt;br&gt;
+&lt;br&gt;
+
+.center[
+
+![소싱 전략의 변화](fig/the-end-of-outsourcing.png)
+
+]
+
+.footnote[
+자료출처: Kinetics consulting services / Automation Anywhere 
+]
+
+
+
+---
+name: automation-apollo
+# 아폴로 우주선
+
+&lt;br&gt;
+
+.center[
+
+![아폴로 계획에 대한 역할 구분](fig/man-machine-role-allocation.png)
+
+]
+
+.footnote[
+
+[Mary (Missy) Cummings (2014), "Man versus Machine or Man + Machine?", Duke University and MIT](https://hal.pratt.duke.edu/sites/hal.pratt.duke.edu/files/u10/IS-29-05-Expert%20Opinion[1]_0.pdf)
+
+]
+
+---
+name: automation-role-allocation
+# 인간과 기계 업무분장
+
+&lt;br&gt;
+
+.center[
+
+&lt;img src="fig/role-allocation-skill-rules-experties.gif" width = "77%" /&gt;
+
+]
+
+.footnote[
+
+[Mary (Missy) Cummings (2017), "Informing Autonomous System Design Through the Lens of Skill-, Rule-, and Knowledge-Based Behaviors", Duke University](https://hal.pratt.duke.edu/sites/hal.pratt.duke.edu/files/u10/IS-29-05-Expert%20Opinion[1]_0.pdf)
+
+]
+
+---
+name: automation-jobs
+# Human Supervisory Control
+
+&lt;br&gt;
+&lt;br&gt;
+
+.center[
+
+![human-supervisory-control](fig/human-supervisory-control.png)
+
+]
+
+.footnote[
+
+[Mary (Missy) Cummings (2017), "Informing Autonomous System Design Through the Lens of Skill-, Rule-, and Knowledge-Based Behaviors", Duke University](https://hal.pratt.duke.edu/sites/hal.pratt.duke.edu/files/u10/IS-29-05-Expert%20Opinion[1]_0.pdf)
+
+]
+
+
+
+
+
+
+
+---
+name: automation-paradox
+# 모라벡의 역설(Moravec’s paradox)
+
+&lt;br&gt;
+
+.center[
+
+&lt;img src="fig/moravec-paradox.png" width = "87%" /&gt;
+
+]
+
+.footnote[
+미국 카네기 멜론 대학 (CMU) 로봇 공학자 한스 모라벡(Hans Moravec)이 1970년대에 ‘it is comparatively easy to make computers exhibit adult level performance on intelligence tests or playing checkers, and difficult or impossible to give them the skills of a one-year-old when it comes to perception and mobility’라는 표현으로 컴퓨터와 인간의 능력 차이를 역설적으로 표현하였다.
+]
+
+---
+name: automation-comparison
+# 중국어 방 (Chinese room)
+
+&lt;br&gt;
+&lt;br&gt;
+
+
+
+
+.pull-left[
+![중국어 방 주장을 모사한 도해](fig/chinese-room-argument.jpg)
+]
+
+.pull-right[
+
+|  인공지능 |       컴퓨터      |       인간            |
+|:---------:|:-----------------:|:---------------------:|
+| 중국어 방 |      하드웨어     | 인간의 외형적인 몸체  |
+| 영어만 할 줄 아는 사람| 소프트웨어| 인간의 지능 |
+| 중국어로 된 질문 | 입력(Input) | 인간이 외부에서 접할 수 있는 자극 |
+| 중국어로 된 답변 | 출력(Output) | 인간이 외부에서 접한 자극에 대한 반응 |
+| 질문&amp;대답 목록 | 데이터베이스(Database) | 습득된 기억 |
+
+]
+
+.footnote[
+[중국어 방 역설 (Chinese room argument) - 대체 누가 중국어를 이해하고 있는가?](http://ko.experiments.wikidok.net/wp-d/592f718da44f1a4153e80611/View)
+]
+
+
+---
+name: dl-timeline
+# 기계학습 분류
+
+&lt;br&gt;
+&lt;br&gt;
+
+.center[
+&lt;img src="fig/machine-learning-classification.png" alt="기계학습 분류" width="100%" /&gt;
+]
+
+
+---
+name: dl-timeline
+# 신경망 모형 여정
+
+&lt;br&gt;
+&lt;br&gt;
+
+.center[
+&lt;img src="fig/dl-timeline.png" alt="timeline" width="100%" /&gt;
+]
+
+.footnote[
+Liangqu Long, Xiangming Zeng (2022), "Beginning Deep Learning with TensorFlow: Work with Keras, MNIST Data Sets, and Advanced Neural Networks", Apress
+]
+
+---
+name: dl-applicatin
+# 딥러닝 활용사례
+
+.panelset[
+
+.panel[.panel-name[이미지 데이터]
+.center[
+&lt;img src="fig/dl-image.png" alt="이미지 데이터" width="100%" /&gt;
+]
+]
+
+.panel[.panel-name[텍스트 데이터]
+.center[
+&lt;img src="fig/dl-text.png" alt="텍스트 데이터" width="100%" /&gt;
+]
+]
+
+.panel[.panel-name[정형 데이터]
+.center[
+&lt;img src="fig/dl-csv.png" alt="정형데이터" width="100%" /&gt;
+]
+]
+
+.panel[.panel-name[...]
+]
+
+]
+
+
+
+
+---
+name: human-performance
+# 딥러닝 알고리즘 성능 - 이미지
+
+&lt;br&gt;
+&lt;br&gt;
+
+&lt;img src="bitstat-asia_files/figure-html/unnamed-chunk-9-1.png" style="display: block; margin: auto;" /&gt;
+
+.footnote[
+[Image Classification on ImageNet](https://paperswithcode.com/sota/image-classification-on-imagenet)
+]
+
+
+---
+name: human-performance-nlp
+# 딥러닝 알고리즘 성능 - 텍스트
+
+&lt;br&gt;
+&lt;br&gt;
+
+&lt;img src="bitstat-asia_files/figure-html/unnamed-chunk-10-1.png" style="display: block; margin: auto;" /&gt;
+
+.footnote[
+[SQuAD2.0 - The Stanford Question Answering Dataset](https://rajpurkar.github.io/SQuAD-explorer/)
+]
+
+
+
+
+
+
+
+
+---
+name: deep-learning-vs-software
+# 소프트웨어 2.0 vs. 딥러닝 모형
+
+&lt;br&gt;
+&lt;br&gt;
+
+.center[
+![](fig/software-versions.png)
+]
+
+.footnote[
+Domingos, Pedro. The master algorithm: How the quest for the ultimate learning machine will remake our world. Basic Books, 2015.
+]
+
+
+---
+name: hidden-technical-debt
+# 기계학습(딥러닝) 기여분
+
+&lt;br&gt;
+&lt;br&gt;
+
+.center[
+![](fig/hidden-technical-debt.png)
+]
+
+.footnote[
+Sculley, David, et al. "Hidden technical debt in machine learning systems." Advances in neural information processing systems 28 (2015).
+]
+
+---
+name: deep-learning-end2end
+# 딥러닝 모형 개발 범위
+
+&lt;br&gt;
+
+.center[
+&lt;img src = "fig/end2end-deep-learning.png" width = "87%"&gt;
+]
+
+.footnote[
+Eli Stevens, Luca Antiga, and Thomas Viehmann (2020), "Deep Learning with PyTorch", Manning.
+]
+
+
+---
+name: nlp-transformers
+# Attention &amp; Transformers
+
+&lt;br&gt;
+&lt;br&gt;
+
+.center[
+&lt;img src = "fig/transformers-attention.png" width = "100%"&gt;
+]
+
+.footnote[
+[Lilian Weng (June 24, 2018), "Attention? Attention!"](https://lilianweng.github.io/posts/2018-06-24-attention/)
+]
+
+
+
+---
+name: nlp-bert-gpt
+# Attention &amp; Transformers &amp;rarr; GPT, BERT
+
+&lt;br&gt;
+
+.center[
+&lt;img src = "fig/transformers-gpt-bert.png" width = "100%"&gt;
+]
+
+.footnote[
+[ratsgo's NLPBOOK](https://ratsgo.github.io/nlpbook/docs/language_model/)
+]
+
+
+---
+name: nlp-big-picture
+# 인공지능 엔진 개발
+
+&lt;br&gt;
+
+.center[
+&lt;img src = "fig/big-picture.png" width = "100%"&gt;
+]
+
+
+
+
+&lt;!--------------------------  마무리 -----------------------------------------&gt;
+
 
 ---
 name: asia-goodbye
@@ -842,7 +1195,7 @@ class: middle, inverse
 .pull-left[
 # **경청해 주셔서 &lt;br&gt;감사합니다.**
 &lt;br/&gt;
-## 한국 R 사용자회
+## [한국 R 사용자회](https://r2bit.com/)
 
 ]
 
@@ -853,9 +1206,6 @@ class: middle, inverse
 
 ]
 ]
-
-
-
 
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
@@ -907,6 +1257,19 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     deleted = true;
   });
 })();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
 (function() {
   "use strict"
   // Replace <script> tags in slides area to make them executable

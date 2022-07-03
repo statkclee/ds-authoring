@@ -33,6 +33,8 @@ name: aisa-krvote-toc
 
 4\. [대쉬보드 - `flexdashboard`](#aisa-dashboard-toc)
 
+5\. [자동화, AI, 딥러닝](#aisa-ai-toc)
+
 ]
 ] <!--end of right-column-->  
 
