@@ -1,0 +1,129 @@
+
+---
+name: esg-country
+# 전통적 지표
+<br>
+<br>
+
+.center[
+<img src="fig/esg-country-classic.png" />
+]
+
+.footnote[
+- [위키백과 OECD](https://en.wikipedia.org/wiki/OECD)
+]
+
+---
+name: esg-country-classic
+# 전통 지표 기준 강대국
+
+```{r oecd-stats }
+library(tidyverse)
+library(countrycode)
+library(reactable)
+library(htmltools)
+
+oecd_full_df <- read_rds(glue::glue("{here::here()}/data/oecd_full_df.rds"))
+
+oecd_df <- oecd_full_df %>% 
+  select(country, flags, -ends_with("rank"), everything()) %>% 
+  mutate(iso2c = countrycode(iso3c, origin = "iso3c", destination = "iso2c") %>% str_to_lower(.)) %>% 
+  mutate(gdp = round(gdp/10^9, 0),
+         population = round(population / 10^6, 0))
+
+oecd_df %>% 
+  select("country", "flags", "gdp", "area", "population", "gdp_per_capita") %>% 
+  arrange(desc(gdp)) %>% 
+    reactable(
+    filterable = FALSE,
+    searchable = FALSE,
+    minRows = 5,
+    highlight = TRUE,
+    columns = list(
+        country = colDef(
+          width = 200,
+          html = TRUE,
+          cell = JS("function(cell) {
+            return '<a href=\"https://wikipedia.org/wiki/' + cell.value + '\">' + cell.value + '</a>'
+          }")
+        ),
+        flags = colDef(
+          width = 70
+        ),
+        gdp = colDef(
+          width = 100,
+          format = colFormat(separators = TRUE)
+        ),
+        area = colDef(
+          format = colFormat(separators = TRUE)
+        ),
+        gdp_per_capita = colDef(
+          format = colFormat(separators = TRUE)
+        )
+    )
+  )
+```
+
+---
+name: esg-country-extended
+# 확장 전통 지표
+<br>
+<br>
+
+.center[
+<img src="fig/esg-country-extension.png" />
+]
+
+.footnote[
+- [위키백과 OECD](https://en.wikipedia.org/wiki/OECD)
+]
+
+---
+name: esg-country-extended-table
+# 확장 지표 기준 선진국
+
+```{r oecd-esg-extended}
+
+oecd_df %>% 
+  select("country", "flags", "income_inequality", "hdi", "fsi", "cpi", "ief", "gpi", "wpfi", "di") %>% 
+  arrange(income_inequality) %>% 
+    reactable(
+    filterable = FALSE,
+    searchable = FALSE,
+    minRows = 5,
+    highlight = TRUE,
+    columns = list(
+        country = colDef(
+          width = 170,
+          html = TRUE,
+          cell = JS("function(cell) {
+            return '<a href=\"https://wikipedia.org/wiki/' + cell.value + '\">' + cell.value + '</a>'
+          }")
+        ),
+        flags = colDef(
+          width = 70
+        ),
+        income_inequality = colDef(
+          width = 110
+        ),
+        hdi = colDef(
+          width = 70
+        ),
+        fsi = colDef(
+          width = 70
+        ),
+        cpi = colDef(
+          width = 70
+        ),  
+        ief = colDef(
+          width = 70
+        ),
+        gpi = colDef(
+          width = 70
+        ),
+        wpfi = colDef(
+          width = 70
+        )        
+    )
+  )
+```

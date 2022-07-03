@@ -1,0 +1,136 @@
+
+---
+class: inverse, middle
+name: data-science-case
+
+# 발표 개요
+
+----
+
+.pull-left[
+
+알파고가 2016년 이세돌 9단을 가볍게 승리하면서 **AI 디지털 경제전환**이 촉발되었다면
+코로나19는 .red[**디지털 경제전환**]을 가속화를 넘어 디지털 불평등을 심화시키고 있다.
+
+AI 디지털 경제전환을 이해하는데 꼭 필요한 .black[**데이터 과학**]과 .green[**인공지능**] 기술적 토대를 살펴보고 이를 .warmyellow[**헬스케어**] 영역에 응용하여 활용방안을 모색해 보자. 
+
+]
+ 
+.pull-right[   
+.left[
+
+1\. [디지털 경제전환 (DT)](#digital-transformation)
+
+2\. **[.black[데이터 과학 사례]](#digital-data-science-case-study)**
+
+3\. [데이터 과학 (Data Science)](#data-science)
+
+4\. [인공지능 (AI)](#digital-ai)
+
+5\. [헬스케어 응용](#digital-healthcare)
+
+6\. [마무리](#digital-goodbye)
+
+] 
+] <!--end of right-column-->
+
+
+
+---
+name: case-study-worldcup
+## 러시아 월드컵 (독일전)
+
+.center[
+<img src="fig/worldcup.gif" alt="월드컵" width="80%" />
+]
+
+.footnote[
+[러시아 월드컵(2018) - 한국 vs 독일](https://statkclee.github.io/viz/viz-worldcup-germany.html)
+]
+
+---
+name: case-study-earthquake
+## 지진해일 대피소
+
+.center[
+<img src="fig/earthquake.png" alt="월드컵" width="80%" />
+]
+
+.footnote[
+[xwMOOC (2018-01-17), "지진해일 대피소 - `crosstalk`"](https://statkclee.github.io/viz/viz-earthquake-shelter.html)
+]
+
+---
+name: case-study-congress
+## 국회의원 프로필
+
+.center[
+<img src="fig/trelliscopejs.png" alt="국회의원 사진" width="80%" />
+]
+
+.footnote[
+[국회의원 사진 - `trelliscope`](https://statkclee.github.io/viz/viz-congressman.html)
+]
+
+---
+name: case-study-avi
+## 동영상 감성 분석
+
+.center[
+<img src="fig/kbs-video.jpg" alt="슬픔은 어디에" width="80%" />
+]
+
+.footnote[
+- [xwMOOC 딥러닝 - 동영상 감정 분석](https://statkclee.github.io/deep-learning/ms-oxford-video.html)
+- [KBS NEWS, 인공지능으로 분석한 대통령의 마음…슬픔은 어디에?](http://news.kbs.co.kr/news/view.do?ncd=3390429&ref=D)
+]
+
+---
+name: case-study-regression
+## 회귀분석 - MLB 투수 유전자는 유전이 될까?
+
+.center[
+<img src="fig/major-league.png" alt="MLB 투수 유전자" width="77%" />
+]
+
+.footnote[
+[회귀분석 - MLB 투수 유전자는 유전이 될까?](https://statkclee.github.io/politics/pe-baseball-era.html)
+]
+
+---
+name: case-study-birthrate
+## 출산장려 예산은 출산율을 높일까?
+
+.center[
+<img src="fig/budget-birthrate.png" width="57%" />
+]
+
+.footnote[
+[저출산과 소요예산 - 상관관계](https://statkclee.github.io/viz/viz-low-birth-rate.html)
+]
+
+---
+name: case-study-tax
+## 증가된 정부예산: 누가 세금을 많이 냈나?
+
+.center[
+<img src="fig/tax-burden.png"width="77%" />
+]
+
+.footnote[
+[국세 세금 데이터 분석](https://statkclee.github.io/election/election_tax_EDA.html)
+]
+
+
+---
+name: case-study-covid
+## 코로나19 정부 정책 평가
+
+.center[
+<img src="fig/covid19-deaths.png"width="77%" />
+]
+
+.footnote[
+[코로나19 사망자와 경제성장률](https://statkclee.github.io/viz/viz-mortality.html)
+]
+

@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>문서는 커뮤니케이션이다.</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="이광춘" />
+    <meta name="date" content="2021-11-19" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/panelset/panelset.css" rel="stylesheet" />
+    <script src="libs/panelset/panelset.js"></script>
+    <link rel="stylesheet" href="css/nhsr.css" type="text/css" />
+    <link rel="stylesheet" href="css/nhsr-fonts.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+
+class: title-slide, left, bottom
+
+# 문서는 커뮤니케이션이다.
+----
+## **Tidyverse, R Markdown, Pro PDFs, Shiny**
+### 이광춘
+### 2021-11-19
+
+ 
+---
+class: inverse, middle
+name: data-science-case
+
+# 발표 개요
+
+----
+
+.pull-left[
+
+.warmyellow[디지털 경제전환(Digital Transformation)] 시대는 각종문서를 
+다루는 지식(공부) 노동자에게 .green[규모의 경제(Economy of Scale)]와 더불어 
+.red[범위의 경제(Economy of Scope)]를 적극 도입하여 문서를 증거기반 데이터를 
+반영하여 재현가능하며 협업이 가능한 형태로 작업하는 것을 요구하고 있다.
+
+`Tidyverse` 생태계를 구축하는 중요한 축을 담당하는 `R Markdown`을 
+중심으로 이런 문제를 해결하여 **저녁이 있는 삶**을 만들어보자.
+
+]
+ 
+.pull-right[   
+.left[
+
+.warmyellow[1\. 디지털 경제전환]
+
+.green[2\. 규모의 경제 (Economy of Scale)]
+
+&amp;nbsp;&amp;nbsp;&amp;nbsp; 2\.1\. Literate Programming
+
+&amp;nbsp;&amp;nbsp;&amp;nbsp; 2\.2\. 자동화/Parameterized Report
+
+&amp;nbsp;&amp;nbsp;&amp;nbsp; 3\.3\. 전문가 보고서
+
+.red[3\. 범위의 경제 (Economy of Scope)]
+
+&amp;nbsp;&amp;nbsp;&amp;nbsp; 2\.1\. Document Factory
+
+&amp;nbsp;&amp;nbsp;&amp;nbsp; 2\.2\. 한국 R 컨퍼런스
+
+4\. [마무리](#document-goodbye)
+
+]
+] &lt;!--end of right-column--&gt; 
+
+
+&lt;!-------------------------- 디지털 경제전환 -----------------------------------------&gt;
+
+
+
+---
+name: digital-building-block
+# Building Blocks: 비즈니스 모형
+
+.center[
+&lt;img src="fig/mba-bm.png", width="77%" /&gt;
+]
+
+
+.footnote[
+Klein, J. (2021). Competing in the Age of AI. By MarcoIansiti and KarimLakhani. Harvard Business Review Press: Boston, MA, 2020, ISBN‐13 978‐1633697621, hardback, £18, pp. 288. R&amp;D Management. doi:10.1111/radm.12489
+]
+
+---
+name: digital-company-om
+# Building Blocks: 운영 모형
+
+.center[
+&lt;img src="fig/mba-om.png", width="100%" /&gt;
+]
+
+
+---
+name: digital-network-ai-company
+# 디지털 AI 기업: AI 공장과 운영모형
+
+&lt;br&gt;
+&lt;br&gt;
+
+.center[
+&lt;img src="fig/ai-factory-om.png", width="100%" /&gt;
+]
+
+---
+name: digital-network-om
+# 디지털 AI 기업: 운영모형 + 네트워크 효과
+
+.center[
+&lt;img src="fig/network-effect-digital.png", width="100%" /&gt;
+]
+
+---
+name: digital-value
+# 디지털 AI 기업: 가치(Value), 효용(Utility)
+
+.center[
+&lt;img src="fig/network-ai-value.png", width="87%" /&gt;
+]
+ 
+---
+name: digital-value
+# 디지털 AI 기업: 운영모형
+
+&lt;br&gt;
+
+.center[
+&lt;img src="fig/ai-network-om.png", width="100%" /&gt;
+]
+ 
+ 
+---
+name: digital-value
+# 디지털 AI 기업: 운영모형 비교
+
+&lt;br&gt;
+
+.center[
+&lt;img src="fig/digital-ai-om.png", width="100%" /&gt;
+]
+
+---
+name: digital-collision
+# 사례: 노키아 vs 애플
+
+&lt;br&gt;
+
+.center[
+&lt;img src="fig/nokia-apple.png", width="100%" /&gt;
+]
+
+---
+name: digital-collision
+# 사례: 현재 충돌 상황
+
+&lt;br&gt;
+
+.center[
+&lt;img src="fig/collision-companies.png", width="100%" /&gt;
+]
+
+ 
+
+
+&lt;!-------------------------- 규모의 경제 -----------------------------------------&gt;
+
+
+
+---
+class: inverse, middle
+name: data-science-case
+
+# 발표 개요
+ 
+----
+
+.pull-left[
+
+.warmyellow[디지털 경제전환(Digital Transformation)] 시대는 각종문서를 
+다루는 지식(공부) 노동자에게 .green[규모의 경제(Economy of Scale)]와 더불어 
+.red[범위의 경제(Economy of Scope)]를 적극 도입하여 문서를 증거기반 데이터를 
+반영하여 재현가능하며 협업이 가능한 형태로 작업하는 것을 요구하고 있다.
+
+`Tidyverse` 생태계를 구축하는 중요한 축을 담당하는 `R Markdown`을 
+중심으로 이런 문제를 해결하여 **저녁이 있는 삶**을 만들어보자.
+
+]
+ 
+.pull-right[   
+.left[
+
+1\. 디지털 경제전환
+
+.green[2\. 규모의 경제 (Economy of Scale)]
+
+&amp;nbsp;&amp;nbsp;&amp;nbsp; 2\.1\. Literate Programming
+
+&amp;nbsp;&amp;nbsp;&amp;nbsp; 2\.2\. 자동화/Parameterized Report
+
+&amp;nbsp;&amp;nbsp;&amp;nbsp; 3\.3\. 전문가 보고서
+
+3\. 범위의 경제 (Economy of Scope)
+
+&amp;nbsp;&amp;nbsp;&amp;nbsp; 2\.1\. Document Factory
+
+&amp;nbsp;&amp;nbsp;&amp;nbsp; 2\.2\. 한국 R 컨퍼런스
+
+4\. [마무리](#document-goodbye)
+
+]
+] &lt;!--end of right-column--&gt; 
+   
+---
+name: es-why
+# 대다수 문서제작 현황
+
+&lt;br&gt;
+
+.center[
+&lt;img src="fig/current-document-problem.png" width = "100%" /&gt;
+]
+
+.footnote[
+- [R마크다운 콘텐츠: 웹사이트, 블로그, 포트폴리오 등](https://statkclee.github.io/comp_document/cd-netlify.html)
+]
+
+---
+name: es-communication
+# 디지털 커뮤니케이션 대상
+
+&lt;br&gt;
+
+.center[
+&lt;img src="fig/document-communication.png" width = "100%" /&gt;
+]
+
+.footnote[
+- [R마크다운 콘텐츠: 웹사이트, 블로그, 포트폴리오 등](https://statkclee.github.io/comp_document/cd-netlify.html)
+]
+
+---
+name: es-code-first
+# `Code First` 문서 제작
+
+&lt;br&gt;
+
+.center[
+&lt;img src="fig/document-engineering.png" width = "100%" /&gt;
+]
+
+.footnote[
+- [`code first` 한글](https://github.com/statkclee/codefirst)
+- [`code first` 영문](https://github.com/nrohr/codefirst)
+]
+
+---
+name: es-html-word-pdf
+# R Markdown &amp;rarr; PDF, HTML, Word
+
+.panelset[
+.panel[.panel-name[R Code]
+
+
+```r
+library(knitr)
+fs::dir_create("01_rmarkdown")
+
+# 1. 보고서 만들기 ---------------------------------------
+## 1.1. HTML 보고서 ---------------------------------------
+render("01_bmi_rmarkdown_html.Rmd", 
+    output_format="html_document",
+    output_file = glue::glue("01_bmi_rmarkdown.html"),
+    encoding = 'UTF-8', 
+    output_dir = "01_rmarkdown")
+
+## 1.2. PDF 보고서 ---------------------------------------
+render("01_bmi_rmarkdown_pdf.Rmd", 
+    output_format="pdf_document",
+    output_file = glue::glue("01_bmi_rmarkdown.pdf"),
+    encoding = 'UTF-8', 
+    output_dir = "01_rmarkdown")
+```
+
+]
+
+.panel[.panel-name[문서 생성 결과]
+.center[
+&lt;img src="fig/document-word-html-pdf.png" width = "57%" /&gt;
+]
+]
+]
+
+.footnote[
+- [`code first` 한글](https://github.com/statkclee/codefirst)
+]
+
+
+---
+name: es-basic-parameterized-report
+# R Markdown &amp;rarr; Parameterized Report
+
+.panelset[
+.panel[.panel-name[R Code]
+
+
+```r
+fs::dir_create("02_parameterized")
+
+# 1. 성별 ---------------------------------------
+genders &lt;- c("Male", "Female")
+
+# 2. 남녀별 보고서 만들기 ---------------------------------------
+for(gender in genders) {
+  knitr::render("02_bmi_parameterized.Rmd", 
+    output_format="html_document",
+    params = list(gender = gender),
+    output_file = glue::glue("02_bmi_parameterized_{gender}.html"),
+    encoding = 'UTF-8', 
+    output_dir = "02_parameterized")
+}
+```
+
+]
+
+.panel[.panel-name[문서 생성 결과]
+.center[
+&lt;img src="fig/parameterized-gender-document.png" width = "57%" /&gt;
+]
+]
+]
+
+.footnote[
+- [`code first` 한글](https://github.com/statkclee/codefirst)
+]
+
+---
+name: es-basic-parameterized-report
+# R Markdown &amp;rarr; 전자우편 발송
+
+.panelset[
+.panel[.panel-name[R Code]
+
+
+```r
+fs::dir_create("03_email")
+
+# 1. 전자우편 만들기 ---------------------------------------
+
+bmi_email &lt;- render_email('03_bmi_email.Rmd')
+
+bmi_email
+
+bmi_email %&gt;%
+  smtp_send(
+    to = "steve.jobs@gmail.com",
+    from = "victor@r2bit.com",
+    subject = "한국 R 컨퍼런스 후원 테스트",
+    credentials = creds_key("rconf")
+  )
+```
+
+]
+
+.panel[.panel-name[문서 생성 결과]
+.center[
+&lt;img src="fig/codefirst-email.png" width = "100%" /&gt;
+]
+]
+]
+
+.footnote[
+- [`code first` 한글](https://github.com/statkclee/codefirst)
+]
+
+---
+name: es-pro-report
+# 전문 보고서
+
+.panelset[
+.panel[.panel-name[작업 방식]
+.center[
+&lt;img src="fig/front_rmarkdown.png" width = "77%" /&gt;
+]
+]
+
+.panel[.panel-name[문서 생성 결과]
+.center[
+&lt;img src="fig/pro-report-basic.png" width = "57%" /&gt;
+]
+]
+]
+
+.footnote[
+- [Professional Report](https://github.com/statkclee/pro_report)
+]
+
+---
+name: es-pro-report-backend
+# 전문 보고서 - 데이터베이스
+
+.panelset[
+.panel[.panel-name[작업 방식]
+.center[
+&lt;img src="fig/pro_report_backend.png" width = "100%" /&gt;
+]
+]
+
+.panel[.panel-name[문서 생성 결과]
+.center[
+&lt;img src="fig/pro-report-basic.png" width = "57%" /&gt;
+]
+]
+]
+
+.footnote[
+- [Professional Report](https://github.com/statkclee/pro_report/tree/backend)
+]
+
+---
+name: es-pro-report-backend-parameter
+# 전문 보고서 - DB + Parameterized Report
+
+.panelset[
+.panel[.panel-name[작업 방식]
+.center[
+&lt;img src="fig/pro_report_parameterized.png" width = "100%" /&gt;
+]
+]
+
+.panel[.panel-name[문서 생성 결과]
+.center[
+&lt;img src="fig/pro-report-parameter.png" width = "80%" /&gt;
+]
+]
+]
+
+.footnote[
+- [Professional Report](https://github.com/statkclee/pro_report/tree/parameterized_document)
+]
+
+---
+name: es-pro-report-dashboard
+# `shiny` 대쉬보드
+
+&lt;br&gt;
+
+.center[
+&lt;img src="fig/bmi_prediction.gif" width = "90%" /&gt;
+]
+
+.footnote[
+- [Professional Report](https://github.com/statkclee/pro_report/tree/dashboard)
+]
+
+&lt;!-------------------------- 범위의 경제 -----------------------------------------&gt;
+
+
+
+---
+class: inverse, middle
+name: data-science-case
+
+# 발표 개요
+ 
+----
+
+.pull-left[
+
+.warmyellow[디지털 경제전환(Digital Transformation)] 시대는 각종문서를 
+다루는 지식(공부) 노동자에게 .green[규모의 경제(Economy of Scale)]와 더불어 
+.red[범위의 경제(Economy of Scope)]를 적극 도입하여 문서를 증거기반 데이터를 
+반영하여 재현가능하며 협업이 가능한 형태로 작업하는 것을 요구하고 있다.
+
+`Tidyverse` 생태계를 구축하는 중요한 축을 담당하는 `R Markdown`을 
+중심으로 이런 문제를 해결하여 **저녁이 있는 삶**을 만들어보자.
+
+]
+ 
+.pull-right[   
+.left[
+
+1\. 디지털 경제전환
+
+2\. 규모의 경제 (Economy of Scale)
+
+&amp;nbsp;&amp;nbsp;&amp;nbsp; 2\.1\. Literate Programming
+
+&amp;nbsp;&amp;nbsp;&amp;nbsp; 2\.2\. 자동화/Parameterized Report
+
+&amp;nbsp;&amp;nbsp;&amp;nbsp; 3\.3\. 전문가 보고서
+
+**.red[3\. 범위의 경제 (Economy of Scope)]**
+
+&amp;nbsp;&amp;nbsp;&amp;nbsp; 2\.1\. Document Factory
+
+&amp;nbsp;&amp;nbsp;&amp;nbsp; 2\.2\. 한국 R 컨퍼런스
+
+4\. [마무리](#document-goodbye)
+
+]
+] &lt;!--end of right-column--&gt; 
+   
+---
+name: es-document-factory
+# 문서 공장(Document Factory)
+
+&lt;br&gt;
+
+.center[
+&lt;img src="fig/document-factory.png" width = "100%" /&gt;
+]
+
+.footnote[
+- [데이터 과학 문서](https://statkclee.github.io/comp_document/)
+- [PDF를 데이터로 보는 올바른 자세](https://statkclee.github.io/pdf/)
+]
+ 
+---
+name: es-rconf-website
+# [한국 R 컨퍼런스](https://use-r.kr/) - 웹사이트
+
+&lt;br&gt;
+
+.center[
+&lt;img src="fig/rconf-website.png" width = "80%" /&gt;
+]
+
+.footnote[
+- [제작방법](https://github.com/tidyverse-korea/rconf)
+]
+
+---
+name: es-rconf-template
+# [한국 R 컨퍼런스](https://use-r.kr/) - [💻 발표자 템플릿](https://tidyverse-korea.github.io/templates/#1)
+
+
+.center[
+&lt;img src="fig/rconf-template.png" width = "80%" /&gt;
+]
+
+.footnote[
+- [제작방법](https://github.com/tidyverse-korea/templates) 
+]
+
+---
+name: es-rconf-sponsor
+# [한국 R 컨퍼런스](https://use-r.kr/) - [🆘 후원](https://tidyverse-korea.github.io/sponsor/#1)
+
+
+.center[
+&lt;img src="fig/rconf-sponsor.png" width = "100%" /&gt;
+]
+
+.footnote[
+- [제작방법](https://github.com/tidyverse-korea/sponsor) 
+]
+
+---
+name: es-rconf-poster
+# [한국 R 컨퍼런스](https://use-r.kr/) - [🆘 포스터](https://tidyverse-korea.github.io/poster/)
+
+
+.center[
+&lt;img src="fig/rconf-poster.png" width = "80%" /&gt;
+]
+
+.footnote[
+- [제작방법](https://github.com/tidyverse-korea/poster) 
+]
+
+&lt;!--------------------------  마무리 -----------------------------------------&gt;
+
+
+---
+name: digital-goodbye
+class: middle, inverse
+
+.pull-left[
+# **경청해 주셔서 &lt;br&gt;감사합니다.**
+&lt;br/&gt;
+## Tidyverse Korea
+
+]
+
+.pull-right[
+.right[
+
+&lt;img style="border-radius: 100%;" src="fig/Tidyverse_Korea_logo_transparent.png" width="300px"/&gt;
+
+]
+]
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="macros.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "googlecode",
+"highlightLines": true,
+"highlightLanguage": "r",
+"countIncrementalSlides": false,
+"ratio": "4:3"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+<!--Hat-tip: https://www.garrickadenbuie.com/blog/xaringan-tip-logo-all-slides/-->
+<style>
+.logo {
+  background-image: url(../fig/Tidyverse_Korea_logo_transparent.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  width: 110px;
+  height: 128px;
+  z-index: 0;
+}
+</style>
+
+<script>
+document
+  .querySelectorAll(
+    '.remark-slide-content' +
+    ':not(.title-slide)' +
+    // add additional classes to exclude here, e.g.
+    ':not(.inverse)' +
+    ':not(.hide-logo)'
+  )
+  .forEach(el => {
+    el.innerHTML += '<div class="logo"></div>';
+  });
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

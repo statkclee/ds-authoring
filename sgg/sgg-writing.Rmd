@@ -1,0 +1,137 @@
+
+---
+class: inverse, middle
+name: writing
+
+# 강의 개요
+
+-----------------------------------
+
+.pull-left[
+
+직장인의 업무 생산성 향상의 총아로 각광받던 MS 오피스가 한시대를 풍미했다. 
+$6\sigma$를 필두로 제조업의 혁신을 이끈 통계학도 엑셀에 탑재된 기본기능이 부족하여 미니탭과 같은 통계 팩키지를 필히 익혀야 하는 필수 역량이 되었다.
+
+대기업을 중심으로 고학력을 가진 석박사가 증가하면서 논문 작성에 필요한 고급 통계분석으로 사회과학 분야는 SPSS, 의학 및 경영대는 SAS, 계량경제학 분야는 Gauss, E-View와 같은 특화된 팩키지 소프트웨어를 활용하였고, 좀더 학구적인 역량을 갖춘 분들은 논문을 $\LaTeX$으로 작성하여 해외 저널과 컨퍼런스에 발표를 하였다.
+
+현재 대한민국을 강타하고 있는 디지털 전환의 바탕이 되는 빅데이터와 AI/기계학습을 아우르는 .green[**데이터 과학**]이 그 실체를 들어내고 있다. 직장인의 기본기로 자리잡아가고 있는 **데이터 과학**과 가장 기본이 되는 .red[**글쓰기**]를 중심으로 학업과 현업 업무를 병행하는 직장인에게 작게나마 도움을 드리고자 한다.
+]
+
+.pull-right[   
+.left[
+
+1\. [데이터 과학 사례](#data-science-case)
+
+2\. [데이터 과학](#data-science)
+
+3\. [데이터 과학 전쟁](#language-war)
+
+4\. [데이터 과학 어벤저스](#data-science-avengers)
+
+5\. **[.green[글쓰기]](#writing)**
+
+6\. [마무리](#goodbye) 
+]
+] <!--end of right-column-->
+
+
+---
+name: writing-ide
+# 문서 편집기
+
+.center[
+<img src="fig/document-ide.png" />
+]
+
+.footnote[
+[문서 편집기](https://statkclee.github.io/latex/document-ide.html)
+]
+
+---
+name: writing-overview
+# 디지털 글쓰기
+
+.center[
+<img src="fig/writing-overview.png" />
+]
+
+.footnote[
+[디지털 글쓰기](https://statkclee.github.io/latex/latex-writing.html)
+]
+
+---
+name: writing-overview
+# 맞춤법 검사
+
+.center[
+<img src="fig/rstudio-spelling.png" />
+]
+
+.footnote[
+[RStudio 워드 프로세서: `hunspell`](https://statkclee.github.io/comp_document/cd-rstudio-wp.html)
+]
+
+---
+name: writing-birds-eye-view
+# R 마크다운 생태계
+
+.center[
+<img src="fig/rmarkdown-ecosystem.png" />
+]
+
+.footnote[
+[R마크다운 콘텐츠: 웹사이트, 블로그, 포트폴리오 등](https://statkclee.github.io/comp_document/cd-netlify.html)
+]
+
+---
+name: writing-resume
+# 이력서
+
+.center[
+<img src="fig/writing-resume.png" />
+]
+
+.footnote[
+- [이력서 자동화: `css` + `googlesheets4` + 웹사이트](https://statkclee.github.io/comp_document/ds-resume-automation.html)
+- <https://statkclee.github.io/resume/>
+]
+
+---
+name: writing-slideshow
+# 딥러닝 발표자료(PPT)
+
+.center[
+<img src="fig/writing-slideshow.png" />
+]
+
+.footnote[
+- [`xaringan` 발표자료 유튜브 동영상 자동 제작](https://statkclee.github.io/deep-learning/r-xaringan-ari.html)
+- <https://www.youtube.com/watch?v=TjYnx2jALmY>
+]
+
+---
+name: writing-slideshow
+# STT: `speech-to-text`
+
+.center[
+<img src="fig/writing-stt.png" />
+]
+
+.footnote[
+- [KTIS, STT 발표자료](https://statkclee.github.io/ds-authoring/ds-ktis-2021.html#39)
+- [`speech-to-text` - 음성을 텍스트로 변환](https://statkclee.github.io/deep-learning/r-stt.html)
+]
+
+
+---
+name: writing-pdf2website
+# PDF/워드 &rarr; 웹사이트
+
+.center[
+<img src="fig/pdf2website.png" />
+]
+
+.footnote[
+- 제작방법: [PDF를 데이터로 보는 올바른 자세: PDF &rarr; 웹사이트](https://statkclee.github.io/pdf/pdf-to-website.html)
+- 웹사이트: [웹에서 하는 R 통계분석](https://statkclee.github.io/webr-book/)
+]

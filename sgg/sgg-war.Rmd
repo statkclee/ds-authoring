@@ -1,0 +1,175 @@
+
+---
+class: inverse, middle
+name: language-war
+
+# 강의 개요
+
+-----------------------------------
+
+.pull-left[
+
+직장인의 업무 생산성 향상의 총아로 각광받던 MS 오피스가 한시대를 풍미했다. 
+$6\sigma$를 필두로 제조업의 혁신을 이끈 통계학도 엑셀에 탑재된 기본기능이 부족하여 미니탭과 같은 통계 팩키지를 필히 익혀야 하는 필수 역량이 되었다.
+
+대기업을 중심으로 고학력을 가진 석박사가 증가하면서 논문 작성에 필요한 고급 통계분석으로 사회과학 분야는 SPSS, 의학 및 경영대는 SAS, 계량경제학 분야는 Gauss, E-View와 같은 특화된 팩키지 소프트웨어를 활용하였고, 좀더 학구적인 역량을 갖춘 분들은 논문을 $\LaTeX$으로 작성하여 해외 저널과 컨퍼런스에 발표를 하였다.
+
+현재 대한민국을 강타하고 있는 디지털 전환의 바탕이 되는 빅데이터와 AI/기계학습을 아우르는 .green[**데이터 과학**]이 그 실체를 들어내고 있다. 직장인의 기본기로 자리잡아가고 있는 **데이터 과학**과 가장 기본이 되는 .red[**글쓰기**]를 중심으로 학업과 현업 업무를 병행하는 직장인에게 작게나마 도움을 드리고자 한다.
+]
+
+.pull-right[   
+.left[
+
+1\. [데이터 과학 사례](#data-science-case)
+
+2\. [데이터 과학](#data-science)
+
+3\. **[.green[데이터 과학 전쟁]](#language-war)**
+
+4\. [데이터 과학 어벤저스](#data-science-avengers)
+
+5\. [글쓰기](#writing)
+
+6\. [마무리](#goodbye) 
+]
+] <!--end of right-column-->
+
+
+
+
+---
+name: war-man-machine
+# 사람 vs. 기계
+
+.center[
+<img src="fig/stat-modeling-workflow.png" alt="데이터 과학과 통계모형" width="100%" />
+]
+
+.footnote[
+[기초 통계 -통계 모형(Statistical models)](https://statkclee.github.io/statistics/stat-modeling.html)
+]
+
+
+---
+name: language-problem
+# 데이터 사이언스 언어
+
+데이터 사이언스를 대표하는 R이나 파이썬 모두 컴퓨터 프로그래밍 언어라서 태생적으로 거의 모든 컴퓨터 프로그래밍 언어가 갖고 있는 두 언어 문제에서 역시 자유로울 수는 없다.
+
+<br>
+<br>
+
+| 시스템 언어  | Ousterhout 이분법  | 스크립트 언어  |
+|:-------------:|:-----------:|:-------------:|
+|   정적       |     --      |     동적     |
+|   컴파일      |     --      |    인터프리터 |
+| 사용자정의 자료형|     --      |  표준 자료형 |
+|   빠른 속도   |     --      |   늦은 속도   |
+|   어려움       |     --      |   쉬움     |
+
+.footnote[
+[Ousterhout dichotomy](https://en.wikipedia.org/wiki/Ousterhout%27s_dichotomy)
+]
+
+ 
+---
+name: data-science-process
+# 데이터 과학 프로세스 
+
+.center[
+<img src="fig/data-science-process-as-is-to-be.png" alt="데이터 사이언스 프로세스 비교" width="100%" />
+]
+
+---
+name: ml-process
+# ML 개발 프로세스
+
+.center[
+![](fig/DALEXverse.png)
+]
+
+---
+name: what-language-choice
+# 어떤 언어를 고를 것인가?
+
+.center[
+<img src="fig/cognitive-performance.png" alt="인지 단계, 계산단계" width="67%" />
+]
+
+---
+name: language-trends
+# 데이터 과학 언어 추세
+
+<small>
+R을 예로 들면, 팩키지 개발을 할 때 R 스크립트로 모든 기능을 선행하여 기능을 구현하고 유용성이 인정되어 사용자가 많아지면, [Rcpp](https://cran.r-project.org/web/packages/Rcpp/index.html) 팩키지를 사용하여 C/C++로 후행하여 속도와 성능이 필요한 부분에 재개발하는 경우가 흔하다.
+</small>
+
+.center[
+<img src="fig/data-scientist-languages.png" alt="데이터 사이언스 언어" width="77%">
+]
+
+---
+name: platform-tidyverse
+# `tidyverse`
+
+<br>
+
+.center[
+<img src="fig/maso_tidyverse.png" width="77%" />
+]
+
+
+.pull-left[
+
+- 기존 자료구조를 재사용
+- 파이프 연산자로 간단한 함수를 조합
+- 함수형 프로그래밍을 적극 사용
+- 기계가 아닌 인간을 위한 설계
+
+]
+
+.pull-right[
+ 
+- Reuse existing data structures.
+- Compose simple functions with the pipe.
+- Embrace functional programming.
+- Design for humans.
+
+]
+
+.footnote[
+[Welcome to the Tidyverse](https://tidyverse.tidyverse.org/articles/paper.html)
+]
+
+---
+name: platform-tidyverse
+# `tidyverse` R 버전
+
+
+<object data="data/Data_Science_With_R_Workflow.pdf" type="application/pdf" width="750px" height="500px">
+    <embed src="data/Data_Science_With_R_Workflow.pdf">
+        <p>Please download the PDF to view it: <a href="data/Data_Science_With_R_Workflow.pdf">Download PDF</a>.</p>
+    </embed>
+</object>
+
+
+.footnote[
+- [Ultimate R Cheat Sheet](https://www.business-science.io/r-cheatsheet.html)
+]
+
+---
+name: platform-tidyverse
+# `tidyverse` 파이썬 버전
+
+
+<object data="data/Data_Science_With_Python_Workflow.pdf" type="application/pdf" width="750px" height="500px">
+    <embed src="data/Data_Science_With_Python_Workflow.pdf">
+        <p>Please download the PDF to view it: <a href="data/Data_Science_With_Python_Workflow.pdf">Download PDF</a>.</p>
+    </embed>
+</object>
+
+
+.footnote[
+- [Ultimate Python Cheat Sheet](https://www.business-science.io/python-cheatsheet.html)
+]
+

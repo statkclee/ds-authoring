@@ -1,0 +1,285 @@
+
+---
+class: inverse, middle
+name: data-science-case
+
+# 발표 개요
+ 
+----
+
+.pull-left[
+
+.warmyellow[디지털 경제전환(Digital Transformation)] 시대는 각종문서를 
+다루는 지식(공부) 노동자에게 .green[규모의 경제(Economy of Scale)]와 더불어 
+.red[범위의 경제(Economy of Scope)]를 적극 도입하여 문서를 증거기반 데이터를 
+반영하여 재현가능하며 협업이 가능한 형태로 작업하는 것을 요구하고 있다.
+
+`Tidyverse` 생태계를 구축하는 중요한 축을 담당하는 `R Markdown`을 
+중심으로 이런 문제를 해결하여 **저녁이 있는 삶**을 만들어보자.
+
+]
+ 
+.pull-right[   
+.left[
+
+1\. 디지털 경제전환
+
+.green[2\. 규모의 경제 (Economy of Scale)]
+
+&nbsp;&nbsp;&nbsp; 2\.1\. Literate Programming
+
+&nbsp;&nbsp;&nbsp; 2\.2\. 자동화/Parameterized Report
+
+&nbsp;&nbsp;&nbsp; 3\.3\. 전문가 보고서
+
+3\. 범위의 경제 (Economy of Scope)
+
+&nbsp;&nbsp;&nbsp; 2\.1\. Document Factory
+
+&nbsp;&nbsp;&nbsp; 2\.2\. 한국 R 컨퍼런스
+
+4\. [마무리](#document-goodbye)
+
+]
+] <!--end of right-column--> 
+   
+---
+name: es-why
+# 대다수 문서제작 현황
+
+<br>
+
+.center[
+<img src="fig/current-document-problem.png" width = "100%" />
+]
+
+.footnote[
+- [R마크다운 콘텐츠: 웹사이트, 블로그, 포트폴리오 등](https://statkclee.github.io/comp_document/cd-netlify.html)
+]
+
+---
+name: es-communication
+# 디지털 커뮤니케이션 대상
+
+<br>
+
+.center[
+<img src="fig/document-communication.png" width = "100%" />
+]
+
+.footnote[
+- [R마크다운 콘텐츠: 웹사이트, 블로그, 포트폴리오 등](https://statkclee.github.io/comp_document/cd-netlify.html)
+]
+
+---
+name: es-code-first
+# `Code First` 문서 제작
+
+<br>
+
+.center[
+<img src="fig/document-engineering.png" width = "100%" />
+]
+
+.footnote[
+- [`code first` 한글](https://github.com/statkclee/codefirst)
+- [`code first` 영문](https://github.com/nrohr/codefirst)
+]
+
+---
+name: es-html-word-pdf
+# R Markdown &rarr; PDF, HTML, Word
+
+.panelset[
+.panel[.panel-name[R Code]
+
+```{r generation-code, echo=TRUE, eval = FALSE}
+library(knitr)
+fs::dir_create("01_rmarkdown")
+
+# 1. 보고서 만들기 ---------------------------------------
+## 1.1. HTML 보고서 ---------------------------------------
+render("01_bmi_rmarkdown_html.Rmd", 
+    output_format="html_document",
+    output_file = glue::glue("01_bmi_rmarkdown.html"),
+    encoding = 'UTF-8', 
+    output_dir = "01_rmarkdown")
+
+## 1.2. PDF 보고서 ---------------------------------------
+render("01_bmi_rmarkdown_pdf.Rmd", 
+    output_format="pdf_document",
+    output_file = glue::glue("01_bmi_rmarkdown.pdf"),
+    encoding = 'UTF-8', 
+    output_dir = "01_rmarkdown")
+```
+
+]
+
+.panel[.panel-name[문서 생성 결과]
+.center[
+<img src="fig/document-word-html-pdf.png" width = "57%" />
+]
+]
+]
+
+.footnote[
+- [`code first` 한글](https://github.com/statkclee/codefirst)
+]
+
+
+---
+name: es-basic-parameterized-report
+# R Markdown &rarr; Parameterized Report
+
+.panelset[
+.panel[.panel-name[R Code]
+
+```{r parameterized-report, echo=TRUE, eval = FALSE}
+fs::dir_create("02_parameterized")
+
+# 1. 성별 ---------------------------------------
+genders <- c("Male", "Female")
+
+# 2. 남녀별 보고서 만들기 ---------------------------------------
+for(gender in genders) {
+  knitr::render("02_bmi_parameterized.Rmd", 
+    output_format="html_document",
+    params = list(gender = gender),
+    output_file = glue::glue("02_bmi_parameterized_{gender}.html"),
+    encoding = 'UTF-8', 
+    output_dir = "02_parameterized")
+}
+
+```
+
+]
+
+.panel[.panel-name[문서 생성 결과]
+.center[
+<img src="fig/parameterized-gender-document.png" width = "57%" />
+]
+]
+]
+
+.footnote[
+- [`code first` 한글](https://github.com/statkclee/codefirst)
+]
+
+---
+name: es-basic-parameterized-report
+# R Markdown &rarr; 전자우편 발송
+
+.panelset[
+.panel[.panel-name[R Code]
+
+```{r blastula-email, echo=TRUE, eval = FALSE}
+fs::dir_create("03_email")
+
+# 1. 전자우편 만들기 ---------------------------------------
+
+bmi_email <- render_email('03_bmi_email.Rmd')
+
+bmi_email
+
+bmi_email %>%
+  smtp_send(
+    to = "steve.jobs@gmail.com",
+    from = "victor@r2bit.com",
+    subject = "한국 R 컨퍼런스 후원 테스트",
+    credentials = creds_key("rconf")
+  )
+
+```
+
+]
+
+.panel[.panel-name[문서 생성 결과]
+.center[
+<img src="fig/codefirst-email.png" width = "100%" />
+]
+]
+]
+
+.footnote[
+- [`code first` 한글](https://github.com/statkclee/codefirst)
+]
+
+---
+name: es-pro-report
+# 전문 보고서
+
+.panelset[
+.panel[.panel-name[작업 방식]
+.center[
+<img src="fig/front_rmarkdown.png" width = "77%" />
+]
+]
+
+.panel[.panel-name[문서 생성 결과]
+.center[
+<img src="fig/pro-report-basic.png" width = "57%" />
+]
+]
+]
+
+.footnote[
+- [Professional Report](https://github.com/statkclee/pro_report)
+]
+
+---
+name: es-pro-report-backend
+# 전문 보고서 - 데이터베이스
+
+.panelset[
+.panel[.panel-name[작업 방식]
+.center[
+<img src="fig/pro_report_backend.png" width = "100%" />
+]
+]
+
+.panel[.panel-name[문서 생성 결과]
+.center[
+<img src="fig/pro-report-basic.png" width = "57%" />
+]
+]
+]
+
+.footnote[
+- [Professional Report](https://github.com/statkclee/pro_report/tree/backend)
+]
+
+---
+name: es-pro-report-backend-parameter
+# 전문 보고서 - DB + Parameterized Report
+
+.panelset[
+.panel[.panel-name[작업 방식]
+.center[
+<img src="fig/pro_report_parameterized.png" width = "100%" />
+]
+]
+
+.panel[.panel-name[문서 생성 결과]
+.center[
+<img src="fig/pro-report-parameter.png" width = "80%" />
+]
+]
+]
+
+.footnote[
+- [Professional Report](https://github.com/statkclee/pro_report/tree/parameterized_document)
+]
+
+---
+name: es-pro-report-dashboard
+# `shiny` 대쉬보드
+
+<br>
+
+.center[
+<img src="fig/bmi_prediction.gif" width = "90%" />
+]
+
+.footnote[
+- [Professional Report](https://github.com/statkclee/pro_report/tree/dashboard)
+]

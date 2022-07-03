@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tidyverse와 함께 하는 A/B 테스팅</title>
+    <meta charset="utf-8">
+    <meta name="author" content="이광춘   (페북 그룹:Tidyverse Korea)" />
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/remark-css/metropolis.css" rel="stylesheet" />
+    <link href="libs/remark-css/metropolis-fonts.css" rel="stylesheet" />
+    <script src="libs/htmlwidgets/htmlwidgets.js"></script>
+    <script src="libs/jquery/jquery.min.js"></script>
+    <link href="libs/datatables-css/datatables-crosstalk.css" rel="stylesheet" />
+    <script src="libs/datatables-binding/datatables.js"></script>
+    <link href="libs/dt-core/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <link href="libs/dt-core/css/jquery.dataTables.extra.css" rel="stylesheet" />
+    <script src="libs/dt-core/js/jquery.dataTables.min.js"></script>
+    <link href="libs/crosstalk/css/crosstalk.css" rel="stylesheet" />
+    <script src="libs/crosstalk/js/crosstalk.min.js"></script>
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Tidyverse와 함께 하는 A/B 테스팅
+## <br/> 데이터뽀개기 2018 - Hello Kaggler!
+### 이광춘 <br/> (페북 그룹:Tidyverse Korea)
+### 2018/10/07
+
+---
+
+
+
+
+
+background-image: url("fig/ab-testing-begin.png")
+background-size: 170px
+
+---
+# A/B 테스팅(A/B 테스팅) 
+
+.center[
+ &lt;img src="fig/ab-testing-website.png" alt="A/B 검정 사례" width="77%" /&gt;
+]
+
+.footnote[
+  [데이터 과학-기초 통계: A/B 검정 (A/B Testing)](https://statkclee.github.io/statistics/stat-ab-testing.html)
+]
+
+---
+# A/B 테스팅 데이터
+
+
+<div id="htmlwidget-1fbf677bc222ffaf7bbf" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1fbf677bc222ffaf7bbf">{"x":{"filter":"none","fillContainer":false,"data":[["2018-03-08","2018-03-11","2018-03-06","2018-03-18","2018-03-08","2018-03-05","2018-03-13","2018-03-04","2018-03-21","2018-03-12"],["control","control","test","control","test","test","test","control","test","control"],[68.14231,70.51637,70.55342,70.68345,70.36151,70.77793,71.14021,69.00722,70.00504,71.03863],[1,0,1,1,0,1,1,1,1,1],[0,0,0,0,0,1,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[6.814662,6.432996,4.678313,7.303552,5.264393,5.342311,5.020967,7.112293,6.672135,6.632655]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>date<\/th>\n      <th>testing<\/th>\n      <th>pgload_time<\/th>\n      <th>article<\/th>\n      <th>like<\/th>\n      <th>share<\/th>\n      <th>time_spent<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":[2,3,4,5,6]}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100],"rowCallback":"function(row, data) {\nDTWidget.formatRound(this, row, data, 2, 1, 3, ',', '.');\nDTWidget.formatRound(this, row, data, 6, 1, 3, ',', '.');\n}"}},"evals":["options.rowCallback"],"jsHooks":[]}</script>
+
+
+---
+# A/B 검정 구성요소
+
+- 측정단위: 사용자, 점포, 도시 등 
+- 표본추출: 독립 임의화[랜덤화,확률화] 블록 설계를 통한 `\(t-\)` 검정, 쌍체 `\(t-\)` 검정
+    - 실험군(50%)과 대조군(50%)
+- 종속변수: 매출액, 체류시간, 광고 연결률(광고클릭여부) 등 실험에서 확인하고자 하는 목표
+- 독립변수: 종속변수에 영향을 주는 요인
+    - 실험변수: 실험의 핵심 변수로 대조군에는 적용하지 않고, 실험군에만 적용되는 변수
+    - 통제변수: 실험의 대표성을 높이기 위해 인구통제학적인, 환경적인 요인을 유사하게 맞춰주는 변수
+    - 교략변수(Lurking, Confounding Varaible): 독립변수와 종속변수 모두 상관되는 외생 변수로, 
+    아이스크림 판매량과 익사하는 사람수 관계(온도), 출생 순서와 다운증후군 연관성(산모 나이)을 예로 들 수 있다. 
+
+
+---
+# A/B 검정 사례
+
+**광고 연결률(CTR, click through rates)**을 예측하는데 디바이스, 날짜/시간, 웹사이트, 네트워크 연결, 배너 배치, 앱 정보등을 수집하여 이를 바탕으로 광고 클릭을 연결과 실패로 구분하여 예측한다.
+
+.center[
+&lt;img src="fig/stat-ab-testing-overview.png" alt="A/B 검정 개요" width="100%" /&gt;
+]
+
+---
+background-image: url("fig/ab-testing-begin02.jpg")
+background-size: 570px
+
+
+---
+# A/B 검정 주제선정
+
+.center[
+&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/S6qQUdEOmM8" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen&gt;&lt;/iframe&gt;
+]
+
+.footnote[
+[Youtube, "louie works through a chain of whys"](https://www.youtube.com/results?search_query=louie+works+through+a+chain+of+whys)
+]
+
+
+---
+# A/B 검정에 대해서
+
+- **왜(Why)**? 좀더 나은 웹사이트, 광고 캠페인, 버튼 위치, 매출 전략등 다양한 아이디어가 많고, 특정 아이디어는 다른 아이디어 보다 더 좋다. 그럼 특정 아이디어가 다른 아이디어보다 더 좋다는 것을 어떻게 선별할 수 있을까?
+
+- **A/B 검정을 통한 전통적인 주제**
+    - 상품 종류, 가격, 위치 등 최적화
+    - 전자우편 메시지나 푸시 메시지의 제목/본문 등 설정 최적화
+    - 회원가입 양식, 주문 양식 등 각종 항목 순서 등 배치 최적화
+    - 웹사이트 네비게이션 UI 배치와 문구 등 설치 최적화
+    - 회원 가입, 구매 버튼의 위치, 색상, 문구 등 설정 최적화
+
+.center[
+&lt;img src="fig/stat-ab-testing-banner.png" alt="A/B 검정 배너 사례" width="37%" /&gt;
+]
+
+
+.footnote[
+[온라인 게임에서의 A/B 테스팅](http://boxnwhis.kr/2015/01/29/a_b_testing_online_games.html)
+] 
+
+
+---
+# 게임회사 A/B 검정 주제
+
+게임에 있어 A/B 검정 최적화 주제로 검토가능한 것은 다음과 같다.
+
+- MMORPG 게임에서 특정 재화를 투여할 경우 인플레이션이 발생할까?
+- 적절한 아이템 드랍률은 얼마인가?
+- 광고홍보 무료 아이템의 성능의 성능은 적절한가?
+- 게임 스테이지별로 적절하게 난이도가 증가하고 있는가?
+- 특정 던젼의 난이도는 다른 던젼과 비교하여 높은가?
+- 레벨 설계에 고려되었던 특정 요소가 잘 반영되어 기대한 게임 패턴이 관측되는가?
+- 매크로 지능이 설계한 것처럼 게임맵에서 동작하고 있는가?
+- 게임 사용자 실력 평가 알고리즘이 적절한가?
+- PvP 매칭 알고리즘이 적절한가?
+
+---
+background-image: url("fig/ab-testing-begin03.png")
+background-size: 170px
+
+
+---
+# A/B 검정 작업흐름
+
+&lt;br/&gt;
+
+.center[
+&lt;img src="fig/ab-testing-workflow.png" alt="A/B 검정 작업흐름도" width="77%" /&gt;
+]
+
+---
+# 표본 크기(Sample Size)
+
+`\(\text{표본크기} = f(\text{검정력, 유의수준, 효과크기})\)`
+
+
+
+```r
+&gt; library(pwr)
+&gt; 
+&gt; # 1. 검정력 데이터 생성 ----
+&gt; d     &lt;- seq(.1, 2, by=.1)    # 효과크기(Effect Size)
+&gt; power &lt;- seq(.1, 0.9, by=.1)    # 검정력(Power)
+&gt; alpha &lt;- c(0.01, seq(0.05, 0.5, 0.05)) # 유의수준(Significance Level)
+&gt; 
+&gt; sample_size_df &lt;- expand.grid(power=power, effect_size=d, alpha=alpha) %&gt;% 
++   tbl_df
+&gt; 
+&gt; for(i in 1:nrow(sample_size_df)) {
++   sample_size_df$sample_size[i] &lt;- try(power.t.test(n = NULL,
++                                                 d = sample_size_df$effect_size[i],
++                                                 sig.level= sample_size_df$alpha[i],
++                                                 power = sample_size_df$power[i],
++                                                 type  = "two.sample")$n)
++ }
+&gt; 
+&gt; # https://stackoverflow.com/questions/33379962/power-t-test-error
+&gt; sample_size_df &lt;- sample_size_df %&gt;% 
++   mutate(sample_size = as.integer(sample_size))
+```
+
+
+---
+# 표본 크기 데이터
+
+`\(\text{표본크기} = f(\text{검정력, 유의수준, 효과크기})\)`
+
+
+<div id="htmlwidget-fc20f46f9e96aa7a7ab1" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-fc20f46f9e96aa7a7ab1">{"x":{"filter":"none","fillContainer":false,"data":[[0.7,0.3,0.3,0.5,0.8,0.4,0.6,0.4,0.7,0.6,0.7,0.4,0.8,0.6,0.5,0.5,0.1,0.6,0.1,0.8,0.7,0.9,0.2,0.7,0.4,0.7,0.3,0.8,0.3,0.6,0.6,0.5,0.3,0.8,0.8,0.7,0.7,0.7,0.9,0.7,0.8,0.8,0.9,0.2,0.2,0.8,0.2,0.6,0.2,0.6,0.1,0.4,0.4,0.3,0.7,0.3,0.8,0.1,0.1,0.6,0.1,0.9,0.2,0.7,0.7,0.9,0.8,0.9,0.1,0.3,0.4,0.7,0.6,0.4,0.4,0.6,0.2,0.8,0.1,0.3,0.7,0.1,0.6,0.6,0.6,0.6,0.7,0.6,0.3,0.9,0.1,0.8,0.3,0.3,0.6,0.8,0.2,0.8,0.5,0.8,0.1,0.7,0.1,0.2,0.9,0.8,0.9,0.8,0.3,0.5,0.9,0.4,0.3,0.5,0.4,0.5,0.9,0.3,0.5,0.1,0.5,0.8,0.9,0.4,0.7,0.8,0.6,0.7,0.2,0.4,0.7,0.7,0.6,0.2,0.4,0.8,0.8,0.2,0.5,0.3,0.5,0.9,0.9,0.9,0.2,0.4,0.5,0.8,0.7,0.8,0.3,0.7,0.7,0.3,0.1,0.8,0.3,0.6,0.6,0.4,0.6,0.2,0.2,0.9,0.8,0.8,0.3,0.5,0.5,0.9,0.1,0.8,0.5,0.5,0.1,0.2,0.1,0.2,0.1,0.7,0.3,0.4,0.9,0.5,0.5,0.6,0.6,0.6,0.1,0.8,0.4,0.8,0.4,0.7,0.3,0.9,0.7,0.7],[0.7,0.5,1,0.6,0.7,1,1.9,1.1,0.6,0.4,1.6,0.8,0.9,1.6,1.6,0.9,0.6,0.5,0.5,1.1,2,0.7,0.9,0.8,1.8,1.6,0.6,0.8,1.7,0.3,0.8,1.4,1.8,1.1,1.5,0.6,0.6,1.5,0.9,0.9,1.8,1.2,0.3,1,0.7,1.9,1.7,0.4,1.3,0.1,1.8,1.7,0.6,0.3,0.2,1.6,0.2,0.5,1.1,1.3,1,0.4,2,0.9,0.1,1,1.4,1.7,0.8,0.2,0.2,1.8,2,0.5,0.9,1.3,1.2,1.7,1.4,0.9,1.9,1.6,1.4,1,1.5,0.2,0.1,1.4,1.3,1.8,1.4,0.2,1.3,1.4,0.8,0.6,0.1,1,0.6,0.4,1.9,0.8,1,0.3,1.5,1.5,1.3,0.7,1.5,1.7,1.7,1,1.5,1.2,0.6,0.6,1,1.2,1.6,1.6,1.8,1.8,1.3,0.7,0.6,1.3,1.9,2,0.6,1.1,1.4,0.7,1.8,2,1.3,1.9,0.9,1.1,1.3,1.6,1.7,2,1.4,0.5,0.6,0.4,0.8,1.6,0.6,1.2,0.7,0.5,1.4,0.2,0.1,1,0.1,1.9,2,1.6,0.5,1.6,1.1,1.1,1.4,1.5,1.3,1.8,0.2,0.7,1,0.7,0.4,1.3,0.9,0.9,1.2,0.5,0.5,1.6,1.1,2,1.5,1.3,0.4,0.3,1.8,0.8,0.8,0.7,1.4,1,0.4,0.4,0.4,0.4,2,0.9],[0.05,0.4,0.2,0.25,0.4,0.05,0.5,0.35,0.25,0.4,0.5,0.05,0.5,0.2,0.3,0.3,0.35,0.25,0.25,0.35,0.1,0.3,0.25,0.01,0.45,0.45,0.25,0.45,0.2,0.15,0.45,0.25,0.1,0.01,0.4,0.3,0.35,0.01,0.25,0.4,0.4,0.25,0.05,0.1,0.5,0.2,0.35,0.3,0.25,0.35,0.3,0.2,0.2,0.45,0.01,0.1,0.01,0.45,0.45,0.05,0.25,0.1,0.01,0.01,0.5,0.25,0.25,0.35,0.2,0.2,0.5,0.4,0.4,0.01,0.45,0.4,0.05,0.2,0.4,0.05,0.15,0.01,0.15,0.05,0.4,0.25,0.35,0.01,0.1,0.25,0.5,0.5,0.45,0.15,0.35,0.25,0.35,0.25,0.45,0.5,0.25,0.25,0.01,0.2,0.4,0.05,0.3,0.2,0.01,0.15,0.45,0.1,0.4,0.2,0.25,0.35,0.3,0.4,0.2,0.1,0.35,0.25,0.1,0.05,0.45,0.3,0.3,0.35,0.3,0.3,0.5,0.5,0.5,0.35,0.4,0.05,0.4,0.3,0.5,0.05,0.2,0.25,0.05,0.3,0.35,0.2,0.4,0.3,0.2,0.05,0.4,0.15,0.1,0.05,0.2,0.1,0.2,0.2,0.35,0.35,0.45,0.35,0.4,0.05,0.2,0.3,0.25,0.25,0.3,0.5,0.3,0.25,0.35,0.4,0.15,0.1,0.15,0.4,0.3,0.2,0.1,0.15,0.01,0.2,0.2,0.1,0.1,0.3,0.3,0.35,0.45,0.05,0.4,0.4,0.45,0.3,0.01,0.45],[26,null,1,7,11,6,null,1,15,15,1,10,5,2,1,3,null,16,null,5,3,22,null,31,null,1,2,8,null,64,3,1,1,21,2,13,12,10,14,4,2,5,234,2,null,3,null,21,null,282,null,1,6,1,482,2,585,null,null,6,null,107,3,25,287,12,4,3,null,29,8,1,null,44,null,1,2,3,null,6,2,3,3,10,1,98,425,9,2,4,null,115,null,1,4,22,2,8,3,28,null,9,5,4,4,8,6,18,5,2,3,4,null,2,4,5,11,null,2,null,null,2,10,12,9,4,1,1,null,1,1,6,null,null,null,5,7,null,null,2,1,3,11,43,null,13,2,3,18,11,null,31,5,104,null,13,115,2,1,null,8,null,null,18,5,3,null,1,53,15,null,16,11,1,null,2,null,null,null,3,2,1,14,2,20,80,3,5,null,13,null,16,4,23,null,67,6,4]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>power<\/th>\n      <th>effect_size<\/th>\n      <th>alpha<\/th>\n      <th>sample_size<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":[0,1,2,3]}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+
+---
+## 표본 크기 데이터: 검정력(Power)
+
+`\(\text{표본크기} = f(\textbf{검정력}, \text{ 유의수준, 효과크기})\)`
+
+&lt;img src="ab_testing_tidyverse_20181007_files/figure-html/sample-size-power-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+## 표본 크기 데이터: 유의수준
+
+`\(\text{표본크기} = f(\textbf{유의수준}, \text{검정력, 효과크기})\)`
+
+&lt;img src="ab_testing_tidyverse_20181007_files/figure-html/sample-size-alpha-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+## 표본 크기 데이터: 효과크기
+
+`\(\text{표본크기} = f(\textbf{효과크기}, \text{검정력, 유의수준})\)`
+
+&lt;img src="ab_testing_tidyverse_20181007_files/figure-html/sample-size-effect-size-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+## 표본 크기 사례
+
+.pull-left[
+
+### 효과크기가 큰 경우
+
+
+```r
+&gt; pwr.t.test(power = 0.8,
++            sig.level = 0.05,
++            d = 0.8)
+```
+
+```
+
+     Two-sample t test power calculation 
+
+              n = 25.52458
+              d = 0.8
+      sig.level = 0.05
+          power = 0.8
+    alternative = two.sided
+
+NOTE: n is number in *each* group
+```
+  
+]
+
+.pull-right[
+
+### 효과크기가 작은 경우
+
+
+```r
+&gt; pwr.t.test(power = 0.8,
++            sig.level = 0.05,
++            d = 0.1)
+```
+
+```
+
+     Two-sample t test power calculation 
+
+              n = 1570.733
+              d = 0.1
+      sig.level = 0.05
+          power = 0.8
+    alternative = two.sided
+
+NOTE: n is number in *each* group
+```
+]
+
+---
+## 순차 분석(Sequential Analysis)
+
+순차분석은 데이터를 수집하면서 반복적으로 유의성 통계검정을 수행하는 절차로 다음 세가지 중 하나를 택일한다.
+
+- 실험 중단: 통계적 유의성이 있어 귀무가설을 기각하고 실험을 중단.
+- 실험 중단: 통계적 유의성이 없어 귀무가설을 기각하지 못하고 실험을 중단.
+- 실험 계속: 결론을 내리기에 충분하지 못해서 실험을 계속진행.
+
+[gsDesign](https://cran.r-project.org/web/packages/gsDesign/index.html) 팩키지를 사용해서 순차분석을 통해 
+실험에 대한 결론도 도출하고 표본크기도 산정한다.
+
+`k = 4`는 3번 중간 분석을 수행하고 마지막 4번째 모든 데이터를 가지고 분석을 수행한다.
+`test.type`은 단축, 양측 검정 등을 설정하는 것이고, `alpha`는 유의수준, `beta`는 검정력과 관계되어 0.2는 
+검정력이 0.8을 나타내고 `sfu`는 Spending 함수로 여러 방법론이 있지만, `Pocock`을 지정하여 순차분석을 수행한다.
+
+최대 가능 표본수가 1000개라고 가정하면 두집단이 되어 이를 `seq_analysis$timing`에 반영하면 중간중간 살펴봐야하는 표본을 산출할 수 있다.
+
+
+---
+## 순차 분석 사례
+
+
+```r
+&gt; library(gsDesign)
+&gt; 
+&gt; # 1. 중단 규칙(stopping rule) ----
+&gt; seq_analysis &lt;- gsDesign(k = 4,
++                          test.type = 2,
++                          alpha = 0.05,
++                          beta = 0.2,
++                          sfu = "Pocock")
+&gt; 
+&gt; max_n &lt;- 1000 
+&gt; max_n_per_group &lt;- max_n / 2
+&gt; stopping_points &lt;- max_n_per_group * seq_analysis$timing
+&gt; stopping_points
+```
+
+```
+[1] 125 250 375 500
+```
+
+```r
+&gt; # plot(seq_analysis)
+```
+
+---
+background-image: url("fig/ab-testing-begin04.png")
+background-size: 570px
+
+
+---
+### A/B-검정 사례: EDA
+
+.pull-left[
+
+
+```r
+&gt; ab_df %&gt;% 
++   mutate(day = day(date)) %&gt;% 
++   group_by(day) %&gt;% 
++   summarise(conversion = mean(like)) %&gt;% 
++   ggplot(aes(x=day, y=conversion)) +
++   geom_line() +
++   geom_point(size=2) +
++   scale_y_continuous(limits = c(0,0.2), labels = scales::percent) +
++   labs(x="일자별", y="전환율(%)", title="강아지/고양이 사진 A/B 검정 일별 전환율 추세",
++        color="A/B검정") +
++   theme_minimal(base_family = "NanumGothic")
+```
+]
+
+.pull-right[
+&lt;img src="ab_testing_tidyverse_20181007_files/figure-html/ab-testing-EDA-run-1.png" style="display: block; margin: auto;" /&gt;
+]
+
+
+---
+### A/B-검정 사례: 기술통계
+
+
+```r
+&gt; # 3. A/B 검정: 범주형 -----
+&gt; ## 3.1. 기술 통계량 -----
+&gt; ab_df %&gt;% 
++   group_by(testing) %&gt;% 
++   summarise(conversion = mean(like)) 
+```
+
+```
+# A tibble: 2 x 2
+  testing conversion
+  &lt;chr&gt;        &lt;dbl&gt;
+1 control     0.0441
+2 test        0.137 
+```
+
+
+---
+### A/B-검정 사례: 시각화
+
+.pull-left[
+
+```r
+&gt; ## 3.2. 시각화 -----
+&gt; ab_df %&gt;% 
++   mutate(day = day(date)) %&gt;% 
++   group_by(day, testing) %&gt;% 
++   summarise(conversion = mean(like)) %&gt;% 
++   ggplot(aes(x=day, y=conversion, color=testing, group=testing)) +
++   geom_line() +
++   geom_point(size=2) +
++   scale_y_continuous(limits = c(0,1), labels = scales::percent) +
++   labs(x="일자별", y="전환율(%)", title="강아지/고양이 사진 A/B 검정 일별 전환율 추세",
++        color="A/B검정") +
++   theme_minimal(base_family = "NanumGothic")
+```
+]
+
+.pull-right[
+&lt;img src="ab_testing_tidyverse_20181007_files/figure-html/ab-testing-viz-run-1.png" style="display: block; margin: auto;" /&gt;
+]
+
+
+---
+### A/B-검정 사례: 통계검정
+
+
+
+```
+# A tibble: 2 x 5
+  term        estimate std.error statistic   p.value
+  &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;
+1 (Intercept)    -3.08     0.101     -30.5 1.21e-204
+2 testingtest     1.23     0.118      10.5 7.86e- 26
+```
+
+---
+background-image: url("fig/ab-testing-begin05.png")
+background-size: 570px
+
+
+---
+### A/B 검정과 MAD (I)
+
+- 카지노에 슬롯머신이 쭉 배치되어 있는데, 각 슬롯머신 별로 승률이 달리 정해져 있지만 승률은 알지 못한다. 한정된 예산을 가지고 가장 많은 돈을 벌기 위해서 어떤 전략을 취하면 될까? 결국 탐색과 획득 딜레마(Explore/Exploit Dilemma)를 통해 우선 가장 승률이 좋은 슬롯머신을 찾아내는 과정과 본격적으로 돈을 버는 과정을 거치게 된다. 한정된 탐색과 획득과정 모두 비용과 시간이 들여 가장 많은 돈을 벌게 되는 최적화 문제를 푸는 것으로 귀결된다.
+
+- 2차 세계대전 당시 다중 슬롯머신 문제가 매우 중요하지만 수학적으로 어려워서 이 문제를 잘 정리해서 독일에 전달하여 연구자원을 분산시키자고 Peter Whittle이 주장하기도 했다. 하지만, 오프라인에서는 탐색 비용이 매우 커서 비현실적이지만, 온라인 인터넷서비스에서는 상대적으로 비용이 적게 소요되어 밴딧 알고리즘이 A/B 검정의 한계를 극복하는 대안으로 구글, 야후 등에서 활발히 활용되고 있다. 밴딧 알고리즘은 실시간 온라인 학습(Online learning) 알고리즘이면서 동시에 강화학습과 같이 액티브 학습(Active Learning) 알고리즘이기도 하다.
+
+
+---
+### A/B 검정과 MAD (II)
+
+- 머릿속으로 그리는 A/B 검정은 기존 A안에 새로운 대안을 넣어 그것이 더 좋은 결과를 얻은 경우 새로운 대안을 취하고, B안이 더 좋지 못한 결과를 얻게 되었을 경우 다시 A안으로 회귀하는 것이지만, A/B 검정 결과 더 좋은 것으로 나온 실험결과가 실제로 적용했을 경우 더 좋지 못한 결과가 되기도 한다. MAB 알고리즘은 A/B 검정과 달리 연속적으로 가장 좋은 대안을 찾아가는 방법론을 제시하고 있다.
+
+
+&lt;br/&gt;
+
+.center[
+&lt;img src="fig/stat-mab-algorithm.png" alt="MAB 알고리즘 배경" width="87%" /&gt;
+]
+
+---
+### `CausalImpact` 코드
+
+
+
+```r
+&gt; # 0. 환경설정----------------------------------------------
+&gt; # install.packages("BoomSpikeSlab") # CausalImpact 의존성으로 사전 설치
+&gt; # devtools::install_github("google/CausalImpact")
+&gt; library(CausalImpact)
+&gt; library(xts)
+&gt; 
+&gt; # 1. 데이터 생성----------------------------------------------
+&gt; set.seed(1)
+&gt; x1 &lt;- 100 + arima.sim(model = list(ar = 0.999), n = 100)
+&gt; y &lt;- 1.2 * x1 + rnorm(100)
+&gt; y[71:100] &lt;- y[71:100] + 10
+&gt; data &lt;- cbind(y, x1)
+&gt; 
+&gt; time_points &lt;- seq.Date(as.Date("2014-01-01"), by = 1, length.out = 100)
+&gt; data_zoo &lt;- zoo(data, time_points)
+&gt; 
+&gt; # 2. A/B 검정 기간 설정----------------------------------------------
+&gt; pre_period &lt;- as.Date(c("2014-01-01", "2014-03-11"))
+&gt; post_period &lt;- as.Date(c("2014-03-12", "2014-04-10"))
+&gt; 
+&gt; # 3. A/B 검정 효과 분석----------------------------------------------
+&gt; impact &lt;- CausalImpact(data_zoo, pre_period, post_period)
+&gt; # plot(impact)
+```
+
+
+---
+### `CausalImpact` 시각화
+
+
+&lt;img src="ab_testing_tidyverse_20181007_files/figure-html/ab-testing-causal-impact-graph-1.png" style="display: block; margin: auto;" /&gt;
+
+
+---
+### `CausalImpact` 보고서
+
+
+&lt;style type="text/css"&gt;
+pre {
+  max-width: 100%;
+  overflow-x: scroll;
+}
+&lt;/style&gt;
+
+
+```r
+&gt; summary(impact, "report")
+```
+
+```
+Analysis report {CausalImpact}
+
+
+During the post-intervention period, the response variable had an average value of approx. 117.05. By contrast, in the absence of an intervention, we would have expected an average response of 106.53. The 95% interval of this counterfactual prediction is [105.80, 107.26]. Subtracting this prediction from the observed response yields an estimate of the causal effect the intervention had on the response variable. This effect is 10.52 with a 95% interval of [9.78, 11.25]. For a discussion of the significance of this effect, see below.
+
+Summing up the individual data points during the post-intervention period (which can only sometimes be meaningfully interpreted), the response variable had an overall value of 3.51K. By contrast, had the intervention not taken place, we would have expected a sum of 3.20K. The 95% interval of this prediction is [3.17K, 3.22K].
+
+The above results are given in terms of absolute numbers. In relative terms, the response variable showed an increase of +10%. The 95% interval of this percentage is [+9%, +11%].
+
+This means that the positive effect observed during the intervention period is statistically significant and unlikely to be due to random fluctuations. It should be noted, however, that the question of whether this increase also bears substantive significance can only be answered by comparing the absolute effect (10.52) to the original goal of the underlying intervention.
+
+The probability of obtaining this effect by chance is very small (Bayesian one-sided tail-area probability p = 0.001). This means the causal effect can be considered statistically significant. 
+```
+
+
+---
+### `tidyverse`
+
+.center[
+ &lt;img src="fig/ab-testing-tidyverse.png" alt="tidyverse" width="100%" /&gt;
+]
+
+
+.footnote[
+    [데이터 과학 - tidyverse 데이터 과학 기본체계](https://statkclee.github.io/data-science/ds-tidyverse.html)
+]
+
+---
+### `Tidyverse Korea` 페북 그룹
+
+- [Tidyverse Korea](https://www.facebook.com/groups/1404219106509417/)
+
+- [통계분석연구회(Statistics Analysis Study)](https://www.facebook.com/groups/statsas/)
+
+- [PRESSer](https://www.facebook.com/groups/1473988286034801/)
+
+- [R Korea - KRUG(Korean R User Group)](https://www.facebook.com/groups/KoreaRUsers/)
+    </textarea>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function() {
+  var d = document, s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})();</script>
+
+<script>
+(function() {
+  var i, text, code, codes = document.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+})();
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

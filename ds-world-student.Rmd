@@ -1,0 +1,169 @@
+---
+title: "데이터 과학자의 세계"
+subtitle: "당신은 왕입니까?"
+author: "이광춘 / 한국 알(R) 사용자회"
+institute: "한국 알(R) 사용자회"
+date: "2022-07-23"
+output:
+  xaringan::moon_reader:
+    css: 
+      - [default]
+      - css/yangcheon.css
+      - css/nhsr-fonts.css
+    lib_dir: libs
+    seal: false
+    nature:
+      highlightStyle: googlecode
+      highlightLines: true
+      highlightLanguage: ["r"]
+      countIncrementalSlides: false
+      ratio: "4:3"
+      beforeInit: "macros.js"
+    includes:
+      after_body: [css/insert-logo-krila.html]
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include = FALSE}
+library(tidyverse)
+# library(nhsrtheme)
+# library(NHSRdatasets)
+# set default options
+
+options(
+  htmltools.dir.version = FALSE, 
+  htmltools.preserve.raw = FALSE,
+  tibble.width = 60, tibble.print_min = 6,
+  crayon.enabled = TRUE
+)
+
+knitr::opts_chunk$set(echo = FALSE, message=FALSE, warning=FALSE,
+                      comment="", digits = 3, tidy = FALSE, prompt = FALSE, fig.align = 'center',
+                      fig.width = 7.252,
+                      fig.height = 4,
+                      dpi = 300)
+
+# uncomment the following lines if you want to use the NHS-R theme colours by default
+# scale_fill_continuous <- partial(scale_fill_nhs, discrete = FALSE)
+# scale_fill_discrete <- partial(scale_fill_nhs, discrete = TRUE)
+# scale_colour_continuous <- partial(scale_colour_nhs, discrete = FALSE)
+# scale_colour_discrete <- partial(scale_colour_nhs, discrete = TRUE)
+
+xaringanExtra::use_panelset()
+
+```
+
+
+class: title-slide, left, bottom
+
+# `r rmarkdown::metadata$title`
+----
+## **`r rmarkdown::metadata$subtitle`**
+### `r rmarkdown::metadata$author`
+### `r rmarkdown::metadata$date`
+
+ 
+---
+class: inverse, middle
+name: intro-toc
+
+# 발표 개요 
+
+----
+
+.pull-left[
+
+코딩, 즉 컴퓨팅 사고력은 **.green[자동화(Automation)와 추상화(Abstraction)]** 
+두 축으로 하고 있고, 데이터 과학은 **.warmyellow[데이터]** 와 
+**.warmyellow[과학]**을 합친 단어입니다. 
+
+수학은 연역적인 사고를 근간으로 하는 반면 통계(데이터)는 **.red[귀납적 사고를]** 근간으로 
+하고 있어 수 많은 데이터에서 일반적인 규칙을 찾아내는 작업과 이를 사람들에게
+제대로 알리기 위해 시각화를 많이 합니다.
+
+]
+ 
+.pull-right[   
+.left[
+
+1\. [19세기 영국 코로나19](#studuent-cholera)
+
+2\. [왜 손씻게 되었나?](#student-handwashing)
+
+3\. [내 신체정보 (정규분포)](#student-normal)
+
+4\. [나폴레옹 러시아 침공](#student-mirad)
+
+5\. [백의천사 나이팅게일](#student-nightingale)
+
+6\. [제2차 세계대전 폭격기](#student-aircraft)
+
+7\. [마무리](#student-goodbye) 
+
+]
+] <!--end of right-column-->  
+ 
+- [한국통계학회 소식지 2019년 10월호 ](https://statkclee.github.io/ds-authoring/ds-stat-tidyverse.html) 
+
+  
+<!--------------------------  1. 도구 ----------------------------------------->
+
+
+---
+name: ds-world
+# 왕의 학문 - 통계학
+
+- 왕(국가)이 기원전 3,050년 피라미드 건립을 위해 **인구조사(센서스)** 기록
+- 근대 **국가운영**을 위해 인구, 출생, 사망, 실업자수, 세금 수입, 지출, 수입과 수출 등 자료가 필요
+- **통계학(Statistics)**는 라틴어 ~~`Status`~~ 정치국가(Political State) 를 의미
+
+.center[
+<img src="fig/statistics-google.png" alt="통계" width="80%" />
+]
+
+
+
+```{r child='slideshows/data_science_student/ds-world-cholera.Rmd'}
+```
+
+```{r child='slideshows/data_science_student/ds-world-handwashing.Rmd'}
+```
+
+```{r child='slideshows/data_science_student/ds-world-normal.Rmd'}
+```
+
+```{r child='slideshows/data_science_student/ds-world-russia.Rmd'}
+```
+
+```{r child='slideshows/data_science_student/ds-world-nightingale.Rmd'}
+```
+
+```{r child='slideshows/data_science_student/ds-world-aircraft.Rmd'}
+```
+
+
+---
+name: student-goodbye
+class: middle, inverse
+
+.pull-left[
+# **경청해 주셔서 <br>감사합니다.**
+<br/>
+## 한국 R 사용자회
+
+]
+
+.pull-right[
+.right[
+
+<img style="border-radius: 100%;" src="fig/bitstat_logo.jpg" width="300px"/>
+
+]
+]
+
+
+
+
+
+

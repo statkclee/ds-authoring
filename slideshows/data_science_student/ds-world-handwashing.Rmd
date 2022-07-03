@@ -1,0 +1,163 @@
+
+---
+name: student-handwashing
+# 손씻기 역사
+
+
+.panelset[
+
+.panel[.panel-name[출생사망]
+.center[
+<img src="fig/hand-washing.jpeg" alt="통계" width="90%" />
+]
+]
+
+
+.panel[.panel-name[데이터]
+
+```{r data-science-hand-washing}
+# 0. 환경설정 -----
+library(infer)
+library(tidyverse)
+library(extrafont)
+loadfonts()
+library(ggthemes)
+library(DT)
+library(viridis)
+library(reactable)
+
+# 1. 데이터  -----
+# download.file(url="https://raw.githubusercontent.com/statkclee/statistics/gh-pages/data/yearly_deaths_by_clinic.csv", destfile = "data/yearly_deaths_by_clinic.csv")
+# download.file(url="https://raw.githubusercontent.com/statkclee/statistics/gh-pages/data/monthly_deaths.csv", destfile = "data/monthly_deaths.csv")
+
+year_df <- read_csv(glue::glue("{here::here()}/data/yearly_deaths_by_clinic.csv"))
+month_df <- read_csv(glue::glue("{here::here()}/data/monthly_deaths.csv"))
+```
+
+.pull-left[
+
+**연도별**
+
+```{r year, out.width="70%"}
+year_df %>% 
+  reactable(
+    defaultPageSize = 5, minRows = 5,  filterable = TRUE, showPagination = TRUE,
+    columns = list(
+      year = colDef(name = "연도", align = "center"),
+      births = colDef(name = "출생", align = "center", format = colFormat(separators = TRUE ) ),
+      deaths = colDef(name = "사망", align = "center", format = colFormat(separators = TRUE ) ),
+      clinic = colDef(name = "병원", align = "center")
+    )
+  )
+```
+]
+
+.pull-right[
+
+**월별** 
+
+```{r month"}
+
+month_df %>% 
+  reactable(
+    defaultPageSize = 5, minRows = 5,  filterable = TRUE, showPagination = TRUE,
+    columns = list(
+      date = colDef(name = "연도", align = "center"),
+      births = colDef(name = "출생", align = "center", format = colFormat(separators = TRUE ) ),
+      deaths = colDef(name = "사망", align = "center", format = colFormat(separators = TRUE ) )
+    )
+  )
+```
+]
+]
+
+
+.panel[.panel-name[병원별 비교]
+
+```{r data-science-hand-washing-viz}
+
+year_df %>% 
+  pivot_longer(cols = births:deaths) %>% 
+  mutate(clinic = factor(clinic, levels = c("clinic 1", "clinic 2"))) %>%
+  mutate(name = ifelse(name == "births", "출생", "사망")) %>% 
+  mutate(name = factor(name, levels = c("출생", "사망"))) %>% 
+  ggplot(aes(x=year, y=value, color=clinic, group = clinic)) +
+    geom_point(size = 2) +
+    geom_line() +
+    facet_wrap( ~ name, scales="free") +
+    labs(x="", y="산모숫자",
+         color = "병원: ") +
+    scale_y_continuous(labels = scales::comma) +
+    # scale_color_manual(values = c("births" = "blue",
+    #                               "deaths" = "red")) +
+    scale_color_manual(values = c("black", "blue")) +
+    theme_bw(base_family = "NanumGothic") +
+    theme(legend.position = "top") 
+
+```
+]
+
+.panel[.panel-name[시간별 비교]
+
+```{r data-science-hand-washing-before-after}
+extrafont::loadfonts()
+# 3. 손씻기 실험 결과 -----
+month_df %>% 
+  mutate(손씻기_전후 = ifelse(date >= lubridate::ymd('1847-06-01'), "깨끗한 손", "더러운 손")) %>% 
+  gather(출생사망, 산모숫자, -date, -손씻기_전후) %>% 
+  ggplot(aes(x=date, y=산모숫자, group=출생사망, color=손씻기_전후)) +
+  geom_point() +
+  geom_line() +
+  geom_vline(xintercept = lubridate::ymd('1847-06-01'), color="green", size=1) +
+  facet_wrap( ~ 출생사망, scales="free") +
+  labs(x="", y="산모숫자") +
+  scale_y_continuous(labels = scales::comma) +
+  theme_bw(base_family = "마루부리") +
+  theme(legend.position = "top")
+
+```
+
+]
+
+.panel[.panel-name[사망율 분포]
+
+```{r handwashing-rate}
+# 4. 통계적 유의성 검정 -----
+## 4.1. 데이터 -----
+month_test <- month_df %>% 
+  mutate(손씻기_전후 = ifelse(date >= as.Date('1847-06-01'), "깨끗한 손", "더러운 손")) %>% 
+  mutate(산모_사망률 = deaths / births)
+
+## 4.2. 시각화 -----
+ggplot(data = month_test, mapping = aes(x = 산모_사망률, fill=손씻기_전후)) +
+  geom_density(alpha = 0.7) +
+  scale_x_continuous(labels = scales::percent) +
+  scale_fill_viridis(discrete = TRUE) +
+  theme_bw(base_family="NanumGothic") +
+  labs(title="손씻기 전후 산모사망률 비교",
+       x="산모사망률", y="빈도수", fill="손씻기 전후")
+```
+
+]
+
+.panel[.panel-name[통계검정]
+
+<br>
+<br>
+
+```{r data-science-hand-washing-testing-number, results="asis"}
+## 4.3. 전통적인 통계검정 -----
+library(broom)
+t.test( 산모_사망률 ~ 손씻기_전후, data = month_test) %>%
+  tidy() %>%
+  select(!contains("estimate")) %>%
+  knitr::kable()
+
+```
+
+]
+]
+
+.footnote[
+- [이광춘, "손씻기 그리고 통계 - 제멜바이스"](http://aispiration.com/statistics/stat-hand-washing.html)
+]

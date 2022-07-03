@@ -1,0 +1,50 @@
+---
+title: "코딩으로 글쓰는 슬기로운 탐구생활"
+subtitle: "⚔<br/>with xaringan"
+author: "이광춘"
+institute: "Tidyverse Korea"
+date: "`r Sys.Date()`"
+output:
+  xaringan::moon_reader:
+    css: ["default", "kcd.css"]
+    seal: false
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: '16:9'
+      slideNumberFormat: "Page %current%"  
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+options(knitr.duplicate.label = 'allow')
+```
+
+class: kcd-title-slide
+
+---
+class: title-style
+layout: false
+
+# 목차
+
+## 코딩 문서 기본기
+
+## 코딩 문서 사례
+
+## 코딩 문서를 넘어서
+
+ 
+```{r child='KCD2020_opening.Rmd'}
+```
+
+```{r child='KCD2020_writing.Rmd'}
+```
+
+```{r child='KCD2020_bookdown.Rmd'}
+```
+

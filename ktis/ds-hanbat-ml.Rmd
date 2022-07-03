@@ -1,0 +1,95 @@
+
+---
+name: case-study-document
+class: inverse, middle
+
+# Outline
+
+----
+
+.pull-left[
+
+경제적인 면에 초점을 두어 .green[**디지털 경제**]의 주요한 동인인 .green[**자동화**]와 .green[**기계학습**]에 대해 살펴봅니다.
+
+개인용 컴퓨터의 보급 이후 만들어진 디지털 유산인 사무 자동화(Office Automation) .warmyellow[**문서**]의 한계와 이를 벗어나려고 하는 다양한 최신 움직임도 짚어봅니다.
+
+디지털 전환의 기본을 이루는 .black[**데이터 과학**]의 핵심적인 내용을 다루고,
+다양한 데이터 중 하나인 음성을 텍스트로 변환시킨 후 가치를 창출하는 전반적인 과정을 다뤄보고자 합니다.
+
+
+] <!--end of left-column-->
+
+.pull-right[   
+.left[
+1\. [자동화(Automation)](#automation)
+
+2\. **[.warmyellow[기계학습(Machine Learning)]](#machine-learning)**
+
+3\. [사무 문서](#case-study-document)
+
+4\. [데이터 과학](#data-science)
+
+5\. [STT](#stt)
+
+6\. [마무리](#goodbye) 
+]
+] <!--end of right-column-->
+
+---
+name: ml-overview
+# AI / ML / 통계
+
+<br>
+
+.center[
+  <img src="fig/ai-ml-statistics.png" alt="AI > ML > Statistics" alt="100%" />
+]
+
+---
+name: ml-sofware
+# 소프트웨어 1.0과 2.0
+
+- 소프트웨어 1.0: 사람이 직접 규칙(Rule)을 작성하여 똑똑한 시스템 개발
+- 소프트웨어 2.0: 데이터에서 딥러닝 알고리즘을 활용 기계가 알고리즘(Algorithm) 제작 
+
+.center[
+  <img src="fig/programming_machine_learning_comparison.png" width="77%">
+]
+
+.footnote[
+   [궁극의 주인이 될 알고리즘(Master Algorithm)](https://statkclee.github.io/ai-lab/master-algorithm.html)
+]
+
+---
+name: ml-bigdata-ml
+# 빅데이터와 기계학습
+
+.center[
+  <img src="fig/intree-xy-f.png" alt="정형데이터와 비정형 데이터, 그리고 기계학습" width="90%">
+]
+
+
+.footnote[
+- [데이터 가져오기](https://statkclee.github.io/ingest-data/)
+    - [직사각형 데이터](https://statkclee.github.io/data-science/)
+    - [텍스트 데이터](https://statkclee.github.io/text/)
+    - [네트워크 데이터](https://statkclee.github.io/network/)
+    - [지리정보 데이터](https://statkclee.github.io/spatial/)
+    - [이미지 데이터](https://statkclee.github.io/trilobite/)
+    - 오디오/소리 데이터
+    - ...
+]
+
+
+---
+name: ml-deep-learning
+# 딥러닝(Deep Learning)
+
+.center[
+  <img src="fig/three-pillars.png" width="90%">
+]
+
+.footnote[
+   [xwMOOC 딥러닝과 $H_2 O$](http://statkclee.github.io/deep-learning/)
+]
+

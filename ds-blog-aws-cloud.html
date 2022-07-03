@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>데이터 과학자의 클라우드 블로그</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="삼정 KPMG 이광춘   We’re Hiring!!!" />
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/tidyverse.css" type="text/css" />
+    <link rel="stylesheet" href="css/tidyverse-fonts.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# 데이터 과학자의 클라우드 블로그
+## GitHub → AWS S3
+### 삼정 KPMG 이광춘 <br> We’re Hiring!!!
+### 2019년 9월 5월
+
+---
+
+
+
+
+## AWS KRUG - 데이터 사이언스
+
+- 강의제목: "데이터 과학자의 클라우드 블로그"
+- 강의일시
+    - 2019년 9월 5일(목) 19:30 ~
+- 강의장소: GS강남타워 역삼동 GS타워 12층 
+- 강의내용
+    - 데이터 과학자 vs. 개발자
+    - 데이터 과학자의 블로그
+    - Github 블로그
+    - 데이터 사이언스 블로그: `blogdown`, netlify
+    - AWS 블로그: S3, Route 53
+
+---
+class: inverse, middle, center
+
+## 데이터 과학자 vs. 개발자
+
+---
+## `tidyverse` 
+
+.center[
+  &lt;img src="fig/tidyverse_workflow.png" alt="tidyverse 작업흐름" width="77%" /&gt;
+]
+
+---
+## 데이터 과학자와 개발자
+
+.center[
+  &lt;img src="fig/data_science_vs_software.png" alt="개발자와 데이터 과학자" width="100%" /&gt;
+]
+
+.footnote[
+   Edgar Ruiz (May 2018), "Big Data with R"
+]
+
+
+---
+class: inverse, middle, center
+
+## 데이터 과학자의 블로그
+
+
+---
+### 재현가능한 데이터 사이언스 환경
+
+.center[
+  &lt;img src="fig/reproducible-data-science.png" alt="재현가능한 데이터 사이언스" width="100%" /&gt;
+]
+
+.footnote[
+  [재현가능한 저작, "Author Carpentry"](https://statkclee.github.io/author_carpentry_kr/)   
+]
+
+---
+## BMI 데이터 사이언스 보고서
+
+author_carpentry_kr/tutorial/reproducible_finance/reproducible_finance.Rmd
+
+
+---
+class: inverse, middle, center
+
+## GitHub 블로그
+
+
+---
+## Jekyll 기반 블로그 &amp;rarr; [https://statkclee.github.io/](https://statkclee.github.io/)
+
+.center[
+  &lt;img src="fig/github-blog-workflow.png" alt="작업흐름도" width="87%"&gt;
+]
+
+.footnote[
+ [데이터 사이언스: 저작(Authoring), "Github - 블로그"](https://statkclee.github.io/ds-authoring/ds-github-blog.html)
+]
+
+---
+class: inverse, middle, center
+
+## 데이터 사이언스 블로그: `blogdown`, netlify
+
+---
+## blogdown, netlify 호스팅 &amp;rarr; http://xwmooc.netlify.com/
+
+.center[
+&lt;img src="fig/blogdown-overview.png" alt="blogdown 개요" width="77%" /&gt;
+]
+
+.footnote[
+- [데이터 과학을 위한 저작도구 - 블로그 - blogdown](https://statkclee.github.io/ds-authoring/ds-blogdown.html)
+- [이광춘 (2017.10.18), 데이터과학 블로그 10분 완성](https://tidyverse-korea.github.io/r-meetup-x-presser/)
+]
+
+---
+class: inverse, middle, center
+
+## AWS 블로그: S3, Route 53
+
+---
+## 클라우드 S3 블로그
+
+.center[
+&lt;img src="fig/aws-blog-s3.png" alt="AWS S3" width="100%" /&gt;
+]
+
+.footnote[
+- [빅데이터: 정적 웹호스팅 - S3](https://statkclee.github.io/bigdata/cloud-aws-s3-web-hosting.html)
+]
+
+
+---
+## 클라우드 S3 블로그 + 도메인명
+
+- http://tidyverse.info/
+
+.footnote[
+- [개인 도메인 블로그 - aws cli](https://statkclee.github.io/bigdata/cloud-aws-s3-blog.html)
+]
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

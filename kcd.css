@@ -1,0 +1,189 @@
+
+@import url('https://fonts.googleapis.com/earlyaccess/nanumbrushscript.css');
+
+html, body, h1, h2, h3, h4, h5, h6, li, p {font-family: 'KoPubWorld Dotum Medium', Georgia, Times;} 
+
+@font-face {
+  font-family: 'KoPubWorld Dotum Medium'; 
+}
+
+@font-face {
+  font-family: arial,sans-serif;
+  src: local('Times New Roman');
+  font-style: normal;
+  font-size: 1em;
+  unicode-range: U+0020-007E;
+}
+
+
+.remark-slide-number{
+    bottom: 2.5em;
+    opacity: 0.8;
+    left: 25em;
+    font-size: 0.5em;
+}
+
+.remark-slide-content h1{
+  text-shadow: none;
+  color: #F7F8FA;
+  font-size: 1em;
+  font-weight: normal;
+  margin-top: 0.01em;
+  margin-left: -0.8em;
+}
+
+.remark-slide-content h2{
+  text-shadow: none;
+  color: #00d6cc;
+  font-size: 2.8em;
+  font-weight: normal;
+  margin-top: 1em;
+  margin-left: -0.8em;
+  margin-right: em;
+}
+
+.remark-slide-content h3{
+  text-shadow: none;
+  color: #00d6cc;
+  font-size: 2em;
+  font-weight: bold;
+  margin-top: 1em;
+  margin-bottom: -0.1em;
+}
+
+
+.kcd-title-slide {
+  background-image: url(https://github.com/statkclee/ds-authoring/raw/gh-pages/fig/KCD_title.PNG);
+  background-size: cover;
+}
+
+.kcd-title-subslide {
+  background-image: url(https://github.com/statkclee/ds-authoring/raw/gh-pages/fig/KCD_subtitle.png);
+  background-size: cover;
+  color: #39A8C7;
+  font-size: 3.7em;
+  font-weight: normal;
+  padding-left: 300px;
+  padding-top: 270px;  
+  margin-left: 10px;
+}
+
+.kcd-title-slide .remark-slide-number {
+  display: none;
+}
+
+.title-style{
+  background-image: url(https://github.com/statkclee/ds-authoring/raw/gh-pages/fig/KCD_content.PNG);
+  background-size: cover;
+}
+
+.title-style .remark-slide-number {
+  display: none;
+}
+.title-style h1 {
+  text-shadow: none;
+  color: #39A8C7;
+  font-size: 2.3em;
+  font-weight: bold;
+  margin-top: 0.3em;
+  margin-left: 0.1em;
+}
+.title-style h2 {
+  text-shadow: none;
+  color: #767171;
+  margin-top: 0.5em;
+  font-size: 1.4em;
+  font-weight: normal;
+  margin-left: 0.5em;
+}
+
+.title-style h3 {
+  text-shadow: none;
+  color: #767171;
+  margin-top: 2em;
+  font-size: 2.8em;
+  font-weight: normal;
+  margin-left: -0.3em;
+  margin-right: 3em;
+  line-height: 1em;
+}
+
+.title-style h4 {
+  text-shadow: none;
+  color: #767171;
+  font-size: 2em;
+  font-weight: normal;
+  margin-left: -0.3em;
+  margin-right: 3em;
+  line-height: 1em;
+}
+
+.title-style h5 {
+  text-shadow: none;
+  font-size: 1.5em;
+  font-weight: normal;
+}
+
+.title-style p, li {
+  text-shadow: none;
+  color: #767171;
+  font-size: 1.0em;
+  font-weight: normal;
+}
+
+
+.pen-b { 
+  font-family: 'Nanum Brush Script', cursive;
+  font-size: 130%;
+}
+
+.pen-p { 
+  font-family: 'Nanum Pen Script', cursive;
+  font-size: 130%;
+}
+
+.blue {
+  color: #3b5998;
+}
+
+.yellow {
+  color: #FFCB01;
+}
+
+.gray {
+  color: #7f7f7f;
+}
+
+.green {
+  color: #298E4C;
+}
+
+.large { font-size: 130% }
+.small { font-size: 70%  }
+.tiny  { font-size: 40%  }
+
+/* The Magic Float Center Code */
+.pull-center {
+  float: right;
+
+  position: relative;
+  right: 50%; /* or right 50% */
+  text-align: left;
+  width: 60%
+}
+.pull-center > .set {
+  position: relative;
+  left: 50%;
+}
+
+.pull-center > .ori {
+  position: relative;
+  left: 50%;
+  width: 134%
+}
+
+.pull-center > .half {
+  position: relative;
+  left: 50%;
+  width: 118%
+}

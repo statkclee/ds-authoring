@@ -1,0 +1,100 @@
+
+---
+class: inverse, middle
+name: data-science-case
+
+# 발표 개요
+
+----
+
+.pull-left[
+
+알파고가 2016년 이세돌 9단을 가볍게 승리하면서 **AI 디지털 경제전환**이 촉발되었다면
+코로나19는 .red[**디지털 경제전환**]을 가속화를 넘어 디지털 불평등도 심화시키고 있다.
+
+AI 디지털 경제전환 시대 .warmyellow[**디지털 기업**]을 이해하는데 
+꼭 필요한 .green[**인공지능**] 기술적 토대를 살펴보고 
+전통기업과 비교하여 상대적으로 디지털 기업을 이해해 보자.
+
+]
+ 
+.pull-right[   
+.left[
+
+1\. [디지털 경제전환 (DT)](#digital-transformation)
+
+2\. **[.green[인공지능 (AI)]](#digital-ai)**
+
+3\. **디지털 기업**
+
+&nbsp;&nbsp;&nbsp; 3\.1\. [레고, Building Block](#digital-company-lego)
+
+&nbsp;&nbsp;&nbsp; 3\.2\. [전통 기업](#digital-company-old-school)
+
+&nbsp;&nbsp;&nbsp; 3\.3\. [디지털 AI 기업](#digital-company-new-school)
+
+4\. [마무리](#digital-goodbye)
+
+]
+] <!--end of right-column--> 
+
+
+
+---
+name: ml-overview
+# AI / ML / 통계
+
+<br>
+
+.center[
+  <img src="fig/ai-ml-statistics.png" alt="AI > ML > Statistics" alt="100%" />
+]
+
+---
+name: ml-sofware
+# 소프트웨어 1.0과 2.0
+
+- 소프트웨어 1.0: 사람이 직접 규칙(Rule)을 작성하여 똑똑한 시스템 개발
+- 소프트웨어 2.0: 데이터에서 딥러닝 알고리즘을 활용 기계가 알고리즘(Algorithm) 제작 
+
+.center[
+  <img src="fig/programming_machine_learning_comparison.png" width="77%">
+]
+
+.footnote[
+   [궁극의 주인이 될 알고리즘(Master Algorithm)](https://statkclee.github.io/ai-lab/master-algorithm.html)
+]
+
+---
+name: ml-bigdata-ml
+# 빅데이터와 기계학습
+
+.center[
+  <img src="fig/intree-xy-f.png" alt="정형데이터와 비정형 데이터, 그리고 기계학습" width="90%">
+]
+
+
+.footnote[
+- [데이터 가져오기](https://statkclee.github.io/ingest-data/)
+    - [직사각형 데이터](https://statkclee.github.io/data-science/)
+    - [텍스트 데이터](https://statkclee.github.io/text/)
+    - [네트워크 데이터](https://statkclee.github.io/network/)
+    - [지리정보 데이터](https://statkclee.github.io/spatial/)
+    - [이미지 데이터](https://statkclee.github.io/trilobite/)
+    - 오디오/소리 데이터
+    - ...
+]
+
+
+---
+name: ml-deep-learning
+# 딥러닝(Deep Learning)
+
+.center[
+  <img src="fig/three-pillars.png" width="90%">
+]
+
+.footnote[
+   [xwMOOC 딥러닝과 $H_2 O$](http://statkclee.github.io/deep-learning/)
+]
+

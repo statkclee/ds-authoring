@@ -1,0 +1,167 @@
+
+
+---
+name: student-mirad
+# 나폴레옹 러시아 침공
+
+.panelset[
+
+.panel[.panel-name[나폴레옹]
+<br>
+.center[
+<img src="fig/about_napoleon.png" alt="나폴레옹 러시아 침공" width="100%" />
+]
+]
+
+
+.panel[.panel-name[미나르 지도]
+<br>
+.center[
+<img src="fig/Minard.png" alt="나폴레옹 러시아 침공" width="100%" />
+]
+]
+
+
+.panel[.panel-name[실제 침공]
+<br>
+.center[
+<img src="fig/minard-actual-map.png" alt="나폴레옹 러시아 침공 실제지도" width="100%" />
+]
+]
+
+.panel[.panel-name[데이터]
+
+
+
+.pull-left[
+
+**생존병사 수**
+
+```{r minard-russian-table}
+library(HistData)
+library(reactable)
+
+data(Minard.troops) 
+data(Minard.cities)
+data(Minard.temp)
+
+Minard.troops %>% 
+  select(-group) %>% 
+  reactable(
+    defaultPageSize = 5, minRows = 5,  filterable = FALSE, showPagination = TRUE,
+    columns = list(
+      long = colDef(name = "위도", align = "center"),
+      lat = colDef(name = "경도", align = "center" ),
+      survivors = colDef(name = "생존병사수", align = "center", format = colFormat(separators = TRUE ) ),
+      direction = colDef(name = "진격방향", align = "center")
+    )
+  )  
+```
+]
+
+.pull-right[
+
+**후퇴 기온**
+
+```{r minard-russian-city}
+
+data(Minard.temp)
+
+Minard.temp %>% 
+  reactable(
+    defaultPageSize = 5, minRows = 5,  filterable = FALSE, showPagination = TRUE,
+    columns = list(
+      long = colDef(name = "위도", align = "center"),
+      temp = colDef(name = "기온", align = "center" ),
+      days = colDef(name = "후퇴날짜", align = "center"),
+      date = colDef(name = "관측날짜", align = "center")
+    )
+  )  
+```
+
+]
+]
+
+.panel[.panel-name[시각화]
+
+```{r minard-russian-invasion, eval = FALSE}
+library(HistData)
+
+data(Minard.troops)
+data(Minard.cities)
+data(Minard.temp)
+
+source("../../../swc/sungnam-report/R/theme_election.R", encoding = "UTF-8")
+
+## Not run: 
+#' ## Load required packages
+require(ggplot2)
+require(scales)
+require(gridExtra)
+
+levels(Minard.cities$city) <- c("Bobr", "Chjat", "Dorogobouge", "Gloubokoe", "Kowno", "Malo-Jarosewii", 
+                                "Minsk", "Mohilow", "Moiodexno", "Mojaisk", "모스코바", "Orscha", 
+                                "Polotzk", "Smolensk", "Smorgoni", "Studienska", "Tarantino", 
+                                "Wilna", "Witebsk", "Wixma")
+
+#' ## plot path of troops, and another layer for city names
+plot_troops <- ggplot(Minard.troops, aes(long, lat)) +
+	geom_path(aes(size = survivors, colour = direction, group = group),
+               lineend = "round", linejoin = "round")
+plot_cities <- geom_text(aes(label = city), size = 4, data = Minard.cities)
+ 
+#' ## Combine these, and add scale information, labels, etc.
+#' Set the x-axis limits for longitude explicitly, to coincide with those for temperature
+
+breaks <- c(1, 2, 3) * 10^5 
+plot_minard <- plot_troops + plot_cities +
+ 	scale_size("생존병사수", range = c(1, 10), 
+ 	            breaks = breaks, labels = scales::comma(breaks)) +
+  scale_color_manual("진격방향", 
+                     values = c("grey50", "red"), 
+                     labels=c("진격", "후퇴")) +
+  coord_cartesian(xlim = c(24, 38)) +
+  labs(x = NULL,
+       y = "경도",
+       title = "나폴레옹 러시아 침공",
+       subtitle = "1812년 6월 24일 ~ 1813년 1월 5일") +
+  theme_election() +
+  theme(legend.position=c(.8, .2), legend.box="horizontal")
+ 
+library(ggrepel)
+#' ## plot temperature vs. longitude, with labels for dates
+plot_temp <- Minard.temp %>% 
+  mutate(date = case_when(str_detect(date, "Oct") ~ str_replace(date, "Oct", "10월"),
+                          str_detect(date, "Nov") ~ str_replace(date, "Nov", "11월"),
+                          str_detect(date, "Dec") ~ str_replace(date, "Dec", "12월"),
+                           TRUE ~ "미상")) %>% 
+  mutate(date = glue::glue("{date}일")) %>% 
+  mutate(date = ifelse(date == "미상일", "미상", date)) %>% 
+  ggplot(aes(long, temp)) +
+  	geom_path(color="grey", size=1.5) +
+  	geom_point(size=2) +
+  	geom_text_repel(aes(label=glue::glue("{date}")) ) +
+  	xlab("위도") + ylab("기온") +
+  	coord_cartesian(xlim = c(24, 38)) + 
+  	theme_bw()
+	
+#' Combine the two plots into one
+minard_g <- grid.arrange(plot_minard, plot_temp, nrow=2, heights=c(3,1))
+
+ggsave( glue::glue("fig/나폴레옹_러시아.png") , 
+        minard_g,
+        device = ragg::agg_png, 
+        width = 297, height = 210, units = "mm", res = 600)
+```
+
+.center[
+<img src="fig/나폴레옹_러시아.png" alt="나폴레옹 러시아 침공" width="80%" />
+]
+
+]
+]
+
+.footnote[
+[Re-Visions of Minard](https://www.datavis.ca/gallery/re-minard.php)
+]
+

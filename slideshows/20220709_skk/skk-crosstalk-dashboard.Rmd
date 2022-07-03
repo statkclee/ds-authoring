@@ -1,0 +1,66 @@
+
+---
+class: inverse, middle
+name: skk-crosstalk
+
+# 발표 개요 
+
+----
+
+.pull-left[
+
+과거 R은 통계 언어로 알려졌지만, `ggplot`과 `dplyr` 패키지로 대표되는
+`tidyverse`가 2015년 중반 나타나면서 **.warmyellow[데이터 과학 언어]**로 탈바꿈하였다.
+
+이번 Seoul R Meetup 워크샵을 통해 선거 데이터를 통해 전통적인 
+`ggplot`을 통해 시각화 방법과 서버없이 인터랙티브 시각화 방법을 
+`crosstalk` 패키지를 활용한 대쉬보드 제작 사례를 소개한다.
+
+마지막으로 `shiny`를 통한 오픈 통계 패키지와 오픈 통계 교과서
+제작에 여정을 함께 합니다.
+
+]
+ 
+.pull-right[   
+.left[
+
+1\. [`tidyverse`](#skk-tidyverse)
+
+2\. [Rmarkdown to Dashboard - `flexdashboard`](#skk-flexdashboard)
+
+3\. **[.warmyellow[인터랙티브 대쉬보드 - `crosstalk`]](#skk-crosstalk)**
+
+4\. [오픈 통계 교과서/패키지 - `shiny`](#skk-shiny)
+
+]
+] <!--end of right-column-->  
+
+
+---
+name: skk-shining-without-shiny
+# 서버없는 인터랙티브 시각화 - crosstalk 
+
+<br>
+
+.center[
+![](fig/20220709_skk/crosstalk.jpg)
+]
+
+
+.footnote[
+- [Crosstalk is an add-on to the htmlwidgets package](https://rstudio.github.io/crosstalk/)
+]
+
+---
+name: skk-crosstalk-gg
+# 지방선거(경기지사) 
+
+
+```{r static-dashboard-gg}
+knitr::include_url("https://aispiration.com/president/gg-dashboard.html")
+```
+
+.footnote[
+- [이광춘, "제8회 지방선거 - 경기지사"](https://aispiration.com/president/gg-dashboard.html)
+]
+

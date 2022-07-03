@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Data Science for Smart Factory</title>
+    <meta charset="utf-8">
+    <meta name="author" content="이광춘   ( 소프트웨어 카펜트리 )" />
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link rel="stylesheet" href="custom.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Data Science for Smart Factory
+## 한국 제조업 데이터 축적의 시간을 지나 가치 창출의 시대로 향하다.
+### 이광춘 <br/> (<a href='https://software-carpentry.org/'> 소프트웨어 카펜트리 </a>)
+### 2019/01/26
+
+---
+
+
+
+
+class: inverse, middle, center
+
+# Intree 4.0 World Forum
+
+.footnote[
+  [(사)한국인더스트리4.0협회](http://www.intreeforum.org/)
+]
+
+
+---
+#### 인트리 월레세미나
+
+- “Data Scientist 가 바라본 제조업의 발전 전략 및 방안”
+  - KPMG 강남파이낸스센터27층 비전룸, 2019년 1월 26일 (토)
+  
+  
+|     시  간	  |   내  용	 |비  고 |
+|---------------|------------|------------------------|
+| 09:30 ~ 10:00 |	등록	     |                        |
+| 10:00 ~ 10:10 |	회장 인사	 |       박 한구 회장 |
+| 10:10 ~ 11:10 |	딥러닝을 활용한 제조기업의 가치 향상 방안	  | 수아랩 대표이사 |
+| 11:20 ~ 12:20 |	빅데이터를 활용한 제조기업의 가치 향상 방안 | 베가스 대표이사 |
+| 12:20 ~ 13:00 |	점 심 식 사	 |
+| 13:00 ~ 14:00 |	"한국 제조업 데이터 축적의 시간을 지나 가치 창출의 시대로 향하다." |이광춘 전문가 |
+| 14:00 ~ 15:00 |	협회 발전을 위한 Open Discussion | 박한구 회장 |
+| 15:00 ~ 15:10 |	폐회	 |  |
+  
+---
+class: inverse, middle, center
+
+자동차에서 10년 경험한 제조업
+&lt;br&gt;
+마이크로소프트웨어 2019년 1월 기고문
+&lt;br&gt;
+캐글 제조업 데이터
+&lt;br&gt;
+
+
+---
+class: inverse, middle, center
+
+자동차 제조업
+
+
+---
+## 가치(Value) 원천
+
+.center[
+  &lt;img src="fig/ai-lab-korea-science.png" width="77%" /&gt;
+]
+
+세계은행(World Bank)과 한국개발연구원(KDI)은 약 2년여 기간의 공동연구를 통해 1960-2005 년간 한국 경제발전 과정에 관한 보고서를 출간했다. 경제성장이 지속되기 위해서는 생산성 증가가 대단히 중요하고, 1960년 이후 한국경제의 성공은 광의의 지식축적에 기인한 것으로 1960-2005년 사이 한국의 실질 1인당GDP의 75%가 광의의 지식축적에 기인한 것으로 분석했다.
+
+---
+## 4번째 패러다임
+
+.center[
+  &lt;img src="fig/ai-lab-4th-paradigm.png" width="100%" /&gt;
+]
+
+---
+### [자동차 데이터](https://statkclee.github.io/automotive/)
+
+- 자동차 제조사(OEM)와 공급사
+    - 자동차 생산량 - 제조사별, 국가별
+    - 글로벌 자동차 부품공급사(상위 100사)
+- 자동차 품질
+    - 초기품질지수(IQS)
+    - 차량 내구성 조사(VDS)
+    - 초기품질지수 vs 차량 내구성 조사
+- 자동차 경제성
+    - 자동차 연비
+- 리콜과 불만
+    - NHTSA - 현대기아차 리콜과 불만 추세(2001-2017)
+        - NHTSA - 현대기아차 리콜 고장부품
+        - NHTSA - 현대기아차 고객불만 고장부품
+    - 공공데이터포털 - 대한민국 리콜(2011-2016)
+
+---
+## 자동차 클러스터 사례
+
+.center[
+  &lt;img src="fig/ai-digital-cluster.png" width="87%" /&gt;
+]
+
+
+---
+### 차량 내 전장부품 원가비중
+
+.center[
+  &lt;img src="fig/autonomous_vehicle_cost-structure.png" width="100%" /&gt;
+]
+
+.footnote[
+  [Analyst 이안나 (2018-06-25), "자동차 전장부품 - 차량용 반도체가 핵심!", 골든브릿지투자증권 리서치센터](http://file.mk.co.kr/imss/write/20180625141236__00.pdf) 內 현기차 시스템 반도체 포럼 참조.
+]
+
+---
+### ECU 내부 
+
+.center[
+  &lt;img src="fig/autonomous_vehicle-ecu.png" width="100%" /&gt;
+]
+
+.footnote[
+  [Analyst 이안나 (2018-06-25), "자동차 전장부품 - 차량용 반도체가 핵심!", 골든브릿지투자증권 리서치센터](http://file.mk.co.kr/imss/write/20180625141236__00.pdf) 內 현기차 시스템 반도체 포럼 참조.
+]
+
+
+---
+### ECU 제어기 &amp;rarr; 반도체 
+
+.center[
+  &lt;img src="fig/autonomous_vehicle_ecu_semiconductor.png" width="100%" /&gt;
+]
+
+.footnote[
+  [Analyst 이안나 (2018-06-25), "자동차 전장부품 - 차량용 반도체가 핵심!", 골든브릿지투자증권 리서치센터](http://file.mk.co.kr/imss/write/20180625141236__00.pdf) 內 현기차 시스템 반도체 포럼 참조.
+]
+
+---
+### 자율주행 시대 자동차 경쟁구도 변화
+
+.center[
+  &lt;img src="fig/autonomous_vehicle_competition.png" width="100%" /&gt;
+]
+
+.footnote[
+  [Analyst 이안나 (2018-06-25), "자동차 전장부품 - 차량용 반도체가 핵심!", 골든브릿지투자증권 리서치센터](http://file.mk.co.kr/imss/write/20180625141236__00.pdf)
+]
+
+---
+### 기계-전기전자-반도체-소프트웨어 원가구조 변화
+
+.center[
+  &lt;img src="fig/autonomous_vehicle_cost_trend.png" width="100%" /&gt;
+]
+
+---
+### 자동차 원산지 관리 
+
+.center[
+  &lt;img src="fig/fta-om-global.png" width="100%" /&gt;
+]
+
+---
+### 부품-반도체-소프트웨어
+
+.center[
+  &lt;img src="fig/fta-semiconductor-software.png" width="100%" /&gt;
+]
+
+---
+## 수직적 시장 &amp;rarr; 인공지능 시장
+
+.center[
+  &lt;img src="fig/slide-4th-industry-revolution-roadmap.png" width="100%" /&gt;
+]
+- 수직적(Vertical) 시장 &amp;rarr; 플랫폼(Platform) 시장 &amp;rarr; 인공지능(AI) 마켓으로
+
+
+
+---
+class: inverse, middle, center
+
+데이터 사이언스, `Tidyverse`로 향하다.
+
+.footnote[
+    [마이크로소프트웨어](https://www.imaso.co.kr/) 2019년 1월 395호 “데이터 사이언스와 데이터 엔지니어링”
+]
+
+
+---
+### 구글 Trends 데이터 사이언스 한미 비교 - 미국
+
+
+&lt;img src="intree-seminar-2019-01_files/figure-html/google-trends-comparison-us-1.png" style="display: block; margin: auto;" /&gt;
+
+
+---
+### 구글 Trends 데이터 사이언스 한미 비교 - 한국
+
+
+&lt;img src="intree-seminar-2019-01_files/figure-html/google-trends-comparison-kr-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+## 산업역군(?)
+
+.center[
+  &lt;iframe width="400" height="270" src="https://www.youtube.com/embed/t346si4gy_M" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;
+
+  &lt;img src="fig/ai-basic-skills.png" width="37%" /&gt;
+]
+
+.footnote[
+  [MATT RICHTEL, "Reading, Writing, Arithmetic, and Lately, Coding"", The New York Time,  MAY 10, 2014](http://www.nytimes.com/2014/05/11/us/reading-writing-arithmetic-and-lately-coding.html)
+]
+
+---
+## 한국 기업(?) vs. AI기반 기업
+
+.center[
+  &lt;img src="fig/stat-data-science.png" width="100%" /&gt;
+]
+
+
+---
+### 데이터 탐험(Data Adventure)
+
+2019년 1월 28일, 마이크로소프트웨어 395호 데이터 탐험(Data Adventure)편
+
+.left-column[
+&lt;img src="fig/MASO_395_cover-749x1024.jpg" width="100%" /&gt;
+]
+
+
+.right-column[
+- SCHEMA
+  - S1. **데이터 사이언스, 타이디버스로 향하다** - 이광춘
+  - S2. 데이터 분석가는 어떤 스킬셋을 가져야 하는가 - 서희
+- OPINIONS, 
+- FUTURE
+- TECHNOLOGY
+- WORKS
+- APPLIED
+- RESEARCH
+- ETC
+
+]
+
+.footnote[
+[MICRO SOFTWARE 홈페이지](https://www.imaso.co.kr/), [마이크로소프트웨어 395호 데이터 탐험(Data Adventure)](https://www.imaso.co.kr/archives/4654)
+]
+
+
+---
+### 데이터 사이언스란?
+
+데이터 사이언스는 데이터를 다루는 과학이다. 따라서 자연법칙을 다루는 자연과학과 맥이 닿아있다.
+자연법칙을 측정하여 데이터프레임(`DataFrame`)으로 나타내면 **변수(Variable)**, **관측점(Observation)**, **값(Value)**으로 표현된다.
+
+&lt;img src="fig/data-science-overview.png" alt="데이터 사이언스 개요" width="100%" /&gt;
+
+
+---
+### 데이터 사이언스 업무
+
+
+&lt;img src="fig/data-science-airbnb.png" alt="데이터 사이언스 에어비앤비" width="100%" /&gt;
+
+- **분석(Analytics) 데이터 과학자**는 좋은 질문을 던질 수 있고, 
+탐색적 데이터 분석을 통해서 문제와 해법을 명확히 하는 재주가 있고, 대쉬보드와 시각화를 통해 데이터 분석을 자동화하고, 추천 결과물을 통해 비즈니스를 변화시킨다. 
+- **알고리즘(algorithm) 데이터 과학자**는 기계학습에 특기가 있는 사람에 적합하고 제품/서비스, 프로세스에 데이터를 알고리즘을 통해 녹여내서 비즈니스 가치를 창출한다. 
+- **추론(inference) 데이터 과학자**는 통계를 사용해서 의사결정을 향상시키고, 업무의 영향도를 측정하는데 주로 통계학, 경제학, 사화과학 전공지식을 적극 활용한다.
+
+.footnote[
+  [Elena Grewal(July 25, 2018), "One Data Science Job Doesn’t Fit All"](https://www.linkedin.com/pulse/one-data-science-job-doesnt-fit-all-elena-grewal/)
+]
+
+---
+### 데이터 사이언스 언어
+
+데이터 사이언스를 대표하는 R이나 파이썬 모두 컴퓨터 프로그래밍 언어라서 태생적으로 거의 모든 컴퓨터 프로그래밍 언어가 갖고 있는 두 언어 문제에서 역시 자유로울 수는 없다.
+
+| 시스템 언어  | Ousterhout 이분법  | 스크립트 언어  |
+|-------------|-------------|-------------|
+|   정적       |     --      |     동적     |
+|   컴파일      |     --      |    인터프리터 |
+| 사용자정의 자료형|     --      |  표준 자료형 |
+|   빠른 속도   |     --      |   늦은 속도   |
+|   어려움       |     --      |   쉬움     |
+
+
+.footnote[
+  [Ousterhout dichotomy](https://en.wikipedia.org/wiki/Ousterhout%27s_dichotomy)
+]
+
+---
+### 데이터 사이언스 언어 추상화
+
+R을 예로 들면, 팩키지 개발을 할 때 R 스크립트로 모든 기능을 선행하여 기능을 구현하고 유용성이 인정되어 사용자가 많아지면, [Rcpp](https://cran.r-project.org/web/packages/Rcpp/index.html) 팩키지를 사용하여 C/C++로 후행하여 속도와 성능이 필요한 부분에 재개발하는 경우가 흔하다.
+
+.center[
+  &lt;img src="fig/data-scientist-languages.png" alt="데이터 사이언스자 언어" width="77%"&gt;
+]
+
+---
+### 데이터 사이언스 프로세스 
+
+&lt;img src="fig/data-science-process-as-is-to-be.png" alt="데이터 사이언스 프로세스 비교" width="100%" /&gt;
+
+
+---
+### 왜 R 언어인가?
+
+.center[
+  &lt;img src="fig/cognitive-performance.png" alt="인지 단계, 계산단계" width="67%" /&gt;
+]
+
+---
+### `tidyverse`
+
+.center[
+  &lt;img src="fig/maso_tidyverse.png" alt="Tidyverse 데이터 사이언스 작업흐름" width="100%" /&gt;
+]
+
+- 기존 자료구조를 재사용: Reuse existing data structures.
+- 파이프 연산자로 간단한 함수를 조합: Compose simple functions with the pipe.
+- 함수형 프로그래밍을 적극 사용: Embrace functional programming.
+- 기계가 아닌 인간을 위한 설계: Design for humans.
+
+---
+### 데이터 사이언스 남은 과제들 - 불편한 진실 
+
+
+1. 데이터는 절대 깨끗하지 않다
+1. 당신은 분석의 대부분의 시간을 전처리 단계에서 보내게 될 것이다
+1. 95% 일에는 딥러닝(Deep Learning)을 필요로 하지 않는다
+1. 실제 분석의 90%는 일반화 선형모형(GLM)으로 해결된다
+1. 빅데이터는 단지 도구일 뿐이다
+1. 당신은 베이지안 접근을 포용해야 한다
+1. 사용자 입장에서는 네가 어떤 방법을 사용했는가는 중요하지 않다
+1. 학계와 산업계는 서로 다른 세계이다
+1. 프리젠테이션이 핵심이다: 파워포인트 마스터가 되라
+1. 모든 모델은 틀렸다, 하지만 몇몇은 유용하다
+1. 완전 자동화된 데이터 사이언스같은 것은 없다. 인간이 개입되어야 할 부분이 있다
+
+
+---
+### 데이터 사이언스 남은 과제들 - 심슨의 역설
+
+&lt;img src="intree-seminar-2019-01_files/figure-html/simpson-data-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+### 설명가능한 기계학습 - 늑대와 허스키(에스키모 개) 분류 사례
+
+.center[
+  &lt;img src="fig/explainable-ai-wolf-husky.png" alt="늑대와 허스키 분류" width="50%"&gt;
+]
+
+
+.footnote[
+Marco Tulio Ribeiro, Sameer Singh, Carlos Guestrin(2016), "Why Should I Trust You?": Explaining the Predictions of Any Classifier", [arXiv:1602.04938](https://arxiv.org/abs/1602.04938)
+]
+
+
+---
+### 실제로 분류한 것은? 
+
+.center[
+  &lt;img src="fig/explainable-ai-wolf-husky-lime.png" alt="늑대와 허스키 실제 분류" width="100%"&gt;
+]
+
+.footnote[
+[Kasia Kulma (PhD, Data Scientist, Aviva, 2017), "Interpretable Machine Learning Using LIME Framework", `\(H_2 O\)`.ai](https://www.youtube.com/watch?v=CY3t11vuuOM&amp;t=1956s)
+]
+
+
+---
+### 알고리즘 담합 유형
+
+.center[
+  &lt;img src="fig/explainable-ai-collusion.png" alt="알고리즘 담합" width="70%" /&gt;
+]
+
+
+.footnote[  
+  [ODEC (2017), "ALGORITHMS AND COLLUSION - Competition policy in the digital age"](http://www.oecd.org/competition/algorithms-collusion-competition-policy-in-the-digital-age.htm)
+]
+
+---
+### 암묵적 담합에 대한 법규 준수
+
+.left[
+
+```r
+if (가격 상관계수 &gt; 0.9999 &amp; 
+      case_when(회사 알고리즘,
+                   모니터링 알고리즘 ~ TRUE,
+                   병행 알고리즘 ~ TRUE,
+                   신호 알고리즘 ~ TRUE,
+                   작학습 알고리즘 ~ TRUE)) {
+  return(공정거래법 위반)
+} else {
+  return(공정거래법 위반 없음)
+}
+```
+]
+
+.right[
+    &lt;img src="fig/explainable-ai-whity.jpg" alt="제임스 화이티 벌저" width="40%" /&gt;
+]
+
+.footnote[
+  [연합뉴스 (2018/10/31), '전설적인 美 보스턴 갱두목, 비참한 최후…"종신형 감옥서 피살"'](http://www.yonhapnews.co.kr/bulletin/2018/10/31/0200000000AKR20181031005300072.HTML)
+]
+
+---
+### 알고리즘 담합 사례
+
+1. **포스터 레볼루션, 병행 알고리즘으로 가격담합**
+    - 온라인에서 포스터를 판매하는 미국기업 포스터레볼루션(PosterRevolution)의 창업자 데이빗톱킨스(David Topkins)는 사업자들과 일부 고전영화포스터의 **가격을 고정**하기로 합의. 톱킨스와 공모기업들은 병행알고리즘 형태로 가격담합. 결국 2015년 미국법무부는 톱킨스에게 **2만 달러** 벌금부과.
+1. **이투라스, 암묵적 동의하에 이루어진 담합**
+    - 온라인 여행예약 사이트를 운영하는 리투아니아 이투라스(Eturas)는 자사 플랫폼에서 사업을 영위하는 여행사들에게 소비자에게 적용되는 최대할인율을 공통적으로 제한한다는 메시지를 보내고 예약시스템의 **최대할인율을 3%로 일괄조정**. 리투아니아 최고행정법원은 이투라스와 여행사간 암묵적 동의하에 이루어진 담합이라 판단, 이투라스와 여행사에 **과징금 150만 유로** 부과.
+1. **우버, Hub-and-Spoke 모델로 가격담합 논란**
+    - 공유경제 생태계에서 플랫폼 역할을 하는 우버는 최적화 알고리즘을 통해 가격을 결정. 법적으로 사업관계인 운전드라이버들이 우버의 동일가격 알고리즘을 이용하는 것이 담합에 해당되는지, 담합에 해당되지 않는지 논란됨. 뉴욕남부지법은 중재를 해달라는 우버의 주장을 기각하고, 집단소송 원고적격을 인정. 지금은 연방항소법원에서 **심리중**.
+
+
+---
+class: inverse, middle, center
+
+스마트 공장 - 캐글
+
+.footnote[
+- [Kaggle(2016), "Bosch Production Line Performance: Reduce manufacturing failures"](https://www.kaggle.com/c/bosch-production-line-performance)
+- [Kaggle(2016), "Mercedes-Benz Greener Manufacturing - Can you cut the time a Mercedes-Benz spends on the test bench?"](https://www.kaggle.com/c/mercedes-benz-greener-manufacturing)
+]
+
+
+---
+class: middle, center
+
+
+&lt;img src="fig/intree-xy.png" alt="XY" width="100%" /&gt;
+
+---
+class: middle, center
+
+
+&lt;img src="fig/intree-xy-x.png" alt="XY" width="100%" /&gt;
+
+---
+class: middle, center
+
+
+&lt;img src="fig/intree-xy-y.png" alt="XY" width="100%" /&gt;
+
+---
+class: middle, center
+
+
+&lt;img src="fig/intree-xy-f.png" alt="XY" width="100%" /&gt;
+    </textarea>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function() {
+  var d = document, s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})();</script>
+
+<script>
+(function() {
+  var i, text, code, codes = document.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+})();
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

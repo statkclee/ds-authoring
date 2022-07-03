@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Tidyverse Meets Shiny</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="이광춘 / 한국 R 사용자회" />
+    <meta name="date" content="2022-07-09" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/panelset/panelset.css" rel="stylesheet" />
+    <script src="libs/panelset/panelset.js"></script>
+    <link rel="stylesheet" href="css/SNU.css" type="text/css" />
+    <link rel="stylesheet" href="css/nhsr-fonts.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+
+class: title-slide, left, bottom
+
+# Tidyverse Meets Shiny
+----
+## **보고서에서 제품으로 ... `flexdashboard`, `crosstalk`, `shiny`**
+### 이광춘 / 한국 R 사용자회
+### 2022-07-09
+
+ 
+---
+class: inverse, middle
+name: skk-tidyverse
+
+# 발표 개요 
+
+----
+
+.pull-left[
+
+과거 R은 통계 언어로 알려졌지만, `ggplot`과 `dplyr` 패키지로 대표되는
+`tidyverse`가 2015년 중반 나타나면서 **.warmyellow[데이터 과학 언어]**로 탈바꿈하였다.
+
+이번 Seoul R Meetup 워크샵을 통해 선거 데이터를 통해 전통적인 
+`ggplot`을 통해 시각화 방법과 서버없이 인터랙티브 시각화 방법을 
+`crosstalk` 패키지를 활용한 대쉬보드 제작 사례를 소개한다.
+
+마지막으로 `shiny`를 통한 오픈 통계 패키지와 오픈 통계 교과서
+제작에 여정을 함께 합니다.
+
+]
+ 
+.pull-right[   
+.left[
+
+1\. [`tidyverse`](#skk-tidyverse)
+
+2\. [Rmarkdown to Dashboard - `flexdashboard`](#skk-flexdashboard)
+
+3\. [인터랙티브 대쉬보드 - `crosstalk`](#skk-crosstalk)
+
+4\. [오픈 통계 교과서/패키지 - `shiny`](#skk-shiny)
+
+]
+] &lt;!--end of right-column--&gt;  
+
+&lt;!--------------------------  1. Tidyverse -----------------------------------------&gt;
+
+
+
+
+---
+name: skk-tidyverse-toc
+# 데이터 과학
+
+데이터 사이언스(Data Science)는 데이터를 다루는 과학이다. 따라서 자연법칙을 다루는 자연과학과 맥이 닿아있다.
+자연법칙을 측정하여 데이터프레임(`DataFrame`)으로 나타내면 **변수(Variable)**, **관측점(Observation)**, **값(Value)**으로 표현된다.
+
+&lt;img src="fig/data-science-overview.png" alt="데이터 사이언스 개요" width="100%" /&gt;
+
+
+.footnote[
+[Google Search - "데이터 과학"](https://www.google.com/search?q=%EB%8D%B0%EC%9D%B4%ED%84%B0+%EA%B3%BC%ED%95%99)
+]
+
+---
+name: tidyverse
+# AI/ML/DL vs 데이터 과학
+
+&lt;br&gt;
+
+.center[
+&lt;img src="fig/tidyvese_os.png" width="77%" /&gt;
+]
+
+
+.footnote[
+[한국통계학회 소식지 2019년 10월호 ](https://statkclee.github.io/ds-authoring/ds-stat-tidyverse.html)
+]
+
+---
+name: tidyverse-definition
+# `tidyverse`
+
+&lt;br&gt;
+
+.center[
+&lt;img src="fig/maso_tidyverse.png" width="77%" /&gt;
+]
+
+
+.pull-left[
+
+- 기존 자료구조를 재사용
+- 파이프 연산자로 간단한 함수를 조합
+- 함수형 프로그래밍을 적극 사용
+- 기계가 아닌 인간을 위한 설계
+
+]
+
+.pull-right[
+ 
+- Reuse existing data structures.
+- Compose simple functions with the pipe.
+- Embrace functional programming.
+- Design for humans.
+
+]
+
+---
+name: data-science-graph
+## Big Data/AI/ML/Data Science
+
+&lt;br&gt; 
+
+.pull-left[
+### Google Trends: 미국
+
+![](fig/google-trends-comparison-us-1.png)
+]
+
+.pull-right[
+### Google Trends: 대한민국
+
+![](fig/google-trends-comparison-kr-1.png)
+]
+
+.footnote[
+[이광춘 (2020-07-21), "기업운영혁신을 위한 데이터 과학: 기업의 활용방안", 포항산업과학연구원(RIST)](https://statkclee.github.io/ds-authoring/ds-rist.html)
+]
+
+
+&lt;!--------------------------  2. 대쉬보드 -----------------------------------------&gt;
+
+
+
+---
+class: inverse, middle
+name: skk-flexdashboard
+
+# 발표 개요 
+
+----
+
+.pull-left[
+
+과거 R은 통계 언어로 알려졌지만, `ggplot`과 `dplyr` 패키지로 대표되는
+`tidyverse`가 2015년 중반 나타나면서 **.warmyellow[데이터 과학 언어]**로 탈바꿈하였다.
+
+이번 Seoul R Meetup 워크샵을 통해 선거 데이터를 통해 전통적인 
+`ggplot`을 통해 시각화 방법과 서버없이 인터랙티브 시각화 방법을 
+`crosstalk` 패키지를 활용한 대쉬보드 제작 사례를 소개한다.
+
+마지막으로 `shiny`를 통한 오픈 통계 패키지와 오픈 통계 교과서
+제작에 여정을 함께 합니다.
+
+]
+ 
+.pull-right[   
+.left[
+
+1\. [`tidyverse`](#skk-tidyverse)
+
+2\. **[.warmyellow[Rmarkdown to Dashboard - `flexdashboard`]](#skk-flexdashboard)**
+
+3\. [인터랙티브 대쉬보드 - `crosstalk`](#skk-crosstalk)
+
+4\. [오픈 통계 교과서/패키지 - `shiny`](#skk-shiny)
+
+]
+] &lt;!--end of right-column--&gt;  
+
+---
+name: skk-document-eng
+# 증거기반 문서 제작 개요
+
+&lt;br&gt;
+
+.center[
+![](fig/20220709_skk/document_workflow.jpg)
+]
+
+---
+name: skk-minju-rally
+# 사례: 민주당 대통령 후보 경선
+
+&lt;br&gt;
+
+.center[
+![](fig/20220709_skk/rmarkdown-minju.png)
+]
+
+.footnote[
+- [이광춘, "대통령 선거 2022년 - 민주당 경선"](https://aispiration.com/president/president-minju-race.html)
+]
+
+
+---
+name: skk-minju-flexdashboard
+# 정적 대쉬보드
+
+&lt;iframe src="https://aispiration.com/president/minj_dashboard.html" width="100%" height="400px" data-external="1"&gt;&lt;/iframe&gt;
+
+
+.footnote[
+- [이광춘, "대쉬보드: 대통령 선거 2022년 - 민주당 경선"](https://aispiration.com/president/minj_dashboard.html)
+- [소스코드](https://github.com/statkclee/president/blob/master/minj_dashboard.Rmd)
+]
+
+
+
+&lt;!------------------------  3. 인터랙티브 대쉬보드 -------------------------------------&gt;
+
+
+
+---
+class: inverse, middle
+name: skk-crosstalk
+
+# 발표 개요 
+
+----
+
+.pull-left[
+
+과거 R은 통계 언어로 알려졌지만, `ggplot`과 `dplyr` 패키지로 대표되는
+`tidyverse`가 2015년 중반 나타나면서 **.warmyellow[데이터 과학 언어]**로 탈바꿈하였다.
+
+이번 Seoul R Meetup 워크샵을 통해 선거 데이터를 통해 전통적인 
+`ggplot`을 통해 시각화 방법과 서버없이 인터랙티브 시각화 방법을 
+`crosstalk` 패키지를 활용한 대쉬보드 제작 사례를 소개한다.
+
+마지막으로 `shiny`를 통한 오픈 통계 패키지와 오픈 통계 교과서
+제작에 여정을 함께 합니다.
+
+]
+ 
+.pull-right[   
+.left[
+
+1\. [`tidyverse`](#skk-tidyverse)
+
+2\. [Rmarkdown to Dashboard - `flexdashboard`](#skk-flexdashboard)
+
+3\. **[.warmyellow[인터랙티브 대쉬보드 - `crosstalk`]](#skk-crosstalk)**
+
+4\. [오픈 통계 교과서/패키지 - `shiny`](#skk-shiny)
+
+]
+] &lt;!--end of right-column--&gt;  
+
+
+---
+name: skk-shining-without-shiny
+# 서버없는 인터랙티브 시각화 - crosstalk 
+
+&lt;br&gt;
+
+.center[
+![](fig/20220709_skk/crosstalk.jpg)
+]
+
+
+.footnote[
+- [Crosstalk is an add-on to the htmlwidgets package](https://rstudio.github.io/crosstalk/)
+]
+
+---
+name: skk-crosstalk-gg
+# 지방선거(경기지사) 
+
+
+&lt;iframe src="https://aispiration.com/president/gg-dashboard.html" width="100%" height="400px" data-external="1"&gt;&lt;/iframe&gt;
+
+.footnote[
+- [이광춘, "제8회 지방선거 - 경기지사"](https://aispiration.com/president/gg-dashboard.html)
+]
+
+
+
+&lt;!------------------------  4. 오픈 통계 교과서 -------------------------------------&gt;
+
+
+
+---
+class: inverse, middle
+name: skk-shiny
+
+# 발표 개요 
+
+----
+
+.pull-left[
+
+과거 R은 통계 언어로 알려졌지만, `ggplot`과 `dplyr` 패키지로 대표되는
+`tidyverse`가 2015년 중반 나타나면서 **.warmyellow[데이터 과학 언어]**로 탈바꿈하였다.
+
+이번 Seoul R Meetup 워크샵을 통해 선거 데이터를 통해 전통적인 
+`ggplot`을 통해 시각화 방법과 서버없이 인터랙티브 시각화 방법을 
+`crosstalk` 패키지를 활용한 대쉬보드 제작 사례를 소개한다.
+
+마지막으로 `shiny`를 통한 오픈 통계 패키지와 오픈 통계 교과서
+제작에 여정을 함께 합니다.
+
+]
+ 
+.pull-right[   
+.left[
+
+1\. [`tidyverse`](#skk-tidyverse)
+
+2\. [Rmarkdown to Dashboard - `flexdashboard`](#skk-flexdashboard)
+
+3\. [인터랙티브 대쉬보드 - `crosstalk`](#skk-crosstalk)
+
+4\. **[.warmyellow[오픈 통계 교과서/패키지 - `shiny`]](#skk-shiny)**
+
+]
+] &lt;!--end of right-column--&gt;  
+
+---
+name: skk-bitstat
+# 오픈 통계 패키지
+
+&lt;br&gt;
+
+.center[
+&lt;img src = "fig/bitstat/openStat_demo.gif"&gt;
+]
+
+.footnote[
+- [BitStat - 오픈 통계 패키지](https://github.com/bit2r/BitStat/)
+]
+
+
+---
+name: skk-adm-textbook
+# 오픈 통계 교과서
+
+&lt;br&gt;
+
+&lt;iframe src="https://rpubs.com/statkclee/shiny" width="100%" height="400px" data-external="1"&gt;&lt;/iframe&gt;
+
+
+.footnote[
+- [오픈 통계 교과서 - Shiny Apps](https://rpubs.com/statkclee/shiny)
+- [OpenIntro Statistics](https://www.openintro.org/)
+]
+
+
+
+&lt;!------------------------  5. 마무리 -------------------------------------&gt;
+
+
+---
+name: asia-goodbye
+class: middle, inverse
+
+.pull-left[
+# **경청해 주셔서 &lt;br&gt;감사합니다.**
+&lt;br/&gt;
+## 한국 R 사용자회
+
+]
+
+.pull-right[
+.right[
+
+&lt;img style="border-radius: 100%;" src="fig/korea_R_logo.png" width="300px"/&gt;
+
+]
+]
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="macros.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "googlecode",
+"highlightLines": true,
+"highlightLanguage": "r",
+"countIncrementalSlides": false,
+"ratio": "4:3"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+<!--Hat-tip: https://www.garrickadenbuie.com/blog/xaringan-tip-logo-all-slides/-->
+<style>
+.logo {
+  background-image: url(../fig/korea_R_logo.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  width: 110px;
+  height: 128px;
+  z-index: 0;
+}
+</style>
+
+<script>
+document
+  .querySelectorAll(
+    '.remark-slide-content' +
+    ':not(.title-slide)' +
+    // add additional classes to exclude here, e.g.
+    ':not(.inverse)' +
+    ':not(.hide-logo)'
+  )
+  .forEach(el => {
+    el.innerHTML += '<div class="logo"></div>';
+  });
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

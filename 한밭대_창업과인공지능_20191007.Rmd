@@ -1,0 +1,469 @@
+---
+title: "인공지능과 벤처창업"
+subtitle: "⚔<br/>데이터과학, 기계학습, 딥러닝"
+author: "데이터 과학자 이광춘"
+date: "2019/10/07"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
+
+
+class: inverse, middle, center
+
+# xwMOOC
+
+---
+## xwMOOC 엔터프레너쉽
+
+.pull-left[
+- 문제(Problem)
+
+    - 정보격차
+    
+    - Digital Divide
+    
+    - 데이터 과학자
+    
+    - 소프트웨어 개발자
+]
+
+.pull-right[
+- 해법(Solution)
+
+    - 컴퓨팅 사고력 
+    
+    - Computational Thinking
+    
+    - 시민 데이터 과학자
+    
+    - 시민 개발자
+]
+
+
+---
+## 문제 상세 정의
+
+
+- 우리나라 과학기술이 선진국 수준이 아니다.
+
+- 상당량의 가치(Value)는 과학기술에서 나온다.
+
+- 과학공학자 및 일반 영리 및 비영리 단체가 소프트웨어를 얼마나 잘 하고있는지 측정하기는 어렵다.
+
+- 하지만, 주변을 둘어봐도 마이크로소프트, 한글, 인터넷 검색을 잘하면 컴퓨터를 잘하고 많이 안다고 한다.
+
+
+---
+## xwMOOC 해법
+
+
+- 한국인을 위한 컴퓨팅 사고력 교육 서비스를 제공
+
+- 전국민이 컴퓨터 공학, 통계학, 전자공학, 데이터 사이언스 학사수준 지식 필요
+
+    - 초등(K6) &rArr; [컴퓨터 과학 언플러그드](http://statkclee.github.io/unplugged)  
+
+    - 리보그와 러플	&rArr; 	[리보그 - 프로그래밍과 문제해결](https://statkclee.github.io/code-perspectives/)  
+
+    - 파이썬 &rArr; [정보과학을 위한 파이썬](https://statkclee.github.io/pythonlearn-kr/)  
+
+    - 소프트웨어 공학 &rArr; [소프트웨어 카펜트리 5.3](http://statkclee.github.io/swcarpentry-version-5-3-new/)
+    
+    - [추가] 데이터 사이언스 &rArr; [데이터 사이언스 입문](http://statkclee.github.io/yonsei/), [SW4DS](http://statkclee.github.io/yonsei2/)
+
+
+---
+## 가치 제안(Value Proposition)
+
+- 전국민 생산성 10-20% 평균적으로 향상
+
+- 생산성 10배 이상 향상된 사례발굴
+
+- 작업을 더 빠르게 처리하여 저녁이 있는 삶
+
+- 새로운 문제를 해결에 매진
+
+- HPC, 클라우드, 빅데이터에 대한 준비 ...
+
+- [추가] 인당 초당 1.7 MB 데이터 생성 등... 
+
+.footnote[
+[Christo Petrov (March 22, 2019), "Big Data Statistics 2019", techjury](https://techjury.net/stats-about/big-data-statistics/)
+]
+
+---
+## 기계와 경쟁을 준비하는 한국인
+
+.center[
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/N25z8Ewpaus" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+]
+
+
+---
+class: inverse, middle, center
+
+# 패러다임 전환
+
+---
+
+## 가치(Value) 원천
+
+.center[
+  <img src="fig/ai-lab-korea-science.png" width="77%" />
+]
+
+세계은행(World Bank)과 한국개발연구원(KDI)은 약 2년여 기간의 공동연구를 통해 1960-2005 년간 한국 경제발전 과정에 관한 보고서를 출간했다. 경제성장이 지속되기 위해서는 생산성 증가가 대단히 중요하고, 1960년 이후 한국경제의 성공은 광의의 지식축적에 기인한 것으로 1960-2005년 사이 한국의 실질 1인당GDP의 75%가 광의의 지식축적에 기인한 것으로 분석했다.
+
+
+---
+## 사고체계의 진화
+
+.center[
+  <img src="fig/ai-lab-ct-4th-paradigm.png" width="70%" />
+]
+
+- 수학적 사고(Mathematical Thinking)
+
+- 통계적 사고(Experimental Thinking) 
+
+- 컴퓨팅 사고(Computational Thinking)
+
+.footnote[
+    [Wing, Jeannette M. "Computational thinking." Communications of the ACM 49.3 (2006): 33-35.](https://www.cs.cmu.edu/~15110-s13/Wing06-ct.pdf)
+]
+
+
+---
+
+## 4번째 패러다임
+
+.center[
+  <img src="fig/ai-lab-4th-paradigm.png" width="100%" />
+]
+
+---
+## 자동차 클러스터 사례
+
+.center[
+  <img src="fig/ai-digital-cluster.png" width="100%" />
+]
+
+---
+## 컴퓨터 생성
+
+.pull-left[
+#### 물리적 컴퓨터
+
+<img src="fig/computer-mainbody.jpg" width="100%" />
+]
+
+.pull-right[
+
+#### 가상 컴퓨터(instance, VM)
+
+```{r aws-ec2-code, eval=FALSE}
+import boto3
+ec2 = boto3.resource('ec2')
+
+instances = ec2.create_instances(
+     ImageId='ami-00b6a8a2bd28daf19',
+     MinCount=1,
+     MaxCount=2,
+     InstanceType='t2.micro',
+     KeyName='ec2-keypair'
+ )
+```
+
+ t2.micro, t2.small, m5.large ...
+]
+
+
+---
+class: inverse, middle, center
+
+# 시장, 기업, 인력 비교
+
+
+---
+## 수직적 시장 &rarr; 인공지능 시장
+
+.center[
+  <img src="fig/slide-4th-industry-revolution-roadmap.png" width="100%" />
+]
+- 수직적(Vertical) 시장 &rarr; 플랫폼(Platform) 시장 &rarr; 인공지능(AI) 마켓으로
+
+---
+## 한국 기업(?) vs. AI기반 기업
+
+.center[
+  <img src="fig/stat-data-science.png" width="100%" />
+]
+
+---
+## 산업역군(?)
+
+.center[
+  <iframe width="400" height="270" src="https://www.youtube.com/embed/t346si4gy_M" frameborder="0" allowfullscreen></iframe>
+
+  <img src="fig/ai-basic-skills.png" width="37%" />
+]
+
+.footnote[
+  [MATT RICHTEL, "Reading, Writing, Arithmetic, and Lately, Coding"", The New York Time,  MAY 10, 2014](http://www.nytimes.com/2014/05/11/us/reading-writing-arithmetic-and-lately-coding.html)
+]
+
+---
+class: inverse, middle, center
+
+# RPA
+
+---
+## RPA (Robotic Process Automation)
+
+- 로봇과 자동화가 인간의 일자리를 빼앗아 간다는 부정적인 전망도 있지만, 로봇 프로세스 자동화(RPA)는 반복적이고 평범한 작업을 로봇이 하게 해 조직의 시간을 절약해 준다.
+
+- RPA 업체 
+
+    - [오토메이션 애니웨어(Automation Anywhere)](https://www.automationanywhere.com/)
+
+    - [유아이패스(UiPath)](https://www.uipath.com/)
+
+    - [엣지버브(EdgeVerve)](https://www.edgeverve.com/)
+
+    - [블루프리즘(Blue Prism)](https://www.blueprism.com/)
+
+.footnote[
+["RPA란? 어디에 어떻게 쓰이고 누가 만드나?"](http://www.ciokorea.com/news/39027#csidx3e0255b4236eca9ba5d631db45ce667)
+]
+
+---
+## 왜 RPA인가?
+
+<img src="fig/rpa-sourcing.png" alt="AA" width="100%" />
+
+.footnote[
+출처: Kinetics consulting services / Deloitte Korea, Automation Anywhere Korea 발표자료.
+]
+
+
+---
+## RPA - 시민 데이터 과학자
+
+<img src="fig/rpa_email.png" alt="시민 데이터 과학자" width="100%" />
+
+.footnote[
+- [xwMOOC 데이터 제품 - 전자우편 보고서 발송 자동화](https://statkclee.github.io/data-product/cron-automation.html)
+- [R을 활용한 Rpa 예제 - "네이버 금융 주요 시장지표 수집 및 이메일 발송"](https://mrkevinna.github.io/R%EC%9D%84-%ED%99%9C%EC%9A%A9%ED%95%9C-RPA-%EC%98%88%EC%A0%9C/)
+]
+
+---
+## RPA - 상업용 제품
+
+#### 동영상: [AUTOMATION ANYWHERE'S IT-ACCLAIMED ARCHITECTURE](https://goo.gl/4J94Hc)
+
+---
+class: inverse, middle, center
+
+# 디지탈 경제
+
+
+---
+## 데이터를 산업화
+
+<img src="fig/ds-industry.png" alt="데이터를 산업화" width="67%" />
+
+.footnote[
+[4차산업혁명과 대한민국 혁신성장 활로모색 - "데이터 자원과 사이언스와 엔지니어링 그리고 사업화"](https://statkclee.github.io/ds-authoring/ds-4th-ir.html)
+]
+
+---
+class: inverse, middle, center
+
+# 인공지능 = 데이터 + 슈퍼컴퓨터
+
+.footnote[
+벤처 창업을 위해서 알아야 되는 인공지능관련 기본 지식
+]
+
+---
+## AI/ML/통계
+
+.center[
+  <img src="fig/ai-ml-statistics.png" alt="AI > ML > Statistics" alt="100%" />
+]
+
+---
+## 인공지능과 데이터
+
+.center[
+  <img src="fig/maum.png" alt="AI 플랫폼 서비스" alt="100%" />
+]
+
+---
+## 소프트웨어 1.0과 2.0
+
+.center[
+  <img src="fig/programming_machine_learning_comparison.png" width="80%">
+]
+
+.footnote[
+   [궁극의 주인이 될 알고리즘(Master Algorithm)](https://statkclee.github.io/ai-lab/master-algorithm.html)
+]
+
+---
+## 컴퓨터: 왜 슈퍼컴퓨터를 알아야 하나?
+
+.center[
+  <img src="fig/CPU-Scaling.jpg" width="50%">
+]
+
+.footnote[
+   [xwMOOC 고성능 R 아키텍처](http://statkclee.github.io/parallel-r/r-perf-arch.html)
+]
+
+
+---
+## 컴퓨터: 고성능 컴퓨팅 기초
+
+- 병렬 컴퓨팅 
+    - 동시 실행과 병렬 실행
+    - 동기실행과 비동기 실행
+    - 분산 메모리과 공유 메모리
+    - 프로세스 vs. 쓰레드
+- 실무에 병렬처리 적용 방법
+    - 비동기 프로그래밍
+    - 공유 메모리 프로그래밍
+    - 분산 메모리 프로그래밍
+    - 연쇄 작업(serial farming)
+
+.footnote[
+   [고성능 컴퓨팅(HPC) - 고성능 컴퓨팅 기초](http://statkclee.github.io/hpc/hpc-basic.html)
+]
+
+---
+## 알고리즘: 딥러닝(Deep Learning)
+
+.center[
+  <img src="fig/three-pillars.png" width="90%">
+]
+
+.footnote[
+   [xwMOOC 딥러닝과 $H_2 O$](http://statkclee.github.io/deep-learning/)
+]
+
+---
+## 데이터: 빅데이터 (Big data)
+
+.center[
+  <img src="fig/intree-xy-f.png" alt="정형데이터와 비정형 데이터, 그리고 기계학습" width="90%">
+]
+
+
+.footnote[
+- [데이터 가져오기](https://statkclee.github.io/ingest-data/)
+    - [직사각형 데이터](https://statkclee.github.io/data-science/)
+    - [텍스트 데이터](https://statkclee.github.io/text/)
+    - [네트워크 데이터](https://statkclee.github.io/network/)
+    - [지리정보 데이터](https://statkclee.github.io/spatial/)
+    - [이미지 데이터](https://statkclee.github.io/trilobite/)
+    - 오디오/소리 데이터
+    - ...
+]
+
+---
+## 소프트웨어 기술
+
+.center[
+  <img src="fig/software-evolution.png" width="90%">
+]
+
+.footnote[
+   [xwMOOC 고성능 컴퓨팅(HPC) - 컴파일, 설치, 호출](https://statkclee.github.io/hpc/compile-install-call.html)
+]
+
+
+---
+class: inverse, middle, center
+
+# 인공지능 제품 
+
+---
+class: middle, center
+
+[데이터 저널리즘](https://statkclee.github.io/data-product/data-journalism-working-pop.html)
+
+.footnote[
+    [데이터 과학을 위한 저작도구](https://statkclee.github.io/ds-authoring/)
+]
+
+---
+class: middle, center
+
+[데이터를 제품으로](https://statkclee.github.io/ds-authoring/slides/ds_data_product.html#/)
+
+---
+class: middle, center
+
+[이미지 분류 - 케라스(딥러닝)](https://statkclee.github.io/data-product/shiny-image-classification.html)
+
+---
+class: middle, center
+
+[xwMOOC 딥러닝: 동영상 감정 분석](https://statkclee.github.io/deep-learning/ms-oxford-video.html)
+
+.footnote[
+  [KBS, 인공지능으로 분석한 대통령의 마음 슬픔은 어디에(2016.12.07)](http://news.kbs.co.kr/news/view.do?ncd=3390429)
+]
+
+---
+## 반정형 데이터 - 이력서
+
+.center[
+<img src="fig/resume-rpa.png" alt="이력서" width="100%" />
+]
+
+
+.footnote[
+- [데이터 사이언스: 저작(Authoring) - "이력서(Resume)"](https://statkclee.github.io/ds-authoring/ds-resume.html)
+- [데이터 과학: 재현가능한 저작 - 이력서](https://statkclee.github.io/author_carpentry_kr/)
+]
+
+
+---
+## [얼굴 분석 - Face Analysis](https://itunes.apple.com/kr/app/%EC%96%BC%EA%B5%B4-%EB%B6%84%EC%84%9D-face-analysis/id1290130969?mt=8)
+
+
+.pull-left[
+  <img src="fig/face-analysis-app.png" alt="얼굴분석" width="70%" />
+]
+
+.pull-right[
+  - **클라우드 APIs**
+    - [나이(Age): MS Face API](http://statkclee.github.io/deep-learning/ms-oxford-age.html)
+        - [정보과학교육연합회-R을 이용한 인공지능 튜토리얼](http://statkclee.github.io/deep-learning/ms-oxford-kcode-tutorial.html)
+        
+    - [감정분석: MS Emotion API](http://statkclee.github.io/deep-learning/ms-oxford-video.html)
+    
+    - [Azure Computer Vision API: Generate image captions with the Computer Vision API](http://blog.revolutionanalytics.com/2018/03/computer-vision-api.html)
+]
+
+---
+class: inverse, middle, center
+
+# 마무리
+
+---
+class: middle, center
+
+[데이터 사이언스 R Meetup](https://tidyverse-korea.github.io/r-meetup-x-presser/)
+
+

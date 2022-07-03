@@ -1,0 +1,139 @@
+
+---
+class: inverse, middle
+name: writing-toc
+
+# 발표 개요 
+
+----
+
+.pull-left[
+
+코딩, 즉 컴퓨팅 사고력은 **.green[자동화(Automation)와 추상화(Abstraction)]** 
+두 축으로 하고 있고, 데이터 과학은 **.warmyellow[데이터]** 와 
+**.warmyellow[과학]**을 합친 단어입니다. 
+
+수학은 연역적인 사고를 근간으로 하는 반면 통계(데이터)는 **.red[귀납적 사고를]** 근간으로 
+하고 있어 수 많은 데이터에서 일반적인 규칙을 찾아내는 작업과 이를 사람들에게
+제대로 알리기 위해 시각화를 많이 합니다.
+
+]
+ 
+.pull-right[   
+.left[
+
+1\. [데이터 과학가 한일](#intro-toc)
+
+2\. [데이터 과학자 되는 길](#career-toc)
+
+3\. **[.warmyellow[데이터 과학 기본기 - 글쓰기]](#writing-toc)**
+
+4\. [마무리](#ds-world-goodbye) 
+
+]
+] <!--end of right-column-->  
+ 
+- [한국통계학회 소식지 2019년 10월호 ](https://statkclee.github.io/ds-authoring/ds-stat-tidyverse.html) 
+
+
+---
+class: title-style
+# 논문 - 한국디지털경영학회
+
+<br>
+<br>
+
+.center[
+  <img src="fig/paper-transition.png" alt="한국디지털경영학회" width="100%" />
+]
+
+.footnote[
+  [자동화에 따른 노동시간 변화 분석, 한국디지털경영학회](https://statkclee.github.io/comp_document/automation-kasdba.html)
+]
+
+---
+class: title-style
+# 파워포인트 - `slideshow`
+
+
+.center[
+  <img src="fig/instant-preview.gif" alt="한국디지털경영학회" width="100%" />
+]
+
+.footnote[
+- [R 발표자료(Presentation) - xaringan 슬라이드쇼](https://statkclee.github.io/comp_document/ds-presn.html)
+- [코딩으로 글쓰는 슬기로운 탐구생활, KCD 2020](https://statkclee.github.io/ds-authoring/KCD2020_Tidyverse.html#1)
+]
+
+---
+class: title-style
+layout: false
+
+# GITHUB `readme.md`
+
+```{r capture-github,eval=FALSE, echo=FALSE}
+webshot2::webshot(url = "https://github.com/statkclee", file = "fig/github-readme.png", cliprect = c(0, 0, 1024, 768))
+```
+
+.center[
+  <img src="fig/github-readme.png" alt="GitHub ReadMe" width="100%" />
+]
+
+.footnote[
+  [데이터 과학을 위한 저작도구: Computational Documents - GITHUB `readme.md`](https://statkclee.github.io/comp_document/ds-github-readme.html)
+]
+
+---
+name: es-rconf-website
+# [한국 R 컨퍼런스](https://use-r.kr/) - 웹사이트
+
+<br>
+
+.center[
+<img src="fig/rconf-website.png" width = "80%" />
+]
+
+.footnote[
+- [제작방법](https://github.com/tidyverse-korea/rconf)
+]
+
+---
+name: es-rconf-template
+# [한국 R 컨퍼런스](https://use-r.kr/) - [`r emo::ji("computer")` 발표자 템플릿](https://tidyverse-korea.github.io/templates/#1)
+
+
+.center[
+<img src="fig/rconf-template.png" width = "80%" />
+]
+
+.footnote[
+- [제작방법](https://github.com/tidyverse-korea/templates) 
+]
+
+---
+name: es-rconf-sponsor
+# [한국 R 컨퍼런스](https://use-r.kr/) - [`r emo::ji("help")` 후원](https://tidyverse-korea.github.io/sponsor/#1)
+
+
+.center[
+<img src="fig/rconf-sponsor.png" width = "100%" />
+]
+
+.footnote[
+- [제작방법](https://github.com/tidyverse-korea/sponsor) 
+]
+
+---
+name: es-rconf-poster
+# [한국 R 컨퍼런스](https://use-r.kr/) - [`r emo::ji("help")` 포스터](https://tidyverse-korea.github.io/poster/)
+
+
+.center[
+<img src="fig/rconf-poster.png" width = "80%" />
+]
+
+.footnote[
+- [제작방법](https://github.com/tidyverse-korea/poster) 
+]
+
+

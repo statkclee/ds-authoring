@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>직장인 데이터 과학</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="이광춘" />
+    <meta name="date" content="2021-05-01" />
+    <script src="libs/header-attrs-2.7/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/nhsr.css" type="text/css" />
+    <link rel="stylesheet" href="css/nhsr-fonts.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+class: title-slide, left, bottom
+
+# 직장인 데이터 과학
+----
+## **사례, 개념, 플랫폼, 언어 전쟁, 글쓰기**
+### 이광춘
+### 2021-05-01
+
+ 
+---
+class: inverse, middle
+name: data-science-case
+
+# 강의 개요
+
+----
+
+.pull-left[
+
+직장인의 업무 생산성 향상의 총아로 각광받던 MS 오피스가 한시대를 풍미했다. 
+`\(6\sigma\)`를 필두로 제조업의 혁신을 이끈 통계학도 엑셀에 탑재된 기본기능이 부족하여 미니탭과 같은 통계 팩키지를 필히 익혀야 하는 필수 역량이 되었다.
+
+대기업을 중심으로 고학력을 가진 석박사가 증가하면서 논문 작성에 필요한 고급 통계분석으로 사회과학 분야는 SPSS, 의학 및 경영대는 SAS, 계량경제학 분야는 Gauss, E-View와 같은 특화된 팩키지 소프트웨어를 활용하였고, 좀더 학구적인 역량을 갖춘 분들은 논문을 `\(\LaTeX\)`으로 작성하여 해외 저널과 컨퍼런스에 발표를 하였다.
+
+현재 대한민국을 강타하고 있는 디지털 전환의 바탕이 되는 빅데이터와 AI/기계학습을 아우르는 .green[**데이터 과학**]이 그 실체를 들어내고 있다. 직장인의 기본기로 자리잡아가고 있는 **데이터 과학**과 가장 기본이 되는 .red[**글쓰기**]를 중심으로 학업과 현업 업무를 병행하는 직장인에게 작게나마 도움을 드리고자 한다.
+]
+
+.pull-right[   
+.left[
+
+1\. **[.green[데이터 과학 사례]](#data-science-case)**
+
+2\. [데이터 과학](#data-science)
+
+3\. [데이터 과학 전쟁](#language-war)
+
+4\. [데이터 과학 어벤저스](#data-science-avengers)
+
+5\. [글쓰기](#writing)
+
+6\. [마무리](#goodbye) 
+]
+] &lt;!--end of right-column--&gt;
+
+&lt;!-------------------------- 데이터 과학 사례 ---------------------------------------&gt;
+
+
+
+---
+name: case-study-worldcup
+## 러시아 월드컵 (독일전)
+
+.center[
+&lt;img src="fig/worldcup.gif" alt="월드컵" width="80%" /&gt;
+]
+
+.footnote[
+[러시아 월드컵(2018) - 한국 vs 독일](https://statkclee.github.io/viz/viz-worldcup-germany.html)
+]
+
+---
+name: case-study-earthquake
+## 지진해일 대피소
+
+.center[
+&lt;img src="fig/earthquake.png" alt="월드컵" width="80%" /&gt;
+]
+
+.footnote[
+[xwMOOC (2018-01-17), "지진해일 대피소 - `crosstalk`"](https://statkclee.github.io/viz/viz-earthquake-shelter.html)
+]
+
+---
+name: case-study-congress
+## 국회의원 프로필
+
+.center[
+&lt;img src="fig/trelliscopejs.png" alt="국회의원 사진" width="80%" /&gt;
+]
+
+.footnote[
+[국회의원 사진 - `trelliscope`](https://statkclee.github.io/viz/viz-congressman.html)
+]
+
+---
+name: case-study-avi
+## 동영상 감성 분석
+
+.center[
+&lt;img src="fig/kbs-video.jpg" alt="슬픔은 어디에" width="80%" /&gt;
+]
+
+.footnote[
+- [xwMOOC 딥러닝 - 동영상 감정 분석](https://statkclee.github.io/deep-learning/ms-oxford-video.html)
+- [KBS NEWS, 인공지능으로 분석한 대통령의 마음…슬픔은 어디에?](http://news.kbs.co.kr/news/view.do?ncd=3390429&amp;ref=D)
+]
+
+---
+name: case-study-regression
+## 회귀분석 - MLB 투수 유전자는 유전이 될까?
+
+.center[
+&lt;img src="fig/major-league.png" alt="MLB 투수 유전자" width="77%" /&gt;
+]
+
+.footnote[
+[회귀분석 - MLB 투수 유전자는 유전이 될까?](https://statkclee.github.io/politics/pe-baseball-era.html)
+]
+
+---
+name: case-study-birthrate
+## 출산장려 예산은 출산율을 높일까?
+
+.center[
+&lt;img src="fig/budget-birthrate.png" width="57%" /&gt;
+]
+
+.footnote[
+[저출산과 소요예산 - 상관관계](https://statkclee.github.io/viz/viz-low-birth-rate.html)
+]
+
+---
+name: case-study-tax
+## 증가된 정부예산: 누가 세금을 많이 냈나?
+
+.center[
+&lt;img src="fig/tax-burden.png"width="77%" /&gt;
+]
+
+.footnote[
+[국세 세금 데이터 분석](https://statkclee.github.io/election/election_tax_EDA.html)
+]
+
+
+---
+name: case-study-covid
+## 코로나19 정부 정책 평가
+
+.center[
+&lt;img src="fig/covid19-deaths.png"width="77%" /&gt;
+]
+
+.footnote[
+[코로나19 사망자와 경제성장률](https://statkclee.github.io/viz/viz-mortality.html)
+]
+
+
+&lt;!-------------------------- 데이터 과학 ---------------------------------------&gt;
+
+
+
+---
+class: inverse, middle
+name: data-science
+
+# 강의 개요 
+
+----
+
+.pull-left[
+
+직장인의 업무 생산성 향상의 총아로 각광받던 MS 오피스가 한시대를 풍미했다. 
+`\(6\sigma\)`를 필두로 제조업의 혁신을 이끈 통계학도 엑셀에 탑재된 기본기능이 부족하여 미니탭과 같은 통계 팩키지를 필히 익혀야 하는 필수 역량이 되었다.
+
+대기업을 중심으로 고학력을 가진 석박사가 증가하면서 논문 작성에 필요한 고급 통계분석으로 사회과학 분야는 SPSS, 의학 및 경영대는 SAS, 계량경제학 분야는 Gauss, E-View와 같은 특화된 팩키지 소프트웨어를 활용하였고, 좀더 학구적인 역량을 갖춘 분들은 논문을 `\(\LaTeX\)`으로 작성하여 해외 저널과 컨퍼런스에 발표를 하였다.
+
+현재 대한민국을 강타하고 있는 디지털 전환의 바탕이 되는 빅데이터와 AI/기계학습을 아우르는 .green[**데이터 과학**]이 그 실체를 들어내고 있다. 직장인의 기본기로 자리잡아가고 있는 **데이터 과학**과 가장 기본이 되는 .red[**글쓰기**]를 중심으로 학업과 현업 업무를 병행하는 직장인에게 작게나마 도움을 드리고자 한다.
+]
+
+.pull-right[   
+.left[
+
+1\. [데이터 과학 사례](#data-science-case)
+
+2\. **[.red[데이터 과학]](#data-science)**
+
+3\. [데이터 과학 전쟁](#language-war)
+
+4\. [데이터 과학 어벤저스](#data-science-avengers)
+
+5\. [글쓰기](#writing)
+
+6\. [마무리](#goodbye) 
+]
+] &lt;!--end of right-column--&gt;
+
+
+---
+name: data-science-definition
+# 데이터 과학
+
+데이터 사이언스(Data Science)는 데이터를 다루는 과학이다. 따라서 자연법칙을 다루는 자연과학과 맥이 닿아있다.
+자연법칙을 측정하여 데이터프레임(`DataFrame`)으로 나타내면 **변수(Variable)**, **관측점(Observation)**, **값(Value)**으로 표현된다.
+
+&lt;img src="fig/data-science-overview.png" alt="데이터 사이언스 개요" width="100%" /&gt;
+
+
+.footnote[
+[Google Search - "데이터 과학"](https://www.google.com/search?q=%EB%8D%B0%EC%9D%B4%ED%84%B0+%EA%B3%BC%ED%95%99)
+]
+
+---
+name: tidyverse
+# AI/ML/DL vs 데이터 과학
+
+&lt;br&gt;
+
+.center[
+&lt;img src="fig/tidyvese_os.png" width="77%" /&gt;
+]
+
+
+.footnote[
+[한국통계학회 소식지 2019년 10월호 ](https://statkclee.github.io/ds-authoring/ds-stat-tidyverse.html)
+]
+
+---
+name: tidyverse-definition
+# `tidyverse`
+
+&lt;br&gt;
+
+.center[
+&lt;img src="fig/maso_tidyverse.png" width="77%" /&gt;
+]
+
+
+.pull-left[
+
+- 기존 자료구조를 재사용
+- 파이프 연산자로 간단한 함수를 조합
+- 함수형 프로그래밍을 적극 사용
+- 기계가 아닌 인간을 위한 설계
+
+]
+
+.pull-right[
+ 
+- Reuse existing data structures.
+- Compose simple functions with the pipe.
+- Embrace functional programming.
+- Design for humans.
+
+]
+
+
+---
+name: y-fx
+# 30년의 변화를 그림으로 표현
+
+.center[
+&lt;img src="fig/intree-xy-f.png" alt="XY" width="77%" /&gt;
+]
+
+
+.footnote[
+[이광춘(2019-01-26), "Data Scientist 가 바라본 제조업의 발전 전략 및 방안", Intree 4.0 World Forum](https://statkclee.github.io/ds-authoring/intree-seminar-2019-01.html)
+]
+
+---
+name: data-science-graph
+## Big Data/AI/ML/Data Science
+
+&lt;br&gt; 
+
+.pull-left[
+### Google Trends: 미국
+
+![](fig/google-trends-comparison-us-1.png)
+]
+
+.pull-right[
+### Google Trends: 대한민국
+
+![](fig/google-trends-comparison-kr-1.png)
+]
+
+.footnote[
+[이광춘 (2020-07-21), "기업운영혁신을 위한 데이터 과학: 기업의 활용방안", 포항산업과학연구원(RIST)](https://statkclee.github.io/ds-authoring/ds-rist.html)
+]
+
+---
+name: data-science-resource
+# 데이터 경제와 산업
+
+.pull-left[
+### 데이터 자원
+
+![](fig/economist-bigdata-oil.png)
+]
+
+.pull-right[
+### 파이프라인
+
+![](fig/data-economy-industry.png)
+]
+
+.footnote[
+[이광춘 (2020-07-21), "기업운영혁신을 위한 데이터 과학: 기업의 활용방안", 포항산업과학연구원(RIST)](https://statkclee.github.io/ds-authoring/ds-rist.html)
+]
+
+---
+name: data-sciece-value
+## 가치
+
+&lt;small&gt;
+&lt;ul&gt;
+  &lt;li&gt;기술 분석(Descriptive Analytics): 무슨 일이 있었나? (What happened?)&lt;/li&gt;
+  &lt;li&gt;진단 분석(Diagnostic Analytics): 왜 일어났나? (Why did it happen?)&lt;/li&gt;
+  &lt;li&gt;예측 분석(Predictive Analytics): 무슨 일이 일어날까? (What will happen?)&lt;/li&gt;
+  &lt;li&gt;처방 분석(Prescriptive Analytics): 어떻게 그런 일을 일으킬까? (How can we make it happen?)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/small&gt;
+
+.center[
+&lt;img src="fig/ds-gartner.png" width = "80%" /&gt;
+]
+
+
+---
+name: data-sciece-cost
+# 패러다임의 변화
+
+.pull-left[
+### 비용
+
+![](fig/data-science-cost.png)
+]
+
+.pull-right[
+### 자동화 
+
+![](fig/automated-machine-learning.png)
+]
+
+
+&lt;!-------------------------- 데이터 과학 전쟁 ---------------------------------------&gt;
+
+
+
+---
+class: inverse, middle
+name: language-war
+
+# 강의 개요
+
+-----------------------------------
+
+.pull-left[
+
+직장인의 업무 생산성 향상의 총아로 각광받던 MS 오피스가 한시대를 풍미했다. 
+`\(6\sigma\)`를 필두로 제조업의 혁신을 이끈 통계학도 엑셀에 탑재된 기본기능이 부족하여 미니탭과 같은 통계 팩키지를 필히 익혀야 하는 필수 역량이 되었다.
+
+대기업을 중심으로 고학력을 가진 석박사가 증가하면서 논문 작성에 필요한 고급 통계분석으로 사회과학 분야는 SPSS, 의학 및 경영대는 SAS, 계량경제학 분야는 Gauss, E-View와 같은 특화된 팩키지 소프트웨어를 활용하였고, 좀더 학구적인 역량을 갖춘 분들은 논문을 `\(\LaTeX\)`으로 작성하여 해외 저널과 컨퍼런스에 발표를 하였다.
+
+현재 대한민국을 강타하고 있는 디지털 전환의 바탕이 되는 빅데이터와 AI/기계학습을 아우르는 .green[**데이터 과학**]이 그 실체를 들어내고 있다. 직장인의 기본기로 자리잡아가고 있는 **데이터 과학**과 가장 기본이 되는 .red[**글쓰기**]를 중심으로 학업과 현업 업무를 병행하는 직장인에게 작게나마 도움을 드리고자 한다.
+]
+
+.pull-right[   
+.left[
+
+1\. [데이터 과학 사례](#data-science-case)
+
+2\. [데이터 과학](#data-science)
+
+3\. **[.green[데이터 과학 전쟁]](#language-war)**
+
+4\. [데이터 과학 어벤저스](#data-science-avengers)
+
+5\. [글쓰기](#writing)
+
+6\. [마무리](#goodbye) 
+]
+] &lt;!--end of right-column--&gt;
+
+
+
+
+---
+name: war-man-machine
+# 사람 vs. 기계
+
+.center[
+&lt;img src="fig/stat-modeling-workflow.png" alt="데이터 과학과 통계모형" width="100%" /&gt;
+]
+
+.footnote[
+[기초 통계 -통계 모형(Statistical models)](https://statkclee.github.io/statistics/stat-modeling.html)
+]
+
+
+---
+name: language-problem
+# 데이터 사이언스 언어
+
+데이터 사이언스를 대표하는 R이나 파이썬 모두 컴퓨터 프로그래밍 언어라서 태생적으로 거의 모든 컴퓨터 프로그래밍 언어가 갖고 있는 두 언어 문제에서 역시 자유로울 수는 없다.
+
+&lt;br&gt;
+&lt;br&gt;
+
+| 시스템 언어  | Ousterhout 이분법  | 스크립트 언어  |
+|:-------------:|:-----------:|:-------------:|
+|   정적       |     --      |     동적     |
+|   컴파일      |     --      |    인터프리터 |
+| 사용자정의 자료형|     --      |  표준 자료형 |
+|   빠른 속도   |     --      |   늦은 속도   |
+|   어려움       |     --      |   쉬움     |
+
+.footnote[
+[Ousterhout dichotomy](https://en.wikipedia.org/wiki/Ousterhout%27s_dichotomy)
+]
+
+ 
+---
+name: data-science-process
+# 데이터 과학 프로세스 
+
+.center[
+&lt;img src="fig/data-science-process-as-is-to-be.png" alt="데이터 사이언스 프로세스 비교" width="100%" /&gt;
+]
+
+---
+name: ml-process
+# ML 개발 프로세스
+
+.center[
+![](fig/DALEXverse.png)
+]
+
+---
+name: what-language-choice
+# 어떤 언어를 고를 것인가?
+
+.center[
+&lt;img src="fig/cognitive-performance.png" alt="인지 단계, 계산단계" width="67%" /&gt;
+]
+
+---
+name: language-trends
+# 데이터 과학 언어 추세
+
+&lt;small&gt;
+R을 예로 들면, 팩키지 개발을 할 때 R 스크립트로 모든 기능을 선행하여 기능을 구현하고 유용성이 인정되어 사용자가 많아지면, [Rcpp](https://cran.r-project.org/web/packages/Rcpp/index.html) 팩키지를 사용하여 C/C++로 후행하여 속도와 성능이 필요한 부분에 재개발하는 경우가 흔하다.
+&lt;/small&gt;
+
+.center[
+&lt;img src="fig/data-scientist-languages.png" alt="데이터 사이언스 언어" width="77%"&gt;
+]
+
+---
+name: platform-tidyverse
+# `tidyverse`
+
+&lt;br&gt;
+
+.center[
+&lt;img src="fig/maso_tidyverse.png" width="77%" /&gt;
+]
+
+
+.pull-left[
+
+- 기존 자료구조를 재사용
+- 파이프 연산자로 간단한 함수를 조합
+- 함수형 프로그래밍을 적극 사용
+- 기계가 아닌 인간을 위한 설계
+
+]
+
+.pull-right[
+ 
+- Reuse existing data structures.
+- Compose simple functions with the pipe.
+- Embrace functional programming.
+- Design for humans.
+
+]
+
+.footnote[
+[Welcome to the Tidyverse](https://tidyverse.tidyverse.org/articles/paper.html)
+]
+
+---
+name: platform-tidyverse
+# `tidyverse` R 버전
+
+
+&lt;object data="data/Data_Science_With_R_Workflow.pdf" type="application/pdf" width="750px" height="500px"&gt;
+    &lt;embed src="data/Data_Science_With_R_Workflow.pdf"&gt;
+        &lt;p&gt;Please download the PDF to view it: &lt;a href="data/Data_Science_With_R_Workflow.pdf"&gt;Download PDF&lt;/a&gt;.&lt;/p&gt;
+    &lt;/embed&gt;
+&lt;/object&gt;
+
+
+.footnote[
+- [Ultimate R Cheat Sheet](https://www.business-science.io/r-cheatsheet.html)
+]
+
+---
+name: platform-tidyverse
+# `tidyverse` 파이썬 버전
+
+
+&lt;object data="data/Data_Science_With_Python_Workflow.pdf" type="application/pdf" width="750px" height="500px"&gt;
+    &lt;embed src="data/Data_Science_With_Python_Workflow.pdf"&gt;
+        &lt;p&gt;Please download the PDF to view it: &lt;a href="data/Data_Science_With_Python_Workflow.pdf"&gt;Download PDF&lt;/a&gt;.&lt;/p&gt;
+    &lt;/embed&gt;
+&lt;/object&gt;
+
+
+.footnote[
+- [Ultimate Python Cheat Sheet](https://www.business-science.io/python-cheatsheet.html)
+]
+
+
+&lt;!-------------------------- 데이터 과학 어벤저스 ---------------------------------------&gt;
+
+
+
+
+---
+class: inverse, middle
+name: data-science-avengers
+
+# 강의 개요 
+
+----
+
+.pull-left[
+
+직장인의 업무 생산성 향상의 총아로 각광받던 MS 오피스가 한시대를 풍미했다. 
+`\(6\sigma\)`를 필두로 제조업의 혁신을 이끈 통계학도 엑셀에 탑재된 기본기능이 부족하여 미니탭과 같은 통계 팩키지를 필히 익혀야 하는 필수 역량이 되었다.
+
+대기업을 중심으로 고학력을 가진 석박사가 증가하면서 논문 작성에 필요한 고급 통계분석으로 사회과학 분야는 SPSS, 의학 및 경영대는 SAS, 계량경제학 분야는 Gauss, E-View와 같은 특화된 팩키지 소프트웨어를 활용하였고, 좀더 학구적인 역량을 갖춘 분들은 논문을 `\(\LaTeX\)`으로 작성하여 해외 저널과 컨퍼런스에 발표를 하였다.
+
+현재 대한민국을 강타하고 있는 디지털 전환의 바탕이 되는 빅데이터와 AI/기계학습을 아우르는 .green[**데이터 과학**]이 그 실체를 들어내고 있다. 직장인의 기본기로 자리잡아가고 있는 **데이터 과학**과 가장 기본이 되는 .red[**글쓰기**]를 중심으로 학업과 현업 업무를 병행하는 직장인에게 작게나마 도움을 드리고자 한다.
+]
+
+.pull-right[   
+.left[
+
+1\. [데이터 과학 사례](#data-science-case)
+
+2\. [데이터 과학](#data-science)
+
+3\. [데이터 과학 전쟁](#language-war)
+
+4\. **[.green[데이터 과학 어벤저스]](#data-science-avengers)**
+
+5\. [글쓰기](#writing)
+
+6\. [마무리](#goodbye) 
+]
+] &lt;!--end of right-column--&gt;
+
+---
+name: avengers-problem
+# 펭귄 어벤저스
+
+.center[
+![](fig/shiny-python.png)
+]
+
+.footnote[
+[펭귄 성별예측모형: 파이썬 + `Shiny`](https://statkclee.github.io/model/tidyverse-penguin-python-shiny.html)
+]
+
+---
+names: avengers-penguin
+# 펭귄 데이터셋
+
+.center[
+![](fig/penguin-dataset.png)
+]
+
+.footnote[
+- [펭귄 vs 붓꽃 데이터](https://statkclee.github.io/data-science/ds-iris-penguin.html)
+]
+
+---
+name: avengers-architecture
+# 모형 아키텍쳐
+
+&lt;br&gt;
+&lt;br&gt;
+
+| 앙상블 | Random Forest | XGBoost |
+|--------|----------------|---------|
+|![](fig/penguin-arch-ensemble.png)| ![](fig/penguin-arch-rf.png) | ![](fig/penguin-arch-xgb.png) |
+
+.footnote[
+- [펭귄 성별예측모형: tidymodels](https://statkclee.github.io/model/tidyverse-parsnip-penguin.html)
+]
+
+---
+name: avengers-tuning
+# 모형 최적화: Hyper Parameter Tuning
+
+&lt;br&gt;
+&lt;br&gt;
+
+.center[
+![](fig/xgboost-python.png)
+]
+
+.footnote[
+- [펭귄 성별예측모형: tidymodels - Hyper Parameter](https://statkclee.github.io/model/tidyverse-parsnip-penguin-hyper-parameter.html)
+]
+
+---
+name: avengers-restful
+# 모형 배포: RESTful API
+
+&lt;br&gt;
+&lt;br&gt;
+
+.center[
+&lt;img src = "fig/penguin-restful-api.png" width = "100%" /&gt;
+]
+
+.footnote[
+- [펭귄 성별예측모형: tidymodels - RESTful API](https://statkclee.github.io/model/tidyverse-parsnip-penguin-RESTful-api.html)
+]
+
+---
+name: avengers-explainable-ai
+# 설명가능한 예측모형: Explainable AI
+
+.center[
+![](fig/mdp-DALEX.png)
+]
+
+.footnote[
+- [펭귄 성별예측모형: tidymodels - MDP / DALEX](https://statkclee.github.io/model/tidyverse-parsnip-penguin-DALEX.html)
+]
+
+---
+name: avengers-evaluation
+# `tidyposterior` 모형 평가
+
+.center[
+&lt;img src = "fig/penguin-tidyposterior.png" width = "87%" /&gt;
+]
+
+.footnote[
+- [펭귄 성별예측모형: tidyposterior](https://statkclee.github.io/model/model-tidyposterior.html)
+]
+
+---
+name: avengers-frontend-backed
+# Shiny Front-End + `tidymodels` Back-End
+
+.center[
+![](fig/penguin-shiny-predictive-model.gif)
+]
+
+.footnote[
+- [펭귄 성별예측모형: `tidymodels` - Shiny](https://statkclee.github.io/model/tidyverse-parsnip-penguin-shiny.html)
+]
+
+---
+name: avengers-shiny-python
+# Shiny Front-End + Python Back-End
+
+.center[
+![](fig/shiny-fe-python-be.gif)
+]
+
+.footnote[
+- [펭귄 성별예측모형: 파이썬 - `Shiny`](https://statkclee.github.io/model/tidyverse-penguin-python-shiny.html)
+]
+
+
+---
+name: avengers-model
+# 데이터 과학 EDA 환경: R + 파이썬
+
+.center[
+&lt;img src= "fig/ds-avengers-model.png" width="77%" /&gt;
+]
+
+.footnote[
+- [데이터 과학 개발 환경: R+파이썬](https://statkclee.github.io/data-science/ds-languages.html)
+]
+
+
+
+
+&lt;!-------------------------- 데이터 과학 글쓰기 ---------------------------------------&gt;
+
+
+
+---
+class: inverse, middle
+name: writing
+
+# 강의 개요
+
+-----------------------------------
+
+.pull-left[
+
+직장인의 업무 생산성 향상의 총아로 각광받던 MS 오피스가 한시대를 풍미했다. 
+`\(6\sigma\)`를 필두로 제조업의 혁신을 이끈 통계학도 엑셀에 탑재된 기본기능이 부족하여 미니탭과 같은 통계 팩키지를 필히 익혀야 하는 필수 역량이 되었다.
+
+대기업을 중심으로 고학력을 가진 석박사가 증가하면서 논문 작성에 필요한 고급 통계분석으로 사회과학 분야는 SPSS, 의학 및 경영대는 SAS, 계량경제학 분야는 Gauss, E-View와 같은 특화된 팩키지 소프트웨어를 활용하였고, 좀더 학구적인 역량을 갖춘 분들은 논문을 `\(\LaTeX\)`으로 작성하여 해외 저널과 컨퍼런스에 발표를 하였다.
+
+현재 대한민국을 강타하고 있는 디지털 전환의 바탕이 되는 빅데이터와 AI/기계학습을 아우르는 .green[**데이터 과학**]이 그 실체를 들어내고 있다. 직장인의 기본기로 자리잡아가고 있는 **데이터 과학**과 가장 기본이 되는 .red[**글쓰기**]를 중심으로 학업과 현업 업무를 병행하는 직장인에게 작게나마 도움을 드리고자 한다.
+]
+
+.pull-right[   
+.left[
+
+1\. [데이터 과학 사례](#data-science-case)
+
+2\. [데이터 과학](#data-science)
+
+3\. [데이터 과학 전쟁](#language-war)
+
+4\. [데이터 과학 어벤저스](#data-science-avengers)
+
+5\. **[.green[글쓰기]](#writing)**
+
+6\. [마무리](#goodbye) 
+]
+] &lt;!--end of right-column--&gt;
+
+
+---
+name: writing-ide
+# 문서 편집기
+
+.center[
+&lt;img src="fig/document-ide.png" /&gt;
+]
+
+.footnote[
+[문서 편집기](https://statkclee.github.io/latex/document-ide.html)
+]
+
+---
+name: writing-overview
+# 디지털 글쓰기
+
+.center[
+&lt;img src="fig/writing-overview.png" /&gt;
+]
+
+.footnote[
+[디지털 글쓰기](https://statkclee.github.io/latex/latex-writing.html)
+]
+
+---
+name: writing-overview
+# 맞춤법 검사
+
+.center[
+&lt;img src="fig/rstudio-spelling.png" /&gt;
+]
+
+.footnote[
+[RStudio 워드 프로세서: `hunspell`](https://statkclee.github.io/comp_document/cd-rstudio-wp.html)
+]
+
+---
+name: writing-birds-eye-view
+# R 마크다운 생태계
+
+.center[
+&lt;img src="fig/rmarkdown-ecosystem.png" /&gt;
+]
+
+.footnote[
+[R마크다운 콘텐츠: 웹사이트, 블로그, 포트폴리오 등](https://statkclee.github.io/comp_document/cd-netlify.html)
+]
+
+---
+name: writing-resume
+# 이력서
+
+.center[
+&lt;img src="fig/writing-resume.png" /&gt;
+]
+
+.footnote[
+- [이력서 자동화: `css` + `googlesheets4` + 웹사이트](https://statkclee.github.io/comp_document/ds-resume-automation.html)
+- &lt;https://statkclee.github.io/resume/&gt;
+]
+
+---
+name: writing-slideshow
+# 딥러닝 발표자료(PPT)
+
+.center[
+&lt;img src="fig/writing-slideshow.png" /&gt;
+]
+
+.footnote[
+- [`xaringan` 발표자료 유튜브 동영상 자동 제작](https://statkclee.github.io/deep-learning/r-xaringan-ari.html)
+- &lt;https://www.youtube.com/watch?v=TjYnx2jALmY&gt;
+]
+
+---
+name: writing-slideshow
+# STT: `speech-to-text`
+
+.center[
+&lt;img src="fig/writing-stt.png" /&gt;
+]
+
+.footnote[
+- [KTIS, STT 발표자료](https://statkclee.github.io/ds-authoring/ds-ktis-2021.html#39)
+- [`speech-to-text` - 음성을 텍스트로 변환](https://statkclee.github.io/deep-learning/r-stt.html)
+]
+
+
+---
+name: writing-pdf2website
+# PDF/워드 &amp;rarr; 웹사이트
+
+.center[
+&lt;img src="fig/pdf2website.png" /&gt;
+]
+
+.footnote[
+- 제작방법: [PDF를 데이터로 보는 올바른 자세: PDF &amp;rarr; 웹사이트](https://statkclee.github.io/pdf/pdf-to-website.html)
+- 웹사이트: [웹에서 하는 R 통계분석](https://statkclee.github.io/webr-book/)
+]
+
+&lt;!-------------------------- 마무리 ---------------------------------------&gt;
+
+
+---
+name: goodbye
+class: middle, inverse
+
+.pull-left[
+# **경청해 주셔서 &lt;br&gt;감사합니다.**
+&lt;br/&gt;
+## Tidyverse Korea
+
+]
+
+.pull-right[
+.right[
+
+&lt;img style="border-radius: 100%;" src="../fig/Tidyverse_Korea_logo_transparent.png" width="300px"/&gt;
+
+]
+]
+ 
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "googlecode",
+"highlightLines": true,
+"highlightLanguage": "r",
+"countIncrementalSlides": false,
+"ratio": "4:3"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+<!--Hat-tip: https://www.garrickadenbuie.com/blog/xaringan-tip-logo-all-slides/-->
+<style>
+.logo {
+  background-image: url(../fig/Tidyverse_Korea_logo_transparent.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  width: 110px;
+  height: 128px;
+  z-index: 0;
+}
+</style>
+
+<script>
+document
+  .querySelectorAll(
+    '.remark-slide-content' +
+    ':not(.title-slide)' +
+    // add additional classes to exclude here, e.g.
+    ':not(.inverse)' +
+    ':not(.hide-logo)'
+  )
+  .forEach(el => {
+    el.innerHTML += '<div class="logo"></div>';
+  });
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

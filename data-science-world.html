@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>데이터 과학자의 세계 [학부모]</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="이광춘 / 한국 알(R) 사용자회" />
+    <meta name="date" content="2022-07-23" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/panelset/panelset.css" rel="stylesheet" />
+    <script src="libs/panelset/panelset.js"></script>
+    <link rel="stylesheet" href="css/yangcheon.css" type="text/css" />
+    <link rel="stylesheet" href="css/nhsr-fonts.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+
+class: title-slide, left, bottom
+
+# 데이터 과학자의 세계 [학부모]
+----
+## **사례를 일반화(귀납적 추론)와 시각화**
+### 이광춘 / 한국 알(R) 사용자회
+### 2022-07-23
+
+ 
+---
+class: inverse, middle
+name: intro-toc
+
+# 발표 개요 
+
+----
+
+.pull-left[
+
+코딩, 즉 컴퓨팅 사고력은 **.green[자동화(Automation)와 추상화(Abstraction)]** 
+두 축으로 하고 있고, 데이터 과학은 **.warmyellow[데이터]** 와 
+**.warmyellow[과학]**을 합친 단어입니다. 
+
+수학은 연역적인 사고를 근간으로 하는 반면 통계(데이터)는 **.red[귀납적 사고를]** 근간으로 
+하고 있어 수 많은 데이터에서 일반적인 규칙을 찾아내는 작업과 이를 사람들에게
+제대로 알리기 위해 시각화를 많이 합니다.
+
+]
+ 
+.pull-right[   
+.left[
+
+1\. **[.warmyellow[데이터 과학가 한일]](#intro-toc)**
+
+2\. [데이터 과학자 되는 길](#career-toc)
+
+3\. [데이터 과학 기본기 - 글쓰기](#writing-toc)
+
+4\. [마무리](#ds-world-goodbye) 
+
+]
+] &lt;!--end of right-column--&gt;  
+ 
+- [한국통계학회 소식지 2019년 10월호 ](https://statkclee.github.io/ds-authoring/ds-stat-tidyverse.html) 
+
+
+  
+&lt;!--------------------------  1. 도구 -----------------------------------------&gt;
+
+
+
+
+
+---
+name: ds-world
+# 데이터 과학
+
+데이터 사이언스(Data Science)는 데이터를 다루는 과학이다. 따라서 자연법칙을 다루는 자연과학과 맥이 닿아있다.
+자연법칙을 측정하여 데이터프레임(DataFrame)으로 나타내면 **변수(Variable)**, **관측점(Observation)**, **값(Value)**으로 표현된다.
+
+&lt;img src="fig/data-science-overview.png" alt="데이터 사이언스 개요" width="100%" /&gt;
+
+
+.footnote[
+[Google Search - "데이터 과학"](https://www.google.com/search?q=%EB%8D%B0%EC%9D%B4%ED%84%B0+%EA%B3%BC%ED%95%99)
+]
+
+
+
+---
+name: case-study-worldcup
+## [실제 사례] 러시아 월드컵 (독일전)
+
+&lt;br&gt;
+
+.center[
+&lt;img src="fig/worldcup.gif" alt="월드컵" width="80%" /&gt;
+]
+
+.footnote[
+[러시아 월드컵(2018) - 한국 vs 독일](https://statkclee.github.io/viz/viz-worldcup-germany.html)
+]
+
+---
+name: case-study-earthquake
+## [실제 사례] 지진해일 대피소
+
+&lt;br&gt;
+
+.center[
+&lt;img src="fig/earthquake.png" alt="월드컵" width="80%" /&gt;
+]
+
+.footnote[
+[xwMOOC (2018-01-17), "지진해일 대피소 - crosstalk"](https://statkclee.github.io/viz/viz-earthquake-shelter.html)
+]
+
+---
+name: case-study-congress
+## [실제 사례] 국회의원 프로필
+
+&lt;br&gt;
+
+.center[
+&lt;img src="fig/trelliscopejs.png" alt="국회의원 사진" width="80%" /&gt;
+]
+
+.footnote[
+[국회의원 사진 - trelliscope](https://statkclee.github.io/viz/viz-congressman.html)
+]
+
+---
+name: case-study-avi
+## [실제 사례] 동영상 감성 분석
+
+&lt;br&gt;
+
+.center[
+&lt;img src="fig/kbs-video.jpg" alt="슬픔은 어디에" width="80%" /&gt;
+]
+
+.footnote[
+- [xwMOOC 딥러닝 - 동영상 감정 분석](https://statkclee.github.io/deep-learning/ms-oxford-video.html)
+- [KBS NEWS, 인공지능으로 분석한 대통령의 마음…슬픔은 어디에?](http://news.kbs.co.kr/news/view.do?ncd=3390429&amp;ref=D)
+]
+
+---
+name: case-study-regression
+## [실제 사례] 회귀분석 - MLB 투수 유전자는 유전이 될까?
+
+&lt;br&gt;
+
+.center[
+&lt;img src="fig/major-league.png" alt="MLB 투수 유전자" width="77%" /&gt;
+]
+
+.footnote[
+[회귀분석 - MLB 투수 유전자는 유전이 될까?](https://statkclee.github.io/politics/pe-baseball-era.html)
+]
+
+---
+name: case-study-birthrate
+## [실제 사례] 출산장려 예산은 출산율을 높일까?
+
+&lt;br&gt;
+
+.center[
+&lt;img src="fig/budget-birthrate.png" width="57%" /&gt;
+]
+
+.footnote[
+[저출산과 소요예산 - 상관관계](https://statkclee.github.io/viz/viz-low-birth-rate.html)
+]
+
+---
+name: case-study-tax
+## [실제 사례] 증가된 정부예산: 누가 세금을 많이 냈나?
+
+&lt;br&gt;
+
+.center[
+&lt;img src="fig/tax-burden.png"width="77%" /&gt;
+]
+
+.footnote[
+[국세 세금 데이터 분석](https://statkclee.github.io/election/election_tax_EDA.html)
+]
+
+
+---
+name: case-study-dashboard
+## [실제 사례] 선거 대쉬보드
+
+&lt;br&gt;
+
+.center[
+&lt;img src="fig/krila_dashboard.png" width="100%" /&gt;
+]
+
+.footnote[
+[대통령선거 - 대쉬보드](https://aispiration.com/president/social-dashboard.html)
+]
+
+
+---
+name: data-science-journalism
+# [실제 사례] 뉴스/신문 기자
+
+
+.center[
+&lt;img src="fig/data-journalism.jpeg" width="100%" /&gt;
+]
+
+.footnote[
+[오마이뉴스, "인구통계학적 출생자수와 사망자수를 선반영한 제20대 대통령선거"](http://www.ohmynews.com/NWS_Web/View/at_pg.aspx?CNTN_CD=A0002807916)
+]
+
+
+
+
+---
+class: inverse, middle
+name: career-toc
+
+# 발표 개요 
+
+----
+
+.pull-left[
+
+코딩, 즉 컴퓨팅 사고력은 **.green[자동화(Automation)와 추상화(Abstraction)]** 
+두 축으로 하고 있고, 데이터 과학은 **.warmyellow[데이터]** 와 
+**.warmyellow[과학]**을 합친 단어입니다. 
+
+수학은 연역적인 사고를 근간으로 하는 반면 통계(데이터)는 **.red[귀납적 사고를]** 근간으로 
+하고 있어 수 많은 데이터에서 일반적인 규칙을 찾아내는 작업과 이를 사람들에게
+제대로 알리기 위해 시각화를 많이 합니다.
+
+]
+ 
+.pull-right[   
+.left[
+
+1\. [데이터 과학가 한일](#intro-toc)
+
+2\. **[.warmyellow[데이터 과학자 되는 길]](#career-toc)**
+
+3\. [데이터 과학 기본기 - 글쓰기](#writing-toc)
+
+4\. [마무리](#ds-world-goodbye) 
+
+]
+] &lt;!--end of right-column--&gt;  
+ 
+- [한국통계학회 소식지 2019년 10월호 ](https://statkclee.github.io/ds-authoring/ds-stat-tidyverse.html) 
+
+
+
+---
+name: ds-world-career
+# 디지털 시대 시민 역량 - 코딩
+
+&lt;br&gt; 
+
+.center[
+&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/t346si4gy_M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+]
+
+.footnote[
+[EBS, "코딩, 소프트웨어 시대 - 조용한 혁명"](https://statkclee.github.io/viz/viz-worldcup-germany.html)
+]
+
+
+---
+name: ds-world-career-data
+# 디지털 시대 시민 역량 - 데이터 리터러시
+
+.center[
+&lt;img src="fig/human-evolution.png" alt="월드컵" width="90%" /&gt;
+]
+
+.footnote[
+[뉴욕타임즈(2014), "Reading, Writing, Arithmetic, and Lately, Coding"](http://www.nytimes.com/2014/05/11/us/reading-writing-arithmetic-and-lately-coding.html)
+]
+
+---
+name: ds-world-career-data
+# 디지털 시대 시민 역량 - 세무사
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+.center[
+&lt;img src="fig/tax-preparation.png" alt="세무 업무 변천사" width="90%" /&gt;
+]
+
+
+.footnote[
+[이광춘, "로봇 자동화가 빼앗는 일자리 그리고 나" 분당 서현 청소년 수련관, 2019년 12월 4일(수)](http://aispiration.com/ds-authoring/ds-bundang-2019.html)
+]
+
+---
+name: ds-world-career-joy
+# 디지털 시대 시민 역량 - 교재
+
+
+.center[
+&lt;img src="fig/data-science-contents.png" alt="오픈 콘텐츠 교재" width="90%" /&gt;
+]
+
+| 하드웨어                                             | 소프트웨어                                                            | 데이터                                                                            |
+|------------------|----------------------------|--------------------------|
+| [라즈베리파이](http://aispiration.com/raspberry-pi/) | [언플러그드](https://bit.ly/3rLizf3) [파이썬](https://bit.ly/3L8Lv8m) | [통계적 사고](https://bit.ly/3L9tbMn) [데이터 과학](https://bit.ly/3k3kAil)       |
+| [슈퍼컴퓨터](https://bit.ly/3MmFc1b)                 | [리보그](https://bit.ly/3y1yCcP), [러플](https://bit.ly/3MoR6b6)      | [오픈통계 패키지](https://r2bit.com/Rcmdr/) [SW 카펜트리](https://bit.ly/3xIupKP) |
+
+
+[슈퍼컴퓨터]: https://bit.ly/3MmFc1b
+[라즈베리파이]: http://aispiration.com/raspberry-pi/
+
+[언플러그드]: https://bit.ly/3rLizf3
+[리보그]: https://bit.ly/3y1yCcP
+[러플]: https://bit.ly/3MoR6b6
+[파이썬]: https://bit.ly/3L8Lv8m
+
+[통계적 사고]: https://bit.ly/3L9tbMn
+[오픈통계 패키지]: https://r2bit.com/Rcmdr/
+[공개통계학 개론]: https://bit.ly/3OttWC4
+[데이터 과학]: https://bit.ly/3k3kAil
+[SW 카펜트리]: https://bit.ly/3xIupKP
+
+
+
+
+---
+class: inverse, middle
+name: writing-toc
+
+# 발표 개요 
+
+----
+
+.pull-left[
+
+코딩, 즉 컴퓨팅 사고력은 **.green[자동화(Automation)와 추상화(Abstraction)]** 
+두 축으로 하고 있고, 데이터 과학은 **.warmyellow[데이터]** 와 
+**.warmyellow[과학]**을 합친 단어입니다. 
+
+수학은 연역적인 사고를 근간으로 하는 반면 통계(데이터)는 **.red[귀납적 사고를]** 근간으로 
+하고 있어 수 많은 데이터에서 일반적인 규칙을 찾아내는 작업과 이를 사람들에게
+제대로 알리기 위해 시각화를 많이 합니다.
+
+]
+ 
+.pull-right[   
+.left[
+
+1\. [데이터 과학가 한일](#intro-toc)
+
+2\. [데이터 과학자 되는 길](#career-toc)
+
+3\. **[.warmyellow[데이터 과학 기본기 - 글쓰기]](#writing-toc)**
+
+4\. [마무리](#ds-world-goodbye) 
+
+]
+] &lt;!--end of right-column--&gt;  
+ 
+- [한국통계학회 소식지 2019년 10월호 ](https://statkclee.github.io/ds-authoring/ds-stat-tidyverse.html) 
+
+
+---
+class: title-style
+# 논문 - 한국디지털경영학회
+
+&lt;br&gt;
+&lt;br&gt;
+
+.center[
+  &lt;img src="fig/paper-transition.png" alt="한국디지털경영학회" width="100%" /&gt;
+]
+
+.footnote[
+  [자동화에 따른 노동시간 변화 분석, 한국디지털경영학회](https://statkclee.github.io/comp_document/automation-kasdba.html)
+]
+
+---
+class: title-style
+# 파워포인트 - `slideshow`
+
+
+.center[
+  &lt;img src="fig/instant-preview.gif" alt="한국디지털경영학회" width="100%" /&gt;
+]
+
+.footnote[
+- [R 발표자료(Presentation) - xaringan 슬라이드쇼](https://statkclee.github.io/comp_document/ds-presn.html)
+- [코딩으로 글쓰는 슬기로운 탐구생활, KCD 2020](https://statkclee.github.io/ds-authoring/KCD2020_Tidyverse.html#1)
+]
+
+---
+class: title-style
+layout: false
+
+# GITHUB `readme.md`
+
+
+
+.center[
+  &lt;img src="fig/github-readme.png" alt="GitHub ReadMe" width="100%" /&gt;
+]
+
+.footnote[
+  [데이터 과학을 위한 저작도구: Computational Documents - GITHUB `readme.md`](https://statkclee.github.io/comp_document/ds-github-readme.html)
+]
+
+---
+name: es-rconf-website
+# [한국 R 컨퍼런스](https://use-r.kr/) - 웹사이트
+
+&lt;br&gt;
+
+.center[
+&lt;img src="fig/rconf-website.png" width = "80%" /&gt;
+]
+
+.footnote[
+- [제작방법](https://github.com/tidyverse-korea/rconf)
+]
+
+---
+name: es-rconf-template
+# [한국 R 컨퍼런스](https://use-r.kr/) - [💻 발표자 템플릿](https://tidyverse-korea.github.io/templates/#1)
+
+
+.center[
+&lt;img src="fig/rconf-template.png" width = "80%" /&gt;
+]
+
+.footnote[
+- [제작방법](https://github.com/tidyverse-korea/templates) 
+]
+
+---
+name: es-rconf-sponsor
+# [한국 R 컨퍼런스](https://use-r.kr/) - [💁 후원](https://tidyverse-korea.github.io/sponsor/#1)
+
+
+.center[
+&lt;img src="fig/rconf-sponsor.png" width = "100%" /&gt;
+]
+
+.footnote[
+- [제작방법](https://github.com/tidyverse-korea/sponsor) 
+]
+
+---
+name: es-rconf-poster
+# [한국 R 컨퍼런스](https://use-r.kr/) - [🆘 포스터](https://tidyverse-korea.github.io/poster/)
+
+
+.center[
+&lt;img src="fig/rconf-poster.png" width = "80%" /&gt;
+]
+
+.footnote[
+- [제작방법](https://github.com/tidyverse-korea/poster) 
+]
+
+
+
+
+---
+name: ds-world-goodbye
+class: middle, inverse
+
+.pull-left[
+# **경청해 주셔서 &lt;br&gt;감사합니다.**
+&lt;br/&gt;
+## 한국 R 사용자회
+
+]
+
+.pull-right[
+.right[
+
+&lt;img style="border-radius: 100%;" src="fig/bitstat_logo.jpg" width="300px"/&gt;
+
+]
+]
+
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="macros.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "googlecode",
+"highlightLines": true,
+"highlightLanguage": "r",
+"countIncrementalSlides": false,
+"ratio": "4:3"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+<!--Hat-tip: https://www.garrickadenbuie.com/blog/xaringan-tip-logo-all-slides/-->
+<style>
+.logo {
+  background-image: url(../fig/korea_R_logo.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  width: 110px;
+  height: 128px;
+  z-index: 0;
+}
+</style>
+
+<script>
+document
+  .querySelectorAll(
+    '.remark-slide-content' +
+    ':not(.title-slide)' +
+    // add additional classes to exclude here, e.g.
+    ':not(.inverse)' +
+    ':not(.hide-logo)'
+  )
+  .forEach(el => {
+    el.innerHTML += '<div class="logo"></div>';
+  });
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

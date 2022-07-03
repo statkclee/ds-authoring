@@ -1,0 +1,369 @@
+
+ 
+---
+class: inverse, middle
+name: krila-05-factory
+
+# 발표 개요 
+
+----
+
+.pull-left[
+
+**.warmyellow[데이터가 기하급수적으로 증가]**하고 있으며, 
+지속적인 공공데이터 확대, 
+데이터3법 및 데이터 기본법 통과에 따른 선진적인 데이터 법제도 기틀 마련되면서
+이를 (데이터) 자원으로 가치를 창출하는 **디지털 전환**이 급속도로 진행되고 있으나,
+디지털 전환에 따른 **.red[행정, 인력, 기술기반(도구와 언어)]**등 제반 여건은 성숙되지 못한 상황. 
+
+**.red[플랫폼 (지방)정부]**를 위해서는 선진 디지털 기업을 벤치마킹하고
+디지털 기업을 지탱하는 **.green[자동화(Automation)와 추상화(Abstraction)]** 
+내재화가 반드시 필요함.
+
+]
+ 
+.pull-right[   
+.left[
+
+1\. [데이터 과학](#krila-01-data-science)
+
+2\. [디지털 기업](#krila-02-digital-company)
+
+3\. [자동화](#krila-03-automation)
+
+4\. [플랫폼 (정부)](#krila-04-platform)
+
+5\. **[.warmyellow[문서 공장]](#krila-05-factory)**
+
+6\. [마무리](#krila-goodbye) 
+
+
+]
+] <!--end of right-column-->  
+
+---
+name: es-document-factory
+# 문서 공장 (Document Factory)
+
+<br>
+
+.center[
+<img src="fig/document-factory.png" width = "100%" />
+]
+
+.footnote[
+- [데이터 과학 문서](https://statkclee.github.io/comp_document/)
+- [PDF를 데이터로 보는 올바른 자세](https://statkclee.github.io/pdf/)
+]
+
+
+
+---
+name: es-why
+# [문서 공장] 문서 제작 문제
+
+<br>
+
+.center[
+<img src="fig/current-document-problem.png" width = "100%" />
+]
+
+.footnote[
+- [R마크다운 콘텐츠: 웹사이트, 블로그, 포트폴리오 등](https://statkclee.github.io/comp_document/cd-netlify.html)
+]
+
+---
+name: es-communication
+# [문서 공장] 데이터 과학 문서 커뮤니케이션 대상
+
+<br>
+
+.center[
+<img src="fig/document-communication.png" width = "100%" />
+]
+
+.footnote[
+- [R마크다운 콘텐츠: 웹사이트, 블로그, 포트폴리오 등](https://statkclee.github.io/comp_document/cd-netlify.html)
+]
+
+---
+name: es-code-first
+# [문서 공장] Code First 문서 제작
+
+<br>
+
+.center[
+<img src="fig/document-engineering.png" width = "100%" />
+]
+
+.footnote[
+- [code first 한글](https://github.com/statkclee/codefirst)
+- [code first 영문](https://github.com/nrohr/codefirst)
+]
+
+---
+name: es-html-word-pdf
+# R Markdown &rarr; PDF, HTML, Word
+
+.panelset[
+.panel[.panel-name[R Code]
+
+<pre>
+library(knitr)
+fs::dir_create("01_rmarkdown")
+
+# 1. 보고서 만들기 ---------------------------------------
+## 1.1. HTML 보고서 ---------------------------------------
+render("01_bmi_rmarkdown_html.Rmd", 
+    output_format="html_document",
+    output_file = glue::glue("01_bmi_rmarkdown.html"),
+    encoding = 'UTF-8', 
+    output_dir = "01_rmarkdown")
+
+## 1.2. PDF 보고서 ---------------------------------------
+render("01_bmi_rmarkdown_pdf.Rmd", 
+    output_format="pdf_document",
+    output_file = glue::glue("01_bmi_rmarkdown.pdf"),
+    encoding = 'UTF-8', 
+    output_dir = "01_rmarkdown")
+</pre>
+
+]
+
+.panel[.panel-name[문서 생성 결과]
+.center[
+<img src="fig/document-word-html-pdf.png" width = "57%" />
+]
+]
+]
+
+.footnote[
+- [code first 한글](https://github.com/statkclee/codefirst)
+]
+
+
+---
+name: es-basic-parameterized-report
+# [문서 공장] R Markdown &rarr; Parameterized Report
+
+.panelset[
+.panel[.panel-name[R Code]
+
+<pre>
+fs::dir_create("02_parameterized")
+
+# 1. 성별 ---------------------------------------
+genders <- c("Male", "Female")
+
+# 2. 남녀별 보고서 만들기 ---------------------------------------
+for(gender in genders) {
+  knitr::render("02_bmi_parameterized.Rmd", 
+    output_format="html_document",
+    params = list(gender = gender),
+    output_file = glue::glue("02_bmi_parameterized_{gender}.html"),
+    encoding = 'UTF-8', 
+    output_dir = "02_parameterized")
+}
+</pre>
+
+]
+
+.panel[.panel-name[문서 생성 결과]
+.center[
+<img src="fig/parameterized-gender-document.png" width = "57%" />
+]
+]
+]
+
+.footnote[
+- [code first 한글](https://github.com/statkclee/codefirst)
+]
+
+---
+name: es-basic-parameterized-report
+# [문서 공장] R Markdown &rarr; 전자우편 발송
+
+.panelset[
+.panel[.panel-name[R Code]
+
+<pre>
+fs::dir_create("03_email")
+
+# 1. 전자우편 만들기 ---------------------------------------
+
+bmi_email <- render_email('03_bmi_email.Rmd')
+
+bmi_email
+
+bmi_email %>%
+  smtp_send(
+    to = "steve.jobs@gmail.com",
+    from = "victor@r2bit.com",
+    subject = "한국 R 컨퍼런스 후원 테스트",
+    credentials = creds_key("rconf")
+  )
+
+</pre>
+
+]
+
+.panel[.panel-name[문서 생성 결과]
+.center[
+<img src="fig/codefirst-email.png" width = "100%" />
+]
+]
+]
+
+.footnote[
+- [code first 한글](https://github.com/statkclee/codefirst)
+]
+
+---
+name: es-pro-report
+# [문서 공장] 전문 보고서
+
+.panelset[
+.panel[.panel-name[작업 방식]
+.center[
+<img src="fig/front_rmarkdown.png" width = "77%" />
+]
+]
+
+.panel[.panel-name[문서 생성 결과]
+.center[
+<img src="fig/pro-report-basic.png" width = "57%" />
+]
+]
+]
+
+.footnote[
+- [Professional Report](https://github.com/statkclee/pro_report)
+]
+
+---
+name: es-pro-report-backend
+# [문서 공장] 전문 보고서 - 데이터베이스
+
+.panelset[
+.panel[.panel-name[작업 방식]
+.center[
+<img src="fig/pro_report_backend.png" width = "100%" />
+]
+]
+
+.panel[.panel-name[문서 생성 결과]
+.center[
+<img src="fig/pro-report-basic.png" width = "57%" />
+]
+]
+]
+
+.footnote[
+- [Professional Report](https://github.com/statkclee/pro_report/tree/backend)
+]
+
+---
+name: es-pro-report-backend-parameter
+# [문서 공장] 전문 보고서 - DB + Parameterized Report
+
+.panelset[
+.panel[.panel-name[작업 방식]
+.center[
+<img src="fig/pro_report_parameterized.png" width = "100%" />
+]
+]
+
+.panel[.panel-name[문서 생성 결과]
+.center[
+<img src="fig/pro-report-parameter.png" width = "80%" />
+]
+]
+]
+
+.footnote[
+- [Professional Report](https://github.com/statkclee/pro_report/tree/parameterized_document)
+]
+
+---
+name: es-pro-report-dashboard
+# [문서 공장] shiny 대쉬보드
+
+<br>
+
+.center[
+<img src="fig/bmi_prediction.gif" width = "90%" />
+]
+
+.footnote[
+- [Professional Report](https://github.com/statkclee/pro_report/tree/dashboard)
+]
+
+ 
+---
+name: es-rconf-website
+# 사례: [한국 R 컨퍼런스](https://use-r.kr/) - 웹사이트
+
+<br>
+
+.center[
+<img src="fig/rconf-website.png" width = "80%" />
+]
+
+.footnote[
+- [제작방법](https://github.com/tidyverse-korea/rconf)
+]
+
+---
+name: es-rconf-template
+# 사례: [한국 R 컨퍼런스](https://use-r.kr/) - [`r emo::ji("computer")` 발표자 템플릿](https://tidyverse-korea.github.io/templates/#1)
+
+
+.center[
+<img src="fig/rconf-template.png" width = "80%" />
+]
+
+.footnote[
+- [제작방법](https://github.com/tidyverse-korea/templates) 
+]
+
+---
+name: es-rconf-sponsor
+# 사례: [한국 R 컨퍼런스](https://use-r.kr/) - [`r emo::ji("help")` 후원](https://tidyverse-korea.github.io/sponsor/#1)
+
+
+.center[
+<img src="fig/rconf-sponsor.png" width = "100%" />
+]
+
+.footnote[
+- [제작방법](https://github.com/tidyverse-korea/sponsor) 
+]
+
+---
+name: es-rconf-poster
+# 사례: [한국 R 컨퍼런스](https://use-r.kr/) - [`r emo::ji("help")` 포스터](https://tidyverse-korea.github.io/poster/)
+
+
+.center[
+<img src="fig/rconf-poster.png" width = "80%" />
+]
+
+.footnote[
+- [제작방법](https://github.com/tidyverse-korea/poster) 
+]
+
+
+---
+name: es-rconf-survey
+# 사례: [한국 R 컨퍼런스](https://use-r.kr/) - [`r emo::ji("look")` 여론조사](https://tidyverse-korea.github.io/rconf-2021-survey/)
+
+<br>
+
+.center[
+<img src="fig/krila_rconf_survey.png" width = "80%" />
+]
+
+.footnote[
+- [제작방법](https://github.com/tidyverse-korea/rconf-2021-survey) 
+]
+

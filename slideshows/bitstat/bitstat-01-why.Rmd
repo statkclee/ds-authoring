@@ -1,0 +1,70 @@
+
+---
+name: bitstat-why
+# 디지털 불평등
+
+<br>
+
+.center[
+  <img src="fig/bitstat/inequality.jpg" />
+]
+
+---
+name: bitstat-pkg
+# 국내외 통계패키지
+
+
+.center[
+  <img src="fig/bitstat/statistics-pkg.jpg" width="100%">
+]
+
+.footnote[
+- [한국 통계 팩키지](https://r2bit.com/onboard/tong.html)   
+]
+
+---
+name: bitstat-market
+# 시장상황과 관련 제품
+
+<br>
+- 국내 기술 동향 및 수준
+    - 한국R사용자회 정보통신산업진흥원 오픈업 오픈통계 패키지 컨트리뷰톤 커뮤니티 개발
+    - 통계청/통계교육원 통그라미 개발운영
+    - 서울대 2015년 SRC-STAT 통계패키지 개발
+    - 가톨릭의대 문건웅 교수 WEB-R 웹기반 통계 패키지를 의학분야 한정하여 개발운영
+    
+- 국외 기술 동향 및 수준
+    - SPSS 개발자 출신 스타트업 BlueSky Statistics
+    - 기계학습 특화 R Rattle 통계패키지, ‘05년 개발된 R GUI 통계분석 R Commander
+    - 기계학습 특화 머신러닝 플랫폼 DataRobot, Java 기반 머신러닝/AI 플랫폼 Driverless AI
+
+
+.center[
+  <img src="fig/bitstat/market-size.jpg" />
+]
+
+
+.footnote[
+- IDC, "Revenue from big data and business analytics worldwide from 2015 to 2022", 2021년 9월.
+- NICE디앤비, “데이터솔류션(263800) 기술분석보고서”, 한국IR협의회, 2020년 8월.
+]
+
+
+---
+name: bitstat-brand
+# 오픈통계 패키지 - 상표권
+
+.center[
+  <img src="fig/bitstat/bitstat-brand.png" />
+]
+
+
+
+.footnote[
+- 상표권 출원번호 (40-2022-0000664/2022.01.03.): BitStat
+- 상표권 출원번호 (40-2022-0000670/2022.01.03.): 빛스탯
+]
+
+
+
+

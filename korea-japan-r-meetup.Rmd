@@ -1,0 +1,101 @@
+---
+title: "Korea-Japan R Meetup Exchange Meeting"
+subtitle: "<br/> Professor Kazuo Fujimoto Visit"
+author: "Tidyverse Korea"
+date: "2018/09/03"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
+
+
+background-image: url("fig/fujimoto-email.png")
+background-size: 800px
+
+---
+# Korea-Japan R Meetup Exchange Meeting
+
+- Email Exchange
+
+- Google Translation 
+
+- Tidyverse Korea Facebook Group
+
+- ...
+
+
+---
+# R User Conference in Korea
+
+.center[
+ <img src="fig/krug-conference.png" alt="KRUG Conference 2018" width="80%" />
+]
+
+.footnote[
+  [R User Conference in Korea 2018](http://ruck2018.r-kor.org/)
+]
+
+---
+# R Community in Korea (Online)
+
+- [통계분석연구회(Statistics Analysis Study)](https://www.facebook.com/groups/statsas/)
+    - Move from DAUM Cafe to Facebook Group
+    - SAS is the origin language.
+
+
+- [R Korea - KRUG(Korean R User Group)](https://www.facebook.com/groups/KoreaRUsers/)
+
+
+- [Tidyverse Korea](https://www.facebook.com/groups/1404219106509417/)
+
+- [PRESSer](https://www.facebook.com/groups/1473988286034801/)
+
+
+---
+# R Meetup (Offline)
+
+.center[
+ <img src="fig/meetup-offline.png" alt="KRUG Conference 2018" width="80%" />
+]
+
+.footnote[
+  [R Meetup](https://github.com/KaggleBreak/xwmooc_Rmeetup)
+]
+
+---
+# [PRESSer](https://www.facebook.com/groups/1473988286034801/)
+
+<style>
+div.blue { background-color:#e6f0ff; border-radius: 5px; padding: 10px;}
+</style>
+<div class = "blue">
+
+<p>
+<strong>PRESSer</strong> is a closed group on Facebook in Korea established in July 2018. This group was established for promoting relationship among members who have interested in data science and data analysis. We don't have any concern for the tools they use. Actually, PRESSer means people who use PRESS when they do data projects, and PRESS is the abbreviation of Python, R, Excel, SAS, and SPSS.
+</p>
+
+<p>
+The main purpose of this group is to become intimate before starting things such as a data analysis competition, a foundation of a new start-up etc. We've met a monthly gathering so far.
+</p>
+
+</div>
+
+
+---
+# Anything to be added
+
+- (ex) Korea R Leader : [Choonghyun Ryu](https://github.com/choonghyunryu)
+
+
+- Korea R Leader: 정우준
+
+
+

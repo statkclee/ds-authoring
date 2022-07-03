@@ -1,0 +1,189 @@
+<!-- Timeline generated in R 4.2.0 by googleVis 0.7.0 package -->
+<!-- Fri Jun 10 11:12:09 2022 -->
+
+
+<!-- jsHeader -->
+<script type="text/javascript">
+ 
+// jsData 
+function gvisDataTimelineID59b41203625d () {
+var data = new google.visualization.DataTable();
+var datajson =
+[
+ [
+"대통령",
+"15대",
+new Date(1997,11,18,0,0,0),
+new Date(2002,11,18,0,0,0)
+],
+[
+"대통령",
+"16대",
+new Date(2002,11,19,0,0,0),
+new Date(2007,11,18,0,0,0)
+],
+[
+"대통령",
+"17대",
+new Date(2007,11,19,0,0,0),
+new Date(2012,11,19,0,0,0)
+],
+[
+"대통령",
+"18대",
+new Date(2012,11,19,0,0,0),
+new Date(2017,4,9,0,0,0)
+],
+[
+"대통령",
+"19대",
+new Date(2017,4,10,0,0,0),
+new Date(2022,4,9,0,0,0)
+],
+[
+"대통령",
+"20대",
+new Date(2022,4,10,0,0,0),
+new Date(2027,4,9,0,0,0)
+],
+[
+"국회의원",
+"17대",
+new Date(2004,4,30,0,0,0),
+new Date(2008,4,29,0,0,0)
+],
+[
+"국회의원",
+"18대",
+new Date(2008,4,30,0,0,0),
+new Date(2012,4,29,0,0,0)
+],
+[
+"국회의원",
+"19대",
+new Date(2012,4,30,0,0,0),
+new Date(2016,4,29,0,0,0)
+],
+[
+"국회의원",
+"20대",
+new Date(2016,4,30,0,0,0),
+new Date(2020,4,29,0,0,0)
+],
+[
+"국회의원",
+"21대",
+new Date(2020,4,30,0,0,0),
+new Date(2024,4,29,0,0,0)
+],
+[
+"지방선거",
+"3회",
+new Date(2002,6,1,0,0,0),
+new Date(2006,5,30,0,0,0)
+],
+[
+"지방선거",
+"4회",
+new Date(2006,6,1,0,0,0),
+new Date(2010,5,30,0,0,0)
+],
+[
+"지방선거",
+"5회",
+new Date(2010,6,1,0,0,0),
+new Date(2014,5,30,0,0,0)
+],
+[
+"지방선거",
+"6회",
+new Date(2014,6,1,0,0,0),
+new Date(2018,5,30,0,0,0)
+],
+[
+"지방선거",
+"7회",
+new Date(2018,6,1,0,0,0),
+new Date(2022,5,30,0,0,0)
+],
+[
+"지방선거",
+"8회",
+new Date(2022,6,1,0,0,0),
+new Date(2026,5,30,0,0,0)
+] 
+];
+data.addColumn('string','type');
+data.addColumn('string','subtype');
+data.addColumn('datetime','start');
+data.addColumn('datetime','end');
+data.addRows(datajson);
+return(data);
+}
+ 
+// jsDrawChart
+function drawChartTimelineID59b41203625d() {
+var data = gvisDataTimelineID59b41203625d();
+var options = {};
+options["width"] = 600;
+options["height"] = 550;
+
+
+    var chart = new google.visualization.Timeline(
+    document.getElementById('TimelineID59b41203625d')
+    );
+    chart.draw(data,options);
+    
+
+}
+  
+ 
+// jsDisplayChart
+(function() {
+var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+var chartid = "timeline";
+  
+// Manually see if chartid is in pkgs (not all browsers support Array.indexOf)
+var i, newPackage = true;
+for (i = 0; newPackage && i < pkgs.length; i++) {
+if (pkgs[i] === chartid)
+newPackage = false;
+}
+if (newPackage)
+  pkgs.push(chartid);
+  
+// Add the drawChart function to the global list of callbacks
+callbacks.push(drawChartTimelineID59b41203625d);
+})();
+function displayChartTimelineID59b41203625d() {
+  var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+  var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+  window.clearTimeout(window.__gvisLoad);
+  // The timeout is set to 100 because otherwise the container div we are
+  // targeting might not be part of the document yet
+  window.__gvisLoad = setTimeout(function() {
+  var pkgCount = pkgs.length;
+  google.load("visualization", "1", { packages:pkgs, callback: function() {
+  if (pkgCount != pkgs.length) {
+  // Race condition where another setTimeout call snuck in after us; if
+  // that call added a package, we must not shift its callback
+  return;
+}
+while (callbacks.length > 0)
+callbacks.shift()();
+} });
+}, 100);
+}
+ 
+// jsFooter
+</script>
+ 
+<!-- jsChart -->  
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartTimelineID59b41203625d"></script>
+ 
+<!-- divChart -->
+  
+<div id="TimelineID59b41203625d" 
+  style="width: 600; height: 550;">
+</div>

@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>도전받는 엑셀과 파워포인드</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="데이터 과학자 이광춘" />
+    <link rel="stylesheet" href="xwmooc.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# 도전받는 엑셀과 파워포인드
+## 엑셀/파워포인트 → R/파이썬
+### 데이터 과학자 이광춘
+### 2019년 4월
+
+---
+
+
+
+
+class: inverse, middle, center
+
+## 데이터 과학자 1세대
+
+---
+### 데이터 과학자
+
+.pull-left[
+  &lt;img src="fig/victorlee-bizcard.png" alt="명함" width="100%" /&gt;
+]
+
+.pull-right[
+  &lt;iframe width="400" height="250" src="https://www.youtube.com/embed/K_TGdklC504" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+]
+
+.footnote[
+- 삼정 KPMG 데이터 과학자
+- 연세대학교 겸임교수, ["데이터 사이언스 입문"](https://statkclee.github.io/yonsei/)
+- [이광춘(2019) "데이터 사이언스, 타이디버스로 향하다", 마이크로소프트웨어 395호](http://it.chosun.com/site/data/html_dir/2019/01/29/2019012900392.html)
+- [데이터 사이언스 미트업 운영](https://tidyverse-korea.github.io/r-meetup-x-presser/)
+- [소프트웨어 카펜트리(Software Carpentry) 강사 (Kwangchun Lee)](https://carpentries.org/instructors/)
+- [Cloudera Conference 2018 - Seoul: 기계의 역습 - 설명가능한 기계학습](https://www.clouderasessionsseoul.com/agenda.php)
+]
+
+---
+class: inverse, middle, center
+
+## 빅데이터 &amp;rarr; 데이터 사이언스
+
+---
+### 구글 Trends 데이터 사이언스 한미 비교 - 미국
+
+&lt;img src="ds-finance-201904_files/figure-html/google-trends-comparison-us-1.png" style="display: block; margin: auto;" /&gt;
+
+
+---
+### 구글 Trends 데이터 사이언스 한미 비교 - 한국
+
+
+&lt;img src="ds-finance-201904_files/figure-html/google-trends-comparison-kr-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+### 데이터 사이언스란?
+
+데이터 사이언스는 데이터를 다루는 과학이다. 따라서 자연법칙을 다루는 자연과학과 맥이 닿아있다.
+자연법칙을 측정하여 데이터프레임(`DataFrame`)으로 나타내면 **변수(Variable)**, **관측점(Observation)**, **값(Value)**으로 표현된다.
+
+&lt;img src="fig/data-science-overview.png" alt="데이터 사이언스 개요" width="100%" /&gt;
+
+
+---
+### 데이터 사이언스 업무
+
+&lt;img src="fig/data-science-airbnb.png" alt="데이터 사이언스 에어비앤비" width="100%" /&gt;
+
+- **분석(Analytics) 데이터 과학자(Data Analyst)**는 좋은 질문을 던질 수 있고, 
+탐색적 데이터 분석을 통해서 문제와 해법을 명확히 하는 재주가 있고, 대쉬보드와 시각화를 통해 데이터 분석을 자동화하고, 추천 결과물을 통해 비즈니스를 변화시킨다. 
+- **알고리즘(algorithm) 데이터 과학자(AI/Machine Learning Engineer)**는 기계학습에 특기가 있는 사람에 적합하고 제품/서비스, 프로세스에 데이터를 알고리즘을 통해 녹여내서 비즈니스 가치를 창출한다. 
+- **추론(inference) 데이터 과학자(Statistician)**는 통계를 사용해서 의사결정을 향상시키고, 업무의 영향도를 측정하는데 주로 통계학, 경제학, 사화과학 전공지식을 적극 활용한다.
+
+.footnote[
+  [Elena Grewal(July 25, 2018), "One Data Science Job Doesn’t Fit All"](https://www.linkedin.com/pulse/one-data-science-job-doesnt-fit-all-elena-grewal/)
+]
+
+---
+class: inverse, middle, center
+
+## 도전받는 데이터 사이언스 도구
+
+### 엑셀
+ 
+---
+### 위기의 스프레드쉬트(엑셀)
+
+.center[
+&lt;img src="fig/train2data-analysis.jpg" alt="분석행" width="57%" /&gt;
+]
+
+.footnote[
+ [스터디 뽀개기 7월 (2016-07-30), 분석행(Train to data-analysis)](https://onoffmix.com/event/73626)
+]
+
+---
+### 스프레드쉬트 참사 
+
+|     회사      | 참사 비용 |   발생일 |        영향           |               참사 개요                         | 
+|---------------|-----------|----------|-----------------------|-------------------------------------------------|
+| 옥스포드 대학 | 미확인    | '11.12월 | 학생 인터뷰 일정 지연 | 엑셀이 수식이 꼬여 인터뷰 일정이 뒤죽박죽 [^12] |
+|      MI5      | 미확인    |   '11년  | 잘못된 전화번호 작업  | 엑셀 서식 수식이 꼬여 엉뚱한 전화번호 작업 [^11] |
+| '12년 런던 올림픽 | £ 0.5백만  |  '12.01월  | 티켓 환불 소동  | 수영장 10,000 티켓이 초과 판매 (엑셀 입력 오류) [^10] |
+|     Mouchel   |  £ 4.3백만  |  '10.11월  | CEO 사임, 주가폭락 | 연금펀드평가 £ 4.3백만 엑셀 오류 [^09] |
+|   C&amp;C Group   |  £ 9 백만  |  '09.7월  | 주가 15% 하락 등 | 매출 3% 상승이 아니고 5% 하락, 엑셀 오류 [^08] |
+|   UK 교통부   | 최소 £ 50 백만 |  '12.10월  | 영국민 추가 세금 부담 | 영국 철도 입찰 오류 [^07] |
+|   King 펀드   | £ 130 백만 |  '11.05월  | 브래드 이미지 하락 | 웨일즈 지방 NHS 지출 엑셀 오류 [^06] |
+| AXA Rosenberg | £ 150 백만 |  '11.02월  | 은폐, 벌금, 브래드 이미지 하락 | 엑셀 오류를 감춰서 $242 백만 벌금 |
+| JP Morgan Chase | £ 250 백만 |  '13.01월  | 명성, 고객 신뢰도 저하 | 바젤 II VaR 위험 평가 엑셀 오류 [^04] |
+| Fidelity Magellan 펀드 | £ 1.6 십억 |  '95.01월  | 투자자에게 약속한 배당금 지급 못함 | 음수 부호 누락으로 자본이득 과대계상 [^03] |
+| 미연방준비위원회 | £ 2.5 십억 |  '10.10월  | 명확하지 않음 | 리볼빙 카드 신용액 산출 과정에 엑셀 오류 [^02] |
+|  하버드 대학  | 평가 불능 | '13.04월  | 유럽 정부 긴축예산 편성 근거 | GDP 대비 정부 부채 영향도 분석 엑셀 오류 [^01] |
+
+[^12]: [Test errors impede History applications](http://www.cherwell.org/2011/12/07/test-errors-impede-history-applications/)
+[^11]: [MI5 makes 1,061 bugging errors](http://national-security.governmentcomputing.com/news/2011/jul/01/mi5-data-collection-errors)
+[^10]: [London 2012 Olympics - lucky few to get 100m final tickets after synchronised swimming was overbooked by 10,000](http://www.telegraph.co.uk/sport/olympics/8992490/London-2012-Olympics-lucky-few-to-get-100m-final-tickets-after-synchronised-swimming-was-overbooked-by-10000.html)
+[^09]: [Mouchel profits blow](http://www.express.co.uk/finance/city/276053/Mouchel-profits-blow)
+[^08]: [C&amp;C Group admit to mistake in revenue results](http://drinksdaily.com/2009/07/cc-group-admit-to-mistake-in-revenue-results/)
+[^07]: [West Coast Main Line franchise fiasco 'to cost at least £50m'](http://www.bbc.com/news/uk-politics-21577826)
+[^06]: [King’s Fund apologise for “error” in figures on health spending in Wales](http://leftfootforward.org/2011/05/kings-fund-apologise-for-error-on-health-spending-in-wales/)
+[^04]: [Report of JPMorgan Chase &amp; Co. Management Task Force Regarding 2012 CIO Losses](http://files.shareholder.com/downloads/ONE/2261602328x0x628656/4cb574a0-0bf5-4728-9582-625e4519b5ab/Task_Force_Report.pdf)
+[^03]: [Computing error at Fidelity's Magellan fund](http://catless.ncl.ac.uk/Risks/16.72.html#subj1)
+[^02]: [Blatant Data Error At The Federal Reserve](http://www.zerohedge.com/article/blatant-data-error-federal-reserve)
+[^01]: [Is the evidence for austerity based on an Excel spreadsheet error?](https://www.washingtonpost.com/news/wonk/wp/2013/04/16/is-the-best-evidence-for-austerity-based-on-an-excel-spreadsheet-error/)
+
+.footnote[
+[THE DIRTY DOZEN 12 MODELLING HORROR STORIES &amp; SPREADSHEET DISASTERS](http://blogs.mazars.com/the-model-auditor/files/2014/01/12-Modelling-Horror-Stories-and-Spreadsheet-Disasters-Mazars-UK.pdf)
+]
+
+---
+### 스프레드쉬트를 버려야 하는 6가지 이유 
+
+&gt; #### 스프레드쉬트를 사용하는 이유
+&gt; 
+&gt; * 항상 엑셀을 사용했다: 항상 데이터를 엑셀로 저장하고 분석해서 사용했다. 하지만, 버튼 하나로 데이터를 내보내기 쉽다.
+&gt; * 데이터베이스를 사용할 만큼 데이터가 충분하지 않다: 데이터가 작아서 데이터베이스를 사용할 이유를 찾지 못하지만,
+사업이 커지고, 업무량이 늘어나면서 엑셀 작업량이 높아지고, 복잡성도 커지고, 엑셀 자체에서 처리되는 시간도 늘어난다.
+
+1. 한번에 한사람만 작업이 가능하다.
+&lt;br&gt;
+1. 데이터 감사는 데이터베이스에서만 가능
+&lt;br&gt;
+1. 데이터베이스는 정형화된 작업흐름을 지원한다.
+&lt;br&gt;
+1. 데이터베이스는 엑셀보다 모형을 보다 잘 지원한다.
+&lt;br&gt;
+1. 데이터베이스로 보고서 생성이 수월하다.
+&lt;br&gt;
+1.  데이터베이스는 보안이 강력하고 규제하기 좋다.
+&lt;br&gt;
+
+.footnote[
+ [데이터 과학, "위기의 스프레드쉬트"](https://statkclee.github.io/data-science/ds-why-not-excel.html)
+]
+
+---
+### 스프레드쉬트 알고리즘 복잡성
+
+.center[
+&lt;img src="fig/ds-xls-algo-complexity.png" alt="알고리즘 복잡성" width="100%" /&gt;
+]
+
+.footnote[
+[탈옥(jailbreakr) – 엑셀에서 탈출… 자유](https://statkclee.github.io/data-science/ds-xls.html)
+]
+
+
+---
+### 스프레드쉬트 복잡성과 효율성
+
+- 스프레드쉬트는 데이터, 서식, 수식으로 구성된다. 
+- 숫자 데이터를 엑셀로 가져오게 되면 엑셀 내장 함수를 통해 수식 계산을 수행한다. 
+- 엑셀 사용자 본인 혹은 외부 사람을 위해 서식을 입히는 과정을 거쳐 비로소 완성된 스프레드쉬트가 된다.
+
+.center[
+&lt;img src="fig/ds-xls-data-format-logic.png" alt="알고리즘 복잡성" width="57%" /&gt;
+]
+
+.footnote[
+[탈옥(jailbreakr) – 엑셀에서 탈출… 자유](https://statkclee.github.io/data-science/ds-xls.html)
+]
+
+
+
+---
+class: inverse, middle, center
+
+## 도전받는 데이터 사이언스 도구
+
+### 파워포인트
+ 
+---
+### 파워포인트의 종말 &amp;larr; 아마존 제프 베이조스
+
+.center[
+&lt;img src="fig/no-powerpoint.jpeg" alt="노 파워포인트" width="57%" /&gt;
+]
+
+.footnote[
+ [김미리 기자 (2019.04.06.), "보고서 치장은 그만, 글로 써라.. '제로 PPT' 선언하는 기업들", 조선일보](https://news.v.daum.net/v/20190406030158105)
+]
+
+---
+## 세가지 다른 글쓰기 패러다임
+
+&lt;img src="img/data-conference-three-languages.png" alt="세가지 패러다임" width="120%"/&gt;
+
+---
+## 도구가 자동화하는 저작 업무
+
+.pull-left[
+### 1. `\(LaTex\)` 사례
+  &lt;img src="fig/latex-how-it-works.png" alt="도구가 자동화하는 저작 업무" width="100%" /&gt;
+  
+  [정보교육을 위한 파이썬: 데이터 과학자로의 여정, 아마존 절찬 판매중](https://statkclee.github.io/pythonlearn-kr/01-py4inf-python2/)
+]
+
+
+.pull-right[
+### 2. 북다운(Bookdown)
+
+.center[
+  &lt;img src="fig/00_cover_boy_girl.png" alt="컴퓨터 과학 언플러그드" width="100%" /&gt;
+]
+[컴퓨터 과학 언플러그드, 이광춘 번역](https://statkclee.github.io/unplugged/)
+]
+
+---
+## 도구가 자동화하는 저작 업무
+
+.pull-left[
+### 3. 파이썬 스핑크스
+  &lt;img src="fig/latex-sphinx.png" alt="파이썬 스핑크스 저작 흐름" width="100%" /&gt;
+
+- [Welcome to Reeborg world!](http://reeborg.ca/index_en.html)
+- [리보그 한국어 버젼](http://reeborg.ca/docs/ko/index.html)
+- [프로그래밍과 문제해결: 파이썬, 리보그, 러플](https://statkclee.github.io/code-perspectives/)
+
+]
+
+.pull-right[
+### 4. 블로그
+
+.center[
+  &lt;img src="fig/blogdown-deployment.png" alt="정적 웹콘텐츠 배포" width="100%" /&gt;
+]
+
+[데이터 과학을 위한 저작도구 블로그 - `blogdown`](https://statkclee.github.io/ds-authoring/ds-blogdown.html)
+]
+
+---
+## 도구가 자동화하는 저작 업무
+
+### 5. 슬라이드쇼(slideshow)
+
+.center[
+  &lt;img src="fig/slideshow.png" alt="슬라이드쇼" width="50%" /&gt;
+]
+
+.footnote[
+  [소프트웨어에 물들다(왕곡초등학교, 2018-05-26)](somul_20180525.html) -  글쓰기를 잘하기 위해서 알아야 되는 코딩
+]
+
+
+---
+class: inverse, middle, center
+
+# 재현가능한 데이터 사이언스
+
+## R/파이썬
+
+---
+## 재현가능한 글쓰기
+
+.center[
+&lt;img src="fig/data-science-authoring.png" alt="데이터 사이언스 저작" width="100%" /&gt;
+]
+
+.footnote[
+ [데이터 과학: 재현가능한 저작 - R 마크다운 논문](https://statkclee.github.io/author_carpentry_kr/rmarkdown-authoring-paper.html)
+]
+
+---
+## 재현가능한 글쓰기 환경
+
+.center[
+&lt;img src="fig/data-science-authoring-env.png" alt="데이터 사이언스 저작 환경" width="100%" /&gt;
+]
+
+.footnote[
+ [데이터 과학: 재현가능한 저작 - R 마크다운 논문](https://statkclee.github.io/author_carpentry_kr/rmarkdown-authoring-paper.html)
+]
+
+---
+## 데이터 사이언스 제품
+
+.center[
+
+&lt;img src="img/data-product.png" alt="데이터를 제품으로" width="77%" /&gt;
+
+-----  
+
+&lt;img src="fig/data-product-workflow-nuclear.png" alt="요리법" width="77%" /&gt;
+
+]
+
+.footnote[
+ [데이터야 놀자 발표자료(2017)](https://statkclee.github.io/ds-authoring/slides/ds_data_product.html)
+]
+
+---
+## 재현가능한 데이터 사이언스 구성요소
+
+- 마크다운(Markdown)
+    - 제목, 글꼴, 중요항목, 그림, 표, ... 
+- 한번 작성하고 나머지는 기계에 위탁
+    - 자바(Write Once, Run Anywhere)
+    - HTML, 워드, PDF, ...
+- 글쓰기에 수학을 넣어보자
+    - 수식, 표, 그래프, ...
+- 학위 논문과 저널에 투고할 논문을 저작해보자.
+    - 참고문헌, 인용, 색인, ...
+- 이제는 디지털 시대
+    - 인터랙티브 웹페이지
+- 데이터 사이언스 글쓰기
+    - 데이터기반 의사결정을 시작합니다.
+    - 재현가능한 데이터 사이언스 및 의사결정
+
+.footnote[
+[데이터 과학: 재현가능한 저작](https://statkclee.github.io/author_carpentry_kr/)
+]
+
+---
+## 재현 가능한 데이터 사이언스 - 시연
+
+- [Rmd 코드](https://github.com/statkclee/author_carpentry_kr/blob/gh-pages/tutorial/reproducible_finance/reproducible_finance.Rmd)
+- [재현가능한 데이터 사이언스 - BMI](https://statkclee.github.io/author_carpentry_kr/tutorial/reproducible_finance/reproducible_finance.html)
+
+---
+## 참고문헌
+
+### 강서양천일보('15.08월)
+- [글을 쓰는 것은 소프트웨어 개발이다!](https://goo.gl/RiXTIb)
+- [컴퓨터 사고력과 소프트웨어 교육](https://goo.gl/IXIW4n)
+
+### 데이터과학자를 위한 저작 툴체인
+- [데이터 과학을 위한 저작도구](https://statkclee.github.io/ds-authoring/)
+- [Modern Scientific Authoring](http://swcarpentry.github.io/modern-scientific-authoring/)
+- [데이터 과학: 재현가능한 저작](https://statkclee.github.io/author_carpentry_kr/)
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

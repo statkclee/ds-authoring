@@ -1,0 +1,125 @@
+
+---
+class: inverse, middle
+name: digital-company-lego
+
+# 발표 개요
+
+----
+
+.pull-left[
+
+알파고가 2016년 이세돌 9단을 가볍게 승리하면서 **AI 디지털 경제전환**이 촉발되었다면
+코로나19는 .red[**디지털 경제전환**]을 가속화를 넘어 디지털 불평등도 심화시키고 있다.
+
+AI 디지털 경제전환 시대 .warmyellow[**디지털 기업**]을 이해하는데 
+꼭 필요한 .green[**인공지능**] 기술적 토대를 살펴보고 
+전통기업과 비교하여 상대적으로 디지털 기업을 이해해 보자.
+
+]
+ 
+.pull-right[   
+.left[
+
+1\. [디지털 경제전환 (DT)](#digital-transformation)
+
+2\. [인공지능 (AI)](#digital-ai)
+
+3\. **디지털 기업**
+
+&nbsp;&nbsp;&nbsp; 3\.1\. **[.warmyellow[레고, Building Block]](#digital-company-lego)**
+
+&nbsp;&nbsp;&nbsp; 3\.2\. [전통 기업](#digital-company-old-school)
+
+&nbsp;&nbsp;&nbsp; 3\.3\. [디지털 AI 기업](#digital-company-new-school)
+
+4\. [마무리](#digital-goodbye)
+
+]
+] <!--end of right-column--> 
+
+
+---
+name: digital-building-block
+# Building Blocks: 비즈니스 모형
+
+.center[
+<img src="fig/mba-bm.png", width="77%" />
+]
+
+
+.footnote[
+```{r ai-reference, results = 'asis', eval = FALSE}
+library(rcrossref)
+doi <- c('10.1111/radm.12489')
+cat(unlist(rcrossref::cr_cn(dois = doi, format = "text", style = 'apa')))
+```
+]
+
+---
+name: digital-company-om
+# Building Blocks: 운영 모형
+
+.center[
+<img src="fig/mba-om.png", width="100%" />
+]
+
+---
+name: digital-company-bm-om
+# Building Blocks: BM &rarr; OM
+
+<br>
+<br>
+
+.center[
+<img src="fig/mba-bm-om.png", width="100%" />
+]
+
+---
+name: digital-company-network-effect
+# Building Blocks: 네트워크 효과
+
+<br>
+
+.center[
+<img src="fig/digital-newtork-effect.png", width="77%" />
+]
+
+---
+name: digital-company-data-platform
+# Building Blocks: 데이터 플랫폼
+
+.center[
+<img src="fig/state-of-the-art-data-platform.png", width="100%" />
+]
+
+.footnote[
+Source: Keystone Strategy
+]
+
+---
+name: digital-company-ai
+# Building Blocks: Weak AI vs Strong AI
+
+> -   **Strong AI**: "Machine that can think and act in a way that matches or surpasses human intelligence"
+> -   **Weak AI**: "Any activity computers are able to perform that humans once performed.
+>
+> Nils J. Nilsson, 2010; Standford AI 100 report, 2016.
+
+
+<img src = "fig/digital-weak-ai.png" width = "90%" />
+
+
+.footnote[
+- [Michalis A. Michael (2019-05-21), "What are the opportunities and practical applications of AI in research and insights?", Research World](https://www.researchworld.com/what-are-the-opportunities-and-practical-applications-of-ai-in-research-and-insights/)
+]
+
+---
+name: digital-company-ai-factory
+# Building Blocks: AI Factory
+
+<br>
+<br>
+
+<img src = "fig/ai-factory.png" width = "100%" />
+

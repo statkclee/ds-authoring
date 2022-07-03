@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <title>’뉴스 데이터’라고 읽고 ’텍스트 데이터’로 분석하여 사례 만들기</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="이광춘   연세대 겸임교수" />
+    <meta name="date" content="2019-04-04" />
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/remark-css/default-fonts.css" rel="stylesheet" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# ’뉴스 데이터’라고 읽고 ’텍스트 데이터’로 분석하여 사례 만들기
+### 이광춘 <br> 연세대 겸임교수
+### 2019-04-04
+
+---
+
+
+
+
+
+class: inverse, middle, center
+
+## 데이터 과학자 1세대
+
+---
+### 데이터 과학자
+
+.pull-left[
+  &lt;img src="fig/victorlee-bizcard.png" alt="명함" width="100%" /&gt;
+]
+
+.pull-right[
+  &lt;iframe width="400" height="250" src="https://www.youtube.com/embed/K_TGdklC504" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+]
+
+.footnote[
+- [연세대학교 - "데이터 사이언스 입문"](https://statkclee.github.io/yonsei/)
+- [이광춘(2019) "데이터 사이언스, 타이디버스로 향하다", 마이크로소프트웨어 395호](http://it.chosun.com/site/data/html_dir/2019/01/29/2019012900392.html)
+- [Cloudera Conference 2018 - Seoul: 기계의 역습 - 설명가능한 기계학습](https://www.clouderasessionsseoul.com/agenda.php)
+]
+
+---
+### 뉴스빅데이터 해커톤
+
+1. 설명회 개요
+    - 목적: 대회 취지 및 뉴스빅데이터 활용사례 공유를 통한 대회 참가 유도
+    - 일시: 2019. 4. 4(목) 15:00~17:00
+    - 장소: 서울창업허브 9층 세미나실2(마포구 공덕동 백범로31길 21)
+    - 대상: 뉴스빅데이터 해커톤에 관심 있는 예비참가자
+1. 일정  
+    - 15:00~15:10 - 대회요강 및 빅카인즈 설명 (언론진흥재단 윤정주 과장)
+    - 15:10~15:50 - 뉴스빅데이터 활용 서비스 사례 (안상선 엠로보 대표)
+    - 15:50~16:30 - 뉴스데이터 – 데이터 사이언스 사례 (이광춘 연세대 겸임교수)
+    - 16:30~17:00 - 참가자 질의응답 및 팀 빌딩
+
+---
+class: inverse, middle, center
+
+## 빅데이터 &amp;rarr; 데이터 사이언스
+
+---
+### 구글 Trends 데이터 사이언스 한미 비교 - 미국
+
+&lt;img src="ds_kpf_files/figure-html/google-trends-comparison-us-1.png" style="display: block; margin: auto;" /&gt;
+
+
+---
+### 구글 Trends 데이터 사이언스 한미 비교 - 한국
+
+
+&lt;img src="ds_kpf_files/figure-html/google-trends-comparison-kr-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+class: inverse, middle, center
+
+## 데이터 사이언스
+
+---
+### 데이터 사이언스란?
+
+데이터 사이언스는 데이터를 다루는 과학이다. 따라서 자연법칙을 다루는 자연과학과 맥이 닿아있다.
+자연법칙을 측정하여 데이터프레임(`DataFrame`)으로 나타내면 **변수(Variable)**, **관측점(Observation)**, **값(Value)**으로 표현된다.
+
+&lt;img src="fig/data-science-overview.png" alt="데이터 사이언스 개요" width="100%" /&gt;
+
+
+---
+### 데이터 사이언스 업무
+
+&lt;img src="fig/data-science-airbnb.png" alt="데이터 사이언스 에어비앤비" width="100%" /&gt;
+
+- **분석(Analytics) 데이터 과학자**는 좋은 질문을 던질 수 있고, 
+탐색적 데이터 분석을 통해서 문제와 해법을 명확히 하는 재주가 있고, 대쉬보드와 시각화를 통해 데이터 분석을 자동화하고, 추천 결과물을 통해 비즈니스를 변화시킨다. 
+- **알고리즘(algorithm) 데이터 과학자**는 기계학습에 특기가 있는 사람에 적합하고 제품/서비스, 프로세스에 데이터를 알고리즘을 통해 녹여내서 비즈니스 가치를 창출한다. 
+- **추론(inference) 데이터 과학자**는 통계를 사용해서 의사결정을 향상시키고, 업무의 영향도를 측정하는데 주로 통계학, 경제학, 사화과학 전공지식을 적극 활용한다.
+
+.footnote[
+  [Elena Grewal(July 25, 2018), "One Data Science Job Doesn’t Fit All"](https://www.linkedin.com/pulse/one-data-science-job-doesnt-fit-all-elena-grewal/)
+]
+
+---
+class: inverse, middle, center
+
+## 뉴스를 데이터로 바라보기 &lt;br&gt;
+
+### 준비
+
+---
+### 텍스트 데이터 도전 현황
+
+&lt;img src="fig/npl_status.png" alt="자연어 처리 현황" width="100%" /&gt;
+
+.footnote[
+- [xwMOOC 자연어 처리 - 텍스트, "단어주머니(Bag of Words)"](https://statkclee.github.io/text/nlp-bag-of-words.html)
+]
+
+---
+### 자연어 처리 흐름
+
+&lt;img src="fig/nlp-overview.png" alt="자연어 처리 흐름" width="100%" /&gt;
+
+.footnote[
+- [xwMOOC 자연어 처리, "텍스트 데이터"](https://statkclee.github.io/text/nlp-text.html)
+]
+
+---
+### NLP 생태계 - R
+
+- [NLP 생태계 이미지](http://www.bnosac.be/images/bnosac/blog/NLP-R-ecosystem.png)
+
+.center[
+  &lt;img src="fig/NLP-R-ecosystem.png" alt="R 팩키지" width="50%" /&gt;
+]
+
+.footnote[
+- NLP(Natural Language Processing): 자연어 처리
+- [An overview of the NLP ecosystem in R (#nlproc #textasdata)](http://www.bnosac.be/index.php/blog/87-an-overview-of-the-nlp-ecosystem-in-r-nlproc-textasdata)
+]
+
+---
+### 한글 자연어 처리 - 파이썬
+
+
+&lt;img src="fig/nlp-python-korean.png" alt="", width="100%" /&gt;
+
+.footnote[
+[자연어 처리 입문 - 파이썬](https://statkclee.github.io/text/nlp-intro-python.html)
+]
+
+---
+class: inverse, middle, center
+
+## 텍스트 데이터 - 자원
+
+---
+### 텍스트 데이터 구하기
+
+- [네이버 뉴스](https://statkclee.github.io/text/nlp-naver-news.html)
+- [대통령 연설문 데이터 긁어오기](https://statkclee.github.io/text/nlp-president-crawl.html)
+- [대한민국 헌법](https://statkclee.github.io/text/text-constitution.html)
+- [건축학 개론](https://statkclee.github.io/text/nlp-movie-arch101.html)
+- [영어 교과서 감성분석](https://statkclee.github.io/text/nlp-english-textbook.html)
+
+---
+class: inverse, middle, center
+
+## 탐색적 데이터 분석
+
+---
+### 텍스트 마이닝 - 케인즈 vs 하이에크
+
+&lt;img src="fig/text_eda.png" alt="탐색적 데이터 분석" width="100%" /&gt;
+
+.footnote[
+- [케인즈 vs 하이에크](https://statkclee.github.io/text/langcon-keynes-hayek.html)
+]
+
+---
+### 텍스트 마이닝 - 신년기자회견
+
+&lt;img src="fig/text_eda_viz.png" alt="탐색적 데이터 분석" width="100%" /&gt;
+
+.footnote[
+- [깔끔한 텍스트 (Tidytext) - 신년기자회견(2019)](https://statkclee.github.io/text/nlp-tidytext-moon-speech.html)
+]
+
+
+
+
+---
+class: inverse, middle, center
+
+## 데이터 탐색 &amp;rarr; 예측모형
+
+---
+### 단어구름 &amp;rarr; 토픽 모형
+
+.center[
+&lt;img src="fig/topic-modeling-text.png" alt="토픽모형" width="85%" /&gt;
+]
+
+.footnote[
+- [단어구름에서 토픽모형 -From World Cloud to Toptic Modeling](https://statkclee.github.io/text/silge-topic-modeling.html)
+- [xwMOOC 자연어 처리 - 텍스트, "케인즈 vs 하이에크 - 토픽 모형"](https://statkclee.github.io/text/langcon-keynes-hayek-topic.html)
+]
+
+---
+### 예측모형
+
+.center[
+&lt;img src="fig/predictive-model-text.png" alt="예측모형" width="100%" /&gt;
+]
+
+.footnote[
+- [SMS 스팸분류 - Random Forest](https://statkclee.github.io/text/nlp-spam-machine-learning.html)
+- [xwMOOC 자연어 처리 - 텍스트, "알릴레요 vs. 홍카콜라 - 댓글 분류"](https://statkclee.github.io/text/youtube-channel-comment-classification.html)
+- [텍스트 분류(Text Classification) - 나이브 베이즈(naive bayes)](https://statkclee.github.io/text/nlp-text-classification.html)
+]
+
+---
+class: inverse, middle, center
+
+##  예측모형 &amp;rarr; 데이터 제품
+
+
+---
+### 사례: 너의 기분 이모지(emoji)?
+
+.center[
+&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/PElfNl7bH-w" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+]
+
+.footnote[
+- [김지연, 홍익대, "제9회 보아즈(BOAZ) 빅데이터 컨퍼런스 - 너의 기분 이모지(emoji)?"](https://www.youtube.com/watch?v=PElfNl7bH-w)
+- [데이터 사이언스 Meetup - 5월, 2019년 5월 22일 (수요일)](https://tidyverse-korea.github.io/r-meetup-x-presser/)
+]
+
+
+---
+class: inverse, middle, center
+
+## API 프로그래밍
+
+---
+### 원천 데이터
+
+
+&lt;img src="fig/data-ingest.png" alt="데이터 가져오기" width="100%" /&gt;
+
+
+---
+### API 활용 사례
+
+
+- 들어가며 
+    - [데이터 과학 – 기초 통계, `tidycensus` 기초](https://statkclee.github.io/statistics/tidycensus-basic.html)
+- 웹크롤링과 API 비교
+    - [데이터 과학 – 기초 통계, `kosis`와 `tidycensus` 비교](https://statkclee.github.io/statistics/tidycensus-kosis-comparison.html)
+- 유료와 무료    
+    - [공간통계를 위한 데이터 사이언스, "지리정보 API - 주소와 위도경도"](https://statkclee.github.io/spatial/geo-info-lonlat.html)
+- AI 인공지능
+    - [xwMOOC 딥러닝, "텍스트와 이미지 API"](https://statkclee.github.io/deep-learning/ms-text-image.html)
+    - [구글 클라우드 비젼 API](https://statkclee.github.io/deep-learning/r-google-vision-api.html)
+    - [xwMOOC 딥러닝 - "IBM 왓슨"](https://statkclee.github.io/deep-learning/r-watson.html)
+    - [유튜브 - "알릴레요 vs. 홍카콜라 - 댓글 분류"](https://statkclee.github.io/text/nlp-youtube-comment.html)
+    
+    
+---
+### API와 열쇠관리
+
+.center[
+&lt;img src="fig/r-security-workflow.png" alt="열쇠관리" width="77%" /&gt;
+]
+
+
+.footnote[
+[데이터 사이언스를 위한 소프트웨어 공학, "API 프로그래밍을 위한 열쇠 관리"](https://statkclee.github.io/sw4ds/sw4ds-api-programming-key.html)
+]
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();</script>
+
+<script>
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

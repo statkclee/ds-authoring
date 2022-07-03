@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="데이터야 놀자 (2020)       Tidyverse Korea   이광춘" />
+  <meta name="dcterms.date" content="2020-10-17" />
+  <title>데이터 과학 언어 전쟁</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="ds-data-science-war_files/reveal.js-3.3.0.1/css/reveal.css"/>
+
+
+
+<link rel="stylesheet" href="ds-data-science-war_files/reveal.js-3.3.0.1/css/theme/simple.css" id="theme">
+
+
+  <!-- some tweaks to reveal css -->
+  <style type="text/css">
+    .reveal h1 { font-size: 2.0em; }
+    .reveal h2 { font-size: 1.5em;  }
+    .reveal h3 { font-size: 1.25em;	}
+    .reveal h4 { font-size: 1em;	}
+
+    .reveal .slides>section,
+    .reveal .slides>section>section {
+      padding: 0px 0px;
+    }
+
+
+
+    .reveal table {
+      border-width: 1px;
+      border-spacing: 2px;
+      border-style: dotted;
+      border-color: gray;
+      border-collapse: collapse;
+      font-size: 0.7em;
+    }
+
+    .reveal table th {
+      border-width: 1px;
+      padding-left: 10px;
+      padding-right: 25px;
+      font-weight: bold;
+      border-style: dotted;
+      border-color: gray;
+    }
+
+    .reveal table td {
+      border-width: 1px;
+      padding-left: 10px;
+      padding-right: 25px;
+      border-style: dotted;
+      border-color: gray;
+    }
+
+
+  </style>
+
+    <style type="text/css">code{white-space: pre;}</style>
+
+    <link rel="stylesheet" href="styles\mlflow.css"/>
+
+<!-- Printing and PDF exports -->
+<script id="paper-css" type="application/dynamic-css">
+
+/* Default Print Stylesheet Template
+   by Rob Glazebrook of CSSnewbie.com
+   Last Updated: June 4, 2008
+
+   Feel free (nay, compelled) to edit, append, and
+   manipulate this file as you see fit. */
+
+
+@media print {
+
+	/* SECTION 1: Set default width, margin, float, and
+	   background. This prevents elements from extending
+	   beyond the edge of the printed page, and prevents
+	   unnecessary background images from printing */
+	html {
+		background: #fff;
+		width: auto;
+		height: auto;
+		overflow: visible;
+	}
+	body {
+		background: #fff;
+		font-size: 20pt;
+		width: auto;
+		height: auto;
+		border: 0;
+		margin: 0 5%;
+		padding: 0;
+		overflow: visible;
+		float: none !important;
+	}
+
+	/* SECTION 2: Remove any elements not needed in print.
+	   This would include navigation, ads, sidebars, etc. */
+	.nestedarrow,
+	.controls,
+	.fork-reveal,
+	.share-reveal,
+	.state-background,
+	.reveal .progress,
+	.reveal .backgrounds {
+		display: none !important;
+	}
+
+	/* SECTION 3: Set body font face, size, and color.
+	   Consider using a serif font for readability. */
+	body, p, td, li, div {
+		font-size: 20pt!important;
+		font-family: Georgia, "Times New Roman", Times, serif !important;
+		color: #000;
+	}
+
+	/* SECTION 4: Set heading font face, sizes, and color.
+	   Differentiate your headings from your body text.
+	   Perhaps use a large sans-serif for distinction. */
+	h1,h2,h3,h4,h5,h6 {
+		color: #000!important;
+		height: auto;
+		line-height: normal;
+		font-family: Georgia, "Times New Roman", Times, serif !important;
+		text-shadow: 0 0 0 #000 !important;
+		text-align: left;
+		letter-spacing: normal;
+	}
+	/* Need to reduce the size of the fonts for printing */
+	h1 { font-size: 28pt !important;  }
+	h2 { font-size: 24pt !important; }
+	h3 { font-size: 22pt !important; }
+	h4 { font-size: 22pt !important; font-variant: small-caps; }
+	h5 { font-size: 21pt !important; }
+	h6 { font-size: 20pt !important; font-style: italic; }
+
+	/* SECTION 5: Make hyperlinks more usable.
+	   Ensure links are underlined, and consider appending
+	   the URL to the end of the link for usability. */
+	a:link,
+	a:visited {
+		color: #000 !important;
+		font-weight: bold;
+		text-decoration: underline;
+	}
+	/*
+	.reveal a:link:after,
+	.reveal a:visited:after {
+		content: " (" attr(href) ") ";
+		color: #222 !important;
+		font-size: 90%;
+	}
+	*/
+
+
+	/* SECTION 6: more reveal.js specific additions by @skypanther */
+	ul, ol, div, p {
+		visibility: visible;
+		position: static;
+		width: auto;
+		height: auto;
+		display: block;
+		overflow: visible;
+		margin: 0;
+		text-align: left !important;
+	}
+	.reveal pre,
+	.reveal table {
+		margin-left: 0;
+		margin-right: 0;
+	}
+	.reveal pre code {
+		padding: 20px;
+		border: 1px solid #ddd;
+	}
+	.reveal blockquote {
+		margin: 20px 0;
+	}
+	.reveal .slides {
+		position: static !important;
+		width: auto !important;
+		height: auto !important;
+
+		left: 0 !important;
+		top: 0 !important;
+		margin-left: 0 !important;
+		margin-top: 0 !important;
+		padding: 0 !important;
+		zoom: 1 !important;
+
+		overflow: visible !important;
+		display: block !important;
+
+		text-align: left !important;
+		-webkit-perspective: none;
+		   -moz-perspective: none;
+		    -ms-perspective: none;
+		        perspective: none;
+
+		-webkit-perspective-origin: 50% 50%;
+		   -moz-perspective-origin: 50% 50%;
+		    -ms-perspective-origin: 50% 50%;
+		        perspective-origin: 50% 50%;
+	}
+	.reveal .slides section {
+		visibility: visible !important;
+		position: static !important;
+		width: auto !important;
+		height: auto !important;
+		display: block !important;
+		overflow: visible !important;
+
+		left: 0 !important;
+		top: 0 !important;
+		margin-left: 0 !important;
+		margin-top: 0 !important;
+		padding: 60px 20px !important;
+		z-index: auto !important;
+
+		opacity: 1 !important;
+
+		page-break-after: always !important;
+
+		-webkit-transform-style: flat !important;
+		   -moz-transform-style: flat !important;
+		    -ms-transform-style: flat !important;
+		        transform-style: flat !important;
+
+		-webkit-transform: none !important;
+		   -moz-transform: none !important;
+		    -ms-transform: none !important;
+		        transform: none !important;
+
+		-webkit-transition: none !important;
+		   -moz-transition: none !important;
+		    -ms-transition: none !important;
+		        transition: none !important;
+	}
+	.reveal .slides section.stack {
+		padding: 0 !important;
+	}
+	.reveal section:last-of-type {
+		page-break-after: avoid !important;
+	}
+	.reveal section .fragment {
+		opacity: 1 !important;
+		visibility: visible !important;
+
+		-webkit-transform: none !important;
+		   -moz-transform: none !important;
+		    -ms-transform: none !important;
+		        transform: none !important;
+	}
+	.reveal section img {
+		display: block;
+		margin: 15px 0px;
+		background: rgba(255,255,255,1);
+		border: 1px solid #666;
+		box-shadow: none;
+	}
+
+	.reveal section small {
+		font-size: 0.8em;
+	}
+
+}  
+</script>
+
+
+<script id="pdf-css" type="application/dynamic-css">
+    
+/**
+ * This stylesheet is used to print reveal.js
+ * presentations to PDF.
+ *
+ * https://github.com/hakimel/reveal.js#pdf-export
+ */
+
+* {
+	-webkit-print-color-adjust: exact;
+}
+
+body {
+	margin: 0 auto !important;
+	border: 0;
+	padding: 0;
+	float: none !important;
+	overflow: visible;
+}
+
+html {
+	width: 100%;
+	height: 100%;
+	overflow: visible;
+}
+
+/* Remove any elements not needed in print. */
+.nestedarrow,
+.reveal .controls,
+.reveal .progress,
+.reveal .playback,
+.reveal.overview,
+.fork-reveal,
+.share-reveal,
+.state-background {
+	display: none !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	text-shadow: 0 0 0 #000 !important;
+}
+
+.reveal pre code {
+	overflow: hidden !important;
+	font-family: Courier, 'Courier New', monospace !important;
+}
+
+ul, ol, div, p {
+	visibility: visible;
+	position: static;
+	width: auto;
+	height: auto;
+	display: block;
+	overflow: visible;
+	margin: auto;
+}
+.reveal {
+	width: auto !important;
+	height: auto !important;
+	overflow: hidden !important;
+}
+.reveal .slides {
+	position: static;
+	width: 100%;
+	height: auto;
+
+	left: auto;
+	top: auto;
+	margin: 0 !important;
+	padding: 0 !important;
+
+	overflow: visible;
+	display: block;
+
+	-webkit-perspective: none;
+	   -moz-perspective: none;
+	    -ms-perspective: none;
+	        perspective: none;
+
+	-webkit-perspective-origin: 50% 50%; /* there isn't a none/auto value but 50-50 is the default */
+	   -moz-perspective-origin: 50% 50%;
+	    -ms-perspective-origin: 50% 50%;
+	        perspective-origin: 50% 50%;
+}
+
+.reveal .slides section {
+	page-break-after: always !important;
+
+	visibility: visible !important;
+	position: relative !important;
+	display: block !important;
+	position: relative !important;
+
+	margin: 0 !important;
+	padding: 0 !important;
+	box-sizing: border-box !important;
+	min-height: 1px;
+
+	opacity: 1 !important;
+
+	-webkit-transform-style: flat !important;
+	   -moz-transform-style: flat !important;
+	    -ms-transform-style: flat !important;
+	        transform-style: flat !important;
+
+	-webkit-transform: none !important;
+	   -moz-transform: none !important;
+	    -ms-transform: none !important;
+	        transform: none !important;
+}
+
+.reveal section.stack {
+	margin: 0 !important;
+	padding: 0 !important;
+	page-break-after: avoid !important;
+	height: auto !important;
+	min-height: auto !important;
+}
+
+.reveal img {
+	box-shadow: none;
+}
+
+.reveal .roll {
+	overflow: visible;
+	line-height: 1em;
+}
+
+/* Slide backgrounds are placed inside of their slide when exporting to PDF */
+.reveal section .slide-background {
+	display: block !important;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: -1;
+}
+
+/* All elements should be above the slide-background */
+.reveal section>* {
+	position: relative;
+	z-index: 1;
+}
+
+/* Display slide speaker notes when 'showNotes' is enabled */
+.reveal .speaker-notes-pdf {
+	display: block;
+	width: 100%;
+	max-height: none;
+	left: auto;
+	top: auto;
+	z-index: 100;
+}
+
+/* Display slide numbers when 'slideNumber' is enabled */
+.reveal .slide-number-pdf {
+	display: block;
+	position: absolute;
+	font-size: 14px;
+}
+
+</script>
+
+
+<script>
+var style = document.createElement( 'style' );
+style.type = 'text/css';
+var style_script_id = window.location.search.match( /print-pdf/gi ) ? 'pdf-css' : 'paper-css';
+var style_script = document.getElementById(style_script_id).text;
+style.innerHTML = style_script;
+document.getElementsByTagName('head')[0].appendChild(style);
+</script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-59802572-23"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-59802572-23');
+    </script>
+
+    <script src="ds-data-science-war_files/header-attrs/header-attrs.js"></script>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section>
+    <h1 class="title">데이터 과학 언어 전쟁</h1>
+  <h1 class="subtitle"><small> 재미 중의 재미는 아무래도 싸움 구경 재미가 최고! </small></h1>
+    <h2 class="author"><small><a href="https://datayanolja.github.io/">데이터야 놀자</a> (2020) </small><br> <br> <br> <small><a href="https://www.facebook.com/groups/tidyverse/">Tidyverse Korea</a> <br> 이광춘</small></h2>
+    <h3 class="date">2020-10-17</h3>
+</section>
+
+<section>
+<section id="들어가며" class="title-slide slide level1">
+<h1>들어가며</h1>
+
+</section>
+<section id="데이터야-놀자-2020" class="slide level2">
+<h2>데이터야 놀자 2020</h2>
+<p><img data-src="fig/dataya-nolja-2020.jpg" /></p>
+<p><small> 데이터와 놀이를 시작해야 되는데 가장 먼저 어떤 친구와 놀까가 매우 중요하게 다가오는데… 데이터 과학 언어를 선정하는데 다른 어떤 것보다 현실적인 문제를 푸는데 집중하고 덤으로 재미를 추구해야 하는데 그것이 쉽지 않고 귀가 얇아 주변에서 어떤게 좋다고하고 이러한 비행에 편승하여 비행 데이터 과학자가 되곤 한다. 조언이 도움이 되지 못하고 오히려 모든 고통의 원천이 되기도 한다. 데이터 과학 언어 전쟁은 결론이 나 있지만 사실 많은 사람들은 승부가 결론난 전쟁에 아직도 싸움을 계속하고 있다. </small></p>
+<ul>
+<li>행사링크: <a href="https://datayanolja.github.io/">데이터야놀자</a></li>
+</ul>
+</section></section>
+<section>
+<section id="과학-기술" class="title-slide slide level1">
+<h1>과학 기술</h1>
+
+</section>
+<section id="가치value-원천" class="slide level2">
+<h2>가치(Value) 원천</h2>
+<p><img src="fig/ai-lab-korea-science.png" width="77%" /></p>
+<p><small> 세계은행(World Bank)과 한국개발연구원(KDI)은 약 2년여 기간의 공동연구를 통해 1960-2005 년간 한국 경제발전 과정에 관한 보고서를 출간했다. 경제성장이 지속되기 위해서는 생산성 증가가 대단히 중요하고, 1960년 이후 한국경제의 성공은 광의의 지식축적에 기인한 것으로 1960-2005년 사이 한국의 실질 1인당GDP의 75%가 광의의 지식축적에 기인한 것으로 분석했다. </small></p>
+</section>
+<section id="번째-패러다임" class="slide level2">
+<h2>4번째 패러다임</h2>
+<p><img src="fig/ai-lab-4th-paradigm.png" width="100%" /></p>
+</section>
+<section id="라즈베리파이와-파이썬" class="slide level2">
+<h2>라즈베리파이와 파이썬</h2>
+<p><img data-src="fig/raspberry-pi-programming-science.png" /></p>
+<p><a href="https://statkclee.github.io/raspberry-pi/raspberry-pi-programming-science.html">과학기술 파이썬 툴체인</a></p>
+</section>
+<section id="과학컴퓨팅" class="slide level2">
+<h2>과학컴퓨팅</h2>
+<p><img data-src="fig/raspberry-pi-programming-toolchain-history.png" /></p>
+<p><a href="https://statkclee.github.io/raspberry-pi/raspberry-pi-programming-science.html">과학기술 파이썬 툴체인</a></p>
+</section>
+<section id="소트프웨어-카펜트리" class="slide level2">
+<h2>소트프웨어 카펜트리</h2>
+<p><img data-src="fig/swcarpentry-in-korea.png" /></p>
+<ul>
+<li><a href="http://statkclee.github.io/slideshows/korea/index.html">이광춘 (2015년 8월), “한국에서 SW 카펜트리 1년…”, 파이콘 2015</a></li>
+<li><a href="http://statkclee.github.io/swcarpentry-version-5-3-new/">소프트웨어 카펜트리 버젼 5.3.</a></li>
+</ul>
+</section></section>
+<section>
+<section id="데이터-과학" class="title-slide slide level1">
+<h1>데이터 과학</h1>
+
+</section>
+<section id="사람-vs.-기계" class="slide level2">
+<h2>사람 vs. 기계</h2>
+<p><img src="fig/stat-modeling-workflow.png" alt="데이터 과학과 통계모형" width="120%" /></p>
+<p><a href="https://statkclee.github.io/statistics/stat-modeling.html">기초 통계 -통계 모형(Statistical models)</a></p>
+</section>
+<section id="데이터-사이언스-언어" class="slide level2">
+<h2>데이터 사이언스 언어</h2>
+<p>데이터 사이언스를 대표하는 R이나 파이썬 모두 컴퓨터 프로그래밍 언어라서 태생적으로 거의 모든 컴퓨터 프로그래밍 언어가 갖고 있는 두 언어 문제에서 역시 자유로울 수는 없다.</p>
+<p><br> <br></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">시스템 언어</th>
+<th style="text-align: center;">Ousterhout 이분법</th>
+<th style="text-align: center;">스크립트 언어</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">정적</td>
+<td style="text-align: center;">–</td>
+<td style="text-align: center;">동적</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">컴파일</td>
+<td style="text-align: center;">–</td>
+<td style="text-align: center;">인터프리터</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">사용자정의 자료형</td>
+<td style="text-align: center;">–</td>
+<td style="text-align: center;">표준 자료형</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">빠른 속도</td>
+<td style="text-align: center;">–</td>
+<td style="text-align: center;">늦은 속도</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">어려움</td>
+<td style="text-align: center;">–</td>
+<td style="text-align: center;">쉬움</td>
+</tr>
+</tbody>
+</table>
+<p><a href="https://en.wikipedia.org/wiki/Ousterhout%27s_dichotomy">Ousterhout dichotomy</a></p>
+</section>
+<section id="유닉스-tidyverse" class="slide level2">
+<h2>유닉스 | <code>tidyverse</code></h2>
+<p><img src="fig/maso_tidyverse.png" alt="Tidyverse 데이터 사이언스 작업흐름" width="100%" /></p>
+<ul>
+<li>기존 자료구조를 재사용: Reuse existing data structures.</li>
+<li>파이프 연산자로 간단한 함수를 조합: Compose simple functions with the pipe.</li>
+<li>함수형 프로그래밍을 적극 사용: Embrace functional programming.</li>
+<li>기계가 아닌 인간을 위한 설계: Design for humans.</li>
+</ul>
+</section>
+<section id="데이터-과학-프로세스" class="slide level2">
+<h2>데이터 과학 프로세스</h2>
+<p><img src="fig/data-science-process-as-is-to-be.png" alt="데이터 사이언스 프로세스 비교" width="100%" /></p>
+</section>
+<section id="ml-개발-프로세스" class="slide level2">
+<h2>ML 개발 프로세스</h2>
+<p><img data-src="fig/DALEXverse.png" /></p>
+</section>
+<section id="어떤-언어를-고를-것인가" class="slide level2">
+<h2>어떤 언어를 고를 것인가?</h2>
+<p><img src="fig/cognitive-performance.png" alt="인지 단계, 계산단계" width="67%" /></p>
+</section>
+<section id="데이터-과학-언어-추세" class="slide level2">
+<h2>데이터 과학 언어 추세</h2>
+<p><small> R을 예로 들면, 팩키지 개발을 할 때 R 스크립트로 모든 기능을 선행하여 기능을 구현하고 유용성이 인정되어 사용자가 많아지면, <a href="https://cran.r-project.org/web/packages/Rcpp/index.html">Rcpp</a> 팩키지를 사용하여 C/C++로 후행하여 속도와 성능이 필요한 부분에 재개발하는 경우가 흔하다. </small></p>
+<p><img src="fig/data-scientist-languages.png" alt="데이터 사이언스 언어" width="77%"></p>
+</section></section>
+<section>
+<section id="데이터-과학-언어" class="title-slide slide level1">
+<h1>데이터 과학 언어</h1>
+
+</section>
+<section id="문제-개요" class="slide level2">
+<h2>문제 개요</h2>
+<p><img data-src="fig/shiny-python.png" /></p>
+<ul>
+<li><a href="https://statkclee.github.io/model/tidyverse-penguin-python-shiny.html">펭귄 성별예측모형: 파이썬 + <code>Shiny</code></a></li>
+</ul>
+</section>
+<section id="펭귄-데이터셋" class="slide level2">
+<h2>펭귄 데이터셋</h2>
+<p><img data-src="fig/penguin-dataset.png" /></p>
+<ul>
+<li><a href="https://statkclee.github.io/data-science/ds-iris-penguin.html">펭귄 vs 붓꽃 데이터</a></li>
+</ul>
+</section>
+<section id="모형-아키텍쳐" class="slide level2">
+<h2>모형 아키텍쳐</h2>
+<table>
+<thead>
+<tr class="header">
+<th>앙상블</th>
+<th>Random Forest</th>
+<th>XGBoost</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><img data-src="fig/penguin-arch-ensemble.png" /></td>
+<td><img data-src="fig/penguin-arch-rf.png" /></td>
+<td><img data-src="fig/penguin-arch-xgb.png" /></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><a href="https://statkclee.github.io/model/tidyverse-parsnip-penguin.html">펭귄 성별예측모형: tidymodels</a></li>
+</ul>
+</section>
+<section id="모형-최적화-hyper-parameter-tuning" class="slide level2">
+<h2>모형 최적화: Hyper Parameter Tuning</h2>
+<p><img data-src="fig/xgboost-python.png" /></p>
+<ul>
+<li><a href="https://statkclee.github.io/model/tidyverse-parsnip-penguin-hyper-parameter.html">펭귄 성별예측모형: tidymodels - Hyper Parameter</a></li>
+</ul>
+</section>
+<section id="모형-배포-restful-api" class="slide level2">
+<h2>모형 배포: RESTful API</h2>
+<p><img data-src="fig/penguin-restful-api.png" /></p>
+<ul>
+<li><a href="https://statkclee.github.io/model/tidyverse-parsnip-penguin-RESTful-api.html">펭귄 성별예측모형: tidymodels - RESTful API</a></li>
+</ul>
+</section>
+<section id="설명가능한-예측모형-explainable-ai" class="slide level2">
+<h2>설명가능한 예측모형: Explainable AI</h2>
+<p><img data-src="fig/mdp-DALEX.png" /></p>
+<ul>
+<li><a href="https://statkclee.github.io/model/tidyverse-parsnip-penguin-DALEX.html">펭귄 성별예측모형: tidymodels - MDP / DALEX</a></li>
+</ul>
+</section>
+<section id="tidyposterior-모형-평가" class="slide level2">
+<h2><code>tidyposterior</code> 모형 평가</h2>
+<p><img data-src="fig/penguin-tidyposterior.png" /></p>
+<ul>
+<li><a href="https://statkclee.github.io/model/model-tidyposterior.html">펭귄 성별예측모형: tidyposterior</a></li>
+</ul>
+</section>
+<section id="shiny-front-end-tidymodels-back-end" class="slide level2">
+<h2>Shiny Front-End + <code>tidymodels</code> Back-End</h2>
+<p><img data-src="fig/penguin-shiny-predictive-model.gif" /></p>
+<ul>
+<li><a href="https://statkclee.github.io/model/tidyverse-parsnip-penguin-shiny.html">펭귄 성별예측모형: <code>tidymodels</code> - Shiny</a></li>
+</ul>
+</section>
+<section id="shiny-front-end-python-back-end" class="slide level2">
+<h2>Shiny Front-End + Python Back-End</h2>
+<p><img data-src="fig/shiny-fe-python-be.gif" /></p>
+<ul>
+<li><a href="https://statkclee.github.io/model/tidyverse-penguin-python-shiny.html">펭귄 성별예측모형: 파이썬 - <code>Shiny</code></a></li>
+</ul>
+</section></section>
+<section id="데이터-과학-커뮤니티" class="title-slide slide level1">
+<h1>데이터 과학 커뮤니티</h1>
+<ul>
+<li><a href="https://www.meetup.com/seoul-r-meetup/">Seoul R Meetup Group: Meetup.com</a></li>
+<li><a href="https://www.facebook.com/groups/tidyverse/">Facebook Group: Tidyverse Korea</a></li>
+<li><a href="https://tidyverse-korea.github.io/seoul-R/">Seoul R Meetup Website</a></li>
+<li><a href="https://github.com/shinykorea/Meetup">Shiny Korea Meetup</a></li>
+<li><a href="http://web-r.org/">웹에서 하는 R 통계</a></li>
+</ul>
+</section>
+
+<section id="section" class="title-slide slide level1">
+<h1></h1>
+
+</section>
+    </div>
+  </div>
+
+  <script src="ds-data-science-war_files/reveal.js-3.3.0.1/lib/js/head.min.js"></script>
+  <script src="ds-data-science-war_files/reveal.js-3.3.0.1/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Push each slide change to the browser history
+        history: true,
+        // Vertical centering of slides
+        center: true,
+        // Transition style
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        // Transition style for full page slide backgrounds
+        backgroundTransition: 'default', // none/fade/slide/convex/concave/zoom
+
+
+
+        // Optional reveal.js plugins
+        dependencies: [
+        ]
+      });
+    </script>
+  <!-- dynamically load mathjax for compatibility with self-contained -->
+  <script>
+    (function () {
+      var script = document.createElement("script");
+      script.type = "text/javascript";
+      script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+      document.getElementsByTagName("head")[0].appendChild(script);
+    })();
+  </script>
+
+<script>
+  (function() {
+    if (window.jQuery) {
+      Reveal.addEventListener( 'slidechanged', function(event) {  
+        window.jQuery(event.previousSlide).trigger('hidden');
+        window.jQuery(event.currentSlide).trigger('shown');
+      });
+    }
+  })();
+</script>
+
+
+  </body>
+</html>
