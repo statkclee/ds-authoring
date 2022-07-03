@@ -1,0 +1,43 @@
+
+
+---
+name: digital-ais
+# 네트워크 효과
+
+<br>
+<br>
+
+.center[
+<img src="fig/uber-ais.png", width="100%" />
+]
+
+---
+name: digital-collision
+# 패러다임 충돌
+
+<br>
+
+.center[
+<img src="fig/tradition-digital.png", width="100%" />
+]
+
+---
+name: digital-collision
+# 노키아 vs 애플
+
+<br>
+
+.center[
+<img src="fig/nokia-apple.png", width="100%" />
+]
+
+---
+name: digital-collision
+# 충돌 - 디지털 전환
+
+<br>
+
+.center[
+<img src="fig/collision-companies.png", width="100%" />
+]
+

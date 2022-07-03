@@ -1,0 +1,51 @@
+
+
+---
+name: digital-network-ai-company
+# 디지털 AI 기업: AI 공장과 운영모형
+
+<br>
+<br>
+
+.center[
+<img src="fig/ai-factory-om.png", width="100%" />
+]
+
+---
+name: digital-network-om
+# 디지털 AI 기업: 운영모형 + 네트워크 효과
+
+.center[
+<img src="fig/network-effect-digital.png", width="100%" />
+]
+
+---
+name: digital-value
+# 디지털 AI 기업: 가치(Value), 효용(Utility)
+
+.center[
+<img src="fig/network-ai-value.png", width="87%" />
+]
+ 
+---
+name: digital-value
+# 디지털 AI 기업: 운영모형
+
+<br>
+
+.center[
+<img src="fig/ai-network-om.png", width="100%" />
+]
+ 
+ 
+---
+name: digital-value
+# 디지털 AI 기업: 운영모형 비교
+
+<br>
+
+.center[
+<img src="fig/digital-ai-om.png", width="100%" />
+]
+ 
+

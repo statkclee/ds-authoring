@@ -1,0 +1,103 @@
+
+---
+class: inverse, middle
+name: digital-transformation
+
+# 강의 개요
+
+----
+
+.pull-left[
+
+4차 산업혁명은 .warmyellow[**디지털 전환(Digital Transformation)**] 이라는 용어로 대체되고 있으며
+전세계가 디지털 전환을 통해 새로운 도약을 준비하고 있어 다양한 지표를 통해
+현재 대한민국 현재 위치를 데이터를 기반으로 객관적으로 파악한다.
+
+구글, 아마존으로 시작된 .green[**디지털 기업(AI 기업)**]의 전형은 정부는 물론 비영리 조직과 
+거의 모든 조직과 단체에 빠르게 파급되고 있어 디지털 기업 본질을 살펴본다.
+
+마지막으로 디지털 기업의 핵심 경쟁력으로 파악되는 .black[**인공지능**]과 기술적 기반이 되는 
+.black[**딥러닝**]에 대해 전반적으로 조망한다.
+
+]
+ 
+.pull-right[   
+.left[
+
+1\. [디지털 전환](#digital-ranking) <br><br>
+&nbsp;&nbsp;&nbsp;&nbsp;    1\.1\. 전통적 지표 <br>
+&nbsp;&nbsp;&nbsp;&nbsp;    1\.2\. 디지털 지표
+    
+2\. **[.warmyellow[디지털 조직]](#digital-transformation)** <br><br>
+&nbsp;&nbsp;&nbsp;&nbsp;    2\.1\. 전통기업 <br>
+&nbsp;&nbsp;&nbsp;&nbsp;    2\.2\. 디지털 기업 <br>
+&nbsp;&nbsp;&nbsp;&nbsp;    2\.3\. 충돌(전쟁) <br>
+
+3\. [인공지능 / 딥러닝](#deep-learning) <br><br>
+&nbsp;&nbsp;&nbsp;&nbsp;    3\.1\. 자동화 <br>
+&nbsp;&nbsp;&nbsp;&nbsp;    3\.2\. 인공지능 <br>
+&nbsp;&nbsp;&nbsp;&nbsp;    2\.3\. 딥러닝 <br>
+
+4\. [마무리](#goodbye) 
+]
+] <!--end of right-column-->
+
+
+---
+name: digital-traditional-company
+# 전통기업: 사업 모형
+
+.center[
+<img src="fig/digital-business-model.png", width="67%" />
+]
+
+---
+name: digital-traditional-company-om
+# 전통기업: 운영 모형
+
+.center[
+<img src="fig/digital-operating-model.png", width="87%" />
+]
+
+---
+name: digital-traditional-company-bm-om
+# 전통기업: BM &rarr; OM
+
+<br>
+<br>
+
+.center[
+<img src="fig/digital-bm-om.png", width="100%" />
+]
+
+---
+name: digital-traditional-company-problem
+# 전통기업: 문제점
+
+<br>
+<br>
+
+.center[
+<img src="fig/traditional-value-of-firm.png", width="100%" />
+]
+
+---
+name: digital-traditional-company-problem
+# 전통기업: 근본 원인
+
+<br>
+
+.center[
+<img src="fig/traditional-om.png", width="100%" />
+]
+
+---
+name: digital-collision
+# 전통기업: 디지털 운영 모형 전환
+
+<br>
+
+.center[
+<img src="fig/digital-transformation-om.png", width="100%" />
+]
+
