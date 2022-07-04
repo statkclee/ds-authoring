@@ -1,3 +1,30 @@
+
+
+---
+name: goodbye
+class: middle, inverse
+# 2022년 국방 분야 SW∙AI 역량강화 - 부대 순회교육
+
+## 56회차 – 부사관학교
+
+
+.pull-left[
+
+<img style="border-radius: 100%;" src="fig/kossa-qrcode.jpg" width="300px"/>
+
+]
+
+.pull-right[
+
+- QR코드 활용 만족도 조사 참여 방법
+    - ① 휴대폰 카메라로 QR 코드 스캔 
+    - ② 화면에 나타난 링크 클릭
+    - ③ 카메라 사용 불가 시 아래 링크를 통해 참여
+- 링크: [https://forms.gle/EvGkzTHJAnnYEDGv5](https://forms.gle/EvGkzTHJAnnYEDGv5)
+
+]
+
+
 ---
 name: goodbye
 class: middle, inverse
