@@ -1,0 +1,70 @@
+
+
+
+---
+name: asia-public-data
+# 공공데이터 포털
+
+
+```{r public-portal}
+library(tidyverse)
+library(readxl)
+library(reactable)
+
+public_dat <- readxl::read_excel(glue::glue("{here::here()}/data/public-data.xlsx"), sheet = "현황")
+
+public_dat %>% 
+  janitor::clean_names(ascii = FALSE) %>% 
+  reactable::reactable(defaultPageSize = 10,
+                       columns = list(
+                         포털명 = colDef(minWidth = 200)))
+
+```
+
+
+.footnote[
+- [김학래, "2022 데이터 인사이트 세미나", 중앙대학교 HIKE 연구실](https://forum.datahub.kr/t/topic/128)   
+]
+
+---
+name: asia-public-data-type
+# 공공데이터 자료 제공 형식
+
+
+```{r public-portal-type}
+library(tidyverse)
+library(readxl)
+library(reactable)
+
+public_dat_type <- readxl::read_excel(glue::glue("{here::here()}/data/public-data.xlsx"), sheet = "서비스유형")
+
+public_dat_type %>% 
+  janitor::clean_names(ascii = FALSE) %>% 
+  reactable::reactable(defaultPageSize = 10,
+                       columns = list(
+                         포털_목록 = colDef(minWidth = 60)))
+
+```
+
+
+.footnote[
+- [김학래, "2022 데이터 인사이트 세미나", 중앙대학교 HIKE 연구실](https://forum.datahub.kr/t/topic/128)   
+]
+
+
+---
+name: asia-public-data-type
+# 공공데이터 정해진 미래(?)
+
+<br>
+
+.center[
+![](fig/hike-data-insight.jpg)
+]
+
+
+.footnote[
+- [김학래, "2022 데이터 인사이트 세미나", 중앙대학교 HIKE 연구실](https://forum.datahub.kr/t/topic/128)   
+]
+
+

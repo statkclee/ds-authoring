@@ -1,0 +1,47 @@
+
+
+---
+class: inverse, middle
+name: daejeon-history-toc
+
+# 발표 개요 
+
+----
+
+.pull-left[
+
+디지털 전환이 급속도로 진행됨에 따라 데이터를 수집하고 처리할 수 없을 정도로 
+**.warmyellow[데이터가 폭증]**하고 있다. 무어의 법칙에 따라 컴퓨터 하드웨어와 
+네트워크 분야에서 눈부신 발전을 거듭하고 있고, 
+소프트웨어 분야도 오픈소스 문화가 정착됨에 따라 빅데이터 문제에 해법을 제시하고 있다.
+
+하지만, 데이터를 통해 가치를 창출하는 **.warmyellow[시민 데이터 과학자]**가 
+병목의 중심으로 부각되고 있다. 
+
+공공 지역정보 데이터 수집과 분석 전략과 **.warmyellow[오픈 통계 패키지]**를 살펴보고,
+시민이 주도가 되어 직접 인공지능 앱도 함께 개발하는 시간을 갖고자 한다.
+
+]
+ 
+.pull-right[   
+.left[
+
+1\. [대한민국 공공데이터](#daejeon-public-data-toc)
+
+2\. **[.warmyellow[통계가 기여한 역사]](#daejeon-history-toc)**
+
+3\. [오픈 통계 패키지 - BitStat](#daejeon-bitstat-toc)
+
+4\. [인공지능 앱 개발](#daejeon-dl-toc)
+
+]
+] <!--end of right-column-->  
+
+---
+name: about-data-scientist
+# 역사적 기여를 한 통계
+
+```{r echo=FALSE}
+xaringanExtra::embed_xaringan("https://aispiration.com/ds-authoring/ds-world-student.html#2", "4:3", max_width = "100%")
+```
+

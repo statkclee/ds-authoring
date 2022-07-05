@@ -1,0 +1,33 @@
+
+
+---
+name: daejeon-goodbye
+class: middle, inverse
+
+.pull-left[
+# **경청해 주셔서 <br>감사합니다.**
+<br/>
+## AIS & [한국 R 사용자회](https://r2bit.com/)
+
+]
+
+.pull-right[
+.right[
+
+<img style="border-radius: 100%;" src="fig/korea_R_logo.png" width="300px"/>
+
+]
+]
+
+
+---
+name: daejeon-sponsor
+# 후원
+
+이 프로그램은 과학기술진흥기금 및 복권기금의 재원으로 운영되고,과학기술정보통신부와 한국과학창의재단의 지원을 받아 수행된 성과물로 우리나라의 과학기술 발전과 사회적 가치 증진에 기여하고 있습니다. 성균관대학교 경제학과, 한밭대학교 창업경영학과에서 장소를 지원해 주셨으며, **대전과학문화거점센터** 지원도 받았음을 밝혀둡니다.
+
+|                                                            |                                            |                                                  |                                             |
+|:-------------:|:----------------:|:-------------:|:-------------:|
+| ![](fig/R_Consortium-logo-vertical-color.png) | ![](fig/logo-science-ict.png) | ![](fig/logo-kofac.jpg) | ![](fig/daejeon-tour-logo.jpg) |
+|        ![](fig/logo-daejeon-city.jpg)         |      ![](fig/hanbat.jpg)       |         ![](fig/skku_s.png)          |                                             |
+

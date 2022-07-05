@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>시민 데이터 과학 (통계/인공지능)</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="이광춘(AIS) / 유충현(한국 R 사용자회)" />
+    <meta name="date" content="2022-07-15" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/panelset/panelset.css" rel="stylesheet" />
+    <script src="libs/panelset/panelset.js"></script>
+    <link href="libs/tile-view/tile-view.css" rel="stylesheet" />
+    <script src="libs/tile-view/tile-view.js"></script>
+    <link href="libs/animate.css/animate.xaringan.css" rel="stylesheet" />
+    <link href="libs/tachyons/tachyons.min.css" rel="stylesheet" />
+    <script src="libs/clipboard/clipboard.min.js"></script>
+    <link href="libs/shareon/shareon.min.css" rel="stylesheet" />
+    <script src="libs/shareon/shareon.min.js"></script>
+    <link href="libs/xaringanExtra-shareagain/shareagain.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra-shareagain/shareagain.js"></script>
+    <link href="libs/xaringanExtra-extra-styles/xaringanExtra-extra-styles.css" rel="stylesheet" />
+    <script src="libs/core-js/shim.min.js"></script>
+    <script src="libs/react/react.min.js"></script>
+    <script src="libs/react/react-dom.min.js"></script>
+    <script src="libs/reactwidget/react-tools.js"></script>
+    <script src="libs/htmlwidgets/htmlwidgets.js"></script>
+    <script src="libs/reactable-binding/reactable.js"></script>
+    <script src="libs/fitvids/fitvids.min.js"></script>
+    <link rel="stylesheet" href="css/SNU.css" type="text/css" />
+    <link rel="stylesheet" href="css/nhsr-fonts.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+
+class: title-slide, left, bottom
+
+# 시민 데이터 과학 (통계/인공지능)
+----
+## **공공데이터, 오픈 통계 패키지, 인공지능**
+### 이광춘(AIS) / 유충현(한국 R 사용자회)
+### 2022-07-15
+
+ 
+---
+class: inverse, middle
+name: daejeon-public-data-toc
+
+# 발표 개요 
+
+----
+
+.pull-left[
+
+디지털 전환이 급속도로 진행됨에 따라 데이터를 수집하고 처리할 수 없을 정도로 
+**.warmyellow[데이터가 폭증]**하고 있다. 무어의 법칙에 따라 컴퓨터 하드웨어와 
+네트워크 분야에서 눈부신 발전을 거듭하고 있고, 
+소프트웨어 분야도 오픈소스 문화가 정착됨에 따라 빅데이터 문제에 해법을 제시하고 있다.
+
+하지만, 데이터를 통해 가치를 창출하는 **.warmyellow[시민 데이터 과학자]**가 
+병목의 중심으로 부각되고 있다. 
+
+공공 지역정보 데이터 수집과 분석 전략과 **.warmyellow[오픈 통계 패키지]**를 살펴보고,
+시민이 주도가 되어 직접 인공지능 앱도 함께 개발하는 시간을 갖고자 한다.
+
+]
+ 
+.pull-right[   
+.left[
+
+1\. **[.warmyellow[대한민국 공공데이터]](#daejeon-public-data-toc)**
+
+2\. [통계가 기여한 역사](#daejeon-history-toc)
+
+3\. [오픈 통계 패키지 - BitStat](#daejeon-bitstat-toc)
+
+4\. [인공지능 앱 개발](#daejeon-dl-toc)
+
+]
+] &lt;!--end of right-column--&gt;  
+
+
+&lt;!--------------------------  1. 대한민국 공공데이터 -----------------------------------------&gt;
+
+
+
+
+
+---
+name: asia-public-data
+# 공공데이터 포털
+
+
+<div id="htmlwidget-3ac40ca6269fa0388256" class="reactable html-widget" style="width:auto;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-3ac40ca6269fa0388256">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"지자체_목록":["공공데이터포털","강원도","경기도","경상남도","경상북도","광주광역시","대구광역시","대전광역시","부산광역시","서울특별시","세종특별자치시","울산광역시","인천광역시","전라남도","전라북도","제주도","충청남도","충청북도"],"포털명":["공공데이터포털","강원 공공데이터","경기데이터드림","경남 빅데이터 허브 플랫폼","경북 공공데이터&통계","광주광역시 빅데이터 통합플랫폼","대구 D데이터허브","x","부산 공공데이터포털","서울 열린데이터광장","x","울산광역시 데이터포털","인천광역시 데이터포털","전라남도 빅데이터허브","전라북도 빅데이터허브","제주 데이터허브","충청남도 공공데이터 개방","충청북도 빅데이터 허브 플랫폼"],"x2021_7_현황_점검":["o","o","o","o","o","o","o",null,"o","o",null,"o","o","x","o","o","o","x"],"x2022_04_유지_여부_점검":["x","x","o","x","x","x","o",null,"o","o",null,"x","x","신규","o","o","o","신규"]},"columns":[{"accessor":"지자체_목록","name":"지자체_목록","type":"character"},{"accessor":"포털명","name":"포털명","type":"character","minWidth":200},{"accessor":"x2021_7_현황_점검","name":"x2021_7_현황_점검","type":"character"},{"accessor":"x2022_04_유지_여부_점검","name":"x2022_04_유지_여부_점검","type":"character"}],"defaultPageSize":10,"paginationType":"numbers","showPageInfo":true,"minRows":1,"dataKey":"6cd1c8446261ce71c8abbac04e471ac2"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
+
+
+.footnote[
+- [김학래, "2022 데이터 인사이트 세미나", 중앙대학교 HIKE 연구실](https://forum.datahub.kr/t/topic/128)   
+]
+
+---
+name: asia-public-data-type
+# 공공데이터 자료 제공 형식
+
+
+<div id="htmlwidget-2dcc8772343a566b59f2" class="reactable html-widget" style="width:auto;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-2dcc8772343a566b59f2">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"포털_목록":["공공데이터포털","강원 공공데이터","경기데이터드림","경남 빅데이터 허브 플랫폼","경북 공공데이터&통계","광주광역시 빅데이터 통합플랫폼","대구 D데이터허브","부산 공공데이터포털","서울 열린데이터광장","울산광역시 데이터포털","인천광역시 데이터포털","전라남도 빅데이터허브","전라북도 빅데이터허브","제주 데이터허브","충청남도 공공데이터 개방","충청북도 빅데이터 허브 플랫폼"],"서비스_유형":["LINK, LOD, REST, RSS/ATOM,YSOAP,Y다운로드,Y배송 및 기타","LINK,YSHEET,YCHART,YOPENYAPI,YMAP,YFILE","FILE,YLINK,YSHEET,YMAP,YCHART,YOPENYAPI","-","파일,YAPI,Y데이터,Y오픈API","파일,Y링크","API,YFILE","SHEET,YMAP,YAPI,YFILE,YLINK","SHEET,YOpenAPI,YFILE,YCHART,YLINK","-","FILE,YOpenAPI","FILE,YOPENAPI,YSHEET","CSV, EXCEL, GRID, CHART,YMAP,YFILE,YLINK,YAPI","FILE,YAPI,YLINK,Y영상,Y차트","-","-"]},"columns":[{"accessor":"포털_목록","name":"포털_목록","type":"character","minWidth":60},{"accessor":"서비스_유형","name":"서비스_유형","type":"character"}],"defaultPageSize":10,"paginationType":"numbers","showPageInfo":true,"minRows":1,"dataKey":"a0d9669589ab295cbfdd1be1eca7b99e"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
+
+
+.footnote[
+- [김학래, "2022 데이터 인사이트 세미나", 중앙대학교 HIKE 연구실](https://forum.datahub.kr/t/topic/128)   
+]
+
+
+---
+name: asia-public-data-type
+# 공공데이터 정해진 미래(?)
+
+&lt;br&gt;
+
+.center[
+![](fig/hike-data-insight.jpg)
+]
+
+
+.footnote[
+- [김학래, "2022 데이터 인사이트 세미나", 중앙대학교 HIKE 연구실](https://forum.datahub.kr/t/topic/128)   
+]
+
+
+
+
+&lt;!--------------------------  2. 역사적인 통계학 기여 -----------------------------------&gt;
+
+
+
+
+---
+class: inverse, middle
+name: daejeon-history-toc
+
+# 발표 개요 
+
+----
+
+.pull-left[
+
+디지털 전환이 급속도로 진행됨에 따라 데이터를 수집하고 처리할 수 없을 정도로 
+**.warmyellow[데이터가 폭증]**하고 있다. 무어의 법칙에 따라 컴퓨터 하드웨어와 
+네트워크 분야에서 눈부신 발전을 거듭하고 있고, 
+소프트웨어 분야도 오픈소스 문화가 정착됨에 따라 빅데이터 문제에 해법을 제시하고 있다.
+
+하지만, 데이터를 통해 가치를 창출하는 **.warmyellow[시민 데이터 과학자]**가 
+병목의 중심으로 부각되고 있다. 
+
+공공 지역정보 데이터 수집과 분석 전략과 **.warmyellow[오픈 통계 패키지]**를 살펴보고,
+시민이 주도가 되어 직접 인공지능 앱도 함께 개발하는 시간을 갖고자 한다.
+
+]
+ 
+.pull-right[   
+.left[
+
+1\. [대한민국 공공데이터](#daejeon-public-data-toc)
+
+2\. **[.warmyellow[통계가 기여한 역사]](#daejeon-history-toc)**
+
+3\. [오픈 통계 패키지 - BitStat](#daejeon-bitstat-toc)
+
+4\. [인공지능 앱 개발](#daejeon-dl-toc)
+
+]
+] &lt;!--end of right-column--&gt;  
+
+---
+name: about-data-scientist
+# 역사적 기여를 한 통계
+
+<div class="shareagain" style="min-width:300px;margin:1em auto;max-width:100%;">
+<iframe src="https://aispiration.com/ds-authoring/ds-world-student.html#2" width="400" height="300" style="border:2px solid currentColor;" loading="lazy" allowfullscreen></iframe>
+<script>fitvids('.shareagain', {players: 'iframe'});</script>
+</div>
+
+
+
+&lt;!--------------------------  3. BitStat 오픈 통계 패키지 -----------------------------------&gt;
+
+
+
+
+---
+class: inverse, middle
+name: daejeon-bitstat-toc
+
+# 발표 개요 
+
+----
+
+.pull-left[
+
+디지털 전환이 급속도로 진행됨에 따라 데이터를 수집하고 처리할 수 없을 정도로 
+**.warmyellow[데이터가 폭증]**하고 있다. 무어의 법칙에 따라 컴퓨터 하드웨어와 
+네트워크 분야에서 눈부신 발전을 거듭하고 있고, 
+소프트웨어 분야도 오픈소스 문화가 정착됨에 따라 빅데이터 문제에 해법을 제시하고 있다.
+
+하지만, 데이터를 통해 가치를 창출하는 **.warmyellow[시민 데이터 과학자]**가 
+병목의 중심으로 부각되고 있다. 
+
+공공 지역정보 데이터 수집과 분석 전략과 **.warmyellow[오픈 통계 패키지]**를 살펴보고,
+시민이 주도가 되어 직접 인공지능 앱도 함께 개발하는 시간을 갖고자 한다.
+
+]
+ 
+.pull-right[   
+.left[
+
+1\. [대한민국 공공데이터](#daejeon-public-data-toc)
+
+2\. [통계가 기여한 역사](#daejeon-history-toc)
+
+3\. **[.warmyellow[오픈 통계 패키지 - BitStat]](#daejeon-bitstat-toc)**
+
+4\. [인공지능 앱 개발](#daejeon-dl-toc)
+
+]
+] &lt;!--end of right-column--&gt;  
+
+---
+name: bitstat-why
+# 디지털 불평등
+
+&lt;br&gt;
+
+.center[
+  &lt;img src="fig/bitstat/inequality.jpg" /&gt;
+]
+
+---
+name: bitstat-pkg
+# 국내외 통계패키지
+
+
+.center[
+  &lt;img src="fig/bitstat/statistics-pkg.jpg" width="100%"&gt;
+]
+
+.footnote[
+- [한국 통계 팩키지](https://r2bit.com/onboard/tong.html)   
+]
+
+---
+name: bitstat-market
+# 시장상황과 관련 제품
+
+&lt;br&gt;
+- 국내 기술 동향 및 수준
+    - 한국R사용자회 정보통신산업진흥원 오픈업 오픈통계 패키지 컨트리뷰톤 커뮤니티 개발
+    - 통계청/통계교육원 통그라미 개발운영
+    - 서울대 2015년 SRC-STAT 통계패키지 개발
+    - 가톨릭의대 문건웅 교수 WEB-R 웹기반 통계 패키지를 의학분야 한정하여 개발운영
+    
+- 국외 기술 동향 및 수준
+    - SPSS 개발자 출신 스타트업 BlueSky Statistics
+    - 기계학습 특화 R Rattle 통계패키지, ‘05년 개발된 R GUI 통계분석 R Commander
+    - 기계학습 특화 머신러닝 플랫폼 DataRobot, Java 기반 머신러닝/AI 플랫폼 Driverless AI
+
+
+.center[
+  &lt;img src="fig/bitstat/market-size.jpg" /&gt;
+]
+
+
+.footnote[
+- IDC, "Revenue from big data and business analytics worldwide from 2015 to 2022", 2021년 9월.
+- NICE디앤비, “데이터솔류션(263800) 기술분석보고서”, 한국IR협의회, 2020년 8월.
+]
+
+---
+name: bitstat-architecture
+# 시스템 아키텍쳐
+
+&lt;br&gt;
+
+.center[
+  &lt;img src="fig/bitstat/development-architecture.png" /&gt;
+]
+
+
+---
+name: bitstat-demo-eda
+# 데모 - 탐색적 데이터 분석
+
+&lt;br&gt;
+
+.center[
+  &lt;img src="fig/bitstat/openStat_quick.gif" /&gt;
+]
+
+
+.footnote[
+- 한국 R 사용자회(Tidyverse Korea) - 컨트리뷰톤 2021년 Open UP 오픈 프런티어 "마스터 프런티어" 프로젝트
+]
+
+
+
+
+&lt;!--------------------------  4. 딥러닝 앱개발 -----------------------------------&gt;
+
+
+
+
+---
+class: inverse, middle
+name: daejeon-dl-toc
+
+# 발표 개요 
+
+----
+
+.pull-left[
+
+디지털 전환이 급속도로 진행됨에 따라 데이터를 수집하고 처리할 수 없을 정도로 
+**.warmyellow[데이터가 폭증]**하고 있다. 무어의 법칙에 따라 컴퓨터 하드웨어와 
+네트워크 분야에서 눈부신 발전을 거듭하고 있고, 
+소프트웨어 분야도 오픈소스 문화가 정착됨에 따라 빅데이터 문제에 해법을 제시하고 있다.
+
+하지만, 데이터를 통해 가치를 창출하는 **.warmyellow[시민 데이터 과학자]**가 
+병목의 중심으로 부각되고 있다. 
+
+공공 지역정보 데이터 수집과 분석 전략과 **.warmyellow[오픈 통계 패키지]**를 살펴보고,
+시민이 주도가 되어 직접 인공지능 앱도 함께 개발하는 시간을 갖고자 한다.
+
+]
+ 
+.pull-right[   
+.left[
+
+1\. [대한민국 공공데이터](#daejeon-public-data-toc)
+
+2\. [통계가 기여한 역사](#daejeon-history-toc)
+
+3\. [오픈 통계 패키지 - BitStat](#daejeon-bitstat-toc)
+
+4\. **[.warmyellow[인공지능 앱 개발]](#daejeon-dl-toc)**
+
+]
+] &lt;!--end of right-column--&gt;  
+
+
+---
+name: automation-paradox
+# 모라벡의 역설(Moravec’s paradox)
+
+&lt;br&gt;
+
+.center[
+
+&lt;img src="fig/moravec-paradox.png" width = "87%" /&gt;
+
+]
+
+.footnote[
+미국 카네기 멜론 대학 (CMU) 로봇 공학자 한스 모라벡(Hans Moravec)이 1970년대에 ‘it is comparatively easy to make computers exhibit adult level performance on intelligence tests or playing checkers, and difficult or impossible to give them the skills of a one-year-old when it comes to perception and mobility’라는 표현으로 컴퓨터와 인간의 능력 차이를 역설적으로 표현하였다.
+]
+
+
+---
+name: dl-timeline
+# 신경망 모형 여정
+
+&lt;br&gt;
+&lt;br&gt;
+
+.center[
+&lt;img src="fig/dl-timeline.png" alt="timeline" width="100%" /&gt;
+]
+
+.footnote[
+Liangqu Long, Xiangming Zeng (2022), "Beginning Deep Learning with TensorFlow: Work with Keras, MNIST Data Sets, and Advanced Neural Networks", Apress
+]
+
+---
+name: dl-applicatin
+# 딥러닝 활용사례
+
+.panelset[
+
+.panel[.panel-name[이미지 데이터]
+.center[
+&lt;img src="fig/dl-image.png" alt="이미지 데이터" width="100%" /&gt;
+]
+]
+
+.panel[.panel-name[텍스트 데이터]
+.center[
+&lt;img src="fig/dl-text.png" alt="텍스트 데이터" width="100%" /&gt;
+]
+]
+
+.panel[.panel-name[정형 데이터]
+.center[
+&lt;img src="fig/dl-csv.png" alt="정형데이터" width="100%" /&gt;
+]
+]
+
+.panel[.panel-name[...]
+]
+
+]
+
+
+
+
+---
+name: human-performance
+# 딥러닝 알고리즘 성능 - 이미지
+
+&lt;br&gt;
+&lt;br&gt;
+
+&lt;img src="daejeon_files/figure-html/unnamed-chunk-7-1.png" style="display: block; margin: auto;" /&gt;
+
+.footnote[
+[Image Classification on ImageNet](https://paperswithcode.com/sota/image-classification-on-imagenet)
+]
+
+
+---
+name: human-performance-nlp
+# 딥러닝 알고리즘 성능 - 텍스트
+
+&lt;br&gt;
+&lt;br&gt;
+
+&lt;img src="daejeon_files/figure-html/unnamed-chunk-8-1.png" style="display: block; margin: auto;" /&gt;
+
+.footnote[
+[SQuAD2.0 - The Stanford Question Answering Dataset](https://rajpurkar.github.io/SQuAD-explorer/)
+]
+
+---
+name: resnet-app
+# 인공지능 앱 제작
+
+.center[
+![](fig/resnet-app.jpg)
+]
+
+- [Shiny 웹앱 : 데이터 사이언스 언어 R - 기계 이미지 인식](https://r2bit.shinyapps.io/shiny_resnet/)
+- [인공지능 웹앱 개념](https://aispiration.com/united-states/00_concept.html)
+- [제작방법](https://aispiration.com/data-product/shiny-image-classification.html)
+
+
+&lt;!--------------------------  마무리 -----------------------------------------&gt;
+
+
+
+
+---
+name: daejeon-goodbye
+class: middle, inverse
+
+.pull-left[
+# **경청해 주셔서 &lt;br&gt;감사합니다.**
+&lt;br/&gt;
+## AIS &amp; [한국 R 사용자회](https://r2bit.com/)
+
+]
+
+.pull-right[
+.right[
+
+&lt;img style="border-radius: 100%;" src="fig/korea_R_logo.png" width="300px"/&gt;
+
+]
+]
+
+
+---
+name: daejeon-sponsor
+# 후원
+
+이 프로그램은 과학기술진흥기금 및 복권기금의 재원으로 운영되고,과학기술정보통신부와 한국과학창의재단의 지원을 받아 수행된 성과물로 우리나라의 과학기술 발전과 사회적 가치 증진에 기여하고 있습니다. 성균관대학교 경제학과, 한밭대학교 창업경영학과에서 장소를 지원해 주셨으며, **대전과학문화거점센터** 지원도 받았음을 밝혀둡니다.
+
+|                                                            |                                            |                                                  |                                             |
+|:-------------:|:----------------:|:-------------:|:-------------:|
+| ![](fig/R_Consortium-logo-vertical-color.png) | ![](fig/logo-science-ict.png) | ![](fig/logo-kofac.jpg) | ![](fig/daejeon-tour-logo.jpg) |
+|        ![](fig/logo-daejeon-city.jpg)         |      ![](fig/hanbat.jpg)       |         ![](fig/skku_s.png)          |                                             |
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="macros.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "googlecode",
+"highlightLines": true,
+"highlightLanguage": "r",
+"countIncrementalSlides": false,
+"ratio": "4:3"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+<!--Hat-tip: https://www.garrickadenbuie.com/blog/xaringan-tip-logo-all-slides/-->
+<style>
+.logo {
+  background-image: url(../fig/korea_R_logo.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  width: 110px;
+  height: 128px;
+  z-index: 0;
+}
+</style>
+
+<script>
+document
+  .querySelectorAll(
+    '.remark-slide-content' +
+    ':not(.title-slide)' +
+    // add additional classes to exclude here, e.g.
+    ':not(.inverse)' +
+    ':not(.hide-logo)'
+  )
+  .forEach(el => {
+    el.innerHTML += '<div class="logo"></div>';
+  });
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
