@@ -123,12 +123,34 @@ name: ds-world
 ]
 
 
-
 ```{r child='slideshows/data_science_student/ds-world-cholera.Rmd'}
 ```
 
 ```{r child='slideshows/data_science_student/ds-world-handwashing.Rmd'}
 ```
+
+---
+name: tossing-coins
+# 동전던지기
+
+<br>
+<br>
+
+.pull-left[
+<img src = "fig/toss_coin.gif">
+
+]
+.pull-right[
+<img src = "fig/toss-coins-shiny.jpg">
+
+- [R 앱연결](https://r2bit.shinyapps.io/simulation/)
+]
+
+.footnote[
+- [한국 R 사용자회 - Shiny 앱](https://rpubs.com/statkclee/shiny)
+]
+
+
 
 ```{r child='slideshows/data_science_student/ds-world-normal.Rmd'}
 ```
@@ -141,6 +163,29 @@ name: ds-world
 
 ```{r child='slideshows/data_science_student/ds-world-aircraft.Rmd'}
 ```
+
+---
+name: ai-app
+# 인공지능 앱
+
+<br>
+
+.pull-left[
+<img src = "fig/ai_app.gif">
+<br>
+<img src = "fig/ai-app-resnet.png">
+
+]
+.pull-right[
+<img src = "fig/shiny-resnet.jpg">
+
+- [R 앱연결](https://r2bit.shinyapps.io/shiny_resnet/)
+]
+
+.footnote[
+- [20분만에 끝내는 인공지능](https://aispiration.com/united-states/)
+]
+
 
 
 ---
@@ -161,7 +206,6 @@ class: middle, inverse
 
 ]
 ]
-
 
 
 
