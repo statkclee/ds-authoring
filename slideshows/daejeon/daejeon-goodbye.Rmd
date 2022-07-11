@@ -1,3 +1,4 @@
+
 ---
 name: daejeon-goodbye
 class: middle, inverse
@@ -25,7 +26,10 @@ name: daejeon-sponsor
 
 > R Consortium과 한밭대학교 창업경영학과에서 장소를 지원해 주셨으며, 과학기술정보통신부, 한국과학창의재단, 대전광역시, 대전관광공사, **대전과학문화거점센터** 지원해 주셨습니다.
 
+
 |                                               |                               |                         |                                |
 |:----------------:|:------------------:|:----------------:|:----------------:|
 | ![](fig/R_Consortium-logo-vertical-color.png) | ![](fig/logo-science-ict.png) | ![](fig/logo-kofac.jpg) | ![](fig/daejeon-tour-logo.jpg) |
 |        ![](fig/logo-daejeon-city.jpg)         |      ![](fig/hanbat.jpg)      |   ![](fig/skku_s.png)   |                                |
+
+
