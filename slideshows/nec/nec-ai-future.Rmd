@@ -1,0 +1,122 @@
+
+---
+name: nec-krvote
+# krvote 데이터 패키지
+
+
+.panelset[
+
+.panel[.panel-name[패키지]
+.center[
+![](fig/asia-pkg-why.jpg)
+]
+[Desirée De Leon, Alison Hill, "A Handbook for Teaching and Learning with R and RStudio", 2019-09-11](https://rstudio4edu.github.io/rstudio4edu-book/)
+]
+
+.panel[.panel-name[데이터패키지]
+.center[
+<img src = "fig/asia-pkg-overview.jpg"  width="80%" />
+]
+[Desirée De Leon, Alison Hill, "A Handbook for Teaching and Learning with R and RStudio", 2019-09-11](https://rstudio4edu.github.io/rstudio4edu-book/)
+]
+
+
+.panel[.panel-name[전처리작업]
+<br>
+.center[
+<img src = "fig/asia-data-workflow.png"  width="100%" />
+]
+[이광춘, "krvote - 대한민국 선거 데이터 패키지", 2022-06-09](https://ai-carpentry.github.io/krvote/)
+]
+
+.panel[.panel-name[후처리작업]
+<br>
+.center[
+<img src = "fig/asia-data-workflow-pkg.png"  width="100%" />
+]
+[이광춘, "krvote - 대한민국 선거 데이터 패키지", 2022-06-09](https://ai-carpentry.github.io/krvote/)
+]
+
+.panel[.panel-name[krvote]
+.center[
+
+```{r krvote-dataset-show, eval = TRUE, echo = FALSE}
+# remotes::install_github("ai-carpentry/krvote")
+library(tidyverse)
+library(krvote)
+
+krvote_dat <- data(package = "krvote")
+
+krvote_dat$results %>% 
+  as_tibble() %>% 
+  select(데이터셋 = Item, 데이터설명 = Title) %>% 
+  reactable::reactable(filterable = TRUE, defaultPageSize = 7 )
+```
+
+]
+]
+
+.panel[.panel-name[활용사례]
+<br>
+<br>
+<br>
+<br>
+<br>
+.center[
+
+[제19대 대통령 선거 결과](https://aispiration.com/president/president-election-2017.html)
+<br>
+<br>
+[제8대 경기지사 대쉬보드](https://aispiration.com/president/gg-dashboard.html)
+
+]
+]
+
+]
+
+
+---
+name: nec-ai
+# 선거 공공데이터 활성화
+
+
+.panelset[
+
+.panel[.panel-name[여론조사]
+.center[<img src = "fig/nesdc-homepage.jpg"  width="80%" />]
+]
+
+.panel[.panel-name[보고서]
+.center[<img src = "fig/nesdc-report.jpg"  width="55%" />]
+[9150 - 제8회 전국동시지방선거 성남시장선거](https://www.nesdc.go.kr/files/result/202207/FILE_202203140434198960.pdf.htm)
+]
+
+.panel[.panel-name[이미지]
+.center[<img src = "fig/nesdc-png.jpg"  width="100%" />]
+]
+
+.panel[.panel-name[PDF]
+.center[<img src = "fig/nesdc-pdf.jpg"  width="75%" />]
+]
+
+.panel[.panel-name[시각화]
+<br>
+<br>
+.center[<img src = "fig/nesdc-viz.png"  width="100%" />]
+]
+
+.panel[.panel-name[&rarr;]
+<br>
+<br>
+.center[<img src = "fig/nesdc-viz.png"  width="100%" />]
+]
+
+.panel[.panel-name[다함께 미래로]
+
+.center[<img src = "fig/nesdc-future.png"  width="90%" />]
+]
+
+
+]
+
+

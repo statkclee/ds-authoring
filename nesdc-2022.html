@@ -9,6 +9,12 @@
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <link href="libs/panelset/panelset.css" rel="stylesheet" />
     <script src="libs/panelset/panelset.js"></script>
+    <script src="libs/core-js/shim.min.js"></script>
+    <script src="libs/react/react.min.js"></script>
+    <script src="libs/react/react-dom.min.js"></script>
+    <script src="libs/reactwidget/react-tools.js"></script>
+    <script src="libs/htmlwidgets/htmlwidgets.js"></script>
+    <script src="libs/reactable-binding/reactable.js"></script>
     <link rel="stylesheet" href="css/nesdc.css" type="text/css" />
     <link rel="stylesheet" href="css/nhsr-fonts.css" type="text/css" />
   </head>
@@ -53,13 +59,13 @@ name: intro-toc
 .pull-right[   
 .left[
 
-1\. [선거 공공데이터](#studuent-cholera)
+1\. [선거 공공데이터](#nec-election)
 
-2\. [데이터 과학 사례](#student-handwashing)
+2\. [데이터 과학 사례](#nec-data-science)
 
-3\. [선거 공공데이터 활성화](#student-normal)
+3\. [선거 공공데이터 활성화](#nec-krvote)
 
-4\. [마무리](#student-goodbye) 
+4\. [마무리](#asia-goodbye) 
 
 ]
 ] &lt;!--end of right-column--&gt;  
@@ -426,8 +432,143 @@ name: nec-data-science
 
 
 
+&lt;!-----------------  3. 활성화 ------------------------&gt;
 
 
+
+---
+name: nec-krvote
+# krvote 데이터 패키지
+
+
+.panelset[
+
+.panel[.panel-name[패키지]
+.center[
+![](fig/asia-pkg-why.jpg)
+]
+[Desirée De Leon, Alison Hill, "A Handbook for Teaching and Learning with R and RStudio", 2019-09-11](https://rstudio4edu.github.io/rstudio4edu-book/)
+]
+
+.panel[.panel-name[데이터패키지]
+.center[
+&lt;img src = "fig/asia-pkg-overview.jpg"  width="80%" /&gt;
+]
+[Desirée De Leon, Alison Hill, "A Handbook for Teaching and Learning with R and RStudio", 2019-09-11](https://rstudio4edu.github.io/rstudio4edu-book/)
+]
+
+
+.panel[.panel-name[전처리작업]
+&lt;br&gt;
+.center[
+&lt;img src = "fig/asia-data-workflow.png"  width="100%" /&gt;
+]
+[이광춘, "krvote - 대한민국 선거 데이터 패키지", 2022-06-09](https://ai-carpentry.github.io/krvote/)
+]
+
+.panel[.panel-name[후처리작업]
+&lt;br&gt;
+.center[
+&lt;img src = "fig/asia-data-workflow-pkg.png"  width="100%" /&gt;
+]
+[이광춘, "krvote - 대한민국 선거 데이터 패키지", 2022-06-09](https://ai-carpentry.github.io/krvote/)
+]
+
+.panel[.panel-name[krvote]
+.center[
+
+<div id="htmlwidget-9697078c399f5abf75a4" class="reactable html-widget" style="width:auto;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-9697078c399f5abf75a4">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"데이터셋":["by_election_2021","casting_votes","code_election","code_gusigun","code_party","code_precinct","counting_votes","early_voting","education_2010","education_2014","education_2018","election_20121219","election_20170509","election_20220309","general_2012","general_2016","general_2020","local_edu_20140604","local_edu_20180613","local_edu_gg_20140604","local_edu_seoul_20140604","local_sgg_20140604","local_sgg_20180613","local_sido_20140604","local_sido_20180613","nec_sgg_code","voter_emd","voter_gusigun","voter_precinct","voter_sido","voter_station"],"데이터설명":["서울, 부산 시장 재보궐선거","선거별 구시군별 투표수","중앙선거관리위원회 선거코드","중앙선거관리위원회 구시군코드 공공데이터포털 - 중앙선거관리위원회 구시군코드 검색어: 중앙선거관리위원회 코드정보","중앙선거관리위원회 정당코드","중앙선거관리위원회 선거구 코드","구시군, 선거구별 득표수","사전투표 현황","제5회 시도 교육감","제6회 교육감선거","제7회 교육감선거","제18대 대통령선거 2012년","제19대 대통령선거 2017년","제20대 대통령선거 2022년","제19대 국회의원선거","제20대 국회의원선거","제21대 국회의원선거","","","제6회 지방선거 - 교육감 - 경기","제6회 지방선거 - 교육감 - 서울","제6회 지방선거 - 구시군의장","제7회 지선 구시군의장","제6회 지방선거 - 지도지사","제7회 지방선거 - 시도지사","시도, 구시군 마스터 코드","선거별 구시군, 읍면동별 유권자수","선거별 구시군별 유권자수","선거별 구시군, 선거구별 유권자수","선거별 시도별 유권자수","투표구별 선거인수"]},"columns":[{"accessor":"데이터셋","name":"데이터셋","type":"character"},{"accessor":"데이터설명","name":"데이터설명","type":"character"}],"filterable":true,"defaultPageSize":7,"paginationType":"numbers","showPageInfo":true,"minRows":1,"dataKey":"7387207f772a96a16212ae4659515266"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
+
+]
+]
+
+.panel[.panel-name[활용사례]
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+.center[
+
+[제19대 대통령 선거 결과](https://aispiration.com/president/president-election-2017.html)
+&lt;br&gt;
+&lt;br&gt;
+[제8대 경기지사 대쉬보드](https://aispiration.com/president/gg-dashboard.html)
+
+]
+]
+
+]
+
+
+---
+name: nec-ai
+# 선거 공공데이터 활성화
+
+
+.panelset[
+
+.panel[.panel-name[여론조사]
+.center[&lt;img src = "fig/nesdc-homepage.jpg"  width="80%" /&gt;]
+]
+
+.panel[.panel-name[보고서]
+.center[&lt;img src = "fig/nesdc-report.jpg"  width="55%" /&gt;]
+[9150 - 제8회 전국동시지방선거 성남시장선거](https://www.nesdc.go.kr/files/result/202207/FILE_202203140434198960.pdf.htm)
+]
+
+.panel[.panel-name[이미지]
+.center[&lt;img src = "fig/nesdc-png.jpg"  width="100%" /&gt;]
+]
+
+.panel[.panel-name[PDF]
+.center[&lt;img src = "fig/nesdc-pdf.jpg"  width="75%" /&gt;]
+]
+
+.panel[.panel-name[시각화]
+&lt;br&gt;
+&lt;br&gt;
+.center[&lt;img src = "fig/nesdc-viz.png"  width="100%" /&gt;]
+]
+
+.panel[.panel-name[&amp;rarr;]
+&lt;br&gt;
+&lt;br&gt;
+.center[&lt;img src = "fig/nesdc-viz.png"  width="100%" /&gt;]
+]
+
+.panel[.panel-name[다함께 미래로]
+
+.center[&lt;img src = "fig/nesdc-future.png"  width="90%" /&gt;]
+]
+
+
+]
+
+
+
+&lt;!-----------------  4. 마무리 ------------------------&gt;
+
+
+---
+name: asia-goodbye
+class: middle, inverse
+
+.pull-left[
+# **경청해 주셔서 &lt;br&gt;감사합니다.**
+&lt;br/&gt;
+## [한국 R 사용자회](https://r2bit.com/)
+
+]
+
+.pull-right[
+.right[
+
+&lt;img style="border-radius: 100%;" src="fig/korea_R_logo.png" width="300px"/&gt;
+
+]
+]
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

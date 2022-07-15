@@ -89,13 +89,13 @@ name: intro-toc
 .pull-right[   
 .left[
 
-1\. [선거 공공데이터](#studuent-cholera)
+1\. [선거 공공데이터](#nec-election)
 
-2\. [데이터 과학 사례](#student-handwashing)
+2\. [데이터 과학 사례](#nec-data-science)
 
-3\. [선거 공공데이터 활성화](#student-normal)
+3\. [선거 공공데이터 활성화](#nec-krvote)
 
-4\. [마무리](#student-goodbye) 
+4\. [마무리](#asia-goodbye) 
 
 ]
 ] <!--end of right-column-->  
@@ -111,5 +111,12 @@ name: intro-toc
 ```{r child='slideshows/nec/nec-data-science.Rmd'}
 ```
 
+<!-----------------  3. 활성화 ------------------------>
 
+```{r child='slideshows/nec/nec-ai-future.Rmd'}
+```
 
+<!-----------------  4. 마무리 ------------------------>
+
+```{r child='slideshows/asia/asia-goodbye.Rmd'}
+```
