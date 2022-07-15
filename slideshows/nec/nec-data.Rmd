@@ -1,0 +1,129 @@
+
+
+---
+name: nec-election
+# 주요 선거 일정
+
+<br>
+<br>
+<br>
+
+<center>
+
+```{r election-data, eval = FALSE}
+library(googleVis)
+election_dat <- data.frame(type=c("대통령","대통령","대통령","대통령", "대통령", "대통령",
+                                  "국회의원","국회의원","국회의원","국회의원", "국회의원",
+                                  "지방선거","지방선거","지방선거","지방선거", "지방선거", "지방선거"),
+                  subtype=c("15대", "16대", "17대", "18대","19대","20대",
+                            "17대", "18대", "19대", "20대","21대",
+                            "3회","4회","5회","6회","7회","8회"),
+                  start=as.POSIXct(c("1997-12-18","2002-12-19","2007-12-19","2012-12-19","2017-5-10","2022-5-10",
+                                     "2004-5-30","2008-5-30", "2012-5-30","2016-5-30", "2020-5-30",
+                                     "2002-7-1", "2006-7-1", "2010-7-1","2014-7-1","2018-7-1","2022-7-1")),
+                    end=as.POSIXct(c("2002-12-18","2007-12-18","2012-12-19","2017-5-9", "2022-5-9", "2027-5-9",
+                                     "2008-5-29", "2012-5-29","2016-5-29","2020-5-29","2024-5-29",
+                                     "2006-6-30", "2010-6-30", "2014-6-30","2018-6-30","2022-6-30","2026-6-30")))
+
+election_timeline <- gvisTimeline(data=election_dat, 
+               rowlabel="type", barlabel="subtype", 
+               start="start", end="end", options=list(width=800, height=550))
+
+
+cat(election_timeline$html$chart, file = "data/krvote-election.html")
+```
+
+
+```{r krvote-election-timeline, results='asis', echo=FALSE, out.width="100%"}
+xfun::file_string(glue::glue('{here::here()}/data/krvote-election.html'))
+```
+
+</center>
+
+.footnote[
+- [이광춘, "krvote - 대한민국 선거 데이터 패키지", 2022-06-09](https://ai-carpentry.github.io/krvote/)]
+
+
+---
+name: nesdc-offering-type
+# 중앙선관위 데이터 제공방식
+
+
+.panelset[
+
+.panel[.panel-name[중앙선관위 - 웹사이트]
+.center[ <img src="fig/asia-nec-info.jpg" alt="중앙선관위 - 웹사이트" width="80%" /> 
+]
+]
+
+.panel[.panel-name[중앙선관위 - 자료실]
+.center[ <img src="fig/nesdc_download_files.png" alt="중앙선관위 - 자료실" width="100%" /> 
+]
+]
+
+.panel[.panel-name[공공데이터포털 - API]
+.center[ <img src="fig/asia-data-portal-api.jpg" alt="공공데이터포털 - API 명세" width="80%" /> 
+]
+]
+
+]
+
+
+---
+name: nesdc-offering-data
+# 중앙선관위 제공 데이터
+
+
+.panelset[
+
+.panel[.panel-name[투/개표]
+.center[ <img src="fig/asia-nec-info.jpg" alt="중앙선관위 - 웹사이트" width="80%" /> 
+]
+[선거통계시스템](http://info.nec.go.kr/)
+]
+
+.panel[.panel-name[여론조사]
+.center[ <img src="fig/nec-nesdc.jpg" alt="중앙선거여론조사심의위원회" width="70%" /> 
+]
+[중앙선거여론조사심의위원회](https://www.nesdc.go.kr/portal/main.do)
+]
+
+.panel[.panel-name[의식조사]
+.center[ <img src="fig/nec-minds-pdf.jpg" alt="유권자의식조사" width="40%" /> 
+]
+[제20대 대통령선거 유권자의식조사, PDF](https://www.nec.go.kr/site/nec/ex/bbs/View.do?cbIdx=1129&bcIdx=187615)
+]
+
+.panel[.panel-name[정당회계]
+.center[ <img src="fig/nec-party.jpg" alt="정당회계" width="40%" /> 
+]
+[2020년도 정당의 활동개황 및 회계보고, PDF](https://www.nec.go.kr/site/nec/ex/bbs/View.do?cbIdx=1129&bcIdx=151337)
+]
+
+.panel[.panel-name[TV토론]
+.center[ <img src="fig/nec-debate.jpg" alt="TV토론" width="70%" /> 
+]
+[제 20대 대통령선거 후보자 토론회 다시보기](https://debates.go.kr/2022_vote/sub01/sub01_1.php?substg=1&id=632)
+]
+
+.panel[.panel-name[지도]
+.center[ <img src="fig/nec-precinct-map.jpg" alt="선거구 지도" width="70%" /> 
+]
+[선거구지도 - 대한민국 행정동 경계(admdongkor)](https://github.com/vuski/admdongkor)
+]
+
+.panel[.panel-name[정책공약]
+.center[ <img src="fig/nec-precinct-map.jpg" alt="선거구 지도" width="70%" /> 
+]
+[정책공약마당](https://policy.nec.go.kr/)
+]
+
+.panel[.panel-name[공보물]
+.center[ <img src="fig/nec-phamplet.jpg" alt="후보자선전물" width="70%" /> 
+]
+[선거정보도서관-후보자선전물](https://http://elecinfo.nec.go.kr/)
+]
+
+]
+
+

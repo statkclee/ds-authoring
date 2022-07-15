@@ -1,13 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dongle&family=Gowun+Batang&family=Jua&family=Nanum+Gothic+Coding&family=Noto+Sans+KR:wght@300;400&family=Sunflower&display=swap');
 
 body {
-  font-family: "Arial", "Frutiger", sans-serif;
+  font-family: "Gowun Batang", "Dongle", "Jua", serif;
 }
 
 h1, h2, h3 {
-  font-family: "Arial", "Frutiger", sans-serif;
+  font-family: "Dongle", "Jua", sans-serif;
 }
 
 .remark-code, .remark-inline-code {
-  font-family: 'Roboto Mono', monospace;
+  font-family: 'Nanum Gothic Coding', monospace;
 }

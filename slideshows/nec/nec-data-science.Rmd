@@ -1,0 +1,60 @@
+
+---
+name: nec-data-science
+# 데이터 사이언스 사례
+
+
+.panelset[
+
+.panel[.panel-name[사전투표율]
+.center[ <img src="fig/nec-ds-early-voting.jpeg" alt="사전투표율" width="80%" />  
+]
+
+[제20대 대통령 선거, 사전투표 역사를 새로 쓰다](http://www.ohmynews.com/NWS_Web/View/at_pg.aspx?CNTN_CD=A0002815847)
+]
+
+.panel[.panel-name[역대선거]
+.center[ <img src="fig/nec-ds-local-election.jpeg" alt="선거" width="80%" />  
+]
+
+[지방선거 시도지사 절반, 5월 12일 결정된다](http://www.ohmynews.com/NWS_Web/View/at_pg_w.aspx?CNTN_CD=A0002820588)
+]
+
+.panel[.panel-name[여론조사]
+.center[ <img src="fig/nec-ds-polls.jpeg" alt="여론조사" width="80%" />  
+]
+
+[여론조사를 네 분류로 나눠보니, 눈에 띄는 흐름](http://www.ohmynews.com/NWS_Web/View/at_pg_w.aspx?CNTN_CD=A0002802812)
+]
+
+.panel[.panel-name[TV토론]
+.center[ <img src="fig/nec-ds-debate.jpeg" alt="TV토론" width="80%" />  
+]
+
+[데이터를 통해 본 대선 TV 토론회](http://www.ohmynews.com/NWS_Web/View/at_pg.aspx?CNTN_CD=A0002814657)
+]
+
+.panel[.panel-name[지도]
+.center[ <img src="fig/nec-ds-map.jpeg" alt="지도" width="80%" />  
+]
+
+[대선득표율로 지방선거 판세를 가늠해보자](http://www.ohmynews.com/NWS_Web/View/at_pg_w.aspx?CNTN_CD=A0002818973)
+]
+
+.panel[.panel-name[공약]
+.center[ <img src="fig/nec-ds-policy.jpeg" alt="공약" width="80%" />  
+]
+
+[유력 대선후보 4인, 10대 공약 중 압도적 분야는 '00'](http://www.ohmynews.com/NWS_Web/View/at_pg_w.aspx?CNTN_CD=A0002810838)
+]
+
+.panel[.panel-name[정당사무소]
+.center[ <img src="fig/nec-ds-party.jpeg" alt="정당사무소" width="80%" />  
+]
+
+[양강 구도 속 부지런히 움직이는 제3후보는?](http://www.ohmynews.com/NWS_Web/View/at_pg_w.aspx?CNTN_CD=A0002810396)
+]
+
+]
+
+

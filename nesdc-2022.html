@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>데이터 과학자가 바라본 선거 공공데이터</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="이광춘 / 한국 알(R) 사용자회" />
+    <meta name="date" content="2022-07-28" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/panelset/panelset.css" rel="stylesheet" />
+    <script src="libs/panelset/panelset.js"></script>
+    <link rel="stylesheet" href="css/nesdc.css" type="text/css" />
+    <link rel="stylesheet" href="css/nhsr-fonts.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+
+class: title-slide, left, bottom
+
+# 데이터 과학자가 바라본 선거 공공데이터
+----
+## **중앙선거관리위원회**
+### 이광춘 / 한국 알(R) 사용자회
+### 2022-07-28
+
+ 
+---
+class: inverse, middle
+name: intro-toc
+
+# 발표 개요 
+
+----
+
+.pull-left[
+
+중앙선관위에서 공개하는 선거 공공데이터는 투표/득표로 대표되는 
+**.warmyellow[정형 데이터]** 외에도 다양한 형태로 제공되고 있다.
+
+하지만, 일부 선거 공공데이터는 데이터 과학 발전에도 불구하고 
+여전히 데이터로 제대로 인식되지 못하고 **.red[과거 패러다임]**에 묻혀 
+문서, 표, 그래프, 이미지, 동영상 등으로 별도 관리되고 있다.
+
+2016년부터 인공지능으로 대표되는 데이터 과학영역에 눈부신 발전이 있음에도 불구하고 이를 선거 공공데이터가 담아내고 있지 못해
+데이터 과학자로 **.green[경험한 사례를 들어 공감대를 형성]**하고자 한다.
+
+]
+ 
+.pull-right[   
+.left[
+
+1\. [선거 공공데이터](#studuent-cholera)
+
+2\. [데이터 과학 사례](#student-handwashing)
+
+3\. [선거 공공데이터 활성화](#student-normal)
+
+4\. [마무리](#student-goodbye) 
+
+]
+] &lt;!--end of right-column--&gt;  
+ 
+
+&lt;!-----------------  1. 데이터 ----------------------------------&gt;
+
+
+
+
+---
+name: nec-election
+# 주요 선거 일정
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+&lt;center&gt;
+
+
+
+
+&lt;!-- Timeline generated in R 4.2.0 by googleVis 0.7.0 package --&gt;
+&lt;!-- Fri Jun 10 11:12:09 2022 --&gt;
+
+
+&lt;!-- jsHeader --&gt;
+&lt;script type="text/javascript"&gt;
+ 
+// jsData 
+function gvisDataTimelineID59b41203625d () {
+var data = new google.visualization.DataTable();
+var datajson =
+[
+ [
+"대통령",
+"15대",
+new Date(1997,11,18,0,0,0),
+new Date(2002,11,18,0,0,0)
+],
+[
+"대통령",
+"16대",
+new Date(2002,11,19,0,0,0),
+new Date(2007,11,18,0,0,0)
+],
+[
+"대통령",
+"17대",
+new Date(2007,11,19,0,0,0),
+new Date(2012,11,19,0,0,0)
+],
+[
+"대통령",
+"18대",
+new Date(2012,11,19,0,0,0),
+new Date(2017,4,9,0,0,0)
+],
+[
+"대통령",
+"19대",
+new Date(2017,4,10,0,0,0),
+new Date(2022,4,9,0,0,0)
+],
+[
+"대통령",
+"20대",
+new Date(2022,4,10,0,0,0),
+new Date(2027,4,9,0,0,0)
+],
+[
+"국회의원",
+"17대",
+new Date(2004,4,30,0,0,0),
+new Date(2008,4,29,0,0,0)
+],
+[
+"국회의원",
+"18대",
+new Date(2008,4,30,0,0,0),
+new Date(2012,4,29,0,0,0)
+],
+[
+"국회의원",
+"19대",
+new Date(2012,4,30,0,0,0),
+new Date(2016,4,29,0,0,0)
+],
+[
+"국회의원",
+"20대",
+new Date(2016,4,30,0,0,0),
+new Date(2020,4,29,0,0,0)
+],
+[
+"국회의원",
+"21대",
+new Date(2020,4,30,0,0,0),
+new Date(2024,4,29,0,0,0)
+],
+[
+"지방선거",
+"3회",
+new Date(2002,6,1,0,0,0),
+new Date(2006,5,30,0,0,0)
+],
+[
+"지방선거",
+"4회",
+new Date(2006,6,1,0,0,0),
+new Date(2010,5,30,0,0,0)
+],
+[
+"지방선거",
+"5회",
+new Date(2010,6,1,0,0,0),
+new Date(2014,5,30,0,0,0)
+],
+[
+"지방선거",
+"6회",
+new Date(2014,6,1,0,0,0),
+new Date(2018,5,30,0,0,0)
+],
+[
+"지방선거",
+"7회",
+new Date(2018,6,1,0,0,0),
+new Date(2022,5,30,0,0,0)
+],
+[
+"지방선거",
+"8회",
+new Date(2022,6,1,0,0,0),
+new Date(2026,5,30,0,0,0)
+] 
+];
+data.addColumn('string','type');
+data.addColumn('string','subtype');
+data.addColumn('datetime','start');
+data.addColumn('datetime','end');
+data.addRows(datajson);
+return(data);
+}
+ 
+// jsDrawChart
+function drawChartTimelineID59b41203625d() {
+var data = gvisDataTimelineID59b41203625d();
+var options = {};
+options["width"] = 600;
+options["height"] = 550;
+
+    var chart = new google.visualization.Timeline(
+    document.getElementById('TimelineID59b41203625d')
+    );
+    chart.draw(data,options);
+    
+
+}
+  
+ 
+// jsDisplayChart
+(function() {
+var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+var chartid = "timeline";
+  
+// Manually see if chartid is in pkgs (not all browsers support Array.indexOf)
+var i, newPackage = true;
+for (i = 0; newPackage &amp;&amp; i &lt; pkgs.length; i++) {
+if (pkgs[i] === chartid)
+newPackage = false;
+}
+if (newPackage)
+  pkgs.push(chartid);
+  
+// Add the drawChart function to the global list of callbacks
+callbacks.push(drawChartTimelineID59b41203625d);
+})();
+function displayChartTimelineID59b41203625d() {
+  var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+  var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+  window.clearTimeout(window.__gvisLoad);
+  // The timeout is set to 100 because otherwise the container div we are
+  // targeting might not be part of the document yet
+  window.__gvisLoad = setTimeout(function() {
+  var pkgCount = pkgs.length;
+  google.load("visualization", "1", { packages:pkgs, callback: function() {
+  if (pkgCount != pkgs.length) {
+  // Race condition where another setTimeout call snuck in after us; if
+  // that call added a package, we must not shift its callback
+  return;
+}
+while (callbacks.length &gt; 0)
+callbacks.shift()();
+} });
+}, 100);
+}
+ 
+// jsFooter
+&lt;/script&gt;
+ 
+&lt;!-- jsChart --&gt;  
+&lt;script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartTimelineID59b41203625d"&gt;&lt;/script&gt;
+ 
+&lt;!-- divChart --&gt;
+  
+&lt;div id="TimelineID59b41203625d" 
+  style="width: 600; height: 550;"&gt;
+&lt;/div&gt;
+
+&lt;/center&gt;
+
+.footnote[
+- [이광춘, "krvote - 대한민국 선거 데이터 패키지", 2022-06-09](https://ai-carpentry.github.io/krvote/)]
+
+
+---
+name: nesdc-offering-type
+# 중앙선관위 데이터 제공방식
+
+
+.panelset[
+
+.panel[.panel-name[중앙선관위 - 웹사이트]
+.center[ &lt;img src="fig/asia-nec-info.jpg" alt="중앙선관위 - 웹사이트" width="80%" /&gt; 
+]
+]
+
+.panel[.panel-name[중앙선관위 - 자료실]
+.center[ &lt;img src="fig/nesdc_download_files.png" alt="중앙선관위 - 자료실" width="100%" /&gt; 
+]
+]
+
+.panel[.panel-name[공공데이터포털 - API]
+.center[ &lt;img src="fig/asia-data-portal-api.jpg" alt="공공데이터포털 - API 명세" width="80%" /&gt; 
+]
+]
+
+]
+
+
+---
+name: nesdc-offering-data
+# 중앙선관위 제공 데이터
+
+
+.panelset[
+
+.panel[.panel-name[투/개표]
+.center[ &lt;img src="fig/asia-nec-info.jpg" alt="중앙선관위 - 웹사이트" width="80%" /&gt; 
+]
+[선거통계시스템](http://info.nec.go.kr/)
+]
+
+.panel[.panel-name[여론조사]
+.center[ &lt;img src="fig/nec-nesdc.jpg" alt="중앙선거여론조사심의위원회" width="70%" /&gt; 
+]
+[중앙선거여론조사심의위원회](https://www.nesdc.go.kr/portal/main.do)
+]
+
+.panel[.panel-name[의식조사]
+.center[ &lt;img src="fig/nec-minds-pdf.jpg" alt="유권자의식조사" width="40%" /&gt; 
+]
+[제20대 대통령선거 유권자의식조사, PDF](https://www.nec.go.kr/site/nec/ex/bbs/View.do?cbIdx=1129&amp;bcIdx=187615)
+]
+
+.panel[.panel-name[정당회계]
+.center[ &lt;img src="fig/nec-party.jpg" alt="정당회계" width="40%" /&gt; 
+]
+[2020년도 정당의 활동개황 및 회계보고, PDF](https://www.nec.go.kr/site/nec/ex/bbs/View.do?cbIdx=1129&amp;bcIdx=151337)
+]
+
+.panel[.panel-name[TV토론]
+.center[ &lt;img src="fig/nec-debate.jpg" alt="TV토론" width="70%" /&gt; 
+]
+[제 20대 대통령선거 후보자 토론회 다시보기](https://debates.go.kr/2022_vote/sub01/sub01_1.php?substg=1&amp;id=632)
+]
+
+.panel[.panel-name[지도]
+.center[ &lt;img src="fig/nec-precinct-map.jpg" alt="선거구 지도" width="70%" /&gt; 
+]
+[선거구지도 - 대한민국 행정동 경계(admdongkor)](https://github.com/vuski/admdongkor)
+]
+
+.panel[.panel-name[정책공약]
+.center[ &lt;img src="fig/nec-precinct-map.jpg" alt="선거구 지도" width="70%" /&gt; 
+]
+[정책공약마당](https://policy.nec.go.kr/)
+]
+
+.panel[.panel-name[공보물]
+.center[ &lt;img src="fig/nec-phamplet.jpg" alt="후보자선전물" width="70%" /&gt; 
+]
+[선거정보도서관-후보자선전물](https://http://elecinfo.nec.go.kr/)
+]
+
+]
+
+
+
+&lt;!-----------------  2. 데이터 과학 사례 ------------------------&gt;
+
+
+
+---
+name: nec-data-science
+# 데이터 사이언스 사례
+
+
+.panelset[
+
+.panel[.panel-name[사전투표율]
+.center[ &lt;img src="fig/nec-ds-early-voting.jpeg" alt="사전투표율" width="80%" /&gt;  
+]
+
+[제20대 대통령 선거, 사전투표 역사를 새로 쓰다](http://www.ohmynews.com/NWS_Web/View/at_pg.aspx?CNTN_CD=A0002815847)
+]
+
+.panel[.panel-name[역대선거]
+.center[ &lt;img src="fig/nec-ds-local-election.jpeg" alt="선거" width="80%" /&gt;  
+]
+
+[지방선거 시도지사 절반, 5월 12일 결정된다](http://www.ohmynews.com/NWS_Web/View/at_pg_w.aspx?CNTN_CD=A0002820588)
+]
+
+.panel[.panel-name[여론조사]
+.center[ &lt;img src="fig/nec-ds-polls.jpeg" alt="여론조사" width="80%" /&gt;  
+]
+
+[여론조사를 네 분류로 나눠보니, 눈에 띄는 흐름](http://www.ohmynews.com/NWS_Web/View/at_pg_w.aspx?CNTN_CD=A0002802812)
+]
+
+.panel[.panel-name[TV토론]
+.center[ &lt;img src="fig/nec-ds-debate.jpeg" alt="TV토론" width="80%" /&gt;  
+]
+
+[데이터를 통해 본 대선 TV 토론회](http://www.ohmynews.com/NWS_Web/View/at_pg.aspx?CNTN_CD=A0002814657)
+]
+
+.panel[.panel-name[지도]
+.center[ &lt;img src="fig/nec-ds-map.jpeg" alt="지도" width="80%" /&gt;  
+]
+
+[대선득표율로 지방선거 판세를 가늠해보자](http://www.ohmynews.com/NWS_Web/View/at_pg_w.aspx?CNTN_CD=A0002818973)
+]
+
+.panel[.panel-name[공약]
+.center[ &lt;img src="fig/nec-ds-policy.jpeg" alt="공약" width="80%" /&gt;  
+]
+
+[유력 대선후보 4인, 10대 공약 중 압도적 분야는 '00'](http://www.ohmynews.com/NWS_Web/View/at_pg_w.aspx?CNTN_CD=A0002810838)
+]
+
+.panel[.panel-name[정당사무소]
+.center[ &lt;img src="fig/nec-ds-party.jpeg" alt="정당사무소" width="80%" /&gt;  
+]
+
+[양강 구도 속 부지런히 움직이는 제3후보는?](http://www.ohmynews.com/NWS_Web/View/at_pg_w.aspx?CNTN_CD=A0002810396)
+]
+
+]
+
+
+
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="macros.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "googlecode",
+"highlightLines": true,
+"highlightLanguage": "r",
+"countIncrementalSlides": false,
+"ratio": "4:3"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+<!--Hat-tip: https://www.garrickadenbuie.com/blog/xaringan-tip-logo-all-slides/-->
+<style>
+.logo {
+  background-image: url(../fig/korea_R_logo.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  width: 110px;
+  height: 128px;
+  z-index: 0;
+}
+</style>
+
+<script>
+document
+  .querySelectorAll(
+    '.remark-slide-content' +
+    ':not(.title-slide)' +
+    // add additional classes to exclude here, e.g.
+    ':not(.inverse)' +
+    ':not(.hide-logo)'
+  )
+  .forEach(el => {
+    el.innerHTML += '<div class="logo"></div>';
+  });
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

@@ -1,0 +1,115 @@
+---
+title: "데이터 과학자가 바라본 선거 공공데이터"
+subtitle: "중앙선거관리위원회"
+author: "이광춘 / 한국 알(R) 사용자회"
+institute: "한국 알(R) 사용자회"
+date: "2022-07-28"
+output:
+  xaringan::moon_reader:
+    css: 
+      - [default]
+      - css/nesdc.css
+      - css/nhsr-fonts.css
+    lib_dir: libs
+    seal: false
+    nature:
+      highlightStyle: googlecode
+      highlightLines: true
+      highlightLanguage: ["r"]
+      countIncrementalSlides: false
+      ratio: "4:3"
+      beforeInit: "macros.js"
+    includes:
+      after_body: [css/insert-logo-asia.html]
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include = FALSE}
+library(tidyverse)
+# library(nhsrtheme)
+# library(NHSRdatasets)
+# set default options
+
+options(
+  htmltools.dir.version = FALSE, 
+  htmltools.preserve.raw = FALSE,
+  tibble.width = 60, tibble.print_min = 6,
+  crayon.enabled = TRUE
+)
+
+knitr::opts_chunk$set(echo = FALSE, message=FALSE, warning=FALSE,
+                      comment="", digits = 3, tidy = FALSE, prompt = FALSE, fig.align = 'center',
+                      fig.width = 7.252,
+                      fig.height = 4,
+                      dpi = 300)
+
+# uncomment the following lines if you want to use the NHS-R theme colours by default
+# scale_fill_continuous <- partial(scale_fill_nhs, discrete = FALSE)
+# scale_fill_discrete <- partial(scale_fill_nhs, discrete = TRUE)
+# scale_colour_continuous <- partial(scale_colour_nhs, discrete = FALSE)
+# scale_colour_discrete <- partial(scale_colour_nhs, discrete = TRUE)
+
+xaringanExtra::use_panelset()
+
+```
+
+
+class: title-slide, left, bottom
+
+# `r rmarkdown::metadata$title`
+----
+## **`r rmarkdown::metadata$subtitle`**
+### `r rmarkdown::metadata$author`
+### `r rmarkdown::metadata$date`
+
+ 
+---
+class: inverse, middle
+name: intro-toc
+
+# 발표 개요 
+
+----
+
+.pull-left[
+
+중앙선관위에서 공개하는 선거 공공데이터는 투표/득표로 대표되는 
+**.warmyellow[정형 데이터]** 외에도 다양한 형태로 제공되고 있다.
+
+하지만, 일부 선거 공공데이터는 데이터 과학 발전에도 불구하고 
+여전히 데이터로 제대로 인식되지 못하고 **.red[과거 패러다임]**에 묻혀 
+문서, 표, 그래프, 이미지, 동영상 등으로 별도 관리되고 있다.
+
+2016년부터 인공지능으로 대표되는 데이터 과학영역에 눈부신 발전이 있음에도 불구하고 이를 선거 공공데이터가 담아내고 있지 못해
+데이터 과학자로 **.green[경험한 사례를 들어 공감대를 형성]**하고자 한다.
+
+]
+ 
+.pull-right[   
+.left[
+
+1\. [선거 공공데이터](#studuent-cholera)
+
+2\. [데이터 과학 사례](#student-handwashing)
+
+3\. [선거 공공데이터 활성화](#student-normal)
+
+4\. [마무리](#student-goodbye) 
+
+]
+] <!--end of right-column-->  
+ 
+
+<!-----------------  1. 데이터 ---------------------------------->
+
+```{r child='slideshows/nec/nec-data.Rmd'}
+```
+
+<!-----------------  2. 데이터 과학 사례 ------------------------>
+
+```{r child='slideshows/nec/nec-data-science.Rmd'}
+```
+
+
+
