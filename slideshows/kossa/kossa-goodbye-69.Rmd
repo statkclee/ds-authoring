@@ -5,7 +5,7 @@ name: goodbye
 class: middle, inverse
 # 2022년 국방 분야 SW∙AI 역량강화 - 부대 순회교육
 
-## 56회차 – 부사관학교
+## 69회차 – 66여단
 
 
 .pull-left[
