@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>디지털 전환과 인공지능</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="이광춘" />
+    <meta name="date" content="2022-07-28" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/panelset/panelset.css" rel="stylesheet" />
+    <script src="libs/panelset/panelset.js"></script>
+    <script src="libs/core-js/shim.min.js"></script>
+    <script src="libs/react/react.min.js"></script>
+    <script src="libs/react/react-dom.min.js"></script>
+    <script src="libs/reactwidget/react-tools.js"></script>
+    <script src="libs/htmlwidgets/htmlwidgets.js"></script>
+    <script src="libs/reactable-binding/reactable.js"></script>
+    <script src="libs/plotly-binding/plotly.js"></script>
+    <script src="libs/typedarray/typedarray.min.js"></script>
+    <script src="libs/jquery/jquery.min.js"></script>
+    <link href="libs/crosstalk/css/crosstalk.min.css" rel="stylesheet" />
+    <script src="libs/crosstalk/js/crosstalk.min.js"></script>
+    <link href="libs/plotly-htmlwidgets-css/plotly-htmlwidgets.css" rel="stylesheet" />
+    <script src="libs/plotly-main/plotly-latest.min.js"></script>
+    <link rel="stylesheet" href="css/koRea_nhsr.css" type="text/css" />
+    <link rel="stylesheet" href="css/nhsr-fonts.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+class: title-slide, left, bottom
+
+# 디지털 전환과 인공지능
+----
+## **디지털 전환, AI 조직, 딥러닝**
+### 이광춘
+### 2022-07-28
+
+ 
+---
+class: inverse, middle
+name: digital-ranking
+
+# 강의 개요
+
+----
+
+.pull-left[
+
+4차 산업혁명은 .warmyellow[**디지털 전환(Digital Transformation)**] 이라는 용어로 대체되고 있으며
+전세계가 디지털 전환을 통해 새로운 도약을 준비하고 있어 다양한 지표를 통해
+현재 대한민국 현재 위치를 데이터를 기반으로 객관적으로 파악한다.
+
+구글, 아마존으로 시작된 .green[**디지털 기업(AI 기업)**]의 전형은 정부는 물론 비영리 조직과 
+거의 모든 조직과 단체에 빠르게 파급되고 있어 디지털 기업 본질을 살펴본다.
+
+마지막으로 디지털 기업의 핵심 경쟁력으로 파악되는 .black[**인공지능**]과 기술적 기반이 되는 
+.black[**딥러닝**]에 대해 전반적으로 조망한다.
+
+]
+ 
+.pull-right[   
+.left[
+
+1\. **[.warmyellow[디지털 전환]](#digital-ranking)** &lt;br&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;    1\.1\. 전통적 지표 &lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;    1\.2\. 디지털 지표
+    
+2\. [디지털 조직](#digital-transformation) &lt;br&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;    2\.1\. 전통기업 &lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;    2\.2\. 디지털 기업 &lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;    2\.3\. 충돌(전쟁) &lt;br&gt;
+
+3\. [인공지능 / 딥러닝](#deep-learning) &lt;br&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;    3\.1\. 자동화 &lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;    3\.2\. 인공지능 &lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;    2\.3\. 딥러닝 &lt;br&gt;
+
+4\. [마무리](#goodbye) 
+]
+] &lt;!--end of right-column--&gt;
+
+
+&lt;!---------------------- 1. 디지털 전환 지표 --------------------------------&gt;
+
+
+
+---
+name: esg-country
+# 전통적 지표
+&lt;br&gt;
+&lt;br&gt;
+
+.center[
+&lt;img src="fig/esg-country-classic.png" /&gt;
+]
+
+.footnote[
+- [위키백과 OECD](https://en.wikipedia.org/wiki/OECD)
+]
+
+---
+name: esg-country-classic
+# 전통 지표 기준 강대국
+
+<div id="htmlwidget-636dc3dcf8e8acee179c" class="reactable html-widget" style="width:auto;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-636dc3dcf8e8acee179c">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"country":["United States","Japan","Germany","France","United Kingdom","Italy","Mexico","Turkey","Korea, South","Spain","Canada","Australia","Poland","Netherlands","Colombia","Switzerland","Belgium","Sweden","Austria","Chile","Czech Republic","Ireland","Israel","Portugal","Norway","Greece","Denmark","Hungary","Finland","New Zealand","Slovakia","Lithuania","Slovenia","Latvia","Estonia","Iceland"],"flags":["🇺🇸","🇯🇵","🇩🇪","🇫🇷","🇬🇧","🇮🇹","🇲🇽","🇹🇷","🇰🇷","🇪🇸","🇨🇦","🇦🇺","🇵🇱","🇳🇱","🇨🇴","🇨🇭","🇧🇪","🇸🇪","🇦🇹","🇨🇱","🇨🇿","🇮🇪","🇮🇱","🇵🇹","🇳🇴","🇬🇷","🇩🇰","🇭🇺","🇫🇮","🇳🇿","🇸🇰","🇱🇹","🇸🇮","🇱🇻","🇪🇪","🇮🇸"],"gdp":[19391,5487,4188,2876,2857,2387,2358,2140,1973,1770,1714,1192,1102,900,709,548,544,505,462,445,385,364,333,326,324,297,296,275,247,197,172,91,72,54,42,18],"area":[9831510,377962,357380,549087,243610,301340,1964380,785350,100280,505940,9984670,7741220,312680,41540,1141748,41290,30530,447420,83879,756096,78870,70280,22070,92225,385178,131960,42922,93030,338420,267710,49035,65286,20270,64490,45230,103000],"population":[326,127,83,67,66,61,129,81,51,47,37,25,38,17,49,8,11,10,9,18,11,5,9,10,5,11,6,10,6,5,5,3,2,2,1,0],"gdp_per_capita":[59532,43279,50639,42850,43269,39427,18258,29505,38335,37998,46705,48460,29026,52503,14507,64712,47840,50208,52398,24635,36327,75648,38262,31673,61414,27602,51364,28108,44866,41109,31616,32092,34868,27598,31742,53153]},"columns":[{"accessor":"country","name":"country","type":"character","cell":"function(cell) {\n            return '<a href=\"https://wikipedia.org/wiki/' + cell.value + '\">' + cell.value + '<\/a>'\n          }","html":true,"width":200},{"accessor":"flags","name":"flags","type":"character","width":70},{"accessor":"gdp","name":"gdp","type":"numeric","format":{"cell":{"separators":true},"aggregated":{"separators":true}},"width":100},{"accessor":"area","name":"area","type":"numeric","format":{"cell":{"separators":true},"aggregated":{"separators":true}}},{"accessor":"population","name":"population","type":"numeric"},{"accessor":"gdp_per_capita","name":"gdp_per_capita","type":"numeric","format":{"cell":{"separators":true},"aggregated":{"separators":true}}}],"defaultPageSize":10,"paginationType":"numbers","showPageInfo":true,"minRows":5,"highlight":true,"dataKey":"0b6a92a29c08fe337021bebe4e6fb335"},"children":[]},"class":"reactR_markup"},"evals":["tag.attribs.columns.0.cell"],"jsHooks":[]}</script>
+
+---
+name: esg-country-extended
+# 확장 전통 지표
+&lt;br&gt;
+&lt;br&gt;
+
+.center[
+&lt;img src="fig/esg-country-extension.png" /&gt;
+]
+
+.footnote[
+- [위키백과 OECD](https://en.wikipedia.org/wiki/OECD)
+]
+
+---
+name: esg-country-extended-table
+# 확장 지표 기준 선진국
+
+<div id="htmlwidget-04955d1f4f61cae164af" class="reactable html-widget" style="width:auto;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-04955d1f4f61cae164af">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"country":["Slovenia","Czech Republic","Slovakia","Finland","Norway","Belgium","Iceland","Denmark","Netherlands","Sweden","Hungary","Austria","Korea, South","Germany","Ireland","Poland","Japan","Switzerland","Estonia","France","New Zealand","United Kingdom","Canada","Latvia","Australia","Italy","Portugal","Greece","Spain","Lithuania","Israel","United States","Turkey","Mexico","Chile","Colombia"],"flags":["🇸🇮","🇨🇿","🇸🇰","🇫🇮","🇳🇴","🇧🇪","🇮🇸","🇩🇰","🇳🇱","🇸🇪","🇭🇺","🇦🇹","🇰🇷","🇩🇪","🇮🇪","🇵🇱","🇯🇵","🇨🇭","🇪🇪","🇫🇷","🇳🇿","🇬🇧","🇨🇦","🇱🇻","🇦🇺","🇮🇹","🇵🇹","🇬🇷","🇪🇸","🇱🇹","🇮🇱","🇺🇸","🇹🇷","🇲🇽","🇨🇱","🇨🇴"],"income_inequality":[25.4,25.9,26.5,27.1,27.5,27.7,27.8,28.2,28.2,29.2,30.4,30.5,31.6,31.7,31.8,31.8,32.1,32.3,32.7,32.7,33,33.2,34,34.2,34.7,35.4,35.5,36,36.2,37.4,41.4,41.5,41.9,43.4,47.7,49.7],"hdi":[0.902,0.891,0.857,0.925,0.954,0.919,0.938,0.93,0.933,0.937,0.845,0.914,0.906,0.939,0.942,0.872,0.915,0.946,0.882,0.891,0.921,0.92,0.922,0.854,0.938,0.883,0.85,0.872,0.893,0.869,0.906,0.92,0.806,0.767,0.847,0.761],"fsi":[28,37.6,40.5,16.9,18,28.6,19.8,19.5,24.8,20.3,49.6,25,33.7,24.7,20.6,42.8,34.3,18.7,40.8,32,20.1,36.7,20,43.9,19.7,43.8,25.3,53.9,40.7,38.1,75.1,38,80.3,69.7,38.9,75.7],"cpi":[60,56,50,86,84,75,78,87,82,85,44,77,59,80,74,58,73,85,74,69,87,77,77,56,77,53,62,48,62,60,60,69,39,29,67,37],"ief":[67.8,74.8,66.8,75.7,73.4,68.9,77.1,78.3,77,74.9,66.4,73.3,74,73.5,80.9,69.1,73.3,82,77.7,66,84.1,79.3,78.2,71.9,82.6,63.8,67,59.9,66.9,76.7,74,76.6,64.4,66,76.8,69.2],"gpi":[1.355,1.383,1.55,1.488,1.536,1.533,1.072,1.316,1.53,1.533,1.54,1.291,1.867,1.547,1.39,1.654,1.369,1.375,1.727,1.892,1.221,1.801,1.327,1.718,1.419,1.754,1.274,1.933,1.699,1.779,2.735,2.401,3.015,2.6,1.634,2.661],"wpfi":[22.31,24.89,23.58,7.9,7.82,12.07,14.71,9.87,8.63,8.31,30.44,15.33,24.94,14.6,15,28.89,29.36,10.52,12.27,22.21,10.75,22.23,15.69,19.53,16.55,24.98,12.65,29.08,21.99,22.06,30.8,25.69,52.81,46.78,25.65,42.82],"di":[7.5,7.69,7.17,9.25,9.87,7.64,9.58,9.22,9.01,9.39,6.63,8.29,8,8.68,9.24,6.62,7.99,9.03,7.9,8.12,9.26,8.52,9.22,7.49,9.09,7.52,8.03,7.43,8.29,7.5,7.86,7.96,4.09,6.09,8.08,7.13]},"columns":[{"accessor":"country","name":"country","type":"character","cell":"function(cell) {\n            return '<a href=\"https://wikipedia.org/wiki/' + cell.value + '\">' + cell.value + '<\/a>'\n          }","html":true,"width":170},{"accessor":"flags","name":"flags","type":"character","width":70},{"accessor":"income_inequality","name":"income_inequality","type":"numeric","width":110},{"accessor":"hdi","name":"hdi","type":"numeric","width":70},{"accessor":"fsi","name":"fsi","type":"numeric","width":70},{"accessor":"cpi","name":"cpi","type":"numeric","width":70},{"accessor":"ief","name":"ief","type":"numeric","width":70},{"accessor":"gpi","name":"gpi","type":"numeric","width":70},{"accessor":"wpfi","name":"wpfi","type":"numeric","width":70},{"accessor":"di","name":"di","type":"numeric"}],"defaultPageSize":10,"paginationType":"numbers","showPageInfo":true,"minRows":5,"highlight":true,"dataKey":"78086b17f212e94d72dc51fb9f5c26ff"},"children":[]},"class":"reactR_markup"},"evals":["tag.attribs.columns.0.cell"],"jsHooks":[]}</script>
+
+
+
+---
+name: esg-digital-country-start
+# 디지털 강대국 지표
+
+.center[
+![](fig/oecd-dataset.png)
+]
+
+- [디지털 정부 순위](https://www.oecd-ilibrary.org/deliver/4de9f5bb-en.pdf?itemId=%2Fcontent%2Fpaper%2F4de9f5bb-en&amp;mimeType=pdf)
+- [정부 인공지능 준비지수](https://www.oxfordinsights.com/government-ai-readiness-index-2020)
+- [데이터 경제 순위](https://hbr.org/2019/01/which-countries-are-leading-the-data-economy)
+- [산업용 로봇 밀도](https://ifr.org/downloads/press2018/Robot_Density_by_country_WorldRobotics2020_graph.jpg)
+- [세계 경쟁력 보고서](https://reports.weforum.org/global-competitiveness-report-2019/competitiveness-rankings/)
+- [IMD 세계 경쟁력 연감](https://www.imd.org/wcc/world-competitiveness-center-rankings/world-digital-competitiveness-rankings-2020/)
+
+---
+name: esg-digital-government
+# 디지털 강대국 지표 - 디지털 정부 순위
+
+<div id="htmlwidget-3a14138f461b4e3aa1e7" class="reactable html-widget" style="width:auto;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-3a14138f461b4e3aa1e7">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"country":["Korea, South","United Kingdom","Colombia","Denmark","Japan","Canada","Spain","Israel","Portugal","France","New Zealand","Norway","Italy","Slovenia","Estonia","Latvia","Austria","Netherlands","Czech Republic","Ireland","Chile","Belgium","Germany","Lithuania","Finland","Greece","Iceland","Sweden","Australia","Hungary","Mexico","Poland","Slovakia","Switzerland","Turkey","United States"],"flags":["🇰🇷","🇬🇧","🇨🇴","🇩🇰","🇯🇵","🇨🇦","🇪🇸","🇮🇱","🇵🇹","🇫🇷","🇳🇿","🇳🇴","🇮🇹","🇸🇮","🇪🇪","🇱🇻","🇦🇹","🇳🇱","🇨🇿","🇮🇪","🇨🇱","🇧🇪","🇩🇪","🇱🇹","🇫🇮","🇬🇷","🇮🇸","🇸🇪","🇦🇺","🇭🇺","🇲🇽","🇵🇱","🇸🇰","🇨🇭","🇹🇷","🇺🇸"],"디지털정부":[1,2,3,4,5,6,7,8,10,11,12,13,15,17,18,19,20,21,22,23,24,25,26,27,28,29,32,33,"NA","NA","NA","NA","NA","NA","NA","NA"],"gdp":[1973,2857,709,296,5487,1714,1770,333,326,2876,197,324,2387,72,42,54,462,900,385,364,445,544,4188,91,247,297,18,505,1192,275,2358,1102,172,548,2140,19391],"gdp_per_capita":[38335,43269,14507,51364,43279,46705,37998,38262,31673,42850,41109,61414,39427,34868,31742,27598,52398,52503,36327,75648,24635,47840,50639,32092,44866,27602,53153,50208,48460,28108,18258,29026,31616,64712,29505,59532]},"columns":[{"accessor":"country","name":"country","type":"character","cell":"function(cell) {\n            return '<a href=\"https://wikipedia.org/wiki/' + cell.value + '\">' + cell.value + '<\/a>'\n          }","html":true},{"accessor":"flags","name":"flags","type":"character","width":70},{"accessor":"디지털정부","name":"디지털정부","type":"numeric","format":{"cell":{"separators":true},"aggregated":{"separators":true}},"align":"center"},{"accessor":"gdp","name":"gdp","type":"numeric","format":{"cell":{"separators":true},"aggregated":{"separators":true}},"width":100},{"accessor":"gdp_per_capita","name":"gdp_per_capita","type":"numeric","format":{"cell":{"separators":true},"aggregated":{"separators":true}}}],"defaultPageSize":10,"paginationType":"numbers","showPageInfo":true,"minRows":10,"highlight":true,"dataKey":"4ce41b6384a8a0685beeceddaebbb656"},"children":[]},"class":"reactR_markup"},"evals":["tag.attribs.columns.0.cell"],"jsHooks":[]}</script>
+
+---
+name: esg-digital-ai-government
+# 디지털 강대국 지표 - 인공지능 준비지수
+
+<div id="htmlwidget-3e235d9407c8449ce0f1" class="reactable html-widget" style="width:auto;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-3e235d9407c8449ce0f1">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"country":["United States","United Kingdom","Finland","Germany","Sweden","Korea, South","Denmark","Netherlands","Norway","France","Australia","Japan","Canada","Estonia","Switzerland","Israel","Ireland","Austria","New Zealand","Spain","Italy","Lithuania","Portugal","Belgium","Poland","Czech Republic","Slovakia","Iceland","Latvia","Slovenia","Hungary","Chile","Colombia","Mexico","Greece","Turkey"],"flags":["🇺🇸","🇬🇧","🇫🇮","🇩🇪","🇸🇪","🇰🇷","🇩🇰","🇳🇱","🇳🇴","🇫🇷","🇦🇺","🇯🇵","🇨🇦","🇪🇪","🇨🇭","🇮🇱","🇮🇪","🇦🇹","🇳🇿","🇪🇸","🇮🇹","🇱🇹","🇵🇹","🇧🇪","🇵🇱","🇨🇿","🇸🇰","🇮🇸","🇱🇻","🇸🇮","🇭🇺","🇨🇱","🇨🇴","🇲🇽","🇬🇷","🇹🇷"],"AI_순위":[1,2,3,4,5,7,8,9,10,11,12,13,14,17,18,20,21,22,23,24,25,26,27,29,31,32,34,35,36,39,41,47,51,55,61,67],"gdp":[19391,2857,247,4188,505,1973,296,900,324,2876,1192,5487,1714,42,548,333,364,462,197,1770,2387,91,326,544,1102,385,172,18,54,72,275,445,709,2358,297,2140],"gdp_per_capita":[59532,43269,44866,50639,50208,38335,51364,52503,61414,42850,48460,43279,46705,31742,64712,38262,75648,52398,41109,37998,39427,32092,31673,47840,29026,36327,31616,53153,27598,34868,28108,24635,14507,18258,27602,29505]},"columns":[{"accessor":"country","name":"country","type":"character","cell":"function(cell) {\n            return '<a href=\"https://wikipedia.org/wiki/' + cell.value + '\">' + cell.value + '<\/a>'\n          }","html":true},{"accessor":"flags","name":"flags","type":"character","width":70},{"accessor":"AI_순위","name":"AI_순위","type":"numeric","format":{"cell":{"separators":true},"aggregated":{"separators":true}},"align":"center"},{"accessor":"gdp","name":"gdp","type":"numeric","format":{"cell":{"separators":true},"aggregated":{"separators":true}},"width":100},{"accessor":"gdp_per_capita","name":"gdp_per_capita","type":"numeric","format":{"cell":{"separators":true},"aggregated":{"separators":true}}}],"defaultPageSize":10,"paginationType":"numbers","showPageInfo":true,"minRows":10,"highlight":true,"dataKey":"518d2a97c4ed4ae5abdc6cdf71aebb0d"},"children":[]},"class":"reactR_markup"},"evals":["tag.attribs.columns.0.cell"],"jsHooks":[]}</script>
+ 
+---
+name: esg-digital-data-economy
+# 디지털 강대국 지표 - 데이터 경제
+
+<div id="htmlwidget-94a87b83cb4c40085198" class="reactable html-widget" style="width:auto;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-94a87b83cb4c40085198">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"country":["United States","United Kingdom","Finland","Germany","Sweden","Korea, South","Denmark","Netherlands","Norway","France","Australia","Japan","Canada","Estonia","Switzerland","Israel","Ireland","Austria","New Zealand","Spain","Italy","Lithuania","Portugal","Belgium","Poland","Czech Republic","Slovakia","Iceland","Latvia","Slovenia","Hungary","Chile","Colombia","Mexico","Greece","Turkey"],"flags":["🇺🇸","🇬🇧","🇫🇮","🇩🇪","🇸🇪","🇰🇷","🇩🇰","🇳🇱","🇳🇴","🇫🇷","🇦🇺","🇯🇵","🇨🇦","🇪🇪","🇨🇭","🇮🇱","🇮🇪","🇦🇹","🇳🇿","🇪🇸","🇮🇹","🇱🇹","🇵🇹","🇧🇪","🇵🇱","🇨🇿","🇸🇰","🇮🇸","🇱🇻","🇸🇮","🇭🇺","🇨🇱","🇨🇴","🇲🇽","🇬🇷","🇹🇷"],"데이터경제":[1,2,"NA",13,8,5,"NA","NA","NA",6,9,11,7,"NA",4,"NA",15,"NA",12,14,16,"NA",17,"NA",21,10,"NA","NA","NA","NA",26,20,"NA",18,23,29],"gdp":[19391,2857,247,4188,505,1973,296,900,324,2876,1192,5487,1714,42,548,333,364,462,197,1770,2387,91,326,544,1102,385,172,18,54,72,275,445,709,2358,297,2140],"gdp_per_capita":[59532,43269,44866,50639,50208,38335,51364,52503,61414,42850,48460,43279,46705,31742,64712,38262,75648,52398,41109,37998,39427,32092,31673,47840,29026,36327,31616,53153,27598,34868,28108,24635,14507,18258,27602,29505]},"columns":[{"accessor":"country","name":"country","type":"character","cell":"function(cell) {\n            return '<a href=\"https://wikipedia.org/wiki/' + cell.value + '\">' + cell.value + '<\/a>'\n          }","html":true},{"accessor":"flags","name":"flags","type":"character","width":70},{"accessor":"데이터경제","name":"데이터경제","type":"numeric","format":{"cell":{"separators":true},"aggregated":{"separators":true}},"align":"center"},{"accessor":"gdp","name":"gdp","type":"numeric","format":{"cell":{"separators":true},"aggregated":{"separators":true}},"width":100},{"accessor":"gdp_per_capita","name":"gdp_per_capita","type":"numeric","format":{"cell":{"separators":true},"aggregated":{"separators":true}}}],"defaultPageSize":10,"paginationType":"numbers","showPageInfo":true,"minRows":10,"highlight":true,"dataKey":"5265aa25cbb96f97340dc9076e9ede56"},"children":[]},"class":"reactR_markup"},"evals":["tag.attribs.columns.0.cell"],"jsHooks":[]}</script>
+
+---
+name: esg-digital-robot
+# 디지털 강대국 지표 - 산업용 로봇
+
+<div id="htmlwidget-5279578b4e4efb7141e6" class="reactable html-widget" style="width:auto;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-5279578b4e4efb7141e6">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"country":["Korea, South","Japan","Germany","Sweden","Denmark","United States","Italy","Belgium","Netherlands","Spain","Austria","France","Slovakia","Canada","Switzerland","Slovenia","Australia","Chile","Colombia","Czech Republic","Estonia","Finland","Greece","Hungary","Iceland","Ireland","Israel","Latvia","Lithuania","Mexico","New Zealand","Norway","Poland","Portugal","Turkey","United Kingdom"],"flags":["🇰🇷","🇯🇵","🇩🇪","🇸🇪","🇩🇰","🇺🇸","🇮🇹","🇧🇪","🇳🇱","🇪🇸","🇦🇹","🇫🇷","🇸🇰","🇨🇦","🇨🇭","🇸🇮","🇦🇺","🇨🇱","🇨🇴","🇨🇿","🇪🇪","🇫🇮","🇬🇷","🇭🇺","🇮🇸","🇮🇪","🇮🇱","🇱🇻","🇱🇹","🇲🇽","🇳🇿","🇳🇴","🇵🇱","🇵🇹","🇹🇷","🇬🇧"],"로봇_순위":[2,3,4,5,6,9,10,11,12,13,14,16,17,18,19,20,"NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA"],"gdp":[1973,5487,4188,505,296,19391,2387,544,900,1770,462,2876,172,1714,548,72,1192,445,709,385,42,247,297,275,18,364,333,54,91,2358,197,324,1102,326,2140,2857],"gdp_per_capita":[38335,43279,50639,50208,51364,59532,39427,47840,52503,37998,52398,42850,31616,46705,64712,34868,48460,24635,14507,36327,31742,44866,27602,28108,53153,75648,38262,27598,32092,18258,41109,61414,29026,31673,29505,43269]},"columns":[{"accessor":"country","name":"country","type":"character","cell":"function(cell) {\n            return '<a href=\"https://wikipedia.org/wiki/' + cell.value + '\">' + cell.value + '<\/a>'\n          }","html":true},{"accessor":"flags","name":"flags","type":"character","width":70},{"accessor":"로봇_순위","name":"로봇_순위","type":"numeric","format":{"cell":{"separators":true},"aggregated":{"separators":true}},"align":"center"},{"accessor":"gdp","name":"gdp","type":"numeric","format":{"cell":{"separators":true},"aggregated":{"separators":true}},"width":100},{"accessor":"gdp_per_capita","name":"gdp_per_capita","type":"numeric","format":{"cell":{"separators":true},"aggregated":{"separators":true}}}],"defaultPageSize":10,"paginationType":"numbers","showPageInfo":true,"minRows":10,"highlight":true,"dataKey":"5d0eea6ac2127168d97c54e7e186de34"},"children":[]},"class":"reactR_markup"},"evals":["tag.attribs.columns.0.cell"],"jsHooks":[]}</script>
+
+
+---
+name: esg-digital-competitiveness
+# 디지털 강대국 지표 - WEF 세계 경쟁력
+
+<div id="htmlwidget-71189eb0f091c25121f3" class="reactable html-widget" style="width:auto;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-71189eb0f091c25121f3">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"country":["United States","Netherlands","Switzerland","Japan","Germany","Sweden","United Kingdom","Denmark","Finland","Korea, South","Canada","France","Australia","Norway","New Zealand","Israel","Austria","Belgium","Spain","Ireland","Iceland","Italy","Estonia","Czech Republic","Chile","Portugal","Slovenia","Poland","Lithuania","Latvia","Slovakia","Hungary","Mexico","Colombia","Greece","Turkey"],"flags":["🇺🇸","🇳🇱","🇨🇭","🇯🇵","🇩🇪","🇸🇪","🇬🇧","🇩🇰","🇫🇮","🇰🇷","🇨🇦","🇫🇷","🇦🇺","🇳🇴","🇳🇿","🇮🇱","🇦🇹","🇧🇪","🇪🇸","🇮🇪","🇮🇸","🇮🇹","🇪🇪","🇨🇿","🇨🇱","🇵🇹","🇸🇮","🇵🇱","🇱🇹","🇱🇻","🇸🇰","🇭🇺","🇲🇽","🇨🇴","🇬🇷","🇹🇷"],"WEF_순위":[1,3,4,5,6,7,8,9,10,12,13,14,15,16,18,19,20,21,22,23,25,29,30,31,32,33,34,36,38,40,41,46,48,57,59,61],"gdp":[19391,900,548,5487,4188,505,2857,296,247,1973,1714,2876,1192,324,197,333,462,544,1770,364,18,2387,42,385,445,326,72,1102,91,54,172,275,2358,709,297,2140],"gdp_per_capita":[59532,52503,64712,43279,50639,50208,43269,51364,44866,38335,46705,42850,48460,61414,41109,38262,52398,47840,37998,75648,53153,39427,31742,36327,24635,31673,34868,29026,32092,27598,31616,28108,18258,14507,27602,29505]},"columns":[{"accessor":"country","name":"country","type":"character","cell":"function(cell) {\n            return '<a href=\"https://wikipedia.org/wiki/' + cell.value + '\">' + cell.value + '<\/a>'\n          }","html":true},{"accessor":"flags","name":"flags","type":"character","width":70},{"accessor":"WEF_순위","name":"WEF_순위","type":"numeric","format":{"cell":{"separators":true},"aggregated":{"separators":true}},"align":"center"},{"accessor":"gdp","name":"gdp","type":"numeric","format":{"cell":{"separators":true},"aggregated":{"separators":true}},"width":100},{"accessor":"gdp_per_capita","name":"gdp_per_capita","type":"numeric","format":{"cell":{"separators":true},"aggregated":{"separators":true}}}],"defaultPageSize":10,"paginationType":"numbers","showPageInfo":true,"minRows":10,"highlight":true,"dataKey":"5d489cc78151a9f98d766e3a970a6bb0"},"children":[]},"class":"reactR_markup"},"evals":["tag.attribs.columns.0.cell"],"jsHooks":[]}</script>
+
+---
+name: esg-digital-imd
+# 디지털 강대국 지표 - IMD 디지털 경쟁력
+
+<div id="htmlwidget-094adcef87885722a067" class="reactable html-widget" style="width:auto;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-094adcef87885722a067">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"country":["United States","Denmark","Sweden","Switzerland","Netherlands","Korea, South","Norway","Finland","Canada","United Kingdom","Australia","Austria","Germany","Israel","Ireland","Estonia","New Zealand","Iceland","France","Belgium","Japan","Lithuania","Slovenia","Poland","Spain","Czech Republic","Portugal","Latvia","Chile","Italy","Turkey","Greece","Hungary","Slovakia","Mexico","Colombia"],"flags":["🇺🇸","🇩🇰","🇸🇪","🇨🇭","🇳🇱","🇰🇷","🇳🇴","🇫🇮","🇨🇦","🇬🇧","🇦🇺","🇦🇹","🇩🇪","🇮🇱","🇮🇪","🇪🇪","🇳🇿","🇮🇸","🇫🇷","🇧🇪","🇯🇵","🇱🇹","🇸🇮","🇵🇱","🇪🇸","🇨🇿","🇵🇹","🇱🇻","🇨🇱","🇮🇹","🇹🇷","🇬🇷","🇭🇺","🇸🇰","🇲🇽","🇨🇴"],"IMD_순위":[1,3,4,6,7,8,9,10,12,13,15,17,18,19,20,21,22,23,24,25,27,29,31,32,33,35,37,38,41,42,44,46,47,50,54,61],"gdp":[19391,296,505,548,900,1973,324,247,1714,2857,1192,462,4188,333,364,42,197,18,2876,544,5487,91,72,1102,1770,385,326,54,445,2387,2140,297,275,172,2358,709],"gdp_per_capita":[59532,51364,50208,64712,52503,38335,61414,44866,46705,43269,48460,52398,50639,38262,75648,31742,41109,53153,42850,47840,43279,32092,34868,29026,37998,36327,31673,27598,24635,39427,29505,27602,28108,31616,18258,14507]},"columns":[{"accessor":"country","name":"country","type":"character","cell":"function(cell) {\n            return '<a href=\"https://wikipedia.org/wiki/' + cell.value + '\">' + cell.value + '<\/a>'\n          }","html":true},{"accessor":"flags","name":"flags","type":"character","width":70},{"accessor":"IMD_순위","name":"IMD_순위","type":"numeric","format":{"cell":{"separators":true},"aggregated":{"separators":true}},"align":"center"},{"accessor":"gdp","name":"gdp","type":"numeric","format":{"cell":{"separators":true},"aggregated":{"separators":true}},"width":100},{"accessor":"gdp_per_capita","name":"gdp_per_capita","type":"numeric","format":{"cell":{"separators":true},"aggregated":{"separators":true}}}],"defaultPageSize":10,"paginationType":"numbers","showPageInfo":true,"minRows":10,"highlight":true,"dataKey":"11c1d8ba015395900e11f1bfb049a349"},"children":[]},"class":"reactR_markup"},"evals":["tag.attribs.columns.0.cell"],"jsHooks":[]}</script>
+
+
+---
+name: esg-digital-summary
+# 디지털 강대국 지표 - 종합
+
+<div id="htmlwidget-09064a0aa0d50ea399ff" class="reactable html-widget" style="width:auto;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-09064a0aa0d50ea399ff">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"country":["Korea, South","Japan","Germany","Sweden","Denmark","United States","Italy","Belgium","Netherlands","Spain","Austria","France","Slovakia","Canada","Switzerland","Slovenia","Australia","Chile","Colombia","Czech Republic","Estonia","Finland","Greece","Hungary","Iceland","Ireland","Israel","Latvia","Lithuania","Mexico","New Zealand","Norway","Poland","Portugal","Turkey","United Kingdom"],"flags":["🇰🇷","🇯🇵","🇩🇪","🇸🇪","🇩🇰","🇺🇸","🇮🇹","🇧🇪","🇳🇱","🇪🇸","🇦🇹","🇫🇷","🇸🇰","🇨🇦","🇨🇭","🇸🇮","🇦🇺","🇨🇱","🇨🇴","🇨🇿","🇪🇪","🇫🇮","🇬🇷","🇭🇺","🇮🇸","🇮🇪","🇮🇱","🇱🇻","🇱🇹","🇲🇽","🇳🇿","🇳🇴","🇵🇱","🇵🇹","🇹🇷","🇬🇧"],"정부":[1,5,26,33,4,"NA",15,25,21,7,20,11,"NA",6,"NA",17,"NA",24,3,22,18,28,29,"NA",32,23,8,19,27,"NA",12,13,"NA",10,"NA",2],"AI":[7,13,4,5,8,1,25,29,9,24,22,11,34,14,18,39,12,47,51,32,17,3,61,41,35,21,20,36,26,55,23,10,31,27,67,2],"데이터경제":[5,11,13,8,"NA",1,16,"NA","NA",14,"NA",6,"NA",7,4,"NA",9,20,"NA",10,"NA","NA",23,26,"NA",15,"NA","NA","NA",18,12,"NA",21,17,29,2],"로봇":[2,3,4,5,6,9,10,11,12,13,14,16,17,18,19,20,"NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA"],"WEF":[12,5,6,7,9,1,29,21,3,22,20,14,41,13,4,34,15,32,57,31,30,10,59,46,25,23,19,40,38,48,18,16,36,33,61,8],"IMD":[8,27,18,4,3,1,42,25,7,33,17,24,50,12,6,31,15,41,61,35,21,10,46,47,23,20,19,38,29,54,22,9,32,37,44,13]},"columns":[{"accessor":"country","name":"country","type":"character","cell":"function(cell) {\n            return '<a href=\"https://wikipedia.org/wiki/' + cell.value + '\">' + cell.value + '<\/a>'\n          }","html":true,"width":170},{"accessor":"flags","name":"flags","type":"character","width":70},{"accessor":"정부","name":"정부","type":"numeric","width":70,"align":"center"},{"accessor":"AI","name":"AI","type":"numeric","width":70,"align":"center"},{"accessor":"데이터경제","name":"데이터경제","type":"numeric","format":{"cell":{"separators":true},"aggregated":{"separators":true}},"width":125,"align":"center"},{"accessor":"로봇","name":"로봇","type":"numeric","width":70,"align":"center"},{"accessor":"WEF","name":"WEF","type":"numeric","width":70,"align":"center"},{"accessor":"IMD","name":"IMD","type":"numeric","width":70,"align":"center"}],"defaultPageSize":10,"paginationType":"numbers","showPageInfo":true,"minRows":10,"highlight":true,"dataKey":"a602367c59aa37fe66f4bb79b1543667"},"children":[]},"class":"reactR_markup"},"evals":["tag.attribs.columns.0.cell"],"jsHooks":[]}</script>
+
+---
+name: esg-digital-visualization
+# 디지털 강대국 지표 - 종합 시각화
+
+<div id="htmlwidget-b40765a9f747fecb754f" style="width:100%;height:85%;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-b40765a9f747fecb754f">{"x":{"visdat":{"5a5074060c4":["function () ","plotlyVisDat"]},"cur_data":"5a5074060c4","attrs":{"5a5074060c4":{"x":{},"y":{},"hovertemplate":{},"color":{},"colors":["red","darkgray"],"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter","mode":"markers","opacity":1,"inherit":true},"5a5074060c4.1":{"x":{},"y":{},"hovertemplate":{},"color":{},"colors":["red","darkgray"],"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"text":{},"type":"scatter","mode":"text","showlegend":false,"textposition":"top right","inherit":true}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"xaxis":{"domain":[0,1],"automargin":true,"title":"umap1"},"yaxis":{"domain":[0,1],"automargin":true,"title":"umap2"},"hovermode":"closest","showlegend":true},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"x":[1.22893023490906,1.02907955646515,0.160472735762596,-0.3352190554142,1.78943288326263,1.39084303379059,0.205363646149635],"y":[2.09571695327759,1.98491013050079,-1.48377740383148,1.04635143280029,1.54586005210876,1.8730765581131,1.89527356624603],"hovertemplate":["Country: France<br />WEF Rank: 14<br />IMD Rank: 24<br />AI Rank: 11<br />데이터경제 Rank: 6","Country: Germany<br />WEF Rank: 6<br />IMD Rank: 18<br />AI Rank: 4<br />데이터경제 Rank: 13","Country: Italy<br />WEF Rank: 29<br />IMD Rank: 42<br />AI Rank: 25<br />데이터경제 Rank: 16","Country: Japan<br />WEF Rank: 5<br />IMD Rank: 27<br />AI Rank: 13<br />데이터경제 Rank: 11","Country: Korea, South<br />WEF Rank: 12<br />IMD Rank: 8<br />AI Rank: 7<br />데이터경제 Rank: 5","Country: United Kingdom<br />WEF Rank: 8<br />IMD Rank: 13<br />AI Rank: 2<br />데이터경제 Rank: 2","Country: United States<br />WEF Rank: 1<br />IMD Rank: 1<br />AI Rank: 1<br />데이터경제 Rank: 1"],"type":"scatter","mode":"markers","opacity":1,"name":"30-50 클럽","marker":{"color":"rgba(255,0,0,1)","line":{"color":"rgba(255,0,0,1)"}},"textfont":{"color":"rgba(255,0,0,1)"},"error_y":{"color":"rgba(255,0,0,1)"},"error_x":{"color":"rgba(255,0,0,1)"},"line":{"color":"rgba(255,0,0,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":[1.29286801815033,1.91069519519806,-0.980059206485748,0.123663872480392,-2.2907030582428,-1.94217729568481,1.74204254150391,-2.43201351165771,0.700134754180908,-1.36369824409485,-0.306426286697388,-0.519849956035614,2.1013617515564,2.32404899597168,-1.94467663764954],"y":[-0.430177509784698,1.7300409078598,-1.81055128574371,-0.922723889350891,-1.63095283508301,-0.194209903478622,-0.406054437160492,-0.657820522785187,-0.725147306919098,-0.126398280262947,-1.40802395343781,0.149171277880669,0.00967266317456961,0.853569805622101,-0.463574171066284],"hovertemplate":["Country: Australia<br />WEF Rank: 15<br />IMD Rank: 15<br />AI Rank: 12<br />데이터경제 Rank: 9","Country: Canada<br />WEF Rank: 13<br />IMD Rank: 12<br />AI Rank: 14<br />데이터경제 Rank: 7","Country: Chile<br />WEF Rank: 32<br />IMD Rank: 41<br />AI Rank: 47<br />데이터경제 Rank: 20","Country: Czech Republic<br />WEF Rank: 31<br />IMD Rank: 35<br />AI Rank: 32<br />데이터경제 Rank: 10","Country: Greece<br />WEF Rank: 59<br />IMD Rank: 46<br />AI Rank: 61<br />데이터경제 Rank: 23","Country: Hungary<br />WEF Rank: 46<br />IMD Rank: 47<br />AI Rank: 41<br />데이터경제 Rank: 26","Country: Ireland<br />WEF Rank: 23<br />IMD Rank: 20<br />AI Rank: 21<br />데이터경제 Rank: 15","Country: Mexico<br />WEF Rank: 48<br />IMD Rank: 54<br />AI Rank: 55<br />데이터경제 Rank: 18","Country: New Zealand<br />WEF Rank: 18<br />IMD Rank: 22<br />AI Rank: 23<br />데이터경제 Rank: 12","Country: Poland<br />WEF Rank: 36<br />IMD Rank: 32<br />AI Rank: 31<br />데이터경제 Rank: 21","Country: Portugal<br />WEF Rank: 33<br />IMD Rank: 37<br />AI Rank: 27<br />데이터경제 Rank: 17","Country: Spain<br />WEF Rank: 22<br />IMD Rank: 33<br />AI Rank: 24<br />데이터경제 Rank: 14","Country: Sweden<br />WEF Rank: 7<br />IMD Rank: 4<br />AI Rank: 5<br />데이터경제 Rank: 8","Country: Switzerland<br />WEF Rank: 4<br />IMD Rank: 6<br />AI Rank: 18<br />데이터경제 Rank: 4","Country: Turkey<br />WEF Rank: 61<br />IMD Rank: 44<br />AI Rank: 67<br />데이터경제 Rank: 29"],"type":"scatter","mode":"markers","opacity":1,"name":"기타","marker":{"color":"rgba(169,169,169,1)","line":{"color":"rgba(169,169,169,1)"}},"textfont":{"color":"rgba(169,169,169,1)"},"error_y":{"color":"rgba(169,169,169,1)"},"error_x":{"color":"rgba(169,169,169,1)"},"line":{"color":"rgba(169,169,169,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":[1.22893023490906,1.02907955646515,0.160472735762596,-0.3352190554142,1.78943288326263,1.39084303379059,0.205363646149635],"y":[2.09571695327759,1.98491013050079,-1.48377740383148,1.04635143280029,1.54586005210876,1.8730765581131,1.89527356624603],"hovertemplate":["Country: France<br />WEF Rank: 14<br />IMD Rank: 24<br />AI Rank: 11<br />데이터경제 Rank: 6","Country: Germany<br />WEF Rank: 6<br />IMD Rank: 18<br />AI Rank: 4<br />데이터경제 Rank: 13","Country: Italy<br />WEF Rank: 29<br />IMD Rank: 42<br />AI Rank: 25<br />데이터경제 Rank: 16","Country: Japan<br />WEF Rank: 5<br />IMD Rank: 27<br />AI Rank: 13<br />데이터경제 Rank: 11","Country: Korea, South<br />WEF Rank: 12<br />IMD Rank: 8<br />AI Rank: 7<br />데이터경제 Rank: 5","Country: United Kingdom<br />WEF Rank: 8<br />IMD Rank: 13<br />AI Rank: 2<br />데이터경제 Rank: 2","Country: United States<br />WEF Rank: 1<br />IMD Rank: 1<br />AI Rank: 1<br />데이터경제 Rank: 1"],"text":["France","Germany","Italy","Japan","Korea, South","United Kingdom","United States"],"type":"scatter","mode":"text","showlegend":false,"textposition":["top right","top right","top right","top right","top right","top right","top right"],"name":"30-50 클럽","marker":{"color":"rgba(255,0,0,1)","line":{"color":"rgba(255,0,0,1)"}},"textfont":{"color":"rgba(255,0,0,1)"},"error_y":{"color":"rgba(255,0,0,1)"},"error_x":{"color":"rgba(255,0,0,1)"},"line":{"color":"rgba(255,0,0,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":[1.29286801815033,1.91069519519806,-0.980059206485748,0.123663872480392,-2.2907030582428,-1.94217729568481,1.74204254150391,-2.43201351165771,0.700134754180908,-1.36369824409485,-0.306426286697388,-0.519849956035614,2.1013617515564,2.32404899597168,-1.94467663764954],"y":[-0.430177509784698,1.7300409078598,-1.81055128574371,-0.922723889350891,-1.63095283508301,-0.194209903478622,-0.406054437160492,-0.657820522785187,-0.725147306919098,-0.126398280262947,-1.40802395343781,0.149171277880669,0.00967266317456961,0.853569805622101,-0.463574171066284],"hovertemplate":["Country: Australia<br />WEF Rank: 15<br />IMD Rank: 15<br />AI Rank: 12<br />데이터경제 Rank: 9","Country: Canada<br />WEF Rank: 13<br />IMD Rank: 12<br />AI Rank: 14<br />데이터경제 Rank: 7","Country: Chile<br />WEF Rank: 32<br />IMD Rank: 41<br />AI Rank: 47<br />데이터경제 Rank: 20","Country: Czech Republic<br />WEF Rank: 31<br />IMD Rank: 35<br />AI Rank: 32<br />데이터경제 Rank: 10","Country: Greece<br />WEF Rank: 59<br />IMD Rank: 46<br />AI Rank: 61<br />데이터경제 Rank: 23","Country: Hungary<br />WEF Rank: 46<br />IMD Rank: 47<br />AI Rank: 41<br />데이터경제 Rank: 26","Country: Ireland<br />WEF Rank: 23<br />IMD Rank: 20<br />AI Rank: 21<br />데이터경제 Rank: 15","Country: Mexico<br />WEF Rank: 48<br />IMD Rank: 54<br />AI Rank: 55<br />데이터경제 Rank: 18","Country: New Zealand<br />WEF Rank: 18<br />IMD Rank: 22<br />AI Rank: 23<br />데이터경제 Rank: 12","Country: Poland<br />WEF Rank: 36<br />IMD Rank: 32<br />AI Rank: 31<br />데이터경제 Rank: 21","Country: Portugal<br />WEF Rank: 33<br />IMD Rank: 37<br />AI Rank: 27<br />데이터경제 Rank: 17","Country: Spain<br />WEF Rank: 22<br />IMD Rank: 33<br />AI Rank: 24<br />데이터경제 Rank: 14","Country: Sweden<br />WEF Rank: 7<br />IMD Rank: 4<br />AI Rank: 5<br />데이터경제 Rank: 8","Country: Switzerland<br />WEF Rank: 4<br />IMD Rank: 6<br />AI Rank: 18<br />데이터경제 Rank: 4","Country: Turkey<br />WEF Rank: 61<br />IMD Rank: 44<br />AI Rank: 67<br />데이터경제 Rank: 29"],"text":["Australia","Canada","Chile","Czech Republic","Greece","Hungary","Ireland","Mexico","New Zealand","Poland","Portugal","Spain","Sweden","Switzerland","Turkey"],"type":"scatter","mode":"text","showlegend":false,"textposition":["top right","top right","top right","top right","top right","top right","top right","top right","top right","top right","top right","top right","top right","top right","top right"],"name":"기타","marker":{"color":"rgba(169,169,169,1)","line":{"color":"rgba(169,169,169,1)"}},"textfont":{"color":"rgba(169,169,169,1)"},"error_y":{"color":"rgba(169,169,169,1)"},"error_x":{"color":"rgba(169,169,169,1)"},"line":{"color":"rgba(169,169,169,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+
+
+
+
+&lt;!---------------------- 2. 디지털 조직 -------------------------------------&gt;
+
+
+
+---
+class: inverse, middle
+name: digital-transformation
+
+# 강의 개요
+
+----
+
+.pull-left[
+
+4차 산업혁명은 .warmyellow[**디지털 전환(Digital Transformation)**] 이라는 용어로 대체되고 있으며
+전세계가 디지털 전환을 통해 새로운 도약을 준비하고 있어 다양한 지표를 통해
+현재 대한민국 현재 위치를 데이터를 기반으로 객관적으로 파악한다.
+
+구글, 아마존으로 시작된 .green[**디지털 기업(AI 기업)**]의 전형은 정부는 물론 비영리 조직과 
+거의 모든 조직과 단체에 빠르게 파급되고 있어 디지털 기업 본질을 살펴본다.
+
+마지막으로 디지털 기업의 핵심 경쟁력으로 파악되는 .black[**인공지능**]과 기술적 기반이 되는 
+.black[**딥러닝**]에 대해 전반적으로 조망한다.
+
+]
+ 
+.pull-right[   
+.left[
+
+1\. [디지털 전환](#digital-ranking) &lt;br&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;    1\.1\. 전통적 지표 &lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;    1\.2\. 디지털 지표
+    
+2\. **[.warmyellow[디지털 조직]](#digital-transformation)** &lt;br&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;    2\.1\. 전통기업 &lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;    2\.2\. 디지털 기업 &lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;    2\.3\. 충돌(전쟁) &lt;br&gt;
+
+3\. [인공지능 / 딥러닝](#deep-learning) &lt;br&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;    3\.1\. 자동화 &lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;    3\.2\. 인공지능 &lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;    2\.3\. 딥러닝 &lt;br&gt;
+
+4\. [마무리](#goodbye) 
+]
+] &lt;!--end of right-column--&gt;
+
+
+---
+name: digital-traditional-company
+# 전통기업: 사업 모형
+
+.center[
+&lt;img src="fig/digital-business-model.png", width="67%" /&gt;
+]
+
+---
+name: digital-traditional-company-om
+# 전통기업: 운영 모형
+
+.center[
+&lt;img src="fig/digital-operating-model.png", width="87%" /&gt;
+]
+
+---
+name: digital-traditional-company-bm-om
+# 전통기업: BM &amp;rarr; OM
+
+&lt;br&gt;
+&lt;br&gt;
+
+.center[
+&lt;img src="fig/digital-bm-om.png", width="100%" /&gt;
+]
+
+---
+name: digital-traditional-company-problem
+# 전통기업: 문제점
+
+&lt;br&gt;
+&lt;br&gt;
+
+.center[
+&lt;img src="fig/traditional-value-of-firm.png", width="100%" /&gt;
+]
+
+---
+name: digital-traditional-company-problem
+# 전통기업: 근본 원인
+
+&lt;br&gt;
+
+.center[
+&lt;img src="fig/traditional-om.png", width="100%" /&gt;
+]
+
+---
+name: digital-collision
+# 전통기업: 디지털 운영 모형 전환
+
+&lt;br&gt;
+
+.center[
+&lt;img src="fig/digital-transformation-om.png", width="100%" /&gt;
+]
+
+
+
+
+
+---
+name: digital-network-ai-company
+# 디지털 AI 기업: AI 공장과 운영모형
+
+&lt;br&gt;
+&lt;br&gt;
+
+.center[
+&lt;img src="fig/ai-factory-om.png", width="100%" /&gt;
+]
+
+---
+name: digital-network-om
+# 디지털 AI 기업: 운영모형 + 네트워크 효과
+
+.center[
+&lt;img src="fig/network-effect-digital.png", width="100%" /&gt;
+]
+
+---
+name: digital-value
+# 디지털 AI 기업: 가치(Value), 효용(Utility)
+
+.center[
+&lt;img src="fig/network-ai-value.png", width="87%" /&gt;
+]
+ 
+---
+name: digital-value
+# 디지털 AI 기업: 운영모형
+
+&lt;br&gt;
+
+.center[
+&lt;img src="fig/ai-network-om.png", width="100%" /&gt;
+]
+ 
+ 
+---
+name: digital-value
+# 디지털 AI 기업: 운영모형 비교
+
+&lt;br&gt;
+
+.center[
+&lt;img src="fig/digital-ai-om.png", width="100%" /&gt;
+]
+ 
+
+
+
+
+
+---
+name: digital-ais
+# 네트워크 효과
+
+&lt;br&gt;
+&lt;br&gt;
+
+.center[
+&lt;img src="fig/uber-ais.png", width="100%" /&gt;
+]
+
+---
+name: digital-collision
+# 패러다임 충돌
+
+&lt;br&gt;
+
+.center[
+&lt;img src="fig/tradition-digital.png", width="100%" /&gt;
+]
+
+---
+name: digital-collision
+# 노키아 vs 애플
+
+&lt;br&gt;
+
+.center[
+&lt;img src="fig/nokia-apple.png", width="100%" /&gt;
+]
+
+---
+name: digital-collision
+# 충돌 - 디지털 전환
+
+&lt;br&gt;
+
+.center[
+&lt;img src="fig/collision-companies.png", width="100%" /&gt;
+]
+
+
+
+&lt;!-- -------------------- 3. 인공지능 / 딥러닝 ----------------------------- --&gt;
+
+
+
+
+
+---
+class: inverse, middle
+name: deep-learning
+
+# 강의 개요
+
+----
+
+.pull-left[
+
+4차 산업혁명은 .warmyellow[**디지털 전환(Digital Transformation)**] 이라는 용어로 대체되고 있으며
+전세계가 디지털 전환을 통해 새로운 도약을 준비하고 있어 다양한 지표를 통해
+현재 대한민국 현재 위치를 데이터를 기반으로 객관적으로 파악한다.
+
+구글, 아마존으로 시작된 .green[**디지털 기업(AI 기업)**]의 전형은 정부는 물론 비영리 조직과 
+거의 모든 조직과 단체에 빠르게 파급되고 있어 디지털 기업 본질을 살펴본다.
+
+마지막으로 디지털 기업의 핵심 경쟁력으로 파악되는 .black[**인공지능**]과 기술적 기반이 되는 
+.black[**딥러닝**]에 대해 전반적으로 조망한다.
+
+]
+ 
+.pull-right[   
+.left[
+
+1\. [디지털 전환](#digital-ranking) &lt;br&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;    1\.1\. 전통적 지표 &lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;    1\.2\. 디지털 지표
+    
+2\. [디지털 조직](#digital-transformation) &lt;br&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;    2\.1\. 전통기업 &lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;    2\.2\. 디지털 기업 &lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;    2\.3\. 충돌(전쟁) &lt;br&gt;
+
+3\. **[.warmyellow[인공지능 / 딥러닝]](#deep-learning)** &lt;br&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;    3\.1\. 자동화 &lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;    3\.2\. 인공지능 &lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;    2\.3\. 딥러닝 &lt;br&gt;
+
+4\. [마무리](#goodbye) 
+]
+] &lt;!--end of right-column--&gt;
+
+
+
+---
+name: automation-tax
+# 세무사 업무 변천과정
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+.center[
+
+![세무 업무 변천사](fig/tax-preparation.png)
+
+]
+
+.footnote[
+[이광춘 (2019-12-04), "자동화(Automation) - ~~로봇~~ 자동화가 빼앗는 일자리 그리고 나", 분당 서현 청소년 수련관 ](https://statkclee.github.io/ds-authoring/ds-bundang-2019.html)
+]
+
+---
+name: automation-productivity-gap
+# 생산성과 임금 격차
+
+&lt;br&gt;
+
+<div id="htmlwidget-57ff74496f6fa8cc75fe" style="width:100%;height:67%;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-57ff74496f6fa8cc75fe">{"x":{"data":[{"x":[1948,1949,1950,1951,1952,1953,1954,1955,1956,1957,1958,1959,1960,1961,1962,1963,1964,1965,1966,1967,1968,1969,1970,1971,1972,1973,1974,1975,1976,1977,1978,1979,1980,1981,1982,1983,1984,1985,1986,1987,1988,1989,1990,1991,1992,1993,1994,1995,1996,1997,1998,1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018],"y":[0,0.0469,0.0112,0.00499999999999999,0.00470000000000001,0.0141,0.0204,0.0232,0.073,0.0704,0.0535999999999999,0.0483,0.0532,0.0347,0.0252,0.00170000000000003,0.0161999999999999,0.0265,0.0525,0.053,0.0608,0.0346,0.0354,0.0544,0.00860000000000005,0.0600000000000001,0.0678000000000001,0.1125,0.1424,0.1323,0.1261,0.1486,0.1872,0.2314,0.2067,0.2602,0.3318,0.3747,0.4103,0.4413,0.4799,0.5019,0.5458,0.5648,0.6428,0.6505,0.6665,0.6883,0.7337,0.7585,0.7694,0.8148,0.8651,0.8811,0.9201,0.9964,1.0873,1.1556,1.1773,1.1833,1.2,1.1945,1.2723,1.2974,1.3307,1.3256,1.3383,1.3334,1.3195,1.3511,1.3728],"text":["Year: 1948<br />value: 0.0000<br />metric: gap","Year: 1949<br />value: 0.0469<br />metric: gap","Year: 1950<br />value: 0.0112<br />metric: gap","Year: 1951<br />value: 0.0050<br />metric: gap","Year: 1952<br />value: 0.0047<br />metric: gap","Year: 1953<br />value: 0.0141<br />metric: gap","Year: 1954<br />value: 0.0204<br />metric: gap","Year: 1955<br />value: 0.0232<br />metric: gap","Year: 1956<br />value: 0.0730<br />metric: gap","Year: 1957<br />value: 0.0704<br />metric: gap","Year: 1958<br />value: 0.0536<br />metric: gap","Year: 1959<br />value: 0.0483<br />metric: gap","Year: 1960<br />value: 0.0532<br />metric: gap","Year: 1961<br />value: 0.0347<br />metric: gap","Year: 1962<br />value: 0.0252<br />metric: gap","Year: 1963<br />value: 0.0017<br />metric: gap","Year: 1964<br />value: 0.0162<br />metric: gap","Year: 1965<br />value: 0.0265<br />metric: gap","Year: 1966<br />value: 0.0525<br />metric: gap","Year: 1967<br />value: 0.0530<br />metric: gap","Year: 1968<br />value: 0.0608<br />metric: gap","Year: 1969<br />value: 0.0346<br />metric: gap","Year: 1970<br />value: 0.0354<br />metric: gap","Year: 1971<br />value: 0.0544<br />metric: gap","Year: 1972<br />value: 0.0086<br />metric: gap","Year: 1973<br />value: 0.0600<br />metric: gap","Year: 1974<br />value: 0.0678<br />metric: gap","Year: 1975<br />value: 0.1125<br />metric: gap","Year: 1976<br />value: 0.1424<br />metric: gap","Year: 1977<br />value: 0.1323<br />metric: gap","Year: 1978<br />value: 0.1261<br />metric: gap","Year: 1979<br />value: 0.1486<br />metric: gap","Year: 1980<br />value: 0.1872<br />metric: gap","Year: 1981<br />value: 0.2314<br />metric: gap","Year: 1982<br />value: 0.2067<br />metric: gap","Year: 1983<br />value: 0.2602<br />metric: gap","Year: 1984<br />value: 0.3318<br />metric: gap","Year: 1985<br />value: 0.3747<br />metric: gap","Year: 1986<br />value: 0.4103<br />metric: gap","Year: 1987<br />value: 0.4413<br />metric: gap","Year: 1988<br />value: 0.4799<br />metric: gap","Year: 1989<br />value: 0.5019<br />metric: gap","Year: 1990<br />value: 0.5458<br />metric: gap","Year: 1991<br />value: 0.5648<br />metric: gap","Year: 1992<br />value: 0.6428<br />metric: gap","Year: 1993<br />value: 0.6505<br />metric: gap","Year: 1994<br />value: 0.6665<br />metric: gap","Year: 1995<br />value: 0.6883<br />metric: gap","Year: 1996<br />value: 0.7337<br />metric: gap","Year: 1997<br />value: 0.7585<br />metric: gap","Year: 1998<br />value: 0.7694<br />metric: gap","Year: 1999<br />value: 0.8148<br />metric: gap","Year: 2000<br />value: 0.8651<br />metric: gap","Year: 2001<br />value: 0.8811<br />metric: gap","Year: 2002<br />value: 0.9201<br />metric: gap","Year: 2003<br />value: 0.9964<br />metric: gap","Year: 2004<br />value: 1.0873<br />metric: gap","Year: 2005<br />value: 1.1556<br />metric: gap","Year: 2006<br />value: 1.1773<br />metric: gap","Year: 2007<br />value: 1.1833<br />metric: gap","Year: 2008<br />value: 1.2000<br />metric: gap","Year: 2009<br />value: 1.1945<br />metric: gap","Year: 2010<br />value: 1.2723<br />metric: gap","Year: 2011<br />value: 1.2974<br />metric: gap","Year: 2012<br />value: 1.3307<br />metric: gap","Year: 2013<br />value: 1.3256<br />metric: gap","Year: 2014<br />value: 1.3383<br />metric: gap","Year: 2015<br />value: 1.3334<br />metric: gap","Year: 2016<br />value: 1.3195<br />metric: gap","Year: 2017<br />value: 1.3511<br />metric: gap","Year: 2018<br />value: 1.3728<br />metric: gap"],"type":"scatter","mode":"lines+markers","line":{"width":1.88976377952756,"color":"rgba(248,118,109,1)","dash":"solid"},"hoveron":"points","name":"gap","legendgroup":"gap","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","marker":{"autocolorscale":false,"color":"rgba(248,118,109,1)","opacity":1,"size":1.13385826771654,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(248,118,109,1)"}},"frame":null},{"x":[1948,1949,1950,1951,1952,1953,1954,1955,1956,1957,1958,1959,1960,1961,1962,1963,1964,1965,1966,1967,1968,1969,1970,1971,1972,1973,1974,1975,1976,1977,1978,1979,1980,1981,1982,1983,1984,1985,1986,1987,1988,1989,1990,1991,1992,1993,1994,1995,1996,1997,1998,1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018],"y":[0,0.0624,0.1046,0.1174,0.1502,0.2082,0.2348,0.287,0.3389,0.3708,0.3808,0.4246,0.4538,0.4784,0.5232,0.5486,0.5832,0.6227,0.647,0.6668,0.7105,0.7439,0.7681,0.8166,0.9134,0.9096,0.8705,0.8686,0.8935,0.9282,0.9566,0.9325,0.8805,0.8736,0.877,0.8849,0.8703,0.8618,0.8725,0.8467,0.8402,0.8393,0.8237,0.8202,0.832,0.8346,0.8389,0.8276,0.8287,0.8487,0.8927,0.9198,0.9296,0.956,0.9949,1.0158,1.0056,0.9973,0.9988,1.0145,1.0139,1.093,1.11,1.0847,1.065,1.084,1.0908,1.1241,1.1439,1.1467,1.1562],"text":["Year: 1948<br />value: 0.0000<br />metric: Hourly compensation","Year: 1949<br />value: 0.0624<br />metric: Hourly compensation","Year: 1950<br />value: 0.1046<br />metric: Hourly compensation","Year: 1951<br />value: 0.1174<br />metric: Hourly compensation","Year: 1952<br />value: 0.1502<br />metric: Hourly compensation","Year: 1953<br />value: 0.2082<br />metric: Hourly compensation","Year: 1954<br />value: 0.2348<br />metric: Hourly compensation","Year: 1955<br />value: 0.2870<br />metric: Hourly compensation","Year: 1956<br />value: 0.3389<br />metric: Hourly compensation","Year: 1957<br />value: 0.3708<br />metric: Hourly compensation","Year: 1958<br />value: 0.3808<br />metric: Hourly compensation","Year: 1959<br />value: 0.4246<br />metric: Hourly compensation","Year: 1960<br />value: 0.4538<br />metric: Hourly compensation","Year: 1961<br />value: 0.4784<br />metric: Hourly compensation","Year: 1962<br />value: 0.5232<br />metric: Hourly compensation","Year: 1963<br />value: 0.5486<br />metric: Hourly compensation","Year: 1964<br />value: 0.5832<br />metric: Hourly compensation","Year: 1965<br />value: 0.6227<br />metric: Hourly compensation","Year: 1966<br />value: 0.6470<br />metric: Hourly compensation","Year: 1967<br />value: 0.6668<br />metric: Hourly compensation","Year: 1968<br />value: 0.7105<br />metric: Hourly compensation","Year: 1969<br />value: 0.7439<br />metric: Hourly compensation","Year: 1970<br />value: 0.7681<br />metric: Hourly compensation","Year: 1971<br />value: 0.8166<br />metric: Hourly compensation","Year: 1972<br />value: 0.9134<br />metric: Hourly compensation","Year: 1973<br />value: 0.9096<br />metric: Hourly compensation","Year: 1974<br />value: 0.8705<br />metric: Hourly compensation","Year: 1975<br />value: 0.8686<br />metric: Hourly compensation","Year: 1976<br />value: 0.8935<br />metric: Hourly compensation","Year: 1977<br />value: 0.9282<br />metric: Hourly compensation","Year: 1978<br />value: 0.9566<br />metric: Hourly compensation","Year: 1979<br />value: 0.9325<br />metric: Hourly compensation","Year: 1980<br />value: 0.8805<br />metric: Hourly compensation","Year: 1981<br />value: 0.8736<br />metric: Hourly compensation","Year: 1982<br />value: 0.8770<br />metric: Hourly compensation","Year: 1983<br />value: 0.8849<br />metric: Hourly compensation","Year: 1984<br />value: 0.8703<br />metric: Hourly compensation","Year: 1985<br />value: 0.8618<br />metric: Hourly compensation","Year: 1986<br />value: 0.8725<br />metric: Hourly compensation","Year: 1987<br />value: 0.8467<br />metric: Hourly compensation","Year: 1988<br />value: 0.8402<br />metric: Hourly compensation","Year: 1989<br />value: 0.8393<br />metric: Hourly compensation","Year: 1990<br />value: 0.8237<br />metric: Hourly compensation","Year: 1991<br />value: 0.8202<br />metric: Hourly compensation","Year: 1992<br />value: 0.8320<br />metric: Hourly compensation","Year: 1993<br />value: 0.8346<br />metric: Hourly compensation","Year: 1994<br />value: 0.8389<br />metric: Hourly compensation","Year: 1995<br />value: 0.8276<br />metric: Hourly compensation","Year: 1996<br />value: 0.8287<br />metric: Hourly compensation","Year: 1997<br />value: 0.8487<br />metric: Hourly compensation","Year: 1998<br />value: 0.8927<br />metric: Hourly compensation","Year: 1999<br />value: 0.9198<br />metric: Hourly compensation","Year: 2000<br />value: 0.9296<br />metric: Hourly compensation","Year: 2001<br />value: 0.9560<br />metric: Hourly compensation","Year: 2002<br />value: 0.9949<br />metric: Hourly compensation","Year: 2003<br />value: 1.0158<br />metric: Hourly compensation","Year: 2004<br />value: 1.0056<br />metric: Hourly compensation","Year: 2005<br />value: 0.9973<br />metric: Hourly compensation","Year: 2006<br />value: 0.9988<br />metric: Hourly compensation","Year: 2007<br />value: 1.0145<br />metric: Hourly compensation","Year: 2008<br />value: 1.0139<br />metric: Hourly compensation","Year: 2009<br />value: 1.0930<br />metric: Hourly compensation","Year: 2010<br />value: 1.1100<br />metric: Hourly compensation","Year: 2011<br />value: 1.0847<br />metric: Hourly compensation","Year: 2012<br />value: 1.0650<br />metric: Hourly compensation","Year: 2013<br />value: 1.0840<br />metric: Hourly compensation","Year: 2014<br />value: 1.0908<br />metric: Hourly compensation","Year: 2015<br />value: 1.1241<br />metric: Hourly compensation","Year: 2016<br />value: 1.1439<br />metric: Hourly compensation","Year: 2017<br />value: 1.1467<br />metric: Hourly compensation","Year: 2018<br />value: 1.1562<br />metric: Hourly compensation"],"type":"scatter","mode":"lines+markers","line":{"width":1.88976377952756,"color":"rgba(0,186,56,1)","dash":"solid"},"hoveron":"points","name":"Hourly compensation","legendgroup":"Hourly compensation","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","marker":{"autocolorscale":false,"color":"rgba(0,186,56,1)","opacity":1,"size":1.13385826771654,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(0,186,56,1)"}},"frame":null},{"x":[1948,1949,1950,1951,1952,1953,1954,1955,1956,1957,1958,1959,1960,1961,1962,1963,1964,1965,1966,1967,1968,1969,1970,1971,1972,1973,1974,1975,1976,1977,1978,1979,1980,1981,1982,1983,1984,1985,1986,1987,1988,1989,1990,1991,1992,1993,1994,1995,1996,1997,1998,1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018],"y":[0,0.0155,0.0934,0.1224,0.1549,0.1941,0.2144,0.2638,0.2659,0.3004,0.3272,0.3763,0.4006,0.4437,0.498,0.5503,0.5994,0.6492,0.6995,0.7198,0.7713,0.7785,0.8035,0.871,0.922,0.9696,0.9383,0.9811,1.0359,1.0605,1.0827,1.0811,1.0677,1.105,1.0837,1.1451,1.2021,1.2365,1.2828,1.288,1.3201,1.3412,1.3695,1.385,1.4748,1.4851,1.5054,1.5159,1.5624,1.6072,1.6621,1.7346,1.7947,1.8371,1.915,2.0122,2.0929,2.1529,2.1761,2.1978,2.2139,2.2875,2.3823,2.3821,2.3957,2.4096,2.4291,2.4575,2.4634,2.4978,2.529],"text":["Year: 1948<br />value: 0.0000<br />metric: Net productivity","Year: 1949<br />value: 0.0155<br />metric: Net productivity","Year: 1950<br />value: 0.0934<br />metric: Net productivity","Year: 1951<br />value: 0.1224<br />metric: Net productivity","Year: 1952<br />value: 0.1549<br />metric: Net productivity","Year: 1953<br />value: 0.1941<br />metric: Net productivity","Year: 1954<br />value: 0.2144<br />metric: Net productivity","Year: 1955<br />value: 0.2638<br />metric: Net productivity","Year: 1956<br />value: 0.2659<br />metric: Net productivity","Year: 1957<br />value: 0.3004<br />metric: Net productivity","Year: 1958<br />value: 0.3272<br />metric: Net productivity","Year: 1959<br />value: 0.3763<br />metric: Net productivity","Year: 1960<br />value: 0.4006<br />metric: Net productivity","Year: 1961<br />value: 0.4437<br />metric: Net productivity","Year: 1962<br />value: 0.4980<br />metric: Net productivity","Year: 1963<br />value: 0.5503<br />metric: Net productivity","Year: 1964<br />value: 0.5994<br />metric: Net productivity","Year: 1965<br />value: 0.6492<br />metric: Net productivity","Year: 1966<br />value: 0.6995<br />metric: Net productivity","Year: 1967<br />value: 0.7198<br />metric: Net productivity","Year: 1968<br />value: 0.7713<br />metric: Net productivity","Year: 1969<br />value: 0.7785<br />metric: Net productivity","Year: 1970<br />value: 0.8035<br />metric: Net productivity","Year: 1971<br />value: 0.8710<br />metric: Net productivity","Year: 1972<br />value: 0.9220<br />metric: Net productivity","Year: 1973<br />value: 0.9696<br />metric: Net productivity","Year: 1974<br />value: 0.9383<br />metric: Net productivity","Year: 1975<br />value: 0.9811<br />metric: Net productivity","Year: 1976<br />value: 1.0359<br />metric: Net productivity","Year: 1977<br />value: 1.0605<br />metric: Net productivity","Year: 1978<br />value: 1.0827<br />metric: Net productivity","Year: 1979<br />value: 1.0811<br />metric: Net productivity","Year: 1980<br />value: 1.0677<br />metric: Net productivity","Year: 1981<br />value: 1.1050<br />metric: Net productivity","Year: 1982<br />value: 1.0837<br />metric: Net productivity","Year: 1983<br />value: 1.1451<br />metric: Net productivity","Year: 1984<br />value: 1.2021<br />metric: Net productivity","Year: 1985<br />value: 1.2365<br />metric: Net productivity","Year: 1986<br />value: 1.2828<br />metric: Net productivity","Year: 1987<br />value: 1.2880<br />metric: Net productivity","Year: 1988<br />value: 1.3201<br />metric: Net productivity","Year: 1989<br />value: 1.3412<br />metric: Net productivity","Year: 1990<br />value: 1.3695<br />metric: Net productivity","Year: 1991<br />value: 1.3850<br />metric: Net productivity","Year: 1992<br />value: 1.4748<br />metric: Net productivity","Year: 1993<br />value: 1.4851<br />metric: Net productivity","Year: 1994<br />value: 1.5054<br />metric: Net productivity","Year: 1995<br />value: 1.5159<br />metric: Net productivity","Year: 1996<br />value: 1.5624<br />metric: Net productivity","Year: 1997<br />value: 1.6072<br />metric: Net productivity","Year: 1998<br />value: 1.6621<br />metric: Net productivity","Year: 1999<br />value: 1.7346<br />metric: Net productivity","Year: 2000<br />value: 1.7947<br />metric: Net productivity","Year: 2001<br />value: 1.8371<br />metric: Net productivity","Year: 2002<br />value: 1.9150<br />metric: Net productivity","Year: 2003<br />value: 2.0122<br />metric: Net productivity","Year: 2004<br />value: 2.0929<br />metric: Net productivity","Year: 2005<br />value: 2.1529<br />metric: Net productivity","Year: 2006<br />value: 2.1761<br />metric: Net productivity","Year: 2007<br />value: 2.1978<br />metric: Net productivity","Year: 2008<br />value: 2.2139<br />metric: Net productivity","Year: 2009<br />value: 2.2875<br />metric: Net productivity","Year: 2010<br />value: 2.3823<br />metric: Net productivity","Year: 2011<br />value: 2.3821<br />metric: Net productivity","Year: 2012<br />value: 2.3957<br />metric: Net productivity","Year: 2013<br />value: 2.4096<br />metric: Net productivity","Year: 2014<br />value: 2.4291<br />metric: Net productivity","Year: 2015<br />value: 2.4575<br />metric: Net productivity","Year: 2016<br />value: 2.4634<br />metric: Net productivity","Year: 2017<br />value: 2.4978<br />metric: Net productivity","Year: 2018<br />value: 2.5290<br />metric: Net productivity"],"type":"scatter","mode":"lines+markers","line":{"width":1.88976377952756,"color":"rgba(97,156,255,1)","dash":"solid"},"hoveron":"points","name":"Net productivity","legendgroup":"Net productivity","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","marker":{"autocolorscale":false,"color":"rgba(97,156,255,1)","opacity":1,"size":1.13385826771654,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(97,156,255,1)"}},"frame":null}],"layout":{"margin":{"t":46.7762557077626,"r":7.30593607305936,"b":28.5844748858448,"l":34.337899543379},"plot_bgcolor":"rgba(255,255,255,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"NanumGothic","size":14.6118721461187},"title":{"text":"Productivity growth and hourly compensation growth, 1948-2018","font":{"color":"rgba(0,0,0,1)","family":"NanumGothic","size":17.5342465753425},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[1944.5,2021.5],"tickmode":"array","ticktext":["1960","1980","2000","2020"],"tickvals":[1960,1980,2000,2020],"categoryorder":"array","categoryarray":["1960","1980","2000","2020"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"NanumGothic","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"y","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"NanumGothic","size":14.6118721461187}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-0.12645,2.65545],"tickmode":"array","ticktext":["0%","50%","100%","150%","200%","250%"],"tickvals":[0,0.5,1,1.5,2,2.5],"categoryorder":"array","categoryarray":["0%","50%","100%","150%","200%","250%"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"NanumGothic","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"x","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"NanumGothic","size":14.6118721461187}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":"transparent","line":{"color":"rgba(51,51,51,1)","width":0.66417600664176,"linetype":"solid"},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.88976377952756,"font":{"color":"rgba(0,0,0,1)","family":"NanumGothic","size":11.689497716895},"title":{"text":"생산성과 시간당 급여","font":{"color":"rgba(0,0,0,1)","family":"NanumGothic","size":14.6118721461187}}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"5a505c604955":{"x":{},"y":{},"colour":{},"type":"scatter"},"5a501c9048d9":{"x":{},"y":{},"colour":{}}},"cur_data":"5a505c604955","visdat":{"5a505c604955":["function (y) ","x"],"5a501c9048d9":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+
+.footnote[
+[Economic Policy Institute, "The Productivity - Pay Gap", July 2019](https://www.epi.org/productivity-pay-gap/)
+]
+
+
+---
+name: automation-sourcing-strategy
+# 소싱전략의 변화
+
+&lt;br&gt;
+&lt;br&gt;
+
+.center[
+
+![소싱 전략의 변화](fig/the-end-of-outsourcing.png)
+
+]
+
+.footnote[
+자료출처: Kinetics consulting services / Automation Anywhere 
+]
+
+
+
+---
+name: automation-apollo
+# 아폴로 우주선
+
+&lt;br&gt;
+
+.center[
+
+![아폴로 계획에 대한 역할 구분](fig/man-machine-role-allocation.png)
+
+]
+
+.footnote[
+
+[Mary (Missy) Cummings (2014), "Man versus Machine or Man + Machine?", Duke University and MIT](https://hal.pratt.duke.edu/sites/hal.pratt.duke.edu/files/u10/IS-29-05-Expert%20Opinion[1]_0.pdf)
+
+]
+
+---
+name: automation-role-allocation
+# 인간과 기계 업무분장
+
+&lt;br&gt;
+
+.center[
+
+&lt;img src="fig/role-allocation-skill-rules-experties.gif" width = "77%" /&gt;
+
+]
+
+.footnote[
+
+[Mary (Missy) Cummings (2017), "Informing Autonomous System Design Through the Lens of Skill-, Rule-, and Knowledge-Based Behaviors", Duke University](https://hal.pratt.duke.edu/sites/hal.pratt.duke.edu/files/u10/IS-29-05-Expert%20Opinion[1]_0.pdf)
+
+]
+
+---
+name: automation-jobs
+# Human Supervisory Control
+
+&lt;br&gt;
+&lt;br&gt;
+
+.center[
+
+![human-supervisory-control](fig/human-supervisory-control.png)
+
+]
+
+.footnote[
+
+[Mary (Missy) Cummings (2017), "Informing Autonomous System Design Through the Lens of Skill-, Rule-, and Knowledge-Based Behaviors", Duke University](https://hal.pratt.duke.edu/sites/hal.pratt.duke.edu/files/u10/IS-29-05-Expert%20Opinion[1]_0.pdf)
+
+]
+
+
+
+
+
+
+---
+name: automation-paradox
+# 모라벡의 역설(Moravec’s paradox)
+
+&lt;br&gt;
+
+.center[
+
+&lt;img src="fig/moravec-paradox.png" width = "87%" /&gt;
+
+]
+
+.footnote[
+미국 카네기 멜론 대학 (CMU) 로봇 공학자 한스 모라벡(Hans Moravec)이 1970년대에 ‘it is comparatively easy to make computers exhibit adult level performance on intelligence tests or playing checkers, and difficult or impossible to give them the skills of a one-year-old when it comes to perception and mobility’라는 표현으로 컴퓨터와 인간의 능력 차이를 역설적으로 표현하였다.
+]
+
+---
+name: automation-comparison
+# 중국어 방 (Chinese room)
+
+&lt;br&gt;
+&lt;br&gt;
+
+
+
+
+.pull-left[
+![중국어 방 주장을 모사한 도해](fig/chinese-room-argument.jpg)
+]
+
+.pull-right[
+
+|  인공지능 |       컴퓨터      |       인간            |
+|:---------:|:-----------------:|:---------------------:|
+| 중국어 방 |      하드웨어     | 인간의 외형적인 몸체  |
+| 영어만 할 줄 아는 사람| 소프트웨어| 인간의 지능 |
+| 중국어로 된 질문 | 입력(Input) | 인간이 외부에서 접할 수 있는 자극 |
+| 중국어로 된 답변 | 출력(Output) | 인간이 외부에서 접한 자극에 대한 반응 |
+| 질문&amp;대답 목록 | 데이터베이스(Database) | 습득된 기억 |
+
+]
+
+.footnote[
+[중국어 방 역설 (Chinese room argument) - 대체 누가 중국어를 이해하고 있는가?](http://ko.experiments.wikidok.net/wp-d/592f718da44f1a4153e80611/View)
+]
+
+
+---
+name: dl-timeline
+# 기계학습 분류
+
+&lt;br&gt;
+&lt;br&gt;
+
+.center[
+&lt;img src="fig/machine-learning-classification.png" alt="기계학습 분류" width="100%" /&gt;
+]
+
+
+---
+name: dl-timeline
+# 신경망 모형 여정
+
+&lt;br&gt;
+&lt;br&gt;
+
+.center[
+&lt;img src="fig/dl-timeline.png" alt="timeline" width="100%" /&gt;
+]
+
+.footnote[
+Liangqu Long, Xiangming Zeng (2022), "Beginning Deep Learning with TensorFlow: Work with Keras, MNIST Data Sets, and Advanced Neural Networks", Apress
+]
+
+---
+name: dl-applicatin
+# 딥러닝 활용사례
+
+.panelset[
+
+.panel[.panel-name[이미지 데이터]
+.center[
+&lt;img src="fig/dl-image.png" alt="이미지 데이터" width="100%" /&gt;
+]
+]
+
+.panel[.panel-name[텍스트 데이터]
+.center[
+&lt;img src="fig/dl-text.png" alt="텍스트 데이터" width="100%" /&gt;
+]
+]
+
+.panel[.panel-name[정형 데이터]
+.center[
+&lt;img src="fig/dl-csv.png" alt="정형데이터" width="100%" /&gt;
+]
+]
+
+.panel[.panel-name[...]
+]
+
+]
+
+
+
+
+---
+name: human-performance
+# 딥러닝 알고리즘 성능 - 이미지
+
+&lt;br&gt;
+&lt;br&gt;
+
+&lt;img src="kossa-2022-07_files/figure-html/unnamed-chunk-10-1.png" style="display: block; margin: auto;" /&gt;
+
+.footnote[
+[Image Classification on ImageNet](https://paperswithcode.com/sota/image-classification-on-imagenet)
+]
+
+
+---
+name: human-performance-nlp
+# 딥러닝 알고리즘 성능 - 텍스트
+
+&lt;br&gt;
+&lt;br&gt;
+
+&lt;img src="kossa-2022-07_files/figure-html/unnamed-chunk-11-1.png" style="display: block; margin: auto;" /&gt;
+
+.footnote[
+[SQuAD2.0 - The Stanford Question Answering Dataset](https://rajpurkar.github.io/SQuAD-explorer/)
+]
+
+
+
+
+
+
+
+
+---
+name: deep-learning-vs-software
+# 소프트웨어 2.0 vs. 딥러닝 모형
+
+&lt;br&gt;
+&lt;br&gt;
+
+.center[
+![](fig/software-versions.png)
+]
+
+.footnote[
+Domingos, Pedro. The master algorithm: How the quest for the ultimate learning machine will remake our world. Basic Books, 2015.
+]
+
+
+---
+name: hidden-technical-debt
+# 기계학습(딥러닝) 기여분
+
+&lt;br&gt;
+&lt;br&gt;
+
+.center[
+![](fig/hidden-technical-debt.png)
+]
+
+.footnote[
+Sculley, David, et al. "Hidden technical debt in machine learning systems." Advances in neural information processing systems 28 (2015).
+]
+
+---
+name: deep-learning-end2end
+# 딥러닝 모형 개발 범위
+
+&lt;br&gt;
+
+.center[
+&lt;img src = "fig/end2end-deep-learning.png" width = "87%"&gt;
+]
+
+.footnote[
+Eli Stevens, Luca Antiga, and Thomas Viehmann (2020), "Deep Learning with PyTorch", Manning.
+]
+
+
+---
+name: nlp-transformers
+# Attention &amp; Transformers
+
+&lt;br&gt;
+&lt;br&gt;
+
+.center[
+&lt;img src = "fig/transformers-attention.png" width = "100%"&gt;
+]
+
+.footnote[
+[Lilian Weng (June 24, 2018), "Attention? Attention!"](https://lilianweng.github.io/posts/2018-06-24-attention/)
+]
+
+
+
+---
+name: nlp-bert-gpt
+# Attention &amp; Transformers &amp;rarr; GPT, BERT
+
+&lt;br&gt;
+
+.center[
+&lt;img src = "fig/transformers-gpt-bert.png" width = "100%"&gt;
+]
+
+.footnote[
+[ratsgo's NLPBOOK](https://ratsgo.github.io/nlpbook/docs/language_model/)
+]
+
+
+---
+name: nlp-big-picture
+# 인공지능 엔진 개발
+
+&lt;br&gt;
+
+.center[
+&lt;img src = "fig/big-picture.png" width = "100%"&gt;
+]
+
+
+
+
+&lt;!-- -------------------- 4. 하드웨어 ----------------------------- --&gt;
+
+---
+name: hardware
+class: middle, inverse
+# 딥러닝 하드웨어
+
+
+[딥러닝 하드웨어](https://aispiration.com/united-states/40_hardware.html)
+
+
+&lt;!-- -------------------- 99. 마무리 ----------------------------- --&gt;
+
+
+
+
+---
+name: goodbye
+class: middle, inverse
+# 2022년 국방 분야 SW∙AI 역량강화 - 부대 순회교육
+
+## 56회차 – 부사관학교
+
+
+.pull-left[
+
+&lt;img style="border-radius: 100%;" src="fig/kossa-qrcode-69.jpg" width="300px"/&gt;
+
+]
+
+.pull-right[
+
+- QR코드 활용 만족도 조사 참여 방법
+    - ① 휴대폰 카메라로 QR 코드 스캔 
+    - ② 화면에 나타난 링크 클릭
+    - ③ 카메라 사용 불가 시 아래 링크를 통해 참여
+- 링크: [https://forms.gle/wHmZA2sWEHyHATzYA](https://forms.gle/wHmZA2sWEHyHATzYA)
+
+]
+
+
+---
+name: goodbye
+class: middle, inverse
+
+.pull-left[
+# **경청해 주셔서 &lt;br&gt;감사합니다.**
+&lt;br/&gt;
+## [한국 알(R) 사용자회](https://r2bit.com/)
+
+]
+
+.pull-right[
+.right[
+
+&lt;img style="border-radius: 100%;" src="fig/korea_R_logo.png" width="300px"/&gt;
+
+]
+]
+
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="macros.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "googlecode",
+"highlightLines": true,
+"highlightLanguage": "r",
+"countIncrementalSlides": false,
+"ratio": "4:3"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+<!--Hat-tip: https://www.garrickadenbuie.com/blog/xaringan-tip-logo-all-slides/-->
+<style>
+.logo {
+  background-image: url(../fig/korea_R_logo.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  width: 110px;
+  height: 128px;
+  z-index: 0;
+}
+</style>
+
+<script>
+document
+  .querySelectorAll(
+    '.remark-slide-content' +
+    ':not(.title-slide)' +
+    // add additional classes to exclude here, e.g.
+    ':not(.inverse)' +
+    ':not(.hide-logo)'
+  )
+  .forEach(el => {
+    el.innerHTML += '<div class="logo"></div>';
+  });
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
