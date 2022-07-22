@@ -109,6 +109,42 @@ name: intro-toc
   
 <!--------------------------  1. 도구 ----------------------------------------->
 
+---
+name: computer
+# 컴퓨터 - 데이터(통계)
+
+
+.panelset[
+
+.panel[.panel-name[높이 1,000 미터 ]
+.center[
+<img src="fig/computer-01.png" alt="컴퓨터 01" width="80%" />
+]
+]
+
+.panel[.panel-name[높이 100 미터 ]
+.center[
+<img src="fig/computer-02.png" alt="컴퓨터 02" width="100%" />
+]
+]
+
+.panel[.panel-name[높이 10 미터 ]
+.center[
+<img src="fig/computer-03.png" alt="컴퓨터 03" width="80%" />
+]
+]
+
+.panel[.panel-name[높이 1 미터 ]
+.center[
+<br>
+<br>
+<img src="fig/computer-04.png" alt="컴퓨터 04" width="100%" />
+]
+]
+
+
+]
+
 
 ---
 name: ds-world
@@ -126,7 +162,7 @@ name: ds-world
 name: ds-world-career
 # 디지털 시대 시민 역량 - 코딩
 
-<br> 
+<br>
 
 .center[
 <iframe width="560" height="315" src="https://www.youtube.com/embed/t346si4gy_M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -254,6 +290,22 @@ name: case-study-regression
 ```
 
 ---
+name: automation-paradox
+# 모라벡의 역설(Moravec’s paradox)
+
+<br>
+
+.center[
+
+<img src="fig/moravec-paradox.png" width = "87%" />
+
+]
+
+.footnote[
+미국 카네기 멜론 대학 (CMU) 로봇 공학자 한스 모라벡(Hans Moravec)이 1970년대에 컴퓨터와 인간의 능력 차이를 역설적으로 표현
+]
+
+---
 name: ai-app
 # 인공지능 앱
 
@@ -294,3 +346,10 @@ class: middle, inverse
 
 ]
 ]
+
+
+
+
+
+
+

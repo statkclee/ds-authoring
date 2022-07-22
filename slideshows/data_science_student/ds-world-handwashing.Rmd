@@ -1,3 +1,8 @@
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
 
 ---
 name: student-handwashing
@@ -79,8 +84,9 @@ month_df %>%
 year_df %>% 
   pivot_longer(cols = births:deaths) %>% 
   mutate(clinic = factor(clinic, levels = c("clinic 1", "clinic 2"))) %>%
-  mutate(name = ifelse(name == "births", "출생", "사망")) %>% 
-  mutate(name = factor(name, levels = c("출생", "사망"))) %>% 
+  mutate(name = ifelse(name == "births", "출산", "사망")) %>% 
+  mutate(name = factor(name, levels = c("출산", "사망"))) %>% 
+  mutate(clinic = ifelse(str_detect(clinic, "clinic 1"), "병원1", "병원2")) %>% 
   ggplot(aes(x=year, y=value, color=clinic, group = clinic)) +
     geom_point(size = 2) +
     geom_line() +
@@ -105,15 +111,16 @@ extrafont::loadfonts()
 month_df %>% 
   mutate(손씻기_전후 = ifelse(date >= lubridate::ymd('1847-06-01'), "깨끗한 손", "더러운 손")) %>% 
   gather(출생사망, 산모숫자, -date, -손씻기_전후) %>% 
+  mutate(출생사망 = ifelse(str_detect(출생사망, "birth"), "출산", "사망")) %>% 
   ggplot(aes(x=date, y=산모숫자, group=출생사망, color=손씻기_전후)) +
-  geom_point() +
-  geom_line() +
-  geom_vline(xintercept = lubridate::ymd('1847-06-01'), color="green", size=1) +
-  facet_wrap( ~ 출생사망, scales="free") +
-  labs(x="", y="산모숫자") +
-  scale_y_continuous(labels = scales::comma) +
-  theme_bw(base_family = "마루부리") +
-  theme(legend.position = "top")
+    geom_point() +
+    geom_line() +
+    geom_vline(xintercept = lubridate::ymd('1847-06-01'), color="green", size=1) +
+    facet_wrap( ~ 출생사망, scales="fixed") +
+    labs(x="", y="산모숫자") +
+    scale_y_continuous(labels = scales::comma) +
+    theme_bw(base_family = "마루부리") +
+    theme(legend.position = "top")
 
 ```
 
