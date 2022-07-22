@@ -49,7 +49,7 @@ name: nec-data-science
 ]
 
 .panel[.panel-name[정당사무소]
-.center[ <img src="fig/nec-ds-party.jpeg" alt="정당사무소" width="80%" />  
+.center[ <img src="fig/nec-ds-party.jpeg" alt="정당사무소" width="60%" />  
 ]
 
 [양강 구도 속 부지런히 움직이는 제3후보는?](http://www.ohmynews.com/NWS_Web/View/at_pg_w.aspx?CNTN_CD=A0002810396)
