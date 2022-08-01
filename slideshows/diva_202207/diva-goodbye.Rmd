@@ -1,0 +1,20 @@
+
+---
+name: daejeon-goodbye
+class: middle, inverse
+
+.pull-left[
+# **경청해 주셔서 <br>감사합니다.**
+<br/>
+## AIS & [한국 R 사용자회](https://r2bit.com/)
+
+]
+
+.pull-right[
+.right[
+
+<img style="border-radius: 100%;" src="fig/korea_R_logo.png" width="300px"/>
+
+]
+]
+

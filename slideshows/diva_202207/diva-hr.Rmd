@@ -1,0 +1,335 @@
+
+---
+class: inverse, middle
+name: deep-learning-community
+
+# 발표 개요 
+
+----
+
+.pull-left[
+
+4차 산업혁명은 .warmyellow[**디지털 전환(Digital Transformation)**] 이라는 
+용어로 대체되고 있으며
+전세계가 디지털 전환을 통해 새로운 도약을 준비하고 있어 다양한 지표를 통해
+현재 대한민국 현재 위치를 데이터를 기반으로 객관적으로 파악한다.
+
+디지털 기업의 핵심 경쟁력으로 파악되는 .black[**인공지능**]과 기술적 
+기반이 되는 .black[**자동화**]와 .black[**딥러닝**]에 대해 전반적으로 조망한다.
+
+.red[**인공지능 개발역량**]이 디지털 기업의 성패를 좌우하면서
+인공지능 역량 내재화의 핵심문제로 부상되고 있는 
+인력문제에 커뮤니티가 대안으로 급부상하고 있다.
+
+]
+ 
+.pull-right[   
+.left[
+
+1\. [디지털 전환](#digital-ranking) <br>
+&nbsp;&nbsp;&nbsp;&nbsp;    1\.1\. 전통적 지표 <br>
+&nbsp;&nbsp;&nbsp;&nbsp;    1\.2\. 디지털 지표
+    
+2\. [인공지능](#deep-learning-toc) <br>
+&nbsp;&nbsp;&nbsp;&nbsp;    2\.1\. 자동화 <br>
+&nbsp;&nbsp;&nbsp;&nbsp;    2\.2\. 인공지능 <br>
+&nbsp;&nbsp;&nbsp;&nbsp;    2\.3\. 딥러닝 <br>
+
+3\. **[.warmyellow[딥러닝 / 커뮤니티]](#deep-learning-community)** <br>
+&nbsp;&nbsp;&nbsp;&nbsp;    3\.1\. 소프트웨어 2.0 <br>
+&nbsp;&nbsp;&nbsp;&nbsp;    3\.2\. 하드웨어 / MLOps <br>
+&nbsp;&nbsp;&nbsp;&nbsp;    3\.3\. 커뮤니티 <br>
+
+4\. [마무리](#goodbye) 
+]
+] <!--end of right-column-->  
+
+
+
+---
+name: deep-learning-vs-software
+# 소프트웨어 1.0 vs. 딥러닝 모형
+
+
+.panelset[
+
+.panel[.panel-name[소프트웨어 x.0]
+.center[
+![](fig/software-versions.png)
+]
+]
+
+.panel[.panel-name[Andrej Karpathy]
+.center[
+![](fig/ai/Andrej-Karpathy.png)
+]
+]
+
+
+]
+
+
+.footnote[
+Domingos, Pedro. The master algorithm: How the quest for the ultimate learning machine will remake our world. Basic Books, 2015.
+]
+
+
+
+
+---
+name: hidden-technical-debt
+# 기계학습(딥러닝) 기여분
+
+<br>
+<br>
+
+.center[
+![](fig/hidden-technical-debt.png)
+]
+
+.footnote[
+Sculley, David, et al. "Hidden technical debt in machine learning systems." Advances in neural information processing systems 28 (2015).
+]
+
+---
+name: deep-learning-end2end
+# 딥러닝 모형 개발 범위
+
+<br>
+
+.center[
+<img src = "fig/end2end-deep-learning.png" width = "87%">
+]
+
+.footnote[
+Eli Stevens, Luca Antiga, and Thomas Viehmann (2020), "Deep Learning with PyTorch", Manning.
+]
+
+---
+name: dl-hardware
+# 딥러닝 하드웨어
+
+.panelset[
+
+.panel[.panel-name[윈텔]
+.center[
+<img src="fig/ai/wintel-architecture.png" alt="윈텔" width="80%" />
+]
+]
+
+.panel[.panel-name['83년 산업계]
+.center[
+<img src="fig/ai/computer-industry-1983.png" alt="1983년 컴퓨터 산업" width="80%" />
+]
+]
+
+.panel[.panel-name['02년 산업계]
+.center[
+<img src="fig/ai/computer-industry-2002.png" alt="2002년 컴퓨터 산업" width="70%" />
+]
+]
+
+.panel[.panel-name[칩]
+.center[
+<img src="fig/ai/semi-conductor-pyramid.png" alt="2022년 반도체칩" width="60%" />
+]
+]
+
+.panel[.panel-name[원가]
+
+```{r dl-server, eval = FALSE}
+library(tidyverse)
+library(readxl)
+
+dl_svr <- read_excel("data/deep-learning-server.xlsx", sheet = "server")
+
+dl_svr_g <- dl_svr %>% 
+  filter(! is.na(품명)) %>% 
+  ggplot(aes(x = fct_reorder(품명, 비율), y=비율, fill = 품명)) +
+    geom_col(width = 0.5) +
+    coord_flip() +
+    theme(legend.position = "none") +
+    theme_light() +
+    labs(title = "딥러닝 워크스테이션 원가비중",
+         x = "",
+         y = "비중 (부품가/총비용)") +
+    theme(legend.position = "none") +
+    scale_y_continuous(labels = scales::percent, limits = c(0, 0.5)) +
+    geom_text(aes(label = scales::percent(비율, accuracy = 0.1)), size = 4, hjust = -0.1 )
+
+ggsave( glue::glue("fig/dl_svr_g.png") , 
+        dl_svr_g,
+        device = ragg::agg_png, 
+        width = 297, height = 210, units = "mm", res = 600) 
+```
+
+.center[
+<img src="fig/dl_svr_g.png" alt="딥러닝 서버 원가구조" width="80%" />
+]
+]
+
+.panel[.panel-name[원가상세]
+
+```{r dl-server-spec, eval = TRUE, out.width="100%"}
+library(tidyverse)
+library(readxl)
+
+dl_svr <- read_excel(glue::glue("{here::here()}/data/deep-learning-server.xlsx"), sheet = "server")
+
+library(reactable)
+
+dl_svr %>% 
+  filter(! is.na(품명)) %>%   
+  select(-순) %>% 
+  reactable::reactable(
+    striped = TRUE,
+    highlight = TRUE,
+    bordered = TRUE,
+    showPageSizeOptions = TRUE,
+    groupBy = c("구분"),
+    columns = list(
+       품명 = colDef(width = 80),
+       제품사양 = colDef(width = 350),
+       수량 = colDef(width = 50),
+       가격 = colDef(aggregate = "sum",  
+                              format = colFormat(separators =TRUE)),
+       단가 = colDef(format = colFormat(separators =TRUE)),
+       비율 = colDef(width = 70, format = colFormat(percent = TRUE, digits = 1)),
+       누적비율 = colDef(width = 70, format = colFormat(percent = TRUE, digits = 1))
+  ))
+```
+
+]
+
+.panel[.panel-name[클라우드]
+.center[
+<img src="fig/ai/dl-private-cloud.png" alt="딥러닝 클라우드" width="60%" />
+]
+]
+
+
+
+]
+
+.footnote[
+- [한국 R 사용자회, "20분만에 끝내는 딥러닝 - 딥러닝 하드웨어"](https://aispiration.com/united-states/40_hardware.html)
+]
+
+
+---
+name: dl-devops
+# 딥러닝 제품과 서비스
+
+.panelset[
+
+.panel[.panel-name[작업흐름]
+.center[
+<br>
+<img src="fig/ai/dl-workflow.jpg" alt="딥러닝 작업흐름" width="100%" />
+]
+]
+
+.panel[.panel-name[AutoML]
+.center[
+<br>
+<img src="fig/ai/autoML.jpg" alt="autoML" width="100%" />
+]
+]
+
+.panel[.panel-name[Ludwig]
+.center[
+<br>
+<img src="fig/ai/ludwig-encoding-decoding.png" alt="Ludwig" width="70%" />
+]
+]
+
+.panel[.panel-name[yaml]
+.center[
+<br>
+<img src="fig/ai/ludwig_legos_unanimated.gif" alt="ludwig-yaml" width="100%" />
+]
+]
+
+.panel[.panel-name[DVC]
+.center[
+<br>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/DYeVI-QrHGI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+]
+]
+
+.panel[.panel-name[DevOps]
+.center[
+<br>
+<img src="fig/ai/software-devops.png" alt="devops" width="100%" />
+]
+]
+
+.panel[.panel-name[MLOps]
+.center[
+<br>
+<img src="fig/ai/ml-devlops.png" alt="ml-devops" width="100%" />
+]
+]
+
+
+.panel[.panel-name[전이학습]
+.center[
+<br>
+<img src="fig/ai/transfer-learning.png" alt="ml-devops" width="100%" />
+]
+]
+
+
+]
+
+
+---
+name: dl-community
+# 오픈 AI 커뮤니티와 개발자
+
+
+.panelset[
+
+.panel[.panel-name[데이터 사이언스]
+.center[
+<br>
+<img src="fig/ai/r-communities.png" alt="데이터 사이언스 커뮤니티" width="70%" />
+]
+]
+
+.panel[.panel-name[한국데이터기술진흥협회]
+.center[
+<img src="fig/diva-agenda.png" alt="한국데이터기술진흥협회" width="40%" />
+]
+]
+
+.panel[.panel-name[대전과학문화거점센터]
+
+> 이 프로그램은 과학기술진흥기금 및 복권기금의 재원으로 운영되고,과학기술정보통신부와 한국과학창의재단의 지원을 받아 수행된 성과물로 우리나라의 과학기술 발전과 사회적 가치 증진에 기여하고 있습니다.
+
+> R Consortium과 한밭대학교 창업경영학과에서 장소를 지원해 주셨으며, 과학기술정보통신부, 한국과학창의재단, 대전광역시, 대전관광공사, **대전과학문화거점센터** 지원해 주셨습니다.
+
+.center[
+<br>
+<img src="fig/ai/sponsors.png" alt="대전과학문화거점센터" width="80%" />
+]
+]
+
+.panel[.panel-name[글로벌 커뮤니티]
+
+.center[
+<img src="fig/ai/data-carpentry.jpg" alt="데이터 카펜트리" width="45%" />
+]
+
+- 케펜트리 웹사이트: https://carpentries.org/
+- 참가신청: https://www.eventbrite.com/e/at-tickets-390464669337
+- 워크샵 웹사이트: http://aispiration.com/2022-08-18-hanbat/
+
+]
+
+]
+
+
+.footnote[
+- [한국R사용자회](https://r2bit.com/) / [대덕이노폴리스벤처협회](https://www.diva.or.kr/)
+]
