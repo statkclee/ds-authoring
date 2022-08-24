@@ -3,7 +3,7 @@ title: "시민 데이터 과학 (통계/인공지능)"
 subtitle: "공공데이터, 오픈 통계 패키지, 인공지능"
 author: "이광춘(AIS) / 유충현(한국 R 사용자회)"
 institute: ""
-date: "2022-07-15"
+date: "2022-08-30"
 output:
   xaringan::moon_reader:
     css: 
